@@ -24,7 +24,7 @@ html:
   favicon                   : "features/images/logo/favicon.ico"  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_repository_button     : true  # Whether to add a link to your repository button
+  use_repository_button     : false  # Whether to add a link to your repository button
   use_issues_button         : true  # Whether to add an "open an issue" button
   extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
@@ -38,13 +38,13 @@ launch_buttons:
   notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  thebe                  : True  # Add a thebelab button to pages (requires the repository to run on Binder)
-  colab_url                 : https://colab.research.google.com # The URL of Google Colab (e.g., https://colab.research.google.com)
+  thebe                  : false  # Add a thebelab button to pages (requires the repository to run on Binder)
+
 
 
 repository:
   url                       : https://github.com/melaniewalsh/Intro-Cultural-Analytics        # The URL to your book's repository
-  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
+  path_to_book              : "/features"  # A path to your book's folder, relative to the repository root.
   branch                    :   # Which branch of the repository should be used when creating links
 
 #######################################################################################
