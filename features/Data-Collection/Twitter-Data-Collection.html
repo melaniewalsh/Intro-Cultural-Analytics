@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Twitter Data Collection &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/ansi_up.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/Data-Collection/Twitter-Data-Collection.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Twitter Data Analysis" href="Twitter-Data-Analysis.html" />
+    <link rel="prev" title="Twitter API Setup" href="Twitter-API-Setup.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/Data-Collection/Twitter-Data-Collection.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Twitter Data Collection" />
+<meta property="og:description" content="Twitter Data Collection  In this lesson, we’re going to learn how to collect Twitter data with the Python/command line tool twarc. This tool was developed by a " />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Homework/HW-Description-Without-Links.html">
+   Homework Assignments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Python.html">
+   Programming in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   Data Analysis (Pandas)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data-Collection.html">
+   Data Collection
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Data-Collection.html#learn-how-to-collect">
+   Learn How to Collect
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part1.html">
+     Web Scraping (Part 1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part2.html">
+     Web Scraping (Part 2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Text-Analysis/Text-Analysis.html">
+   Text Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   Network Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   Mapping
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/features/Data-Collection/Twitter-Data-Collection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2Ffeatures/Data-Collection/Twitter-Data-Collection.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/features/Data-Collection/Twitter-Data-Collection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-configure-twarc">
+   Install and Configure Twarc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#twitter-api-free-version">
+   Twitter API (Free Version)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-tweets-in-real-time">
+     Collect Tweets in Real Time
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-number-of-tweets-collected">
+       Check Number of Tweets Collected
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-tweets-from-past-7-days">
+     Collect Tweets From Past 7 days
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Check Number of Tweets Collected
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crafting-a-good-twitter-query">
+   Crafting a Good Twitter Query
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exact-phrases">
+     Exact Phrases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-phrases">
+     General Phrases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimum-retweets">
+     Minimum Retweets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#only-verified-accounts">
+     Only Verified Accounts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#twarc-utilities">
+   Twarc Utilities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-twarc-utilities">
+     Use Twarc Utilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-json-to-csv">
+   Convert JSON to CSV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#twarc-as-python-library">
+   Twarc as Python Library
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="twitter-data-collection">
+<h1>Twitter Data Collection<a class="headerlink" href="#twitter-data-collection" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we’re going to learn how to collect Twitter data with the Python/command line tool <a class="reference external" href="https://github.com/DocNow/twarc">twarc</a>. This tool was developed by a project called <a class="reference external" href="https://www.docnow.io/">Documenting the Now</a>. The DocNow team develops tools and ethical frameworks for social media research.</p>
+<div class="section" id="install-and-configure-twarc">
+<h2>Install and Configure Twarc<a class="headerlink" href="#install-and-configure-twarc" title="Permalink to this headline">¶</a></h2>
+<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we use it. You can find instructions for the application process and for installing and configuring twarc here: <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Collecting-Cultural-Data/Twitter-Collection-Setup.html">Twitter Collection Setup</a>.</p>
+<p>🚨Skip this section if you’ve already configured twarc!!🚨</p>
+<p>You can configure twarc by running <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">conifgure</span></code> on the command line. Or you can type your Twitter handle (without the &#64; symbol) and <a class="reference external" href="https://developer.twitter.com/en/apps">API keys</a> into the quotation marks below and run the cell.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Insert Your Twitter API Info here</span>
+
+<span class="n">twitter_handle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">access_token_secret</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="c1">#The Code That Will Configure Twarc</span>
+<span class="n">configuration</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;[</span><span class="si">{</span><span class="n">twitter_handle</span><span class="si">}</span><span class="s2">]</span>
+<span class="s2">consumer_key=</span><span class="si">{</span><span class="n">consumer_key</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">consumer_secret = </span><span class="si">{</span><span class="n">consumer_secret</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">access_token = </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">access_token_secret= </span><span class="si">{</span><span class="n">access_token_secret</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">config_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s2">&quot;.twarc&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="twitter-api-free-version">
+<h2>Twitter API (Free Version)<a class="headerlink" href="#twitter-api-free-version" title="Permalink to this headline">¶</a></h2>
+<p>With the free version of the Twitter API, there are basically two ways to collect your own Twitter data: in real time or ~7 days in the past. To get data any further in the past requires a paid version of the Twitter API. Twarc allows you to collect tweets both in real time and ~7 days in the past.</p>
+<div class="section" id="collect-tweets-in-real-time">
+<h3>Collect Tweets in Real Time<a class="headerlink" href="#collect-tweets-in-real-time" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to collect tweets with twarc is to use the command line. To collect tweets in real time, you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">filter</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">filter</span> <span class="pre">&quot;search</span> <span class="pre">term&quot;</span> <span class="pre">&gt;</span> <span class="pre">my_file.jsonl</span></code></p>
+<p>For example, to collect tweets in real time that include the word “coronavirus,” you would run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span>&#160; <span class="pre">filter</span> <span class="pre">&quot;coronavirus&quot;</span> <span class="pre">&gt;</span> <span class="pre">coronavirus_filter.jsonl</span></code></p>
+<p><strong>Starting and Stopping Twarc</strong></p>
+<p>If you run <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">filter</span></code> from your command line, <code class="docutils literal notranslate"><span class="pre">twarc</span></code> will keep running until you explicitly stop the process. You can stop a process on the command line by typing <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code>.</p>
+<p>As you may recall, we can run command line functions in Jupyter notebooks by putting an exclamation point <code class="docutils literal notranslate"><span class="pre">!</span></code> at the beginning of a cell. For some reason, however, <code class="docutils literal notranslate"><span class="pre">!twarc</span> <span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">!twarc</span> <span class="pre">search</span></code> don’t play very well in Jupyter notebooks (or at least they don’t play well consistently). Sometimes when you start running them, they won’t stop—even when you hit the stop button or try to interrupt the kernel (the equivalent of <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code>).</p>
+<p>Because of this unpredictability, I recommend that you 1) open your Terminal or PowerShell 2) navigate to the directory that contains this Jupyter notebook 3) and experiment with the twarc code below by copying it and pasting it into your command line, where you can more easily stop the processes.</p>
+<img src="../images/twarc-filter-Terminal.png" widht=100% ><p>Run a live collection of tweets that include the word “coronavirus”:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span>&#160; <span class="pre">filter</span> <span class="pre">&quot;coronavirus&quot;</span> <span class="pre">&gt;</span> <span class="pre">coronavirus_filter.jsonl</span></code></p>
+<p>To stop this process:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code></p>
+<p>Run a live collection of tweets that include the word “Shakespeare”:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">filter</span> <span class="pre">&quot;Shakespeare&quot;</span> <span class="pre">&gt;</span> <span class="pre">shakespeare_filter.jsonl</span></code></p>
+<p>To stop this process:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code></p>
+<div class="section" id="check-number-of-tweets-collected">
+<h4>Check Number of Tweets Collected<a class="headerlink" href="#check-number-of-tweets-collected" title="Permalink to this headline">¶</a></h4>
+<p> Mac/Chrome OS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l coronavirus_filter.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l shakespeare_filter.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; coronavirus_filter.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; shakespeare_filter.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-tweets-from-past-7-days">
+<h3>Collect Tweets From Past 7 days<a class="headerlink" href="#collect-tweets-from-past-7-days" title="Permalink to this headline">¶</a></h3>
+<p>To collect tweets from approximately 7 days in the past, you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
+<p>Run a collection of tweets from the past ~7 days that include the word “coronavirus” for 10 seconds:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;coronavirus&quot;</span> <span class="pre">&gt;</span> <span class="pre">coronavirus_search.jsonl</span></code></p>
+<p>Run a collection of tweets from the last ~7 days that include the word “Shakespeare”:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;Shakespeare&quot;</span> <span class="pre">&gt;</span> <span class="pre">shakespeare_search.jsonl</span></code></p>
+<div class="section" id="id1">
+<h4>Check Number of Tweets Collected<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p> Mac/Chrome OS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l coronavirus_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; coronavirus_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crafting-a-good-twitter-query">
+<h2>Crafting a Good Twitter Query<a class="headerlink" href="#crafting-a-good-twitter-query" title="Permalink to this headline">¶</a></h2>
+<p>We made relatively simple queries to Twitter’s API in the examples above. But there are more specific and more complex ways to make queries.</p>
+<p>To craft a good Twitter search query, it’s important to understand and explore these myriad ways. A researcher named Igor Brigadir has compiled a wonderful resource that details many of the Twitter API search operators: https://github.com/igorbrigadir/twitter-advanced-search/blob/master/README.md</p>
+<div class="section" id="exact-phrases">
+<h3>Exact Phrases<a class="headerlink" href="#exact-phrases" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;\&quot;an</span> <span class="pre">exact</span> <span class="pre">phrase\&quot;&quot;</span></code></p>
+<p>You can search for an <em>exact</em> phrase in a tweet by including the phrase in escaped <code class="docutils literal notranslate"><span class="pre">\</span></code> quotation marks, as above.</p>
+<p><strong>“Not with a bang but with a…”</strong></p>
+<p>The first phrase that we’re going to search for comes from the conclusion of T.S. Eliot’s 1925 <a class="reference external" href="https://msu.edu/~jungahre/transmedia/the-hollow-men.html">poem “The Hollow Men”</a>:</p>
+<blockquote>
+<div><p>This is the way the world ends<br>
+This is the way the world ends<br>
+This is the way the world ends<br>
+<strong>Not with a bang but with a whimper.</strong></p>
+</div></blockquote>
+<p>You’ve probably heard these lines before, even if you didn’t know that they were written by the modernist poet T.S. Eliot. This phrase is a striking example of a bit of literary, poetic language that has gone “viral” in 21st-century American culture, both on and off the internet.</p>
+<p>Since there aren’t a ton of tweets from the past 7 days that included the phrase “not with a bang but with a”, we can run this <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code> from our Jupyter notebook. Because there is a small and finite number of tweets to be collected, this search will complete in a relatively short amount of time, and we don’t have to worry about it running forever.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;\&quot;not with a bang but with a\&quot;&quot; &gt; not_with_bang_tweets.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="general-phrases">
+<h3>General Phrases<a class="headerlink" href="#general-phrases" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;a</span> <span class="pre">general</span> <span class="pre">phrase&quot;</span></code></p>
+<p><strong>“Touch my face”</strong></p>
+<p>The other phrase we’re going to search for comes from public health recommendations about preventing the spread of the coronavirus: that people should avoid touching their faces. Many people are, in light of these recommendations, discovering that it’s actually very difficult not to touch your own face.</p>
+<p>Now the avoidance of touching one’s face has sprouted up as a funny Twitter meme. These various “touch my face” memes serves as an interesting example of how online communities produce comedy and levity even in times of stress and crisis.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">html</span>
+<span class="o">&lt;</span><span class="n">blockquote</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;twitter-tweet&quot;</span><span class="o">&gt;&lt;</span><span class="n">p</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;ltr&quot;</span><span class="o">&gt;</span><span class="n">Realizing</span> <span class="n">basically</span> <span class="nb">all</span> <span class="n">I</span> <span class="n">do</span> <span class="ow">is</span> <span class="n">touch</span> <span class="n">my</span> <span class="n">face</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">mdash</span><span class="p">;</span> <span class="n">Seth</span> <span class="n">Rogen</span> <span class="p">(</span><span class="nd">@Sethrogen</span><span class="p">)</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://twitter.com/Sethrogen/status/1234905018475499520?ref_src=twsrc</span><span class="si">%5E</span><span class="s2">tfw&quot;</span><span class="o">&gt;</span><span class="n">March</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2020</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">blockquote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">script</span> <span class="k">async</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://platform.twitter.com/widgets.js&quot;</span> <span class="n">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Realizing basically all I do is touch my face.</p>&mdash; Seth Rogen (@Sethrogen) <a href="https://twitter.com/Sethrogen/status/1234905018475499520?ref_src=twsrc%5Etfw">March 3, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div></div>
+</div>
+<p>Similarly, there aren’t a ton of tweets from the past 7 days that included the phrase “touch my face”, so we can also run this <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code> from our Jupyter notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;touch my face&quot; &gt; touch_my_face_tweets.jsonl 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great! Now we have some Twitter data. But before we dive into analysis, we need to complete one more step. We need to convert this JSON data to CSV data, which will be easier for us to work with. Luckily, there’s a twarc “utility” for this very purpose.</p>
+</div>
+<div class="section" id="minimum-retweets">
+<h3>Minimum Retweets<a class="headerlink" href="#minimum-retweets" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;a</span> <span class="pre">general</span> <span class="pre">phrase</span> <span class="pre">min_retweets:1000&quot;</span></code></p>
+</div>
+<div class="section" id="only-verified-accounts">
+<h3>Only Verified Accounts<a class="headerlink" href="#only-verified-accounts" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;a</span> <span class="pre">general</span> <span class="pre">phrase</span> <span class="pre">min_retweets:1000&quot;</span></code></p>
+</div>
+</div>
+<div class="section" id="twarc-utilities">
+<h2>Twarc Utilities<a class="headerlink" href="#twarc-utilities" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of twarc “utilities” that enable you to manipulate and analyze Twitter data. With these utilities, you can do things such as convert JSON data to CSV data, count up the most frequent emojis used in tweets, make a network visualization of tweets and Twitter users, and more.</p>
+<p>These utilities are not available from the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">twarc</span></code> installation. To access the twarc utilities, you’ll need to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> the <a class="reference external" href="https://github.com/DocNow/twarc">twarc GitHub repository</a> or download it as a zip file.</p>
+<p>The twarc repository should already be downloaded in your relevant files, but if you uncomment the line below, you can also clone the repository with this line of code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!git clone https://github.com/DocNow/twarc.git</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;twarc&#39;...
+remote: Enumerating objects: 37, done.[K
+remote: Counting objects: 100% (37/37), done.[K
+remote: Compressing objects: 100% (28/28), done.[K
+remote: Total 3464 (delta 16), reused 23 (delta 9), pack-reused 3427[K
+Receiving objects: 100% (3464/3464), 906.45 KiB | 9.96 MiB/s, done.
+Resolving deltas: 100% (2180/2180), done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-twarc-utilities">
+<h3>Use Twarc Utilities<a class="headerlink" href="#use-twarc-utilities" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">twarc/utils/your_desired_util.py</span> <span class="pre">tweets.jsonl</span></code></p>
+<p>To use a twarc utility, you need to call <code class="docutils literal notranslate"><span class="pre">python</span></code> from the command line and then include the utility’s file path (they all should be in the “twarc/utils” subfolder).</p>
+<p>Note that if your Jupyter notebook is in exactly the same directory as the “twarc” repository, then you can run the code as above. However, if your Jupyter notebook is somewhere else, you will have to direct it to the correct location of “twarc/utils”. For example<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">/Users/melaniewalsh/twarc/utils/your_desired_util.py</span> <span class="pre">tweets.jsonl</span></code></p>
+</div>
+</div>
+<div class="section" id="convert-json-to-csv">
+<h2>Convert JSON to CSV<a class="headerlink" href="#convert-json-to-csv" title="Permalink to this headline">¶</a></h2>
+<p>To convert a JSON file to a CSV file, you can run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">twarc/utils/json2csv.py</span></code> followed by the JSONL filename, the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and your desired filename for the CSV file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">twarc/utils/json2csv.py</span> <span class="pre">json_file.jsonl</span> <span class="pre">&gt;</span> <span class="pre">csv_file.csv</span></code></p>
+<blockquote>
+<div><p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Heads up Windows users! The twarc utility json2csv.py will probably not work on your computer by default. You’ll likely get a UnicodeEncodeError because Windows computers do not use Unicode (UTF-8) by default. However, you can make UTF-8 your default by following <a class="reference external" href="https://scholarslab.github.io/learn-twarc/08-win-region-settings">these instructions</a> and restarting your comptuer. Then json2csv.py should work.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make “bang.jsonl” into “bang.csv” (with an extra field added for the full version of the original retweeted text)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="twarc-as-python-library">
+<h2>Twarc as Python Library<a class="headerlink" href="#twarc-as-python-library" title="Permalink to this headline">¶</a></h2>
+<p>Though I recommend collecting tweets from the command line, you can also use twarc as a Python library and run it in a Jupyter notebook. You can find a Jupyter notebook with instructions and guidance about it here: <a class="reference internal" href="Twarc-as-Python-Library.html"><span class="doc">Twarc as Python Library</span></a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./features/Data-Collection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Twitter-API-Setup.html" title="previous page">Twitter API Setup</a>
+    <a class='right-next' id="next-link" href="Twitter-Data-Analysis.html" title="next page">Twitter Data Analysis</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
