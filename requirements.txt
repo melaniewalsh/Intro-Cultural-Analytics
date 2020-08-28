@@ -1,0 +1,15 @@
+# Requirements for the demo notebooks
+# Useful for MyBinder configuration
+pandas
+numpy
+matplotlib
+jupyter-book
+nltk
+bokeh
+bs4
+requests
+twarc
+little_mallet_wrapper
+sklearn
+spacy
+regex

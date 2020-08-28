@@ -1,0 +1,2021 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Topic Modeling — Text Files &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/ansi_up.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/Text-Analysis/Topic-Modeling-Text-Files.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Topic Modeling — CSV Files" href="Topic-Modeling-CSV.html" />
+    <link rel="prev" title="Topic Modeling — Set Up" href="Topic-Modeling-Set-Up.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/Text-Analysis/Topic-Modeling-Text-Files.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Topic Modeling — Text Files" />
+<meta property="og:description" content="Topic Modeling — Text Files  In these lessons, we’re learning about a text analysis method called topic modeling. This method will help us identify the main top" />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Homework/HW-Description-Without-Links.html">
+   Homework Assignments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Python.html">
+   Programming in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   Data Analysis (Pandas)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Collection/Data-Collection.html">
+   Data Collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Collection/Data-Collection.html#learn-how-to-collect">
+   Learn How to Collect
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Text-Analysis.html">
+   Text Analysis
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="TF-IDF.html">
+     TF-IDF
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html#keyword-extraction">
+     Keyword Extraction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   Network Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   Mapping
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/features/Text-Analysis/Topic-Modeling-Text-Files.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2Ffeatures/Text-Analysis/Topic-Modeling-Text-Files.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/features/Text-Analysis/Topic-Modeling-Text-Files.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-york-times-obituaries">
+     <em>
+      New York Times
+     </em>
+     Obituaries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-mallet-path">
+   Set MALLET Path
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-packages">
+   Install Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-packages">
+   Import Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-training-data-from-text-files">
+   Get Training Data From Text Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-texts">
+   Process Texts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-titles">
+   Process Titles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-training-data-stats">
+   Get Training Data Stats
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-the-topic-model">
+   Training the Topic Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-number-of-topics">
+     Set Number of Topics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-training-data">
+     Set Training Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-topic-model-output-files">
+     Set Topic Model Output Files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-data">
+     Import Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-topic-model">
+     Train Topic Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-topics-and-top-words">
+   Display Topics and Top Words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-topic-distributions">
+   Load Topic Distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explore-heatmap-of-topics-and-texts">
+   Explore Heatmap of Topics and Texts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-top-titles-per-topic">
+   Display Top Titles Per Topic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-topic-words-in-context-of-original-text">
+   Display Topic Words in Context of Original Text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn!
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="topic-modeling-text-files">
+<h1>Topic Modeling — Text Files<a class="headerlink" href="#topic-modeling-text-files" title="Permalink to this headline">¶</a></h1>
+<p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or single text that has been separated into smaller text chunks.</p>
+<hr class="docutils" />
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-york-times-obituaries">
+<h3><em>New York Times</em> Obituaries<a class="headerlink" href="#new-york-times-obituaries" title="Permalink to this headline">¶</a></h3>
+<blockquote class="epigraph">
+<div><p>Georgia O’Keeffe, the undisputed doyenne of American painting and a leader, with her husband, Alfred Stieglitz, of a crucial phase in the development and dissemination of American modernism, died yesterday at St. Vincent Hospital in Santa Fe, N.M.</p>
+<p class="attribution">—Edith Evans Asbury, <a class="reference external" href="https://www.nytimes.com/1986/03/07/obituaries/georgia-o-keeffe-dead-at-98-shaper-of-modern-art-in-us.html">Georgia O’Keefe Dead At 98</a></p>
+</div></blockquote>
+<p>In this particular lesson, we’re going to use <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">Little MALLET Wrapper</a>, a Python wrapper for <a class="reference external" href="http://mallet.cs.umass.edu/topics.php">MALLET</a>, to topic model 378 obituaries published by <em>The New York Times</em>. This dataset is based on data originally collected by Matt Lavin for his <em>Programming Historian</em> <a class="reference external" href="https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf#lesson-dataset">TF-IDF tutorial</a>. However, I have re-scraped the obituaries so that the subject’s name and death year is included in each text file name, and I have added 12 more <a class="reference external" href="https://www.nytimes.com/interactive/2018/obituaries/overlooked.html">“Overlooked”</a> obituaries.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="set-mallet-path">
+<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you’re working in this Jupyter notebook on your own computer, you’ll need to have both the Java Development Kit and MALLET pre-installed. For set up instructions, please see <a class="reference external" href="http://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling-Set-Up.html">the previous lesson</a>.</p>
+<p>If you’re working in this Jupyter notebook in the cloud, then the Java Development Kit and Mallet will already be installed.</p>
+</div>
+<p>Since Little MALLET Wrapper is a Python package built around MALLET, we first need to tell it where the bigger, Java-based MALLET lives.</p>
+<p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If MALLET is located in another directory, then set your <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> to that file path.</p>
+</div>
+<div class="section" id="install-packages">
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
+<span class="c1">#!pip install seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-packages">
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
+<span class="c1">#!pip install seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system.</p>
+</div>
+<div class="section" id="get-training-data-from-text-files">
+<h2>Get Training Data From Text Files<a class="headerlink" href="#get-training-data-from-text-files" title="Permalink to this headline">¶</a></h2>
+<p>Before we topic model the <em>NYT</em> obituaries, we need to process the text files and prepare them for analysis. The steps below demonstrate how to process texts if your corpus is a collection of separate text files. In the next lesson, we’ll demonstrate how to process texts that come from a CSV file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We’re calling these text files our <em>training data</em>, because we’re <em>training</em> our topic model with these texts. The topic model will be learning and extracting topics based on these texts.</p>
+</div>
+<p>To get the necessary text files, we’re going to make a variable and assign it the file path for the directory that contains the text files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’re going to use the <code class="docutils literal notranslate"><span class="pre">glob.gob()</span></code> function to make a list of all (<code class="docutils literal notranslate"><span class="pre">*</span></code>) the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in that directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/history/NYT-Obituaries/1945-Adolf-Hitler.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1915-F-W-Taylor.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1975-Chiang-Kai-shek.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Ethel-Merman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1953-Jim-Thorpe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Nella-Larsen.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Margaret-Abbott.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Lillian-Hellman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-Cecil-De-Mille.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1928-Mabel-Craty.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Eddie-Rickenbacker.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Ferdinand-Marcos.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Martha-Graham.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1997-Deng-Xiaoping.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1938-George-E-Hale.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1885-Ulysses-Grant.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1909-Sarah-Orne-Jewett.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1957-Christian-Dior.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-Clare-Boothe-Luce.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-Jacques-Monod.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Getulio-Vargas.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1979-Stan-Kenton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Leonard-Bernstein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1972-Jackie-Robinson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Fred-W-Friendly.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Leo-Durocher.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1915-B-T-Washington.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1997-James-Stewart.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1981-Joe-Louis.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1983-Muddy-Waters.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1942-George-M-Cohan.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Samuel-Beckett.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1962-Marilyn-Monroe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/2000-Charles-M-Schulz.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1967-Gregory-Pincus.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1894-R-L-Stevenson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1978-Bruce-Catton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Arthur-Rubinstein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1875-Andrew-Johnson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1974-Charles-Lindbergh.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Rachel-Carson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Otto-Klemperer.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1963-Sylvia-Plath.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1956-Charles-Merrill.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Lenny-Bruce.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1908-Cleveland.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Anna-Freud.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1941-Frank-Conrad.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Alfred-P-Sloan-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1960-Beno-Gutenberg.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-J-Paul-Getty.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1891-P-T-Barnum.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1901-Queen-Victoria.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1970-Erich-Maria-Remarque.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-August-A-Busch-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-John-Cage.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Erik-Erikson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Erte.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Chester-Nimitz.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Enrico-Fermi.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Primitive-Artist.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-Bela-Bartok.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1978-Pope-Paul-VI.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Martin-Buber.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Diane-Arbus.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Lyndon-Johnson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Bob-Kane.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Judy-Garland.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-Frank-Lloyd-Wright.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1995-Ginger-Rogers.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1920-Marlene-Dietrich.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Alan-B-Shepard-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Khrushchev.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1935-Justice-Holmes.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-David-Eisenhower.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-Marsha-P-Johnson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1914-Alfred-Thayer-Mahan.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Branch-Rickey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1953-Rawlings.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Albert-Schweitzer.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-Isaac-Asimov.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-William-B-Shockley.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1910-William-James.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1951-Fanny-Brice.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1916-Jack-London.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1947-Al-Capone.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Lucille-Ball.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1980-Jean-Paul-Sartre.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Sonja-Henie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-Adolph-Zukor.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-John-Dulles.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1980-Alfred-Hitchcock.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1901-Benjamin-Harrison.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Richard-Nixon.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1917-Hilaire-G-E-Degas.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-James-Baldwin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1941-Virginia-Woolf.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1922-Alexander-Graham-Bell.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1907-Qiu-Jin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1895-Fred-Douglass.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Florence-Blanchfield.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Ray-A-Kroc.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1947-Fiorello-La-Guardia.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1988-Louis-L-Amour.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1902-Elizabeth-Cady-Stanton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Shirley-Jackson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1979-John-Wayne.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Thomas-P-O-Neill-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Thelonious-Monk.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1919-C-J-Walker.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Liberty-H-Bailey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1977-Dash-Ended.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1936-Maxim-Gorky.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/2000-Pierre-Trudeau.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-Mao-Tse-Tung.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Walter-White.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1930-Conan-Doyle.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1995-Jonas-Salk.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1949-Mitchell.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1951-Henrietta-Lacks.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1903-James-M-N-Whistler.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1950-A-J-Dempster.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1937-Edith-Wharton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1935-Jane-Addams.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1941-James-Joyce.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1952-John-Dewey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1940-Marcus-Garvey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Louis-Armstrong.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1923-Warren-Harding.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1937-John-Rockefeller.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/2000-Elliot-Richardson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1972-J-Edgar-Hoover.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1975-Franco.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Jeanette-Rankin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1888-Louisa-M-Alcott.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1977-Charles-Chaplin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Ralph-David-Abernathy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1946-Lord-Keynes.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1996-Gene-Kelly.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Roberto-Clemente.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-Georgia-O-Keeffe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Rex-Harrison.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1916-Martian-Theory.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Ernest-Hemingway.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1978-Margaret-Mead.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Ingrid-Bergman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1946-C-E-M-Clung.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1977-Maria-Callas.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1952-Eva-Peron.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1953-Stalin-Rose-From.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Emily-Balch.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1979-Arthur-Fiedler.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1896-Harriet-Beecher-Stowe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Andrei-Sakharov.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1939-W-B-Yeats.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Hammarskjold.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Madhubala.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1970-Edouard-Daladier.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1988-John-Houseman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-William-Shawn.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1950-Edna-St-V-Millay.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Claude-Pepper.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1929-Marie-Curie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1972-The-Duke-of-Windsor.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Count-Basie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Helen-Moody.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1936-Anne-Macy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1900-Nietzsche.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1880-Lucretia-Mott.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1967-J-Robert-Oppenheimer.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Richard-Burton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Sean-O-Casey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1931-Thomas-Edison.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Bobby-Jones.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1914-John-P-Holland.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1995-George-Abbott.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1950-Henry-L-Stimson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Dale-Carnegie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1934-T-A-Watson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1968-Martin-Luther-King-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1933-Louis-C-Tiffany.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1909-Geronimo.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1952-Charles-Spaulding.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1922-Nellie-Bly.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Cy-Young.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Arthur-Ashe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-Bernard-Malamud.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1939-Howard-Carter.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Linus-C-Pauling.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1967-Langston-Hughes.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1948-Mohandas-K-Gandhi.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1931-Melvil-Dewey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Everett-Dirksen.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1968-Helen-Keller.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-Alex-Haley.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1953-Eugene-O-Neill.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1981-Anwar-el-Sadat.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1937-Maurice-Ravel.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Margaret-Sanger.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-I-F-Stone.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1943-J-H-Kellogg.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1985-Roger-Maris.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1972-Mahalia-Jackson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1968-Upton-Sinclair-Author.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Greta-Garbo.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Benjamin-Spock.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Jessica-Tandy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1979-Richard-Rodgers.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1958-W-C-Handy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1974-Ed-Sullivan.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Hirohito.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1933-Calvin-Coolidge.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Ho-Chi-Minh.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-John-Huston.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Johnny-Weissmuller.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Maureen-Connolly.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1968-Yuri-Gagarin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Peggy-Ashcroft.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1979-A-Philip-Randolph.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1946-Gertrude-Stein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Thurgood-Marshall.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1887-Emma-Lazarus.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-James-Cagney.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-Richard-Daley.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1977-Joan-Crawford.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Hugo-Black.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Henri-Matisse.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1906-Susan-B-Anthony.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1990-Sammy-Davis-Jr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1914-John-Muir.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Anne-O-Hare-McCormick.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-Kate-Smith.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1919-Anna-H-Shaw.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1980-Jean-Piaget.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Buster-Keaton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1997-Allen-Ginsberg.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Miles-Davis.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Satchel-Paige.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1931-Ida-B-Wells.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1967-Henry-R-Luce.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Ansel-Adams.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-Ernie-Pyle.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1952-Chaim-Weizmann.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Nancy-Mitford.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1852-Ada-Lovelace.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1996-Timothy-Leary.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1919-Carnegie-Started.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Andrei-A-Gromyko.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-David-O-Selznick.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1870-Robert-E-Lee.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1968-Robert-Francis-Kennedy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1900-Stephen-Crane.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1936-John-W-Heisman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Maureen-O-Sullivan.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1944-Alfred-E-Smith.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1910-Tolstoy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Cole-Porter.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1983-Jack-Dempsey.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1975-Haile-Selassie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1882-Charles-Darwin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1903-Emily-Warren-Roebling.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1962-Eleanor-Roosevelt.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1926-Harry-Houdini.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Albert-Einstein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Coco-Chanel.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-Billie-Holiday.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Coleman-Hawkins.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Frida-Kahlo.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1911-Joseph-Pulitzer.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Carlos-Montoya.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1947-Max-Planck.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1985-Orson-Welles.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1974-Earl-Warren.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Ralph-Bunche.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1999-Hassan-II.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1931-Knute-Rocke.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Theodore-Schultz.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1960-Boris-Pasternak.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1927-Victoria-Martin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1943-George-Washington-Carver.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1956-Thomas-J-Watson-Sr.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1947-Henry-Ford.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1953-Fred-Vinson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Leonid-Brezhnev.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1999-King-Hussein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1930-Elmer-Sperry.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1985-E-B-White.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-Ethel-Barrymore.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-Benny-Goodman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1963-W-E-B-DuBois.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1975-Elijah-Muhammad.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1973-Pablo-Picasso.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Federico-Fellini.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-Harry-S-Truman.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1970-De-Gaulle-Rallied.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1995-Alfred-Eisenstaedt.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1999-Iris-Murdoch.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-Alf-Landon.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Bella-Abzug.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1940-Scott-Fitzgerald.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Vladimir-Horowitz.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1969-Mies-van-der-Rohe.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1944-Ida-M-Tarbell.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1948-John-Pershing.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1938-Clarence-Darrow.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-Primo-Levi.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Igor-Stravinsky.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-George-Patton.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1930-William-Howard-Taft.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1935-Will-Rogers.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-Shirley-Booth.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Jacqueline-Kennedy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1933-Ring-Lardner.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1974-Sylvia-Plath.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-FDR.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1995-Yitzhak-Rabin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1960-Emily-Post.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Truman-Capote.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1994-Jan-Tinbergen.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1957-Gerard-Swope.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Albert-Sabin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1955-Thomas-Mann.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Dr-Seuss.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1877-Bedford-Forrest.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Douglas-MacArthur.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Churchill.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1962-William-Faulkner.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1956-Babe-Zaharias.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1932-John-Philip-Sousa.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1964-Herbert-Hoover.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Sam-Rayburn.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1954-Lionel-Barrymore.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Frank-Sinatra.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1948-Babe-Ruth.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1947-Willa-Cather.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1963-John-F-Kennedy.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1975-Walker-Evans.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1916-J-J-Hill.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1980-Jesse-Owens.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1948-Sergei-Eisenstein.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1981-Robert-Moses.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1989-Robert-Penn-Warren.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1901-William-McKinley.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1970-Walter-Reuther.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1930-Balfour.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1984-Indira-Gandhi.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1978-Golda-Meir.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1983-Earl-Hines.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1974-Katharine-Cornell.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1982-Lee-Strasberg.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1939-Pope-Pius-XI.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1886-Mary-Ewing-Outerbridge.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Dizzy-Gillespie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1910-Florence-Nightingale.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1960-Richard-Wright.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-The-Challenger.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1992-Menachem-Begin.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1998-Galina-Ulanova.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1976-Max-Ernst.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-Cesar-Chavez.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Adlai-Ewing-Stevenson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1935-Adolph-S-Ochs.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1941-Lou-Gehrig.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1961-Carl-G-Jung.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1963-Robert-Frost.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1965-Edward-R-Murrow.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1971-Dean-Acheson.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1986-Jorge-Luis-Borges.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1966-Walt-Disney.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1996-Carl-Sagan.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1959-Ross-G-Harrison.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1945-Jerome-Kern.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1991-Frank-Capra.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-Andres-Segovie.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1987-Rita-Hayworth.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1993-William-Golding.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1932-Florenz-Ziegfeld.txt&#39;,
+ &#39;../texts/history/NYT-Obituaries/1938-Constantin-Stanislavsky.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="process-texts">
+<h2>Process Texts<a class="headerlink" href="#process-texts" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we process our texts with the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.process_string()</span></code>. This function will take every individual text file, transform all the text to lowercase as well as remove stopwords, punctuation, and numbers, and then add the processed text to our master list <code class="docutils literal notranslate"><span class="pre">training_data</span></code>.</p>
+<div class="python-review admonition">
+<p class="admonition-title">Python Review!</p>
+<p>Take a moment to study this code and reflect about what’s happening here. This is a very common Python pattern! We make an empty list, iterate through every file, open and read each text file, process the texts, and finally append them to the previously empty list.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">processed_text</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+    <span class="n">training_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also making a master list of the original text of the obituaries for future reference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">original_texts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">original_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="process-titles">
+<h2>Process Titles<a class="headerlink" href="#process-titles" title="Permalink to this headline">¶</a></h2>
+<p>Here we extract the relevant part of each file name by using <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem"><code class="docutils literal notranslate"><span class="pre">Path().stem</span></code></a>, which conveniently extracts just the last part of the file path without the “.txt” file extension. Because each file name includes the obituary subject’s name as well as the year that the subject died, we’re going to use this information as a title or label for each obituary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;1945-Adolf-Hitler&#39;,
+ &#39;1915-F-W-Taylor&#39;,
+ &#39;1975-Chiang-Kai-shek&#39;,
+ &#39;1984-Ethel-Merman&#39;,
+ &#39;1953-Jim-Thorpe&#39;,
+ &#39;1964-Nella-Larsen&#39;,
+ &#39;1955-Margaret-Abbott&#39;,
+ &#39;1984-Lillian-Hellman&#39;,
+ &#39;1959-Cecil-De-Mille&#39;,
+ &#39;1928-Mabel-Craty&#39;,
+ &#39;1973-Eddie-Rickenbacker&#39;,
+ &#39;1989-Ferdinand-Marcos&#39;,
+ &#39;1991-Martha-Graham&#39;,
+ &#39;1997-Deng-Xiaoping&#39;,
+ &#39;1938-George-E-Hale&#39;,
+ &#39;1885-Ulysses-Grant&#39;,
+ &#39;1909-Sarah-Orne-Jewett&#39;,
+ &#39;1957-Christian-Dior&#39;,
+ &#39;1987-Clare-Boothe-Luce&#39;,
+ &#39;1976-Jacques-Monod&#39;,
+ &#39;1954-Getulio-Vargas&#39;,
+ &#39;1979-Stan-Kenton&#39;,
+ &#39;1990-Leonard-Bernstein&#39;,
+ &#39;1972-Jackie-Robinson&#39;,
+ &#39;1998-Fred-W-Friendly&#39;,
+ &#39;1991-Leo-Durocher&#39;,
+ &#39;1915-B-T-Washington&#39;,
+ &#39;1997-James-Stewart&#39;,
+ &#39;1981-Joe-Louis&#39;,
+ &#39;1983-Muddy-Waters&#39;,
+ &#39;1942-George-M-Cohan&#39;,
+ &#39;1989-Samuel-Beckett&#39;,
+ &#39;1962-Marilyn-Monroe&#39;,
+ &#39;2000-Charles-M-Schulz&#39;,
+ &#39;1967-Gregory-Pincus&#39;,
+ &#39;1894-R-L-Stevenson&#39;,
+ &#39;1978-Bruce-Catton&#39;,
+ &#39;1982-Arthur-Rubinstein&#39;,
+ &#39;1875-Andrew-Johnson&#39;,
+ &#39;1974-Charles-Lindbergh&#39;,
+ &#39;1964-Rachel-Carson&#39;,
+ &#39;1973-Otto-Klemperer&#39;,
+ &#39;1963-Sylvia-Plath&#39;,
+ &#39;1956-Charles-Merrill&#39;,
+ &#39;1966-Lenny-Bruce&#39;,
+ &#39;1908-Cleveland&#39;,
+ &#39;1982-Anna-Freud&#39;,
+ &#39;1941-Frank-Conrad&#39;,
+ &#39;1966-Alfred-P-Sloan-Jr&#39;,
+ &#39;1960-Beno-Gutenberg&#39;,
+ &#39;1976-J-Paul-Getty&#39;,
+ &#39;1891-P-T-Barnum&#39;,
+ &#39;1901-Queen-Victoria&#39;,
+ &#39;1970-Erich-Maria-Remarque&#39;,
+ &#39;1989-August-A-Busch-Jr&#39;,
+ &#39;1992-John-Cage&#39;,
+ &#39;1994-Erik-Erikson&#39;,
+ &#39;1990-Erte&#39;,
+ &#39;1966-Chester-Nimitz&#39;,
+ &#39;1954-Enrico-Fermi&#39;,
+ &#39;1961-Primitive-Artist&#39;,
+ &#39;1945-Bela-Bartok&#39;,
+ &#39;1978-Pope-Paul-VI&#39;,
+ &#39;1965-Martin-Buber&#39;,
+ &#39;1971-Diane-Arbus&#39;,
+ &#39;1973-Lyndon-Johnson&#39;,
+ &#39;1998-Bob-Kane&#39;,
+ &#39;1969-Judy-Garland&#39;,
+ &#39;1959-Frank-Lloyd-Wright&#39;,
+ &#39;1995-Ginger-Rogers&#39;,
+ &#39;1920-Marlene-Dietrich&#39;,
+ &#39;1998-Alan-B-Shepard-Jr&#39;,
+ &#39;1971-Khrushchev&#39;,
+ &#39;1935-Justice-Holmes&#39;,
+ &#39;1969-David-Eisenhower&#39;,
+ &#39;1992-Marsha-P-Johnson&#39;,
+ &#39;1914-Alfred-Thayer-Mahan&#39;,
+ &#39;1965-Branch-Rickey&#39;,
+ &#39;1953-Rawlings&#39;,
+ &#39;1965-Albert-Schweitzer&#39;,
+ &#39;1992-Isaac-Asimov&#39;,
+ &#39;1989-William-B-Shockley&#39;,
+ &#39;1910-William-James&#39;,
+ &#39;1951-Fanny-Brice&#39;,
+ &#39;1916-Jack-London&#39;,
+ &#39;1947-Al-Capone&#39;,
+ &#39;1989-Lucille-Ball&#39;,
+ &#39;1980-Jean-Paul-Sartre&#39;,
+ &#39;1969-Sonja-Henie&#39;,
+ &#39;1976-Adolph-Zukor&#39;,
+ &#39;1959-John-Dulles&#39;,
+ &#39;1980-Alfred-Hitchcock&#39;,
+ &#39;1901-Benjamin-Harrison&#39;,
+ &#39;1994-Richard-Nixon&#39;,
+ &#39;1917-Hilaire-G-E-Degas&#39;,
+ &#39;1987-James-Baldwin&#39;,
+ &#39;1941-Virginia-Woolf&#39;,
+ &#39;1922-Alexander-Graham-Bell&#39;,
+ &#39;1907-Qiu-Jin&#39;,
+ &#39;1895-Fred-Douglass&#39;,
+ &#39;1971-Florence-Blanchfield&#39;,
+ &#39;1984-Ray-A-Kroc&#39;,
+ &#39;1947-Fiorello-La-Guardia&#39;,
+ &#39;1988-Louis-L-Amour&#39;,
+ &#39;1902-Elizabeth-Cady-Stanton&#39;,
+ &#39;1965-Shirley-Jackson&#39;,
+ &#39;1979-John-Wayne&#39;,
+ &#39;1994-Thomas-P-O-Neill-Jr&#39;,
+ &#39;1982-Thelonious-Monk&#39;,
+ &#39;1919-C-J-Walker&#39;,
+ &#39;1954-Liberty-H-Bailey&#39;,
+ &#39;1977-Dash-Ended&#39;,
+ &#39;1936-Maxim-Gorky&#39;,
+ &#39;2000-Pierre-Trudeau&#39;,
+ &#39;1976-Mao-Tse-Tung&#39;,
+ &#39;1955-Walter-White&#39;,
+ &#39;1930-Conan-Doyle&#39;,
+ &#39;1995-Jonas-Salk&#39;,
+ &#39;1949-Mitchell&#39;,
+ &#39;1951-Henrietta-Lacks&#39;,
+ &#39;1903-James-M-N-Whistler&#39;,
+ &#39;1950-A-J-Dempster&#39;,
+ &#39;1937-Edith-Wharton&#39;,
+ &#39;1935-Jane-Addams&#39;,
+ &#39;1941-James-Joyce&#39;,
+ &#39;1952-John-Dewey&#39;,
+ &#39;1940-Marcus-Garvey&#39;,
+ &#39;1971-Louis-Armstrong&#39;,
+ &#39;1923-Warren-Harding&#39;,
+ &#39;1937-John-Rockefeller&#39;,
+ &#39;2000-Elliot-Richardson&#39;,
+ &#39;1972-J-Edgar-Hoover&#39;,
+ &#39;1975-Franco&#39;,
+ &#39;1973-Jeanette-Rankin&#39;,
+ &#39;1888-Louisa-M-Alcott&#39;,
+ &#39;1977-Charles-Chaplin&#39;,
+ &#39;1990-Ralph-David-Abernathy&#39;,
+ &#39;1946-Lord-Keynes&#39;,
+ &#39;1996-Gene-Kelly&#39;,
+ &#39;1973-Roberto-Clemente&#39;,
+ &#39;1986-Georgia-O-Keeffe&#39;,
+ &#39;1990-Rex-Harrison&#39;,
+ &#39;1916-Martian-Theory&#39;,
+ &#39;1961-Ernest-Hemingway&#39;,
+ &#39;1978-Margaret-Mead&#39;,
+ &#39;1982-Ingrid-Bergman&#39;,
+ &#39;1946-C-E-M-Clung&#39;,
+ &#39;1977-Maria-Callas&#39;,
+ &#39;1952-Eva-Peron&#39;,
+ &#39;1953-Stalin-Rose-From&#39;,
+ &#39;1961-Emily-Balch&#39;,
+ &#39;1979-Arthur-Fiedler&#39;,
+ &#39;1896-Harriet-Beecher-Stowe&#39;,
+ &#39;1989-Andrei-Sakharov&#39;,
+ &#39;1939-W-B-Yeats&#39;,
+ &#39;1961-Hammarskjold&#39;,
+ &#39;1969-Madhubala&#39;,
+ &#39;1970-Edouard-Daladier&#39;,
+ &#39;1988-John-Houseman&#39;,
+ &#39;1992-William-Shawn&#39;,
+ &#39;1950-Edna-St-V-Millay&#39;,
+ &#39;1989-Claude-Pepper&#39;,
+ &#39;1929-Marie-Curie&#39;,
+ &#39;1972-The-Duke-of-Windsor&#39;,
+ &#39;1984-Count-Basie&#39;,
+ &#39;1998-Helen-Moody&#39;,
+ &#39;1936-Anne-Macy&#39;,
+ &#39;1900-Nietzsche&#39;,
+ &#39;1880-Lucretia-Mott&#39;,
+ &#39;1967-J-Robert-Oppenheimer&#39;,
+ &#39;1984-Richard-Burton&#39;,
+ &#39;1964-Sean-O-Casey&#39;,
+ &#39;1931-Thomas-Edison&#39;,
+ &#39;1971-Bobby-Jones&#39;,
+ &#39;1914-John-P-Holland&#39;,
+ &#39;1995-George-Abbott&#39;,
+ &#39;1950-Henry-L-Stimson&#39;,
+ &#39;1955-Dale-Carnegie&#39;,
+ &#39;1934-T-A-Watson&#39;,
+ &#39;1968-Martin-Luther-King-Jr&#39;,
+ &#39;1933-Louis-C-Tiffany&#39;,
+ &#39;1909-Geronimo&#39;,
+ &#39;1952-Charles-Spaulding&#39;,
+ &#39;1922-Nellie-Bly&#39;,
+ &#39;1955-Cy-Young&#39;,
+ &#39;1993-Arthur-Ashe&#39;,
+ &#39;1986-Bernard-Malamud&#39;,
+ &#39;1939-Howard-Carter&#39;,
+ &#39;1994-Linus-C-Pauling&#39;,
+ &#39;1967-Langston-Hughes&#39;,
+ &#39;1948-Mohandas-K-Gandhi&#39;,
+ &#39;1931-Melvil-Dewey&#39;,
+ &#39;1969-Everett-Dirksen&#39;,
+ &#39;1968-Helen-Keller&#39;,
+ &#39;1992-Alex-Haley&#39;,
+ &#39;1953-Eugene-O-Neill&#39;,
+ &#39;1981-Anwar-el-Sadat&#39;,
+ &#39;1937-Maurice-Ravel&#39;,
+ &#39;1966-Margaret-Sanger&#39;,
+ &#39;1989-I-F-Stone&#39;,
+ &#39;1943-J-H-Kellogg&#39;,
+ &#39;1985-Roger-Maris&#39;,
+ &#39;1972-Mahalia-Jackson&#39;,
+ &#39;1968-Upton-Sinclair-Author&#39;,
+ &#39;1990-Greta-Garbo&#39;,
+ &#39;1998-Benjamin-Spock&#39;,
+ &#39;1994-Jessica-Tandy&#39;,
+ &#39;1979-Richard-Rodgers&#39;,
+ &#39;1958-W-C-Handy&#39;,
+ &#39;1974-Ed-Sullivan&#39;,
+ &#39;1989-Hirohito&#39;,
+ &#39;1933-Calvin-Coolidge&#39;,
+ &#39;1969-Ho-Chi-Minh&#39;,
+ &#39;1987-John-Huston&#39;,
+ &#39;1984-Johnny-Weissmuller&#39;,
+ &#39;1969-Maureen-Connolly&#39;,
+ &#39;1968-Yuri-Gagarin&#39;,
+ &#39;1991-Peggy-Ashcroft&#39;,
+ &#39;1979-A-Philip-Randolph&#39;,
+ &#39;1946-Gertrude-Stein&#39;,
+ &#39;1993-Thurgood-Marshall&#39;,
+ &#39;1887-Emma-Lazarus&#39;,
+ &#39;1986-James-Cagney&#39;,
+ &#39;1976-Richard-Daley&#39;,
+ &#39;1977-Joan-Crawford&#39;,
+ &#39;1971-Hugo-Black&#39;,
+ &#39;1954-Henri-Matisse&#39;,
+ &#39;1906-Susan-B-Anthony&#39;,
+ &#39;1990-Sammy-Davis-Jr&#39;,
+ &#39;1914-John-Muir&#39;,
+ &#39;1954-Anne-O-Hare-McCormick&#39;,
+ &#39;1986-Kate-Smith&#39;,
+ &#39;1919-Anna-H-Shaw&#39;,
+ &#39;1980-Jean-Piaget&#39;,
+ &#39;1966-Buster-Keaton&#39;,
+ &#39;1997-Allen-Ginsberg&#39;,
+ &#39;1991-Miles-Davis&#39;,
+ &#39;1982-Satchel-Paige&#39;,
+ &#39;1931-Ida-B-Wells&#39;,
+ &#39;1967-Henry-R-Luce&#39;,
+ &#39;1984-Ansel-Adams&#39;,
+ &#39;1945-Ernie-Pyle&#39;,
+ &#39;1952-Chaim-Weizmann&#39;,
+ &#39;1973-Nancy-Mitford&#39;,
+ &#39;1852-Ada-Lovelace&#39;,
+ &#39;1996-Timothy-Leary&#39;,
+ &#39;1919-Carnegie-Started&#39;,
+ &#39;1989-Andrei-A-Gromyko&#39;,
+ &#39;1965-David-O-Selznick&#39;,
+ &#39;1870-Robert-E-Lee&#39;,
+ &#39;1968-Robert-Francis-Kennedy&#39;,
+ &#39;1900-Stephen-Crane&#39;,
+ &#39;1936-John-W-Heisman&#39;,
+ &#39;1998-Maureen-O-Sullivan&#39;,
+ &#39;1944-Alfred-E-Smith&#39;,
+ &#39;1910-Tolstoy&#39;,
+ &#39;1964-Cole-Porter&#39;,
+ &#39;1983-Jack-Dempsey&#39;,
+ &#39;1975-Haile-Selassie&#39;,
+ &#39;1882-Charles-Darwin&#39;,
+ &#39;1903-Emily-Warren-Roebling&#39;,
+ &#39;1962-Eleanor-Roosevelt&#39;,
+ &#39;1926-Harry-Houdini&#39;,
+ &#39;1955-Albert-Einstein&#39;,
+ &#39;1971-Coco-Chanel&#39;,
+ &#39;1959-Billie-Holiday&#39;,
+ &#39;1969-Coleman-Hawkins&#39;,
+ &#39;1954-Frida-Kahlo&#39;,
+ &#39;1911-Joseph-Pulitzer&#39;,
+ &#39;1993-Carlos-Montoya&#39;,
+ &#39;1947-Max-Planck&#39;,
+ &#39;1985-Orson-Welles&#39;,
+ &#39;1974-Earl-Warren&#39;,
+ &#39;1971-Ralph-Bunche&#39;,
+ &#39;1999-Hassan-II&#39;,
+ &#39;1931-Knute-Rocke&#39;,
+ &#39;1998-Theodore-Schultz&#39;,
+ &#39;1960-Boris-Pasternak&#39;,
+ &#39;1927-Victoria-Martin&#39;,
+ &#39;1943-George-Washington-Carver&#39;,
+ &#39;1956-Thomas-J-Watson-Sr&#39;,
+ &#39;1947-Henry-Ford&#39;,
+ &#39;1953-Fred-Vinson&#39;,
+ &#39;1982-Leonid-Brezhnev&#39;,
+ &#39;1999-King-Hussein&#39;,
+ &#39;1930-Elmer-Sperry&#39;,
+ &#39;1985-E-B-White&#39;,
+ &#39;1959-Ethel-Barrymore&#39;,
+ &#39;1986-Benny-Goodman&#39;,
+ &#39;1963-W-E-B-DuBois&#39;,
+ &#39;1975-Elijah-Muhammad&#39;,
+ &#39;1973-Pablo-Picasso&#39;,
+ &#39;1993-Federico-Fellini&#39;,
+ &#39;1945-Harry-S-Truman&#39;,
+ &#39;1970-De-Gaulle-Rallied&#39;,
+ &#39;1995-Alfred-Eisenstaedt&#39;,
+ &#39;1999-Iris-Murdoch&#39;,
+ &#39;1987-Alf-Landon&#39;,
+ &#39;1998-Bella-Abzug&#39;,
+ &#39;1940-Scott-Fitzgerald&#39;,
+ &#39;1989-Vladimir-Horowitz&#39;,
+ &#39;1969-Mies-van-der-Rohe&#39;,
+ &#39;1944-Ida-M-Tarbell&#39;,
+ &#39;1948-John-Pershing&#39;,
+ &#39;1938-Clarence-Darrow&#39;,
+ &#39;1987-Primo-Levi&#39;,
+ &#39;1971-Igor-Stravinsky&#39;,
+ &#39;1945-George-Patton&#39;,
+ &#39;1930-William-Howard-Taft&#39;,
+ &#39;1935-Will-Rogers&#39;,
+ &#39;1992-Shirley-Booth&#39;,
+ &#39;1994-Jacqueline-Kennedy&#39;,
+ &#39;1933-Ring-Lardner&#39;,
+ &#39;1974-Sylvia-Plath&#39;,
+ &#39;1945-FDR&#39;,
+ &#39;1995-Yitzhak-Rabin&#39;,
+ &#39;1960-Emily-Post&#39;,
+ &#39;1984-Truman-Capote&#39;,
+ &#39;1994-Jan-Tinbergen&#39;,
+ &#39;1957-Gerard-Swope&#39;,
+ &#39;1993-Albert-Sabin&#39;,
+ &#39;1955-Thomas-Mann&#39;,
+ &#39;1991-Dr-Seuss&#39;,
+ &#39;1877-Bedford-Forrest&#39;,
+ &#39;1964-Douglas-MacArthur&#39;,
+ &#39;1965-Churchill&#39;,
+ &#39;1962-William-Faulkner&#39;,
+ &#39;1956-Babe-Zaharias&#39;,
+ &#39;1932-John-Philip-Sousa&#39;,
+ &#39;1964-Herbert-Hoover&#39;,
+ &#39;1961-Sam-Rayburn&#39;,
+ &#39;1954-Lionel-Barrymore&#39;,
+ &#39;1998-Frank-Sinatra&#39;,
+ &#39;1948-Babe-Ruth&#39;,
+ &#39;1947-Willa-Cather&#39;,
+ &#39;1963-John-F-Kennedy&#39;,
+ &#39;1975-Walker-Evans&#39;,
+ &#39;1916-J-J-Hill&#39;,
+ &#39;1980-Jesse-Owens&#39;,
+ &#39;1948-Sergei-Eisenstein&#39;,
+ &#39;1981-Robert-Moses&#39;,
+ &#39;1989-Robert-Penn-Warren&#39;,
+ &#39;1901-William-McKinley&#39;,
+ &#39;1970-Walter-Reuther&#39;,
+ &#39;1930-Balfour&#39;,
+ &#39;1984-Indira-Gandhi&#39;,
+ &#39;1978-Golda-Meir&#39;,
+ &#39;1983-Earl-Hines&#39;,
+ &#39;1974-Katharine-Cornell&#39;,
+ &#39;1982-Lee-Strasberg&#39;,
+ &#39;1939-Pope-Pius-XI&#39;,
+ &#39;1886-Mary-Ewing-Outerbridge&#39;,
+ &#39;1993-Dizzy-Gillespie&#39;,
+ &#39;1910-Florence-Nightingale&#39;,
+ &#39;1960-Richard-Wright&#39;,
+ &#39;1986-The-Challenger&#39;,
+ &#39;1992-Menachem-Begin&#39;,
+ &#39;1998-Galina-Ulanova&#39;,
+ &#39;1976-Max-Ernst&#39;,
+ &#39;1993-Cesar-Chavez&#39;,
+ &#39;1965-Adlai-Ewing-Stevenson&#39;,
+ &#39;1935-Adolph-S-Ochs&#39;,
+ &#39;1941-Lou-Gehrig&#39;,
+ &#39;1961-Carl-G-Jung&#39;,
+ &#39;1963-Robert-Frost&#39;,
+ &#39;1965-Edward-R-Murrow&#39;,
+ &#39;1971-Dean-Acheson&#39;,
+ &#39;1986-Jorge-Luis-Borges&#39;,
+ &#39;1966-Walt-Disney&#39;,
+ &#39;1996-Carl-Sagan&#39;,
+ &#39;1959-Ross-G-Harrison&#39;,
+ &#39;1945-Jerome-Kern&#39;,
+ &#39;1991-Frank-Capra&#39;,
+ &#39;1987-Andres-Segovie&#39;,
+ &#39;1987-Rita-Hayworth&#39;,
+ &#39;1993-William-Golding&#39;,
+ &#39;1932-Florenz-Ziegfeld&#39;,
+ &#39;1938-Constantin-Stanislavsky&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-training-data-stats">
+<h2>Get Training Data Stats<a class="headerlink" href="#get-training-data-stats" title="Permalink to this headline">¶</a></h2>
+<p>We can get training data summary statistics by using the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.print_dataset_stats()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of Documents: 378
+Mean Number of Words: 1345.6
+Vocabulary Size: 36072
+</pre></div>
+</div>
+</div>
+</div>
+<p>According to this little report, we have 378 documents (or obituaries) that average 1345 words in length.</p>
+</div>
+<div class="section" id="training-the-topic-model">
+<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to train our topic model with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code> function. As you can see above, however, this function requires 6 different arguments and file paths to run properly.</p>
+<div class="section" id="set-number-of-topics">
+<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Permalink to this headline">¶</a></h3>
+<p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-training-data">
+<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Permalink to this headline">¶</a></h3>
+<p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed obituary texts, so we can just set it equal to itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-topic-model-output-files">
+<h3>Set Topic Model Output Files<a class="headerlink" href="#set-topic-model-output-files" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we need to tell Little MALLET Wrapper where to find and output all of our topic modeling results. The code below will set Little MALLET Wrapper up to output your results inside a directory called “topic-model-output” and a subdirectory called “NYT-Obits”, all of which will be inside your current directory.</p>
+<p>If you’d like to change this output location, simply change <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change to your desired output directory</span>
+<span class="n">output_directory_path</span> <span class="o">=</span> <span class="s1">&#39;topic-model-output/NYT-Obits&#39;</span>
+
+<span class="c1">#No need to change anything below here</span>
+<span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">path_to_training_data</span>           <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/training.txt&quot;</span>
+<span class="n">path_to_formatted_training_data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.training&quot;</span>
+<span class="n">path_to_model</span>                   <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.model.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">path_to_topic_keys</span>              <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.topic_keys.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">path_to_topic_distributions</span>     <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.topic_distributions.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-data">
+<h3>Import Data<a class="headerlink" href="#import-data" title="Permalink to this headline">¶</a></h3>
+<p>Now we import our training data with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.import_data()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+                <span class="n">path_to_training_data</span><span class="p">,</span>
+                <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
+                <span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Importing data...
+Complete
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-topic-model">
+<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code>. The topic model should take about 45 seconds to 1 minute to fully train and complete. If you want, you can look at your Terminal or PowerShell while it’s running and see what the model looks like as it trains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+                      <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
+                      <span class="n">path_to_model</span><span class="p">,</span>
+                      <span class="n">path_to_topic_keys</span><span class="p">,</span>
+                      <span class="n">path_to_topic_distributions</span><span class="p">,</span>
+                      <span class="n">num_topics</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Training topic model...
+Complete
+</pre></div>
+</div>
+</div>
+</div>
+<p>When the topic model finishes, it will output your results to your <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code>.</p>
+</div>
+</div>
+<div class="section" id="display-topics-and-top-words">
+<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this headline">¶</a></h2>
+<p>To examine the 15 topics that the topic model extracted from the <em>NYT</em> obituaries, run the cell below. This code uses the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_keys()</span></code> function to read and process the MALLET topic model output from your computer, specifically the file “mallet.topic_keys.15”.</p>
+<blockquote>
+<div><p><em>Take a minute to read through every topic. Reflect on what each topic seems to capture as well as how well you think the topics capture the broad themes of the entire collection. Note any oddities, outliers, or inconsistencies.</em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">topics</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+
+[&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;, &#39;stage&#39;, &#39;hollywood&#39;, &#39;movies&#39;, &#39;actor&#39;, &#39;made&#39;, &#39;television&#39;, &#39;director&#39;, &#39;new&#39;, &#39;show&#39;, &#39;role&#39;, &#39;won&#39;, &#39;actress&#39;, &#39;first&#39;, &#39;york&#39;]
+
+✨Topic 1✨
+
+[&#39;first&#39;, &#39;baseball&#39;, &#39;louis&#39;, &#39;game&#39;, &#39;year&#39;, &#39;team&#39;, &#39;won&#39;, &#39;years&#39;, &#39;ruth&#39;, &#39;luce&#39;, &#39;home&#39;, &#39;three&#39;, &#39;tennis&#39;, &#39;league&#39;, &#39;later&#39;, &#39;football&#39;, &#39;champion&#39;, &#39;record&#39;, &#39;black&#39;, &#39;world&#39;]
+
+✨Topic 2✨
+
+[&#39;times&#39;, &#39;years&#39;, &#39;york&#39;, &#39;business&#39;, &#39;company&#39;, &#39;new&#39;, &#39;mrs&#39;, &#39;paper&#39;, &#39;news&#39;, &#39;newspaper&#39;, &#39;ford&#39;, &#39;home&#39;, &#39;oil&#39;, &#39;american&#39;, &#39;national&#39;, &#39;ochs&#39;, &#39;day&#39;, &#39;father&#39;, &#39;first&#39;, &#39;later&#39;]
+
+✨Topic 3✨
+
+[&#39;said&#39;, &#39;one&#39;, &#39;years&#39;, &#39;man&#39;, &#39;also&#39;, &#39;never&#39;, &#39;could&#39;, &#39;many&#39;, &#39;like&#39;, &#39;even&#39;, &#39;called&#39;, &#39;life&#39;, &#39;people&#39;, &#39;would&#39;, &#39;well&#39;, &#39;wrote&#39;, &#39;way&#39;, &#39;another&#39;, &#39;took&#39;, &#39;old&#39;]
+
+✨Topic 4✨
+
+[&#39;king&#39;, &#39;years&#39;, &#39;london&#39;, &#39;queen&#39;, &#39;england&#39;, &#39;prince&#39;, &#39;lord&#39;, &#39;one&#39;, &#39;sir&#39;, &#39;english&#39;, &#39;death&#39;, &#39;died&#39;, &#39;great&#39;, &#39;victoria&#39;, &#39;british&#39;, &#39;duke&#39;, &#39;royal&#39;, &#39;emperor&#39;, &#39;father&#39;, &#39;made&#39;]
+
+✨Topic 5✨
+
+[&#39;soviet&#39;, &#39;hitler&#39;, &#39;german&#39;, &#39;germany&#39;, &#39;stalin&#39;, &#39;union&#39;, &#39;khrushchev&#39;, &#39;moscow&#39;, &#39;world&#39;, &#39;war&#39;, &#39;nazi&#39;, &#39;party&#39;, &#39;brezhnev&#39;, &#39;berlin&#39;, &#39;russia&#39;, &#39;space&#39;, &#39;states&#39;, &#39;oppenheimer&#39;, &#39;flight&#39;, &#39;poland&#39;]
+
+✨Topic 6✨
+
+[&#39;time&#39;, &#39;new&#39;, &#39;first&#39;, &#39;made&#39;, &#39;one&#39;, &#39;world&#39;, &#39;year&#39;, &#39;would&#39;, &#39;two&#39;, &#39;became&#39;, &#39;great&#39;, &#39;long&#39;, &#39;went&#39;, &#39;last&#39;, &#39;public&#39;, &#39;many&#39;, &#39;came&#39;, &#39;war&#39;, &#39;began&#39;, &#39;work&#39;]
+
+✨Topic 7✨
+
+[&#39;president&#39;, &#39;roosevelt&#39;, &#39;state&#39;, &#39;court&#39;, &#39;house&#39;, &#39;states&#39;, &#39;justice&#39;, &#39;law&#39;, &#39;republican&#39;, &#39;black&#39;, &#39;political&#39;, &#39;party&#39;, &#39;united&#39;, &#39;election&#39;, &#39;senator&#39;, &#39;rights&#39;, &#39;governor&#39;, &#39;later&#39;, &#39;washington&#39;, &#39;democratic&#39;]
+
+✨Topic 8✨
+
+[&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;, &#39;writing&#39;, &#39;life&#39;, &#39;writer&#39;, &#39;years&#39;, &#39;books&#39;, &#39;said&#39;, &#39;author&#39;, &#39;york&#39;, &#39;story&#39;, &#39;novel&#39;, &#39;women&#39;, &#39;magazine&#39;, &#39;work&#39;, &#39;later&#39;]
+
+✨Topic 9✨
+
+[&#39;israel&#39;, &#39;peace&#39;, &#39;war&#39;, &#39;minister&#39;, &#39;united&#39;, &#39;nations&#39;, &#39;king&#39;, &#39;secretary&#39;, &#39;arab&#39;, &#39;states&#39;, &#39;churchill&#39;, &#39;british&#39;, &#39;jewish&#39;, &#39;israeli&#39;, &#39;prime&#39;, &#39;dulles&#39;, &#39;sadat&#39;, &#39;state&#39;, &#39;foreign&#39;, &#39;later&#39;]
+
+✨Topic 10✨
+
+[&#39;university&#39;, &#39;professor&#39;, &#39;research&#39;, &#39;science&#39;, &#39;also&#39;, &#39;institute&#39;, &#39;children&#39;, &#39;scientific&#39;, &#39;human&#39;, &#39;died&#39;, &#39;work&#39;, &#39;school&#39;, &#39;society&#39;, &#39;received&#39;, &#39;child&#39;, &#39;years&#39;, &#39;american&#39;, &#39;study&#39;, &#39;life&#39;, &#39;prize&#39;]
+
+✨Topic 11✨
+
+[&#39;general&#39;, &#39;grant&#39;, &#39;gen&#39;, &#39;army&#39;, &#39;war&#39;, &#39;men&#39;, &#39;president&#39;, &#39;states&#39;, &#39;upon&#39;, &#39;command&#39;, &#39;pershing&#39;, &#39;sent&#39;, &#39;took&#39;, &#39;military&#39;, &#39;troops&#39;, &#39;day&#39;, &#39;union&#39;, &#39;service&#39;, &#39;forces&#39;, &#39;colonel&#39;]
+
+✨Topic 12✨
+
+[&#39;art&#39;, &#39;paris&#39;, &#39;york&#39;, &#39;new&#39;, &#39;moses&#39;, &#39;work&#39;, &#39;picasso&#39;, &#39;artist&#39;, &#39;world&#39;, &#39;french&#39;, &#39;modern&#39;, &#39;lindbergh&#39;, &#39;years&#39;, &#39;century&#39;, &#39;american&#39;, &#39;franco&#39;, &#39;painting&#39;, &#39;museum&#39;, &#39;pictures&#39;, &#39;bell&#39;]
+
+✨Topic 13✨
+
+[&#39;party&#39;, &#39;war&#39;, &#39;mao&#39;, &#39;china&#39;, &#39;military&#39;, &#39;united&#39;, &#39;communist&#39;, &#39;government&#39;, &#39;political&#39;, &#39;french&#39;, &#39;american&#39;, &#39;france&#39;, &#39;economic&#39;, &#39;chinese&#39;, &#39;power&#39;, &#39;gandhi&#39;, &#39;deng&#39;, &#39;general&#39;, &#39;chiang&#39;, &#39;policy&#39;]
+
+✨Topic 14✨
+
+[&#39;music&#39;, &#39;band&#39;, &#39;jazz&#39;, &#39;years&#39;, &#39;piano&#39;, &#39;new&#39;, &#39;sinatra&#39;, &#39;musical&#39;, &#39;composer&#39;, &#39;first&#39;, &#39;goodman&#39;, &#39;played&#39;, &#39;orchestra&#39;, &#39;concert&#39;, &#39;stravinsky&#39;, &#39;playing&#39;, &#39;bernstein&#39;, &#39;armstrong&#39;, &#39;musicians&#39;, &#39;davis&#39;]
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-topic-distributions">
+<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this headline">¶</a></h2>
+<p>MALLET also calculates the likely mixture of these topics for every single obituary in the corpus. This mixture is really a probability distribution, that is, the probability that each topic exists in the document. We can use these probability distributions to examine which of the above topics are strongly associated with which specific obituaries.</p>
+<p>To get the topic distributions, we’re going to use the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_distributions()</span></code> function, which will read and process the MALLET topic model output, specifically the file “mallet.topic_distributions.15”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we look at the 32nd topic distribution in this list of <code class="docutils literal notranslate"><span class="pre">topic_distributions</span></code>, which corresponds to Marilyn Monroe’s obituary, we will see a list of 15 probabilities. This  list corresponds to the likelihood that each of the 15 topics exists in Marilyn Monroe’s obituary.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0.2020671834625323,
+ 0.0578811369509044,
+ 0.009819121447028423,
+ 0.43772609819121444,
+ 0.0067183462532299735,
+ 0.0020671834625322996,
+ 0.17416020671834626,
+ 0.008268733850129198,
+ 0.04237726098191214,
+ 0.008268733850129198,
+ 0.008268733850129198,
+ 0.02532299741602067,
+ 0.012919896640826874,
+ 0.003617571059431525,
+ 0.0005167958656330749]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s a bit easier to understand if we pair these probabilities with the topics themselves. As you can see below, Topic 0 “miss film theater movie broadway films” has a relatively high probability of existing in Marilyn Monroe’s obituary <code class="docutils literal notranslate"><span class="pre">.202</span></code> while Topic 5 “soviet hitler german germany stalin union” has a relatively low probability <code class="docutils literal notranslate"><span class="pre">.002</span></code>. This seems to comport with what we know about Marilyn Monroe.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obituary_to_check</span> <span class="o">=</span> <span class="s2">&quot;1962-Marilyn-Monroe&quot;</span>
+
+<span class="n">obit_number</span> <span class="o">=</span> <span class="n">obit_titles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obituary_to_check</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topic Distributions for </span><span class="si">{</span><span class="n">obit_titles</span><span class="p">[</span><span class="n">obit_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">topic_distribution</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">[</span><span class="n">obit_number</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">topic</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2"> ✨</span><span class="se">\n</span><span class="s2">Probability: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">topic_distribution</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>32
+Topic Distributions for 1962-Marilyn-Monroe
+
+✨Topic 0 [&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;] ✨
+Probability: 0.202
+
+✨Topic 1 [&#39;first&#39;, &#39;baseball&#39;, &#39;louis&#39;, &#39;game&#39;, &#39;year&#39;, &#39;team&#39;] ✨
+Probability: 0.058
+
+✨Topic 2 [&#39;times&#39;, &#39;years&#39;, &#39;york&#39;, &#39;business&#39;, &#39;company&#39;, &#39;new&#39;] ✨
+Probability: 0.01
+
+✨Topic 3 [&#39;said&#39;, &#39;one&#39;, &#39;years&#39;, &#39;man&#39;, &#39;also&#39;, &#39;never&#39;] ✨
+Probability: 0.438
+
+✨Topic 4 [&#39;king&#39;, &#39;years&#39;, &#39;london&#39;, &#39;queen&#39;, &#39;england&#39;, &#39;prince&#39;] ✨
+Probability: 0.007
+
+✨Topic 5 [&#39;soviet&#39;, &#39;hitler&#39;, &#39;german&#39;, &#39;germany&#39;, &#39;stalin&#39;, &#39;union&#39;] ✨
+Probability: 0.002
+
+✨Topic 6 [&#39;time&#39;, &#39;new&#39;, &#39;first&#39;, &#39;made&#39;, &#39;one&#39;, &#39;world&#39;] ✨
+Probability: 0.174
+
+✨Topic 7 [&#39;president&#39;, &#39;roosevelt&#39;, &#39;state&#39;, &#39;court&#39;, &#39;house&#39;, &#39;states&#39;] ✨
+Probability: 0.008
+
+✨Topic 8 [&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;] ✨
+Probability: 0.042
+
+✨Topic 9 [&#39;israel&#39;, &#39;peace&#39;, &#39;war&#39;, &#39;minister&#39;, &#39;united&#39;, &#39;nations&#39;] ✨
+Probability: 0.008
+
+✨Topic 10 [&#39;university&#39;, &#39;professor&#39;, &#39;research&#39;, &#39;science&#39;, &#39;also&#39;, &#39;institute&#39;] ✨
+Probability: 0.008
+
+✨Topic 11 [&#39;general&#39;, &#39;grant&#39;, &#39;gen&#39;, &#39;army&#39;, &#39;war&#39;, &#39;men&#39;] ✨
+Probability: 0.025
+
+✨Topic 12 [&#39;art&#39;, &#39;paris&#39;, &#39;york&#39;, &#39;new&#39;, &#39;moses&#39;, &#39;work&#39;] ✨
+Probability: 0.013
+
+✨Topic 13 [&#39;party&#39;, &#39;war&#39;, &#39;mao&#39;, &#39;china&#39;, &#39;military&#39;, &#39;united&#39;] ✨
+Probability: 0.004
+
+✨Topic 14 [&#39;music&#39;, &#39;band&#39;, &#39;jazz&#39;, &#39;years&#39;, &#39;piano&#39;, &#39;new&#39;] ✨
+Probability: 0.001
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="explore-heatmap-of-topics-and-texts">
+<h2>Explore Heatmap of Topics and Texts<a class="headerlink" href="#explore-heatmap-of-topics-and-texts" title="Permalink to this headline">¶</a></h2>
+<p>We can visualize and compare these topic probability distributions with a heatmap by using the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.plot_categories_by_topics_heatmap()</span></code> function.</p>
+<p>We have everything we need for the heatmap except for our list of target_labels, the sample of texts that we’d like to visualize and compare with the heatmap. Below we make our list of desired target labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1852-Ada-Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;1885-Ulysses-Grant&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1900-Nietzsche&#39;</span><span class="p">,</span> <span class="s1">&#39;1931-Ida-B-Wells&#39;</span><span class="p">,</span> <span class="s1">&#39;1940-Marcus-Garvey&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1941-Virginia-Woolf&#39;</span><span class="p">,</span> <span class="s1">&#39;1954-Frida-Kahlo&#39;</span><span class="p">,</span> <span class="s1">&#39;1962-Marilyn-Monroe&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1963-John-F-Kennedy&#39;</span><span class="p">,</span> <span class="s1">&#39;1964-Nella-Larsen&#39;</span><span class="p">,</span> <span class="s1">&#39;1972-Jackie-Robinson&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1973-Pablo-Picasso&#39;</span><span class="p">,</span> <span class="s1">&#39;1984-Ray-A-Kroc&#39;</span><span class="p">,</span><span class="s1">&#39;1986-Jorge-Luis-Borges&#39;</span><span class="p">,</span> <span class="s1">&#39;1991-Miles-Davis&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1992-Marsha-P-Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;1993-Cesar-Chavez&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’d like to make a random list of target labels, you can uncomment and run the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import random</span>
+<span class="c1">#target_labels = random.sample(obit_titles, 10)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">obit_titles</span><span class="p">,</span>
+                                      <span class="n">topic_distributions</span><span class="p">,</span>
+                                      <span class="n">topics</span><span class="p">,</span> 
+                                      <span class="n">output_directory_path</span> <span class="o">+</span> <span class="s1">&#39;/categories_by_topics.pdf&#39;</span><span class="p">,</span>
+                                      <span class="n">target_labels</span><span class="o">=</span><span class="n">target_labels</span><span class="p">,</span>
+                                      <span class="n">dim</span><span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+                                     <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Topic-Modeling-Text-Files_74_0.png" src="../../_images/Topic-Modeling-Text-Files_74_0.png" />
+</div>
+</div>
+<p>The darker squares in this heatmap represent a high probability for the corresponding topic (compared to everyone else in the heatmap) and the lighter squares in the heatmap represent a low probability for the corresponding topic. For example, if you scan across the row of Marilyn Monroe, you can see a dark square for the topic “miss film theater movie theater broadway”. If you scan across the row of Ada Lovelace, an English mathematician who is now recognized as the first computer programmer, according to her <a class="reference external" href="https://www.nytimes.com/interactive/2018/obituaries/overlooked-ada-lovelace.html">NYT obituary</a>, you can see a dark square for “university professor research science also”.</p>
+</div>
+<div class="section" id="display-top-titles-per-topic">
+<h2>Display Top Titles Per Topic<a class="headerlink" href="#display-top-titles-per-topic" title="Permalink to this headline">¶</a></h2>
+<p>We can also display the obituaries that have the highest probability for every topic with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.get_top_docs()</span></code> function.</p>
+<p>Because most of the obituaries in our corpus are pretty long, however, it will be more useful for us to simply display the title of each obituary, rather than the entire document—at least as a first step. To do so, we’ll first need to make two dictionaries, which will allow us to find the corresponding obituary title and the original text from a given training document.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data_obit_titles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">obit_titles</span><span class="p">))</span>
+<span class="n">training_data_original_text</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">original_texts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’ll make our own function <code class="docutils literal notranslate"><span class="pre">display_top_titles_per_topic()</span></code> that will display the top text titles for every topic. This function accepts a given <code class="docutils literal notranslate"><span class="pre">topic_number</span></code> as well as a desired <code class="docutils literal notranslate"><span class="pre">number_of_documents</span></code> to display.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">probability</span><span class="p">,</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">number_of_documents</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">probability</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">training_data_obit_titles</span><span class="p">[</span><span class="n">document</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 0</strong></p>
+<p>To display the top 5 obituary titles with the highest probability of containing Topic 0, we will run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+
+[&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;, &#39;stage&#39;, &#39;hollywood&#39;, &#39;movies&#39;, &#39;actor&#39;, &#39;made&#39;, &#39;television&#39;, &#39;director&#39;, &#39;new&#39;, &#39;show&#39;, &#39;role&#39;, &#39;won&#39;, &#39;actress&#39;, &#39;first&#39;, &#39;york&#39;]
+
+0.5313 1996-Gene-Kelly
+
+0.5093 1992-Shirley-Booth
+
+0.4752 1995-Ginger-Rogers
+
+0.4707 1990-Rex-Harrison
+
+0.457 1987-Rita-Hayworth
+
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 0 Label</strong>: Hollywood</p>
+<p>Based on the words in this topic and these top obituary texts, I’m going to label this topic “Hollywood.”</p>
+<p><strong>Topic 9</strong></p>
+<p>To display the top 5 obituary titles with the highest probability of containing Topic 9, we will run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 9✨
+
+[&#39;israel&#39;, &#39;peace&#39;, &#39;war&#39;, &#39;minister&#39;, &#39;united&#39;, &#39;nations&#39;, &#39;king&#39;, &#39;secretary&#39;, &#39;arab&#39;, &#39;states&#39;, &#39;churchill&#39;, &#39;british&#39;, &#39;jewish&#39;, &#39;israeli&#39;, &#39;prime&#39;, &#39;dulles&#39;, &#39;sadat&#39;, &#39;state&#39;, &#39;foreign&#39;, &#39;later&#39;]
+
+0.4148 1992-Menachem-Begin
+
+0.4099 1999-King-Hussein
+
+0.3448 1995-Yitzhak-Rabin
+
+0.3295 1981-Anwar-el-Sadat
+
+0.3288 1952-Chaim-Weizmann
+
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 9 Label</strong>: Global Affairs</p>
+<p>Based on the words in this topic and these top obituary texts, I’m going to label this topic “Global Affairs.”</p>
+<p><strong>Topic 8</strong></p>
+<p>To display the top 7 obituaries with the highest probability of containing Topic 8, we will run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
+
+[&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;, &#39;writing&#39;, &#39;life&#39;, &#39;writer&#39;, &#39;years&#39;, &#39;books&#39;, &#39;said&#39;, &#39;author&#39;, &#39;york&#39;, &#39;story&#39;, &#39;novel&#39;, &#39;women&#39;, &#39;magazine&#39;, &#39;work&#39;, &#39;later&#39;]
+
+0.429 1941-James-Joyce
+
+0.4267 1936-Anne-Macy
+
+0.4151 1967-Langston-Hughes
+
+0.413 1978-Bruce-Catton
+
+0.403 1964-Nella-Larsen
+
+0.3998 1909-Sarah-Orne-Jewett
+
+0.398 1992-Alex-Haley
+
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 8 Label</strong>: Authors</p>
+<p>Based on the words in this topic and these top obituary texts, I’m going to label this topic “Authors.”</p>
+</div>
+<div class="section" id="display-topic-words-in-context-of-original-text">
+<h2>Display Topic Words in Context of Original Text<a class="headerlink" href="#display-topic-words-in-context-of-original-text" title="Permalink to this headline">¶</a></h2>
+<p>Often it’s useful to actually look at the document that has ranked highly for a given topic and puzzle out why it ranks so highly.</p>
+<p>To display the original obituary texts that rank highly for a given topic, with the relevant topic words <strong>bolded</strong> for emphasis, we are going to make the function <code class="docutils literal notranslate"><span class="pre">display_bolded_topic_words_in_context()</span></code>.</p>
+<p>In the cell below, we’re importing two special Jupyter notebook display modules, which will allow us to make the relevant topic words <strong>bolded</strong>, as well as the regular expressions library <code class="docutils literal notranslate"><span class="pre">re</span></code>, which will allow us to find and replace the correct words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">custom_words</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">probability</span><span class="p">,</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">number_of_documents</span><span class="p">):</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">probability</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;✨✨✨</span><span class="se">\n\n</span><span class="s2">**</span><span class="si">{</span><span class="n">probability</span><span class="si">}</span><span class="s2">**&quot;</span>
+        <span class="n">obit_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">training_data_obit_titles</span><span class="p">[</span><span class="n">document</span><span class="p">]</span><span class="si">}</span><span class="s2">**&quot;</span>
+        <span class="n">original_text</span> <span class="o">=</span> <span class="n">training_data_original_text</span><span class="p">[</span><span class="n">document</span><span class="p">]</span>
+        <span class="n">topic_words</span> <span class="o">=</span> <span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span>
+        <span class="n">topic_words</span> <span class="o">=</span> <span class="n">custom_words</span> <span class="k">if</span> <span class="n">custom_words</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">topic_words</span>
+
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">topic_words</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">original_text</span><span class="p">:</span>
+                <span class="n">original_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">b</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="se">\\</span><span class="s2">b&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">,</span> <span class="n">original_text</span><span class="p">)</span>
+
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">probability</span><span class="p">)),</span> <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">obit_title</span><span class="p">)),</span> <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">original_text</span><span class="p">))</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 3</strong></p>
+<p>To display the top 3 original obituaries with the highest probability of containing Topic 0 and with relevant topic words bolded, we will run:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 3✨
+
+[&#39;said&#39;, &#39;one&#39;, &#39;years&#39;, &#39;man&#39;, &#39;also&#39;, &#39;never&#39;, &#39;could&#39;, &#39;many&#39;, &#39;like&#39;, &#39;even&#39;, &#39;called&#39;, &#39;life&#39;, &#39;people&#39;, &#39;would&#39;, &#39;well&#39;, &#39;wrote&#39;, &#39;way&#39;, &#39;another&#39;, &#39;took&#39;, &#39;old&#39;]
+
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 8</strong></p>
+<p>To display the top 3 original obituaries with the highest probability of containing Topic 8 and with relevant topic words bolded, we will run:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
+
+[&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;, &#39;writing&#39;, &#39;life&#39;, &#39;writer&#39;, &#39;years&#39;, &#39;books&#39;, &#39;said&#39;, &#39;author&#39;, &#39;york&#39;, &#39;story&#39;, &#39;novel&#39;, &#39;women&#39;, &#39;magazine&#39;, &#39;work&#39;, &#39;later&#39;]
+
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Choose a topic from the results above and write down its corresponding topic number below.</p>
+<p><strong>Topic: <em>Your Number Choice Here</em></strong></p>
+<p><strong>1.</strong> Display the top 6 obituary titles for this topic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Display the topic words in the context of the original obituary for these 6 top titles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Come up with a label for your topic and write it below:</p>
+<p><strong>Topic Label: <em>Your Label Here</em></strong></p>
+<p><strong>Reflection</strong></p>
+<p><strong>4.</strong> Why did you label your topic the way you did? What do you think this topic means in the context of all the <em>NYT</em> obituaries?</p>
+<p>**#**Your answer here</p>
+<p><strong>5.</strong> What’s another collection of texts that you think might be interesting to topic model? Why?</p>
+<p>**#**Your answer here</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./features/Text-Analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Topic-Modeling-Set-Up.html" title="previous page">Topic Modeling — Set Up</a>
+    <a class='right-next' id="next-link" href="Topic-Modeling-CSV.html" title="next page">Topic Modeling — CSV Files</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
