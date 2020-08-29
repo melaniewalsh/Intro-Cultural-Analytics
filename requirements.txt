@@ -4,7 +4,6 @@ pandas
 numpy
 matplotlib
 jupyter-book
-nltk
 bokeh
 bs4
 requests

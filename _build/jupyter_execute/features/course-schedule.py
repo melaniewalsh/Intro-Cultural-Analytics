@@ -12,19 +12,7 @@ ___
 
 <br>
 
-```{margin} Student Hours with Prof. Walsh
-
-Thursday 1-3pm by appt https://melaniewalsh.youcanbook.me
-Gates 211
-```
-
-- **Homework Due**: [HW 1](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-1-Command-Line.html) by Friday 5pm
-
-
-```{margin} TA Study Hall
-Wednesday 5:30-6:30pm // Rhodes 408 <br>
-Friday 2:30-3:30pm // Rhodes 597
-```
+- **Homework Due**: HW 1 by Friday 5pm
 
 ## **Cultural Data + Python Fundamentals**
 ___
@@ -38,7 +26,7 @@ ___
 
 <br>
 
-- **Homework Due**: [HW 1.5](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-1-5-Installation.html) by today 9am
+- **Homework Due**: HW 1.5 by today 9am
 
 ### Th 1/30 — "I Can Text You A Pile of Poo, But I Can’t Write My Name"
 - Read [“I Can Text You A Pile of Poo, But I Can’t Write My Name,”](https://modelviewculture.com/pieces/i-can-text-you-a-pile-of-poo-but-i-cant-write-my-name)**\*** Aditya Mukerjee 
@@ -47,7 +35,7 @@ ___
 
 <br>
 
-- **Homework Due**: [HW 2](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-2-Variables-Data-Types.html) by Sunday 5pm
+- **Homework Due**: HW 2 by Sunday 5pm
 
 ### Tues 2/4 — "(Re)Humanizing Data"
 - Read  <a href=http://crdh.rrchnm.org/essays/v01-10-(re)-humanizing-data/>“(Re)Humanizing Data: Digitally Navigating the Bellevue Almshouse”<a>**\*** Anelise Hanson Shrout  
@@ -61,7 +49,7 @@ ___
 - Prepare for in-class:  [Lists & Loops](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Python/Lists-Loops.html)
 
     <br>
-- **Homework Due**: HW 3 ([Part I](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-3-Conditionals-Comparisons.html) & [II](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-3-Lists-Loops.html)) by Friday 5pm
+- **Homework Due**: HW 3 (Part I & II) by Friday 5pm
     
 ###  Tues 2/11 — "Markup Bodies"
 - Review [More Lists & Loops](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Python/More-Lists-Loops.html)
@@ -76,7 +64,7 @@ ___
 - Prepare for in-class: [Pandas Basics (Part 1)](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Cultural-Data-Analysis/Pandas-Basics-Part1.html)
 <br>
 
-- **Homework Due**: [HW 4](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-4-Pandas.html) by Tuesday 9am
+- **Homework Due**: HW 4 by Tuesday 9am
 
 ### Tues 2/18 — "How many movies are actually about men?"
 - Read [“Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”,](https://pudding.cool/2017/03/film-dialogue/) Hannah Anderson and Matt Daniels  
@@ -89,7 +77,7 @@ ___
 - Prepare for in-class: [Pandas Basics (Part 3)](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Cultural-Data-Analysis/Pandas-Basics-Part3.html)
 <br>
 
-- **Homework Due**: [HW 5](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-5-Functions-Pandas.html) by Thursday 9am
+- **Homework Due**: HW 5 by Thursday 9am
 
 ### Tues 2/25
 
@@ -124,7 +112,7 @@ ___
 - Prepare for in-class: [Twitter Data Analysis](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Collecting-Cultural-Data/Twitter-Data-Analysis.html) 
 <br>  
 
-- **Homework Due**: [HW 7](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-7-Twitter-Data.html) by April 7 9am
+- **Homework Due**: HW 7 by April 7 9am
 
 ###  Tues 3/17-Th 3/26 — No Class / COVID Interruption
 
@@ -144,7 +132,7 @@ ___
 
 <br> 
 
-- **Homework Due**: [HW 8](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-8-TF-IDF.html) by Friday
+- **Homework Due**: HW 8 by Friday
 
 ### Tues 4/14 — Topic Modeling
 - Read [“Narrative Paths and Negotiation of Power in Birth Stories,”](https://maria-antoniak.github.io/resources/2019_cscw_birth_stories.pdf)**\*** Maria Antoniak, David Mimno, and Karen Levy
@@ -153,7 +141,7 @@ ___
 
 ### Th 4/16 — Topic Modeling
 
-- **Homework Due**: [HW 9](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-9-Topic-Modeling.html) + Discussion Post by  Friday
+- **Homework Due**: HW 9 + Discussion Post by  Friday
 
 ### Tues 4/21 — Named Entity Recognition
 - Read excerpts, *Lost in the City* **\***, Edward P. Jones
@@ -164,7 +152,7 @@ ___
 
 - Prepare for in-class: [Part-of-Speech Tagging](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/POS-Keywords.html) 
 <br>
-- **Homework Due**: [HW 10](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Homework/HW-10-NER.html) + Discussion Post by Friday
+- **Homework Due**: HW 10 + Discussion Post by Friday
 
 ## **Network Analysis**
 ---
@@ -200,4 +188,3 @@ ___
 
 ### Monday 5/18 — Final Project Due
 * [Final Project Due](https://melaniewalsh.github.io/Intro-Cultural-Analytics/Final-Project/Final-Project.html)
-
