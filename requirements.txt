@@ -13,3 +13,4 @@ little_mallet_wrapper
 sklearn
 spacy
 regex
+seaborn

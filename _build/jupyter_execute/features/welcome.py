@@ -13,7 +13,7 @@ height: 200px
 ```
 
 **What is Cultural Analytics?**  
-Cultural analytics is the study of culture with computational methods. Culture is a broad umbrella term that includes literature, history, politics, art, music, social media, and a lot more. Cultural analytics is a growing research area in fields like [Digital Humanities](https://cmu-lib.github.io/dhlg/what-are-dh/) and [Information Science](https://infosci.cornell.edu/research). 
+Cultural analytics is the study of culture with computational methods. Culture is a broad term that includes literature, history, politics, art, music, social media, and a lot more. Cultural analytics is a growing research area in fields like [Digital Humanities](https://cmu-lib.github.io/dhlg/what-are-dh/) and [Information Science](https://infosci.cornell.edu/research). 
 
 **Python for Cultural Data**  
 The *Introduction to Cultural Analytics & Python* textbook offers an introduction to the programming language Python that is specifically designed for humanities students and scholars with no previous programming experience. It demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. It introduces computational methods such as web scraping, APIs, topic modeling, Named Entity Recognition (NER), network analysis, and mapping.
