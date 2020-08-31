@@ -72,7 +72,7 @@ print "Good riddance, Python 2!""
 
 Installation
 How-to-Use-Jupyter-Notebooks
-natomy-Python-Script
+Anatomy-Python-Script
 Variables
 Data-Types
 String-Methods

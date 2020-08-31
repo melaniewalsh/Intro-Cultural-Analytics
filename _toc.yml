@@ -25,7 +25,7 @@
     sections:
       - file: features/Python/Installation
       - file: features/Python/How-to-Use-Jupyter-Notebooks
-      - file: features/Python/natomy-Python-Script
+      - file: features/Python/Anatomy-Python-Script
       - file: features/Python/Variables
       - file: features/Python/Data-Types
       - file: features/Python/String-Methods

@@ -9,7 +9,7 @@ title: Introduction to Cultural Analytics & Python
 author: <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : "features/images/logo/favicon.ico"  # A path to the book logo
-exclude_patterns            : ['**/in-progress', '**/other_files']  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+exclude_patterns            : ['**/in-progress', '**/other_files', '**/.ipynb_checkpoints']  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
 # Execution settings
