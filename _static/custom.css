@@ -1,6 +1,9 @@
 /* Put your custom CSS here */
 
-
+/* Make ANSI outputs have color */
+div.highlight .-Color[class*=-Red] {
+    color: #E75C58 !important;
+}
 /* Give bottom margin to image */
 img {
   margin-bottom: 1rem;

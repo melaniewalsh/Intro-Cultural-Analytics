@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -331,6 +328,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/TF-IDF.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -413,7 +415,7 @@ corpus = collection of texts <br></p>
 <p>We need the log() function for our calculation, so we’re going to import it from the <code class="docutils literal notranslate"><span class="pre">math</span></code> package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +423,7 @@ corpus = collection of texts <br></p>
 <p><strong>“said”</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
 <span class="n">number_of_documents_with_term</span> <span class="o">=</span> <span class="mi">13</span> <span class="c1">##number of short stories the contain the word &quot;said&quot;</span>
 </pre></div>
 </div>
@@ -429,7 +431,7 @@ corpus = collection of texts <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">47</span> <span class="c1">##number of times &quot;said&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">47</span> <span class="c1">##number of times &quot;said&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
 <span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">total_number_of_documents</span> <span class="o">/</span> <span class="n">number_of_documents_with_term</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -437,12 +439,12 @@ corpus = collection of texts <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>50.48307469122493
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.48307469122493
 </pre></div>
 </div>
 </div>
@@ -450,7 +452,7 @@ corpus = collection of texts <br></p>
 <p><strong>“pigeons”</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
 <span class="n">number_of_documents_with_term</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">##number of short stories the contain the word &quot;pigeons&quot;</span>
 </pre></div>
 </div>
@@ -458,7 +460,7 @@ corpus = collection of texts <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">##number of times &quot;pigeons&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">##number of times &quot;pigeons&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
 <span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">total_number_of_documents</span> <span class="o">/</span> <span class="n">number_of_documents_with_term</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -466,12 +468,12 @@ corpus = collection of texts <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>88.3773044716594
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88.3773044716594
 </pre></div>
 </div>
 </div>
@@ -487,12 +489,12 @@ corpus = collection of texts <br></p>
 <p>This library is called <a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>, imported as <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>. It’s a popular Python library for machine learning approaches such as clustering, classification, and regression, among others. Though we’re not doing any machine learning in this lesson, we’re nevertheless going to use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> and <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install sklearn
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install sklearn
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sklearn in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (0.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sklearn in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (0.0)
 Requirement already satisfied: scikit-learn in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from sklearn) (0.20.3)
 Requirement already satisfied: numpy&gt;=1.8.2 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from scikit-learn-&gt;sklearn) (1.17.4)
 Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from scikit-learn-&gt;sklearn) (1.3.1)
@@ -504,7 +506,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <h3>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
@@ -524,7 +526,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>Below we’re setting the directory filepath that contains all the short story text files that we want to analyze.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Lost-in-the-City_Stories/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Lost-in-the-City_Stories/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -532,19 +534,19 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>Then we’re going to use <code class="docutils literal notranslate"><span class="pre">glob</span></code> and <code class="docutils literal notranslate"><span class="pre">Path</span></code> to make a list of all the short story filepaths in that directory and a list of all the short story titles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/literature/Lost-in-the-City_Stories/11-Gospel.txt&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/literature/Lost-in-the-City_Stories/11-Gospel.txt&#39;,
  &#39;../texts/literature/Lost-in-the-City_Stories/13-A-Dark-Night.txt&#39;,
  &#39;../texts/literature/Lost-in-the-City_Stories/01-The-Girl-Who-Raised-Pigeons.txt&#39;,
  &#39;../texts/literature/Lost-in-the-City_Stories/12-A-New-Man.txt&#39;,
@@ -564,19 +566,19 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;11-Gospel&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;11-Gospel&#39;,
  &#39;13-A-Dark-Night&#39;,
  &#39;01-The-Girl-Who-Raised-Pigeons&#39;,
  &#39;12-A-New-Man&#39;,
@@ -605,7 +607,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Initialize TfidfVectorizer with desired parameters (default smoothing and normalization)</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -613,28 +615,28 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Plug in “text_files” which contains all our short stories</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Lost-in-the-City_Stories/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Lost-in-the-City_Stories/&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vector</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_files</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vector</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_files</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -642,7 +644,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Make a DataFrame out of the tf–idf vector and sort by title</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
 <span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -651,14 +653,14 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Add column for number of times word appears in all documents</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfidf_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfidf_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_slice</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[[</span><span class="s1">&#39;pigeons&#39;</span><span class="p">,</span> <span class="s1">&#39;school&#39;</span><span class="p">,</span> <span class="s1">&#39;said&#39;</span><span class="p">,</span> <span class="s1">&#39;church&#39;</span><span class="p">,</span> <span class="s1">&#39;gospelteers&#39;</span><span class="p">,</span> <span class="s1">&#39;thunder&#39;</span><span class="p">,</span><span class="s1">&#39;girl&#39;</span><span class="p">,</span> <span class="s1">&#39;street&#39;</span><span class="p">,</span> <span class="s1">&#39;father&#39;</span><span class="p">,</span> <span class="s1">&#39;dreaming&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_slice</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[[</span><span class="s1">&#39;pigeons&#39;</span><span class="p">,</span> <span class="s1">&#39;school&#39;</span><span class="p">,</span> <span class="s1">&#39;said&#39;</span><span class="p">,</span> <span class="s1">&#39;church&#39;</span><span class="p">,</span> <span class="s1">&#39;gospelteers&#39;</span><span class="p">,</span> <span class="s1">&#39;thunder&#39;</span><span class="p">,</span><span class="s1">&#39;girl&#39;</span><span class="p">,</span> <span class="s1">&#39;street&#39;</span><span class="p">,</span> <span class="s1">&#39;father&#39;</span><span class="p">,</span> <span class="s1">&#39;dreaming&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">]]</span>
 <span class="n">tfidf_slice</span>
 </pre></div>
 </div>
@@ -913,7 +915,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>To find out the top 10 words with the highest tf–idf for every story, we’re going to make and run the following function: <code class="docutils literal notranslate"><span class="pre">get_top_tfidf_scores()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_top_tfidf_scores</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_top_tfidf_scores</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">top_n</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">pretty_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;tfidf_score&#39;</span><span class="p">,</span> <span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;story&#39;</span><span class="p">,</span> <span class="s1">&#39;level_2&#39;</span><span class="p">:</span> <span class="s1">&#39;word&#39;</span><span class="p">})</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">pretty_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;level_0&#39;</span><span class="p">)</span>
@@ -926,14 +928,14 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>As before, this function will rearrange the dataframe, <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> short story, and filter for the top 10 highest tf–idf scores in every story. Finally, it will produce a dataframe with a new column <code class="docutils literal notranslate"><span class="pre">tfidf_rank</span></code>, which contains a 1-10 ranking of the highest tf–idf scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span> <span class="o">=</span> <span class="n">get_top_tfidf_scores</span><span class="p">(</span><span class="n">tfidf_df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span> <span class="o">=</span> <span class="n">get_top_tfidf_scores</span><span class="p">(</span><span class="n">tfidf_df</span><span class="p">)</span>
 <span class="n">top_tfidf</span>
 </pre></div>
 </div>
@@ -1952,7 +1954,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <h3>Write to a CSV File<a class="headerlink" href="#write-to-a-csv-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;tfidf_Lost-in-The-City.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;tfidf_Lost-in-The-City.csv&quot;</span>
 <span class="n">top_tfidf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1960,28 +1962,28 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/US_Inaugural_Addresses/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/US_Inaugural_Addresses/&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vector</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_files</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vector</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_files</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1989,7 +1991,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Make a DataFrame out of the tf–idf vector and sort by title</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
 <span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1998,7 +2000,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p><strong>Add column for number of times word appears in all documents</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfidf_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfidf_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2006,7 +2008,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>To find out the top 10 words with the highest tf–idf for every story, we’re going to make and run the following function: <code class="docutils literal notranslate"><span class="pre">get_top_tfidf_scores()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_top_tfidf_scores</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_top_tfidf_scores</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">top_n</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">pretty_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;tfidf_score&#39;</span><span class="p">,</span> <span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;story&#39;</span><span class="p">,</span> <span class="s1">&#39;level_2&#39;</span><span class="p">:</span> <span class="s1">&#39;word&#39;</span><span class="p">})</span>
     <span class="n">pretty_df</span> <span class="o">=</span> <span class="n">pretty_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;level_0&#39;</span><span class="p">)</span>
@@ -2019,14 +2021,14 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>As before, this function will rearrange the dataframe, <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> short story, and filter for the top 10 highest tf–idf scores in every story. Finally, it will produce a dataframe with a new column <code class="docutils literal notranslate"><span class="pre">tfidf_rank</span></code>, which contains a 1-10 ranking of the highest tf–idf scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span> <span class="o">=</span> <span class="n">get_top_tfidf_scores</span><span class="p">(</span><span class="n">tfidf_df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span> <span class="o">=</span> <span class="n">get_top_tfidf_scores</span><span class="p">(</span><span class="n">tfidf_df</span><span class="p">)</span>
 <span class="n">top_tfidf</span>
 </pre></div>
 </div>
@@ -6128,7 +6130,7 @@ Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3
 <p>Take a few minutes to explore the dataframe below and then answer the following questions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_compare</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_compare</span>
 </pre></div>
 </div>
 </div>

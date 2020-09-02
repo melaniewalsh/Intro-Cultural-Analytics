@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Twitter-Data-Collection.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -476,7 +478,7 @@
 <p>You can configure twarc by running <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">conifgure</span></code> on the command line. Or you can type your Twitter handle (without the &#64; symbol) and <a class="reference external" href="https://developer.twitter.com/en/apps">API keys</a> into the quotation marks below and run the cell.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Insert Your Twitter API Info here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Insert Your Twitter API Info here</span>
 
 <span class="n">twitter_handle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -527,14 +529,14 @@
 <p> Mac/Chrome OS</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l coronavirus_filter.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l coronavirus_filter.jsonl
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l shakespeare_filter.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l shakespeare_filter.jsonl
 </pre></div>
 </div>
 </div>
@@ -542,14 +544,14 @@
 <p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; coronavirus_filter.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>find /v /c <span class="s2">&quot;&quot;</span> coronavirus_filter.jsonl
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; shakespeare_filter.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>find /v /c <span class="s2">&quot;&quot;</span> shakespeare_filter.jsonl
 </pre></div>
 </div>
 </div>
@@ -568,7 +570,7 @@
 <p> Mac/Chrome OS</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l coronavirus_search.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l coronavirus_search.jsonl
 </pre></div>
 </div>
 </div>
@@ -576,7 +578,7 @@
 <p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; coronavirus_search.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>find /v /c <span class="s2">&quot;&quot;</span> coronavirus_search.jsonl
 </pre></div>
 </div>
 </div>
@@ -604,7 +606,7 @@ This is the way the world ends<br>
 <p>Since there aren’t a ton of tweets from the past 7 days that included the phrase “not with a bang but with a”, we can run this <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code> from our Jupyter notebook. Because there is a small and finite number of tweets to be collected, this search will complete in a relatively short amount of time, and we don’t have to worry about it running forever.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;\&quot;not with a bang but with a\&quot;&quot; &gt; not_with_bang_tweets.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;\&quot;not with a bang but with a\&quot;&quot;</span> &gt; not_with_bang_tweets.jsonl
 </pre></div>
 </div>
 </div>
@@ -618,8 +620,8 @@ This is the way the world ends<br>
 <p>Now the avoidance of touching one’s face has sprouted up as a funny Twitter meme. These various “touch my face” memes serves as an interesting example of how online communities produce comedy and levity even in times of stress and crisis.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">html</span>
-<span class="o">&lt;</span><span class="n">blockquote</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;twitter-tweet&quot;</span><span class="o">&gt;&lt;</span><span class="n">p</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;ltr&quot;</span><span class="o">&gt;</span><span class="n">Realizing</span> <span class="n">basically</span> <span class="nb">all</span> <span class="n">I</span> <span class="n">do</span> <span class="ow">is</span> <span class="n">touch</span> <span class="n">my</span> <span class="n">face</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;&amp;</span><span class="n">mdash</span><span class="p">;</span> <span class="n">Seth</span> <span class="n">Rogen</span> <span class="p">(</span><span class="nd">@Sethrogen</span><span class="p">)</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://twitter.com/Sethrogen/status/1234905018475499520?ref_src=twsrc</span><span class="si">%5E</span><span class="s2">tfw&quot;</span><span class="o">&gt;</span><span class="n">March</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2020</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">blockquote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">script</span> <span class="k">async</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://platform.twitter.com/widgets.js&quot;</span> <span class="n">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">blockquote</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;twitter-tweet&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">dir</span><span class="o">=</span><span class="s">&quot;ltr&quot;</span><span class="p">&gt;</span>Realizing basically all I do is touch my face.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span><span class="ni">&amp;mdash;</span> Seth Rogen (@Sethrogen) <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://twitter.com/Sethrogen/status/1234905018475499520?ref_src=twsrc%5Etfw&quot;</span><span class="p">&gt;</span>March 3, 2020<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">blockquote</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://platform.twitter.com/widgets.js&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -630,7 +632,7 @@ This is the way the world ends<br>
 <p>Similarly, there aren’t a ton of tweets from the past 7 days that included the phrase “touch my face”, so we can also run this <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code> from our Jupyter notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;touch my face&quot; &gt; touch_my_face_tweets.jsonl 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;touch my face&quot;</span> &gt; touch_my_face_tweets.jsonl 
 </pre></div>
 </div>
 </div>
@@ -653,16 +655,16 @@ This is the way the world ends<br>
 <p>The twarc repository should already be downloaded in your relevant files, but if you uncomment the line below, you can also clone the repository with this line of code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!git clone https://github.com/DocNow/twarc.git</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!git clone https://github.com/DocNow/twarc.git</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;twarc&#39;...
-remote: Enumerating objects: 37, done.[K
-remote: Counting objects: 100% (37/37), done.[K
-remote: Compressing objects: 100% (28/28), done.[K
-remote: Total 3464 (delta 16), reused 23 (delta 9), pack-reused 3427[K
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;twarc&#39;...
+remote: Enumerating objects: 37, done.
+remote: Counting objects: 100% (37/37), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 3464 (delta 16), reused 23 (delta 9), pack-reused 3427
 Receiving objects: 100% (3464/3464), 906.45 KiB | 9.96 MiB/s, done.
 Resolving deltas: 100% (2180/2180), done.
 </pre></div>
@@ -685,7 +687,7 @@ Resolving deltas: 100% (2180/2180), done.
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
 </pre></div>
 </div>
 </div>
@@ -693,7 +695,7 @@ Resolving deltas: 100% (2180/2180), done.
 <p>Make “bang.jsonl” into “bang.csv” (with an extra field added for the full version of the original retweeted text)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text not_with_bang_tweets.jsonl &gt; not_with_bang_tweets.csv
 </pre></div>
 </div>
 </div>

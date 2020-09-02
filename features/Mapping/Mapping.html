@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -304,6 +301,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Mapping/Mapping.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -337,7 +339,7 @@
 <h2>Install GeoPy<a class="headerlink" href="#install-geopy" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install geopy
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install geopy
 </pre></div>
 </div>
 </div>
@@ -348,7 +350,7 @@
 <p>From GeoPy’s list of possible geocoding services, we’re going to import Nominatim:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
 </pre></div>
 </div>
 </div>
@@ -360,7 +362,7 @@
 <p>Here we’re initializing Nominatim as a variable called <code class="docutils literal notranslate"><span class="pre">geolocator</span></code>. Change the application name below to your own application name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;YOUR NAME&#39;s mapping app&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;YOUR NAME&#39;s mapping app&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -368,19 +370,19 @@
 <p>To geocode an address or location, we simply use the <code class="docutils literal notranslate"><span class="pre">.geocode()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;South Cayuga Street&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;South Cayuga Street&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">location</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Location(South Cayuga Street, South Hill, Ithaca, Ithaca Town, Tompkins County, New York, 14850, United States of America, (42.4359281, -76.4988639, 0.0))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location(South Cayuga Street, South Hill, Ithaca, Ithaca Town, Tompkins County, New York, 14850, United States of America, (42.4359281, -76.4988639, 0.0))
 </pre></div>
 </div>
 </div>
@@ -391,7 +393,7 @@
 <p>The Google Geocoding API is superior to Nominatim, but it requires an API key and more set up. To enable the Google Geocoding API and get an API key, see <a class="reference external" href="https://developers.google.com/maps/gmp-get-started">Get Started with Google Maps Platform</a> and <a class="reference external" href="https://developers.google.com/maps/documentation/geocoding/start">Get Started with Geocoding API</a>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from geopy.geocoders import GoogleV3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from geopy.geocoders import GoogleV3</span>
 <span class="c1">#google_geolocator = GoogleV3(api_key=&quot;YOUR-API-KEY HERE&quot;)</span>
 <span class="c1">#google_geolocator.geocode(&quot;Cayuga Street&quot;)</span>
 </pre></div>
@@ -403,12 +405,12 @@
 <h2>Get Address<a class="headerlink" href="#get-address" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>South Cayuga Street, South Hill, Ithaca, Ithaca Town, Tompkins County, New York, 14850, United States of America
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>South Cayuga Street, South Hill, Ithaca, Ithaca Town, Tompkins County, New York, 14850, United States of America
 </pre></div>
 </div>
 </div>
@@ -418,12 +420,12 @@
 <h2>Get Latitude and Longitude<a class="headerlink" href="#get-latitude-and-longitude" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>42.4359281 -76.4988639
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.4359281 -76.4988639
 </pre></div>
 </div>
 </div>
@@ -433,12 +435,12 @@
 <h2>Get “Importance” Score<a class="headerlink" href="#get-importance-score" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importance: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importance: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Importance: 0.4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importance: 0.4
 </pre></div>
 </div>
 </div>
@@ -448,12 +450,12 @@
 <h2>Get Class and Type<a class="headerlink" href="#get-class-and-type" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Type: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Type: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Class: highway 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Class: highway 
 Type: residential
 </pre></div>
 </div>
@@ -464,7 +466,7 @@ Type: residential
 <h2>Get Multiple Possible Matches<a class="headerlink" href="#get-multiple-possible-matches" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">possible_locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;College Ave&quot;</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;College Ave&quot;</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">possible_locations</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
@@ -474,7 +476,7 @@ Type: residential
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>College Avenue, Pemberton Tract, Midland, Midland County, Texas, United States of America
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>College Avenue, Pemberton Tract, Midland, Midland County, Texas, United States of America
 31.99450735 -102.08441405117188
 Importance: 0.35000000000000003
 College Avenue, Illinois Prairie Path, Wheaton, DuPage County, Illinois, 60187, United States of America
@@ -510,7 +512,7 @@ Importance: 0.3
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;College Ave, Ithaca NY&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;College Ave, Ithaca NY&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
@@ -519,7 +521,7 @@ Importance: 0.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>College Avenue, East Ithaca, Ithaca, Ithaca Town, Tompkins County, New York, 14853, United States of America
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>College Avenue, East Ithaca, Ithaca, Ithaca Town, Tompkins County, New York, 14853, United States of America
 42.4431445 -76.4852319
 Importance: 0.41000000000000003
 </pre></div>
@@ -532,7 +534,7 @@ Importance: 0.41000000000000003
 <p>To geocode every location in a CSV file, we can use Pandas, make a Python function, and <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> it to every row in the CSV file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_colwidth&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
 </pre></div>
@@ -542,7 +544,7 @@ Importance: 0.41000000000000003
 <p>Here we make a function with <code class="docutils literal notranslate"><span class="pre">geolocator.geocode()</span></code> and ask it to return the address, lat/lon, and importance score:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_location</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_location</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     
     <span class="n">place</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">]</span>
     
@@ -559,14 +561,14 @@ Importance: 0.41000000000000003
 <p>To start exploring, let’s read in a CSV file with a list of places in and around Ithaca.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ithaca-places.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ithaca-places.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span>
 </pre></div>
 </div>
 </div>
@@ -660,7 +662,7 @@ Importance: 0.41000000000000003
 <p>Now let’s <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> our function to this Pandas dataframe and see what results Nominatim’s geocoding service spits out.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span><span class="p">[[</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;importance&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ithaca_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">find_location</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="s2">&quot;expand&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_df</span><span class="p">[[</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;importance&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ithaca_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">find_location</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="s2">&quot;expand&quot;</span><span class="p">)</span>
 <span class="n">ithaca_df</span>
 </pre></div>
 </div>
@@ -828,14 +830,14 @@ Importance: 0.41000000000000003
 <p>To install and import Folium, run the cells below:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install folium
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install folium
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
 </pre></div>
 </div>
 </div>
@@ -846,7 +848,7 @@ Importance: 0.41000000000000003
 <p>(To find latitude/longitude coordintes for a particular location, you can use Google Maps, <a class="reference external" href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&amp;hl=en">as described here</a>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">42.44</span><span class="p">,</span> <span class="o">-</span><span class="mf">76.5</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">42.44</span><span class="p">,</span> <span class="o">-</span><span class="mf">76.5</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ithaca_map</span>
 </pre></div>
 </div>
@@ -860,7 +862,7 @@ Importance: 0.41000000000000003
 <p>Adding a marker to a map is easy with Folium! We’ll simply call <code class="docutils literal notranslate"><span class="pre">folium.Marker()</span></code> at a particular lat/lon, enter some text to display when the marker is clicked on, and then add it to our base map.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">42.444695</span><span class="p">,</span> <span class="o">-</span><span class="mf">76.482233</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Intro to Cultural Analytics&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">ithaca_map</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">42.444695</span><span class="p">,</span> <span class="o">-</span><span class="mf">76.482233</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Intro to Cultural Analytics&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">ithaca_map</span><span class="p">)</span>
 <span class="n">ithaca_map</span>
 </pre></div>
 </div>
@@ -874,7 +876,7 @@ Importance: 0.41000000000000003
 <p>To add markers for every location in our Pandas dataframe, we can make a Python function and <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> it to every row in the dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_map_markers</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">map_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_map_markers</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">map_name</span><span class="p">):</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]],</span> <span class="n">popup</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">map_name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -883,14 +885,14 @@ Importance: 0.41000000000000003
 <p>Before we apply this function to our dataframe, we’re going to drop any locations that were “Not Found” (which would cause <code class="docutils literal notranslate"><span class="pre">folium.Marker()</span></code> to return an error).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">found_ithaca_locations</span> <span class="o">=</span> <span class="n">ithaca_df</span><span class="p">[</span><span class="n">ithaca_df</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">found_ithaca_locations</span> <span class="o">=</span> <span class="n">ithaca_df</span><span class="p">[</span><span class="n">ithaca_df</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">found_ithaca_locations</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">create_map_markers</span><span class="p">,</span> <span class="n">map_name</span><span class="o">=</span><span class="n">ithaca_map</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">found_ithaca_locations</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">create_map_markers</span><span class="p">,</span> <span class="n">map_name</span><span class="o">=</span><span class="n">ithaca_map</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 <span class="n">ithaca_map</span>
 </pre></div>
 </div>
@@ -903,7 +905,7 @@ Importance: 0.41000000000000003
 <h2>Save Map<a class="headerlink" href="#save-map" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;Ithaca-map.html&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ithaca_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;Ithaca-map.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -917,7 +919,7 @@ Importance: 0.41000000000000003
 <p>There are a few <a class="reference external" href="https://python-visualization.github.io/folium/quickstart.html#Markers">different kinds of markers</a> that we can add to a Folium map, including circles. To make a circle, we can call <code class="docutils literal notranslate"><span class="pre">folium.CircleMarker()</span></code> with a particular radius and the option to fill in the circle. You can explore more customization options in the <a class="reference external" href="https://python-visualization.github.io/folium/modules.html#folium.vector_layers.CircleMarker">Folium documentation</a>. We’re also going to add a hover <code class="docutils literal notranslate"><span class="pre">tooltip</span></code> in addition to a <code class="docutils literal notranslate"><span class="pre">popup</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_ICE_map_markers</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">map_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_ICE_map_markers</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">map_name</span><span class="p">):</span>
     
     <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]],</span> <span class="n">raidus</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> &lt;br&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span>
@@ -929,7 +931,7 @@ Importance: 0.41000000000000003
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ICE-facilities.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ICE-facilities.csv&quot;</span><span class="p">)</span>
 <span class="n">ICE_df</span>
 </pre></div>
 </div>
@@ -1248,7 +1250,7 @@ Importance: 0.41000000000000003
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">US_map</span>
 </pre></div>
 </div>
@@ -1258,14 +1260,14 @@ Importance: 0.41000000000000003
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span> <span class="o">=</span> <span class="n">ICE_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span> <span class="o">=</span> <span class="n">ICE_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">create_ICE_map_markers</span><span class="p">,</span> <span class="n">map_name</span><span class="o">=</span><span class="n">US_map</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ICE_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">create_ICE_map_markers</span><span class="p">,</span> <span class="n">map_name</span><span class="o">=</span><span class="n">US_map</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
 <span class="n">US_map</span>
 </pre></div>
 </div>
@@ -1285,28 +1287,28 @@ Importance: 0.41000000000000003
 <p>The following data was drawn from <a class="reference external" href="https://github.com/xpmethod/torn-apart/tree/master/data/districts">the Torn Apart / Separados project</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_geo_json</span> <span class="o">=</span> <span class="s2">&quot;../data/ICE_money_districts.geo.json&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_geo_json</span> <span class="o">=</span> <span class="s2">&quot;../data/ICE_money_districts.geo.json&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ICE_money_districts.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ICE_money_districts.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span> <span class="o">=</span> <span class="n">US_districts_csv</span> <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;districtName&#39;</span><span class="p">,</span> <span class="s1">&#39;representative&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span> <span class="o">=</span> <span class="n">US_districts_csv</span> <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;districtName&#39;</span><span class="p">,</span> <span class="s1">&#39;representative&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_districts_csv</span>
 </pre></div>
 </div>
 </div>
@@ -1492,7 +1494,7 @@ Importance: 0.41000000000000003
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">US_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
     <span class="n">geo_data</span> <span class="o">=</span> <span class="n">US_districts_geo_json</span><span class="p">,</span>
@@ -1516,7 +1518,7 @@ Importance: 0.41000000000000003
 <h3>Add a Tooltip to Choropleth<a class="headerlink" href="#add-a-tooltip-to-choropleth" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
     <span class="n">US_districts_geo_json</span><span class="p">,</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;representative&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;party&#39;</span><span class="p">,</span> <span class="s1">&#39;total_value&#39;</span><span class="p">],</span> <span class="n">localize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                                 <span class="p">)</span>

@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -276,6 +273,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Command-Line/The-Command-Line.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -602,14 +604,14 @@
 </tr>
 </tbody>
 </table>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pwd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pwd</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/Users/melaniewalsh&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/melaniewalsh&#39;
 </pre></div>
 </div>
 </div>
@@ -636,12 +638,12 @@
 </table>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The-Command-Line.ipynb   [34mvery-interesting-folder[m[m/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The-Command-Line.ipynb   <span class=" -Color -Color-Blue">very-interesting-folder</span>/
 </pre></div>
 </div>
 </div>
@@ -665,26 +667,26 @@
 </tr>
 </tbody>
 </table>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="n">very</span><span class="o">-</span><span class="n">interesting</span><span class="o">-</span><span class="n">folder</span><span class="o">/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> very-interesting-folder/
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Command-Line/very-interesting-folder
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Command-Line/very-interesting-folder
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The-Yellow-Wallpaper.txt  a-troubling-fact.txt      an-interesting-fact.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The-Yellow-Wallpaper.txt  a-troubling-fact.txt      an-interesting-fact.txt
 </pre></div>
 </div>
 </div>
@@ -699,7 +701,7 @@
 <p>We used a relative path when we moved into <code class="docutils literal notranslate"><span class="pre">very-interesting-folder</span></code> because we simply typed:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="n">very</span><span class="o">-</span><span class="n">interesting</span><span class="o">-</span><span class="n">folder</span><span class="o">/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> very-interesting-folder/
 </pre></div>
 </div>
 </div>
@@ -708,14 +710,14 @@
 <div class="section" id="double-dot">
 <h5>Double Dot<a class="headerlink" href="#double-dot" title="Permalink to this headline">¶</a></h5>
 <p>A “double dot” <code class="docutils literal notranslate"><span class="pre">..</span></code> allows you to move up to a parent directory one level up.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">..</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> ..
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Command-Line
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Command-Line
 </pre></div>
 </div>
 </div>
@@ -730,7 +732,7 @@
 <p>If we wanted to move inside <code class="docutils literal notranslate"><span class="pre">very-interesting-folder</span></code> from a completely different place on our computers, we could use an absolute path:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">~/</span><span class="n">Website</span><span class="o">-</span><span class="n">Content</span><span class="o">/</span><span class="n">Command</span><span class="o">-</span><span class="n">Line</span><span class="o">/</span><span class="n">very</span><span class="o">-</span><span class="n">interesting</span><span class="o">-</span><span class="n">folder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> ~/Website-Content/Command-Line/very-interesting-folder
 </pre></div>
 </div>
 </div>
@@ -763,28 +765,28 @@
 </table>
 <p>You can download a text file from the web by using the command <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> with the appropriate web address. Let’s see if we can download Charlotte Perkins Gilman’s short story “The Yellow Wallpaper.”</p>
 <p>We’re going to search for the story through <a class="reference external" href="https://www.gutenberg.org/ebooks/search/">Project Gutenberg</a>, an amazing resource that hosts tens of thousands of free texts in the public domain (which means lots of great literary and historical texts published after 1925).</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!curl -O http://www.gutenberg.org/files/1952/1952-0.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>curl -O http://www.gutenberg.org/files/1952/1952-0.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 51185  100 51185    0     0   238k      0 --:--:-- --:--:-- --:--:--  238k
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget http://www.gutenberg.org/files/1952/1952-0.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget http://www.gutenberg.org/files/1952/1952-0.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--2020-01-23 00:05:01--  http://www.gutenberg.org/files/1952/1952-0.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-01-23 00:05:01--  http://www.gutenberg.org/files/1952/1952-0.txt
 Resolving www.gutenberg.org (www.gutenberg.org)... 152.19.134.47
 Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -794,26 +796,25 @@ Saving to: ‘1952-0.txt’
 1952-0.txt          100%[===================&gt;]  49.99K  --.-KB/s    in 0.1s    
 
 2020-01-23 00:05:02 (387 KB/s) - ‘1952-0.txt’ saved [51185/51185]
-
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; wget http://www.gutenberg.org/files/1952/1952-0.txt -OutFile The-Yellow-Wallpaper.txt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; wget http://www.gutenberg.org/files/1952/1952-0.txt -OutFile The-Yellow-Wallpaper.txt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1952-0.txt               a-troubling-fact.txt     an-interesting-fact.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1952-0.txt               a-troubling-fact.txt     an-interesting-fact.txt
 </pre></div>
 </div>
 </div>
@@ -837,19 +838,19 @@ Saving to: ‘1952-0.txt’
 </table>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">mv</span> <span class="mi">1952</span><span class="o">-</span><span class="mf">0.</span><span class="n">txt</span> <span class="n">The</span><span class="o">-</span><span class="n">Yellow</span><span class="o">-</span><span class="n">Wallpaper</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">mv</span> 1952-0.txt The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The-Yellow-Wallpaper.txt  a-troubling-fact.txt      an-interesting-fact.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The-Yellow-Wallpaper.txt  a-troubling-fact.txt      an-interesting-fact.txt
 </pre></div>
 </div>
 </div>
@@ -878,12 +879,12 @@ Saving to: ‘1952-0.txt’
 <p>Combining the <code class="docutils literal notranslate"><span class="pre">-lh</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command will show you the long format version (<code class="docutils literal notranslate"><span class="pre">-l</span></code>) of each file with the file sizes formatted in a human readable (<code class="docutils literal notranslate"><span class="pre">-h</span></code>) way. The long format version of the file will include the file’s permissions, size, and date that it was last modified.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span> -lh
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>total 120
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 120
 -rw-r--r--  1 melaniewalsh  staff    50K Nov  8  2017 The-Yellow-Wallpaper.txt
 -rw-r--r--@ 1 melaniewalsh  staff   643B Jan 22 23:30 a-troubling-fact.txt
 -rw-r--r--@ 1 melaniewalsh  staff   214B Jan 22 23:29 an-interesting-fact.txt
@@ -914,41 +915,41 @@ Saving to: ‘1952-0.txt’
 </tbody>
 </table>
 <p>Now let’s check how many words are in “The Yellow Wallpaper.” Combining the <code class="docutils literal notranslate"><span class="pre">-w</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">wc</span></code> command will return the number of words in a file.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -w The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -w The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>    9103 The-Yellow-Wallpaper.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9103 The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt | Measure-Object –Word</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt | Measure-Object –Word</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Let’s check how many lines are in “The Yellow Wallpaper.”  Combining the <code class="docutils literal notranslate"><span class="pre">-l</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">wc</span></code> command will return the number of words in a file.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>    1197 The-Yellow-Wallpaper.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1197 The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt | Measure-Object –Line</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt | Measure-Object –Line</span>
 </pre></div>
 </div>
 </div>
@@ -983,14 +984,14 @@ Saving to: ‘1952-0.txt’
 </tbody>
 </table>
 <p>The <code class="docutils literal notranslate"><span class="pre">cat</span></code> command prints the whole file to your command line.</p>
-<div class="cell tag_output_scroll tag_command_line tag_hide_output docutils container">
+<div class="cell tag_output_scroll tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cat The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
 
 This eBook is for the use of anyone anywhere at no cost and with
 almost no restrictions whatsoever.  You may copy it, give it away or
@@ -2192,14 +2193,14 @@ subscribe to our email newsletter to hear about new eBooks.
 </div>
 </div>
 <p>That’s often too much text to handle at one time. So you can also look at the first 10 lines of the file with <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!head The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
 
 This eBook is for the use of anyone anywhere at no cost and with
 almost no restrictions whatsoever.  You may copy it, give it away or
@@ -2215,7 +2216,7 @@ Release Date: November 25, 2008 [EBook #1952]
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt -head 10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt -head 10</span>
 </pre></div>
 </div>
 </div>
@@ -2223,12 +2224,12 @@ Release Date: November 25, 2008 [EBook #1952]
 <p>Or by adding a flag with a number (<code class="docutils literal notranslate"><span class="pre">-50</span></code>), you can look at the first however many lines you want!</p>
 <div class="cell tag_command_line tag_output_scroll tag_hide_output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!head -50 The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head -50 The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project Gutenberg&#39;s The Yellow Wallpaper, by Charlotte Perkins Gilman
 
 This eBook is for the use of anyone anywhere at no cost and with
 almost no restrictions whatsoever.  You may copy it, give it away or
@@ -2283,14 +2284,14 @@ mind)—perhaps that is one reason I do not get well faster.
 </div>
 </div>
 <p>The same goes for looking at the end of a file with <code class="docutils literal notranslate"><span class="pre">tail</span></code></p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!tail The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>tail The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>editions, all of which are confirmed as Public Domain in the U.S.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>editions, all of which are confirmed as Public Domain in the U.S.
 unless a copyright notice is included.  Thus, we do not necessarily
 keep eBooks in compliance with any particular paper edition.Most people start at our Web site which has the main PG search facility:
 
@@ -2306,7 +2307,7 @@ subscribe to our email newsletter to hear about new eBooks.
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt -tail 10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; gc The-Yellow-Wallpaper.txt -tail 10</span>
 </pre></div>
 </div>
 </div>
@@ -2329,14 +2330,14 @@ subscribe to our email newsletter to hear about new eBooks.
 </tbody>
 </table>
 <p>The <code class="docutils literal notranslate"><span class="pre">grep</span></code> command allows you to search for a search term(s) in a file or directory and return each line that contains the term. Combining the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">grep</span></code> command will return the corresponding line number as well.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!grep &quot;yellow&quot; -n The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>grep <span class="s2">&quot;yellow&quot;</span> -n The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>148:The color is repellant, almost revolting; a smouldering, unclean yellow,
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148:The color is repellant, almost revolting; a smouldering, unclean yellow,
 566:found yellow smooches on all my clothes and John’s, and she wished we
 591:There are always new shoots on the fungus, and new shades of yellow all
 594:It is the strangest yellow, that wallpaper! It makes me think of all the
@@ -2350,27 +2351,27 @@ subscribe to our email newsletter to hear about new eBooks.
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; findstr -n &quot;yellow&quot; The-Yellow-Wallpaper.txt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PowerShell C:\Users&gt; findstr -n &quot;yellow&quot; The-Yellow-Wallpaper.txt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Combining the <code class="docutils literal notranslate"><span class="pre">--color</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">grep</span></code> command will highlight the search term(s) in a color.</p>
-<div class="cell tag_command_line tag_hide_output docutils container">
+<div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!grep &quot;yellow&quot; -n --color The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>grep <span class="s2">&quot;yellow&quot;</span> -n --color The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>148:The color is repellant, almost revolting; a smouldering, unclean [01;31m[Kyellow[m[K,
-566:found [01;31m[Kyellow[m[K smooches on all my clothes and John’s, and she wished we
-591:There are always new shoots on the fungus, and new shades of [01;31m[Kyellow[m[K all
-594:It is the strangest [01;31m[Kyellow[m[K, that wallpaper! It makes me think of all the
-595:[01;31m[Kyellow[m[K things I ever saw—not beautiful ones like buttercups, but old
-596:foul, bad [01;31m[Kyellow[m[K things.
-627:the color of the paper! A [01;31m[Kyellow[m[K smell.
-819:instead of [01;31m[Kyellow[m[K.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148:The color is repellant, almost revolting; a smouldering, unclean <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span>,
+566:found <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span> smooches on all my clothes and John’s, and she wished we
+591:There are always new shoots on the fungus, and new shades of <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span> all
+594:It is the strangest <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span>, that wallpaper! It makes me think of all the
+595:<span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span> things I ever saw—not beautiful ones like buttercups, but old
+596:foul, bad <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span> things.
+627:the color of the paper! A <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span> smell.
+819:instead of <span class=" -Color -Color-Bold -Color-Bold-Red">yellow</span>.
 </pre></div>
 </div>
 </div>
@@ -2378,110 +2379,110 @@ subscribe to our email newsletter to hear about new eBooks.
 <p>Combining the <code class="docutils literal notranslate"><span class="pre">-wc</span></code> flag with the <code class="docutils literal notranslate"><span class="pre">grep</span></code> command will return the number of lines that contain the search term(s) in a file or directory.</p>
 <div class="cell tag_command_line tag_hide_output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!grep -wc &quot;yellow&quot; The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>grep -wc <span class="s2">&quot;yellow&quot;</span> The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line tag_hide_output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!grep -wc &quot;paper&quot; The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>grep -wc <span class="s2">&quot;paper&quot;</span> The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>24
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
 </pre></div>
 </div>
 </div>
 </div>
 <p>Combining the <code class="docutils literal notranslate"><span class="pre">-B</span></code> and <code class="docutils literal notranslate"><span class="pre">-A</span></code> flags with <code class="docutils literal notranslate"><span class="pre">grep</span></code> will return a specified number of lines before (<code class="docutils literal notranslate"><span class="pre">-B</span></code>) or after (<code class="docutils literal notranslate"><span class="pre">-A</span></code>) the line that contains the search term(s). This can be a way to get more context for a search term.</p>
-<div class="cell tag_command_line tag_output_scroll tag_hide_output docutils container">
+<div class="cell tag_command_line tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!grep &quot;wallpaper&quot; -B 2 -A 2 -n --color The-Yellow-Wallpaper.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>grep <span class="s2">&quot;wallpaper&quot;</span> -B <span class="m">2</span> -A <span class="m">2</span> -n --color The-Yellow-Wallpaper.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>187-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>187-
 188-I suppose John never was nervous in his life. He laughs at me so about
-189:this [01;31m[Kwallpaper[m[K!
+189:this <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>!
 190-
 191-At first he meant to repaper the room, but afterwards he said that I was
 --
 --
 193-patient than to give way to such fancies.
 194-
-195:He said that after the [01;31m[Kwallpaper[m[K was changed it would be the heavy
+195:He said that after the <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span> was changed it would be the heavy
 196-bedstead, and then the barred windows, and then that gate at the head of
 197-the stairs, and so on.
 --
 --
 267-saw such ravages as the children have made here.
 268-
-269:The [01;31m[Kwallpaper[m[K, as I said before, is torn off in spots, and it sticketh
+269:The <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>, as I said before, is torn off in spots, and it sticketh
 270-closer than a brother—they must have had perseverance as well as
 271-hatred.
 --
 --
 292-elms and velvet meadows.
 293-
-294:This [01;31m[Kwallpaper[m[K has a kind of sub-pattern in a different shade, a
+294:This <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span> has a kind of sub-pattern in a different shade, a
 295-particularly irritating one, for you can only see it in certain lights,
 296-and not clearly then.
 --
 --
 331-porch under the roses, and lie down up here a good deal.
 332-
-333:I’m getting really fond of the room in spite of the [01;31m[Kwallpaper[m[K. Perhaps
-334:because of the [01;31m[Kwallpaper[m[K.
+333:I’m getting really fond of the room in spite of the <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>. Perhaps
+334:because of the <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>.
 335-
 336-It dwells in my mind so!
 --
 --
 410-
 411-There’s one comfort, the baby is well and happy, and does not have to
-412:occupy this nursery with the horrid [01;31m[Kwallpaper[m[K.
+412:occupy this nursery with the horrid <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>.
 413-
 414-If we had not used it that blessed child would have! What a fortunate
 --
 --
 443-
 444-John was asleep and I hated to waken him, so I kept still and watched the
-445:moonlight on that undulating [01;31m[Kwallpaper[m[K till I felt creepy.
+445:moonlight on that undulating <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span> till I felt creepy.
 446-
 447-The faint figure behind seemed to shake the pattern, just as if she wanted
 --
 --
 575-
 576-John is so pleased to see me improve! He laughed a little the other day,
-577:and said I seemed to be flourishing in spite of my [01;31m[Kwallpaper[m[K.
+577:and said I seemed to be flourishing in spite of my <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>.
 578-
 579-I turned it off with a laugh. I had no intention of telling him it was
 --
 --
 578-
 579-I turned it off with a laugh. I had no intention of telling him it was
-580:because of the [01;31m[Kwallpaper[m[K—he would make fun of me. He might even
+580:because of the <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>—he would make fun of me. He might even
 581-want to take me away.
 582-
 --
 --
 592-over it. I cannot keep count of them, though I have tried conscientiously.
 593-
-594:It is the strangest yellow, that [01;31m[Kwallpaper[m[K! It makes me think of all the
+594:It is the strangest yellow, that <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span>! It makes me think of all the
 595-yellow things I ever saw—not beautiful ones like buttercups, but old
 596-foul, bad yellow things.
 --
 --
 803-those creeping women, and they creep so fast.
 804-
-805:I wonder if they all come out of that [01;31m[Kwallpaper[m[K as I did?
+805:I wonder if they all come out of that <span class=" -Color -Color-Bold -Color-Bold-Red">wallpaper</span> as I did?
 806-
 807-But I am securely fastened now by my well-hidden rope—you don’t get
 </pre></div>

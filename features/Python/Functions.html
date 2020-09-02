@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,6 +346,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Functions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -419,7 +421,7 @@
 <p>Then, on the following lines, you indent one tab over and write some code that you want your function to perform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_beyonce_lyrics</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_beyonce_lyrics</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Okay, okay, ladies, now let&#39;s get in formation, &#39;cause I slay&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Okay, ladies, now let&#39;s get in formation, &#39;cause I slay&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prove to me you got some coordination, &#39;cause I slay&quot;</span><span class="p">)</span>
@@ -433,7 +435,7 @@
 <p>If you don’t indent the line following the definition of the function, you will get an error. Behold the importance of the indent:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_beyonce_lyrics</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_beyonce_lyrics</span><span class="p">():</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Okay, okay, ladies, now let&#39;s get in formation, &#39;cause I slay&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Okay, ladies, now let&#39;s get in formation, &#39;cause I slay&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prove to me you got some coordination, &#39;cause I slay&quot;</span><span class="p">)</span>
@@ -457,12 +459,12 @@
 <p>To use or “call” a function, you simply type the name of the function with parentheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_beyonce_lyrics</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_beyonce_lyrics</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Okay, okay, ladies, now let&#39;s get in formation, &#39;cause I slay
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Okay, okay, ladies, now let&#39;s get in formation, &#39;cause I slay
 Okay, ladies, now let&#39;s get in formation, &#39;cause I slay
 Prove to me you got some coordination, &#39;cause I slay
 Slay trick, or you get eliminated
@@ -472,7 +474,7 @@ Slay trick, or you get eliminated
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_happy_birthday</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_happy_birthday</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday dear human life form&quot;</span><span class="p">)</span>
@@ -484,12 +486,12 @@ Slay trick, or you get eliminated
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_happy_birthday</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_happy_birthday</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
 Happy Birthday to you
 Happy Birthday dear human life form
 Happy Birthday to you
@@ -509,7 +511,7 @@ Happy Birthday to you
 <p>Since parameters and arguments are so interrelated, they’re sometimes confused for each other. You can read <a class="reference external" href="https://docs.python.org/3.3/faq/programming.html#faq-argument-vs-parameter">Python’s official distinction here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_personalized_happy_birthday</span><span class="p">(</span><span class="n">personalized_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_personalized_happy_birthday</span><span class="p">(</span><span class="n">personalized_name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Happy Birthday dear </span><span class="si">{</span><span class="n">personalized_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -523,7 +525,7 @@ Happy Birthday to you
 <p>Once you set a parameter that requires an argument, you have to pass something inside the function for the function to run. So if we run <code class="docutils literal notranslate"><span class="pre">sing_personalized_happy_birthday()</span></code> as we did with <code class="docutils literal notranslate"><span class="pre">sing_happy_birthday()</span></code>, it won’t work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -541,12 +543,12 @@ Happy Birthday to you
 <p>This error is telling us that we have to pass in a value or “argument.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="s2">&quot;Beyonce&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="s2">&quot;Beyonce&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
 Happy Birthday to you
 Happy Birthday dear Beyonce
 Happy Birthday to you
@@ -556,12 +558,12 @@ Happy Birthday to you
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="s2">&quot;Carly Rae Jepsen&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="s2">&quot;Carly Rae Jepsen&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
 Happy Birthday to you
 Happy Birthday dear Carly Rae Jepsen
 Happy Birthday to you
@@ -571,7 +573,7 @@ Happy Birthday to you
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="c1">#Insert Your Name Here)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_personalized_happy_birthday</span><span class="p">(</span><span class="c1">#Insert Your Name Here)</span>
 </pre></div>
 </div>
 </div>
@@ -583,7 +585,7 @@ Happy Birthday to you
 <p>But you can also explicitly define your arguments with keyword arguments that use an <code class="docutils literal notranslate"><span class="pre">=</span></code> sign, which can become more useful if you have multiple parameters. This can also be a way of setting default values in your functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_keyword_happy_birthday</span><span class="p">(</span><span class="n">to_name</span><span class="o">=</span><span class="s1">&#39;Beyonce&#39;</span><span class="p">,</span> <span class="n">from_name</span><span class="o">=</span><span class="s1">&#39;Info 1350&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing_keyword_happy_birthday</span><span class="p">(</span><span class="n">to_name</span><span class="o">=</span><span class="s1">&#39;Beyonce&#39;</span><span class="p">,</span> <span class="n">from_name</span><span class="o">=</span><span class="s1">&#39;Info 1350&#39;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday to you&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Happy Birthday dear </span><span class="si">{</span><span class="n">to_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -597,12 +599,12 @@ Happy Birthday to you
 <p>For example, if we don’t pass in any arguments into this function, it will use the default arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_keyword_happy_birthday</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_keyword_happy_birthday</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
 Happy Birthday to you
 Happy Birthday dear Beyonce
 Happy Birthday to you
@@ -616,12 +618,12 @@ Info 1350
 <p>But if we set the keyword arguments to different values—even if we switch the order or position of the arguments!—the function will know which arguments they’re supposed to be.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sing_keyword_happy_birthday</span><span class="p">(</span><span class="n">from_name</span><span class="o">=</span><span class="s2">&quot;Big Bird&quot;</span><span class="p">,</span> <span class="n">to_name</span><span class="o">=</span><span class="s2">&quot;Cookie Monster&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sing_keyword_happy_birthday</span><span class="p">(</span><span class="n">from_name</span><span class="o">=</span><span class="s2">&quot;Big Bird&quot;</span><span class="p">,</span> <span class="n">to_name</span><span class="o">=</span><span class="s2">&quot;Cookie Monster&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy Birthday to you
 Happy Birthday to you
 Happy Birthday dear Cookie Monster
 Happy Birthday to you
@@ -638,7 +640,7 @@ Big Bird
 <p>In all of the examples above, we weren’t returning any specific value, just using <code class="docutils literal notranslate"><span class="pre">print()</span></code> statements. But sometimes you want a specific value out of your function. For example, if we want to make a function that transforms a bit of text into very loud-sounding text, then we’ll want to <code class="docutils literal notranslate"><span class="pre">return</span></code> that loud-sounding text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_shouty</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_shouty</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">shouty_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">shouty_text</span>
 </pre></div>
@@ -647,19 +649,19 @@ Big Bird
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_shouty</span><span class="p">(</span><span class="s2">&quot;I like tacos&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_shouty</span><span class="p">(</span><span class="s2">&quot;I like tacos&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;I LIKE TACOS&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I LIKE TACOS&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_shoutier</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_shoutier</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">shouty_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
     <span class="n">shoutier_text</span> <span class="o">=</span> <span class="n">shouty_text</span> <span class="o">+</span> <span class="s1">&#39;!!!&#39;</span>
     <span class="k">return</span> <span class="n">shoutier_text</span>
@@ -669,19 +671,19 @@ Big Bird
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_shoutier</span><span class="p">(</span><span class="s2">&quot;I like tacos&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_shoutier</span><span class="p">(</span><span class="s2">&quot;I like tacos&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;I LIKE TACOS!!!&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I LIKE TACOS!!!&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_dog_years_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_dog_years_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
     <span class="n">dog_years_age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="mi">7</span>
     <span class="k">return</span> <span class="n">dog_years_age</span>
 </pre></div>
@@ -690,12 +692,12 @@ Big Bird
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_dog_years_age</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_dog_years_age</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>364
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>364
 </pre></div>
 </div>
 </div>
@@ -706,7 +708,7 @@ Big Bird
 <p>Make a function called <code class="docutils literal notranslate"><span class="pre">make_text_whispery</span></code> that transforms text to lower case</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
     <span class="n">whispery_text</span> <span class="o">=</span> <span class="c1">#Your Code HEre</span>
     <span class="k">return</span> <span class="c1">#Your Code Here</span>
 </pre></div>
@@ -716,12 +718,12 @@ Big Bird
 <p>Now insert the string “I AM WHISPERING” into <code class="docutils literal notranslate"><span class="pre">make_text_whispery</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;i am whispering&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;i am whispering&#39;
 </pre></div>
 </div>
 </div>

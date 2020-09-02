@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -330,6 +327,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/Named-Entity-Recognition.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -941,7 +943,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <h3>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install -U spacy
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U spacy
 </pre></div>
 </div>
 </div>
@@ -952,7 +954,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>We’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
 <span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -969,7 +971,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>Next we need to download the English-language model (<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>), which will be processing and making predictions about our texts. This is the model that was trained on the annotated “OntoNotes” corpus. You can download the <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> model by running the cell below:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python -m spacy download en_core_web_sm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download en_core_web_sm
 </pre></div>
 </div>
 </div>
@@ -982,7 +984,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p><strong>1.</strong> We can import the model as a module and then load it from the module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">en_core_web_sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">en_core_web_sm</span>
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">en_core_web_sm</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -991,7 +993,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p><strong>2.</strong> We can load the model by name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#nlp = spacy.load(&#39;en_core_web_sm&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nlp = spacy.load(&#39;en_core_web_sm&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1008,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>In the cell below, we open and read Ada Lovelace’s obituary. Then we run<code class="docutils literal notranslate"><span class="pre">nlp()</span></code> on the text and create our document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/1852-Ada-Lovelace.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/1852-Ada-Lovelace.txt&quot;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
@@ -1083,7 +1085,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>To quickly see spaCy’s NER in action, we can use the <a class="reference external" href="https://spacy.io/usage/visualizers#ent">spaCy module <code class="docutils literal notranslate"><span class="pre">displacy</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">style=</span></code> parameter set to “ent”  (short for entities):</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1534,12 +1536,12 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>All the named entities in our <code class="docutils literal notranslate"><span class="pre">document</span></code> can be found in the <code class="docutils literal notranslate"><span class="pre">document.ents</span></code> property. If we check out <code class="docutils literal notranslate"><span class="pre">document.ents</span></code>, we can see all the entities from Ada Lovelace’s obituary.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">ents</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">ents</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(first,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(first,
  CLAIRE,
  A century,
  Ada Lovelace,
@@ -1634,7 +1636,7 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>For each <code class="docutils literal notranslate"><span class="pre">named_entity</span></code> in <code class="docutils literal notranslate"><span class="pre">document.ents</span></code>, we will extract the <code class="docutils literal notranslate"><span class="pre">named_entity</span></code> and its corresponding <code class="docutils literal notranslate"><span class="pre">named_entity.label_</span></code>.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">named_entity</span><span class="p">,</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1643,14 +1645,14 @@ Getty Images</br></br> Lovelace showed a passion for math and mechanics from a y
 <p>To extract just the named entities that have been identified as <code class="docutils literal notranslate"><span class="pre">PERSON</span></code>, we can add a simple <code class="docutils literal notranslate"><span class="pre">if</span></code> statement into the mix:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;PERSON&quot;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">named_entity</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Charles Babbage
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Charles Babbage
 Jacob Bernoulli
 Walter Isaacson
 Lord Byron
@@ -1684,7 +1686,7 @@ Claire Cain Miller
 <p>For the rest of this lesson, we’re going to work with Edward P. Jones’s short story collection <em>Lost in the City</em>, specifically the first story, “The Girl Who Raised Pigeons.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Little-Women.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Little-Women.txt&quot;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1692,7 +1694,7 @@ Claire Cain Miller
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">number_of_chunks</span> <span class="o">=</span> <span class="mi">80</span>
 
 <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">/</span> <span class="n">number_of_chunks</span><span class="p">)</span>
@@ -1708,7 +1710,7 @@ Claire Cain Miller
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chunked_documents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">text_chunks</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunked_documents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">text_chunks</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1731,7 +1733,7 @@ Claire Cain Miller
 <p>To extract and count the people, we will use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that will pull out words only if their “ent” label matches “PERSON.”</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
@@ -4454,7 +4456,7 @@ Claire Cain Miller
 <p>To extract and count places, we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for “ent” labels that match “GPE” or “LOC.” These are the type labels for “counties cities, states” and “locations, mountain ranges, bodies of water.”</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;GPE&quot;</span> <span class="ow">or</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;LOC&quot;</span><span class="p">:</span>
@@ -5298,7 +5300,7 @@ Claire Cain Miller
 <p>To extract and count streets and parks (which show up a lot in <em>Lost in the City</em>!), we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for “ent” labels that match “FAC.” This is the type label for “buildings, airports, highways, bridges, etc.”</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;FAC&quot;</span><span class="p">:</span>
@@ -5487,7 +5489,7 @@ Claire Cain Miller
 <p>To extract and count works of art, we can follow a similar-ish model to the examples above. This time, however, we’re going to make our code even more economical and efficient (while still changing our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to match the “ent” label “WORK_OF_ART”).</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">works_of_art</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">works_of_art</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;WORK_OF_ART&quot;</span><span class="p">:</span>
@@ -6393,7 +6395,7 @@ Claire Cain Miller
 <h2>Get NER in Context<a class="headerlink" href="#get-ner-in-context" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="k">def</span> <span class="nf">get_ner_in_context</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">desired_ner_labels</span><span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
@@ -6425,39 +6427,21 @@ Claire Cain Miller
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">chunked_documents</span><span class="p">:</span>
     <span class="n">get_ner_in_context</span><span class="p">(</span><span class="s1">&#39;Jupiter&#39;</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
+<hr class="docutils" />
+<p><strong>LOC</strong></p>
+<p>By <strong>Jupiter</strong></p>
+<hr class="docutils" />
+<p><strong>WORK_OF_ART</strong></p>
+<p>A crash, a cry, and a laugh from Laurie, accompanied by the indecorous exclamation, &quot;<strong>Jupiter Ammon</strong>!</p>
+<hr class="docutils" />
+<p><strong>LOC</strong></p>
+<p>&quot;Twins, by <strong>Jupiter</strong>!</p>
 </div>
 </div>
 </div>
@@ -6533,7 +6517,7 @@ Claire Cain Miller
 <p>Open and read the text file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Obama-The-Audacity-of-Hope.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Obama-The-Audacity-of-Hope.txt&quot;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -6542,7 +6526,7 @@ Claire Cain Miller
 <p>To process <em>The Audacity of Hope</em> in smaller chunks (if working in Binder or on a computer with memory constraints):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chunked_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunked_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">chunked_documents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">chunked_text</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -6551,7 +6535,7 @@ Claire Cain Miller
 <p>To process <em>The Audacity of Hope</em> all at once (if working on a computer with a larger amount of memory):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6559,7 +6543,7 @@ Claire Cain Miller
 <p><strong>1.</strong> Choose a named entity from the possible spaCy named entities listed above. Extract, count, and make a dataframe from the most frequent named entities (of the type that you’ve chosen) in <em>The Audacity of Hope</em>. If you need help, study the examples above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here 👇 </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here 👇 </span>
 </pre></div>
 </div>
 </div>
