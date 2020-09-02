@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -294,6 +291,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Network-Analysis/Network-Analysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -414,7 +416,7 @@
 <h2>Install NetworkX<a class="headerlink" href="#install-networkx" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install networkx
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install networkx
 </pre></div>
 </div>
 </div>
@@ -424,7 +426,7 @@
 <h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_rows&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -470,14 +472,14 @@
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span>
 </pre></div>
 </div>
 </div>
@@ -2627,7 +2629,7 @@
 <h2>Create a Network From a Pandas DataFrame<a class="headerlink" href="#create-a-network-from-a-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">got_df</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">got_df</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2637,7 +2639,7 @@
 <h2>Output a Network File<a class="headerlink" href="#output-a-network-file" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">write_graphml</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;GOT-network.graphml&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">write_graphml</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;GOT-network.graphml&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2647,7 +2649,7 @@
 <h2>Draw a Simple Network<a class="headerlink" href="#draw-a-simple-network" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2657,7 +2659,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2672,12 +2674,12 @@
 <p>Who has the most number of connections in the network?</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DegreeView({&#39;Aemon&#39;: 5, &#39;Grenn&#39;: 4, &#39;Samwell&#39;: 15, &#39;Aerys&#39;: 4, &#39;Jaime&#39;: 24, &#39;Robert&#39;: 18, &#39;Tyrion&#39;: 36, &#39;Tywin&#39;: 22, &#39;Alliser&#39;: 3, &#39;Mance&#39;: 12, &#39;Amory&#39;: 1, &#39;Oberyn&#39;: 7, &#39;Arya&#39;: 19, &#39;Anguy&#39;: 2, &#39;Beric&#39;: 6, &#39;Bran&#39;: 14, &#39;Brynden&#39;: 8, &#39;Cersei&#39;: 20, &#39;Gendry&#39;: 4, &#39;Gregor&#39;: 12, &#39;Joffrey&#39;: 18, &#39;Jon&#39;: 26, &#39;Rickon&#39;: 6, &#39;Roose&#39;: 4, &#39;Sandor&#39;: 13, &#39;Thoros&#39;: 5, &#39;Balon&#39;: 6, &#39;Loras&#39;: 9, &#39;Belwas&#39;: 4, &#39;Barristan&#39;: 6, &#39;Illyrio&#39;: 1, &#39;Hodor&#39;: 4, &#39;Jojen&#39;: 4, &#39;Luwin&#39;: 2, &#39;Meera&#39;: 5, &#39;Nan&#39;: 2, &#39;Theon&#39;: 4, &#39;Brienne&#39;: 7, &#39;Bronn&#39;: 4, &#39;Podrick&#39;: 5, &#39;Lothar&#39;: 5, &#39;Walder&#39;: 8, &#39;Catelyn&#39;: 18, &#39;Edmure&#39;: 8, &#39;Hoster&#39;: 3, &#39;Jeyne&#39;: 2, &#39;Lysa&#39;: 10, &#39;Petyr&#39;: 7, &#39;Robb&#39;: 25, &#39;Roslin&#39;: 4, &#39;Sansa&#39;: 26, &#39;Stannis&#39;: 14, &#39;Elia&#39;: 5, &#39;Ilyn&#39;: 6, &#39;Meryn&#39;: 7, &#39;Pycelle&#39;: 4, &#39;Shae&#39;: 5, &#39;Varys&#39;: 7, &#39;Craster&#39;: 5, &#39;Karl&#39;: 1, &#39;Daario&#39;: 4, &#39;Drogo&#39;: 4, &#39;Irri&#39;: 4, &#39;Daenerys&#39;: 14, &#39;Aegon&#39;: 1, &#39;Jorah&#39;: 6, &#39;Kraznys&#39;: 1, &#39;Missandei&#39;: 2, &#39;Rakharo&#39;: 1, &#39;Rhaegar&#39;: 6, &#39;Viserys&#39;: 3, &#39;Worm&#39;: 1, &#39;Davos&#39;: 5, &#39;Cressen&#39;: 1, &#39;Salladhor&#39;: 1, &#39;Eddard&#39;: 12, &#39;Eddison&#39;: 3, &#39;Gilly&#39;: 4, &#39;Qyburn&#39;: 1, &#39;Renly&#39;: 8, &#39;Tommen&#39;: 5, &#39;Janos&#39;: 6, &#39;Bowen&#39;: 2, &#39;Kevan&#39;: 6, &#39;Margaery&#39;: 7, &#39;Myrcella&#39;: 4, &#39;Dalla&#39;: 3, &#39;Melisandre&#39;: 4, &#39;Orell&#39;: 1, &#39;Qhorin&#39;: 5, &#39;Rattleshirt&#39;: 4, &#39;Styr&#39;: 2, &#39;Val&#39;: 4, &#39;Ygritte&#39;: 4, &#39;Jon Arryn&#39;: 2, &#39;Lancel&#39;: 1, &#39;Olenna&#39;: 2, &#39;Marillion&#39;: 3, &#39;Robert Arryn&#39;: 3, &#39;Ellaria&#39;: 2, &#39;Mace&#39;: 3, &#39;Rickard&#39;: 2, &#39;Ramsay&#39;: 1, &#39;Chataya&#39;: 2, &#39;Shireen&#39;: 1, &#39;Doran&#39;: 1, &#39;Walton&#39;: 1})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DegreeView({&#39;Aemon&#39;: 5, &#39;Grenn&#39;: 4, &#39;Samwell&#39;: 15, &#39;Aerys&#39;: 4, &#39;Jaime&#39;: 24, &#39;Robert&#39;: 18, &#39;Tyrion&#39;: 36, &#39;Tywin&#39;: 22, &#39;Alliser&#39;: 3, &#39;Mance&#39;: 12, &#39;Amory&#39;: 1, &#39;Oberyn&#39;: 7, &#39;Arya&#39;: 19, &#39;Anguy&#39;: 2, &#39;Beric&#39;: 6, &#39;Bran&#39;: 14, &#39;Brynden&#39;: 8, &#39;Cersei&#39;: 20, &#39;Gendry&#39;: 4, &#39;Gregor&#39;: 12, &#39;Joffrey&#39;: 18, &#39;Jon&#39;: 26, &#39;Rickon&#39;: 6, &#39;Roose&#39;: 4, &#39;Sandor&#39;: 13, &#39;Thoros&#39;: 5, &#39;Balon&#39;: 6, &#39;Loras&#39;: 9, &#39;Belwas&#39;: 4, &#39;Barristan&#39;: 6, &#39;Illyrio&#39;: 1, &#39;Hodor&#39;: 4, &#39;Jojen&#39;: 4, &#39;Luwin&#39;: 2, &#39;Meera&#39;: 5, &#39;Nan&#39;: 2, &#39;Theon&#39;: 4, &#39;Brienne&#39;: 7, &#39;Bronn&#39;: 4, &#39;Podrick&#39;: 5, &#39;Lothar&#39;: 5, &#39;Walder&#39;: 8, &#39;Catelyn&#39;: 18, &#39;Edmure&#39;: 8, &#39;Hoster&#39;: 3, &#39;Jeyne&#39;: 2, &#39;Lysa&#39;: 10, &#39;Petyr&#39;: 7, &#39;Robb&#39;: 25, &#39;Roslin&#39;: 4, &#39;Sansa&#39;: 26, &#39;Stannis&#39;: 14, &#39;Elia&#39;: 5, &#39;Ilyn&#39;: 6, &#39;Meryn&#39;: 7, &#39;Pycelle&#39;: 4, &#39;Shae&#39;: 5, &#39;Varys&#39;: 7, &#39;Craster&#39;: 5, &#39;Karl&#39;: 1, &#39;Daario&#39;: 4, &#39;Drogo&#39;: 4, &#39;Irri&#39;: 4, &#39;Daenerys&#39;: 14, &#39;Aegon&#39;: 1, &#39;Jorah&#39;: 6, &#39;Kraznys&#39;: 1, &#39;Missandei&#39;: 2, &#39;Rakharo&#39;: 1, &#39;Rhaegar&#39;: 6, &#39;Viserys&#39;: 3, &#39;Worm&#39;: 1, &#39;Davos&#39;: 5, &#39;Cressen&#39;: 1, &#39;Salladhor&#39;: 1, &#39;Eddard&#39;: 12, &#39;Eddison&#39;: 3, &#39;Gilly&#39;: 4, &#39;Qyburn&#39;: 1, &#39;Renly&#39;: 8, &#39;Tommen&#39;: 5, &#39;Janos&#39;: 6, &#39;Bowen&#39;: 2, &#39;Kevan&#39;: 6, &#39;Margaery&#39;: 7, &#39;Myrcella&#39;: 4, &#39;Dalla&#39;: 3, &#39;Melisandre&#39;: 4, &#39;Orell&#39;: 1, &#39;Qhorin&#39;: 5, &#39;Rattleshirt&#39;: 4, &#39;Styr&#39;: 2, &#39;Val&#39;: 4, &#39;Ygritte&#39;: 4, &#39;Jon Arryn&#39;: 2, &#39;Lancel&#39;: 1, &#39;Olenna&#39;: 2, &#39;Marillion&#39;: 3, &#39;Robert Arryn&#39;: 3, &#39;Ellaria&#39;: 2, &#39;Mace&#39;: 3, &#39;Rickard&#39;: 2, &#39;Ramsay&#39;: 1, &#39;Chataya&#39;: 2, &#39;Shireen&#39;: 1, &#39;Doran&#39;: 1, &#39;Walton&#39;: 1})
 </pre></div>
 </div>
 </div>
@@ -2685,7 +2687,7 @@
 <p>Make the degree values a <code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary, then add it as a network “attribute” with <code class="docutils literal notranslate"><span class="pre">networkx.set_node_attributes()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">degrees</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2694,7 +2696,7 @@
 <p>Make a Pandas dataframe from the degree data <code class="docutils literal notranslate"><span class="pre">G.nodes(data='degree')</span></code>, then sort from highest to lowest</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degree_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">])</span>
 <span class="n">degree_df</span> <span class="o">=</span> <span class="n">degree_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">degree_df</span>
 </pre></div>
@@ -3266,7 +3268,7 @@
 <p>Plot the nodes with the highest degree values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">degree_df</span><span class="p">[:</span><span class="n">num_nodes_to_inspect</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3281,12 +3283,12 @@
 <p>Who has the most number of connections in the network (if you factor in edge weight)?</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DegreeView({&#39;Aemon&#39;: 74, &#39;Grenn&#39;: 81, &#39;Samwell&#39;: 282, &#39;Aerys&#39;: 37, &#39;Jaime&#39;: 372, &#39;Robert&#39;: 128, &#39;Tyrion&#39;: 551, &#39;Tywin&#39;: 204, &#39;Alliser&#39;: 29, &#39;Mance&#39;: 160, &#39;Amory&#39;: 5, &#39;Oberyn&#39;: 76, &#39;Arya&#39;: 269, &#39;Anguy&#39;: 15, &#39;Beric&#39;: 75, &#39;Bran&#39;: 344, &#39;Brynden&#39;: 55, &#39;Cersei&#39;: 226, &#39;Gendry&#39;: 59, &#39;Gregor&#39;: 117, &#39;Joffrey&#39;: 255, &#39;Jon&#39;: 442, &#39;Rickon&#39;: 81, &#39;Roose&#39;: 17, &#39;Sandor&#39;: 137, &#39;Thoros&#39;: 60, &#39;Balon&#39;: 29, &#39;Loras&#39;: 76, &#39;Belwas&#39;: 67, &#39;Barristan&#39;: 63, &#39;Illyrio&#39;: 10, &#39;Hodor&#39;: 177, &#39;Jojen&#39;: 125, &#39;Luwin&#39;: 8, &#39;Meera&#39;: 139, &#39;Nan&#39;: 18, &#39;Theon&#39;: 38, &#39;Brienne&#39;: 122, &#39;Bronn&#39;: 59, &#39;Podrick&#39;: 64, &#39;Lothar&#39;: 34, &#39;Walder&#39;: 87, &#39;Catelyn&#39;: 184, &#39;Edmure&#39;: 98, &#39;Hoster&#39;: 24, &#39;Jeyne&#39;: 28, &#39;Lysa&#39;: 108, &#39;Petyr&#39;: 89, &#39;Robb&#39;: 342, &#39;Roslin&#39;: 32, &#39;Sansa&#39;: 383, &#39;Stannis&#39;: 146, &#39;Elia&#39;: 29, &#39;Ilyn&#39;: 32, &#39;Meryn&#39;: 47, &#39;Pycelle&#39;: 24, &#39;Shae&#39;: 45, &#39;Varys&#39;: 49, &#39;Craster&#39;: 75, &#39;Karl&#39;: 6, &#39;Daario&#39;: 30, &#39;Drogo&#39;: 35, &#39;Irri&#39;: 33, &#39;Daenerys&#39;: 232, &#39;Aegon&#39;: 8, &#39;Jorah&#39;: 89, &#39;Kraznys&#39;: 10, &#39;Missandei&#39;: 30, &#39;Rakharo&#39;: 7, &#39;Rhaegar&#39;: 42, &#39;Viserys&#39;: 19, &#39;Worm&#39;: 14, &#39;Davos&#39;: 87, &#39;Cressen&#39;: 4, &#39;Salladhor&#39;: 16, &#39;Eddard&#39;: 108, &#39;Eddison&#39;: 24, &#39;Gilly&#39;: 69, &#39;Qyburn&#39;: 11, &#39;Renly&#39;: 55, &#39;Tommen&#39;: 31, &#39;Janos&#39;: 37, &#39;Bowen&#39;: 11, &#39;Kevan&#39;: 50, &#39;Margaery&#39;: 96, &#39;Myrcella&#39;: 18, &#39;Dalla&#39;: 21, &#39;Melisandre&#39;: 62, &#39;Orell&#39;: 6, &#39;Qhorin&#39;: 59, &#39;Rattleshirt&#39;: 44, &#39;Styr&#39;: 23, &#39;Val&#39;: 31, &#39;Ygritte&#39;: 82, &#39;Jon Arryn&#39;: 11, &#39;Lancel&#39;: 7, &#39;Olenna&#39;: 12, &#39;Marillion&#39;: 23, &#39;Robert Arryn&#39;: 19, &#39;Ellaria&#39;: 10, &#39;Mace&#39;: 20, &#39;Rickard&#39;: 11, &#39;Ramsay&#39;: 4, &#39;Chataya&#39;: 9, &#39;Shireen&#39;: 5, &#39;Doran&#39;: 5, &#39;Walton&#39;: 10})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DegreeView({&#39;Aemon&#39;: 74, &#39;Grenn&#39;: 81, &#39;Samwell&#39;: 282, &#39;Aerys&#39;: 37, &#39;Jaime&#39;: 372, &#39;Robert&#39;: 128, &#39;Tyrion&#39;: 551, &#39;Tywin&#39;: 204, &#39;Alliser&#39;: 29, &#39;Mance&#39;: 160, &#39;Amory&#39;: 5, &#39;Oberyn&#39;: 76, &#39;Arya&#39;: 269, &#39;Anguy&#39;: 15, &#39;Beric&#39;: 75, &#39;Bran&#39;: 344, &#39;Brynden&#39;: 55, &#39;Cersei&#39;: 226, &#39;Gendry&#39;: 59, &#39;Gregor&#39;: 117, &#39;Joffrey&#39;: 255, &#39;Jon&#39;: 442, &#39;Rickon&#39;: 81, &#39;Roose&#39;: 17, &#39;Sandor&#39;: 137, &#39;Thoros&#39;: 60, &#39;Balon&#39;: 29, &#39;Loras&#39;: 76, &#39;Belwas&#39;: 67, &#39;Barristan&#39;: 63, &#39;Illyrio&#39;: 10, &#39;Hodor&#39;: 177, &#39;Jojen&#39;: 125, &#39;Luwin&#39;: 8, &#39;Meera&#39;: 139, &#39;Nan&#39;: 18, &#39;Theon&#39;: 38, &#39;Brienne&#39;: 122, &#39;Bronn&#39;: 59, &#39;Podrick&#39;: 64, &#39;Lothar&#39;: 34, &#39;Walder&#39;: 87, &#39;Catelyn&#39;: 184, &#39;Edmure&#39;: 98, &#39;Hoster&#39;: 24, &#39;Jeyne&#39;: 28, &#39;Lysa&#39;: 108, &#39;Petyr&#39;: 89, &#39;Robb&#39;: 342, &#39;Roslin&#39;: 32, &#39;Sansa&#39;: 383, &#39;Stannis&#39;: 146, &#39;Elia&#39;: 29, &#39;Ilyn&#39;: 32, &#39;Meryn&#39;: 47, &#39;Pycelle&#39;: 24, &#39;Shae&#39;: 45, &#39;Varys&#39;: 49, &#39;Craster&#39;: 75, &#39;Karl&#39;: 6, &#39;Daario&#39;: 30, &#39;Drogo&#39;: 35, &#39;Irri&#39;: 33, &#39;Daenerys&#39;: 232, &#39;Aegon&#39;: 8, &#39;Jorah&#39;: 89, &#39;Kraznys&#39;: 10, &#39;Missandei&#39;: 30, &#39;Rakharo&#39;: 7, &#39;Rhaegar&#39;: 42, &#39;Viserys&#39;: 19, &#39;Worm&#39;: 14, &#39;Davos&#39;: 87, &#39;Cressen&#39;: 4, &#39;Salladhor&#39;: 16, &#39;Eddard&#39;: 108, &#39;Eddison&#39;: 24, &#39;Gilly&#39;: 69, &#39;Qyburn&#39;: 11, &#39;Renly&#39;: 55, &#39;Tommen&#39;: 31, &#39;Janos&#39;: 37, &#39;Bowen&#39;: 11, &#39;Kevan&#39;: 50, &#39;Margaery&#39;: 96, &#39;Myrcella&#39;: 18, &#39;Dalla&#39;: 21, &#39;Melisandre&#39;: 62, &#39;Orell&#39;: 6, &#39;Qhorin&#39;: 59, &#39;Rattleshirt&#39;: 44, &#39;Styr&#39;: 23, &#39;Val&#39;: 31, &#39;Ygritte&#39;: 82, &#39;Jon Arryn&#39;: 11, &#39;Lancel&#39;: 7, &#39;Olenna&#39;: 12, &#39;Marillion&#39;: 23, &#39;Robert Arryn&#39;: 19, &#39;Ellaria&#39;: 10, &#39;Mace&#39;: 20, &#39;Rickard&#39;: 11, &#39;Ramsay&#39;: 4, &#39;Chataya&#39;: 9, &#39;Shireen&#39;: 5, &#39;Doran&#39;: 5, &#39;Walton&#39;: 10})
 </pre></div>
 </div>
 </div>
@@ -3294,7 +3296,7 @@
 <p>Make the weighted degree values a <code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary, then add it as a network “attribute” with <code class="docutils literal notranslate"><span class="pre">networkx.set_node_attributes()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;Weight&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;Weight&#39;</span><span class="p">))</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;weighted_degree&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">weighted_degrees</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3303,7 +3305,7 @@
 <p>Make a Pandas dataframe from the degree data <code class="docutils literal notranslate"><span class="pre">G.nodes(data='weighted_degree')</span></code>, then sort from highest to lowest</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_degree_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;weighted_degree&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;weighted_degree&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_degree_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;weighted_degree&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;weighted_degree&#39;</span><span class="p">])</span>
 <span class="n">weighted_degree_df</span> <span class="o">=</span> <span class="n">weighted_degree_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;weighted_degree&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">weighted_degree_df</span>
 </pre></div>
@@ -3875,7 +3877,7 @@
 <p>Plot the nodes with the highest weighted degree values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">weighted_degree_df</span><span class="p">[:</span><span class="n">num_nodes_to_inspect</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;weighted_degree&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3890,12 +3892,12 @@
 <p>Who connects the most other nodes in the network?</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;Aemon&#39;: 0.004622508177397137,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Aemon&#39;: 0.004622508177397137,
  &#39;Grenn&#39;: 5.989817310572027e-05,
  &#39;Samwell&#39;: 0.03227262859511145,
  &#39;Aerys&#39;: 0.0,
@@ -4008,7 +4010,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">betweenness_centrality</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betweenness_centrality</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4016,7 +4018,7 @@
 <p>Add <code class="docutils literal notranslate"><span class="pre">betweenness_centrality</span></code> (which is already a dictionary) as a network “attribute” with <code class="docutils literal notranslate"><span class="pre">networkx.set_node_attributes()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">betweenness_centrality</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">betweenness_centrality</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4024,7 +4026,7 @@
 <p>Make a Pandas dataframe from the betweenness data <code class="docutils literal notranslate"><span class="pre">G.nodes(data='betweenness')</span></code>, then sort from highest to lowest</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">betweenness_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;betweenness&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betweenness_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;betweenness&#39;</span><span class="p">])</span>
 <span class="n">betweenness_df</span> <span class="o">=</span> <span class="n">betweenness_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">betweenness_df</span>
 </pre></div>
@@ -4596,7 +4598,7 @@
 <p>Plot the nodes with the highest betweenness centrality scores</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_nodes_to_inspect</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">betweenness_df</span><span class="p">[:</span><span class="n">num_nodes_to_inspect</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4611,7 +4613,7 @@
 <p>Who forms distinct communities within this network?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">networkx.algorithms</span> <span class="kn">import</span> <span class="n">community</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">networkx.algorithms</span> <span class="kn">import</span> <span class="n">community</span>
 </pre></div>
 </div>
 </div>
@@ -4619,19 +4621,19 @@
 <p>Calculate communities with <code class="docutils literal notranslate"><span class="pre">community.greedy_modularity_communities()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">greedy_modularity_communities</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">greedy_modularity_communities</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[frozenset({&#39;Aerys&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[frozenset({&#39;Aerys&#39;,
             &#39;Amory&#39;,
             &#39;Balon&#39;,
             &#39;Bronn&#39;,
@@ -4742,7 +4744,7 @@
 <p>Make a <code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary by looping through the communities and, for each member of the community, adding their community number</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dictionary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dictionary</span>
 <span class="n">modularity_class</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="c1">#Loop through each community in the network</span>
 <span class="k">for</span> <span class="n">community_number</span><span class="p">,</span> <span class="n">community</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">communities</span><span class="p">):</span>
@@ -4756,7 +4758,7 @@
 <p>Add modularity class to the network as an attribute</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">modularity_class</span><span class="p">,</span> <span class="s1">&#39;modularity_class&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">modularity_class</span><span class="p">,</span> <span class="s1">&#39;modularity_class&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4764,7 +4766,7 @@
 <p>Make a Pandas dataframe from modularity class network data <code class="docutils literal notranslate"><span class="pre">G.nodes(data='modularity_class')</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;modularity_class&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;modularity_class&#39;</span><span class="p">])</span>
 <span class="n">communities_df</span> <span class="o">=</span> <span class="n">communities_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4772,7 +4774,7 @@
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span>
 </pre></div>
 </div>
 </div>
@@ -5342,35 +5344,35 @@
 <p>Inspect each community in the network</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">communities_df</span><span class="p">[</span><span class="n">communities_df</span><span class="p">[</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -5378,14 +5380,14 @@
 <p>Plot a sample of 40 characters with their modularity class indicated by a star</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set figure size</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set figure size</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 
 <span class="c1">#Plot a categorical scatter plot from the dataframe communities_df.sample(40)</span>
@@ -5405,7 +5407,7 @@
 <p>Plot all GOT characters with their modularity class indicated by a star (tak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span>
 
@@ -5421,7 +5423,7 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/Network-Analysis_75_0.png" src="../../_images/Network-Analysis_75_0.png" />
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0:01:07.423365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:01:07.423365
 </pre></div>
 </div>
 </div>
@@ -5432,7 +5434,7 @@
 <p>Create a Pandas dataframe of all network attributes by creating a <code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary of <code class="docutils literal notranslate"><span class="pre">G.nodes(data=True)</span></code>…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -5440,7 +5442,7 @@
 <p>…and then <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.T.html">transposing it</a> (flipping the columns and rows) with <code class="docutils literal notranslate"><span class="pre">.T</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">nodes_df</span>
 </pre></div>
 </div>
@@ -5448,7 +5450,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

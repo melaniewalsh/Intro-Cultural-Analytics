@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,6 +346,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Comparisons-Conditionals.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -489,20 +491,20 @@
 <p>Here’s how we would write out this last example in Python code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Congratulations, Beyonce!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Congratulations, Beyonce!
 </pre></div>
 </div>
 </div>
@@ -543,14 +545,14 @@
 <p>Is the variable <code class="docutils literal notranslate"><span class="pre">person1</span></code> greater than <code class="docutils literal notranslate"><span class="pre">person1</span></code>?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="mf">30.5</span>
 <span class="n">person1</span> <span class="o">&gt;</span> <span class="n">person2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -561,14 +563,14 @@
 <p>Is the variable <code class="docutils literal notranslate"><span class="pre">person1</span></code> not equal to <code class="docutils literal notranslate"><span class="pre">person1</span></code>?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="mf">30.5</span>
 <span class="n">person1</span> <span class="o">!=</span> <span class="n">person2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -598,14 +600,14 @@
 <p>What will happen if we check whether <code class="docutils literal notranslate"><span class="pre">person1</span> <span class="pre">&gt;</span> <span class="pre">30</span></code> and <code class="docutils literal notranslate"><span class="pre">person2</span> <span class="pre">&gt;</span> <span class="pre">30</span></code>?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="mf">30.5</span>
 <span class="n">person1</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">person2</span> <span class="o">&gt;</span> <span class="mi">30</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -613,14 +615,14 @@
 <p>The boolean answer is <code class="docutils literal notranslate"><span class="pre">False</span></code> because <code class="docutils literal notranslate"><span class="pre">person1</span></code> is not greater than 30 (<code class="docutils literal notranslate"><span class="pre">person1</span></code> is exactly 30) even though <code class="docutils literal notranslate"><span class="pre">person2</span></code> is greater than 30. The <code class="docutils literal notranslate"><span class="pre">and</span></code> requires that both conditions are <code class="docutils literal notranslate"><span class="pre">True.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="mf">30.5</span>
 <span class="n">person1</span> <span class="o">&gt;=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">person2</span> <span class="o">&gt;=</span> <span class="mi">30</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -632,14 +634,14 @@
 <p>What will happen if we check whether <code class="docutils literal notranslate"><span class="pre">person1</span> <span class="pre">&gt;</span> <span class="pre">30</span></code> or <code class="docutils literal notranslate"><span class="pre">person2</span> <span class="pre">&gt;</span> <span class="pre">30</span></code>?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="mf">30.5</span>
 <span class="n">person1</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">or</span> <span class="n">person2</span> <span class="o">&gt;</span> <span class="mi">30</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -659,20 +661,20 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Congratulations, Beyonce!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Congratulations, Beyonce!
 </pre></div>
 </div>
 </div>
@@ -680,7 +682,7 @@
 <p>Python is picky about how you format <code class="docutils literal notranslate"><span class="pre">if</span></code> statements. Look what happens if we forget to tab over on the second line or if we forget the colon:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -696,7 +698,7 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -717,14 +719,14 @@
 <p>You can add even more complexity in a conditional by adding an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement. This will instruct the program to do something in case the condition is not met. An <code class="docutils literal notranslate"><span class="pre">else</span></code> comes after an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and should be formatted it the same way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;not a Grammy award-winner this year&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;not a Grammy award-winner this year&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;They messed up, Beyonce.&quot;</span><span class="p">)</span>
@@ -732,7 +734,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>They messed up, Beyonce.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>They messed up, Beyonce.
 </pre></div>
 </div>
 </div>
@@ -744,14 +746,14 @@
 <p>You can add in this nuance with an <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement, short for <em>else if</em>. The computer will evaluate the first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. If that statement is not <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will then evaluate the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-nominee&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-nominee&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations, Beyonce!&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-nominee&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ok well at least they nominated you, Beyonce.&quot;</span><span class="p">)</span>
@@ -761,7 +763,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Ok well at least they nominated you, Beyonce.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ok well at least they nominated you, Beyonce.
 </pre></div>
 </div>
 </div>
@@ -1033,7 +1035,7 @@
 <h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1_name</span> <span class="o">=</span> <span class="s1">&#39;Mary Gallagher&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1_name</span> <span class="o">=</span> <span class="s1">&#39;Mary Gallagher&#39;</span>
 <span class="n">person1_age</span> <span class="o">=</span> <span class="mi">28</span>
 <span class="n">person1_disease</span> <span class="o">=</span> <span class="s1">&#39;recent emigrant&#39;</span>
 <span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;married&#39;</span>
@@ -1046,13 +1048,13 @@
 <p>Write an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that reports whether <code class="docutils literal notranslate"><span class="pre">person1_age</span></code> is less than 30 years old</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is less than 30 years old.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is less than 30 years old.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is less than 30 years old.
 </pre></div>
 </div>
 </div>
@@ -1063,13 +1065,13 @@
 <p>Write an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that reports whether <code class="docutils literal notranslate"><span class="pre">person1_profession</span></code> is “married”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is married.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is married.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is married.
 </pre></div>
 </div>
 </div>
@@ -1080,13 +1082,13 @@
 <p>Write an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that reports whether <code class="docutils literal notranslate"><span class="pre">person1_age</span></code> is less than 30 years old <em>and</em> <code class="docutils literal notranslate"><span class="pre">person1_profession</span></code> is “married”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is less than 30 years old and married.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is less than 30 years old and married.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is less than 30 years old and married.
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1098,7 @@
 <h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person2_name</span> <span class="o">=</span> <span class="s1">&#39;Anthony Clark&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person2_name</span> <span class="o">=</span> <span class="s1">&#39;Anthony Clark&#39;</span>
 <span class="n">person2_age</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">person2_disease</span> <span class="o">=</span> <span class="s1">&#39;recent emigrant&#39;</span>
 <span class="n">person2_profession</span> <span class="o">=</span> <span class="s1">&#39;laborer&#39;</span>
@@ -1109,7 +1111,7 @@
 <p>Combine an<code class="docutils literal notranslate"><span class="pre">if</span></code> statement with an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement that will report whether <code class="docutils literal notranslate"><span class="pre">person2_age</span></code> is less than 30 years old or, if not, more than 30 years old</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is less than 30 years old.&#39;</span><span class="p">)</span>
 <span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is more than 30 years old.&#39;</span><span class="p">)</span>
@@ -1117,7 +1119,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is more than 30 years old.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is more than 30 years old.
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1129,7 @@
 <h3>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person3_name</span> <span class="o">=</span> <span class="s1">&#39;Margaret Farrell&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person3_name</span> <span class="o">=</span> <span class="s1">&#39;Margaret Farrell&#39;</span>
 <span class="n">person3_age</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">person3_disease</span> <span class="o">=</span> <span class="s1">&#39;recent emigrant&#39;</span>
 <span class="n">person3_profession</span> <span class="o">=</span> <span class="s1">&#39;widow&#39;</span>
@@ -1140,7 +1142,7 @@
 <p>Add an <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement that reports whether <code class="docutils literal notranslate"><span class="pre">person3_age</span></code> is exactly 30 years old</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is less than 30 years old.&#39;</span><span class="p">)</span>
 <span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is exactly 30 years old.&#39;</span><span class="p">)</span>
@@ -1150,7 +1152,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is exactly 30 years old.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is exactly 30 years old.
 </pre></div>
 </div>
 </div>
@@ -1160,7 +1162,7 @@
 <h3>Exercise 6<a class="headerlink" href="#exercise-6" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1_child_status</span> <span class="o">=</span> <span class="s1">&#39;Child Alana 10 days&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1_child_status</span> <span class="o">=</span> <span class="s1">&#39;Child Alana 10 days&#39;</span>
 <span class="n">person3_child_status</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
@@ -1169,13 +1171,13 @@
 <p>Write an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that will report whether <code class="docutils literal notranslate"><span class="pre">person1_child_status</span></code> includes children</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person has children.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person has children.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person has children.
 </pre></div>
 </div>
 </div>
@@ -1191,7 +1193,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">person1_child_status</span> <span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">person1_child_status</span> <span class="c1">#Your Code Here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person has children.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1199,7 +1201,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">person2_child_status</span> <span class="c1">#Same Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">person2_child_status</span> <span class="c1">#Same Code Here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person has children.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1210,7 +1212,7 @@
 <h3>Excerise 8<a class="headerlink" href="#excerise-8" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;married&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;married&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1220,7 @@
 <p>Write a conditional that will report whether <code class="docutils literal notranslate"><span class="pre">person1_profession</span></code> is “married,” “laborer,” “widow,” or “unknown profession.” Then test your code by reassigning the variable as indicated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is married.&#39;</span><span class="p">)</span>
 <span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is a laborer.&#39;</span><span class="p">)</span>
@@ -1230,21 +1232,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is married.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is married.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;laborer&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;laborer&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is married.&#39;</span><span class="p">)</span>
 <span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is a laborer.&#39;</span><span class="p">)</span>
@@ -1256,21 +1258,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person is a laborer.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person is a laborer.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person1_profession</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is married.&#39;</span><span class="p">)</span>
 <span class="c1">#Your code here</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Person is a laborer.&#39;</span><span class="p">)</span>
@@ -1282,7 +1284,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person has unknown profession.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person has unknown profession.
 </pre></div>
 </div>
 </div>
@@ -1292,7 +1294,7 @@
 <h3>Exercise 9<a class="headerlink" href="#exercise-9" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">person4_name</span> <span class="o">=</span> <span class="s1">&#39;John Sanin(?)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person4_name</span> <span class="o">=</span> <span class="s1">&#39;John Sanin(?)&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1305,13 +1307,13 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;(?)&quot;</span> <span class="ow">in</span> <span class="n">person2_name</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;(?)&quot;</span> <span class="ow">in</span> <span class="n">person2_name</span><span class="p">:</span>
     <span class="c1">#Your code here</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>John Sanin
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Sanin
 </pre></div>
 </div>
 </div>

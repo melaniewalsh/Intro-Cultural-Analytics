@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,6 +346,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Common-Python-Errors.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -406,7 +408,7 @@
 <p>A <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> means that something has gone wrong with your Python syntax, aka the arrangement of words and punctuation in your code. Often, as below, this error will result from forgetting a closing quotation mark in a string or from forgetting a colon in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hope this goes off without a hitch!)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hope this goes off without a hitch!)</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +423,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -442,7 +444,7 @@
 <p>A <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> means that whatever file name you’ve typed in cannot be located. Often, this error will result from simple typos in the file name or from not pointing to the correct directory which contains the file. Double check your spelling and where your desired file is located relative to your Python code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../Wrong-Directory/File-Name.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../Wrong-Directory/File-Name.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -463,14 +465,14 @@
 <p>A <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> means that you’re trying to perform a function or operation on something that is not the correct data type for that function or operation. For example, if you try to divide by a variable that is a string, rather than an integer or float (as in the example below), a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> will be thrown. Double check your data types with the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">=</span> <span class="s2">&quot;Beyoncé&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">=</span> <span class="s2">&quot;Beyoncé&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">/</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -487,12 +489,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">favorite_artist</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">favorite_artist</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
@@ -503,14 +505,14 @@
 <p>A <code class="docutils literal notranslate"><span class="pre">NameError</span></code> means that the variable name that you’re using cannot be found. Often, this error results from forgetting to run the cell that defines your variable or from misspelling the name of your variable, as below. Check your spelling and make sure you’ve run all necessary cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">=</span> <span class="s2">&quot;Beyoncé&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span> <span class="o">=</span> <span class="s2">&quot;Beyoncé&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_arteest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_arteest</span>
 </pre></div>
 </div>
 </div>
@@ -531,19 +533,19 @@
 <p>An <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> means that you’re trying to access something from an object that that object doesn’t possess or do something with an object that that object cannot do. For example, to transform the variable <code class="docutils literal notranslate"><span class="pre">favorite_artist</span></code> (which contains the string “Beyoncé”) from title case to uppercase, we can run <code class="docutils literal notranslate"><span class="pre">favorite_arist.upper()</span></code> because <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> is a built-in string method. But if we forget the name of that string method and instead type <code class="docutils literal notranslate"><span class="pre">.uppercase()</span></code>, which is not an existing string method, then an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> will be raised.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;BEYONCÉ&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;BEYONCÉ&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span><span class="o">.</span><span class="n">uppercase</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_artist</span><span class="o">.</span><span class="n">uppercase</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

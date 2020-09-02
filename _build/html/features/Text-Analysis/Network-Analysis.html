@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -275,6 +272,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/Network-Analysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -300,7 +302,7 @@
 <h1>Named Entity Recognition — Cluster Characters<a class="headerlink" href="#named-entity-recognition-cluster-characters" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install spacy</span>
 <span class="c1">#!python -m spacy download en_core_web_sm</span>
 </pre></div>
 </div>
@@ -308,49 +310,49 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install fuzzywuzzy
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install fuzzywuzzy
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install python-Levenshtein
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install python-Levenshtein
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> 
 <span class="kn">from</span> <span class="nn">networkx.algorithms.components.connected</span> <span class="kn">import</span> <span class="n">connected_components</span><span class="p">,</span> <span class="n">node_connected_component</span>
 </pre></div>
 </div>
@@ -358,7 +360,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="kn">import</span> <span class="n">fuzz</span>
 </pre></div>
 </div>
@@ -366,7 +368,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 </pre></div>
 </div>
@@ -374,14 +376,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">en_core_web_sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">en_core_web_sm</span>
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">en_core_web_sm</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -389,35 +391,35 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#nlp = spacy.load(&#39;en_core_web_sm&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nlp = spacy.load(&#39;en_core_web_sm&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Jones-Lost-in-The-City.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Jones-Lost-in-The-City.txt&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -27042,7 +27044,7 @@
 <p>Extract list of all named entities labeled “PERSON”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spacy_identified_people</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spacy_identified_people</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;PERSON&quot;</span><span class="p">:</span>
@@ -27055,7 +27057,7 @@
 <p>Output list of identified to a CSV file and manually edit by hand</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">spacy_identified_people</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;spacy-identified-people.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">spacy_identified_people</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;spacy-identified-people.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -27063,14 +27065,14 @@
 <p>Re-upload CSV file for accurate list of people</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spacy_identified_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spacy-identified-people.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spacy_identified_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spacy-identified-people.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_people_matches</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_people_matches</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">all_people_matches_plus_ids</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1">#Get all entity matches for a previously identified person</span>
@@ -27090,7 +27092,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_people_matches</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_people_matches</span><span class="p">)</span>
 <span class="n">character_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">people_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">())</span>
 <span class="n">character_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
 
@@ -28962,7 +28964,7 @@
 <p>spaCy doesn’t know that “Betsy Ann Morgan” and “Betsy Ann” should be the same person. So we’re also going to pair two character names if they’re an extremely close match and they occur within 800 characters of one another.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 <span class="n">aggregated_people</span> <span class="o">=</span> <span class="p">[]</span>
@@ -28985,7 +28987,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0:00:02.834621
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:02.834621
 </pre></div>
 </div>
 </div>
@@ -28993,7 +28995,7 @@
 <p>With itertools (slightly faster)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 <span class="n">aggregated_people</span> <span class="o">=</span> <span class="p">[]</span>
@@ -29015,7 +29017,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0:00:01.610970
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:01.610970
 </pre></div>
 </div>
 </div>
@@ -29025,7 +29027,7 @@
 <h1>Make a network!<a class="headerlink" href="#make-a-network" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 <span class="n">edge_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -29046,14 +29048,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0:00:00.946120
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:00.946120
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">edge_list</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character_pair&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">edge_list</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character_pair&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">])</span>
 <span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;character1&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;character_pair&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;character2&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;character_pair&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
@@ -29062,7 +29064,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
 </pre></div>
 </div>
 </div>
@@ -29176,14 +29178,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">got_df</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">got_df</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
 <span class="c1">#G.add_weighted_edges_from(character_df)</span>
 </pre></div>
 </div>
@@ -29191,7 +29193,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">character_df</span><span class="p">,</span> <span class="s1">&#39;character1&#39;</span><span class="p">,</span> <span class="s1">&#39;character2&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">character_df</span><span class="p">,</span> <span class="s1">&#39;character1&#39;</span><span class="p">,</span> <span class="s1">&#39;character2&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">)</span>
 <span class="c1">#G.add_weighted_edges_from(character_df)</span>
 </pre></div>
 </div>
@@ -29199,21 +29201,21 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">write_graphml</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;lost-in-the-city-character-network.graphml&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">write_graphml</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;lost-in-the-city-character-network.graphml&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -29223,7 +29225,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
 <span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BoxZoomTool</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">HoverTool</span><span class="p">,</span>
@@ -29298,14 +29300,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">character_df</span><span class="p">,</span> <span class="s1">&#39;character1&#39;</span><span class="p">,</span> <span class="s1">&#39;character2&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">character_df</span><span class="p">,</span> <span class="s1">&#39;character1&#39;</span><span class="p">,</span> <span class="s1">&#39;character2&#39;</span><span class="p">,</span> <span class="s1">&#39;edge_weight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bokeh.io</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bokeh.io</span>
 <span class="c1"># this is here only for completeness to clarify where</span>
 <span class="c1"># the methods are nested (you probably already imported this earlier)</span>
 
@@ -29619,7 +29621,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;node_size&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">degrees</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -29627,7 +29629,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
 
 <span class="n">HOVER_TOOLTIPS</span> <span class="o">=</span> <span class="p">[</span>
        <span class="p">(</span><span class="s2">&quot;Character&quot;</span><span class="p">,</span> <span class="s2">&quot;@index&quot;</span><span class="p">),</span>
@@ -29693,7 +29695,7 @@
 <h1>Circle Graph<a class="headerlink" href="#circle-graph" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">EdgesAndLinkedNodes</span><span class="p">,</span> <span class="n">NodesAndLinkedEdges</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">EdgesAndLinkedNodes</span><span class="p">,</span> <span class="n">NodesAndLinkedEdges</span>
 <span class="n">HOVER_TOOLTIPS</span> <span class="o">=</span> <span class="p">[</span>
        <span class="p">(</span><span class="s2">&quot;Character&quot;</span><span class="p">,</span> <span class="s2">&quot;@index&quot;</span><span class="p">),</span>
         <span class="p">(</span><span class="s2">&quot;Degree&quot;</span><span class="p">,</span> <span class="s2">&quot;@node_size&quot;</span><span class="p">)</span>
@@ -29759,7 +29761,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">node_renderer</span><span class="o">.</span><span class="n">data_source</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">node_renderer</span><span class="o">.</span><span class="n">data_source</span>
 </pre></div>
 </div>
 </div>
@@ -29784,19 +29786,19 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;Aemon&#39;, array([-1.42264582,  0.36310159])), (&#39;Grenn&#39;, array([-2.61475094,  0.08605906])), (&#39;Samwell&#39;, array([-2.27511628, -0.24032029])), (&#39;Aerys&#39;, array([1.0933525, 0.2640564])), (&#39;Jaime&#39;, array([ 0.76717875, -0.72423991])), (&#39;Robert&#39;, array([0.40407974, 0.37585865])), (&#39;Tyrion&#39;, array([ 1.08869016, -0.40277452])), (&#39;Tywin&#39;, array([ 0.71491959, -0.56922657])), (&#39;Alliser&#39;, array([-2.6721342 , -0.30554347])), (&#39;Mance&#39;, array([-2.547448  ,  0.35436394])), (&#39;Amory&#39;, array([ 4.03802909, -0.10707528])), (&#39;Oberyn&#39;, array([ 2.30969973, -0.3325769 ])), (&#39;Arya&#39;, array([ 0.15104887, -1.29623973])), (&#39;Anguy&#39;, array([ 0.63770003, -3.0098028 ])), (&#39;Beric&#39;, array([ 0.58677945, -2.16864064])), (&#39;Bran&#39;, array([-1.42115757, -1.43865295])), (&#39;Brynden&#39;, array([ 0.04957062, -2.13405342])), (&#39;Cersei&#39;, array([ 1.0478933, -0.6967616])), (&#39;Gendry&#39;, array([ 0.99237322, -2.34220908])), (&#39;Gregor&#39;, array([ 1.43566746, -0.79890327])), (&#39;Joffrey&#39;, array([ 0.9651381 , -0.90139208])), (&#39;Jon&#39;, array([-1.80859433, -0.22752739])), (&#39;Rickon&#39;, array([-0.8128418 , -1.32735185])), (&#39;Roose&#39;, array([ 0.01753737, -2.35435184])), (&#39;Sandor&#39;, array([ 0.8485978 , -1.20469697])), (&#39;Thoros&#39;, array([ 0.76688257, -1.53213846])), (&#39;Balon&#39;, array([ 0.0024079 , -0.48786888])), (&#39;Loras&#39;, array([ 0.52939907, -0.2834534 ])), (&#39;Belwas&#39;, array([2.37657389, 3.36279908])), (&#39;Barristan&#39;, array([1.36239116, 1.8291495 ])), (&#39;Illyrio&#39;, array([3.53903077, 4.33780833])), (&#39;Hodor&#39;, array([-2.00168001, -1.95553223])), (&#39;Jojen&#39;, array([-2.66711696, -1.54019521])), (&#39;Luwin&#39;, array([-2.5208458 , -2.81433922])), (&#39;Meera&#39;, array([-2.42458958, -1.22757631])), (&#39;Nan&#39;, array([-2.77990975, -2.5622582 ])), (&#39;Theon&#39;, array([-1.68291089, -1.36495911])), (&#39;Brienne&#39;, array([ 0.39825571, -1.43271346])), (&#39;Bronn&#39;, array([ 2.20799776, -0.91162587])), (&#39;Podrick&#39;, array([ 1.6167723 , -0.39078186])), (&#39;Lothar&#39;, array([-0.29480197, -2.79750364])), (&#39;Walder&#39;, array([-0.06578282, -1.93947757])), (&#39;Catelyn&#39;, array([-0.1246863 , -1.35256594])), (&#39;Edmure&#39;, array([-0.33171432, -2.00010865])), (&#39;Hoster&#39;, array([-0.62096992, -1.05470596])), (&#39;Jeyne&#39;, array([-0.9863306 , -2.47326287])), (&#39;Lysa&#39;, array([ 0.32338835, -0.05503612])), (&#39;Petyr&#39;, array([ 0.2059216 , -0.99483027])), (&#39;Robb&#39;, array([-0.41720585, -1.49327105])), (&#39;Roslin&#39;, array([-0.56626209, -2.72242732])), (&#39;Sansa&#39;, array([ 0.35376677, -0.56079227])), (&#39;Stannis&#39;, array([-0.64550304, -0.04674586])), (&#39;Elia&#39;, array([1.45343221, 0.41452762])), (&#39;Ilyn&#39;, array([ 1.78997305, -1.29275543])), (&#39;Meryn&#39;, array([ 1.57541424, -1.16894417])), (&#39;Pycelle&#39;, array([ 1.87719557, -0.78020028])), (&#39;Shae&#39;, array([ 1.91636643, -0.54973094])), (&#39;Varys&#39;, array([ 1.6065918 , -0.08256477])), (&#39;Craster&#39;, array([-2.99495353,  0.95657845])), (&#39;Karl&#39;, array([-3.75193038,  2.23620099])), (&#39;Daario&#39;, array([1.37051186, 4.31582444])), (&#39;Drogo&#39;, array([1.71376776, 4.27736221])), (&#39;Irri&#39;, array([1.6209758 , 4.74870501])), (&#39;Daenerys&#39;, array([1.6267801 , 3.39165117])), (&#39;Aegon&#39;, array([2.51277918, 4.63006341])), (&#39;Jorah&#39;, array([1.51086192, 3.26659231])), (&#39;Kraznys&#39;, array([1.29214923, 4.9997559 ])), (&#39;Missandei&#39;, array([1.89131276, 5.        ])), (&#39;Rakharo&#39;, array([2.76415396, 4.3490832 ])), (&#39;Rhaegar&#39;, array([1.27485104, 2.06744587])), (&#39;Viserys&#39;, array([1.71767778, 1.74364316])), (&#39;Worm&#39;, array([2.28065406, 4.88975458])), (&#39;Davos&#39;, array([-2.77352685,  1.82646958])), (&#39;Cressen&#39;, array([-3.99159824,  2.88595969])), (&#39;Salladhor&#39;, array([-3.60437083,  3.15546845])), (&#39;Eddard&#39;, array([-0.22312698, -0.92965841])), (&#39;Eddison&#39;, array([-3.17359048, -0.37267199])), (&#39;Gilly&#39;, array([-2.87002561,  0.56209388])), (&#39;Qyburn&#39;, array([ 2.25505491, -2.04163841])), (&#39;Renly&#39;, array([0.68096767, 0.07332057])), (&#39;Tommen&#39;, array([ 1.29802095, -1.45399467])), (&#39;Janos&#39;, array([-1.49807   , -0.28664504])), (&#39;Bowen&#39;, array([-2.90365866, -0.78976246])), (&#39;Kevan&#39;, array([ 1.99429259, -0.42244601])), (&#39;Margaery&#39;, array([ 1.27810274, -0.4515285 ])), (&#39;Myrcella&#39;, array([ 1.50039611, -1.48449989])), (&#39;Dalla&#39;, array([-2.15455528,  0.96176291])), (&#39;Melisandre&#39;, array([-2.00661607,  0.73883219])), (&#39;Orell&#39;, array([-3.63852151, -0.76390711])), (&#39;Qhorin&#39;, array([-3.11445023,  0.12971509])), (&#39;Rattleshirt&#39;, array([-3.28012498,  0.56929572])), (&#39;Styr&#39;, array([-3.45741417, -0.03483325])), (&#39;Val&#39;, array([-1.19272029,  0.3461574 ])), (&#39;Ygritte&#39;, array([-3.41787995,  0.3235824 ])), (&#39;Jon Arryn&#39;, array([0.27568654, 1.3379382 ])), (&#39;Lancel&#39;, array([ 3.77047336, -0.7015913 ])), (&#39;Olenna&#39;, array([-0.02065781,  0.63332102])), (&#39;Marillion&#39;, array([0.99597122, 0.7597751 ])), (&#39;Robert Arryn&#39;, array([0.62559223, 0.8375207 ])), (&#39;Ellaria&#39;, array([2.75785026, 0.17967056])), (&#39;Mace&#39;, array([2.02878811, 0.17138823])), (&#39;Rickard&#39;, array([-0.42137244, -3.18076091])), (&#39;Ramsay&#39;, array([-1.26475825, -3.17467453])), (&#39;Chataya&#39;, array([ 2.82131271, -0.378882  ])), (&#39;Shireen&#39;, array([-4.25320001,  2.50043408])), (&#39;Doran&#39;, array([ 2.91802922, -0.97888757])), (&#39;Walton&#39;, array([ 1.88509041, -2.35600272]))])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;Aemon&#39;, array([-1.42264582,  0.36310159])), (&#39;Grenn&#39;, array([-2.61475094,  0.08605906])), (&#39;Samwell&#39;, array([-2.27511628, -0.24032029])), (&#39;Aerys&#39;, array([1.0933525, 0.2640564])), (&#39;Jaime&#39;, array([ 0.76717875, -0.72423991])), (&#39;Robert&#39;, array([0.40407974, 0.37585865])), (&#39;Tyrion&#39;, array([ 1.08869016, -0.40277452])), (&#39;Tywin&#39;, array([ 0.71491959, -0.56922657])), (&#39;Alliser&#39;, array([-2.6721342 , -0.30554347])), (&#39;Mance&#39;, array([-2.547448  ,  0.35436394])), (&#39;Amory&#39;, array([ 4.03802909, -0.10707528])), (&#39;Oberyn&#39;, array([ 2.30969973, -0.3325769 ])), (&#39;Arya&#39;, array([ 0.15104887, -1.29623973])), (&#39;Anguy&#39;, array([ 0.63770003, -3.0098028 ])), (&#39;Beric&#39;, array([ 0.58677945, -2.16864064])), (&#39;Bran&#39;, array([-1.42115757, -1.43865295])), (&#39;Brynden&#39;, array([ 0.04957062, -2.13405342])), (&#39;Cersei&#39;, array([ 1.0478933, -0.6967616])), (&#39;Gendry&#39;, array([ 0.99237322, -2.34220908])), (&#39;Gregor&#39;, array([ 1.43566746, -0.79890327])), (&#39;Joffrey&#39;, array([ 0.9651381 , -0.90139208])), (&#39;Jon&#39;, array([-1.80859433, -0.22752739])), (&#39;Rickon&#39;, array([-0.8128418 , -1.32735185])), (&#39;Roose&#39;, array([ 0.01753737, -2.35435184])), (&#39;Sandor&#39;, array([ 0.8485978 , -1.20469697])), (&#39;Thoros&#39;, array([ 0.76688257, -1.53213846])), (&#39;Balon&#39;, array([ 0.0024079 , -0.48786888])), (&#39;Loras&#39;, array([ 0.52939907, -0.2834534 ])), (&#39;Belwas&#39;, array([2.37657389, 3.36279908])), (&#39;Barristan&#39;, array([1.36239116, 1.8291495 ])), (&#39;Illyrio&#39;, array([3.53903077, 4.33780833])), (&#39;Hodor&#39;, array([-2.00168001, -1.95553223])), (&#39;Jojen&#39;, array([-2.66711696, -1.54019521])), (&#39;Luwin&#39;, array([-2.5208458 , -2.81433922])), (&#39;Meera&#39;, array([-2.42458958, -1.22757631])), (&#39;Nan&#39;, array([-2.77990975, -2.5622582 ])), (&#39;Theon&#39;, array([-1.68291089, -1.36495911])), (&#39;Brienne&#39;, array([ 0.39825571, -1.43271346])), (&#39;Bronn&#39;, array([ 2.20799776, -0.91162587])), (&#39;Podrick&#39;, array([ 1.6167723 , -0.39078186])), (&#39;Lothar&#39;, array([-0.29480197, -2.79750364])), (&#39;Walder&#39;, array([-0.06578282, -1.93947757])), (&#39;Catelyn&#39;, array([-0.1246863 , -1.35256594])), (&#39;Edmure&#39;, array([-0.33171432, -2.00010865])), (&#39;Hoster&#39;, array([-0.62096992, -1.05470596])), (&#39;Jeyne&#39;, array([-0.9863306 , -2.47326287])), (&#39;Lysa&#39;, array([ 0.32338835, -0.05503612])), (&#39;Petyr&#39;, array([ 0.2059216 , -0.99483027])), (&#39;Robb&#39;, array([-0.41720585, -1.49327105])), (&#39;Roslin&#39;, array([-0.56626209, -2.72242732])), (&#39;Sansa&#39;, array([ 0.35376677, -0.56079227])), (&#39;Stannis&#39;, array([-0.64550304, -0.04674586])), (&#39;Elia&#39;, array([1.45343221, 0.41452762])), (&#39;Ilyn&#39;, array([ 1.78997305, -1.29275543])), (&#39;Meryn&#39;, array([ 1.57541424, -1.16894417])), (&#39;Pycelle&#39;, array([ 1.87719557, -0.78020028])), (&#39;Shae&#39;, array([ 1.91636643, -0.54973094])), (&#39;Varys&#39;, array([ 1.6065918 , -0.08256477])), (&#39;Craster&#39;, array([-2.99495353,  0.95657845])), (&#39;Karl&#39;, array([-3.75193038,  2.23620099])), (&#39;Daario&#39;, array([1.37051186, 4.31582444])), (&#39;Drogo&#39;, array([1.71376776, 4.27736221])), (&#39;Irri&#39;, array([1.6209758 , 4.74870501])), (&#39;Daenerys&#39;, array([1.6267801 , 3.39165117])), (&#39;Aegon&#39;, array([2.51277918, 4.63006341])), (&#39;Jorah&#39;, array([1.51086192, 3.26659231])), (&#39;Kraznys&#39;, array([1.29214923, 4.9997559 ])), (&#39;Missandei&#39;, array([1.89131276, 5.        ])), (&#39;Rakharo&#39;, array([2.76415396, 4.3490832 ])), (&#39;Rhaegar&#39;, array([1.27485104, 2.06744587])), (&#39;Viserys&#39;, array([1.71767778, 1.74364316])), (&#39;Worm&#39;, array([2.28065406, 4.88975458])), (&#39;Davos&#39;, array([-2.77352685,  1.82646958])), (&#39;Cressen&#39;, array([-3.99159824,  2.88595969])), (&#39;Salladhor&#39;, array([-3.60437083,  3.15546845])), (&#39;Eddard&#39;, array([-0.22312698, -0.92965841])), (&#39;Eddison&#39;, array([-3.17359048, -0.37267199])), (&#39;Gilly&#39;, array([-2.87002561,  0.56209388])), (&#39;Qyburn&#39;, array([ 2.25505491, -2.04163841])), (&#39;Renly&#39;, array([0.68096767, 0.07332057])), (&#39;Tommen&#39;, array([ 1.29802095, -1.45399467])), (&#39;Janos&#39;, array([-1.49807   , -0.28664504])), (&#39;Bowen&#39;, array([-2.90365866, -0.78976246])), (&#39;Kevan&#39;, array([ 1.99429259, -0.42244601])), (&#39;Margaery&#39;, array([ 1.27810274, -0.4515285 ])), (&#39;Myrcella&#39;, array([ 1.50039611, -1.48449989])), (&#39;Dalla&#39;, array([-2.15455528,  0.96176291])), (&#39;Melisandre&#39;, array([-2.00661607,  0.73883219])), (&#39;Orell&#39;, array([-3.63852151, -0.76390711])), (&#39;Qhorin&#39;, array([-3.11445023,  0.12971509])), (&#39;Rattleshirt&#39;, array([-3.28012498,  0.56929572])), (&#39;Styr&#39;, array([-3.45741417, -0.03483325])), (&#39;Val&#39;, array([-1.19272029,  0.3461574 ])), (&#39;Ygritte&#39;, array([-3.41787995,  0.3235824 ])), (&#39;Jon Arryn&#39;, array([0.27568654, 1.3379382 ])), (&#39;Lancel&#39;, array([ 3.77047336, -0.7015913 ])), (&#39;Olenna&#39;, array([-0.02065781,  0.63332102])), (&#39;Marillion&#39;, array([0.99597122, 0.7597751 ])), (&#39;Robert Arryn&#39;, array([0.62559223, 0.8375207 ])), (&#39;Ellaria&#39;, array([2.75785026, 0.17967056])), (&#39;Mace&#39;, array([2.02878811, 0.17138823])), (&#39;Rickard&#39;, array([-0.42137244, -3.18076091])), (&#39;Ramsay&#39;, array([-1.26475825, -3.17467453])), (&#39;Chataya&#39;, array([ 2.82131271, -0.378882  ])), (&#39;Shireen&#39;, array([-4.25320001,  2.50043408])), (&#39;Doran&#39;, array([ 2.91802922, -0.97888757])), (&#39;Walton&#39;, array([ 1.88509041, -2.35600272]))])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">x_coordinates</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">y_coordinates</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -29812,26 +29814,26 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>NodeView((&#39;Aemon&#39;, &#39;Grenn&#39;, &#39;Samwell&#39;, &#39;Aerys&#39;, &#39;Jaime&#39;, &#39;Robert&#39;, &#39;Tyrion&#39;, &#39;Tywin&#39;, &#39;Alliser&#39;, &#39;Mance&#39;, &#39;Amory&#39;, &#39;Oberyn&#39;, &#39;Arya&#39;, &#39;Anguy&#39;, &#39;Beric&#39;, &#39;Bran&#39;, &#39;Brynden&#39;, &#39;Cersei&#39;, &#39;Gendry&#39;, &#39;Gregor&#39;, &#39;Joffrey&#39;, &#39;Jon&#39;, &#39;Rickon&#39;, &#39;Roose&#39;, &#39;Sandor&#39;, &#39;Thoros&#39;, &#39;Balon&#39;, &#39;Loras&#39;, &#39;Belwas&#39;, &#39;Barristan&#39;, &#39;Illyrio&#39;, &#39;Hodor&#39;, &#39;Jojen&#39;, &#39;Luwin&#39;, &#39;Meera&#39;, &#39;Nan&#39;, &#39;Theon&#39;, &#39;Brienne&#39;, &#39;Bronn&#39;, &#39;Podrick&#39;, &#39;Lothar&#39;, &#39;Walder&#39;, &#39;Catelyn&#39;, &#39;Edmure&#39;, &#39;Hoster&#39;, &#39;Jeyne&#39;, &#39;Lysa&#39;, &#39;Petyr&#39;, &#39;Robb&#39;, &#39;Roslin&#39;, &#39;Sansa&#39;, &#39;Stannis&#39;, &#39;Elia&#39;, &#39;Ilyn&#39;, &#39;Meryn&#39;, &#39;Pycelle&#39;, &#39;Shae&#39;, &#39;Varys&#39;, &#39;Craster&#39;, &#39;Karl&#39;, &#39;Daario&#39;, &#39;Drogo&#39;, &#39;Irri&#39;, &#39;Daenerys&#39;, &#39;Aegon&#39;, &#39;Jorah&#39;, &#39;Kraznys&#39;, &#39;Missandei&#39;, &#39;Rakharo&#39;, &#39;Rhaegar&#39;, &#39;Viserys&#39;, &#39;Worm&#39;, &#39;Davos&#39;, &#39;Cressen&#39;, &#39;Salladhor&#39;, &#39;Eddard&#39;, &#39;Eddison&#39;, &#39;Gilly&#39;, &#39;Qyburn&#39;, &#39;Renly&#39;, &#39;Tommen&#39;, &#39;Janos&#39;, &#39;Bowen&#39;, &#39;Kevan&#39;, &#39;Margaery&#39;, &#39;Myrcella&#39;, &#39;Dalla&#39;, &#39;Melisandre&#39;, &#39;Orell&#39;, &#39;Qhorin&#39;, &#39;Rattleshirt&#39;, &#39;Styr&#39;, &#39;Val&#39;, &#39;Ygritte&#39;, &#39;Jon Arryn&#39;, &#39;Lancel&#39;, &#39;Olenna&#39;, &#39;Marillion&#39;, &#39;Robert Arryn&#39;, &#39;Ellaria&#39;, &#39;Mace&#39;, &#39;Rickard&#39;, &#39;Ramsay&#39;, &#39;Chataya&#39;, &#39;Shireen&#39;, &#39;Doran&#39;, &#39;Walton&#39;))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NodeView((&#39;Aemon&#39;, &#39;Grenn&#39;, &#39;Samwell&#39;, &#39;Aerys&#39;, &#39;Jaime&#39;, &#39;Robert&#39;, &#39;Tyrion&#39;, &#39;Tywin&#39;, &#39;Alliser&#39;, &#39;Mance&#39;, &#39;Amory&#39;, &#39;Oberyn&#39;, &#39;Arya&#39;, &#39;Anguy&#39;, &#39;Beric&#39;, &#39;Bran&#39;, &#39;Brynden&#39;, &#39;Cersei&#39;, &#39;Gendry&#39;, &#39;Gregor&#39;, &#39;Joffrey&#39;, &#39;Jon&#39;, &#39;Rickon&#39;, &#39;Roose&#39;, &#39;Sandor&#39;, &#39;Thoros&#39;, &#39;Balon&#39;, &#39;Loras&#39;, &#39;Belwas&#39;, &#39;Barristan&#39;, &#39;Illyrio&#39;, &#39;Hodor&#39;, &#39;Jojen&#39;, &#39;Luwin&#39;, &#39;Meera&#39;, &#39;Nan&#39;, &#39;Theon&#39;, &#39;Brienne&#39;, &#39;Bronn&#39;, &#39;Podrick&#39;, &#39;Lothar&#39;, &#39;Walder&#39;, &#39;Catelyn&#39;, &#39;Edmure&#39;, &#39;Hoster&#39;, &#39;Jeyne&#39;, &#39;Lysa&#39;, &#39;Petyr&#39;, &#39;Robb&#39;, &#39;Roslin&#39;, &#39;Sansa&#39;, &#39;Stannis&#39;, &#39;Elia&#39;, &#39;Ilyn&#39;, &#39;Meryn&#39;, &#39;Pycelle&#39;, &#39;Shae&#39;, &#39;Varys&#39;, &#39;Craster&#39;, &#39;Karl&#39;, &#39;Daario&#39;, &#39;Drogo&#39;, &#39;Irri&#39;, &#39;Daenerys&#39;, &#39;Aegon&#39;, &#39;Jorah&#39;, &#39;Kraznys&#39;, &#39;Missandei&#39;, &#39;Rakharo&#39;, &#39;Rhaegar&#39;, &#39;Viserys&#39;, &#39;Worm&#39;, &#39;Davos&#39;, &#39;Cressen&#39;, &#39;Salladhor&#39;, &#39;Eddard&#39;, &#39;Eddison&#39;, &#39;Gilly&#39;, &#39;Qyburn&#39;, &#39;Renly&#39;, &#39;Tommen&#39;, &#39;Janos&#39;, &#39;Bowen&#39;, &#39;Kevan&#39;, &#39;Margaery&#39;, &#39;Myrcella&#39;, &#39;Dalla&#39;, &#39;Melisandre&#39;, &#39;Orell&#39;, &#39;Qhorin&#39;, &#39;Rattleshirt&#39;, &#39;Styr&#39;, &#39;Val&#39;, &#39;Ygritte&#39;, &#39;Jon Arryn&#39;, &#39;Lancel&#39;, &#39;Olenna&#39;, &#39;Marillion&#39;, &#39;Robert Arryn&#39;, &#39;Ellaria&#39;, &#39;Mace&#39;, &#39;Rickard&#39;, &#39;Ramsay&#39;, &#39;Chataya&#39;, &#39;Shireen&#39;, &#39;Doran&#39;, &#39;Walton&#39;))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -29848,7 +29850,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LabelSet</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;names&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;glyph&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LabelSet</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;names&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;glyph&#39;</span><span class="p">,</span>
          <span class="n">x_offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">y_offset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -29856,33 +29858,33 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">graph_renderer</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>bokeh.core.property.wrappers.PropertyValueDict
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bokeh.core.property.wrappers.PropertyValueDict
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">graph</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">graph</span><span class="o">.</span><span class="n">layout_provider</span><span class="o">.</span><span class="n">graph_layout</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">EdgesAndLinkedNodes</span><span class="p">,</span> <span class="n">NodesAndLinkedEdges</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">EdgesAndLinkedNodes</span><span class="p">,</span> <span class="n">NodesAndLinkedEdges</span>
 <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">CustomJSTransform</span><span class="p">,</span> <span class="n">LabelSet</span>
 
 <span class="n">HOVER_TOOLTIPS</span> <span class="o">=</span> <span class="p">[</span>
@@ -29981,7 +29983,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
             <span class="n">x_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span> <span class="n">y_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
 
 <span class="n">node_hover_tool</span> <span class="o">=</span> <span class="n">HoverTool</span><span class="p">(</span><span class="n">tooltips</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;@index&quot;</span><span class="p">)])</span>
@@ -30034,28 +30036,28 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install visJS2jupyter
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install visJS2jupyter
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install py2cytoscape
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install py2cytoscape
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">visJS2jupyter.visJS_module</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">visJS2jupyter.visJS_module</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
 <span class="n">edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -30063,7 +30065,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_dict</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">300</span><span class="p">}</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_dict</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">300</span><span class="p">}</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]</span>
 <span class="n">node_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">))))</span>  <span class="c1"># map to indices for source/target in edges</span>
 </pre></div>
 </div>
@@ -30071,7 +30073,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">node_map</span><span class="p">[</span><span class="n">edges</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
     <span class="c1">#&quot;source&quot;:node_map[edges[i][0]], &quot;target&quot;:node_map[edges[i][1]]} </span>
 </pre></div>
@@ -30092,7 +30094,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span> <span class="c1"># must cast to list to maintain compatibility between nx 1.11 and 2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span> <span class="c1"># must cast to list to maintain compatibility between nx 1.11 and 2.0</span>
 <span class="n">edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -30100,12 +30102,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip show bokeh
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip show bokeh
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Name: bokeh
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: bokeh
 Version: 2.0.2
 Summary: Interactive plots and applications in the browser from Python
 Home-page: http://github.com/bokeh/bokeh
@@ -30121,7 +30123,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BoxZoomTool</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">HoverTool</span><span class="p">,</span>
                           <span class="n">MultiLine</span><span class="p">,</span> <span class="n">Plot</span><span class="p">,</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">ResetTool</span><span class="p">,)</span>
 <span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Spectral4</span>
@@ -30133,7 +30135,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -30441,28 +30443,28 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install pygraphviz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pygraphviz
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="n">degree</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="n">degree</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -30479,33 +30481,33 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networkx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Name: \nType: Graph\nNumber of nodes: 362\nNumber of edges: 1479\nAverage degree:   8.1713&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Name: \nType: Graph\nNumber of nodes: 362\nNumber of edges: 1479\nAverage degree:   8.1713&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColumnDataSource</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColumnDataSource</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node_size</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()}</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node_size</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="mi">5</span><span class="o">*</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()}</span> 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degree</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span>  <span class="n">degree</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -30513,7 +30515,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">networkx</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;node_size&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">degrees</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -30521,7 +30523,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -32365,7 +32367,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node_source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node_source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
 
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
             <span class="n">x_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">),</span> <span class="n">y_range</span><span class="o">=</span><span class="n">Range1d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
@@ -32388,7 +32390,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare Data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare Data</span>
 <span class="c1">#G = nx.karate_club_graph()</span>
 
 <span class="c1">#SAME_CLUB_COLOR, DIFFERENT_CLUB_COLOR = &quot;black&quot;, &quot;red&quot;</span>
@@ -32457,7 +32459,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">networkx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -32477,7 +32479,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
 <span class="n">networkx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -32488,14 +32490,14 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
 <span class="n">links</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
          <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
@@ -32513,7 +32515,7 @@ Required-by:
 </style><p>With the aggregated character names, we’re going to use the Python library networkX to create a cluster of character names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">aggregated_people</span><span class="p">)</span>
 <span class="n">people_clusters</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 <span class="n">people_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">people_clusters</span><span class="p">]</span>
@@ -32522,7 +32524,7 @@ Required-by:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[&#39;Betsy Ann Morgan&#39;, &#39;Betsy Ann&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Betsy Ann Morgan&#39;, &#39;Betsy Ann&#39;],
  [&#39;Miles Patterson&#39;, &#39;Miles&#39;],
  [&#39;Walter Creed&#39;, &#39;Creed&#39;],
  [&#39;Jenny Creed&#39;, &#39;Jenny&#39;],
@@ -32595,7 +32597,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_clustered_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_clustered_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="n">character</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">people_clusters</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">:</span>
@@ -32606,7 +32608,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_and_unpack_cluster</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_and_unpack_cluster</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">cluster</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -32618,21 +32620,21 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_clustered_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_clustered_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_and_unpack_cluster</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_and_unpack_cluster</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
 </pre></div>
 </div>
 </div>
@@ -34864,21 +34866,21 @@ Required-by:
 <p>Manually edit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#character_df.sort_values(by=[&#39;clustered_characters&#39;, &#39;count&#39;]).to_csv(&#39;clustered_characters_draft.csv&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#character_df.sort_values(by=[&#39;clustered_characters&#39;, &#39;count&#39;]).to_csv(&#39;clustered_characters_draft.csv&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#character_df = pd.read_csv(&#39;clustered_characters_edited.csv&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#character_df = pd.read_csv(&#39;clustered_characters_edited.csv&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">)[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">)[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -36355,14 +36357,14 @@ Required-by:
 <h1>Cluster By Name<a class="headerlink" href="#cluster-by-name" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="kn">import</span> <span class="n">process</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="kn">import</span> <span class="n">process</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cluster_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cluster_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="n">possibilities</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">],</span> <span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">scorer</span><span class="o">=</span><span class="n">fuzz</span><span class="o">.</span><span class="n">partial_ratio</span><span class="p">)</span>
     <span class="n">possibilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">possible</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">possible</span> <span class="ow">in</span> <span class="n">possibilities</span> <span class="k">if</span> <span class="n">possible</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">]</span>
     <span class="n">possibilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">combo</span> <span class="k">for</span> <span class="n">combo</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">possibilities</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
@@ -36373,14 +36375,14 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clustered_by_named</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cluster_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustered_by_named</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cluster_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">clustered_by_named</span><span class="p">)</span>
 <span class="n">people_clusters</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 <span class="n">people_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">people_clusters</span><span class="p">]</span>
@@ -36389,14 +36391,14 @@ Required-by:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[&#39;Kinda&#39;, &#39;kinda&#39;]]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Kinda&#39;, &#39;kinda&#39;]]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_clustered_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_clustered_characters</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="n">character</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">people_clusters</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">:</span>
@@ -36407,7 +36409,7 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_and_unpack_cluster</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_and_unpack_cluster</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">cluster</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -36419,21 +36421,21 @@ Required-by:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_clustered_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_clustered_characters</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_and_unpack_cluster</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span><span class="p">[</span><span class="s1">&#39;clustered_characters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">character_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_and_unpack_cluster</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">character_df</span>
 </pre></div>
 </div>
 </div>

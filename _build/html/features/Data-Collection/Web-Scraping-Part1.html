@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Web-Scraping-Part1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -449,7 +451,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inspect-html-elements-with-browser">
-   Inspect HTML Elements with Browser 🧐
+   Inspect HTML Elements with Browser
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -485,7 +487,7 @@
 <p><strong>Import Pandas</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -493,7 +495,7 @@
 <p><strong>Read in CSV file</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/cornell-movie-corpus/raw_script_urls.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf=8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/cornell-movie-corpus/raw_script_urls.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf=8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -501,7 +503,7 @@
 <p><strong>Display DataFrame</strong></p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span>
 </pre></div>
 </div>
 </div>
@@ -612,7 +614,7 @@
 <h3>Import Requests<a class="headerlink" href="#import-requests" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 </pre></div>
 </div>
 </div>
@@ -623,7 +625,7 @@
 <p>With the <code class="docutils literal notranslate"><span class="pre">.get()</span></code> method, we can request to “get” web page data for a specific URL, which we will store in a varaible called <code class="docutils literal notranslate"><span class="pre">response</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.scifiscripts.com/scripts/Ghostbusters.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.scifiscripts.com/scripts/Ghostbusters.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -635,12 +637,12 @@
 <p>“200” is a successful response, while “404” is a common “Page Not Found” error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
 </pre></div>
 </div>
 </div>
@@ -648,19 +650,19 @@
 <p>Let’s see what happens if we change the title of the movie from <em>Ghostbusters</em> to <em>Ghostboogers</em> in the URL…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bad_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.scifiscripts.com/scripts/Ghostboogers.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bad_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.scifiscripts.com/scripts/Ghostboogers.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bad_response</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bad_response</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [404]&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [404]&gt;
 </pre></div>
 </div>
 </div>
@@ -671,7 +673,7 @@
 <p>To actually get at the text data in the reponse, we need to use <code class="docutils literal notranslate"><span class="pre">.text</span></code>, which we will save in a variable called <code class="docutils literal notranslate"><span class="pre">html_string</span></code>. The text data that we’re getting is formatted in the HTML markup language, which we will talk more about in the BeautifulSoup section below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
@@ -679,12 +681,12 @@
 <p>Here’s the screenplay now in a variable.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>						Ghostbusters
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>						Ghostbusters
 
 							by
 						Harold Ramis
@@ -6876,8 +6878,6 @@ They get into the Ectomobile and drive off with lights flashing and sirens
 screaming as the crowd cheers wildly.
 
 						THE END
-
-
 </pre></div>
 </div>
 </div>
@@ -6888,14 +6888,14 @@ screaming as the crowd cheers wildly.
 <p>Let’s quickly demonstrate how we might extract the screenplay text for every URL in the DataFrame. To do so, we’re going to create a smaller DataFrame from the Cornell Movie Dialogue Corpus, which consists of the first 10 movies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span> <span class="o">=</span> <span class="n">urls</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span> <span class="o">=</span> <span class="n">urls</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span>
 </pre></div>
 </div>
 </div>
@@ -6991,7 +6991,7 @@ screaming as the crowd cheers wildly.
 <p>We’re going to make a function called <code class="docutils literal notranslate"><span class="pre">scrape_screenplay()</span></code> that includes our <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> and <code class="docutils literal notranslate"><span class="pre">response.text</span></code> code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scrape_screenplay</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scrape_screenplay</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
     <span class="k">return</span> <span class="n">html_string</span>
@@ -7002,14 +7002,14 @@ screaming as the crowd cheers wildly.
 <p>Then we’re going apply it to the “script_url” column of the DataFrame and create a new column for the resulting extracted text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;script_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scrape_screenplay</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;script_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scrape_screenplay</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_urls</span>
 </pre></div>
 </div>
 </div>
@@ -7116,13 +7116,13 @@ screaming as the crowd cheers wildly.
 <p>The DataFrame above is truncated, so we can’t see the full contents of the “text” column. But if we print out every row in the column, we can see that we successfully extracted text for each URL (though some of these URLs returned 404 errors).</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">sample_urls</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;10 Things I Hate About You script by Karen McCullah Lutz, Kirsten Smith &amp; William Shakespeare&lt;/title&gt;
 &lt;meta name=&quot;description&quot; content=&quot;10 Things I Hate About You script by Karen McCullah Lutz, Kirsten Smith &amp; William Shakespeare&quot;&gt;
@@ -52162,16 +52162,14 @@ if (typeof lycos_ad !== &quot;undefined&quot; &amp;&amp; &quot;slider&quot; in l
 <p>Sure enough, if we use our requests library again and try to grab the data for this web page, the underlying data is much more complicated, too.</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&quot;</span><span class="p">)</span>
 <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-
-&lt;!DOCTYPE html&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
 &lt;html class=&quot;snarly apple_music_player--enabled bagon_song_page--enabled song_stories_public_launch--enabled react_forums--disabled&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:fb=&quot;http://www.facebook.com/2008/fbml&quot; lang=&quot;en&quot; xml:lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;base target=&#39;_top&#39; href=&quot;//genius.com/&quot;&gt;
@@ -53804,8 +53802,6 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
     
   &lt;/body&gt;
 &lt;/html&gt;
-
-
 </pre></div>
 </div>
 </div>
@@ -53819,14 +53815,14 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <img src="../images/kittens-web.png" class="center" ><p>If we use our requests library on this Kittens TV website, this is what we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://static.decontextualize.com/kittens.html&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://static.decontextualize.com/kittens.html&quot;</span><span class="p">)</span>
 <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;Kittens!&lt;/title&gt;
@@ -53864,8 +53860,6 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 		&lt;/div&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
-
-
 </pre></div>
 </div>
 </div>
@@ -53945,7 +53939,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <h2>BeautifulSoup<a class="headerlink" href="#beautifulsoup" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
 </div>
@@ -53953,7 +53947,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>To make a BeautifulSoup document, we call <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> with two parameters: the <code class="docutils literal notranslate"><span class="pre">html_string</span></code> from our HTTP request and <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#specifying-the-parser-to-use">the kind of parser</a> that we want to use, which will always be <code class="docutils literal notranslate"><span class="pre">&quot;html.parser&quot;</span></code> for our purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://static.decontextualize.com/kittens.html&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://static.decontextualize.com/kittens.html&quot;</span><span class="p">)</span>
 <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 
 <span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_string</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
@@ -53963,12 +53957,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE doctype html&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE doctype html&gt;
 
 &lt;html&gt;
 &lt;head&gt;
@@ -54016,12 +54010,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">.find()</span></code> method to find and extract certain elements, such as a main header.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;h1&gt;Kittens and the TV Shows They Love&lt;/h1&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h1&gt;Kittens and the TV Shows They Love&lt;/h1&gt;
 </pre></div>
 </div>
 </div>
@@ -54029,24 +54023,24 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>If we want only the text contained between those tags, we can use <code class="docutils literal notranslate"><span class="pre">.text</span></code> to extract just the text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Kittens and the TV Shows They Love&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Kittens and the TV Shows They Love&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
@@ -54054,12 +54048,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>Find the HTML element that contains an image.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;img src=&quot;http://placekitten.com/120/120&quot;/&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;img src=&quot;http://placekitten.com/120/120&quot;/&gt;
 </pre></div>
 </div>
 </div>
@@ -54070,12 +54064,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>You can also extract multiple HTML elements at a time with <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;img src=&quot;http://placekitten.com/120/120&quot;/&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;img src=&quot;http://placekitten.com/120/120&quot;/&gt;,
  &lt;img src=&quot;http://placekitten.com/110/110&quot;/&gt;]
 </pre></div>
 </div>
@@ -54083,12 +54077,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;kitten&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;kitten&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;div class=&quot;kitten&quot;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;div class=&quot;kitten&quot;&gt;
  &lt;h2&gt;Fluffy&lt;/h2&gt;
  &lt;div&gt;&lt;img src=&quot;http://placekitten.com/120/120&quot;/&gt;&lt;/div&gt;
  &lt;ul class=&quot;tvshows&quot;&gt;
@@ -54119,24 +54113,24 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Fluffy&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Fluffy&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;h2&gt;Fluffy&lt;/h2&gt;, &lt;h2&gt;Monsieur Whiskeurs&lt;/h2&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h2&gt;Fluffy&lt;/h2&gt;, &lt;h2&gt;Monsieur Whiskeurs&lt;/h2&gt;]
 </pre></div>
 </div>
 </div>
@@ -54148,7 +54142,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>Let’s try to extact the text from all the header2 elements:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
@@ -54172,19 +54166,19 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>Uh oh. That didn’t work! In order to extract text data from multiple HTML elements, we need a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and some list-building.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_h2_headers</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_h2_headers</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_h2_headers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_h2_headers</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;h2&gt;Fluffy&lt;/h2&gt;, &lt;h2&gt;Monsieur Whiskeurs&lt;/h2&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h2&gt;Fluffy&lt;/h2&gt;, &lt;h2&gt;Monsieur Whiskeurs&lt;/h2&gt;]
 </pre></div>
 </div>
 </div>
@@ -54193,7 +54187,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>Then <code class="docutils literal notranslate"><span class="pre">for</span></code> each <code class="docutils literal notranslate"><span class="pre">header</span></code> in <code class="docutils literal notranslate"><span class="pre">all_h2_headers</span></code>, we will grab the <code class="docutils literal notranslate"><span class="pre">.text</span></code>, put it into a variable called <code class="docutils literal notranslate"><span class="pre">header_contents</span></code>, then <code class="docutils literal notranslate"><span class="pre">.append()</span></code> it to our <code class="docutils literal notranslate"><span class="pre">h2_headers</span></code> list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">all_h2_headers</span><span class="p">:</span>
     <span class="n">header_contents</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">text</span>
     <span class="n">h2_headers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">header_contents</span><span class="p">)</span>
@@ -54203,19 +54197,19 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Fluffy&#39;, &#39;Monsieur Whiskeurs&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fluffy&#39;, &#39;Monsieur Whiskeurs&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="pythonreview dropdown admonition">
+<div class="pythonreview admonition">
 <p class="admonition-title">Python Review: List Comprehensions</p>
-<p>How might we transform this for loop into a list comprehension?</p>
+<p>How might we transform this for loop into a <em>list comprehension</em>?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#For Loop</span>
 <span class="n">h2_headers</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">all_h2_headers</span><span class="p">:</span>
@@ -54224,16 +54218,16 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </pre></div>
 </div>
 </div>
-<p><strong>Check answer here</strong></p>
-<div class="cell tag_hide_input docutils container">
+<p><strong>Check out the <em>list comprehension</em> answer here</strong></p>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">header</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">all_h2_headers</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2_headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">header</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">all_h2_headers</span><span class="p">]</span>
 <span class="n">h2_headers</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Fluffy&#39;, &#39;Monsieur Whiskeurs&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fluffy&#39;, &#39;Monsieur Whiskeurs&#39;]
 </pre></div>
 </div>
 </div>
@@ -54241,7 +54235,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 </div>
 <div class="section" id="inspect-html-elements-with-browser">
-<h2>Inspect HTML Elements with Browser 🧐<a class="headerlink" href="#inspect-html-elements-with-browser" title="Permalink to this headline">¶</a></h2>
+<h2>Inspect HTML Elements with Browser<a class="headerlink" href="#inspect-html-elements-with-browser" title="Permalink to this headline">¶</a></h2>
 <p>Most times if you’re looking to extract something from an HTML document, it’s best to use your “Inspect” capabilities in your web browser. You can hover over elements that you’re interested in and find that specific element in the HTML.</p>
 <img src="../images/inspect.png" class="center"><p>For example, if we hover over the main header:</p>
 <img src="../images/inspect-h1.png" class="center" ></div>
@@ -54250,7 +54244,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>Ok so now we’ve learned a little bit about how to use BeautifulSoup to parse HTML documents. So how would we apply what we’ve learned to extract Missy Elliott lyrics?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&quot;</span><span class="p">)</span>
 <span class="n">html_str</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 
 <span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_str</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
@@ -54260,13 +54254,12 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
-&lt;!DOCTYPE html&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
 
 &lt;html class=&quot;snarly apple_music_player--enabled bagon_song_page--enabled song_stories_public_launch--enabled react_forums--disabled&quot; lang=&quot;en&quot; xml:lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:fb=&quot;http://www.facebook.com/2008/fbml&quot;&gt;
 &lt;head&gt;
@@ -55375,15 +55368,15 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics</p>
 <p>What HTML element do we need to “find” to extract the song lyrics?</p>
 <p><strong>Check answer here</strong></p>
-<div class="cell tag_output_scroll tag_hide_input docutils container">
+<div class="cell tag_output_scroll tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_lyrics</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_lyrics</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">missy_lyrics</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[Intro: Missy Elliott &amp; Timbaland]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Intro: Missy Elliott &amp; Timbaland]
 [*Yawning*]
 Run the track
 
@@ -55464,15 +55457,16 @@ I can&#39;t stand the rain
 </div>
 </div>
 <p>What HTML element do we need to “find” to extract the title?</p>
-<div class="cell tag_hide_input docutils container">
+<p><strong>Check answer here</strong></p>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">song_title</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Rain (Supa Dupa Fly)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Rain (Supa Dupa Fly)
 </pre></div>
 </div>
 </div>

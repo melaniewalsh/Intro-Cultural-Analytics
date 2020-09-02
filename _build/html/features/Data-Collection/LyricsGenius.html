@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/LyricsGenius.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -424,7 +426,7 @@
 <p>To install LyricsGenius (and get the most updated version from GitHub), run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install git+https://github.com/johnwmillr/LyricsGenius.git
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install git+https://github.com/johnwmillr/LyricsGenius.git
 </pre></div>
 </div>
 </div>
@@ -432,7 +434,7 @@
 <p>Copy and paste your Genius “Client Access Token” into the quotation marks below, and run the cell to save your variable :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="s2">&quot;INSERT YOUR CLIENT ACCESS TOKEN IN THESE QUOTATION MARKS&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="s2">&quot;INSERT YOUR CLIENT ACCESS TOKEN IN THESE QUOTATION MARKS&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -440,7 +442,7 @@
 <p>Import and initialize LyricsGenius</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lyricsgenius</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lyricsgenius</span>
 <span class="n">LyricsGenius</span> <span class="o">=</span> <span class="n">lyricsgenius</span><span class="o">.</span><span class="n">Genius</span><span class="p">(</span><span class="n">client_access_token</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -452,12 +454,12 @@
 <p>To get the top songs and song lyrics from a specific artist you can use the method <code class="docutils literal notranslate"><span class="pre">.search_artist()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">artist</span> <span class="o">=</span> <span class="n">LyricsGenius</span><span class="o">.</span><span class="n">search_artist</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="n">max_songs</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artist</span> <span class="o">=</span> <span class="n">LyricsGenius</span><span class="o">.</span><span class="n">search_artist</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="n">max_songs</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Searching for songs by Missy Elliott...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Searching for songs by Missy Elliott...
 
 Song 1: &quot;Work It&quot;
 Song 2: &quot;WTF (Where They From)&quot;
@@ -475,12 +477,12 @@ Done. Found 6 songs.
 <p>To access the song titles, you can run <code class="docutils literal notranslate"><span class="pre">artist.songs</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">artist</span><span class="o">.</span><span class="n">songs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artist</span><span class="o">.</span><span class="n">songs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;Work It&#39;, &#39;Missy Elliott&#39;),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Work It&#39;, &#39;Missy Elliott&#39;),
  (&#39;WTF (Where They From)&#39;, &#39;Missy Elliott&#39;),
  (&#39;Get Ur Freak On&#39;, &#39;Missy Elliott&#39;),
  (&#39;I’m Better&#39;, &#39;Missy Elliott&#39;),
@@ -497,13 +499,13 @@ Done. Found 6 songs.
 <p>Inside each of those songs, LyricsGenius has already saved the song lyrics. You can access these lyrics by looping through <code class="docutils literal notranslate"><span class="pre">artist.songs</span></code> and pulling out <code class="docutils literal notranslate"><span class="pre">song.lyrics</span></code>:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">artist</span><span class="o">.</span><span class="n">songs</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">artist</span><span class="o">.</span><span class="n">songs</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">lyrics</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[Intro]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Intro]
 DJ, please pick up your phone, I&#39;m on the request line
 This is a Missy Elliott one-time exclusive, come on
 
@@ -1146,12 +1148,12 @@ I can&#39;t stand the rain
 <p>To get the song lyrics from a specific artist, you can use the method <code class="docutils literal notranslate"><span class="pre">.search_song()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="n">LyricsGenius</span><span class="o">.</span><span class="n">search_song</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="s2">&quot;Work It&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="n">LyricsGenius</span><span class="o">.</span><span class="n">search_song</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="s2">&quot;Work It&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Searching for &quot;Missy Elliott&quot; by Work It...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Searching for &quot;Missy Elliott&quot; by Work It...
 Done.
 </pre></div>
 </div>
@@ -1159,12 +1161,12 @@ Done.
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song</span><span class="o">.</span><span class="n">lyrics</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span><span class="o">.</span><span class="n">lyrics</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;[Intro]\nDJ, please pick up your phone, I&#39;m on the request line\nThis is a Missy Elliott one-time exclusive, come on\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 1]\nI&#39;d like to get to know ya so I could show ya\nPut the pussy on ya like I told ya\nGive me all your numbers so I can phone ya\nYour girl acting stank, then call me over\nNot on the bed, lay me on your sofa\nCall before you come, I need to shave my chocha\nYou do or you don&#39;t or you will or won&#39;t ya?\nGo downtown and eat it like a vulture\nSee my hips and my tips, don&#39;t ya?\nSee my ass and my lips, don&#39;t ya?\nLost a few pounds and my waist for ya\nThis the kinda beat that go ra-ta-ta\nRa-ta-ta-ta-ta-ta-ta-ta-ta-ta\nSex me so good I say blah-blah-blah\nWork it, I need a glass of water\nBoy, oh boy, it&#39;s good to know ya\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 2]\nIf you a fly gal, get your nails done\nGet a pedicure, get your hair did\nBoy, lift it up, let&#39;s make a toast-a\nLet&#39;s get drunk, that&#39;s gonna bring us closer\nDon&#39;t I look like a Halle Berry poster?\nSee the Belvedere playing tricks on ya\nGirlfriend wanna be like me, never\nYou won&#39;t find a bitch that&#39;s even better\nI make you hot as Las Vegas weather\nListen up close while I take it backwards\n\u200bsdrawkcab ti ekat ot ekil yssiM yaw eht hctaW\nI&#39;m not a prostitute, but I could give you what you want\nI love your braids and your mouth full of fronts\nLove the way my ass go bum-bum-bum-bum\nKeep your eyes on my bum-bum-bum-bum-bum\nYou think you can handle this badonka-donk-donk\nTake my thong off and my ass go boom\nCut the lights on so you see what I could do\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 3]\nBoys, boys, all type of boys\nBlack, White, Puerto Rican, Chinese boys (C&#39;mon)\nWhy-thai, thai-o-toy-o-thai-thai\nRock-thai, thai-o-toy-o-thai-thai (C&#39;mon)\nGirls, girls, get that cash\nIf it&#39;s 9 to 5 or shaking your ass (Aha)\nAin&#39;t no shame, ladies do your thing (C&#39;mon)\nJust make sure you ahead of the game\nJust &#39;cause I got a lot of fame super\nPrince couldn&#39;t get me change my name, papa\nKunta Kinte a slave again, no sir\nPicture blacks saying, “Oh yes&#39;a, massa”\nPicture Lil&#39; Kim dating a pastor\nMinute Man and Big Red could outlast ya\nWho is the best? I don&#39;t have to ask ya\nWhen I come out, you won&#39;t even matter\nWhy you act dumb like, uh, duh?\nSo you act dumb like, uh, duh\nAs the drummer boy go ba-rom-pop-pom-pom\nGive you some-some-some of this Cinnabun\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Outro]\nTo my fellas (Ooh good god!)\nI like the way you work that (Uh huh, la-la-la-la)\nTo my ladies (Whoo! Good god!)\nYou sure know how to work that\n\nYeah, it&#39;s Missy Elliott!\nI hope y&#39;all enjoying what y&#39;all heard so far\nI was sittin&#39; here thinkin&#39; like\nBig Daddy Kane and Public Enemy\nSalt n Pepa, Lyte, EPMD, LL, Run-DMC\nKRS-One, Rakim\nMost of them artists used to dance\nAnd still get respected in the street\nDon&#39;t be scared to Bankhead or Bogo\nOr move as far as sold Michael Jackson 43 million\nShoot, errbody have the zipper jacket\nAnd half of these thugs have the glove to match, ya feel me?\nYo, it&#39;s ok though, if you wanna be hard and ice grill\nAnd Harlem Shake at the same time, whatever\nLet&#39;s just have fun, it&#39;s hip-hop man, this is hip-hop!&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;[Intro]\nDJ, please pick up your phone, I&#39;m on the request line\nThis is a Missy Elliott one-time exclusive, come on\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 1]\nI&#39;d like to get to know ya so I could show ya\nPut the pussy on ya like I told ya\nGive me all your numbers so I can phone ya\nYour girl acting stank, then call me over\nNot on the bed, lay me on your sofa\nCall before you come, I need to shave my chocha\nYou do or you don&#39;t or you will or won&#39;t ya?\nGo downtown and eat it like a vulture\nSee my hips and my tips, don&#39;t ya?\nSee my ass and my lips, don&#39;t ya?\nLost a few pounds and my waist for ya\nThis the kinda beat that go ra-ta-ta\nRa-ta-ta-ta-ta-ta-ta-ta-ta-ta\nSex me so good I say blah-blah-blah\nWork it, I need a glass of water\nBoy, oh boy, it&#39;s good to know ya\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 2]\nIf you a fly gal, get your nails done\nGet a pedicure, get your hair did\nBoy, lift it up, let&#39;s make a toast-a\nLet&#39;s get drunk, that&#39;s gonna bring us closer\nDon&#39;t I look like a Halle Berry poster?\nSee the Belvedere playing tricks on ya\nGirlfriend wanna be like me, never\nYou won&#39;t find a bitch that&#39;s even better\nI make you hot as Las Vegas weather\nListen up close while I take it backwards\n\u200bsdrawkcab ti ekat ot ekil yssiM yaw eht hctaW\nI&#39;m not a prostitute, but I could give you what you want\nI love your braids and your mouth full of fronts\nLove the way my ass go bum-bum-bum-bum\nKeep your eyes on my bum-bum-bum-bum-bum\nYou think you can handle this badonka-donk-donk\nTake my thong off and my ass go boom\nCut the lights on so you see what I could do\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Verse 3]\nBoys, boys, all type of boys\nBlack, White, Puerto Rican, Chinese boys (C&#39;mon)\nWhy-thai, thai-o-toy-o-thai-thai\nRock-thai, thai-o-toy-o-thai-thai (C&#39;mon)\nGirls, girls, get that cash\nIf it&#39;s 9 to 5 or shaking your ass (Aha)\nAin&#39;t no shame, ladies do your thing (C&#39;mon)\nJust make sure you ahead of the game\nJust &#39;cause I got a lot of fame super\nPrince couldn&#39;t get me change my name, papa\nKunta Kinte a slave again, no sir\nPicture blacks saying, “Oh yes&#39;a, massa”\nPicture Lil&#39; Kim dating a pastor\nMinute Man and Big Red could outlast ya\nWho is the best? I don&#39;t have to ask ya\nWhen I come out, you won&#39;t even matter\nWhy you act dumb like, uh, duh?\nSo you act dumb like, uh, duh\nAs the drummer boy go ba-rom-pop-pom-pom\nGive you some-some-some of this Cinnabun\nC&#39;mon\n\n[Chorus]\nIs it worth it? Let me work it\nI put my thing down, flip it and reverse it\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nIf you got a big *elephant trumpet*, let me search ya\nAnd find out how hard I gotta work ya\nTi esrever dna ti pilf, nwod gniht ym tup\nTi esrever dna ti pilf, nwod gniht ym tup\nC&#39;mon\n\n[Outro]\nTo my fellas (Ooh good god!)\nI like the way you work that (Uh huh, la-la-la-la)\nTo my ladies (Whoo! Good god!)\nYou sure know how to work that\n\nYeah, it&#39;s Missy Elliott!\nI hope y&#39;all enjoying what y&#39;all heard so far\nI was sittin&#39; here thinkin&#39; like\nBig Daddy Kane and Public Enemy\nSalt n Pepa, Lyte, EPMD, LL, Run-DMC\nKRS-One, Rakim\nMost of them artists used to dance\nAnd still get respected in the street\nDon&#39;t be scared to Bankhead or Bogo\nOr move as far as sold Michael Jackson 43 million\nShoot, errbody have the zipper jacket\nAnd half of these thugs have the glove to match, ya feel me?\nYo, it&#39;s ok though, if you wanna be hard and ice grill\nAnd Harlem Shake at the same time, whatever\nLet&#39;s just have fun, it&#39;s hip-hop man, this is hip-hop!&quot;
 </pre></div>
 </div>
 </div>
@@ -1174,12 +1176,12 @@ Done.
 <h2>Save Lyrics to .txt File<a class="headerlink" href="#save-lyrics-to-txt-file" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song</span><span class="o">.</span><span class="n">save_lyrics</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="s1">&#39;txt&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span><span class="o">.</span><span class="n">save_lyrics</span><span class="p">(</span><span class="n">extension</span><span class="o">=</span><span class="s1">&#39;txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Wrote Work It to lyrics_missyelliott_workit.txt.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wrote Work It to lyrics_missyelliott_workit.txt.
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1194,7 @@ Done.
 <p><strong>Import necessary Python libraries</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">lyricsgenius</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1204,7 +1206,7 @@ Done.
 <p><strong>Make RegEx Function To Clean Up Songs</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">song_title</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">song_title</span><span class="p">):</span>
 
     <span class="k">if</span> <span class="s2">&quot;Ft&quot;</span> <span class="ow">in</span> <span class="n">song_title</span><span class="p">:</span>
         <span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=\(Ft)&quot;</span><span class="p">)</span>
@@ -1225,7 +1227,7 @@ Done.
 <p><strong>Make Function To Scrape Song Titles For Album</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_all_songs_from_album</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_all_songs_from_album</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span>
     
     <span class="n">artist</span> <span class="o">=</span> <span class="n">artist</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">album_name</span> <span class="o">=</span> <span class="n">album_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
@@ -1249,7 +1251,7 @@ Done.
 <p><strong>Make Function To Download Lyrics For All Songs in Album</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_album_lyrics</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_album_lyrics</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span> 
     
     <span class="c1"># Set up LyricsGenius with your Genius API client access token</span>
     <span class="c1">#client_access_token = Your-Client-Access-Token</span>
@@ -1293,12 +1295,12 @@ Done.
 <p><strong>Call the function</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">download_album_lyrics</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="s2">&quot;Under Construction&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">download_album_lyrics</span><span class="p">(</span><span class="s2">&quot;Missy Elliott&quot;</span><span class="p">,</span> <span class="s2">&quot;Under Construction&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Searching for &quot;Intro-Go To The Floor&quot; by Missy Elliott...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Searching for &quot;Intro-Go To The Floor&quot; by Missy Elliott...
 Done.
 Wrote Intro/Go To The Floor to Missy-Elliott_Under-Construction/Intro-Go-To-The-Floor.txt.
 Searching for &quot;Bring the Pain&quot; by Missy Elliott...

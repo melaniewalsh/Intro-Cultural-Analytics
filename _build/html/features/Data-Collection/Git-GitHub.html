@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Git-GitHub.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -453,12 +455,12 @@
 <p>To install Git on a Windows computer, you need to install something called Git for Windows (which comes with something called Git Bash). The Digital Humanities Research Institute offers <a class="reference external" href="https://github.com/DHRI-Curriculum/install/blob/master/sections/git.md#windows">helpful step-by-step instructions</a> here.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git --version
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git --version
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>git version 2.21.1 (Apple Git-122.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>git version 2.21.1 (Apple Git-122.3)
 </pre></div>
 </div>
 </div>
@@ -470,16 +472,16 @@
 <img src="../images/clone-button.png" width=100% ><p>Then, from the command line (or from Git Bash), type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and paste the URL for the desired GitHub repo.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/melaniewalsh/Intro-Cultural-Analytics-Notebooks.git
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone https://github.com/melaniewalsh/Intro-Cultural-Analytics-Notebooks.git
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;Intro-Cultural-Analytics-Notebooks&#39;...
-remote: Enumerating objects: 48, done.[K
-remote: Counting objects: 100% (48/48), done.[K
-remote: Compressing objects: 100% (39/39), done.[K
-remote: Total 48 (delta 7), reused 44 (delta 6), pack-reused 0[K
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;Intro-Cultural-Analytics-Notebooks&#39;...
+remote: Enumerating objects: 48, done.
+remote: Counting objects: 100% (48/48), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 48 (delta 7), reused 44 (delta 6), pack-reused 0
 Unpacking objects: 100% (48/48), done.
 </pre></div>
 </div>
@@ -489,25 +491,25 @@ Unpacking objects: 100% (48/48), done.
 <p>If you navigate into that folder and list its contents, you can see that it matches the GitHub website.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Intro</span><span class="o">-</span><span class="n">Cultural</span><span class="o">-</span><span class="n">Analytics</span><span class="o">-</span><span class="n">Notebooks</span><span class="o">/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Intro</span><span class="o">-</span><span class="n">Cultural</span><span class="o">-</span><span class="n">Analytics</span><span class="o">-</span><span class="n">Notebooks</span><span class="o">/</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Collecting-Cultural-Data/Intro-Cultural-Analytics-Notebooks
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/Intro-Cultural-Analytics/Website-Content/Collecting-Cultural-Data/Intro-Cultural-Analytics-Notebooks
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[34mCollecting-Cultural-Data[m[m/ [34mPython[m[m/                   [34mdata[m[m/
-[34mCultural-Data-Analysis[m[m/   README.md                 something_new.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">Collecting-Cultural-Data</span>/ <span class=" -Color -Color-Blue">Python</span>/                   <span class=" -Color -Color-Blue">data</span>/
+<span class=" -Color -Color-Blue">Cultural-Data-Analysis</span>/   README.md                 something_new.txt
 </pre></div>
 </div>
 </div>
@@ -519,21 +521,21 @@ Unpacking objects: 100% (48/48), done.
 <p>For example, I just added a new file called “something_newer.txt”, and if you run the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command…</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git pull
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git pull
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 4, done.[K
-remote: Counting objects: 100% (4/4), done.[K
-remote: Compressing objects: 100% (1/1), done.[K
-remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0[K
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From https://github.com/melaniewalsh/Intro-Cultural-Analytics-Notebooks
    2fd60e3..c786385  master     -&gt; origin/master
 Updating 2fd60e3..c786385
 Fast-forward
- something_newer.txt | 1 [32m+[m
+ something_newer.txt | 1 <span class=" -Color -Color-Green">+</span>
  1 file changed, 1 insertion(+)
  create mode 100644 something_newer.txt
 </pre></div>
@@ -543,14 +545,14 @@ Fast-forward
 <p>then it will update the repository and download that file into the right place. To double check, you can run <code class="docutils literal notranslate"><span class="pre">ls</span></code> and see that “something_newer.txt” is now there.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[34mCollecting-Cultural-Data[m[m/ README.md                 something_newer.txt
-[34mCultural-Data-Analysis[m[m/   [34mdata[m[m/
-[34mPython[m[m/                   something_new.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">Collecting-Cultural-Data</span>/ README.md                 something_newer.txt
+<span class=" -Color -Color-Blue">Cultural-Data-Analysis</span>/   <span class=" -Color -Color-Blue">data</span>/
+<span class=" -Color -Color-Blue">Python</span>/                   something_new.txt
 </pre></div>
 </div>
 </div>

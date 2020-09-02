@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -331,6 +328,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/Topic-Modeling-Time-Series.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -511,7 +513,7 @@
 <p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -522,7 +524,7 @@
 <h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
 <span class="c1">#!pip install seaborn</span>
 </pre></div>
 </div>
@@ -534,7 +536,7 @@
 <p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
 <span class="kn">import</span> <span class="nn">seaborn</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -557,14 +559,14 @@
 <p>This dataset of Donald Trump’s tweets is taken from <a class="reference external" href="http://www.trumptwitterarchive.com/">Trump Twitter Archive</a>. To read in the CSV file, we’re going to use Pandas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../texts/politics/Trump-Tweets.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../texts/politics/Trump-Tweets.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -653,7 +655,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -662,7 +664,7 @@
 <h3>Process Trump Tweets<a class="headerlink" href="#process-trump-tweets" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +674,7 @@
 <h3>Get Original Trump Tweets<a class="headerlink" href="#get-original-trump-tweets" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">original_trump_tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_trump_tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -682,12 +684,12 @@
 <h3>Get Dataset Statistics<a class="headerlink" href="#get-dataset-statistics" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of Documents: 29395
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Documents: 29395
 Mean Number of Words: 13.0
 Vocabulary Size: 33945
 </pre></div>
@@ -705,7 +707,7 @@ Vocabulary Size: 33945
 <p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">35</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">35</span>
 </pre></div>
 </div>
 </div>
@@ -716,7 +718,7 @@ Vocabulary Size: 33945
 <p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed Reddit post texts, so we can just set it equal to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
 </pre></div>
 </div>
 </div>
@@ -728,7 +730,7 @@ Vocabulary Size: 33945
 <p>All the other necessary variables below <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> will be automatically created inside this directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change to your desired output directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change to your desired output directory</span>
 <span class="n">output_directory_path</span> <span class="o">=</span> <span class="s1">&#39;topic-model-output/Trump-Tweets&#39;</span>
 
 <span class="c1">#No need to change anything below here</span>
@@ -749,7 +751,7 @@ Vocabulary Size: 33945
 <p>We’re going to import the data with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.import_data()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
                 <span class="n">path_to_training_data</span><span class="p">,</span>
                 <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
                 <span class="n">training_data</span><span class="p">)</span>
@@ -757,7 +759,7 @@ Vocabulary Size: 33945
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Importing data...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importing data...
 Complete
 </pre></div>
 </div>
@@ -769,7 +771,7 @@ Complete
 <p>Then we’re going to train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code>. The topic model should take about 1-1.5 minutes to train and complete. If you want it, you can look at your Terminal or PowerShell and see what the model looks like as it’s training.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
                       <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
                       <span class="n">path_to_model</span><span class="p">,</span>
                       <span class="n">path_to_topic_keys</span><span class="p">,</span>
@@ -779,7 +781,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Training topic model...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training topic model...
 Complete
 </pre></div>
 </div>
@@ -791,7 +793,7 @@ Complete
 <h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">topics</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -799,7 +801,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
 
 [&#39;fbi&#39;, &#39;campaign&#39;, &#39;clinton&#39;, &#39;trump&#39;, &#39;collusion&#39;, &#39;russia&#39;, &#39;mueller&#39;, &#39;hillary&#39;, &#39;comey&#39;, &#39;report&#39;, &#39;general&#39;, &#39;investigation&#39;, &#39;james&#39;, &#39;information&#39;, &#39;dossier&#39;, &#39;russian&#39;, &#39;intelligence&#39;, &#39;former&#39;, &#39;emails&#39;, &#39;attorney&#39;]
 
@@ -938,7 +940,6 @@ Complete
 ✨Topic 34✨
 
 [&#39;global&#39;, &#39;warming&#39;, &#39;even&#39;, &#39;many&#39;, &#39;change&#39;, &#39;case&#39;, &#39;country&#39;, &#39;could&#39;, &#39;fast&#39;, &#39;control&#39;, &#39;california&#39;, &#39;others&#39;, &#39;problem&#39;, &#39;right&#39;, &#39;worse&#39;, &#39;never&#39;, &#39;bad&#39;, &#39;mayor&#39;, &#39;gun&#39;, &#39;sad&#39;]
-
 </pre></div>
 </div>
 </div>
@@ -951,21 +952,21 @@ Complete
 <h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">original_trump_tweets</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">original_trump_tweets</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_tweets_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_tweets_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -978,12 +979,12 @@ Complete
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_tweets_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_tweets_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
 
 [&#39;fbi&#39;, &#39;campaign&#39;, &#39;clinton&#39;, &#39;trump&#39;, &#39;collusion&#39;, &#39;russia&#39;, &#39;mueller&#39;, &#39;hillary&#39;, &#39;comey&#39;, &#39;report&#39;, &#39;general&#39;, &#39;investigation&#39;, &#39;james&#39;, &#39;information&#39;, &#39;dossier&#39;, &#39;russian&#39;, &#39;intelligence&#39;, &#39;former&#39;, &#39;emails&#39;, &#39;attorney&#39;]
 
@@ -996,7 +997,6 @@ Complete
 0.7143 Former FBI top lawyer James Baker just admitted involvement in FISA Warrant and further admitted there  were IRREGULARITIES in the way the Russia probe was handled. They relied heavily on the unverified Trump “Dossier” paid for by the DNC &amp;amp; Clinton Campaign &amp;amp; funded through a...
 
 0.7101 Why aren’t the Democrats in the House calling Comey Brennan Clapper Page and her FBI lover (whose invaluable phone records were illegally deleted) Crooked Hillary Podesta Ohr (and Nellie) the GPS Fusion characters Christopher Steele the DNC (&amp;amp; their missing server)....
-
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1006,7 @@ Complete
 <h2>Show Topic Words in Context of Full Tweet<a class="headerlink" href="#show-topic-words-in-context-of-full-tweet" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="k">def</span> <span class="nf">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">custom_words</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1033,41 +1033,28 @@ Complete
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
 
 [&#39;fbi&#39;, &#39;campaign&#39;, &#39;clinton&#39;, &#39;trump&#39;, &#39;collusion&#39;, &#39;russia&#39;, &#39;mueller&#39;, &#39;hillary&#39;, &#39;comey&#39;, &#39;report&#39;, &#39;general&#39;, &#39;investigation&#39;, &#39;james&#39;, &#39;information&#39;, &#39;dossier&#39;, &#39;russian&#39;, &#39;intelligence&#39;, &#39;former&#39;, &#39;emails&#39;, &#39;attorney&#39;]
-
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
+<p>✨✨✨</p>
+<p><strong>0.7257142857142856</strong></p>
+<p>Not only did Senator Burr’s Committee find No <strong>COLLUSION</strong> by the <strong>TRUMP</strong> <strong>CAMPAIGN</strong> and <strong>RUSSIA</strong> it’s important because they interviewed 200 witnesses and 300000 pages of documents &amp; the Committee has direct access to <strong>INTELLIGENCE</strong> <strong>INFORMATION</strong> that’s Classified. &#64;GreggJarrett</p>
+<p>✨✨✨</p>
+<p><strong>0.7210884353741497</strong></p>
+<p>Wow <strong>FBI</strong> confirms <strong>REPORT</strong> that <strong>JAMES</strong> <strong>COMEY</strong> drafted letter exonerating  Crooked <strong>HILLARY</strong> <strong>CLINTON</strong> long before <strong>INVESTIGATION</strong> was complete. Many..</p>
+<p>✨✨✨</p>
+<p><strong>0.7210884353741497</strong></p>
+<p>RT &#64;TomFitton: .&#64;JudicialWatch uncovers major Ohr-Steele-Fusion GPS <strong>COLLUSION</strong> docs PLUS did Schiff conspire with Cohen to smear &#64;RealDonald…</p>
+<p>✨✨✨</p>
+<p><strong>0.7142857142857143</strong></p>
+<p><strong>FORMER</strong> <strong>FBI</strong> top lawyer <strong>JAMES</strong> Baker just admitted involvement in FISA Warrant and further admitted there  were IRREGULARITIES in the way the <strong>RUSSIA</strong> probe was handled. They relied heavily on the unverified <strong>TRUMP</strong> “<strong>DOSSIER</strong>” paid for by the DNC &amp; <strong>CLINTON</strong> <strong>CAMPAIGN</strong> &amp; funded through a...</p>
 </div>
 </div>
 </div>
@@ -1078,7 +1065,7 @@ Complete
 <h2>Load Topic Distributions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1076,7 @@ Complete
 <p>Add column with all topic distributions for every tweet</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;topic_distributions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">topic_distributions</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;topic_distributions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">topic_distributions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1084,7 @@ Complete
 <p>Make a separate dataframe with each topic distribution as a separate column</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions_df</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;topic_distributions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions_df</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;topic_distributions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1092,7 @@ Complete
 <p>Rename each of those columns with the first four words from the topic</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topic</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span> <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topic</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span> <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1113,7 +1100,7 @@ Complete
 <p>Merge that column into the dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">trump_df</span><span class="p">,</span> <span class="n">topic_distributions_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">trump_df</span><span class="p">,</span> <span class="n">topic_distributions_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1124,7 +1111,7 @@ Complete
 <p><strong>Convert to datetime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1132,7 +1119,7 @@ Complete
 <p><strong>Extract year</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1140,14 +1127,14 @@ Complete
 <p><strong>Extract year and month</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year-month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year-month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;Date (by month)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">month</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">()</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year-month&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;Date (by month)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">month</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">()</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;year-month&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1155,7 +1142,7 @@ Complete
 <p>((Set year and month as Pandas Index**</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">trump_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date (by month)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">trump_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date (by month)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1167,7 +1154,7 @@ Complete
 <p>For every Trump tweet, plot the probability of Topic 10 “hillary crooked clinton court”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1176,7 +1163,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a69ef4590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a69ef4590&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_84_1.png" src="../../_images/Topic-Modeling-Time-Series_84_1.png" />
@@ -1185,7 +1172,7 @@ Complete
 <p>For every month of Trump tweets, plot the average probability of Topic 10 “hillary crooked clinton court”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1194,7 +1181,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a68eac310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a68eac310&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_86_1.png" src="../../_images/Topic-Modeling-Time-Series_86_1.png" />
@@ -1204,7 +1191,7 @@ Complete
 <p>For every month of Trump tweets, plot the average probability of Topic 18 “news fake media story”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">18</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">18</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1213,7 +1200,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6a29fad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6a29fad0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_89_1.png" src="../../_images/Topic-Modeling-Time-Series_89_1.png" />
@@ -1223,7 +1210,7 @@ Complete
 <p>For every month of Trump tweets, plot the average probability of Topic 9 “border wall security country”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">9</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">9</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1232,7 +1219,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6eac2090&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6eac2090&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_92_1.png" src="../../_images/Topic-Modeling-Time-Series_92_1.png" />
@@ -1242,7 +1229,7 @@ Complete
 <p>For every month of Trump tweets, plot the average probability of Topic 19 “great america make https”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">19</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">19</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1251,7 +1238,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6a68c210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6a68c210&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_95_1.png" src="../../_images/Topic-Modeling-Time-Series_95_1.png" />
@@ -1261,7 +1248,7 @@ Complete
 <p>For every month of Trump tweets, plot the average probability of Topic 13 “last night celebapprentice http”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">13</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">13</span>
 
 <span class="n">topic_label</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1270,7 +1257,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6c612410&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a6c612410&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Topic-Modeling-Time-Series_98_1.png" src="../../_images/Topic-Modeling-Time-Series_98_1.png" />

@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -348,6 +345,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Lists-Loops-Part2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -726,7 +728,7 @@
 <p>Here are the four lists with sample data from the Bellevue Almshouse dataset. Each item in each list corresponds to a single row from the dataset. You might imagine how the code in this lesson might apply to the entire dataset or to other large datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unity&#39;</span><span class="p">,</span> <span class="s1">&#39;Catherine&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas&#39;</span><span class="p">,</span> <span class="s1">&#39;William&#39;</span><span class="p">,</span> <span class="s1">&#39;Patrick&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary Anne&#39;</span><span class="p">,</span> <span class="s1">&#39;Morris&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unity&#39;</span><span class="p">,</span> <span class="s1">&#39;Catherine&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas&#39;</span><span class="p">,</span> <span class="s1">&#39;William&#39;</span><span class="p">,</span> <span class="s1">&#39;Patrick&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary Anne&#39;</span><span class="p">,</span> <span class="s1">&#39;Morris&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Ellen&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannah&#39;</span><span class="p">,</span> <span class="s1">&#39;Alexander&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary A&#39;</span><span class="p">,</span> <span class="s1">&#39;Serena?&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Margaret&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosanna&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Bantel&#39;</span><span class="p">,</span> <span class="s1">&#39;Marcella&#39;</span><span class="p">,</span> <span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Martin&#39;</span><span class="p">]</span>
@@ -736,7 +738,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">last_names</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;Harkin&#39;</span><span class="p">,</span> <span class="s1">&#39;Doyle&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonald&#39;</span><span class="p">,</span> <span class="s1">&#39;Jordan&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Keene&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_names</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;Harkin&#39;</span><span class="p">,</span> <span class="s1">&#39;Doyle&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonald&#39;</span><span class="p">,</span> <span class="s1">&#39;Jordan&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Keene&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
                <span class="s1">&#39;McLoughlin&#39;</span><span class="p">,</span> <span class="s1">&#39;Cassidy&#39;</span><span class="p">,</span> <span class="s1">&#39;Whittle&#39;</span><span class="p">,</span> <span class="s1">&#39;Coyle&#39;</span><span class="p">,</span> <span class="s1">&#39;Cullen&#39;</span><span class="p">,</span> <span class="s1">&#39;Cozens&#39;</span><span class="p">,</span> 
                <span class="s1">&#39;Maly&#39;</span><span class="p">,</span> <span class="s1">&#39;McGuire&#39;</span><span class="p">,</span> <span class="s1">&#39;Laly&#39;</span><span class="p">,</span> <span class="s1">&#39;Bahan&#39;</span><span class="p">,</span> <span class="s1">&#39;Combs&#39;</span><span class="p">,</span> <span class="s1">&#39;McGovern&#39;</span><span class="p">,</span> <span class="s1">&#39;Gallagher&#39;</span><span class="p">,</span> 
                <span class="s1">&#39;Crone&#39;</span><span class="p">,</span> <span class="s1">&#39;Brannon&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonal&#39;</span><span class="p">,</span> <span class="s1">&#39;Atkins&#39;</span><span class="p">,</span> <span class="s1">&#39;Garragan&#39;</span><span class="p">,</span> <span class="s1">&#39;Wood&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span><span class="p">,</span> <span class="s1">&#39;Galeny&#39;</span><span class="p">,</span> <span class="s1">&#39;Welch&#39;</span><span class="p">,</span> <span class="s1">&#39;Kerly&#39;</span><span class="p">]</span>
@@ -746,7 +748,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
@@ -756,7 +758,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;47&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;47&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span>
         <span class="s1">&#39;27&#39;</span><span class="p">,</span> <span class="s1">&#39;32&#39;</span><span class="p">,</span> <span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span> <span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="s1">&#39;41&#39;</span><span class="p">,</span> <span class="s1">&#39;37&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -767,7 +769,7 @@
 <p>As a refresher, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate through a list and do something to each item in the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
@@ -778,14 +780,13 @@
 <p>Below we are iterating through the list <code class="docutils literal notranslate"><span class="pre">diseases</span></code> and printing out every item in the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">disease</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-recent emigrant
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>recent emigrant
 sickness
 
 
@@ -821,14 +822,13 @@ sickness
 <p>Remember that the variable name that will represent each item in the list doesn’t exist yet, and it can be named anything you want. Instead of <code class="docutils literal notranslate"><span class="pre">disease</span></code>, we could name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-recent emigrant
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>recent emigrant
 sickness
 
 
@@ -867,7 +867,7 @@ sickness
 <h2>Enumerate()<a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
@@ -879,13 +879,13 @@ sickness
 <p>To access the number that corresponds to each item, you need to unpack <em>two</em> variables instead of just one: <code class="docutils literal notranslate"><span class="pre">number</span></code> , <code class="docutils literal notranslate"><span class="pre">disease</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">diseases</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">diseases</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">disease</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 
 1 recent emigrant
 2 sickness
 3 
@@ -921,13 +921,13 @@ sickness
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">diseases</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">diseases</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Person </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">disease</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Person 0: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person 0: 
 Person 1: recent emigrant
 Person 2: sickness
 Person 3: 
@@ -967,7 +967,7 @@ Person 29: sickness
 <p>We can also make lists with <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. Let’s say we wanted to take this list <code class="docutils literal notranslate"><span class="pre">collection</span></code> and create a new list that only contains the items in the list that match <code class="docutils literal notranslate"><span class="pre">&quot;item</span> <span class="pre">we</span> <span class="pre">want&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item we want&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item we want&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item we want&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item we want&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -976,7 +976,7 @@ Person 29: sickness
 Then, we could use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate through <code class="docutils literal notranslate"><span class="pre">collection</span></code>. If an item equals <code class="docutils literal notranslate"><span class="pre">&quot;item</span> <span class="pre">we</span> <span class="pre">want&quot;</span></code>, then we will <code class="docutils literal notranslate"><span class="pre">.append()</span></code> that item to our previously empty list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;item we want&quot;</span><span class="p">:</span>
         <span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -987,12 +987,12 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>Check it out!</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;item we want&#39;, &#39;item we want&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;item we want&#39;, &#39;item we want&#39;]
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1000,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>To iterate through the list <code class="docutils literal notranslate"><span class="pre">diseases</span></code> and make a new list with only the items that match <code class="docutils literal notranslate"><span class="pre">&quot;recent</span> <span class="pre">emigrant&quot;</span></code>, we could use the same template.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
@@ -1010,7 +1010,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">disease</span> <span class="o">==</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">:</span>
         <span class="n">recent_emigrants</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">disease</span><span class="p">)</span>
@@ -1020,12 +1020,12 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;recent emigrant&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
@@ -1037,12 +1037,12 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>How many items are in this list? Remember that we can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to see how many items are in a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">recent_emigrants</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">recent_emigrants</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -1051,7 +1051,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>Below we are iterating through the list <code class="docutils literal notranslate"><span class="pre">diseases</span></code>. If an item is blank, then we are adding<code class="docutils literal notranslate"><span class="pre">&quot;no</span> <span class="pre">disease</span> <span class="pre">recorded&quot;</span></code> to a new <code class="docutils literal notranslate"><span class="pre">updated_diseases</span></code> list. If an item is not blank, we are simply adding the <code class="docutils literal notranslate"><span class="pre">disease</span></code> to the new list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">updated_diseases</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">updated_diseases</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">disease</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">new_disease</span> <span class="o">=</span> <span class="s1">&#39;no disease recorded&#39;</span>
@@ -1064,12 +1064,12 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">updated_diseases</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">updated_diseases</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;no disease recorded&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;no disease recorded&#39;,
  &#39;recent emigrant&#39;,
  &#39;sickness&#39;,
  &#39;no disease recorded&#39;,
@@ -1136,7 +1136,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>Rather than this…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;item we want&quot;</span><span class="p">:</span>
         <span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -1147,19 +1147,19 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>We can do this…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;item we want&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;item we want&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;item we want&#39;, &#39;item we want&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;item we want&#39;, &#39;item we want&#39;]
 </pre></div>
 </div>
 </div>
@@ -1168,19 +1168,19 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>To make the list <code class="docutils literal notranslate"><span class="pre">recent_emigrants</span></code> with a list comprehension, for example, we start with <code class="docutils literal notranslate"><span class="pre">disease</span></code> — that is, the “item we want to extract” — and followed it up with a flattened <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span> <span class="o">=</span> <span class="p">[</span><span class="n">disease</span> <span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span> <span class="k">if</span> <span class="n">disease</span> <span class="o">==</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span> <span class="o">=</span> <span class="p">[</span><span class="n">disease</span> <span class="k">for</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span> <span class="k">if</span> <span class="n">disease</span> <span class="o">==</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recent_emigrants</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;recent emigrant&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
  &#39;recent emigrant&#39;,
@@ -1196,7 +1196,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>We can also iterate through multiple lists at the same time by using the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function, which basically “zips” the lists together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unity&#39;</span><span class="p">,</span> <span class="s1">&#39;Catherine&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas&#39;</span><span class="p">,</span> <span class="s1">&#39;William&#39;</span><span class="p">,</span> <span class="s1">&#39;Patrick&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary Anne&#39;</span><span class="p">,</span> <span class="s1">&#39;Morris&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unity&#39;</span><span class="p">,</span> <span class="s1">&#39;Catherine&#39;</span><span class="p">,</span> <span class="s1">&#39;Thomas&#39;</span><span class="p">,</span> <span class="s1">&#39;William&#39;</span><span class="p">,</span> <span class="s1">&#39;Patrick&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary Anne&#39;</span><span class="p">,</span> <span class="s1">&#39;Morris&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Ellen&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannah&#39;</span><span class="p">,</span> <span class="s1">&#39;Alexander&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary A&#39;</span><span class="p">,</span> <span class="s1">&#39;Serena?&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Margaret&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosanna&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span>
                <span class="s1">&#39;Bantel&#39;</span><span class="p">,</span> <span class="s1">&#39;Marcella&#39;</span><span class="p">,</span> <span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Martin&#39;</span><span class="p">]</span>
@@ -1206,7 +1206,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">last_names</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;Harkin&#39;</span><span class="p">,</span> <span class="s1">&#39;Doyle&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonald&#39;</span><span class="p">,</span> <span class="s1">&#39;Jordan&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Keene&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_names</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;Harkin&#39;</span><span class="p">,</span> <span class="s1">&#39;Doyle&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonald&#39;</span><span class="p">,</span> <span class="s1">&#39;Jordan&#39;</span><span class="p">,</span> <span class="s1">&#39;Rouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Keene&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
                <span class="s1">&#39;McLoughlin&#39;</span><span class="p">,</span> <span class="s1">&#39;Cassidy&#39;</span><span class="p">,</span> <span class="s1">&#39;Whittle&#39;</span><span class="p">,</span> <span class="s1">&#39;Coyle&#39;</span><span class="p">,</span> <span class="s1">&#39;Cullen&#39;</span><span class="p">,</span> <span class="s1">&#39;Cozens&#39;</span><span class="p">,</span> 
                <span class="s1">&#39;Maly&#39;</span><span class="p">,</span> <span class="s1">&#39;McGuire&#39;</span><span class="p">,</span> <span class="s1">&#39;Laly&#39;</span><span class="p">,</span> <span class="s1">&#39;Bahan&#39;</span><span class="p">,</span> <span class="s1">&#39;Combs&#39;</span><span class="p">,</span> <span class="s1">&#39;McGovern&#39;</span><span class="p">,</span> <span class="s1">&#39;Gallagher&#39;</span><span class="p">,</span> 
                <span class="s1">&#39;Crone&#39;</span><span class="p">,</span> <span class="s1">&#39;Brannon&#39;</span><span class="p">,</span> <span class="s1">&#39;McDonal&#39;</span><span class="p">,</span> <span class="s1">&#39;Atkins&#39;</span><span class="p">,</span> <span class="s1">&#39;Garragan&#39;</span><span class="p">,</span> <span class="s1">&#39;Wood&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span><span class="p">,</span> <span class="s1">&#39;Galeny&#39;</span><span class="p">,</span> <span class="s1">&#39;Welch&#39;</span><span class="p">,</span> <span class="s1">&#39;Kerly&#39;</span><span class="p">]</span>
@@ -1216,7 +1216,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
             <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
@@ -1226,7 +1226,7 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;47&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;47&#39;</span><span class="p">,</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;65&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span>
         <span class="s1">&#39;27&#39;</span><span class="p">,</span> <span class="s1">&#39;32&#39;</span><span class="p">,</span> <span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span> <span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="s1">&#39;41&#39;</span><span class="p">,</span> <span class="s1">&#39;37&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1235,13 +1235,13 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 <p>For example, if we wanted to print out each Bellevue Almshouse patient’s first name and their “disease” as recorded by the NYC government, we could <code class="docutils literal notranslate"><span class="pre">zip()</span></code> the lists together and unpack multiple variables.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> // </span><span class="si">{</span><span class="n">disease</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Unity // no disease recorded
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unity // no disease recorded
 Catherine // recent emigrant
 Thomas // sickness
 William // no disease recorded
@@ -1277,13 +1277,13 @@ Martin // sickness
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">last_names</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">last_names</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2"> // Age </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> // </span><span class="si">{</span><span class="n">disease</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Unity Harkin // Age 22 // no disease recorded
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unity Harkin // Age 22 // no disease recorded
 Catherine Doyle // Age 21 // recent emigrant
 Thomas McDonald // Age 23 // sickness
 William Jordan // Age 47 // no disease recorded
@@ -1320,20 +1320,20 @@ Martin Kerly // Age 9 // sickness
 <p>If you try to <code class="docutils literal notranslate"><span class="pre">zip()</span></code> a list that is a different length than the other lists, it will only zip to the length of the shortest list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">another_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;laborer&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;laborer&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">disease</span><span class="p">,</span> <span class="n">list_item</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">last_names</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">,</span> <span class="n">another_list</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">disease</span><span class="p">,</span> <span class="n">list_item</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="n">last_names</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">updated_diseases</span><span class="p">,</span> <span class="n">another_list</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2"> // Age </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> // </span><span class="si">{</span><span class="n">disease</span><span class="si">}</span><span class="s2"> // </span><span class="si">{</span><span class="n">list_item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Unity Harkin // Age 22 // no disease recorded // laborer
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unity Harkin // Age 22 // no disease recorded // laborer
 </pre></div>
 </div>
 </div>
@@ -1346,7 +1346,7 @@ Martin Kerly // Age 9 // sickness
 <p>The <code class="docutils literal notranslate"><span class="pre">from</span></code> keyword allows us to <code class="docutils literal notranslate"><span class="pre">import</span></code> a specific module from a larger library — in this case, from <code class="docutils literal notranslate"><span class="pre">collections</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 </pre></div>
 </div>
 </div>
@@ -1354,12 +1354,12 @@ Martin Kerly // Age 9 // sickness
 <p>Now that we have <code class="docutils literal notranslate"><span class="pre">Counter</span></code> imported, we can use it. To count the items in a collection, we simply need to insert a collection inside the <code class="docutils literal notranslate"><span class="pre">Counter()</span></code> function.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">updated_diseases</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">updated_diseases</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Counter({&#39;no disease recorded&#39;: 11,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;no disease recorded&#39;: 11,
          &#39;recent emigrant&#39;: 5,
          &#39;sickness&#39;: 9,
          &#39;destitution&#39;: 2,
@@ -1375,13 +1375,13 @@ Martin Kerly // Age 9 // sickness
 <p>To sort this Counter dictionary based on the most commonly occurring items, we can use the <code class="docutils literal notranslate"><span class="pre">.most_common()</span></code> method.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">updated_diseases</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">updated_diseases</span><span class="p">)</span>
 <span class="n">disease_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;no disease recorded&#39;, 11),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;no disease recorded&#39;, 11),
  (&#39;sickness&#39;, 9),
  (&#39;recent emigrant&#39;, 5),
  (&#39;destitution&#39;, 2),
@@ -1394,12 +1394,12 @@ Martin Kerly // Age 9 // sickness
 <p>We can also select a certain number of the top most common items by placing a number inside the <code class="docutils literal notranslate"><span class="pre">.most_common()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;no disease recorded&#39;, 11), (&#39;sickness&#39;, 9)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;no disease recorded&#39;, 11), (&#39;sickness&#39;, 9)]
 </pre></div>
 </div>
 </div>
@@ -1410,12 +1410,12 @@ Martin Kerly // Age 9 // sickness
 <p>We can also select a certain number of the <em>least</em> common items by extracting a slice from the end of list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disease_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;insane&#39;, 2), (&#39;syphilis&#39;, 1)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;insane&#39;, 2), (&#39;syphilis&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -1426,7 +1426,7 @@ Martin Kerly // Age 9 // sickness
 <h2>Excerises<a class="headerlink" href="#excerises" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;widow&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;widow&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;widow&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span> <span class="s1">&#39;painter&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;weaver&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">]</span>
@@ -1439,7 +1439,7 @@ Martin Kerly // Age 9 // sickness
 <p>Make a new list that includes only the items in the list <code class="docutils literal notranslate"><span class="pre">shuffled_professions</span></code> that matches <code class="docutils literal notranslate"><span class="pre">spinster</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
 <span class="c1">#Your code here</span>
     <span class="c1">#Your code here</span>
         <span class="c1">#Your code here</span>
@@ -1453,7 +1453,7 @@ Martin Kerly // Age 9 // sickness
 <p>Print out each item in the list <code class="docutils literal notranslate"><span class="pre">shuffled_professions</span></code> next to an index number</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
     <span class="c1">#Your code here</span>
 </pre></div>
 </div>
@@ -1465,7 +1465,7 @@ Martin Kerly // Age 9 // sickness
 <p>Find the most and least common diseases in the list <code class="docutils literal notranslate"><span class="pre">shuffled_professions</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
 </pre></div>
 </div>
 </div>

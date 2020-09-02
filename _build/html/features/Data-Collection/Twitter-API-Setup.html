@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Twitter-API-Setup.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -472,19 +474,19 @@
 <p>To install twarc, simply run the following on the command line:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install twarc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twarc
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc version
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc version
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>twarc v1.7.3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>twarc v1.7.3
 </pre></div>
 </div>
 </div>
@@ -499,7 +501,7 @@
 <p>To configure twarc, open up your Terminal or PowerShell and copy and paste <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">configure</span></code> into your command line.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc configure
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc configure
 </pre></div>
 </div>
 </div>
@@ -511,7 +513,7 @@
 <p>You need to copy and paste the part after <code class="docutils literal notranslate"><span class="pre">oauthverifier=</span></code> into the prompt at the command line:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">After</span> <span class="n">you</span> <span class="n">have</span> <span class="n">authorized</span> <span class="n">the</span> <span class="n">application</span> <span class="n">please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">displayed</span> <span class="n">PIN</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">After</span> <span class="n">you</span> <span class="n">have</span> <span class="n">authorized</span> <span class="n">the</span> <span class="n">application</span> <span class="n">please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">displayed</span> <span class="n">PIN</span><span class="p">:</span>
 </pre></div>
 </div>
 </div>
@@ -519,7 +521,7 @@
 <p>If the PIN works, then you will get a happy successs message. Make sure to copy and paste this message into HW 6.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The credentials for mellymeldubs have been saved to your configuration file at /Users/melaniewalsh/.twarc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>The credentials for mellymeldubs have been saved to your configuration file at /Users/melaniewalsh/.twarc
 
 ✨ ✨ ✨  Happy twarcing! ✨ ✨ ✨
 </pre></div>
@@ -532,7 +534,7 @@
 <p>Copy your <a class="reference external" href="https://developer.twitter.com/en/apps">API keys</a> and paste them into the quotation marks below. Also type in your Twitter handle without the &#64; symbol.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twitter_handle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">twitter_handle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">consumer_secret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -544,7 +546,7 @@
 <p>Then run the two cells below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">configuration</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;[</span><span class="si">{</span><span class="n">twitter_handle</span><span class="si">}</span><span class="s2">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">configuration</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;[</span><span class="si">{</span><span class="n">twitter_handle</span><span class="si">}</span><span class="s2">]</span>
 <span class="s2">consumer_key=</span><span class="si">{</span><span class="n">consumer_key</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">consumer_secret = </span><span class="si">{</span><span class="n">consumer_secret</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">access_token = </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2"></span>
@@ -556,7 +558,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">config_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s2">&quot;.twarc&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
     <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
@@ -567,12 +569,12 @@
 <p>To test whether twarc has been properly configured, run a sample search and see if Twitter data gets returned:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;something incredibly obscure&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;something incredibly obscure&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>{&quot;created_at&quot;: &quot;Wed Mar 04 16:09:46 +0000 2020&quot;, &quot;id&quot;: 1235235999770439681, &quot;id_str&quot;: &quot;1235235999770439681&quot;, &quot;full_text&quot;: &quot;@ARX8x No problem! \nOne more small thing: you could also add Installer 5 on the list, if it has URL scheme support... and that would be all the available package managers out there, unless I&#39;m missing something incredibly obscure or outdated&quot;, &quot;truncated&quot;: false, &quot;display_text_range&quot;: [7, 241], &quot;entities&quot;: {&quot;hashtags&quot;: [], &quot;symbols&quot;: [], &quot;user_mentions&quot;: [{&quot;screen_name&quot;: &quot;ARX8x&quot;, &quot;name&quot;: &quot;ARX8x&quot;, &quot;id&quot;: 2305006776, &quot;id_str&quot;: &quot;2305006776&quot;, &quot;indices&quot;: [0, 6]}], &quot;urls&quot;: []}, &quot;metadata&quot;: {&quot;iso_language_code&quot;: &quot;en&quot;, &quot;result_type&quot;: &quot;recent&quot;}, &quot;source&quot;: &quot;&lt;a href=\&quot;http://twitter.com\&quot; rel=\&quot;nofollow\&quot;&gt;Twitter Web Client&lt;/a&gt;&quot;, &quot;in_reply_to_status_id&quot;: 1235193727393492992, &quot;in_reply_to_status_id_str&quot;: &quot;1235193727393492992&quot;, &quot;in_reply_to_user_id&quot;: 2305006776, &quot;in_reply_to_user_id_str&quot;: &quot;2305006776&quot;, &quot;in_reply_to_screen_name&quot;: &quot;ARX8x&quot;, &quot;user&quot;: {&quot;id&quot;: 1441729536, &quot;id_str&quot;: &quot;1441729536&quot;, &quot;name&quot;: &quot;Simply Seb&quot;, &quot;screen_name&quot;: &quot;YoshiFan13&quot;, &quot;location&quot;: &quot;Romania&quot;, &quot;description&quot;: &quot;Developer | That guy who made Windows 7 Sparta Remix (6M+ views) | Fandoms: Danger Mouse @Danger_Seb, Club Penguin, Guitar Hero | I love @TrashCosWynaut \u2764\ufe0f&quot;, &quot;url&quot;: &quot;https://t.co/w3vIr9MsDv&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;url&quot;: &quot;https://t.co/w3vIr9MsDv&quot;, &quot;expanded_url&quot;: &quot;http://yoshifan.me&quot;, &quot;display_url&quot;: &quot;yoshifan.me&quot;, &quot;indices&quot;: [0, 23]}]}, &quot;description&quot;: {&quot;urls&quot;: []}}, &quot;protected&quot;: false, &quot;followers_count&quot;: 3922, &quot;friends_count&quot;: 766, &quot;listed_count&quot;: 24, &quot;created_at&quot;: &quot;Sun May 19 17:24:04 +0000 2013&quot;, &quot;favourites_count&quot;: 20324, &quot;utc_offset&quot;: null, &quot;time_zone&quot;: null, &quot;geo_enabled&quot;: true, &quot;verified&quot;: false, &quot;statuses_count&quot;: 55589, &quot;lang&quot;: null, &quot;contributors_enabled&quot;: false, &quot;is_translator&quot;: false, &quot;is_translation_enabled&quot;: false, &quot;profile_background_color&quot;: &quot;373940&quot;, &quot;profile_background_image_url&quot;: &quot;http://abs.twimg.com/images/themes/theme1/bg.png&quot;, &quot;profile_background_image_url_https&quot;: &quot;https://abs.twimg.com/images/themes/theme1/bg.png&quot;, &quot;profile_background_tile&quot;: true, &quot;profile_image_url&quot;: &quot;http://pbs.twimg.com/profile_images/716118950602543104/ip0zmHkl_normal.jpg&quot;, &quot;profile_image_url_https&quot;: &quot;https://pbs.twimg.com/profile_images/716118950602543104/ip0zmHkl_normal.jpg&quot;, &quot;profile_banner_url&quot;: &quot;https://pbs.twimg.com/profile_banners/1441729536/1511096815&quot;, &quot;profile_link_color&quot;: &quot;373940&quot;, &quot;profile_sidebar_border_color&quot;: &quot;000000&quot;, &quot;profile_sidebar_fill_color&quot;: &quot;DDEEF6&quot;, &quot;profile_text_color&quot;: &quot;333333&quot;, &quot;profile_use_background_image&quot;: true, &quot;has_extended_profile&quot;: true, &quot;default_profile&quot;: false, &quot;default_profile_image&quot;: false, &quot;following&quot;: false, &quot;follow_request_sent&quot;: false, &quot;notifications&quot;: false, &quot;translator_type&quot;: &quot;regular&quot;}, &quot;geo&quot;: null, &quot;coordinates&quot;: null, &quot;place&quot;: null, &quot;contributors&quot;: null, &quot;is_quote_status&quot;: false, &quot;retweet_count&quot;: 0, &quot;favorite_count&quot;: 0, &quot;favorited&quot;: false, &quot;retweeted&quot;: false, &quot;lang&quot;: &quot;en&quot;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;created_at&quot;: &quot;Wed Mar 04 16:09:46 +0000 2020&quot;, &quot;id&quot;: 1235235999770439681, &quot;id_str&quot;: &quot;1235235999770439681&quot;, &quot;full_text&quot;: &quot;@ARX8x No problem! \nOne more small thing: you could also add Installer 5 on the list, if it has URL scheme support... and that would be all the available package managers out there, unless I&#39;m missing something incredibly obscure or outdated&quot;, &quot;truncated&quot;: false, &quot;display_text_range&quot;: [7, 241], &quot;entities&quot;: {&quot;hashtags&quot;: [], &quot;symbols&quot;: [], &quot;user_mentions&quot;: [{&quot;screen_name&quot;: &quot;ARX8x&quot;, &quot;name&quot;: &quot;ARX8x&quot;, &quot;id&quot;: 2305006776, &quot;id_str&quot;: &quot;2305006776&quot;, &quot;indices&quot;: [0, 6]}], &quot;urls&quot;: []}, &quot;metadata&quot;: {&quot;iso_language_code&quot;: &quot;en&quot;, &quot;result_type&quot;: &quot;recent&quot;}, &quot;source&quot;: &quot;&lt;a href=\&quot;http://twitter.com\&quot; rel=\&quot;nofollow\&quot;&gt;Twitter Web Client&lt;/a&gt;&quot;, &quot;in_reply_to_status_id&quot;: 1235193727393492992, &quot;in_reply_to_status_id_str&quot;: &quot;1235193727393492992&quot;, &quot;in_reply_to_user_id&quot;: 2305006776, &quot;in_reply_to_user_id_str&quot;: &quot;2305006776&quot;, &quot;in_reply_to_screen_name&quot;: &quot;ARX8x&quot;, &quot;user&quot;: {&quot;id&quot;: 1441729536, &quot;id_str&quot;: &quot;1441729536&quot;, &quot;name&quot;: &quot;Simply Seb&quot;, &quot;screen_name&quot;: &quot;YoshiFan13&quot;, &quot;location&quot;: &quot;Romania&quot;, &quot;description&quot;: &quot;Developer | That guy who made Windows 7 Sparta Remix (6M+ views) | Fandoms: Danger Mouse @Danger_Seb, Club Penguin, Guitar Hero | I love @TrashCosWynaut \u2764\ufe0f&quot;, &quot;url&quot;: &quot;https://t.co/w3vIr9MsDv&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;url&quot;: &quot;https://t.co/w3vIr9MsDv&quot;, &quot;expanded_url&quot;: &quot;http://yoshifan.me&quot;, &quot;display_url&quot;: &quot;yoshifan.me&quot;, &quot;indices&quot;: [0, 23]}]}, &quot;description&quot;: {&quot;urls&quot;: []}}, &quot;protected&quot;: false, &quot;followers_count&quot;: 3922, &quot;friends_count&quot;: 766, &quot;listed_count&quot;: 24, &quot;created_at&quot;: &quot;Sun May 19 17:24:04 +0000 2013&quot;, &quot;favourites_count&quot;: 20324, &quot;utc_offset&quot;: null, &quot;time_zone&quot;: null, &quot;geo_enabled&quot;: true, &quot;verified&quot;: false, &quot;statuses_count&quot;: 55589, &quot;lang&quot;: null, &quot;contributors_enabled&quot;: false, &quot;is_translator&quot;: false, &quot;is_translation_enabled&quot;: false, &quot;profile_background_color&quot;: &quot;373940&quot;, &quot;profile_background_image_url&quot;: &quot;http://abs.twimg.com/images/themes/theme1/bg.png&quot;, &quot;profile_background_image_url_https&quot;: &quot;https://abs.twimg.com/images/themes/theme1/bg.png&quot;, &quot;profile_background_tile&quot;: true, &quot;profile_image_url&quot;: &quot;http://pbs.twimg.com/profile_images/716118950602543104/ip0zmHkl_normal.jpg&quot;, &quot;profile_image_url_https&quot;: &quot;https://pbs.twimg.com/profile_images/716118950602543104/ip0zmHkl_normal.jpg&quot;, &quot;profile_banner_url&quot;: &quot;https://pbs.twimg.com/profile_banners/1441729536/1511096815&quot;, &quot;profile_link_color&quot;: &quot;373940&quot;, &quot;profile_sidebar_border_color&quot;: &quot;000000&quot;, &quot;profile_sidebar_fill_color&quot;: &quot;DDEEF6&quot;, &quot;profile_text_color&quot;: &quot;333333&quot;, &quot;profile_use_background_image&quot;: true, &quot;has_extended_profile&quot;: true, &quot;default_profile&quot;: false, &quot;default_profile_image&quot;: false, &quot;following&quot;: false, &quot;follow_request_sent&quot;: false, &quot;notifications&quot;: false, &quot;translator_type&quot;: &quot;regular&quot;}, &quot;geo&quot;: null, &quot;coordinates&quot;: null, &quot;place&quot;: null, &quot;contributors&quot;: null, &quot;is_quote_status&quot;: false, &quot;retweet_count&quot;: 0, &quot;favorite_count&quot;: 0, &quot;favorited&quot;: false, &quot;retweeted&quot;: false, &quot;lang&quot;: &quot;en&quot;}
 </pre></div>
 </div>
 </div>
@@ -584,7 +586,7 @@
 <p>Finally, we also need to download the twarc repository from GitHub, because there are a few things in it that aren’t included in the version of twarc that’s installed through pip. To download the repository, run:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/DocNow/twarc.git
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone https://github.com/DocNow/twarc.git
 </pre></div>
 </div>
 </div>

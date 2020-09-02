@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,6 +346,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Variables.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -426,38 +428,38 @@
 <p>You assign variables with an equals <code class="docutils literal notranslate"><span class="pre">=</span></code> sign. In Python, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is the “assignment operator.” A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_variable</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_variable</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">new_variable</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">different_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m another variable!&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">different_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m another variable!&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">different_variable</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I&#39;m another variable!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m another variable!
 </pre></div>
 </div>
 </div>
@@ -465,7 +467,7 @@
 <p>Let’s look at some of the variables that we used when we counted the most frequent words in Charlotte Perkins Gilman’s “The Yellow Wallpaper.”</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Libraries and Modules</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Libraries and Modules</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
@@ -513,7 +515,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;john&#39;, 45),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;john&#39;, 45),
  (&#39;one&#39;, 33),
  (&#39;said&#39;, 30),
  (&#39;would&#39;, 27),
@@ -566,7 +568,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
 <span class="n">number_of_desired_words</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
  <span class="s1">&#39;yourself&#39;</span><span class="p">,</span> <span class="s1">&#39;yourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;him&#39;</span><span class="p">,</span> <span class="s1">&#39;his&#39;</span><span class="p">,</span> <span class="s1">&#39;himself&#39;</span><span class="p">,</span> <span class="s1">&#39;she&#39;</span><span class="p">,</span> <span class="s1">&#39;her&#39;</span><span class="p">,</span> <span class="s1">&#39;hers&#39;</span><span class="p">,</span>
@@ -592,24 +594,24 @@
 <p>We can check to see what’s “inside” these variables by running a cell with the variable’s name. This is one of the handiest features of a Jupyter notebook. Outside the Jupyter environment, you would need to use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to display the variable.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;../texts/The-Yellow-Wallpaper.txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;../texts/The-Yellow-Wallpaper.txt&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stopwords</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stopwords</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;,
  &#39;me&#39;,
  &#39;my&#39;,
  &#39;myself&#39;,
@@ -745,12 +747,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_desired_words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_desired_words</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>40
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40
 </pre></div>
 </div>
 </div>
@@ -758,7 +760,7 @@
 <p>Your turn! Pick another variable from the script above and see what’s inside it below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#your_chosen_variable</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#your_chosen_variable</span>
 </pre></div>
 </div>
 </div>
@@ -767,7 +769,7 @@
 <p>For example, with the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, each of the variables are printed, and the “The Yellow Wallpaper” is properly formatted with new lines.</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">filepath_of_text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">filepath_of_text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">stopwords</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">number_of_desired_words</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">full_text</span><span class="p">)</span>
@@ -775,7 +777,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>../texts/literature/The-Yellow-Wallpaper.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../texts/literature/The-Yellow-Wallpaper.txt
 [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &#39;should&#39;, &#39;now&#39;, &#39;ve&#39;, &#39;ll&#39;, &#39;amp&#39;]
 40
 THE YELLOW WALLPAPER
@@ -1611,7 +1613,6 @@ And I’ve pulled off most of the paper, so you can’t put me back!”
 
 Now why should that man have fainted? But he did, and right across my path
 by the wall, so that I had to creep over him every time!
-
 </pre></div>
 </div>
 </div>
@@ -1635,13 +1636,13 @@ by the wall, so that I had to creep over him every time!
 <p>Instead of <code class="docutils literal notranslate"><span class="pre">filepath_of_text</span></code>, we could have simply named the variable <code class="docutils literal notranslate"><span class="pre">filepath</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
 <span class="n">filepath</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;../texts/literature/The-Yellow-Wallpaper.txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;../texts/literature/The-Yellow-Wallpaper.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -1649,13 +1650,13 @@ by the wall, so that I had to creep over him every time!
 <p>Or we could have gone even simpler and named the filepath <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
 <span class="n">f</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;../texts/literature/The-Yellow-Wallpaper.txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;../texts/literature/The-Yellow-Wallpaper.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -1673,7 +1674,7 @@ by the wall, so that I had to creep over him every time!
 <p>For the sake of illustration, here’s some of our same word count Python code with poorly named variables. The code works exactly the same as our original code, but it’s a lot harder to read.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sp</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sp</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="n">lt</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">sw</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="n">lt</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sw</span>
@@ -1689,7 +1690,7 @@ by the wall, so that I had to creep over him every time!
 <p><strong>Example Python Code ✨ With Clearer Variable Names ✨</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_into_words</span><span class="p">(</span><span class="n">any_chunk_of_text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_into_words</span><span class="p">(</span><span class="n">any_chunk_of_text</span><span class="p">):</span>
     <span class="n">lowercase_text</span> <span class="o">=</span> <span class="n">any_chunk_of_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">split_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="n">lowercase_text</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">split_words</span>
@@ -1709,7 +1710,7 @@ by the wall, so that I had to creep over him every time!
 <p>This is not something to worry too much about. You’ll know very quickly if a name is reserved by Python because it will show up in green and often give you an error message.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1730,7 +1731,7 @@ by the wall, so that I had to creep over him every time!
 <p>For instance, I could re-assign <code class="docutils literal notranslate"><span class="pre">filepath_of_text</span></code> to the filepath for the lyrics of Beyonce’s album <em>Lemonade</em> instead of Perkins-Gilman’s “The Yellow Wallpaper.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/music/Beyonce-Lemonade.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/music/Beyonce-Lemonade.txt&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1738,7 +1739,7 @@ by the wall, so that I had to creep over him every time!
 <p>If I change this one variable in our example code, then we get the most frequent words for <em>Lemonade</em>.</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="k">def</span> <span class="nf">split_into_words</span><span class="p">(</span><span class="n">any_chunk_of_text</span><span class="p">):</span>
@@ -1774,7 +1775,7 @@ by the wall, so that I had to creep over him every time!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;love&#39;, 93),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;love&#39;, 93),
  (&#39;like&#39;, 50),
  (&#39;ain&#39;, 50),
  (&#39;slay&#39;, 49),
@@ -1837,24 +1838,24 @@ by the wall, so that I had to creep over him every time!
 </div>
 <div class="cell tag_hide-cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!ls ../texts/music/
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls ../texts/music/
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[31mAdele-21.txt[m[m
-[31mBeyonce-Lemonade.txt[m[m
-[31mCarly-Rae-Jepsen-Emotion.txt[m[m
-[31mDrake-Take-Care.txt[m[m
-[31mHamilton-Musical.txt[m[m
-[31mHarry-Styles-Fine-Line.txt[m[m
-[31mKendrick-Lamar-To-Pimp-a-Butterfly.txt[m[m
-[31mLin-Manuel-Miranda-In-the-Heights.txt[m[m
-[31mLizzo-Cuz-I-Love-You.txt[m[m
-[31mMac-Miller-Circles.txt[m[m
-[31mMitski-Puberty-2.txt[m[m
-[31mTaylor-Swift-Red.txt[m[m
-[31mThe-Beatles-Sgt-Peppers-Lonely-Hearts-Club-Band.txt[m[m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Adele-21.txt</span>
+<span class=" -Color -Color-Red">Beyonce-Lemonade.txt</span>
+<span class=" -Color -Color-Red">Carly-Rae-Jepsen-Emotion.txt</span>
+<span class=" -Color -Color-Red">Drake-Take-Care.txt</span>
+<span class=" -Color -Color-Red">Hamilton-Musical.txt</span>
+<span class=" -Color -Color-Red">Harry-Styles-Fine-Line.txt</span>
+<span class=" -Color -Color-Red">Kendrick-Lamar-To-Pimp-a-Butterfly.txt</span>
+<span class=" -Color -Color-Red">Lin-Manuel-Miranda-In-the-Heights.txt</span>
+<span class=" -Color -Color-Red">Lizzo-Cuz-I-Love-You.txt</span>
+<span class=" -Color -Color-Red">Mac-Miller-Circles.txt</span>
+<span class=" -Color -Color-Red">Mitski-Puberty-2.txt</span>
+<span class=" -Color -Color-Red">Taylor-Swift-Red.txt</span>
+<span class=" -Color -Color-Red">The-Beatles-Sgt-Peppers-Lonely-Hearts-Club-Band.txt</span>
 </pre></div>
 </div>
 </div>
@@ -1862,7 +1863,7 @@ by the wall, so that I had to creep over him every time!
 <p>Then assign <code class="docutils literal notranslate"><span class="pre">filepath_of_text</span></code> to the corresponding filepath below. Be sure to explore what happens when you change the values for <code class="docutils literal notranslate"><span class="pre">number_of_desired_words</span></code> and <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>, as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="k">def</span> <span class="nf">split_into_words</span><span class="p">(</span><span class="n">any_chunk_of_text</span><span class="p">):</span>

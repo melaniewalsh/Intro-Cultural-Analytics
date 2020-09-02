@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,6 +346,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Python/Data-Types.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -572,48 +574,48 @@
 <p>You can check the data type of any value by using the function <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;lemonade&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;lemonade&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">filepath_of_text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">filepath_of_text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>int
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">number_of_desired_words</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">number_of_desired_words</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>int
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
@@ -624,21 +626,21 @@
 <p>A <em>string</em> is a Python data type that is treated like text, even if it contains a number. Strings are always enclosed by either single quotation marks <code class="docutils literal notranslate"><span class="pre">'this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string'</span></code> or double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;this is a string&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;this is a string&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;this is also a string, even though it contains a number like 42&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;this is also a string, even though it contains a number like 42&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">string</span>
 </pre></div>
 </div>
 </div>
@@ -655,14 +657,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;She exclaimed, &#39;This is a quotation inside a string!&#39;&#39;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;She exclaimed, &#39;This is a quotation inside a string!&#39;&#39;&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;She exclaimed, </span><span class="se">\&quot;</span><span class="s2">This is also a quotation inside a string!</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;She exclaimed, </span><span class="se">\&quot;</span><span class="s2">This is also a quotation inside a string!</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -685,7 +687,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span> <span class="o">=</span> <span class="s2">&quot;Hold up, they don&#39;t love you like I love you&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span> <span class="o">=</span> <span class="s2">&quot;Hold up, they don&#39;t love you like I love you&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -694,12 +696,12 @@
 <h4>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;H&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;H&#39;
 </pre></div>
 </div>
 </div>
@@ -709,12 +711,12 @@
 <h4>Slice<a class="headerlink" href="#slice" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Hold up, they don&#39;t &quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Hold up, they don&#39;t &quot;
 </pre></div>
 </div>
 </div>
@@ -724,12 +726,12 @@
 <h4>Add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span> <span class="o">+</span> <span class="s2">&quot; // Slow down, they don&#39;t love you like I love you&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span> <span class="o">+</span> <span class="s2">&quot; // Slow down, they don&#39;t love you like I love you&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Hold up, they don&#39;t love you like I love you // Slow down, they don&#39;t love you like I love you&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Hold up, they don&#39;t love you like I love you // Slow down, they don&#39;t love you like I love you&quot;
 </pre></div>
 </div>
 </div>
@@ -739,12 +741,12 @@
 <h4>Make uppercase<a class="headerlink" href="#make-uppercase" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemonade_snippet</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;HOLD UP, THEY DON&#39;T LOVE YOU LIKE I LOVE YOU&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;HOLD UP, THEY DON&#39;T LOVE YOU LIKE I LOVE YOU&quot;
 </pre></div>
 </div>
 </div>
@@ -761,12 +763,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beyonce burst out of the building and sang: </span><span class="se">\n\n</span><span class="s2">&#39;</span><span class="si">{</span><span class="n">lemonade_snippet</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beyonce burst out of the building and sang: </span><span class="se">\n\n</span><span class="s2">&#39;</span><span class="si">{</span><span class="n">lemonade_snippet</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Beyonce burst out of the building and sang: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beyonce burst out of the building and sang: 
 
 &#39;Hold up, they don&#39;t love you like I love you&#39;
 </pre></div>
@@ -780,36 +782,36 @@
 <p>An <em>integer</em> and a <em>float</em> (short for <em>floating point number</em>) are two Python data types for representing numbers. Integers represent whole numbers. Floats represent numbers with decimal points. They do not need to be placed in quotation marks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>int
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">40.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">40.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>float
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">40.555555</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">40.555555</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>float
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
 </pre></div>
 </div>
 </div>
@@ -870,14 +872,14 @@
 <h3>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable1</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable1</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">variable2</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">variable1</span> <span class="o">*</span> <span class="n">variable2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -886,12 +888,12 @@
 <h4>Exponents<a class="headerlink" href="#exponents" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable1</span> <span class="o">**</span> <span class="n">variable2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable1</span> <span class="o">**</span> <span class="n">variable2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -902,12 +904,12 @@
 <h3>Remainder<a class="headerlink" href="#remainder" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">72</span> <span class="o">%</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">72</span> <span class="o">%</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -920,7 +922,7 @@
 <p>For example, let’s assign the variable <code class="docutils literal notranslate"><span class="pre">beyonce</span></code> the value <code class="docutils literal notranslate"><span class="pre">&quot;Grammy</span> <span class="pre">award-winner&quot;</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">=</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -936,24 +938,24 @@
 <p>We can “test” whether the variable <code class="docutils literal notranslate"><span class="pre">beyonce</span></code> equals <code class="docutils literal notranslate"><span class="pre">&quot;Grammy</span> <span class="pre">award-winner&quot;</span></code> by using the equals operator <code class="docutils literal notranslate"><span class="pre">==</span></code>. This will return a boolean.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Grammy award-winner&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>bool
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
 </pre></div>
 </div>
 </div>
@@ -961,12 +963,12 @@
 <p>If we evaluate whether <code class="docutils literal notranslate"><span class="pre">beyonce</span></code> instead equals <code class="docutils literal notranslate"><span class="pre">&quot;Oscar</span> <span class="pre">award-winner&quot;</span></code>, we will get the boolean answer.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Oscar award-winner&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beyonce</span> <span class="o">==</span> <span class="s2">&quot;Oscar award-winner&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1049,7 @@
 <p>Here’s an example of data types in action using some biographical information about me.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Prof. Walsh&#39;</span> <span class="c1">#string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Prof. Walsh&#39;</span> <span class="c1">#string</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#integer</span>
 <span class="n">place</span> <span class="o">=</span> <span class="s1">&#39;Chicago&#39;</span> <span class="c1">#string </span>
 <span class="n">favorite_food</span> <span class="o">=</span> <span class="s1">&#39;tacos&#39;</span> <span class="c1">#string</span>
@@ -1059,7 +1061,7 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> likes </span><span class="si">{</span><span class="n">favorite_food</span><span class="si">}</span><span class="s2"> and once lived in </span><span class="si">{</span><span class="n">place</span><span class="si">}</span><span class="s2">.</span>
 <span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old, which is </span><span class="si">{</span><span class="n">dog_years_age</span><span class="si">}</span><span class="s2"> in dog years.</span>
@@ -1068,7 +1070,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨This is...Prof. Walsh!✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨This is...Prof. Walsh!✨
 Prof. Walsh likes tacos and once lived in Chicago.
 Prof. Walsh is 1000 years old, which is 7500.0 in dog years.
 The statement &#39;Prof. Walsh is a student&#39; is False.
@@ -1078,7 +1080,7 @@ The statement &#39;Prof. Walsh is a student&#39; is False.
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">name = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">age = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">place = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">place</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
@@ -1090,14 +1092,12 @@ The statement &#39;Prof. Walsh is a student&#39; is False.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-name = &lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name = &lt;class &#39;str&#39;&gt;
 age = &lt;class &#39;int&#39;&gt;
 place = &lt;class &#39;str&#39;&gt;
 favorite_food = &lt;class &#39;str&#39;&gt;
 dog_years_age = &lt;class &#39;float&#39;&gt;
 student = &lt;class &#39;bool&#39;&gt;
-
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1105,7 @@ student = &lt;class &#39;bool&#39;&gt;
 <p>Let’s do the same thing but with biographical info about you! Ask your partner a few questions and then fill in the variables below accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="c1">#Your code here</span>
 <span class="n">age</span> <span class="o">=</span> <span class="c1">#Your code here</span>
 <span class="n">home_town</span> <span class="o">=</span> <span class="c1">#Your code here</span>
 <span class="n">favorite_food</span> <span class="o">=</span> <span class="c1">#Your code here</span>
@@ -1117,7 +1117,7 @@ student = &lt;class &#39;bool&#39;&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> likes </span><span class="si">{</span><span class="n">favorite_food</span><span class="si">}</span><span class="s2"> and once lived in </span><span class="si">{</span><span class="n">place</span><span class="si">}</span><span class="s2">.</span>
 <span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old, which is </span><span class="si">{</span><span class="n">dog_years_age</span><span class="si">}</span><span class="s2"> in dog years.</span>
@@ -1129,7 +1129,7 @@ student = &lt;class &#39;bool&#39;&gt;
 <p>Add a new variable called <code class="docutils literal notranslate"><span class="pre">favorite_movie</span></code> and update the f-string to include a new sentence about your partner’s favorite movie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> 
 <span class="n">age</span> <span class="o">=</span> 
 <span class="n">home_town</span> <span class="o">=</span> 
 <span class="n">favorite_food</span> <span class="o">=</span> 
@@ -1141,7 +1141,7 @@ student = &lt;class &#39;bool&#39;&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨This is...</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!✨&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> likes </span><span class="si">{</span><span class="n">favorite_food</span><span class="si">}</span><span class="s2"> and once lived in </span><span class="si">{</span><span class="n">place</span><span class="si">}</span><span class="s2">.</span>
 <span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old, which is </span><span class="si">{</span><span class="n">dog_years_age</span><span class="si">}</span><span class="s2"> in dog years.</span>

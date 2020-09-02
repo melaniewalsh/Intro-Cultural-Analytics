@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Reddit-Data-Collection-With-PSAW.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -434,12 +436,12 @@
 <h2>Install PSAW<a class="headerlink" href="#install-psaw" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install psaw
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install psaw
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Collecting psaw
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psaw
   Downloading psaw-0.0.12-py3-none-any.whl (15 kB)
 Requirement already satisfied: Click in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from psaw) (7.1.2)
 Requirement already satisfied: requests in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from psaw) (2.23.0)
@@ -456,7 +458,7 @@ Successfully installed psaw-0.0.12
 <p><strong>Import Pandas and Set Display Options</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
@@ -468,7 +470,7 @@ Successfully installed psaw-0.0.12
 <h2>Import PushshiftAPI<a class="headerlink" href="#import-pushshiftapi" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psaw</span> <span class="kn">import</span> <span class="n">PushshiftAPI</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psaw</span> <span class="kn">import</span> <span class="n">PushshiftAPI</span>
 </pre></div>
 </div>
 </div>
@@ -478,7 +480,7 @@ Successfully installed psaw-0.0.12
 <h2>Initialize PushshiftAPI<a class="headerlink" href="#initialize-pushshiftapi" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">PushshiftAPI</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">PushshiftAPI</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -489,7 +491,7 @@ Successfully installed psaw-0.0.12
 <p><strong>Set up generator to make API request</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">subreddit</span><span class="o">=</span><span class="s1">&#39;AmITheAsshole&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">subreddit</span><span class="o">=</span><span class="s1">&#39;AmITheAsshole&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -498,7 +500,7 @@ Successfully installed psaw-0.0.12
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -506,12 +508,12 @@ Successfully installed psaw-0.0.12
 <p><strong>Check shape</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(2932, 78)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2932, 78)
 </pre></div>
 </div>
 </div>
@@ -519,12 +521,12 @@ Successfully installed psaw-0.0.12
 <p><strong>Check columns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;all_awardings&#39;, &#39;allow_live_comments&#39;, &#39;author&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;all_awardings&#39;, &#39;allow_live_comments&#39;, &#39;author&#39;,
        &#39;author_flair_css_class&#39;, &#39;author_flair_richtext&#39;, &#39;author_flair_text&#39;,
        &#39;author_flair_type&#39;, &#39;author_fullname&#39;, &#39;author_patreon_flair&#39;,
        &#39;author_premium&#39;, &#39;awarders&#39;, &#39;can_mod_post&#39;, &#39;contest_mode&#39;,
@@ -553,14 +555,14 @@ Successfully installed psaw-0.0.12
 <p><strong>Transform to datetime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;created_utc&#39;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;created_utc&#39;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">,</span> <span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">,</span> <span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -739,7 +741,7 @@ Successfully installed psaw-0.0.12
 <p>The cell below should only take a second to run</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Missy Elliott&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Missy Elliott&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -748,21 +750,21 @@ Successfully installed psaw-0.0.12
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;created_utc&#39;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;created_utc&#39;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">,</span> <span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">,</span> <span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -995,12 +997,12 @@ Successfully installed psaw-0.0.12
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;subreddit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_submissions</span><span class="p">[</span><span class="s1">&#39;subreddit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>hiphopheads           7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hiphopheads           7
 Music                 2
 The_Donald            2
 Showerthoughts        1
@@ -1020,7 +1022,7 @@ Name: subreddit, dtype: int64
 <p>The cell below should only take a second to run</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Missy Elliott&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Missy Elliott&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1033,7 @@ Name: subreddit, dtype: int64
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_comments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">comment</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_comments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">comment</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1045,7 @@ Name: subreddit, dtype: int64
 <p>To search for multiple phrases —  George Orwell OR J.R.R. Tolkein — use parentheses and the bitwise OR operator</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;(George Orwell)|(J. R. R. Tolkien)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;(George Orwell)|(J. R. R. Tolkien)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1051,7 +1053,7 @@ Name: subreddit, dtype: int64
 <p>To search for multiple phrases —  Shakespeare AND Beyonce — use parentheses and the bitwise AND operator</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;(Shakespeare)&amp;(Beyonce)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_comments</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;(Shakespeare)&amp;(Beyonce)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1061,7 +1063,7 @@ Name: subreddit, dtype: int64
 <h2>Collect Reddit submissions/comments (with start and end dates)<a class="headerlink" href="#collect-reddit-submissions-comments-with-start-and-end-dates" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="n">start_epoch</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
 <span class="n">end_epoch</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
 

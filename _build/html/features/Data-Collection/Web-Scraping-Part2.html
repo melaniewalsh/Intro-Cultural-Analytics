@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Web-Scraping-Part2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -371,11 +373,6 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#your-turn">
-   Your Turn!
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regular-expressions">
    Regular Expressions
@@ -434,7 +431,7 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#your-turn">
    Your Turn!
   </a>
  </li>
@@ -463,7 +460,7 @@
 <p>We’re again going to use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library and the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> library to scrape our list of album songs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
@@ -472,7 +469,7 @@
 <img src="../images/Missy-Under-Construction.png" class="center" ><p>The first album that we’re going to scrape is Missy Elliott’s “Under Construction” (2002), which debuted at No. 3 on The Billboard Top 200 charts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://www.youtube.com/embed/cjIvu7e6Wq8?start=31&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;500&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;400&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -491,7 +488,7 @@
 <p><strong>Get HTML Data and Extract Text</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/albums/Missy-elliott/Under-construction&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://genius.com/albums/Missy-elliott/Under-construction&quot;</span><span class="p">)</span>
 <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
@@ -500,25 +497,24 @@
 <p><strong>Transform into BeautifulSoup Document</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_string</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_string</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p><strong>Your Turn!</strong></p>
 <p>We want to extract just the song titles from Missy Elliott’s album “Under Construction.” Turn on your web browser’s “Inspect” function and find the HTML tag associated with each song title.</p>
 <p><a class="reference external" href="https://genius.com/albums/Missy-elliott/Under-construction">https://genius.com/albums/Missy-elliott/Under-construction</a></p>
 <p>Select “Click to show” to see the answer.</p>
 <div class="cell tag_output_scroll tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song_title_tags</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_title_tags</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span>
 <span class="n">song_title_tags</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;chart_row-content-title&quot;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;chart_row-content-title&quot;&gt;
                Intro/Go To The Floor
                &lt;span class=&quot;chart_row-content-title-subtitle&quot;&gt;Lyrics&lt;/span&gt;
  &lt;/h3&gt;,
@@ -585,7 +581,7 @@
 <p>Now write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that extracts the text from each song title tag and <code class="docutils literal notranslate"><span class="pre">.appends()</span></code> it to a list called <code class="docutils literal notranslate"><span class="pre">song_titles</span></code>:</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_title_tags</span><span class="p">:</span>
     <span class="n">song_title_missy</span> <span class="o">=</span> <span class="n">song</span><span class="o">.</span><span class="n">text</span>
     <span class="n">song_titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">song_title_missy</span><span class="p">)</span>
@@ -595,12 +591,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
  &#39;\n              Bring the Pain (Ft.\xa0Method\xa0Man)\n              Lyrics\n&#39;,
  &#39;\n              Gossip Folks (Ft.\xa0Ludacris)\n              Lyrics\n&#39;,
  &#39;\n              Work It\n              Lyrics\n&#39;,
@@ -625,19 +621,19 @@
 <p>Now transform that same <code class="docutils literal notranslate"><span class="pre">for</span></code> loop into a list comprehension.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_song_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">song</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_title_tags</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_song_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">song</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_title_tags</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_song_titles</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_song_titles</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
  &#39;\n              Bring the Pain (Ft.\xa0Method\xa0Man)\n              Lyrics\n&#39;,
  &#39;\n              Gossip Folks (Ft.\xa0Ludacris)\n              Lyrics\n&#39;,
  &#39;\n              Work It\n              Lyrics\n&#39;,
@@ -662,19 +658,19 @@
 <p>Are there things in your list that aren’t song titles? If so, use <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code> with more specific HTML attributes <code class="docutils literal notranslate"><span class="pre">attrs={}</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">song_title_tags</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;chart_row-content-title&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_title_tags</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;chart_row-content-title&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">missy_song_titles</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">missy_song_titles</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;\n              Intro/Go To The Floor\n              Lyrics\n&#39;,
  &#39;\n              Bring the Pain (Ft.\xa0Method\xa0Man)\n              Lyrics\n&#39;,
  &#39;\n              Gossip Folks (Ft.\xa0Ludacris)\n              Lyrics\n&#39;,
  &#39;\n              Work It\n              Lyrics\n&#39;,
@@ -693,7 +689,6 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="regular-expressions">
 <h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
 <p>Great! Now we have have our list of song titles from Missy Elliot’s album “Under Construction.” But if you notice, these song titles are pretty messy, and we need to clean them up.</p>
@@ -703,7 +698,7 @@
 <h3>Import Regular Expressions Library<a class="headerlink" href="#import-regular-expressions-library" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +706,7 @@
 <p>To practice with regular expressions, we’re going to use a sample messy song title from our messy song titles list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">              Back in the Day (Ft.</span><span class="se">\xa0</span><span class="s2">JAY-Z)</span><span class="se">\n</span><span class="s2">              Lyrics</span><span class="se">\n</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">              Back in the Day (Ft.</span><span class="se">\xa0</span><span class="s2">JAY-Z)</span><span class="se">\n</span><span class="s2">              Lyrics</span><span class="se">\n</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -720,24 +715,24 @@
 <p>Remember the string method <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>? With this built-in string method, we can easily get rid of the new line characters <code class="docutils literal notranslate"><span class="pre">\n</span></code> or the word “Lyrics” from our <code class="docutils literal notranslate"><span class="pre">sample_song</span></code>, which is very useful.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (Ft.\xa0JAY-Z)              Lyrics&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (Ft.\xa0JAY-Z)              Lyrics&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Lyrics&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Lyrics&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n              Back in the Day (Ft.\xa0JAY-Z)\n              \n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n              Back in the Day (Ft.\xa0JAY-Z)\n              \n&#39;
 </pre></div>
 </div>
 </div>
@@ -749,24 +744,24 @@
 <p>To replace a string with regular expressions, we use <code class="docutils literal notranslate"><span class="pre">re.sub(old_pattern,</span> <span class="pre">new_pattern,</span> <span class="pre">text_that_contains_pattern)</span></code>. We can do exactly the same thing that we did with the built-in string method <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_song</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n              Back in the Day (Ft.\xa0JAY-Z)\n              Lyrics\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n              Back in the Day (Ft.\xa0JAY-Z)\n              Lyrics\n&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (Ft.\xa0JAY-Z)              Lyrics&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (Ft.\xa0JAY-Z)              Lyrics&#39;
 </pre></div>
 </div>
 </div>
@@ -828,12 +823,12 @@
 <p>We can replace anything that is not a word <code class="docutils literal notranslate"><span class="pre">\W</span></code> with ” “:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;               Back in the Day  Ft  JAY Z                Lyrics &#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;               Back in the Day  Ft  JAY Z                Lyrics &#39;
 </pre></div>
 </div>
 </div>
@@ -841,12 +836,12 @@
 <p>Replace anything that is a word <code class="docutils literal notranslate"><span class="pre">\w</span></code> with ” “:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n                              (  .\xa0   - )\n                    \n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n                              (  .\xa0   - )\n                    \n&#39;
 </pre></div>
 </div>
 </div>
@@ -854,12 +849,12 @@
 <p>The character <code class="docutils literal notranslate"><span class="pre">+</span></code> means “match one or more instance” of the pattern, which allows us to remove multiple not word patterns in a row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39; Back in the Day Ft JAY Z Lyrics &#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Back in the Day Ft JAY Z Lyrics &#39;
 </pre></div>
 </div>
 </div>
@@ -870,13 +865,13 @@
 <p>An efficient way to build and save a regular expression pattern is with <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">not_word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">not_word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">)</span>
 <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">not_word_pattern</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39; Back in the Day Ft JAY Z Lyrics &#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Back in the Day Ft JAY Z Lyrics &#39;
 </pre></div>
 </div>
 </div>
@@ -888,25 +883,25 @@
 <p>For example, searching with the pattern <code class="docutils literal notranslate"><span class="pre">\w+</span></code> will return the very first word in <code class="docutils literal notranslate"><span class="pre">sample_song</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\w+&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\w+&quot;</span><span class="p">)</span>
 <span class="n">word_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(15, 19), match=&#39;Back&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(15, 19), match=&#39;Back&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Back&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Back&#39;
 </pre></div>
 </div>
 </div>
@@ -917,13 +912,13 @@
 <p>The function <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code> will return a list of every instance of a particular pattern.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\w+&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\w+&quot;</span><span class="p">)</span>
 <span class="n">word_pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Back&#39;, &#39;in&#39;, &#39;the&#39;, &#39;Day&#39;, &#39;Ft&#39;, &#39;JAY&#39;, &#39;Z&#39;, &#39;Lyrics&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Back&#39;, &#39;in&#39;, &#39;the&#39;, &#39;Day&#39;, &#39;Ft&#39;, &#39;JAY&#39;, &#39;Z&#39;, &#39;Lyrics&#39;]
 </pre></div>
 </div>
 </div>
@@ -931,7 +926,7 @@
 <p>When you combine special regular expression characters, you can make your pattern matching very specific and very powerful. If we had a document that contains a bunch of email addresses, we could use the pattern <code class="docutils literal notranslate"><span class="pre">[\w.]+&#64;[\w.]+</span></code> to find and extract the words that appear on other side of the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> character, aka <a class="reference external" href="https://regexr.com/4vhfa">find and extract all the email addresses</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_with_emails</span> <span class="o">=</span> <span class="s2">&quot;The important email addresses are important@cool.com, signficant@sweet.org&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_with_emails</span> <span class="o">=</span> <span class="s2">&quot;The important email addresses are important@cool.com, signficant@sweet.org&quot;</span>
 <span class="n">extracted_emails</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[\w.]+@[\w.]+&#39;</span><span class="p">,</span> <span class="n">text_with_emails</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -939,12 +934,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extracted_emails</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extracted_emails</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;important@cool.com&#39;, &#39;signficant@sweet.org&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;important@cool.com&#39;, &#39;signficant@sweet.org&#39;]
 </pre></div>
 </div>
 </div>
@@ -955,13 +950,13 @@
 <p>For our song titles, we might want to <span class="xref myst">extract everything that comes before “(Ft.)”</span> because we don’t care as much about the featured artists, and because the featured artists makes the song titles really long. To match everything that comes before a certain string, we can use the pattern <code class="docutils literal notranslate"><span class="pre">.*(?=desired_pattern)</span></code> which matches 0 or more <code class="docutils literal notranslate"><span class="pre">*</span></code> of any character <code class="docutils literal notranslate"><span class="pre">.</span></code> that comes before <code class="docutils literal notranslate"><span class="pre">(?=)</span></code> the string “desired_pattern.”</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=Ft)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=Ft)&quot;</span><span class="p">)</span>
 <span class="n">before_ft_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day (&#39;
 </pre></div>
 </div>
 </div>
@@ -973,14 +968,14 @@
 <p>To do so, we’re going to have to make a slight adjustment. Remember that parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are special regular expression characters. To make clear that we mean a literal parentheses and not a special regular expression character, we have to use an escape backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> before the character.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=\(Ft)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=\(Ft)&quot;</span><span class="p">)</span>
 <span class="n">clean_sample_song_title</span> <span class="o">=</span> <span class="n">before_ft_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">sample_song</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">clean_sample_song_title</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day &#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;              Back in the Day &#39;
 </pre></div>
 </div>
 </div>
@@ -991,12 +986,12 @@
 <p>The last thing we’ll do to clean up our song title is to use the built-in string method <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which strips leading and trailing whitespace.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clean_sample_song_title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_sample_song_title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Back in the Day&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Back in the Day&#39;
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1002,7 @@
 <p>Let’s put all this cleaning together in a function called <code class="docutils literal notranslate"><span class="pre">clean_up</span></code>. It will match and strip everything before “(Ft.)” if the song title contains a featured artist, and it will remove the word “Lyrics” and strip whitespace if the song title does not contain “(Ft.)”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">song_title</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">song_title</span><span class="p">):</span>
 
     <span class="k">if</span> <span class="s2">&quot;Ft&quot;</span> <span class="ow">in</span> <span class="n">song_title</span><span class="p">:</span>
         <span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=\(Ft)&quot;</span><span class="p">)</span>
@@ -1025,12 +1020,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">clean_up</span><span class="p">(</span><span class="n">song</span><span class="p">)</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">missy_song_titles</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">clean_up</span><span class="p">(</span><span class="n">song</span><span class="p">)</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">missy_song_titles</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Intro/Go To The Floor&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Intro/Go To The Floor&#39;,
  &#39;Bring the Pain&#39;,
  &#39;Gossip Folks&#39;,
  &#39;Work It&#39;,
@@ -1054,7 +1049,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">f&quot;https://genius.com/albums/{artist}/{album_name}&quot;</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_all_songs_from_album</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_all_songs_from_album</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album_name</span><span class="p">):</span>
     
     <span class="n">artist</span> <span class="o">=</span> <span class="n">artist</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">album_name</span> <span class="o">=</span> <span class="n">album_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
@@ -1077,12 +1072,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Beyonce&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemonade&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Beyonce&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemonade&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Pray You Catch Me&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pray You Catch Me&#39;,
  &#39;Hold Up&#39;,
  &quot;Don&#39;t Hurt Yourself&quot;,
  &#39;Sorry&#39;,
@@ -1102,12 +1097,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Taylor Swift&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Taylor Swift&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;State of Grace&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;State of Grace&#39;,
  &#39;Red&#39;,
  &#39;Treacherous&#39;,
  &#39;I Knew You Were Trouble&#39;,
@@ -1130,12 +1125,12 @@
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Mitski&#39;</span><span class="p">,</span> <span class="s1">&#39;Be The Cowboy&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;Mitski&#39;</span><span class="p">,</span> <span class="s1">&#39;Be The Cowboy&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Geyser&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Geyser&#39;,
  &quot;Why Didn&#39;t You Stop Me?&quot;,
  &#39;Old Friend&#39;,
  &#39;A Pearl&#39;,
@@ -1154,11 +1149,11 @@
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>Your Turn!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;#Your Choice of Artist&#39;</span><span class="p">,</span> <span class="s1">&#39;#Your Choice of Album&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;#Your Choice of Artist&#39;</span><span class="p">,</span> <span class="s1">&#39;#Your Choice of Album&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

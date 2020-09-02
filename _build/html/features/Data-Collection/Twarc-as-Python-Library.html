@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -275,6 +272,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Twarc-as-Python-Library.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -328,7 +330,7 @@
 <p>Though I recommend collecting tweets from the command line, you can also use twarc as a Python library and run it in a Jupyter notebook. To import twarc, run <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">twarc</span> <span class="pre">import</span> <span class="pre">Twarc</span></code> (as in the cell below). We’re also going to import a library called JSON to help us output a JSON file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">twarc</span> <span class="kn">import</span> <span class="n">Twarc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">twarc</span> <span class="kn">import</span> <span class="n">Twarc</span>
 <span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
@@ -339,7 +341,7 @@
 <p>To use Twarc as a Python library, you’ll once again need to configure twarc with your <a class="reference external" href="https://developer.twitter.com/en/apps">API keys</a> (*sigh*). Copy and paste them into the quotation marks below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">consumer_secret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">access_token_secret</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -351,7 +353,7 @@
 <p> Mac/Chrome OS</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!open ~/.twarc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>open ~/.twarc
 </pre></div>
 </div>
 </div>
@@ -359,7 +361,7 @@
 <p> Mac/Chrome OS <img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='center-left' > Windows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">config_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s2">&quot;.twarc&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
@@ -369,7 +371,7 @@
 <p>These commands will open/print the “.twarc” document that hosts your API keys, and you can simply copy and paste the correct information into the variables in the cell above, then run the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twarc</span> <span class="o">=</span> <span class="n">Twarc</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">twarc</span> <span class="o">=</span> <span class="n">Twarc</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -380,7 +382,7 @@
 <p>Below I’ve written a Python function called <code class="docutils literal notranslate"><span class="pre">collect_live_tweets()</span></code> that uses <code class="docutils literal notranslate"><span class="pre">twarc.filter()</span></code>. This function accepts a search query, the number of tweets that you want to collect, and a filename with a .jsonl extension. This function will output your Twitter data to a file with this filename.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">collect_live_tweets</span><span class="p">(</span><span class="n">search_query</span><span class="p">,</span> <span class="n">number_of_desired_tweets</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">collect_live_tweets</span><span class="p">(</span><span class="n">search_query</span><span class="p">,</span> <span class="n">number_of_desired_tweets</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>    
     
     <span class="n">twarc</span> <span class="o">=</span> <span class="n">Twarc</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 
@@ -403,7 +405,7 @@
 <h2>Run Live Tweet Collection Function<a class="headerlink" href="#run-live-tweet-collection-function" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collect_live_tweets</span><span class="p">(</span><span class="s2">&quot;coronavirus&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;coronavirus_filter.jsonl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collect_live_tweets</span><span class="p">(</span><span class="s2">&quot;coronavirus&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;coronavirus_filter.jsonl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -414,7 +416,7 @@
 <h2>Make Past Tweet Collection Function<a class="headerlink" href="#make-past-tweet-collection-function" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">collect_past_tweets</span><span class="p">(</span><span class="n">search_query</span><span class="p">,</span> <span class="n">number_of_max_tweets</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">collect_past_tweets</span><span class="p">(</span><span class="n">search_query</span><span class="p">,</span> <span class="n">number_of_max_tweets</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>    
     
     <span class="n">twarc</span> <span class="o">=</span> <span class="n">Twarc</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 
@@ -437,21 +439,21 @@
 <h2>Run Past Tweet Collection Function<a class="headerlink" href="#run-past-tweet-collection-function" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;coronavirus&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;coronavirus_search.jsonl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;coronavirus&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;coronavirus_search.jsonl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">not with a bang but with a</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;bang.jsonl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">not with a bang but with a</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;bang.jsonl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;touch my face min_retweets:10&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">&quot;face.jsonl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collect_past_tweets</span><span class="p">(</span><span class="s2">&quot;touch my face min_retweets:10&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">&quot;face.jsonl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

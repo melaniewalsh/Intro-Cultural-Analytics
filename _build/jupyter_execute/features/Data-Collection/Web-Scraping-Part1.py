@@ -233,8 +233,8 @@ for header in all_h2_headers:
 h2_headers
 
 ````{admonition} Python Review: List Comprehensions
-:class: pythonreview, dropdown
-How might we transform this for loop into a list comprehension?
+:class: pythonreview
+How might we transform this for loop into a *list comprehension*?
 ```
 #For Loop
 h2_headers = []
@@ -244,12 +244,12 @@ for header in all_h2_headers:
 ```
 ````
 
-**Check answer here**
+**Check out the *list comprehension* answer here**
 
 h2_headers = [header.text for header in all_h2_headers]
 h2_headers
 
-## Inspect HTML Elements with Browser 🧐
+## Inspect HTML Elements with Browser
 
 Most times if you're looking to extract something from an HTML document, it's best to use your "Inspect" capabilities in your web browser. You can hover over elements that you're interested in and find that specific element in the HTML.
 
@@ -280,6 +280,8 @@ missy_lyrics = document.find("p").text
 print(missy_lyrics)
 
 What HTML element do we need to "find" to extract the title?
+
+**Check answer here**
 
 song_title = document.find('h1').text
 print(song_title)

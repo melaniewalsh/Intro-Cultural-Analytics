@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -331,6 +328,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/Topic-Modeling-Set-Up.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -441,7 +443,7 @@
 <p>To set up the <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> environment variable on a Mac, you can run the following on the command line. The line of code adds your <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> variable to a file called “bash_profile”, which is where environment variables are stored.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!echo &quot;export JAVA_HOME=$(/usr/libexec/java_home)&quot; &gt;&gt; ~/.bash_profile
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;export JAVA_HOME=</span><span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span><span class="s2">&quot;</span> &gt;&gt; ~/.bash_profile
 </pre></div>
 </div>
 </div>
@@ -449,7 +451,7 @@
 <p>To immediately update your “bash_profile,” run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!source ~/.bash_profile
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">source</span> ~/.bash_profile
 </pre></div>
 </div>
 </div>
@@ -457,12 +459,12 @@
 <p>Then, to test whether Java installed correctly, run <code class="docutils literal notranslate"><span class="pre">javac</span></code> on the command line. If you get a list of options, as below, then you’ve installed the JDK properly. If it says the command is not recognized, then you don’t have JDK set up yet.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!javac
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>javac
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Usage: javac &lt;options&gt; &lt;source files&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Usage: javac &lt;options&gt; &lt;source files&gt;
 where possible options include:
   -g                         Generate all debugging info
   -g:none                    Generate no debugging info
@@ -495,7 +497,6 @@ where possible options include:
   -J&lt;flag&gt;                   Pass &lt;flag&gt; directly to the runtime system
   -Werror                    Terminate compilation if warnings occur
   @&lt;filename&gt;                Read options and filenames from file
-
 </pre></div>
 </div>
 </div>
@@ -506,7 +507,7 @@ where possible options include:
 <p>To edit the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable on a Windows computer, follow the instructions below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- Open Search and type &quot;advanced system settings&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>- Open Search and type &quot;advanced system settings&quot;
 - In the shown options, select the &quot;View advanced system settings&quot; link
 - Under the Advanced tab, click &quot;Environment Variables&quot;
 - Under &quot;System variables,&quot; click the variable &quot;PATH&quot; and then click &quot;Edit&quot;
@@ -519,7 +520,7 @@ where possible options include:
 <p>Now restart your PowerShell. To test whether java is installed, run <code class="docutils literal notranslate"><span class="pre">javac</span></code> in the PowerShell. If you get a list of options, then you’ve installed the JDK properly. If it says the command is not recognized, then you don’t have it yet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!javac
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>javac
 </pre></div>
 </div>
 </div>
@@ -531,7 +532,7 @@ where possible options include:
 <p>Make sure to change <code class="docutils literal notranslate"><span class="pre">/fill-in-the-path/to/your-java_installation</span></code> to the file path where your JDK actually exists below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!echo &quot;export JAVA_HOME=/fill-in-the-path/to/your-java_installation/bin&quot; &gt;&gt; ~/.bashrc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;export JAVA_HOME=/fill-in-the-path/to/your-java_installation/bin&quot;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
 </div>
@@ -539,7 +540,7 @@ where possible options include:
 <p>To immediately update your “bash_profile,” run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!source ~/.bashrc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">source</span> ~/.bashrc
 </pre></div>
 </div>
 </div>
@@ -547,7 +548,7 @@ where possible options include:
 <p>To test whether java is installed, run <code class="docutils literal notranslate"><span class="pre">javac</span></code> on the command line. If you get a list of options, as below, then you’ve installed the JDK properly. If it says the command is not recognized, then you don’t have it yet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!javac
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>javac
 </pre></div>
 </div>
 </div>
@@ -576,12 +577,12 @@ where possible options include:
 <p>If it’s working, then you’ll get a message that says “A tool for creating instance lists of feature vectors from comma-separated-values” and a list of options.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!~/mallet-2.0.8/bin/mallet import-file
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>~/mallet-2.0.8/bin/mallet import-file
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>A tool for creating instance lists of feature vectors from comma-separated-values
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A tool for creating instance lists of feature vectors from comma-separated-values
 --help TRUE|FALSE
   Print this command line option usage information.  Give argument of TRUE for longer documentation
   Default is false
@@ -672,7 +673,7 @@ where possible options include:
 <p>Finally, we’re going to install the Python package <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">little_mallet_wrapper</a>. To install it, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">little_mallet_wrapper</span></code>, as below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install little_mallet_wrapper
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install little_mallet_wrapper
 </pre></div>
 </div>
 </div>
@@ -680,7 +681,7 @@ where possible options include:
 <p>Since Little MALLET Wrapper also uses the data visualization library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, we’re also going to <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install seaborn
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install seaborn
 </pre></div>
 </div>
 </div>

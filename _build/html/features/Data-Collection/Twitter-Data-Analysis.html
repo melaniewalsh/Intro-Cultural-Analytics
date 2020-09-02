@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Twitter-Data-Analysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -439,7 +441,7 @@
 <p>Transform .jsonl to .csv file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.csv
 </pre></div>
 </div>
 </div>
@@ -450,7 +452,7 @@
 <p><strong>Import Pandas</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -459,7 +461,7 @@
 <p>Set Pandas display options so columns are wider and more columns are visible</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_columns&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
@@ -469,7 +471,7 @@
 <p><strong>Read in CSV file</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;infinite_jest_verified_tweets.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;infinite_jest_verified_tweets.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -478,12 +480,12 @@
 <p>Check what Twitter metadata exists in this CSV file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;tweet_url&#39;, &#39;created_at&#39;, &#39;parsed_created_at&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;tweet_url&#39;, &#39;created_at&#39;, &#39;parsed_created_at&#39;,
        &#39;user_screen_name&#39;, &#39;text&#39;, &#39;tweet_type&#39;, &#39;coordinates&#39;, &#39;hashtags&#39;,
        &#39;media&#39;, &#39;urls&#39;, &#39;favorite_count&#39;, &#39;in_reply_to_screen_name&#39;,
        &#39;in_reply_to_status_id&#39;, &#39;in_reply_to_user_id&#39;, &#39;lang&#39;, &#39;place&#39;,
@@ -504,12 +506,12 @@
 <p>Check the size of dataframe (number of rows = number of tweets)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(197, 38)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(197, 38)
 </pre></div>
 </div>
 </div>
@@ -517,7 +519,7 @@
 <p><strong>Preview DataFrame</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -795,7 +797,7 @@
 <h2>Filter Twitter Data<a class="headerlink" href="#filter-twitter-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_output_scroll tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2137,7 +2139,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_url&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_url&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2148,14 +2150,14 @@
 <p>To display links and images in our Twitter dataframe, run the cells below. We’re converting the image URL into an HTML image tag and then displaying our dataframe as an HTML object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">link</span> <span class="o">!=</span> <span class="s2">&quot;No Image&quot;</span><span class="p">:</span>
         <span class="n">image_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;a href= &#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39;&gt;&#39;&lt;img src=&#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39; width=&#39;500px&#39;&gt;&lt;/a&gt;                            &quot;</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2167,7 +2169,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No Image&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No Image&quot;</span><span class="p">)</span>
 <span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">infinite_jest_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_image_html</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2175,7 +2177,7 @@
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;media&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;media&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3604,7 +3606,7 @@
 <p>Filter to just text, images, and retweet count</p>
 <div class="cell tag_output_scroll tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;retweet_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;media&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">infinite_jest_df</span><span class="p">[[</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;retweet_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;media&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -4227,7 +4229,7 @@
 <h2>Sort By Top Retweets<a class="headerlink" href="#sort-by-top-retweets" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5677,12 +5679,12 @@
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/tags.py infinite_jest_verified_tweets.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/tags.py infinite_jest_verified_tweets.jsonl
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>    1 mementomorimonday
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1 mementomorimonday
 </pre></div>
 </div>
 </div>
@@ -5693,7 +5695,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">twarc/utils/wordcloud.py</span> <span class="pre">tweets.jsonl</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/wordcloud.py infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/wordcloud.py infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.html
 </pre></div>
 </div>
 </div>
@@ -5701,8 +5703,8 @@
 <p><span class="xref myst">infinite_jest_verified_tweets.html</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">html</span>
-<span class="o">&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;infinite_jest_verified_tweets.html&quot;</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;infinite_jest_verified_tweets.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">800,</span> <span class="na">height</span><span class="o">=</span><span class="s">800</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -5717,19 +5719,19 @@
 <p><strong>Install emoji package</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install emoji
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install emoji
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/emojis.py infinite_jest_verified_tweets.jsonl --number 10
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/emojis.py infinite_jest_verified_tweets.jsonl --number <span class="m">10</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>📚     6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>📚     6
 💔     1
 😤     1
 🌏     1
@@ -5746,7 +5748,7 @@
 <p><strong>Collect Tweets From Last 7 Days</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!twarc search &quot;your search query&quot; &gt; your_search.jsonl 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;your search query&quot;</span> &gt; your_search.jsonl 
 </pre></div>
 </div>
 </div>
@@ -5755,7 +5757,7 @@
 <p> Mac/Chrome OS</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wc -l your_search.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l your_search.jsonl
 </pre></div>
 </div>
 </div>
@@ -5763,7 +5765,7 @@
 <p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!find /v /c &quot;&quot; your_search.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>find /v /c <span class="s2">&quot;&quot;</span> your_search.jsonl
 </pre></div>
 </div>
 </div>
@@ -5771,7 +5773,7 @@
 <p><strong>Convert Your JSON data to CSV data</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text  your_search.jsonl &gt; your_search.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text  your_search.jsonl &gt; your_search.csv
 </pre></div>
 </div>
 </div>
@@ -5779,14 +5781,14 @@
 <p><strong>Read in CSV file</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_search.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_search.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5795,7 +5797,7 @@
 <p>Filter your dataframe and add at least one new metadata column that we haven’t explored yet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -5803,7 +5805,7 @@
 <p>When you run the cell below, right-click to “Enable Scrolling for Outputs” and scroll through to see what the new metadata category looks like. Discuss this category with your group and how you might use it for a Twitter analysis.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;#YOUR NEW METADATA HERE&#39;</span><span class="p">,</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_url&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">your_df</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;#YOUR NEW METADATA HERE&#39;</span><span class="p">,</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_url&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_text&#39;</span><span class="p">,</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span>  <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5811,7 +5813,7 @@
 <p>Now save your filtered dataframe as <code class="docutils literal notranslate"><span class="pre">filtered_df</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
 </pre></div>
 </div>
 </div>
@@ -5819,14 +5821,14 @@
 <p><strong>Explore Data with Links and Images</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">link</span> <span class="o">!=</span> <span class="s2">&quot;No Image&quot;</span><span class="p">:</span>
         <span class="n">image_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;a href= &#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39;&gt;&#39;&lt;img src=&#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39; width=&#39;500px&#39;&gt;&lt;/a&gt;                            &quot;</span>
     <span class="k">else</span><span class="p">:</span>
@@ -5838,7 +5840,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No Image&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No Image&quot;</span><span class="p">)</span>
 <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_image_html</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5846,7 +5848,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">render_links</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -5854,7 +5856,7 @@
 <p><strong>Sort Your Twitter Data by Top Retweets</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
 </pre></div>
 </div>
 </div>
@@ -5864,7 +5866,7 @@
 <p><strong>Count Most Frequent Emojis</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python twarc/utils/emojis.py your_search.jsonl --number 10
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/emojis.py your_search.jsonl --number <span class="m">10</span>
 </pre></div>
 </div>
 </div>

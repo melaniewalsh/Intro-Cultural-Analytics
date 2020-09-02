@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -299,6 +296,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Analysis/Pandas-Basics-Part2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -452,7 +454,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>To use the Pandas library, we first need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -462,7 +464,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>By default, Pandas will display 60 rows and 20 columns. I often change <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">Pandas’ default display settings</a> to show more rows or columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -471,7 +473,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>To read in a CSV file, we will use the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and insert the name of our desired file path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Trans-Atlantic-Slave-Trade_Americas.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Trans-Atlantic-Slave-Trade_Americas.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -487,7 +489,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +745,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>To look at the first <em>n</em> rows in a DataFrame, we can use a method called <code class="docutils literal notranslate"><span class="pre">.head()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -966,12 +968,12 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>To explicitly check for how many rows vs columns make up a dataset, we can use the <code class="docutils literal notranslate"><span class="pre">.shape</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(20741, 14)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20741, 14)
 </pre></div>
 </div>
 </div>
@@ -1004,12 +1006,12 @@ sought or capture the inhumanity of this archive’s formation.</p>
 </table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>year_of_arrival        int64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_of_arrival        int64
 flag                  object
 place_of_purchase     object
 place_of_landing      object
@@ -1035,12 +1037,12 @@ dtype: object
 <p>We can also check the column names of the DataFrame with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html"><code class="docutils literal notranslate"><span class="pre">.columns</span></code></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;year_of_arrival&#39;, &#39;flag&#39;, &#39;place_of_purchase&#39;, &#39;place_of_landing&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;year_of_arrival&#39;, &#39;flag&#39;, &#39;place_of_purchase&#39;, &#39;place_of_landing&#39;,
        &#39;percent_women&#39;, &#39;percent_children&#39;, &#39;percent_men&#39;, &#39;total_embarked&#39;,
        &#39;total_disembarked&#39;, &#39;resistance_label&#39;, &#39;vessel_name&#39;,
        &#39;captain&#39;s_name&#39;, &#39;voyage_id&#39;, &#39;sources&#39;],
@@ -1054,7 +1056,7 @@ dtype: object
 <h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1302,12 +1304,12 @@ dtype: object
 <p>To filter and count the number of missing/not missing values in a dataset, we can use the special <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> and <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> methods on a DataFrame or Series object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        False
 1        False
 2        False
 3        False
@@ -1326,7 +1328,7 @@ Name: percent_women, Length: 20741, dtype: bool
 <p>The <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> and <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> methods return True/False pairs for each row, which we can use to filter the DataFrame for any rows that have information in a given column. For example, we can filter the DataFrame for only rows that have information about the percentage of enslaved women aboard the voyage.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -1562,12 +1564,12 @@ Name: percent_women, Length: 20741, dtype: bool
 <p>To explicitly count the number of blank rows, we can use the <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True     17847
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True     17847
 False     2894
 Name: percent_women, dtype: int64
 </pre></div>
@@ -1578,12 +1580,12 @@ Name: percent_women, dtype: int64
 <p>To quickly transform these numbers into percentages, we can set the <code class="docutils literal notranslate"><span class="pre">normalize=</span></code> parameter to True.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True     0.86047
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True     0.86047
 False    0.13953
 Name: percent_women, dtype: float64
 </pre></div>
@@ -1597,12 +1599,12 @@ Name: percent_women, dtype: float64
 <p>Because the <code class="docutils literal notranslate"><span class="pre">.count()</span></code> method always excludes NaN values, we can also count the number of values in each column and divide by the total number of rows in each column (<code class="docutils literal notranslate"><span class="pre">len()</span></code>) to find the percentage of not blank data in every column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">slave_voyages_df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">slave_voyages_df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>year_of_arrival      1.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_of_arrival      1.000000
 flag                 0.944169
 place_of_purchase    0.996239
 place_of_landing     1.000000
@@ -1628,12 +1630,12 @@ dtype: float64
 <p>If we wanted, we could fill the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values in the DataFrame with a different value by using the <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;no gender information recorded&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;no gender information recorded&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        no gender information recorded
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        no gender information recorded
 1        no gender information recorded
 2        no gender information recorded
 3        no gender information recorded
@@ -1656,7 +1658,7 @@ Name: percent_women, Length: 20741, dtype: object
 <p>We can rename columns with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"><code class="docutils literal notranslate"><span class="pre">.rename()</span></code> method</a> and the <code class="docutils literal notranslate"><span class="pre">columns=</span></code> parameter. For example, we can rename the “flag” column “national_affiliation.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -1891,7 +1893,7 @@ Name: percent_women, Length: 20741, dtype: object
 <p>Renaming the “flag” column as above will only momentarily change that column’s name, however. If we display our DataFrame, we will see that the column name has <em>not</em> changed permamently.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1955,14 +1957,14 @@ Name: percent_women, Length: 20741, dtype: object
 <p>To save changes in the DataFrame, we need to reassign the DataFrame to the same variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2029,19 +2031,19 @@ Name: percent_women, Length: 20741, dtype: object
 <p>We can remove a column from the DataFrame with the <code class="docutils literal notranslate"><span class="pre">.drop()</span></code> method and the column name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;sources&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;sources&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;year_of_arrival&#39;, &#39;national_affiliation&#39;, &#39;place_of_purchase&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;year_of_arrival&#39;, &#39;national_affiliation&#39;, &#39;place_of_purchase&#39;,
        &#39;place_of_landing&#39;, &#39;percent_women&#39;, &#39;percent_children&#39;, &#39;percent_men&#39;,
        &#39;total_embarked&#39;, &#39;total_disembarked&#39;, &#39;resistance_label&#39;,
        &#39;vessel_name&#39;, &#39;captain&#39;s_name&#39;, &#39;voyage_id&#39;],
@@ -2057,14 +2059,14 @@ Name: percent_women, Length: 20741, dtype: object
 <p>For example, if we wanted to create new columns for the total women and men aboard each voyage, we could set them equal to the product of the “total_disembarked” column * the “percent_women” / “percent_men” columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_men&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_men&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_men&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_men&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2072,7 +2074,7 @@ Name: percent_women, Length: 20741, dtype: object
 <p>If we scroll all the way to the right side of the DataFrame, we can see that these columns have been added.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2144,7 +2146,7 @@ Name: percent_women, Length: 20741, dtype: object
 <p>For example, we can sort the DataFrame by the voyages that had the largest proportion of enslaved women aboard.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;percent_women&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;percent_women&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2404,7 +2406,7 @@ Name: percent_women, Length: 20741, dtype: object
 <p>Because the DataFrame is truncated when it has more than 100 rows, we can use a Python list slice to view the top 30 (or any number less than 100) voyages with enslaved women aboard.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;percent_women&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">30</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;percent_women&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">30</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3023,12 +3025,12 @@ Name: percent_women, Length: 20741, dtype: object
 <p>If we want to sort a Series object, we don’t need to use the <code class="docutils literal notranslate"><span class="pre">by=</span></code> paramter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6259     475.996800
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6259     475.996800
 18822    316.640164
 2264     311.833480
 6163     303.000180
@@ -3084,12 +3086,12 @@ Name: total_women, Length: 20741, dtype: float64
 <p>For example, to find the average proprotion of enslaved women aboard the voyages (for voyages that have this information), we can use the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.27419760653973735
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.27419760653973735
 </pre></div>
 </div>
 </div>
@@ -3097,12 +3099,12 @@ Name: total_women, Length: 20741, dtype: float64
 <p>There were on average 27% enslaved women aboard the voyages for voyages that recorded this information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -3110,7 +3112,7 @@ Name: total_women, Length: 20741, dtype: float64
 <p>The highest percentage of women aboard the slave voyages was 100%. We can use this calculation as a filter to identify the voyage(s) with this maximum value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -3179,12 +3181,12 @@ Name: total_women, Length: 20741, dtype: float64
 <p>As demonstrated previously, we can also perform calculations with columns themselves.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>475.99679999999995
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>475.99679999999995
 </pre></div>
 </div>
 </div>
@@ -3197,12 +3199,12 @@ Name: total_women, Length: 20741, dtype: float64
 <p>The first step to using groupby is to type the name of the DataFrame followed by <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> with the column we’d like to aggregate based on, such as “national_affiliation.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x14a269e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x14a269e50&gt;
 </pre></div>
 </div>
 </div>
@@ -3210,7 +3212,7 @@ Name: total_women, Length: 20741, dtype: float64
 <p>This action will created a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">GroupBy object</a>. We can perform calculations on this grouped data, such as counting the number of non-blank values in each column for each nation.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3427,12 +3429,12 @@ Name: total_women, Length: 20741, dtype: float64
 <p>We can also isolate only the “percent_women” column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>national_affiliation
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>national_affiliation
 Denmark / Baltic      119
 France                708
 Great Britain        1123
@@ -3448,12 +3450,12 @@ Name: percent_women, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>national_affiliation
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>national_affiliation
 Great Britain        1123
 France                708
 Spain / Uruguay       468
@@ -3473,13 +3475,13 @@ Name: percent_women, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>\
 <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Trans-Atlantic Slave Trade (Americas): </span><span class="se">\n</span><span class="s1"> Slave Voyages with Recorded Gender Information&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ef4fe50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ef4fe50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Pandas-Basics-Part2_113_1.png" src="../../_images/Pandas-Basics-Part2_113_1.png" />
@@ -3491,12 +3493,12 @@ Name: percent_women, dtype: int64
 <p>To make a time series, we would typically want to convert our date column into datetime values rather than integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -3505,13 +3507,13 @@ Name: percent_women, dtype: int64
 <p>Since we’re only working with year information, however, we can make some simple time series plots just by grouping by the year column and performing calculations on those year groupings, such as calculating the average percentage of enslaved women aboard the voyages over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>\
 <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Average Percentage of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ea04310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ea04310&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Pandas-Basics-Part2_118_1.png" src="../../_images/Pandas-Basics-Part2_118_1.png" />
@@ -3520,13 +3522,13 @@ Name: percent_women, dtype: int64
 <p>We can do the same thing with the total number of women, this time taking the sum for every year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
 <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14fce9d10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14fce9d10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Pandas-Basics-Part2_120_1.png" src="../../_images/Pandas-Basics-Part2_120_1.png" />
@@ -3535,13 +3537,13 @@ Name: percent_women, dtype: int64
 <p>We can plot multiple columns at the same time by using two square brackets. For example, we can compare the total number of women and men aboard the voyages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span> <span class="s1">&#39;total_men&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span> <span class="s1">&#39;total_men&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
 <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women and Men on Voyages&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f9fb950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f9fb950&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Pandas-Basics-Part2_122_1.png" src="../../_images/Pandas-Basics-Part2_122_1.png" />
@@ -3550,13 +3552,13 @@ Name: percent_women, dtype: int64
 <p>Finally, we can also add in the total number of enslaved people who embarked on the voyages, offering a perspective of how mcuh gender information we have about the voyages compared to the total number of voyages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span>  <span class="s1">&#39;total_men&#39;</span><span class="p">,</span> <span class="s1">&#39;total_embarked&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span>  <span class="s1">&#39;total_men&#39;</span><span class="p">,</span> <span class="s1">&#39;total_embarked&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
 <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s1">Total Number of Enslaved People on Voyages&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f728c50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f728c50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/Pandas-Basics-Part2_124_1.png" src="../../_images/Pandas-Basics-Part2_124_1.png" />

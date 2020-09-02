@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -331,6 +328,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/Topic-Modeling-Text-Files.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -493,7 +495,7 @@
 <p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +506,7 @@
 <h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
 <span class="c1">#!pip install seaborn</span>
 </pre></div>
 </div>
@@ -515,7 +517,7 @@
 <h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
 <span class="c1">#!pip install seaborn</span>
 </pre></div>
 </div>
@@ -524,7 +526,7 @@
 <p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
 <span class="kn">import</span> <span class="nn">seaborn</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -544,7 +546,7 @@
 <p>To get the necessary text files, we’re going to make a variable and assign it the file path for the directory that contains the text files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -552,19 +554,19 @@
 <p>Then we’re going to use the <code class="docutils literal notranslate"><span class="pre">glob.gob()</span></code> function to make a list of all (<code class="docutils literal notranslate"><span class="pre">*</span></code>) the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in that directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">files</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/history/NYT-Obituaries/1945-Adolf-Hitler.txt&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/history/NYT-Obituaries/1945-Adolf-Hitler.txt&#39;,
  &#39;../texts/history/NYT-Obituaries/1915-F-W-Taylor.txt&#39;,
  &#39;../texts/history/NYT-Obituaries/1975-Chiang-Kai-shek.txt&#39;,
  &#39;../texts/history/NYT-Obituaries/1984-Ethel-Merman.txt&#39;,
@@ -959,7 +961,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
     <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">processed_text</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
@@ -971,7 +973,7 @@
 <p>We’re also making a master list of the original text of the obituaries for future reference.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">original_texts</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_texts</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
     <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">original_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -985,19 +987,19 @@
 <p>Here we extract the relevant part of each file name by using <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem"><code class="docutils literal notranslate"><span class="pre">Path().stem</span></code></a>, which conveniently extracts just the last part of the file path without the “.txt” file extension. Because each file name includes the obituary subject’s name as well as the year that the subject died, we’re going to use this information as a title or label for each obituary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;1945-Adolf-Hitler&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1945-Adolf-Hitler&#39;,
  &#39;1915-F-W-Taylor&#39;,
  &#39;1975-Chiang-Kai-shek&#39;,
  &#39;1984-Ethel-Merman&#39;,
@@ -1385,12 +1387,12 @@
 <p>We can get training data summary statistics by using the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.print_dataset_stats()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of Documents: 378
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Documents: 378
 Mean Number of Words: 1345.6
 Vocabulary Size: 36072
 </pre></div>
@@ -1407,7 +1409,7 @@ Vocabulary Size: 36072
 <p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">15</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">15</span>
 </pre></div>
 </div>
 </div>
@@ -1418,7 +1420,7 @@ Vocabulary Size: 36072
 <p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed obituary texts, so we can just set it equal to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
 </pre></div>
 </div>
 </div>
@@ -1430,7 +1432,7 @@ Vocabulary Size: 36072
 <p>If you’d like to change this output location, simply change <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change to your desired output directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change to your desired output directory</span>
 <span class="n">output_directory_path</span> <span class="o">=</span> <span class="s1">&#39;topic-model-output/NYT-Obits&#39;</span>
 
 <span class="c1">#No need to change anything below here</span>
@@ -1451,7 +1453,7 @@ Vocabulary Size: 36072
 <p>Now we import our training data with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.import_data()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
                 <span class="n">path_to_training_data</span><span class="p">,</span>
                 <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
                 <span class="n">training_data</span><span class="p">)</span>
@@ -1459,7 +1461,7 @@ Vocabulary Size: 36072
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Importing data...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importing data...
 Complete
 </pre></div>
 </div>
@@ -1471,7 +1473,7 @@ Complete
 <p>Finally, we train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code>. The topic model should take about 45 seconds to 1 minute to fully train and complete. If you want, you can look at your Terminal or PowerShell while it’s running and see what the model looks like as it trains.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
                       <span class="n">path_to_formatted_training_data</span><span class="p">,</span>
                       <span class="n">path_to_model</span><span class="p">,</span>
                       <span class="n">path_to_topic_keys</span><span class="p">,</span>
@@ -1481,7 +1483,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Training topic model...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training topic model...
 Complete
 </pre></div>
 </div>
@@ -1498,7 +1500,7 @@ Complete
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">topics</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1506,7 +1508,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
 
 [&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;, &#39;stage&#39;, &#39;hollywood&#39;, &#39;movies&#39;, &#39;actor&#39;, &#39;made&#39;, &#39;television&#39;, &#39;director&#39;, &#39;new&#39;, &#39;show&#39;, &#39;role&#39;, &#39;won&#39;, &#39;actress&#39;, &#39;first&#39;, &#39;york&#39;]
 
@@ -1565,7 +1567,6 @@ Complete
 ✨Topic 14✨
 
 [&#39;music&#39;, &#39;band&#39;, &#39;jazz&#39;, &#39;years&#39;, &#39;piano&#39;, &#39;new&#39;, &#39;sinatra&#39;, &#39;musical&#39;, &#39;composer&#39;, &#39;first&#39;, &#39;goodman&#39;, &#39;played&#39;, &#39;orchestra&#39;, &#39;concert&#39;, &#39;stravinsky&#39;, &#39;playing&#39;, &#39;bernstein&#39;, &#39;armstrong&#39;, &#39;musicians&#39;, &#39;davis&#39;]
-
 </pre></div>
 </div>
 </div>
@@ -1577,7 +1578,7 @@ Complete
 <p>To get the topic distributions, we’re going to use the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_distributions()</span></code> function, which will read and process the MALLET topic model output, specifically the file “mallet.topic_distributions.15”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1585,12 +1586,12 @@ Complete
 <p>If we look at the 32nd topic distribution in this list of <code class="docutils literal notranslate"><span class="pre">topic_distributions</span></code>, which corresponds to Marilyn Monroe’s obituary, we will see a list of 15 probabilities. This  list corresponds to the likelihood that each of the 15 topics exists in Marilyn Monroe’s obituary.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0.2020671834625323,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.2020671834625323,
  0.0578811369509044,
  0.009819121447028423,
  0.43772609819121444,
@@ -1612,7 +1613,7 @@ Complete
 <p>It’s a bit easier to understand if we pair these probabilities with the topics themselves. As you can see below, Topic 0 “miss film theater movie broadway films” has a relatively high probability of existing in Marilyn Monroe’s obituary <code class="docutils literal notranslate"><span class="pre">.202</span></code> while Topic 5 “soviet hitler german germany stalin union” has a relatively low probability <code class="docutils literal notranslate"><span class="pre">.002</span></code>. This seems to comport with what we know about Marilyn Monroe.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obituary_to_check</span> <span class="o">=</span> <span class="s2">&quot;1962-Marilyn-Monroe&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obituary_to_check</span> <span class="o">=</span> <span class="s2">&quot;1962-Marilyn-Monroe&quot;</span>
 
 <span class="n">obit_number</span> <span class="o">=</span> <span class="n">obit_titles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obituary_to_check</span><span class="p">)</span>
 
@@ -1623,7 +1624,7 @@ Complete
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>32
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
 Topic Distributions for 1962-Marilyn-Monroe
 
 ✨Topic 0 [&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;] ✨
@@ -1670,7 +1671,6 @@ Probability: 0.004
 
 ✨Topic 14 [&#39;music&#39;, &#39;band&#39;, &#39;jazz&#39;, &#39;years&#39;, &#39;piano&#39;, &#39;new&#39;] ✨
 Probability: 0.001
-
 </pre></div>
 </div>
 </div>
@@ -1682,7 +1682,7 @@ Probability: 0.001
 <p>We have everything we need for the heatmap except for our list of target_labels, the sample of texts that we’d like to visualize and compare with the heatmap. Below we make our list of desired target labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1852-Ada-Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;1885-Ulysses-Grant&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1852-Ada-Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;1885-Ulysses-Grant&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;1900-Nietzsche&#39;</span><span class="p">,</span> <span class="s1">&#39;1931-Ida-B-Wells&#39;</span><span class="p">,</span> <span class="s1">&#39;1940-Marcus-Garvey&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;1941-Virginia-Woolf&#39;</span><span class="p">,</span> <span class="s1">&#39;1954-Frida-Kahlo&#39;</span><span class="p">,</span> <span class="s1">&#39;1962-Marilyn-Monroe&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;1963-John-F-Kennedy&#39;</span><span class="p">,</span> <span class="s1">&#39;1964-Nella-Larsen&#39;</span><span class="p">,</span> <span class="s1">&#39;1972-Jackie-Robinson&#39;</span><span class="p">,</span>
@@ -1695,7 +1695,7 @@ Probability: 0.001
 <p>If you’d like to make a random list of target labels, you can uncomment and run the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import random</span>
 <span class="c1">#target_labels = random.sample(obit_titles, 10)</span>
 </pre></div>
 </div>
@@ -1703,7 +1703,7 @@ Probability: 0.001
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">obit_titles</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">obit_titles</span><span class="p">,</span>
                                       <span class="n">topic_distributions</span><span class="p">,</span>
                                       <span class="n">topics</span><span class="p">,</span> 
                                       <span class="n">output_directory_path</span> <span class="o">+</span> <span class="s1">&#39;/categories_by_topics.pdf&#39;</span><span class="p">,</span>
@@ -1725,7 +1725,7 @@ Probability: 0.001
 <p>Because most of the obituaries in our corpus are pretty long, however, it will be more useful for us to simply display the title of each obituary, rather than the entire document—at least as a first step. To do so, we’ll first need to make two dictionaries, which will allow us to find the corresponding obituary title and the original text from a given training document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">training_data_obit_titles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">obit_titles</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data_obit_titles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">obit_titles</span><span class="p">))</span>
 <span class="n">training_data_original_text</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">original_texts</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1734,7 +1734,7 @@ Probability: 0.001
 <p>Then we’ll make our own function <code class="docutils literal notranslate"><span class="pre">display_top_titles_per_topic()</span></code> that will display the top text titles for every topic. This function accepts a given <code class="docutils literal notranslate"><span class="pre">topic_number</span></code> as well as a desired <code class="docutils literal notranslate"><span class="pre">number_of_documents</span></code> to display.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1749,12 +1749,12 @@ Probability: 0.001
 <p>To display the top 5 obituary titles with the highest probability of containing Topic 0, we will run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 0✨
 
 [&#39;miss&#39;, &#39;film&#39;, &#39;theater&#39;, &#39;movie&#39;, &#39;broadway&#39;, &#39;films&#39;, &#39;stage&#39;, &#39;hollywood&#39;, &#39;movies&#39;, &#39;actor&#39;, &#39;made&#39;, &#39;television&#39;, &#39;director&#39;, &#39;new&#39;, &#39;show&#39;, &#39;role&#39;, &#39;won&#39;, &#39;actress&#39;, &#39;first&#39;, &#39;york&#39;]
 
@@ -1767,7 +1767,6 @@ Probability: 0.001
 0.4707 1990-Rex-Harrison
 
 0.457 1987-Rita-Hayworth
-
 </pre></div>
 </div>
 </div>
@@ -1778,12 +1777,12 @@ Probability: 0.001
 <p>To display the top 5 obituary titles with the highest probability of containing Topic 9, we will run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 9✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 9✨
 
 [&#39;israel&#39;, &#39;peace&#39;, &#39;war&#39;, &#39;minister&#39;, &#39;united&#39;, &#39;nations&#39;, &#39;king&#39;, &#39;secretary&#39;, &#39;arab&#39;, &#39;states&#39;, &#39;churchill&#39;, &#39;british&#39;, &#39;jewish&#39;, &#39;israeli&#39;, &#39;prime&#39;, &#39;dulles&#39;, &#39;sadat&#39;, &#39;state&#39;, &#39;foreign&#39;, &#39;later&#39;]
 
@@ -1796,7 +1795,6 @@ Probability: 0.001
 0.3295 1981-Anwar-el-Sadat
 
 0.3288 1952-Chaim-Weizmann
-
 </pre></div>
 </div>
 </div>
@@ -1807,12 +1805,12 @@ Probability: 0.001
 <p>To display the top 7 obituaries with the highest probability of containing Topic 8, we will run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
 
 [&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;, &#39;writing&#39;, &#39;life&#39;, &#39;writer&#39;, &#39;years&#39;, &#39;books&#39;, &#39;said&#39;, &#39;author&#39;, &#39;york&#39;, &#39;story&#39;, &#39;novel&#39;, &#39;women&#39;, &#39;magazine&#39;, &#39;work&#39;, &#39;later&#39;]
 
@@ -1829,7 +1827,6 @@ Probability: 0.001
 0.3998 1909-Sarah-Orne-Jewett
 
 0.398 1992-Alex-Haley
-
 </pre></div>
 </div>
 </div>
@@ -1844,7 +1841,7 @@ Probability: 0.001
 <p>In the cell below, we’re importing two special Jupyter notebook display modules, which will allow us to make the relevant topic words <strong>bolded</strong>, as well as the regular expressions library <code class="docutils literal notranslate"><span class="pre">re</span></code>, which will allow us to find and replace the correct words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="k">def</span> <span class="nf">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">custom_words</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1873,52 +1870,168 @@ Probability: 0.001
 <p>To display the top 3 original obituaries with the highest probability of containing Topic 0 and with relevant topic words bolded, we will run:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 3✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 3✨
 
 [&#39;said&#39;, &#39;one&#39;, &#39;years&#39;, &#39;man&#39;, &#39;also&#39;, &#39;never&#39;, &#39;could&#39;, &#39;many&#39;, &#39;like&#39;, &#39;even&#39;, &#39;called&#39;, &#39;life&#39;, &#39;people&#39;, &#39;would&#39;, &#39;well&#39;, &#39;wrote&#39;, &#39;way&#39;, &#39;another&#39;, &#39;took&#39;, &#39;old&#39;]
-
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
+<p>✨✨✨</p>
+<p><strong>0.43772609819121444</strong></p>
+<p><strong>1962-Marilyn-Monroe</strong></p>
+<p>August 6, 1962</p>
+<p>OBITUARY</p>
+<p>Brilliant Stardom and Personal Tragedy Punctuated the Life of Marilyn Monroe</p>
+<p>By THE NEW YORK TIMES</p>
+<p>The <strong>life</strong> of Marilyn Monroe, the golden girl of the movies, ended as it began, in misery and tragedy.</p>
+<p>Her death at the age of 36 closed an incredibly glamorous career and capped a series of somber events that began with her birth as an unwanted, illegitimate baby and went on and on, illuminated during</p>
+<p>the last dozen <strong>years</strong> by the lightning of fame.</p>
+<p>Her public <strong>life</strong> was in dazzling contrast to her private <strong>life</strong>.</p>
+<p>The first <strong>man</strong> to see her on the screen, the <strong>man</strong> who made her screen test, felt the almost universal reaction as he ran the wordless scene. In it, she walked, sat down and lit a cigarette.</p>
+<p>Recalled 'Lush Stars'</p>
+<p>&quot;I got a cold chill,&quot; he <strong>said</strong>. &quot;This girl had something I hadn't seen since silent pictures. This is the first girl who looked <strong>like</strong> <strong>one</strong> of those lush stars of the silent era. Every</p>
+<p>frame of the test radiated sex.&quot;</p>
+<p>Billy Wilder, the director, <strong>called</strong> it &quot;flesh impact.&quot;</p>
+<p>&quot;Flesh impact is rare,&quot; he <strong>said</strong>. &quot;Three I remember who had it were Clara Bow, Jean Harlow and Rita Hayworth. Such girls have flesh which photographs <strong>like</strong> flesh. You feel you can reach</p>
+<p>out and touch it.&quot;</p>
+<p>Fans paid $200,000,000 to see her project this quality. No sex symbol of the era other than Brigitte Bardot <strong>could</strong> match her popularity. Toward the end, she <strong>also</strong> convinced critics and the public that</p>
+<p>she <strong>could</strong> act.</p>
+<p>During the <strong>years</strong> of her greatest success, she saw two of her marriages end in divorce. She suffered at least two miscarriages and was <strong>never</strong> able to have a child. Her emotional insecurity deepened; her</p>
+<p><strong>many</strong> illnesses came upon her more frequently.</p>
+<p>Dismissed From Picture</p>
+<p>In 1961, she was twice admitted to hospitals in New York for psychiatric observation and rest. She was dismissed in June by Twentieth Century-Fox after being absent all but five days during seven weeks</p>
+<p>of shooting &quot;Something's Got to Give.&quot;</p>
+<p>&quot;It's something that Marilyn no longer can control,&quot; <strong>one</strong> of her studio chiefs confided. &quot;Sure she's sick. She believes she's sick. She may <strong>even</strong> have a fever, but it's</p>
+<p>a sickness of the mind. Only a psychiatrist can help her now.&quot;</p>
+<p>In her last interview, published in the Aug. 3 issue of Life magazine, she told Richard Meryman, an associate editor:</p>
+<p>&quot;I was <strong>never</strong> used to being happy, so that wasn't something I ever <strong>took</strong> for granted.&quot;</p>
+<p>Considering her background, this was a statement of exquisite restraint.</p>
+<p>She was born in Los Angeles on June 1, 1926. The name on the birth record is Norma Jean Mortenson, the surname of the <strong>man</strong> who fathered her, then abandoned her mother. She later <strong>took</strong> her mother's last name, Baker.</p>
+<p>Family Tragedies</p>
+<p>Both her maternal grandparents and her mother were committed to mental institutions. Her uncle killed himself. Her father died in a motorcycle accident three <strong>years</strong> after her birth.</p>
+<p>Her childhood has been described as &quot;Oliver Twist in girl's clothing.&quot;</p>
+<p>During her mother's stays in asylums, she was farmed out to twelve sets of foster parents. Two families were religious fanatics; <strong>one</strong> gave her empty whisky bottles to play with instead of dolls.</p>
+<p>At <strong>another</strong> stage, she lived in a drought area with a family of seven. She spent two <strong>years</strong> in a Los Angeles orphanage, wearing a uniform she detested.</p>
+<p>By the time she was 9 <strong>years</strong> <strong>old</strong>, Norma Jean had begun to stammer--an affliction rare among females.</p>
+<p>Her dream since childhood had been to be a movie star, and she succeeded beyond her wildest imaginings. The conviction of her mother's best friend was borne out; she had told the little girl, day</p>
+<p>after day:</p>
+<p>&quot;Don't worry. You're going to be a beautiful girl when you get big. You're going to be a movie star. Oh, I feel it in my bones.&quot;</p>
+<p>Nunnally Johnson, the producer and writer, understood that Miss Monroe was something special. Marilyn, he <strong>said</strong>, was &quot;a phenomenon of nature, <strong>like</strong> Niagara Falls and the Grand Canyon.</p>
+<p>&quot;You can't talk to it. It can't talk to you. All you can do is stand back and be awed by it,&quot; he <strong>said</strong>.</p>
+<p>This figure in the minds of millions was difficult to analyze statistically. Her dimensions--37-23- 37--were voluptuous but not extraordinary. She stood 5 feet 5 1/2 inches tall. She had soft blonde</p>
+<p>hair, wide, dreamy, gray-blue eyes. She spoke in a high baby voice that was little more than a breathless whisper.</p>
+<p>Heavy Fan Mail</p>
+<p>Fans <strong>wrote</strong> her 5,000 letters a week, at least a dozen of them proposing marriage. The Communists denounced her as a capitalist trick to make the American <strong>people</strong> forget how miserable they were. In Turkey</p>
+<p>a young <strong>man</strong> <strong>took</strong> leave of his senses while watching &quot;How to Marry a Millionaire&quot; and slashed his wrists.</p>
+<p>There were other symbols of success. She married two American male idols--<strong>one</strong> an athlete, <strong>one</strong> an intellectual.</p>
+<p>Her second husband was Joe DiMaggio, the baseball player. Her third and last was the Pulitzer- Prize winning playwright, Arthur Miller.</p>
+<p>She was 16 when she married for the first time. The bridegroom was James Dougherty, 21, an aircraft worker.</p>
+<p>Mr. Dougherty <strong>said</strong> after their divorce four <strong>years</strong> later, in 1946, that she had been a &quot;wonderful&quot; housekeeper.</p>
+<p>Her two successive divorces came in 1954, when she split with Mr. DiMaggio after only nine months, and in 1960, after a four-year marriage to Mr. Miller.</p>
+<p>She became famous with her first featured role of any prominence in &quot;The Asphalt Jungle,&quot; issued in 1950.</p>
+<p>Her appearance was brief but unforgettable. From the instant she moved onto the screen with that extraordinary walk of hers, <strong>people</strong> asked themselves: &quot;Who's that blonde?&quot;</p>
+<p>In 1952 it was revealed that Miss Monroe had been the subject of a widely distributed nude calendar photograph shot while she was a notably unsuccessful starlet.</p>
+<p>Revealed Her Wit</p>
+<p>It created a scandal, but it was her reaction to the scandal that was remembered. She told interviewers that she was not ashamed and had needed the money to pay her rent.</p>
+<p>She <strong>also</strong> revealed her sense of humor. When asked by a woman journalist, &quot;You mean you didn't have anything on?&quot; she replied breathlessly:</p>
+<p>&quot;Oh yes, I had the radio on.&quot;</p>
+<p>One of her most exasperating quirks was her tardiness. She was, during the <strong>years</strong> of her fame, anywhere from <strong>one</strong> to twenty-four hours late for appointments. Until lately, she managed to get away with</p>
+<p>it.</p>
+<p>Her dilatory nature and sicknesses added nearly $1,000,000 to the budget of &quot;Let's Make Love.&quot; The late Jerry Wald, head of her studio, simply commented:</p>
+<p>&quot;True, she's not punctual. She can't help it, but I'm not sad about it,&quot; he <strong>said</strong>, &quot;I can get a dozen beautiful blondes who will show up promptly in make-up at 4 A.M. each</p>
+<p>morning, but they are not Marilyn Monroe.&quot;</p>
+<p>The tardiness, the lack of responsibility and the fears began to show more and more through the glamorous patina as Miss Monroe's career waxed.</p>
+<p>Speaking of her career and her fame in the Life interview, she <strong>said</strong>, wistfully:</p>
+<p>&quot;It might be kind of a relief to be finished. It's sort of <strong>like</strong> I don't know what kind of a yard dash you're running, but then you're at the finish line and you sort of sigh--you've</p>
+<p>made it! But you <strong>never</strong> have--you have to start all over again.&quot;</p>
 </div>
 </div>
 <p><strong>Topic 8</strong></p>
 <p>To display the top 3 original obituaries with the highest probability of containing Topic 8 and with relevant topic words bolded, we will run:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✨Topic 8✨
 
 [&#39;miss&#39;, &#39;book&#39;, &#39;new&#39;, &#39;wrote&#39;, &#39;published&#39;, &#39;mrs&#39;, &#39;writing&#39;, &#39;life&#39;, &#39;writer&#39;, &#39;years&#39;, &#39;books&#39;, &#39;said&#39;, &#39;author&#39;, &#39;york&#39;, &#39;story&#39;, &#39;novel&#39;, &#39;women&#39;, &#39;magazine&#39;, &#39;work&#39;, &#39;later&#39;]
-
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
+<p>✨✨✨</p>
+<p><strong>0.42896497441951986</strong></p>
+<p><strong>1941-James-Joyce</strong></p>
+<p>January 13, 1941</p>
+<p>OBITUARY</p>
+<p>James Joyce Dies; Wrote 'Ulysses'</p>
+<p>By THE NEW YORK TIMES</p>
+<p>ZURICH, Switzerland, Monday, Jan 13- James Joyce, Irish <strong>author</strong> whose &quot;Ulysses&quot; was the center of one of the most bitter literary controversies of modern times, died in a hospital here early</p>
+<p>today despite the efforts of doctors to save him by blood transfusions. He would have been 59 <strong>years</strong> old Feb. 2.</p>
+<p>Joyce underwent an intestinal operation Saturday afternoon at the Schwesternhaus von Rotenkreuz Hospital. For a time he appeared to be recovering. Only yesterday his son reported him to have been cheerful and apparently out of danger.</p>
+<p>During the afternoon, however, the <strong>writer</strong> suffered a sudden relapse and sank rapidly. He died at 2:15 A.M. (8:15 P.M., Eastern standard time).</p>
+<p>His wife and son were at the hospital when he died.</p>
+<p>Hailed and Belittled by Critics</p>
+<p>The status of James Joyce as a <strong>writer</strong> never could be determined in his lifetime. In the opinion of some critics, notably Edmund Wilson, he deserved to rank with the great innovators of literature as one whose influence upon other writers of his time was</p>
+<p>incalculable. On the other hand, there were critics like Max Eastman who gave him a place with Gertrude Stein and T.S. Eliot among the &quot;Unintelligibles&quot; and there was Professor Irving Babbitt</p>
+<p>of Harvard who dismissed his most widely read <strong>novel</strong>, &quot;Ulysses,&quot; as one which only could have been written &quot;in an advanced stage of psychic disintegration.&quot;</p>
+<p>Originally <strong>published</strong> in 1922, &quot;Ulysses&quot; was not legally available in the United States until eleven <strong>years</strong> <strong>later</strong>, when United States Judge John Monro Woolsey handed down his famous decision to the effect that the <strong>book</strong> was not obscene. Hitherto</p>
+<p>the <strong>book</strong> had been smuggled in and sold at high prices by &quot;bookleggers&quot; and a violent critical battle had raged around it.</p>
+<p>Judge Woolsey's Decision</p>
+<p>&quot;'Ulysses' is not an easy <strong>book</strong> to read or understand,&quot; Judge Woolsey <strong>wrote</strong>. &quot;But there has been much written about it, and in order properly to approach the consideration of it it is advisable to read a number of other <strong>books</strong> which</p>
+<p>have now become its satellites. The study of &quot;Ulysses&quot; is therefore a heavy task.</p>
+<p>&quot;The reputation of 'Ulysses' in the literary world, however, warranted my taking such time as was necessary to enable me to satisfy myself as to the intent with which the <strong>book</strong> was written, for, of course, in any case where a <strong>book</strong> is claimed</p>
+<p>to be obscene it must first be determined whether the intent with which it was written was what is called, according to the usual phrase, pornographic, that is, written for the purpose of exploiting</p>
+<p>obscenity.</p>
+<p>&quot;If the conclusion is that the <strong>book</strong> is pornographic that is the end of the inquiry... But in 'Ulysses,&quot; in spite of its unusual frankness, I do not detect anywhere the leer of the sensualist. I hold, therefore, that it is not pornographic.&quot;</p>
+<p>On the passages dealing with sex, Judge Woolsey paused to remark that the reader must not forget that &quot;the characters are Celtic and the time is Spring.&quot; His decision was hailed as one of the most civilized ever propounded by an American judge.</p>
+<p>After he had admitted Ulysses to the country, there was a rush to but the almost immediately available authorized and uncensored edition <strong>published</strong> by Random House. Since then the <strong>book</strong>, unlike many</p>
+<p>another once banned by the censor and then forgotten, has been read widely; less for the passages once objected to than for the <strong>book</strong> as a whole.</p>
+<p>Although Joyce appeared in many of his writings, &quot;notably &quot;A Portrait of the Artist as a Young Man&quot; and &quot;Ulysses,&quot; as Stephen Dedalus, many details of his <strong>life</strong> are missing. The most comprehensive study is Herbert Gorman's</p>
+<p>biography <strong>published</strong> in 1940.</p>
+<p>Was Born in Dublin</p>
+<p>The <strong>writer</strong> was born Feb. 2, 1882, in Dublin, Ireland, the son of John Stanislaus Joyce (The Simon Dedalus of &quot;Ulysses&quot; whom Bloom hears singing in the Ormond bar) and Mary Murray Joyce. His father supposedly had one of the finest tenor voices</p>
+<p>in Ireland. James Joyce had an equally fine voice.</p>
+<p>The Joyce family was not prosperous and it was large. James stood out among his brothers and sisters and, at the age of 9, is supposed to have written an attack on Tim Healy, the anti-Parnellite, which was printed but of which no known copy exists. Since</p>
+<p>he was literary it was decided to give him an education and he was sent first to Clongowes Wood College, then to Belvedere College, also in Ireland, and <strong>later</strong> he received his Bachelor of Arts degree</p>
+<p>from the Royal University in Dublin.</p>
+<p>He was an amazing scholar, and an independent and solitary figure. When he was 17 he read Ibsen's plays and <strong>wrote</strong> an essay for the Fortnightly Review about the <strong>author</strong> of &quot;The Doll's House.&quot; Dissatisfied with the English translations,</p>
+<p>Joyce learned Norwegian when he was 19 <strong>years</strong> old so that he might read his literary god in the original. At the same time he was reading and studying Dante, all the Elizabethan poets, St. Thomas</p>
+<p>Aquinas and Aristotle.</p>
+<p>In those days, according to Padraic Colum, who knew him at the Royal University (<strong>later</strong> reorganized as the National University), Joyce was a tall, slender young man with &quot;a Dantesque face and steely blue eyes,&quot; who sauntered along the street</p>
+<p>in a peaked tennis cap, soiled tennis shoes, carrying an ashplant for a cane. Stephen Dedalus carries a similar cane in &quot;Ulysses&quot; and frequently talks with it! He loved to sing and recite</p>
+<p>poetry in his fine tenor voice, but he spoke harshly and used &quot;many of the unprintable words he got printed in 'Ulysses.'&quot;</p>
+<p>Conceit and arrogance were his characteristics. When he first met Yeats he remarked:</p>
+<p>&quot;We have met too late; you are too old to be influenced by me.&quot;</p>
+<p>AE (George Russell) recognized his &quot;keen and cold intelligence,&quot; but told the young man, &quot;I'm afraid you have not enough chaos in you to make a world.&quot;</p>
+<p>Joyce was in continuous rebellion against Ireland and its <strong>life</strong> and <strong>said</strong>: &quot;When the soul of a man is born in this country there are no nets flung at it to hold it back from flight.&quot;</p>
+<p>The words are Stephen Dedalus's in &quot;A Portrait of the Artist as a Young Man,&quot; but it was Joyce speaking, and, at the age of 20, he left Ireland for Paris where he intended, and for a time pretended, to study medicine.</p>
+<p>At this time he started the stories that were eventually <strong>published</strong> as &quot;Dubliners&quot; (this <strong>book</strong> was <strong>later</strong> publicly burned in a Dublin public square) and started his first <strong>novel</strong>. This, the &quot;Portrait of the Artist,&quot; was ten <strong>years</strong> in the</p>
+<p><strong>writing</strong>. His first <strong>published</strong> <strong>work</strong>- except for the forgotten attack on Tim Healy- was &quot;Chamber Music,&quot; a collection of Elizabethan-like verse, which were printed in 1907.</p>
+<p>It was at this time that he met Nora Barnacle, &quot;a sleek blond beauty&quot; from Galway, the daughter of Thomas and Ann Healy Barnacle. They soon went to the continent to live (their marriage was not regularized until twenty-seven <strong>years</strong> <strong>later</strong>, when</p>
+<p>they visited a London registry office to legalize the status of their two children, George and Lucia). In Trieste, where they settled after some wandering, Joyce taught English at the Berlitz School</p>
+<p>and the Commercial Academy. He knew seventeen languages, ancient and modern, including Arabic, Sanskrit and Greek.</p>
+<p>&quot;Dubliners&quot; Issued in 1914</p>
+<p>In 1914 Dubliners was <strong>published</strong> in London. In the same year he also finished his <strong>novel</strong> &quot;Portrait of the Artist as a Young Man.&quot;</p>
+<p>When war was declared Joyce and his wife, who were British citizens, were in Austria. He was forced out of his job as a teacher, and the couple moved to Zurich.</p>
+<p>While living in Zurich Joyce began to suffer from severe ocular illness and eventually underwent at least ten operations on his eyes. For <strong>years</strong> he was almost totally blind and much of his <strong>later</strong> <strong>writing</strong> was done with red crayon on huge white sheets of</p>
+<p>paper.</p>
+<p>&quot;Ulysses&quot; was begun under this difficult situation. Much of it was <strong>published</strong> by Margaret Anderson in The Little Review, the <strong>magazine</strong> which Otto Kahn, New York banker, once subsidized for his Greenwich Village friends. Chapters appeared between</p>
+<p>March, 1918, and August, 1920, when the Society for the Suppression of Vice had The Review stopped by court order.</p>
+<p>After the war the Joyces returned to Trieste, where they lived with Stanislaus Joyce, the <strong>author</strong>'s brother. Then, in 1919, they went to Paris, where they made their home until the next war sent them again to Zurich to occupy the house they had known</p>
+<p>in 1914.</p>
+<p>In 1922 Joyce's greatest <strong>book</strong>, &quot;Ulysses,&quot; was <strong>published</strong> in Paris. Great Britain, Ireland and the United States banned the <strong>book</strong>.</p>
+<p>For many <strong>years</strong> after &quot;Ulysses&quot; was done Joyce worked on what he called &quot;Work in Progress.&quot; Much of it appeared in Transition, the <strong>magazine</strong> <strong>published</strong> in the Nineteen Twenties in Paris by Eugene Jolas. In May, 1939, it was <strong>published</strong></p>
+<p>as &quot;Finnegan's Wake,&quot; a <strong>book</strong> &quot;distinguished&quot; by such &quot;words&quot; as Goragorridgeorballyedpuhkalsom, to name one of the simpler ones, and many puns. In it Mr. Joyce</p>
+<p>suggested the <strong>book</strong> was the <strong>work</strong> of &quot;a too pained whitelwit laden with the loot of learning.&quot;</p>
+<p>During all his <strong>years</strong> as a <strong>writer</strong> Joyce was carefully protected by his wife, who once <strong>said</strong> she cared for him despite &quot;his necessity to write those <strong>books</strong> no one can understand.&quot; His conversation was clear, never anything like his <strong>writing</strong>, and</p>
+<p>his wit as keen.</p>
+<p>Joyce's son, George Joyce, married the former Miss Helen Castor of Long Branch, N.J. They had one son, Stephen James Joyce. James Joyce and his wife made their home with his son for many <strong>years</strong> before the present war.</p>
 </div>
 </div>
 </div>
@@ -1929,7 +2042,7 @@ Probability: 0.001
 <p><strong>1.</strong> Display the top 6 obituary titles for this topic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
 </pre></div>
 </div>
 </div>
@@ -1937,7 +2050,7 @@ Probability: 0.001
 <p><strong>2.</strong> Display the topic words in the context of the original obituary for these 6 top titles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your Code Here</span>
 </pre></div>
 </div>
 </div>

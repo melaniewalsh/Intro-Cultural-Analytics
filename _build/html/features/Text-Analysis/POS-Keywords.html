@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -331,6 +328,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Text-Analysis/POS-Keywords.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -599,7 +601,7 @@
 <p>To use spaCy, we first need to install the library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install -U spacy
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U spacy
 </pre></div>
 </div>
 </div>
@@ -610,7 +612,7 @@
 <p>Then we’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
 <span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -627,13 +629,13 @@
 <p>Next we need to download the English-language model (<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>), which will be processing and making predictions about our texts. This is the model that was trained on the annotated “OntoNotes” corpus. You can download the <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> model by running the cell below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python -m spacy download en_core_web_sm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download en_core_web_sm
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: en_core_web_sm==2.1.0 from https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm==2.1.0 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (2.1.0)
-[38;5;2m✔ Download and installation successful[0m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: en_core_web_sm==2.1.0 from https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm==2.1.0 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (2.1.0)
+<span class=" -Color -Color-C2">✔ Download and installation successful</span>
 You can now load the model via spacy.load(&#39;en_core_web_sm&#39;)
 </pre></div>
 </div>
@@ -646,7 +648,7 @@ You can now load the model via spacy.load(&#39;en_core_web_sm&#39;)
 <p>Once the model is downloaded, we need to load it with <code class="docutils literal notranslate"><span class="pre">spacy.load()</span></code> and assign it to the variable <code class="docutils literal notranslate"><span class="pre">nlp</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,14 +666,14 @@ it with a <strong>force</strong> which few masculine intellects (in our own coun
 <p>This sentence makes for an interesting example because it is syntactically complex and because it includes contains difficultly ambiguous words such as “spell,” “abstract,” and “force.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;She “has thrown her magical spell around the most abstract of Sciences.&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;She “has thrown her magical spell around the most abstract of Sciences.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -768,7 +770,7 @@ it with a <strong>force</strong> which few masculine intellects (in our own coun
 <p>Above is a POS chart taken from <a class="reference external" href="https://spacy.io/api/annotation#named-entities">spaCy’s website</a>, which shows the different parts of speech that spaCy can identify as well as their corresponding labels. To quickly see spaCy’s POS tagging in action, we can use the <a class="reference external" href="https://spacy.io/usage/visualizers#ent">spaCy module <code class="docutils literal notranslate"><span class="pre">displacy</span></code></a> on our sample <code class="docutils literal notranslate"><span class="pre">document</span></code> with the <code class="docutils literal notranslate"><span class="pre">style=</span></code> parameter set to “dep” (short for dependency parsing):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set some display options for the visualizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set some display options for the visualizer</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;compact&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;bg&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;font&quot;</span><span class="p">:</span> <span class="s2">&quot;Gill Sans&quot;</span><span class="p">}</span>
 
 <span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
@@ -929,14 +931,14 @@ it with a <strong>force</strong> which few masculine intellects (in our own coun
 <p>As you can see, spaCy has correctly identified that “spell” and “force” are nouns in our sample sentence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>spell NOUN
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spell NOUN
 force NOUN
 intellects NOUN
 country NOUN
@@ -950,21 +952,21 @@ country NOUN
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s2">&quot;You shouldn&#39;t force someone to learn how to spell Babbage. They just need practice. You can&#39;t abstract it.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s2">&quot;You shouldn&#39;t force someone to learn how to spell Babbage. They just need practice. You can&#39;t abstract it.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;VERB&quot;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>force VERB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>force VERB
 learn VERB
 spell VERB
 need VERB
@@ -980,13 +982,13 @@ abstract VERB
 <p>To get part of speech tags for every word in a document, we have to iterate through all the tokens in the document and pull out the <code class="docutils literal notranslate"><span class="pre">.pos_</span></code> attribute for each token. We can get even finer-grained dependency information with the attribute <code class="docutils literal notranslate"><span class="pre">.dep_</span></code>.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">dep_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>You PRON nsubj
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You PRON nsubj
 should AUX aux
 n&#39;t ADV neg
 force VERB ROOT
@@ -1020,7 +1022,7 @@ it PRON dobj
 <p><img src="https://mybinder.org/static/images/logo_social.png" width="150" align="left" > <em>If you’re using this Jupyter notebook in Binder (in the cloud), please uncomment the cell below and work with only the first story from <em>Lost in the City</em>. The Binder notebook is currently having issues loading the entire collection.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#file = &quot;../texts/literature/Lost-in-the-City_Stories/01-The-Girl-Who-Raised-Pigeons.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#file = &quot;../texts/literature/Lost-in-the-City_Stories/01-The-Girl-Who-Raised-Pigeons.txt&quot;</span>
 <span class="c1">#document = nlp(open(file).read())</span>
 </pre></div>
 </div>
@@ -1028,7 +1030,7 @@ it PRON dobj
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Jones-Lost-in-The-City.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Jones-Lost-in-The-City.txt&quot;</span>
 <span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1059,7 +1061,7 @@ it PRON dobj
 <p>Here we make a list of the adjectives identified in <em>Lost in the City</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;ADJ&#39;</span><span class="p">:</span>
         <span class="n">adjs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
@@ -1069,12 +1071,12 @@ it PRON dobj
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;many&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;many&#39;,
  &#39;vivid&#39;,
  &#39;simple&#39;,
  &#39;front&#39;,
@@ -2082,19 +2084,19 @@ it PRON dobj
 <p>Then we count the unique adjectives in this list with the <code class="docutils literal notranslate"><span class="pre">Counter()</span></code> module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">adjs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">adjs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;other&#39;, 150),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;other&#39;, 150),
  (&#39;old&#39;, 142),
  (&#39;more&#39;, 131),
  (&#39;first&#39;, 106),
@@ -2923,7 +2925,7 @@ it PRON dobj
 <p>Then we make a dataframe from this list:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -3476,7 +3478,7 @@ it PRON dobj
 <p>To extract and count nouns, we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for POS labels that match “NOUN”.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;NOUN&#39;</span><span class="p">:</span>
         <span class="n">nouns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
@@ -4040,7 +4042,7 @@ it PRON dobj
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;VERB&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;VERB&#39;</span><span class="p">]</span>
 
 <span class="n">verbs_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">verbs</span><span class="p">)</span>
 
@@ -4588,7 +4590,7 @@ it PRON dobj
 <p>With the function <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code>, we will iterate through <code class="docutils literal notranslate"><span class="pre">document.sents</span></code> and pull out any sentence that contains a particular “keyword.” Then we will display these sentence with the keywords bolded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regex</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regex</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
 </pre></div>
 </div>
@@ -4596,7 +4598,7 @@ it PRON dobj
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">document</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">document</span><span class="p">):</span>
     
     <span class="c1">#Iterate through all the sentences in the document and pull out the text of each sentence</span>
     <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
@@ -4616,800 +4618,274 @@ it PRON dobj
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
-</pre></div>
-</div>
+<p>Her father had known Miles long before the girl was born, before the thought to marry her <strong>mother</strong> had even crossed his mind.</p>
+<p>The men found her in the kitchen, her head buried in the lap of Miles’s <strong>mother</strong>, her arms tight around the waist of the old woman, who had been sitting at the table having Sunday lunch with her husband.</p>
+<p>Buster,” Miles’s <strong>mother</strong> said to him,</p>
+<p>One morning, toward four o’clock, they cut open her stomach and pulled out the child only moments after Clara died, <strong>mother</strong> and daughter passing each other as if along a corridor, one into death, the other into life.</p>
+<p>There was a song about trains that kept rumbling in his head as the night wore on, a song his <strong>mother</strong> would sing when he was a boy.</p>
+<p>The girl had never had an overwhelming curiosity about her <strong>mother</strong>, but it fascinated her to see the face of the lady in all the pictures on a woman who moved and laughed and did <strong>mother</strong> things.</p>
+<p>On an otherwise unremarkable September morning, long before I learned to be ashamed of my <strong>mother</strong>, she takes my hand and we set off down New Jersey Avenue to begin my very first day of school.</p>
+<p>My <strong>mother</strong> has uncharacteristically spent nearly an hour on my hair that morning, plaiting and replaiting so that now my scalp tingles.</p>
+<p>Behind my ears, my <strong>mother</strong>, to stop my whining, has dabbed the stingiest bit of her gardenia perfume, the last present my father gave her before he disappeared into memory.</p>
+<p>My <strong>mother</strong> does not believe that a girl in kindergarten needs such things, so I am taking them only because of my insistent whining and because they are presents from our neighbors, Mary Keith and Blondelle Harris.</p>
+<p>Miss Mary and Miss Blondelle are watching my two younger sisters until my <strong>mother</strong> returns.</p>
+<p>The women are as precious to me as my <strong>mother</strong> and sisters.</p>
+<p>This is my <strong>mother</strong>:</p>
+<p>When I say the word in fun to one of my sisters, my <strong>mother</strong> slaps me across the mouth and the word is lost for years and years.</p>
+<p>In my neighborhood, I have many friends, but I see none of them as my <strong>mother</strong></p>
+<p>At I Street, between New Jersey Avenue and Third Street, we enter Seaton Elementary School, a timeworn, sad-faced building across the street from my <strong>mother</strong></p>
+<p>When, in answer to her question, my <strong>mother</strong> tells her that we live at 1227 New Jersey Avenue, the woman first seems to be picturing in her head where we live.</p>
+<p>My <strong>mother</strong> shakes her head vigorously.</p>
+<p>I want her to go here,” my <strong>mother</strong> says.</p>
+<p>The woman continues to act as if she has known me all my life, but she tells my <strong>mother</strong> that we live beyond the area that Seaton serves.</p>
+<p>My <strong>mother</strong> is not convinced and for several more minutes she questions the woman about why I cannot attend Seaton.</p>
+<p>For as many Sundays as I can remember, perhaps even Sundays when I was in her womb, my <strong>mother</strong> has pointed across I Street to Seaton as we come and go to Mt. Carmel.</p>
+<p>I am learning this about my <strong>mother</strong>: The higher up on the scale of respectability a person is—and teachers are rather high up in her eyes</p>
+<p>This is my <strong>mother</strong>: She says, “</p>
+<p>But it is not across the street from my <strong>mother</strong>’s church, her rock, one of her connections to God, and I sense her doubts as she absently rubs her thumb over the back of her hand.</p>
+<p>” my <strong>mother</strong> asks a woman at one of the tables.</p>
+<p>” my <strong>mother</strong> asks the woman, picking up a few pieces of the paper from the table.</p>
+<p>I see,” my <strong>mother</strong> says, looking about the room.</p>
+<p>The woman asks my <strong>mother</strong> what she means.</p>
+<p>My <strong>mother</strong> looks at me, then looks away.</p>
+<p>She finishes the form for her daughter and my <strong>mother</strong></p>
+<p>My <strong>mother</strong> is now diseased, according to the girl</p>
+<p>’s eyes, and until the moment her <strong>mother</strong> takes her and the form to the front of the auditorium</p>
+<p>, the girl never stops looking at my <strong>mother</strong>.</p>
+<p>Don’t stare,” my <strong>mother</strong> says to me.</p>
+<p>My <strong>mother</strong> answers the questions the woman reads off the form.</p>
+<p>My <strong>mother</strong> slowly enunciates each word of my name.</p>
+<p>This is my <strong>mother</strong>: As the questions go on, she takes from her pocketbook document after document, as if they will support my right to attend school, as if she has been saving them up for just this moment.</p>
+<p>Few of the papers are needed here, but it does not matter and my <strong>mother</strong> continues to pull out the documents with the purposefulness of a magician pulling out a long string of scarves.</p>
+<p>She has learned that money is the beginning and end of everything in this world, and when the woman finishes, my <strong>mother</strong> offers her fifty cents, and the woman accepts it without hesitation.</p>
+<p>My <strong>mother</strong> and I are just about the last parent and child in the room.</p>
+<p>My <strong>mother</strong> presents the form to a woman sitting in front of the stage, and the woman looks at it and writes something on a white card, which she gives to my <strong>mother</strong>.</p>
+<p>Before long, the woman who has taken the girl with the drooping curls appears from behind us, speaks to the sitting woman, and introduces herself to my <strong>mother</strong> and me.</p>
+<p>She’s to be my teacher, she tells my <strong>mother</strong>.</p>
+<p>My <strong>mother</strong> stares.</p>
+<p>We go into the hall, where my <strong>mother</strong> kneels down to me.</p>
+<p>And even when the teacher turns me toward the classrooms and I hear what must be the singing and talking of all the children in the world, I can still hear my <strong>mother</strong></p>
+<p>But lately, for no reason at all, the teacher seemed to be in her face all the time, and that morning the teacher had made the death mistake of bringing up Cassandra’s father and <strong>mother</strong>.</p>
+<p>On the other side of Rhonda was her <strong>mother</strong>, and behind Rhonda were two older brothers and her father, who peered out through thick glasses.</p>
+<p><strong>mother</strong>’ll pay twenty dollars.</p>
+<p>Gladys explained that her <strong>mother</strong> wanted a few small boxes of stuff taken to Gladys’s father in Anacostia.</p>
+<p>Taking boxes from the <strong>mother</strong> to the father all the way in Anacostia seemed strange to Cassandra, but being an orphan set adrift in the world she had learned that unless it could involve a death mistake, it was best to ask as few questions as possible.</p>
+<p>Anita and Melanie must have heard it before, because they didn’t seem surprised at what the <strong>mother</strong> was saying.</p>
+<p>: What does this little bitch have that my <strong>mother</strong> doesn’t have?</p>
+<p>Besides, we still drivin on gas my <strong>mother</strong> paid for.”</p>
+<p>The boys’ <strong>mother</strong>, waiting for a bus, ignored the drunk.</p>
+<p>But Cassandra did not leave, and when the bus came and took the <strong>mother</strong> and her boys away, she began to worry that the drunk would spot her and come over and dance and make her the center of attention.</p>
+<p>He was followed by his <strong>mother</strong>, who carried a switch as long as the boy.</p>
+<p>” the <strong>mother</strong> hollered.</p>
+<p>Anita’s <strong>mother</strong> was standing a few feet from the front of Rhonda’s house where two policemen, unsmiling, arms folded, stood as if they would never again do anything as important.</p>
+<p>“Jeffrey shot Rhonda,” her <strong>mother</strong> said.</p>
+<p>“Honey, it’s true,” Anita’s <strong>mother</strong> said to Cassandra and took the girl by the arm.</p>
+<p>Anita’s <strong>mother</strong> said, “</p>
+<p>Anita and her <strong>mother</strong> took Cassandra into the girl’s room.</p>
+<p>Anita’s <strong>mother</strong> came in and gave Cassandra a cup of cocoa sitting in a saucer.</p>
+<p>Anita watched as her <strong>mother</strong> helped Cassandra off with her clothes and into one of her <strong>mother</strong>’s nightgowns.</p>
+<p>These are the times,” Carol would have joked, “when we miss our <strong>mother</strong>s most.”  Manny, on the telephone, asked if he wanted to tend bar that evening and make some change.</p>
+<p>The old man took the family’s picture, and when the <strong>mother</strong> raised one finger, the old man advanced the film and snapped again.</p>
+<p>She smelled of garlic and, beneath that, of a soap that reminded him of the halls in the hospital where his <strong>mother</strong> had died.</p>
+<p>His <strong>mother</strong> and father would bring everyone down to see the Washington they put on postcards and in the pages of expensive coffee-table books.</p>
+<p>Never mind, they said, that he loved Caesar’s <strong>mother</strong> as much as he loved anyone and that stealing the flowers was his way of showing that love.</p>
+<p>Caesar, though, was moved, and they grew closer after his <strong>mother</strong>’s funeral.</p>
+<p>—a lace piece made by his grand<strong>mother</strong> that was on the back of the easy chair in the living room; a drawing of the house signed and dated by his sister</p>
+<p>taped to the refrigerator; the kitchen curtains he had helped his <strong>mother</strong> put up.</p>
+<p>Must be your <strong>mother</strong>, too.</p>
+<p>The boy in the picture, dressed in green swimming trunks with his back to some ocean, could well be a grown man by now, or he could be in his grave, Caesar thought, but today, on that street, his <strong>mother</strong> was saying he needed five thousand dollars for an operation or he would die as sure as anything.</p>
+<p>I lived with my <strong>mother</strong>, so rent and food weren’t a problem, though my brother, when he came around with that family of his, liked to get in my shit and tell me I should be looking for another job.</p>
+<p>Usually, my <strong>mother</strong> was okay, but I could tell when my brother and his flat-butt wife had been around when I wasn’t there, because for days after that my <strong>mother</strong> would talk that same shit about me getting a job, like I’d never slaved a day before in my life.</p>
+<p>My <strong>mother</strong> always said that every bullfrog praises his own poem, but I know for a natural fact that I was an excellent worker.</p>
+<p>When my brother and I were in our early teens, my <strong>mother</strong> said this to us with the most seriousness she had ever said anything:</p>
+<p>The worst that my <strong>mother</strong> feared didn’t happen to her baby boy that day.</p>
+<p>Had he told me to deny my <strong>mother</strong> and father, I think I would have done that too.</p>
+<p>My <strong>mother</strong> believed that a day had the best foundation if you had breakfast, so after she fixed our breakfast, and went off to work, I went back to bed and slept to about noon.</p>
+<p>One night, all of us—me and Lonney and his <strong>mother</strong> and Brenda and her parents</p>
+<p>Lonney’s <strong>mother</strong> stood up, in that eager, happy way women do when they want to greet their husbands home from a foreign land.</p>
+<p>I think that he wanted to make things work with Brenda, if only to push the whole thing in his father’s face, but the foundation, as my <strong>mother</strong> would have said, was built on shifting sand.</p>
+<p>In about a year or so he had separated from her, though he continued to be a good father to the child, a chubby little girl they named after his <strong>mother</strong>.</p>
+<p>The next morning I forced myself to stay awake after my <strong>mother</strong> had left, then went off about eight o’clock to see what the place was about.</p>
+<p>And so for a change I was up when my <strong>mother</strong> rose and I fixed our breakfast.</p>
+<p>My <strong>mother</strong> would have sold me back into slavery for a good cup of coffee, and no one made it to her satisfaction the way she did.</p>
+<p>My <strong>mother</strong> would fix me dinner</p>
+<p>Then, before I could fall asleep in the chair, my <strong>mother</strong> would run water for me to take a bath, the same thing I had seen her do for my father so often when I was a child that I didn’t notice it anymore.</p>
+<p>I just said yeah and good night and thanks, because my <strong>mother</strong> had always taught me and my brother that the currency of manners didn’t cost anything.</p>
+<p>In the dark apartment, I could see that slice of light along the bottom of my <strong>mother</strong>’s closed door.</p>
+<p>I learned in bits and pieces over time that she lived in an apartment on Neal Place a few doors from 5th Street, was a year out of Dunbar, was a secretary with the government people, that her family lived in a house on N Street that her <strong>mother</strong>’s parents had bought….</p>
+<p>The <strong>mother</strong> seemed to live and die for her stories on television, and I rarely saw her either.</p>
+<p>Gimme” meant the <strong>mother</strong> wanted it on credit.</p>
+<p>I came back to Washington and dropped his <strong>mother</strong> off at her house and then went back to work, though Penny had said I could take the day off.</p>
+<p>I waited until we were across O Street and asked with words that would have done my <strong>mother</strong> proud if I could take her to Howard Theater to see Dinah Washington that Saturday night.</p>
+<p>Kentucky’s <strong>mother</strong> was the first Negro supervisor at some office in the Department of Commerce.</p>
+<p>The second time I realized my allegiances were expanding, that I was making room in my soul for more than one neighborhood, was when I was asked to be godfather to two babies within one month; Penny got to be the god<strong>mother</strong></p>
+<p>One picture showed Joy Lambert, the <strong>mother</strong> of Patricia and Tommy Turner.</p>
+<p>More and more I got to staying at her place, sleeping at my <strong>mother</strong>’s only a few times a month.</p>
+<p>I hope you know what you doin,” my <strong>mother</strong> would say sometimes.</p>
+<p>In fact, my <strong>mother</strong> said those very words that August Thursday night when I went to get clean clothes from her place.</p>
+<p>my <strong>mother</strong> said her parents always made when she was a little girl.</p>
+<p>’s <strong>mother</strong>, was there.</p>
+<p>Then the ambulance arrived and in little or no time they took the girl and her <strong>mother</strong> away, the flashing light on the roof shining on all the houses as it moved down 5th Street.</p>
+<p>Her <strong>mother</strong>,” Penny said, “wouldn’t let me come by to apologize.</p>
+<p>All that month, and for some months after, that was the heart of the phone conversation, that the <strong>mother</strong> wouldn’t allow her to come to see her and the family.</p>
+<p>Tommy came with her, and all the time they were in the store, the boy held his <strong>mother</strong>’s hand.</p>
+<p>The boy never said a word the whole time, just stood there close to his <strong>mother</strong>, with his thumb in his mouth and blinking very, very slowly as if he were about to fall asleep on his feet.</p>
+<p>Since Penny had told me to wipe the slate clean for Patricia’s <strong>mother</strong>, Old Lady Baxter became the biggest deadbeat.</p>
+<p>My <strong>mother</strong> once told me that in place of muscles God gave women the ability to cry on a moment’s notice.</p>
+<p>I could see that she did not approve, but she only had this look that my <strong>mother</strong> had the day my brother came home with the first piece of clothing my parents allowed him to buy on his own.</p>
+<p>After a while I went to my <strong>mother</strong>’s place.</p>
+<p>I found my <strong>mother</strong> at the kitchen table, listening to gospel on the radio.</p>
+<p>I was twenty-seven years old, the age my <strong>mother</strong> was when she married.</p>
+<p>On the crowded Stadium-Armory subway platform, she held Avis, the baby, by the hand, lest the girl wander off, and Marvin, the oldest, stood on his <strong>mother</strong>’s other side.</p>
+<p>” he asked his <strong>mother</strong>.</p>
+<p>My son the engineer, his <strong>mother</strong> thought.</p>
+<p>Marcus and Avis managed to find seats just in front of their <strong>mother</strong>, and she was surprised when the dreadlock man sat down beside her.</p>
+<p>Beside the boy was a woman as old as Marvella’s <strong>mother</strong>, asleep, her head leaning against the window.</p>
+<p>I should tell him to turn around, his <strong>mother</strong> thought, but this might be one time when he’s justified.</p>
+<p>She wrapped the strap of her pocketbook around her shoulder and held her daughter’s hand as they made their way two blocks up 12th Street to Horizon House, where Marvella’s <strong>mother</strong> lived.</p>
+<p>They took the elevator up to her <strong>mother</strong></p>
+<p>”  Avis, interested, leaned across her <strong>mother</strong>’s lap.</p>
+<p>Marcus…” his <strong>mother</strong> said.</p>
+<p>“Marcus,” his <strong>mother</strong> said.</p>
+<p>My son the old man, his <strong>mother</strong> thought.</p>
+<p>Well, it doesn’t matter,” his <strong>mother</strong> said.</p>
+<p>She was in her <strong>mother</strong></p>
+<p>She closed her eyes and leaned back against her <strong>mother</strong>.</p>
+<p>The boy looked at the man as if for help from his <strong>mother</strong>’s order.</p>
+<p>By keeping the boys at Thompson School in Northwest two blocks from her <strong>mother</strong>, she worried less when the school day ended.</p>
+<p>” his <strong>mother</strong> said just as Avis was about to take up the chant.</p>
+<p>THE SUNDAY FOLLOWING <strong>mother</strong>’S DAY</p>
+<p>When Madeleine Williams was four years old and her brother Sam was ten, their father killed their <strong>mother</strong> one night in early April.</p>
+<p>If their <strong>mother</strong> sent forth to her children a cry of help, or of good-bye, they did not hear it, at least not on any conscious level, and they slept clear through to morning.</p>
+<p>Judge John Tellingford chose to sentence Samuel Williams to twenty-five years at Lorton and, Madeleine found on page 164 of the transcript, the judge noted that for whatever demented reason the father had stabbed to death the <strong>mother</strong> of his children, he had seen fit to spare his children an equally horrendous fate.</p>
+<p>In all the times she and Curtis took the girl home, she had seen the <strong>mother</strong> only a few times, and each time the <strong>mother</strong> had stood in her bathrobe in the entrance to the kitchen smoking a cigarette and watching as Madeleine said good-bye to the girl.</p>
+<p>Whatcha takin up?” the <strong>mother</strong> asked each time.</p>
+<p>In Madeleine’s junior year, Clarine’s father killed the <strong>mother</strong> with four pistol shots into the heart.</p>
+<p>Madeleine could not remember what the <strong>mother</strong> looked like, and even when she looked down at the woman in her coffin, she could not connect the dead woman with the woman standing in her bathrobe.</p>
+<p>The girl, along with the other children, had seen her father shoot her <strong>mother</strong>.</p>
+<p>He named the place after his <strong>mother</strong> and aunt.</p>
+<p>20 years of happy living isn’t long enough for a <strong>mother</strong>fucker like you,” Sam finally wrote his father.</p>
+<p>A reconciliation was arranged by Hazel and Maddie on the Sunday before <strong>mother</strong>’s Day, which happened to be Maddie’s birthday.</p>
+<p>Why would anyone in the world write to the man who killed their own <strong>mother</strong>?</p>
+<p>She hugged him, clung to him, and for those moments they were no more or less than a boy and girl without a <strong>mother</strong> and father.</p>
+<p>Madeleine and Curtis had planned to spend <strong>mother</strong>’s Day at the Children’s Center with their child, but Curtis’s father became ill during the week and Curtis went to Norfolk.</p>
+<p>Madeleine would have waited until he returned to visit the center, but she did not want too much time to pass after <strong>mother</strong>’s Day before she saw her son.</p>
+<p>On the Sunday morning following <strong>mother</strong>’s Day, she was ready to leave her apartment when the chime on her door rang.</p>
+<p>I wanted to wish you a happy <strong>mother</strong>’s Day.</p>
+<p><strong>mother</strong>’s Day was last Sunday.</p>
+<p>Happy <strong>mother</strong>’s Day.</p>
+<p>On the lawn there was a family fussing over a fellow who could have been five or in his teens or a man of thirty or so, and who was sitting in the lap of a woman who may have been his <strong>mother</strong>.</p>
+<p>the woman’s daughter, who stood beside an older brother, just behind their <strong>mother</strong>.</p>
+<p>All right now,” their <strong>mother</strong> said, “Thas anough a that.”</p>
+<p>If it was true what her <strong>mother</strong> had once told her, then nothing rang the telephone like death in the middle of the night.</p>
+<p>We are very sorry to call at such a time, but your <strong>mother</strong> died twenty minutes ago.</p>
+<p>Your <strong>mother</strong> was an exemplary patient,” the woman said.</p>
+<p>Try to remember, she told herself, for all of it must go in the diary: On the night of June 29th, I was dreaming such-and-such and such-and-such when my <strong>mother</strong> passed away.</p>
+<p>She thought she had been dreaming of Antibes and the naked Texan on the beach when her <strong>mother</strong> died, but the more she thought the more it seemed that Antibes had actually been on her mind when she came the first time hours ago.</p>
+<p>her <strong>mother</strong> had said of the first boy she had ever slept with, though all her <strong>mother</strong> knew at that time was that the boy had taken her to a movie and Mile Long for a steak sandwich.</p>
+<p>her <strong>mother</strong> had asked.</p>
+<p>My <strong>mother</strong> has died and I have to go to her.”</p>
+<p>He does not even know my name on the very night my <strong>mother</strong> has died, she thought, wanting him out of her bed and out of her house.</p>
+<p>I can’t believe I’m walkin the same paths that my Lord walked,” her <strong>mother</strong> had said that second day in Israel, standing at the Church of Gethsemane.</p>
+<p>Lydia had presented the trip to her <strong>mother</strong> on her sixty-fifth birthday and had even paid the way for Georgia Evans, her <strong>mother</strong>’s best friend.</p>
+<p>Lydia had not wanted to go, but her <strong>mother</strong> had insisted.</p>
+<p>Oh, Lydia,” her <strong>mother</strong> had said, “what would the Holy Land mean to me without you bein there with me?”  Georgia, lazy, far less religious that her <strong>mother</strong>, had complained about all the hills.</p>
+<p>Georgia would drink all the water she carried, then want more from Lydia and her <strong>mother</strong>.</p>
+<p>My <strong>mother</strong> lies moldering</p>
+<p>Why, Ms. Walsh, your <strong>mother</strong> lies moldering and you’ve been fucking.</p>
+<p>She called a Capitol cab, because that was the company her <strong>mother</strong> had always used.</p>
+<p>Trust Capitol to get you there and back in one piece,” her <strong>mother</strong> had said.</p>
+<p>Once, as a girl, she had traveled with her <strong>mother</strong></p>
+<p>On that sixth morning in Israel, Georgia had gone back to her bed after breakfast and seemed unable to move, but she had insisted that Lydia and her <strong>mother</strong> go on without her.</p>
+<p>When <strong>mother</strong> and daughter returned from floating on the Dead Sea, they found Georgia in a lounge chair at the swimming pool, descending into drunkenness, not quite certain who they were or where she was.</p>
+<p>When Lydia’s <strong>mother</strong> told her that she was in the Holy Land, the land of Jesus, Georgia said, “Yes.</p>
+<p>Then, after Lydia’s <strong>mother</strong> slapped her, Georgia asked her friend for forgiveness.</p>
+<p>Her <strong>mother</strong> refused to say anything more to Georgia.</p>
+<p>They left her and had dinner in the hotel dining room, but her <strong>mother</strong> only picked at her food.</p>
+<p>Each place along the way, in Jericho, in Bethany, in Nazareth, she stayed close to Lydia’s <strong>mother</strong>, but Cornelia paid her no mind, and it showed on Georgia’s face.</p>
+<p>On the living-room wall in Lydia’s town house, among the photographs of places she had visited around the world, between the pictures of her standing before the Kremlin on a winter day and of her in a cavernous room in a Danish castle the guide said was haunted, there was the picture of Lydia and Cornelia and Georgia standing where the tourist bureau said Joseph’s carpentry shop had been, Georgia in her hideous wig standing on one side and her <strong>mother</strong> in the middle.</p>
+<p>My <strong>mother</strong> has died.</p>
+<p>I know what it’s like to lose a <strong>mother</strong>.</p>
+<p>She had wanted to buy a second town house in the area as another investment and have her <strong>mother</strong> and Georgia live there, but her <strong>mother</strong> told her that she did not know if she could live among so many white people.</p>
+<p>I knew folks who lived in Southwest before they threw the colored out and made it for the wealthy,” her <strong>mother</strong> had said when Lydia told her she had bought a town house there.</p>
+<p>You know, your <strong>mother</strong>….</p>
+<p>Had she remembered to finally write down her <strong>mother</strong>’s recipe for that wondrous beef stew somewhere in one of the appointment books?</p>
+<p>I’m sorry for all this,” her father had said on his death bed to her <strong>mother</strong>.</p>
+<p>” her <strong>mother</strong> said to her father.</p>
+<p>In one of the houses on that street her <strong>mother</strong> lived until Lydia’s last year of law school.</p>
+<p>her <strong>mother</strong> had asked while the man was in the bathroom.</p>
+<p>” John Brown lies molderin where my <strong>mother</strong> lies molderin….</p>
+<p>The cab driver thought that her crying meant that maybe it had finally hit her that her <strong>mother</strong> had died and that soon his passenger would be coming to herself.</p>
+<p>,” her <strong>mother</strong> told Lydia years later when she thought her daughter was old enough to understand, “she just became his slave.</p>
+<p>”      HIS <strong>mother</strong>’S HOUSE</p>
+<p>When his <strong>mother</strong> moved into that 10th Street house Santiago Moses bought for her, one of the few things she brought from the place she left behind was the coffee table made of see-through glass and false wood.</p>
+<p>Santiago Moses watched his <strong>mother</strong>, then he gave the table another playful tap.</p>
+<p>My <strong>mother</strong>’s old anough to know what she want.</p>
+<p>She and Humphrey’s <strong>mother</strong>, Pearl Malone, had been like sisters since they were ten years old.</p>
+<p>She was on the second floor, in the room she had furnished with such care and set aside for her <strong>mother</strong>, who would not ever step foot in her daughter’s house.</p>
+<p>The pictures of her <strong>mother</strong> started in the center of the coffee table display.</p>
+<p>Her <strong>mother</strong> rarely smiled in the photographs and she often looked into the camera as if the eye had caught her doing something God would not approve of.</p>
+<p>I just don’t take the good pictures,” her <strong>mother</strong> had said when she saw the display at the apartment Joyce had left behind.</p>
+<p>The next time Joyce saw the boy and his <strong>mother</strong>, it was the day after they had delivered the pool table for the basement in the new house.</p>
+<p>” he yelled to his <strong>mother</strong> as she turned the corner, and then he threw the car in her direction.</p>
+<p>When Santiago called that afternoon, he told his <strong>mother</strong> it would be all right, that the boy would be gone by the evening.</p>
+<p>But the boy, Adam, stayed three weeks, and no one ever again saw his <strong>mother</strong>.</p>
+<p>The next day was Friday, and she put off going to see her <strong>mother</strong> because it was too nice an April day not to begin preparations for her backyard garden.</p>
+<p>Three weeks after she had promised to come by the next day, Joyce finally got up the courage to visit her <strong>mother</strong>.</p>
+<p>Her <strong>mother</strong> had not called back to remind her of the promise, which was her <strong>mother</strong>’s way.</p>
+<p>As always, Joyce tried to anticipate all that her <strong>mother</strong> would throw at her and spent the walk down to her <strong>mother</strong></p>
+<p>Her <strong>mother</strong> lived in the Judiciary House, an H Street apartment building for senior citizens and the disabled.</p>
+<p>Joyce let herself into the apartment with her own key and found her <strong>mother</strong> in the living room.</p>
+<p>The small black-and-white television Joyce’s father had bought on credit twelve years ago was on, but her <strong>mother</strong> was reading a paperback book and paid no attention to the television.</p>
+<p>Her <strong>mother</strong>, who did not look up when her daughter entered, was wearing, as usual when she was inside, one of her dead husband’s shirts and a pair of his checkered socks.</p>
+<p>And as Joyce bent down to give her <strong>mother</strong> the kind of kiss on the cheek that Santiago would give Joyce, she smelled her father’s cheap musky aftershave.</p>
+<p>I want you to give Sandy a message,” her <strong>mother</strong> said, taking off the eyeglasses she kept on a string around her neck.</p>
+<p>In that second-floor bedroom in her 10th Street house she had set aside for her <strong>mother</strong>, there was a telephone with giant numbers so her <strong>mother</strong> would not have trouble dialing her friends.</p>
+<p>“Santiago been comin by some nights and sleepin sida my bed like he did when he was young,” her <strong>mother</strong> said.</p>
+<p>She sat across from her <strong>mother</strong> in a cheap metal chair that was part of the dinette set.</p>
+<p>Well, maybe he’ll listen if the words come from his own <strong>mother</strong>.</p>
+<p>I just this moment changed my mind,” her <strong>mother</strong> said.</p>
+<p>Her <strong>mother</strong> put on her glasses and opened the book.</p>
+<p>Joyce stood and went to the door, and her <strong>mother</strong> told her not to forget the money.</p>
+<p>At a shoe store near 13th Street, she abandoned once and for all any hope she ever had that her <strong>mother</strong> would come to live with her and spend the rest of her life in the room on the second floor.</p>
+<p>In one, taken months after his <strong>mother</strong> married, Humphrey was sleeping in a chair by a window.</p>
+<p>Everyone said good morning except for the little boy, who sat beside his <strong>mother</strong> at the table, playing with a truck that was as big as his head.</p>
+<p>She was, like her <strong>mother</strong>, a very plain and charming woman who could immediately put the world at ease.</p>
+<p>And usually after the worst fights, she ran away to stay with Diane, until her husband came and knocked contritely at his <strong>mother</strong>-in-law</p>
+<p>So it was often difficult for him to collect himself on Sunday morning, to pull himself away from a willing woman and clear his head of alcohol, and to go off to be with four other women, one of whom was old enough to be his grand<strong>mother</strong>, two of whom were old enough to be his <strong>mother</strong>, and one of whom had a ring through her nose about another man.</p>
+<p>’s grand<strong>mother</strong> was Maude Townsend, a blind woman who lived at Claridge Towers on M Street Northwest, an apartment house for old people and the disabled.</p>
+<p>Then he said, “<strong>mother</strong>,” which was what he called his wife.</p>
+<p>He said “<strong>mother</strong>” once more, took up the Bible, walked to the edge of the pulpit, and extended his hand, as if for help, to his wife.</p>
+<p>Only those near him could hear him say “<strong>mother</strong>” yet again.</p>
+<p>The old man’s son had come to help his father as well, but his <strong>mother</strong> shook her head and pointed to the pulpit.</p>
+<p>Once, as she was singing at the Virgin <strong>mother</strong> Baptist Church on Kentucky Avenue, Jesus had come down the aisle and sat down in a pew near the front.</p>
+<p>I don’t wanna hear another word outta your mouth till your <strong>mother</strong> get home.</p>
+<p>Then he would pass the newspaper among his children and tell them to read him the headlines, and each one would hold it uncomfortably and repeat what their <strong>mother</strong> had said.</p>
+<p>they did not know about, that the friend’s <strong>mother</strong>, like any good <strong>mother</strong>, would soon send their daughter home.</p>
+<p>Of the eight children he had had with Woodrow’s <strong>mother</strong> and the five he had had with other women, only Woodrow, Alice, and a half-brother who lived down the road from the old man came to the funeral.</p>
+<p>In a wooden trunk in one of the back rooms, Woodrow found several pictures of his <strong>mother</strong>.</p>
+<p>He had not seen his <strong>mother</strong>’s face in more than forty years, had thought his father had destroyed all the pictures of her.</p>
+<p>Woodrow’s <strong>mother</strong> sat at the far end of the table, between two of her daughters.</p>
+<p>Maybe a half hour or more into that storm, I started seein this figure, this thing, that kinda just stood in that corn patch in my <strong>mother</strong>’s garden.</p>
+<p>My Uncle Joe, his wife Ebbie, her <strong>mother</strong>, and my Uncle Ray.</p>
+<p>You could see where Aunt Ebbie’s <strong>mother</strong> had been rockin the crib with Aunt Ebbie’s baby in it.</p>
+<p>A wind was coming down the chimney and through the door, and it was rockin the crib, rockin Aunt Ebbie’s <strong>mother</strong>’s hand</p>
+<p>I put Aunt Ebbie’s <strong>mother</strong>’s hand in her lap.</p>
+<p>They do the job your <strong>mother</strong> and father used to do, huh?</p>
+<p>But when the other receptionist said it was the old lady in the blue coat, the guard held back for the longest time, as if to grab her would be like arresting his own grand<strong>mother</strong>.</p>
+<p>But I was born right here in D.C. Born, bred, and buttered, my <strong>mother</strong> used to say.</p>
+<p>Maybe thas what I got from listenin to my father readin and to my <strong>mother</strong></p>
+<p>My <strong>mother</strong> had this idea that everything could be done in Washington, that a human bein could take all they troubles to Washington and things would be set right.</p>
+<p>When I went back home to visit that first time and told my <strong>mother</strong> all about my livin in Washington, she fell into such a cry, like maybe I had managed to make it to heaven without dyin.</p>
+<p>She had not played another tape since the one about her <strong>mother</strong></p>
+<p>This white family my <strong>mother</strong> worked for, they had a son married and gone to live in Baltimore.</p>
+<p>So he wrote to his <strong>mother</strong> and she asked my <strong>mother</strong> and my <strong>mother</strong> asked me about goin to live in Baltimore.</p>
+<p>Hadn’t ever been kissed, hadn’t ever been anything, but here I was goin farther from home than my <strong>mother</strong> and father put together….</p>
 </div>
 </div>
 </div>
@@ -5420,7 +4896,7 @@ it PRON dobj
 <p>Below we’re going to make a list of <em>bigrams</em>, that is, all the two-word combinations from <em>Lost in the City</em>. We’re going to use these bigrams to find the neighboring words that appear alongside particular keywords.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a list of tokens and POS labels from document if the token is a word </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a list of tokens and POS labels from document if the token is a word </span>
 <span class="n">tokens_and_labels</span> <span class="o">=</span> <span class="p">[(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -5428,7 +4904,7 @@ it PRON dobj
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a function to get all two-word combinations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a function to get all two-word combinations</span>
 <span class="k">def</span> <span class="nf">get_bigrams</span><span class="p">(</span><span class="n">word_list</span><span class="p">,</span> <span class="n">number_consecutive_words</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
     
     <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span>
@@ -5450,7 +4926,7 @@ it PRON dobj
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span> <span class="o">=</span> <span class="n">get_bigrams</span><span class="p">(</span><span class="n">tokens_and_labels</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span> <span class="o">=</span> <span class="n">get_bigrams</span><span class="p">(</span><span class="n">tokens_and_labels</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5458,12 +4934,12 @@ it PRON dobj
 <p>Let’s take a peek at the bigrams:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[(&#39;Her&#39;, &#39;DET&#39;), (&#39;father&#39;, &#39;NOUN&#39;)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[(&#39;Her&#39;, &#39;DET&#39;), (&#39;father&#39;, &#39;NOUN&#39;)],
  [(&#39;father&#39;, &#39;NOUN&#39;), (&#39;would&#39;, &#39;VERB&#39;)],
  [(&#39;would&#39;, &#39;VERB&#39;), (&#39;say&#39;, &#39;VERB&#39;)],
  [(&#39;say&#39;, &#39;VERB&#39;), (&#39;years&#39;, &#39;NOUN&#39;)],
@@ -5485,7 +4961,7 @@ it PRON dobj
 <p>Now that we have our list of bigrams, we’re going to make a function <code class="docutils literal notranslate"><span class="pre">get_neighbor_words()</span></code>. This function will return the most frequent words that appear next to a particular keyword. The function can also be fine-tuned to return neighbor words that match a certain part of speech by changing the <code class="docutils literal notranslate"><span class="pre">pos_label</span></code> parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     
     <span class="n">neighbor_words</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">keyword</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -5513,12 +4989,12 @@ it PRON dobj
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;my&#39;, 86),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;my&#39;, 86),
  (&#39;her&#39;, 75),
  (&#39;his&#39;, 39),
  (&#39;and&#39;, 27),
@@ -5678,12 +5154,12 @@ it PRON dobj
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;ADJ&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;mother&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;ADJ&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;own&#39;, 2),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;own&#39;, 2),
  (&#39;closed&#39;, 1),
  (&#39;proud&#39;, 1),
  (&#39;other&#39;, 1),
@@ -5703,14 +5179,14 @@ it PRON dobj
 <p>Try out <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_neighbor_words</span></code> with your own keywords of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

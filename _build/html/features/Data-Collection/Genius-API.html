@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -358,6 +355,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Collection/Genius-API.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -444,7 +446,7 @@
 <p>Finally, copy and paste your “Client Access Token” into the quotation marks below, and run the cell to save your variable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="s2">&quot;INSERT YOUR CLIENT ACCESS TOKEN IN THESE QUOTATION MARKS&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="s2">&quot;INSERT YOUR CLIENT ACCESS TOKEN IN THESE QUOTATION MARKS&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +457,7 @@
 <p>For this reason, it’s best practice to keep your API keys away from your code, such as in another file. For example, I made a new Python file called “api_key.py” that contains just one variable <code class="docutils literal notranslate"><span class="pre">your_client_access_token</span> <span class="pre">=</span> <span class="pre">&quot;MY</span> <span class="pre">API</span> <span class="pre">KEY&quot;</span></code>, and I can import this variable into my notebook with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">api_key</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">api_key</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">api_key</span>
 </pre></div>
 </div>
 </div>
@@ -463,19 +465,19 @@
 <p>By importing this Python file/module, I get access to the variable <code class="docutils literal notranslate"><span class="pre">your_client_access_token</span></code> without ever explicitly typing my secret API token in this notebook. If I wanted to publish this notebook to GitHub, then I could ignore or leave out the “api_key.py” file that actually contains my Client Access Token.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">api_key</span><span class="o">.</span><span class="n">your_client_access_token</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_key</span><span class="o">.</span><span class="n">your_client_access_token</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;INSERT YOUR API KEY HERE&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;INSERT YOUR API KEY HERE&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="n">api_key</span><span class="o">.</span><span class="n">your_client_access_token</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="n">api_key</span><span class="o">.</span><span class="n">your_client_access_token</span>
 </pre></div>
 </div>
 </div>
@@ -491,14 +493,14 @@
 <p>First we’re going to assign the string “Missy Elliott” to the variable <code class="docutils literal notranslate"><span class="pre">search_term</span></code>. Then we’re going to make an f-string URL that contains the variables <code class="docutils literal notranslate"><span class="pre">search_term</span></code> and <code class="docutils literal notranslate"><span class="pre">client_access_token</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;Missy Elliott&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;Missy Elliott&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">genius_search_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://api.genius.com/search?q=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;access_token=</span><span class="si">{</span><span class="n">client_access_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genius_search_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://api.genius.com/search?q=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;access_token=</span><span class="si">{</span><span class="n">client_access_token</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -506,12 +508,12 @@
 <p>This URL is basically all we need to make a Genius API request. Want proof? Run the cell below and print this URL, then copy and paste it into a new tab in your web browser.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>http://api.genius.com/search?q=Missy Elliott&amp;access_token=INSERT YOUR CLIENT ACCESS TOKEN
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://api.genius.com/search?q=Missy Elliott&amp;access_token=INSERT YOUR CLIENT ACCESS TOKEN
 </pre></div>
 </div>
 </div>
@@ -521,14 +523,14 @@
 <p><a class="reference external" href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> is a data format that is commonly used by APIs. JSON data can be nested and contains key/value pairs, much like a Python dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
 <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -537,12 +539,12 @@
 <p>The JSON data that we get from our Missy Elliott API query looks something like this:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">json_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json_data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;meta&#39;: {&#39;status&#39;: 200},
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;meta&#39;: {&#39;status&#39;: 200},
  &#39;response&#39;: {&#39;hits&#39;: [{&#39;highlights&#39;: [],
     &#39;index&#39;: &#39;song&#39;,
     &#39;type&#39;: &#39;song&#39;,
@@ -825,12 +827,12 @@
 <p>We can index this data (again, like a Python dictionary) and look at the first “hit” about Missy Elliott from Genius.com.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;highlights&#39;: [],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;highlights&#39;: [],
  &#39;index&#39;: &#39;song&#39;,
  &#39;type&#39;: &#39;song&#39;,
  &#39;result&#39;: {&#39;annotation_count&#39;: 35,
@@ -869,13 +871,13 @@
 <h3>Get Song Titles<a class="headerlink" href="#get-song-titles" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;full_title&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott
 WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams)
 Get Ur Freak On by Missy Elliott
 I&#39;m Better by Missy Elliott (Ft. Cainon Lamb)
@@ -894,13 +896,13 @@ Bomb Intro/Pass That Dutch by Missy Elliott
 <h3>Get Song Tiles and Page View Counts<a class="headerlink" href="#get-song-tiles-and-page-view-counts" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;full_title&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;stats&#39;</span><span class="p">][</span><span class="s1">&#39;pageviews&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott 1084518
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott 1084518
 WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams) 286118
 Get Ur Freak On by Missy Elliott 144738
 I&#39;m Better by Missy Elliott (Ft. Cainon Lamb) 104116
@@ -920,14 +922,14 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 <p>We can loop through this data, append it into a list, and then transform that list into a Pandas dataframe by calling <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_songs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_songs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
     <span class="n">missy_songs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;full_title&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;stats&#39;</span><span class="p">][</span><span class="s1">&#39;pageviews&#39;</span><span class="p">]])</span>
     
@@ -1024,14 +1026,14 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 <p>To display images in a Pandas dataframe, you need to run <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">IPython.core.display</span> <span class="pre">import</span> <span class="pre">HTML</span></code> and make the function <code class="docutils literal notranslate"><span class="pre">get_image_html()</span></code>. We’re going to take the image URLs and make them into HTML objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
     <span class="n">image_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;img src=&#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39; width=&#39;100&#39;&gt;&quot;</span>
     <span class="k">return</span> <span class="n">image_html</span>
 </pre></div>
@@ -1040,7 +1042,7 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">missy_songs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missy_songs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
     <span class="n">missy_songs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;full_title&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;stats&#39;</span><span class="p">][</span><span class="s1">&#39;pageviews&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;song_art_image_url&#39;</span><span class="p">]])</span>
     
@@ -1156,7 +1158,7 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 <p>If we call <code class="docutils literal notranslate"><span class="pre">HTML()</span></code> on our dataframe and add the method <code class="docutils literal notranslate"><span class="pre">.to_html(escape=False)</span></code> to the dataframe, then it should display the dataframe with viewable images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">missy_df</span><span class="p">[[</span><span class="s1">&#39;album_cover&#39;</span><span class="p">,</span> <span class="s1">&#39;page_views&#39;</span><span class="p">,</span> <span class="s1">&#39;song_title&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">missy_df</span><span class="p">[[</span><span class="s1">&#39;album_cover&#39;</span><span class="p">,</span> <span class="s1">&#39;page_views&#39;</span><span class="p">,</span> <span class="s1">&#39;song_title&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1240,21 +1242,21 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 <p>Replace “Phoebe Bridgers” with any artist/musician of your choosing and run the following cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;Phoebe Bridgers&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_term</span> <span class="o">=</span> <span class="s2">&quot;Phoebe Bridgers&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">genius_search_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://api.genius.com/search?q=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;access_token=</span><span class="si">{</span><span class="n">client_access_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genius_search_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://api.genius.com/search?q=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;access_token=</span><span class="si">{</span><span class="n">client_access_token</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">genius_search_url</span><span class="p">)</span>
 <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1262,7 +1264,7 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">songs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">]:</span>
     <span class="n">songs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;full_title&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;stats&#39;</span><span class="p">][</span><span class="s1">&#39;pageviews&#39;</span><span class="p">],</span> <span class="n">song</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">][</span><span class="s1">&#39;song_art_image_url&#39;</span><span class="p">]))</span>
     

@@ -5,10 +5,6 @@ This series of lessons will focus on [Pandas](https://pandas.pydata.org/pandas-d
 ```{tableofcontents}
 ```
 
-```{margin}
-Pandas is an increasingly essential tool for data scientists who work with Python. Many [data science job ads](https://spotifyjobs.com/job/senior-data-scientist-advertising-business/) now specifically list Pandas as a desirable skill.
-```
-
 
 ```{toctree}
 :hidden:

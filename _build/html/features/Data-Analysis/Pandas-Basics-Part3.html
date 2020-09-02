@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -25,13 +25,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -299,6 +296,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/melaniewalsh/Intro-Cultural-Analytics/blob/master/features/Data-Analysis/Pandas-Basics-Part3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -412,7 +414,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>To use the Pandas library, we first need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -422,7 +424,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>By default, Pandas will display 60 rows and 20 columns. I often change <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">Pandas’ default display settings</a> to show more rows or columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -431,7 +433,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>To read in a CSV file, we will use the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and insert the name of our desired file path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Pudding/Pudding-Film-Dialogue-Salty.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Pudding/Pudding-Film-Dialogue-Salty.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -446,7 +448,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span>
 </pre></div>
 </div>
 </div>
@@ -654,7 +656,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>To look at the first <em>n</em> rows in a DataFrame, we can use a method called <code class="docutils literal notranslate"><span class="pre">.head()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -828,7 +830,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>To look at a random sample of rows, we can use the <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1003,12 +1005,12 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 <p>To explicitly check for how many rows vs columns make up a dataset, we can use the <code class="docutils literal notranslate"><span class="pre">.shape</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(23052, 10)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(23052, 10)
 </pre></div>
 </div>
 </div>
@@ -1039,12 +1041,12 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 </table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>script_id                   int64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>script_id                   int64
 imdb_character_name        object
 words                       int64
 gender                     object
@@ -1064,12 +1066,12 @@ dtype: object
 <p>We can also check the column names of the DataFrame with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html"><code class="docutils literal notranslate"><span class="pre">.columns</span></code></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;script_id&#39;, &#39;imdb_character_name&#39;, &#39;words&#39;, &#39;gender&#39;, &#39;age&#39;, &#39;imdb_id&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;script_id&#39;, &#39;imdb_character_name&#39;, &#39;words&#39;, &#39;gender&#39;, &#39;age&#39;, &#39;imdb_id&#39;,
        &#39;title&#39;, &#39;year&#39;, &#39;gross&#39;, &#39;proportion_of_dialogue&#39;],
       dtype=&#39;object&#39;)
 </pre></div>
@@ -1079,7 +1081,7 @@ dtype: object
 <p><strong>Summary Statistics</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1266,7 +1268,7 @@ dtype: object
 <p>The maximum value in the “age” column is 2013! That seems like an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2013</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2013</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1322,7 +1324,7 @@ dtype: object
 <p>Let’s drop this row from the dataset by using the <code class="docutils literal notranslate"><span class="pre">.drop()</span></code> method and the Index number of the row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">11639</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">11639</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1330,7 +1332,7 @@ dtype: object
 <p>Now if we look for it again, that row is gone.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2013</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2013</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1373,14 +1375,14 @@ dtype: object
 <p><strong>Rename Columns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;imdb_character_name&#39;</span><span class="p">:</span> <span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;release_year&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;imdb_character_name&#39;</span><span class="p">:</span> <span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;release_year&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1488,7 +1490,7 @@ dtype: object
 <p><strong>Drop Columns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;imdb_id&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;imdb_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1500,7 +1502,7 @@ dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> and <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> methods return True/False pairs for each row, which we can use to filter the DataFrame for any rows that have information in a given column.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -1566,14 +1568,14 @@ dtype: object
 <p>This is important information for the sake of better understanding our dataset. But it’s also important because <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values are treated as <em>floats</em>, not <em>strings</em>. If we tried to manipulate this column as text data, we would get an error. For this reason, we’re going to replace or “fill” these <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values with the string “No Character Data” by using the <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;No Character Data&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;No Character Data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -1621,12 +1623,12 @@ dtype: object
 <p>We can check for duplicate rows by using the <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code> method and setting the parameter <code class="docutils literal notranslate"><span class="pre">keep=False</span></code>, which will display all the duplicated values in the dataset — rather than just the first duplicated value <code class="docutils literal notranslate"><span class="pre">keep='first'</span></code> or the last duplicated value <code class="docutils literal notranslate"><span class="pre">keep='last'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        False
 1        False
 2        False
 3        False
@@ -1645,7 +1647,7 @@ Length: 23051, dtype: bool
 <p>The output above is reporting whether each row in the dataset is a duplicate. We can use the <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code> method inside a filter to isolate only the rows in the dataframe that are exact duplicates.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1783,7 +1785,7 @@ Length: 23051, dtype: bool
 <p>We can drop duplicates from the DataFrame with the <code class="docutils literal notranslate"><span class="pre">.drop_duplicates()</span></code> method and choose to keep the first instance of the duplicate or the last instance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1791,7 +1793,7 @@ Length: 23051, dtype: bool
 <p>Now if we check the data for duplicates again, they should be all gone.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1871,12 +1873,12 @@ Length: 23051, dtype: bool
 <p>For example, to transform every character’s name in the “character” column from lowercase to uppercase, we can use <code class="docutils literal notranslate"><span class="pre">.str.upper()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                  BETTY
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                  BETTY
 1        CAROLYN JOHNSON
 2                ELEANOR
 3        FRANCESCA JOHNS
@@ -1895,12 +1897,12 @@ Name: character, Length: 23047, dtype: object
 <p>To transform every character’s name in the “character” column to lowercase, we can use <code class="docutils literal notranslate"><span class="pre">.str.lower()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                  betty
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                  betty
 1        carolyn johnson
 2                eleanor
 3        francesca johns
@@ -1919,21 +1921,21 @@ Name: character, Length: 23047, dtype: object
 <p>If we want to replace the gender columns’s single letter abbreviation for “male” / “female” (sex) with “man” / “woman” (gender identity), we could use the <code class="docutils literal notranslate"><span class="pre">.str.replace()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;woman&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2095,7 +2097,7 @@ Name: character, Length: 23047, dtype: object
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code> to search for particular words or phrases in a column, such as “Star Wars.”</p>
 <div class="cell tag_output_scroll tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -3301,7 +3303,7 @@ Name: character, Length: 23047, dtype: object
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code> to search for particular words or phrases in a column, such as “Mean Girls.”</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Mean Girls&#39;</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Mean Girls&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -3467,7 +3469,7 @@ Name: character, Length: 23047, dtype: object
 <p>With the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> method, we can run a function on every single row in a Pandas column or dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_title_case</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_text_title_case</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">title_case_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">title_case_text</span>
 </pre></div>
@@ -3476,24 +3478,24 @@ Name: character, Length: 23047, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_title_case</span><span class="p">(</span><span class="s2">&quot;betty&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make_text_title_case</span><span class="p">(</span><span class="s2">&quot;betty&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Betty&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Betty&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">make_text_title_case</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">make_text_title_case</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                  Betty
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                  Betty
 1        Carolyn Johnson
 2                Eleanor
 3        Francesca Johns
@@ -3511,14 +3513,14 @@ Name: character, Length: 23052, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">make_text_title_case</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">make_text_title_case</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3681,14 +3683,14 @@ Name: character, Length: 23052, dtype: object
 <p>We can filter the DataFrames for only characters who are men or women.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">men_film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;man&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">men_film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;man&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;woman&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span> <span class="o">=</span> <span class="n">film_df</span><span class="p">[</span><span class="n">film_df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;woman&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3702,7 +3704,7 @@ Name: character, Length: 23052, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">men_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">men_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
 <span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -3826,7 +3828,7 @@ Name: character, Length: 23052, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
 <span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -3952,7 +3954,7 @@ Name: character, Length: 23052, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">women_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span>\
 <span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4046,7 +4048,7 @@ Name: character, Length: 23052, dtype: object
 <h2>Bonus — Interactive Data Visualization<a class="headerlink" href="#bonus-interactive-data-visualization" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set up Bokeh to work in Jupyter notebook</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set up Bokeh to work in Jupyter notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4361,7 +4363,7 @@ Name: character, Length: 23052, dtype: object
 <p>To see the code that created this visualization, select “Click to show” below.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make groupby into a new DataFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make groupby into a new DataFrame</span>
 <span class="n">dialogue_df</span> <span class="o">=</span> <span class="n">women_film_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">])[[</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;proportion_of_dialogue&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="c1">#Import necessary Bokeh bodules</span>
