@@ -10,12 +10,12 @@ This series of lessons will cover the basics of a programming language called Py
 ```{epigraph}
 Programming knowledge is not a neutral thing
 
--- Miriam Posner
+-- [Miriam Posner](https://miriamposner.com/blog/some-things-to-think-about-before-you-exhort-everyone-to-code/)
 ```
 
-DH and information studies professor Miriam Posner has an excellent blog post, ["Some things to think about before you exhort everyone to code"](https://miriamposner.com/blog/some-things-to-think-about-before-you-exhort-everyone-to-code/), which addresses the gender, race, and class politics that surround programming languages. "Programming knowledge is not a neutral thing," Posner rightly argues. And she discusses how certain kinds of people, such as middle-class white men, are more likely to be exposed to programming languages at a young age and less likely to experience sexism and racism while learning them.
+Miriam Posner, a professor of DH and information studies at UCLA, wrote an excellent blog post about the gender, race, and class politics that surround programming languages and why people should think before they ["exhort everyone to code."](https://miriamposner.com/blog/some-things-to-think-about-before-you-exhort-everyone-to-code/) In her blog post, Posner discusses that certain kinds of people, like middle-class white men, are more likely to be exposed to programming languages at a young age and are less likely to experience sexism and racism while learning programming languages. "Programming knowledge is not a neutral thing," she argues.
 
-Before we dive into Python, we want to acknowledge that programming knowledge is not a neutral or natural thing. Programming knowledge is also not a superior form of knowledge. And it is not the best way to approach every problem.
+Before we dive into Python, we want to acknowledge that programming knowledge is not a neutral or natural thing. Programming knowledge is not a superior form of knowledge, and it is not the best way to approach every problem.
 
 ## Why Learn a Programming Language?
 

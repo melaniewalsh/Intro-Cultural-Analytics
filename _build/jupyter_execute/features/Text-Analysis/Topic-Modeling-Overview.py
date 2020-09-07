@@ -1,6 +1,6 @@
 # Topic Modeling — Overview
 
-In the next lessons, we're going to learn about a text analysis method called **topic modeling**. This method will help us identify the main topics or discourses within a collection of texts (or within a single text that has been separated into smaller text chunks).
+In the next lessons, we're going to learn about a text analysis method called *topic modeling*. This method will help us identify the main topics or discourses within a collection of texts or within a single text that has been separated into smaller text chunks.
 
 When we calculated term frequency-inverse document frequency (tf-idf) scores, we identified individual words that were statistically meaningful for certain documents (i.e., they were more likely to show up in certain documents rather than in other ones). When we topic model, we're going to identify *clusters of words* that show up together in statistically meaningful ways throughout the corpus.
 

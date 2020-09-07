@@ -227,17 +227,29 @@ To display the top 5 Reddit post titles with the highest probability of containi
 
 display_top_titles_per_topic(topic_number=0, number_of_documents=5)
 
+**Topic 0 Label**: 
+
+Relationships (Double-click this cell to enter your own label)
+
 **Topic 9**
 
 To display the top 5 Reddit post titles with the highest probability of containing Topic 9, we will run:
 
 display_top_titles_per_topic(topic_number=9, number_of_documents=5)
 
+**Topic 9 Label**: 
+
+Family (Double-click this cell to enter your own label)
+
 **Topic 8**
 
 To display the top 7 Reddit posts with the highest probability of containing Topic 8, we will run:
 
 display_top_titles_per_topic(topic_number=8, number_of_documents=7)
+
+**Topic 8 Label**: 
+
+Money Problems (Double-click this cell to enter your own label)
 
 ## Display Topic Words in Context of Original Text
 

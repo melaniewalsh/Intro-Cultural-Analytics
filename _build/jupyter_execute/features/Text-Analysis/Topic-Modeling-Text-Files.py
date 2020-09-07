@@ -255,9 +255,9 @@ To display the top 5 obituary titles with the highest probability of containing 
 
 display_top_titles_per_topic(topic_number=0, number_of_documents=5)
 
-**Topic 0 Label**: Hollywood
+**Topic 0 Label**: 
 
-Based on the words in this topic and these top obituary texts, I'm going to label this topic "Hollywood."
+Hollywood (Double-click this cell to enter your own label)
 
 **Topic 9**
 
@@ -265,9 +265,9 @@ To display the top 5 obituary titles with the highest probability of containing 
 
 display_top_titles_per_topic(topic_number=9, number_of_documents=5)
 
-**Topic 9 Label**: Global Affairs
+**Topic 9 Label**: 
 
-Based on the words in this topic and these top obituary texts, I'm going to label this topic "Global Affairs."
+Global Affairs (Double-click this cell to enter your own label)
 
 **Topic 8**
 
@@ -275,9 +275,9 @@ To display the top 7 obituaries with the highest probability of containing Topic
 
 display_top_titles_per_topic(topic_number=8, number_of_documents=7)
 
-**Topic 8 Label**: Authors
+**Topic 8 Label**: 
 
-Based on the words in this topic and these top obituary texts, I'm going to label this topic "Authors."
+Authors (Double-click this cell to enter your own label)
 
 ## Display Topic Words in Context of Original Text
 

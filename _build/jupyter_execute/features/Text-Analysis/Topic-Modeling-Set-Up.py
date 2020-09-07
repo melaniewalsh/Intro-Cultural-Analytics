@@ -1,8 +1,8 @@
 # Topic Modeling — Set Up
 
-In these lessons, we're learning about a text analysis method called **topic modeling**. This method will help us identify the main topics or discourses within a collection of texts (or within a single text that has been separated into smaller text chunks).
+In these lessons, we're learning about a text analysis method called *topic modeling*. This method will help us identify the main topics or discourses within a collection of texts or within a single text that has been separated into smaller text chunks.
 
-This page describes how to set up the packages and programs that you'll need if you want to start topic modeling on your own computer. If you want to topic model without installing anything, however, you can skip ahead and explore these Jupyter notebook topic modeling lessons in the cloud. They notebooks already have the necessary requirements installed.
+This page describes how to set up the packages and programs that you'll need if you want to start topic modeling on your own computer. If you want to topic model without installing anything, however, you can skip ahead and explore these Jupyter notebook topic modeling lessons in the cloud. The notebooks already have the necessary requirements installed.
 
 ## MALLET & Little MALLET Wrapper
 
@@ -10,7 +10,7 @@ For our topic modeling analysis, we're going to use a tool called [MALLET](http:
 
 MALLET is great, but it's written in Java, another programming language, which means that we have to install Java before we can use it. It also means that MALLET isn't typically ideal for Python and Jupyter notebooks.
 
-Luckily, another Cornellian, Maria Antoniak, a PhD student in Information Science, has written a conveinet Python package that will allow us to use MALLET in this Jupyter notebook after we download and install Java. This package is called [Little MALLET Wrapper](https://github.com/maria-antoniak/little-mallet-wrapper).
+Luckily, another Cornellian, Maria Antoniak, a PhD student in Information Science, has written a convenient Python package that will allow us to use MALLET in this Jupyter notebook after we download and install Java. This package is called [Little MALLET Wrapper](https://github.com/maria-antoniak/little-mallet-wrapper).
 
 Note: A "wrapper" is a Python package that makes complicated code easier to use and/or makes code from a different programming language accessible in Python.
 

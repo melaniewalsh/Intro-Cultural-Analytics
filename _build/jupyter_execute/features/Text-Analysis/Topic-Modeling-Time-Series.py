@@ -232,9 +232,11 @@ trump_df = trump_df.set_index('Date (by month)')
 
 ## Plot Individual Topics as Time Series
 
-**Topic 10**: Hillary Clinton
+**Topic 10 Label**: 
 
-For every Trump tweet, plot the probability of Topic 10 "hillary crooked clinton court"
+Hillary Clinton (Double-click this cell to enter your own label)
+
+For every Trump tweet, plot the probability of Topic 10 
 
 topic_number = 10
 
@@ -242,7 +244,7 @@ topic_label = " ".join(topics[topic_number][:4])
 
 trump_df[topic_label].plot(style='.', title='Trump Tweets By Topic')
 
-For every month of Trump tweets, plot the average probability of Topic 10 "hillary crooked clinton court"
+For every month of Trump tweets, plot the average probability of Topic 10 
 
 topic_number = 10
 
@@ -250,9 +252,11 @@ topic_label = " ".join(topics[topic_number][:4])
 
 trump_df.groupby(trump_df.index)[[topic_label]].mean().plot(title='Trump Tweets By Topic', linewidth=2)
 
-**Topic 18** Fake News
+**Topic 18 Label**: 
 
-For every month of Trump tweets, plot the average probability of Topic 18 "news fake media story"
+Fake News (Double-click this cell to enter your own label)
+
+For every month of Trump tweets, plot the average probability of Topic 18
 
 topic_number = 18
 
@@ -260,9 +264,11 @@ topic_label = " ".join(topics[topic_number][:4])
 
 trump_df.groupby(trump_df.index)[[topic_label]].mean().plot(title='Trump Tweets By Topic', linewidth=2)
 
-**Topic 9** Border Wall
+**Topic 9 Label**: 
 
-For every month of Trump tweets, plot the average probability of Topic 9 "border wall security country"
+Border Wall (Double-click this cell to enter your own label)
+
+For every month of Trump tweets, plot the average probability of Topic 9 
 
 topic_number = 9
 
@@ -270,9 +276,11 @@ topic_label = " ".join(topics[topic_number][:4])
 
 trump_df.groupby(trump_df.index)[[topic_label]].mean().plot(title='Trump Tweets By Topic', linewidth=2)
 
-**Topic 19** Make America Great Again
+**Topic 19 Label**: 
 
-For every month of Trump tweets, plot the average probability of Topic 19 "great america make https"
+Make America Great Again (Double-click this cell to enter your own label)
+
+For every month of Trump tweets, plot the average probability of Topic 19 
 
 topic_number = 19
 
@@ -280,9 +288,11 @@ topic_label = " ".join(topics[topic_number][:4])
 
 trump_df.groupby(trump_df.index)[[topic_label]].mean().plot(title='Trump Tweets By Topic', linewidth=2)
 
-**Topic 13** The Apprentice
+**Topic 13 Label**: 
 
-For every month of Trump tweets, plot the average probability of Topic 13 "last night celebapprentice http"
+The Apprentice (Double-click this cell to enter your own label)
+
+For every month of Trump tweets, plot the average probability of Topic 13 
 
 topic_number = 13
 
