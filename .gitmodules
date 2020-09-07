@@ -1,0 +1,7 @@
+[submodule "twarc"] 
+  path = Website-Content/Collecting-Cultural-Data/twarc
+  url = https://github.com/DocNow/twarc.git
+  
+[submodule "little_mallet_test"] 
+  path = Website-Content/Text-Analysis/little_mallet_test
+  url = https://github.com/maria-antoniak/little-mallet-wrapper

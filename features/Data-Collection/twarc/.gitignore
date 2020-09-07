@@ -1,0 +1,10 @@
+*.pyc
+*.log
+.cache
+.venv
+.eggs
+Pipfile*
+build
+dist
+twarc.egg-info
+.pytest_cache

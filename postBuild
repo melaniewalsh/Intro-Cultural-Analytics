@@ -1,0 +1,3 @@
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
+chmod +x features/Text-Analysis/mallet-2.0.8/bin/mallet
