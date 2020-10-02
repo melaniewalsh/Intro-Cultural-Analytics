@@ -90,7 +90,7 @@ To make a new Jupyter notebook, select the Python 3 icon under "Notebook."
 
 * You can create a new cell by clicking the plus `+` sign in the toolbar or by pressing `Option` + `Return` (Mac) / `Alt` `Return` (Windows)
 
-* You can run the cell by cliking the play button ▶️ on the toolbar above or by typing `Shift` + `Return`.
+* You can run the cell by clicking the play button ▶️ on the toolbar above or by typing `Shift` + `Return`.
 
 from IPython.display import IFrame
 IFrame("../videos/create-and-run-cell.mp4", width='100%', height='400px')

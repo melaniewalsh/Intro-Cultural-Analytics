@@ -15,9 +15,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -25,9 +25,8 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -408,8 +407,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excerises">
-   Excerises
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -482,7 +481,7 @@
       <td>28.0</td>
       <td>recent emigrant</td>
       <td>married</td>
-      <td>f</td>
+      <td>w</td>
       <td>Child Alana 10 days</td>
     </tr>
     <tr>
@@ -537,7 +536,7 @@
       <td>20.0</td>
       <td>recent emigrant</td>
       <td>spinster</td>
-      <td>f</td>
+      <td>w</td>
       <td>Child</td>
     </tr>
     <tr>
@@ -548,7 +547,7 @@
       <td>40.0</td>
       <td>recent emigrant</td>
       <td>spinster</td>
-      <td>f</td>
+      <td>w</td>
       <td>And child 2 months</td>
     </tr>
     <tr>
@@ -581,7 +580,7 @@
       <td>30.0</td>
       <td>recent emigrant</td>
       <td>widow</td>
-      <td>f</td>
+      <td>w</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -592,7 +591,7 @@
       <td>30.0</td>
       <td>recent emigrant</td>
       <td>married</td>
-      <td>f</td>
+      <td>w</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -658,7 +657,7 @@
       <td>23.0</td>
       <td>recent emigrant</td>
       <td>married</td>
-      <td>f</td>
+      <td>w</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -680,7 +679,7 @@
       <td>26.0</td>
       <td>recent emigrant</td>
       <td>married</td>
-      <td>f</td>
+      <td>w</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -1209,12 +1208,43 @@ Then, we could use a <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;syphilis&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;destitution&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;recent emigrant&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">,</span> <span class="s1">&#39;sickness&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">updated_diseases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;no disease recorded&#39;,
+ &#39;recent emigrant&#39;,
+ &#39;sickness&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;destitution&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;sickness&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;sickness&#39;,
+ &#39;recent emigrant&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;insane&#39;,
+ &#39;recent emigrant&#39;,
+ &#39;insane&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;sickness&#39;,
+ &#39;sickness&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;syphilis&#39;,
+ &#39;sickness&#39;,
+ &#39;no disease recorded&#39;,
+ &#39;recent emigrant&#39;,
+ &#39;destitution&#39;,
+ &#39;sickness&#39;,
+ &#39;recent emigrant&#39;,
+ &#39;sickness&#39;,
+ &#39;sickness&#39;]
 </pre></div>
 </div>
 </div>
@@ -1417,8 +1447,8 @@ Martin Kerly // Age 9 // sickness
 </div>
 </div>
 </div>
-<div class="section" id="excerises">
-<h2>Excerises<a class="headerlink" href="#excerises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;laborer&#39;</span><span class="p">,</span> <span class="s1">&#39;widow&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;spinster&#39;</span><span class="p">,</span>
@@ -1508,6 +1538,9 @@ Martin Kerly // Age 9 // sickness
           By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
         
             &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/''> Book License </a> // <a href='https://choosealicense.com/licenses/gpl-3.0/#''> Code License</a>
+          </div>
       </p>
     </div>
   </footer>

@@ -202,10 +202,7 @@ last_names =  ['Harkin', 'Doyle', 'McDonald', 'Jordan', 'Rouse', 'Keene', 'Brown
                'Maly', 'McGuire', 'Laly', 'Bahan', 'Combs', 'McGovern', 'Gallagher', 
                'Crone', 'Brannon', 'McDonal', 'Atkins', 'Garragan', 'Wood', 'Kelly', 'Galeny', 'Welch', 'Kerly']
 
-diseases = ['', 'recent emigrant', 'sickness', '', '', '', 'destitution', '', 'sickness', '',
-            'sickness', 'recent emigrant', '', 'insane', 'recent emigrant', 'insane', '', '',
-            'sickness', 'sickness', '', 'syphilis', 'sickness', '', 'recent emigrant', 'destitution',
-            'sickness', 'recent emigrant', 'sickness', 'sickness']
+updated_diseases
 
 ages = ['22', '21', '23', '47', '45', '28', '23', '50', '26', '28', '30', '30', '65', '17', '35',
         '27', '32', '40', '22', '30', '27', '40', '41', '37', '16', '20', '30', '30', '35', '9']
@@ -263,7 +260,7 @@ disease_tally.most_common()[-2:]
 For a refresher on how to slice from the end of a list, see list slices in the previous lesson.
 ```
 
-## Excerises
+## Exercises
 
 shuffled_professions = ['married', 'married', 'laborer', 'laborer', 'widow', 'married', 'spinster',
                      'laborer', 'spinster', 'laborer', 'spinster', 'spinster', 'married', 'laborer',

@@ -135,7 +135,7 @@ calculate_dog_years_age(52)
 Make a function called `make_text_whispery` that transforms text to lower case
 
 #Your Code Here
-    whispery_text = #Your Code HEre
+    whispery_text = #Your Code Here
     return #Your Code Here
 
 Now insert the string "I AM WHISPERING" into `make_text_whispery`

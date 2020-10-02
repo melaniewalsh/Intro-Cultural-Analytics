@@ -26,7 +26,7 @@ You can download any Jupyter notebook page from this book as a PDF file. Hover o
 
 To make any page from this book full screen, click the full screen <i class="fas fa-expand" aria-hidden="true"></i> icon at the top of the page.
 
-## <i class="fa fa-github" aria-hidden="true"></i> Open Issue on GitHub
+## <i class="fab fa-github" aria-hidden="true"></i> Open Issue on GitHub
 
 If you run into any issues or would like to make a suggestion, you can open an issue on GitHub by hovering over the GitHub icon <i class="fa fa-github" aria-hidden="true"></i> and clicking "open issue."
 
