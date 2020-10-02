@@ -15,9 +15,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -25,9 +25,8 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/ansi_up.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -403,7 +402,7 @@ But it’s all rhetoric and no data, which gets us nowhere in terms of having an
 </div></blockquote>
 <p>The dataset that we’re working with in this lesson is taken from Hannah Andersen and Matt Daniels’s <em>Pudding</em> essay, <a class="reference external" href="https://pudding.cool/2017/03/film-dialogue/">“Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”</a>. The dataset provides information about 2,000 films from 1925 to 2015, including characters’ names, genders, ages, how many words each character spoke in each film, the release year of each film, and how much money the film grossed. They included character gender information because they wanted to contribute data to a broader conversation about how “white men dominate movie roles.”</p>
 <p>Yet transforming complex social constructs like gender into quantifiable data is tricky and historically fraught. They claim, in fact, that one of the <a class="reference external" href="https://medium.com/&#64;matthew_daniels/faq-for-the-film-dialogue-by-gender-project-40078209f751">most frequently asked questions</a> about the piece is about gender: “Wait, but let’s talk about gender. How do you know the monster in Monsters Inc. is a boy!” The short answer is that they don’t. To determine character gender, they used actors’ IMDB information, which they acknowledge is an imperfect approach: “Sometimes, women voice male characters. Bart Simpson, for example, is voiced by a woman. We’re aware that this means some of the data is wrong, AND we’re still fine with the methodology and approach.”</p>
-<p>As we work with this data, we want to be critical and cognizant of</p>
+<p>As we work with this data, we want to be critical and cognizant of this approach to gender. How does such a binary understanding of gender, gleaned from the IMDB pages of actors, influence our later results and conclusions? What do we gain by using such an approach, and what do we lose? How else might we have encoded or determined gender for the same data?</p>
 <hr class="docutils" />
 <p><strong>Import Pandas</strong></p>
 <p>To use the Pandas library, we first need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</p>
@@ -4479,6 +4478,9 @@ Name: character, Length: 23052, dtype: object
           By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
         
             &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/''> Book License </a> // <a href='https://choosealicense.com/licenses/gpl-3.0/#''> Code License</a>
+          </div>
       </p>
     </div>
   </footer>

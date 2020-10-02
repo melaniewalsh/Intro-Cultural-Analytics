@@ -1,5 +1,14 @@
 /* Put your custom CSS here */
 
+.cell_input div.highlight, .cell_input pre, .cell_output .output * {
+
+  background-color: none!;
+}	
+a
+{
+target: "_blank" !;
+}
+
 /* Make ANSI outputs have color */
 div.highlight .-Color[class*=-Red] {
     color: #E75C58 !important;
@@ -199,16 +208,14 @@ code {
 
 a {
   color: #069cff;
-  target-name:new;
-  target-new:tab;
+
 }
 main.bd-content #main-content a, main.bd-content #main-content a:visited {
     color: #069cff;
 }
 a:visited {
   color: #069cff;
-  target-name:new;
-  target-new:tab;
+
 }
 
 
