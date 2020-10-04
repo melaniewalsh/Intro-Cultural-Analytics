@@ -1,6 +1,9 @@
+# Jupyter notebook stuff
 .ipynb_checkpoints
-# OSX
+
+# General
 .DS_Store
+
 # Environments
 .env
 .venv
@@ -11,3 +14,9 @@ env.bak/
 venv.bak/
 ._*
 *.~lock*
+
+
+# Jupyter book
+book/_build/
+book/features
+#

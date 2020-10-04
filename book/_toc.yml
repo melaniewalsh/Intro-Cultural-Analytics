@@ -1,0 +1,106 @@
+- file: welcome
+
+- part: How To
+  chapters:
+  - file: How-To-Interact-With-This-Book
+    title: Interact With This Book
+
+- part: The Course
+  chapters:
+  - file: course-schedule
+    title: Course Schedule
+
+  - file: syllabus
+    title: Course Syllabus
+    
+  - file: Homework/HW-Description-Without-Links
+
+
+
+- part: The Book
+  chapters:
+  - file: Command-Line/The-Command-Line
+
+  - file: Python/Python
+    sections:
+      - file: Python/Installation
+      - file: Python/How-to-Use-Jupyter-Notebooks
+      - file: Python/Anatomy-Python-Script
+      - file: Python/Variables
+      - file: Python/Data-Types
+      - file: Python/String-Methods
+      - file: Python/Files-Character-Encoding
+        title: Files and Character Encoding
+      - file: Python/Comparisons-Conditionals
+      - file: Python/Lists-Loops-Part1
+      - file: Python/Lists-Loops-Part2
+      - file: Python/Dictionaries
+      - file: Python/Functions
+      - file: Python/Common-Python-Errors
+      - file: Python/What-Were-Not-Covering
+      
+  - file: Data-Analysis/Data-Analysis
+    title: Data Analysis (Pandas)
+    sections:
+      - file: Data-Analysis/Pandas-Basics-Part1
+      - file: Data-Analysis/Pandas-Basics-Part2
+      - file: Data-Analysis/Pandas-Basics-Part3
+      - file: Data-Analysis/Pandas-Merge-Datasets
+
+  - file: Data-Collection/Data-Collection
+    title: Data Collection (Web Scraping, APIs)
+    sections:
+      - file: Data-Collection/User-Ethics-Legal-Concerns
+      - file: Data-Collection/Web-Scraping-Part1
+      - file: Data-Collection/Web-Scraping-Part2
+      - file: Data-Collection/Git-GitHub
+      - file: Data-Collection/APIs
+      - file: Data-Collection/Song-Genius-Data-Collection
+        expand_sections: false
+        sections:
+          - file: Data-Collection/Genius-API
+          - file: Data-Collection/LyricsGenius
+          - file: Data-Collection/Song-Lyrics-Analysis
+      - file: Data-Collection/Twitter-Data-Collection-Home
+        sections:
+          - file: Data-Collection/Twitter-API-Setup
+          - file: Data-Collection/Twitter-Data-Collection
+          - file: Data-Collection/Twitter-Data-Analysis
+          - file: Data-Collection/Twitter-Data-Sharing
+      - file: Data-Collection/Reddit-Data-Collection-With-PSAW
+        title: Reddit Data Collection
+          
+  - file: Text-Analysis/Text-Analysis
+    sections:
+      - file: Text-Analysis/TF-IDF
+      - file: Text-Analysis/Topic-Modeling
+        sections:
+          - file: Text-Analysis/Topic-Modeling-Overview
+          - file: Text-Analysis/Topic-Modeling-Set-Up
+          - file: Text-Analysis/Topic-Modeling-Text-Files
+          - file: Text-Analysis/Topic-Modeling-CSV
+          - file: Text-Analysis/Topic-Modeling-Time-Series
+      - file: Text-Analysis/Named-Entity-Recognition
+      - file: Text-Analysis/POS-Keywords
+          
+  - file: Network-Analysis/Network-Analysis-Home
+    sections:
+      - file: Network-Analysis/Network-Analysis
+      - file: Network-Analysis/Make-Character-Network
+      - file: Network-Analysis/Making-Network-Viz-with-Bokeh
+  - file: Mapping/Mapping-Home
+    sections:
+      - file: Mapping/Mapping
+      - file: Mapping/Custom-Maps
+      - file: Mapping/Publish-Your-Map
+      
+- part: Datasets
+  chapters:
+    - file: Datasets/Datasets
+
+- part: Extra Materials
+  chapters:
+  - file: Python/Jupyter-Tips-Tricks
+  - file: Python/Randomize-Students
+    title: Make Random Student Groups
+
