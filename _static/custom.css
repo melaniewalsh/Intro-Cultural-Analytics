@@ -1,5 +1,13 @@
 /* Put your custom CSS here */
 
+img.license {
+  margin-bottom: 0px;
+}
+div.sidebar {
+background: white;
+position: relative;
+z-index: 1;
+}
 .cell_input div.highlight, .cell_input pre, .cell_output .output * {
 
   background-color: none!;

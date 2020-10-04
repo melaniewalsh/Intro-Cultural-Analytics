@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_35e7b192f95e41ce860f860043f86c3b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_35e7b192f95e41ce860f860043f86c3b" ></div>
+        
+</body>
+<script>    
+    
+            var map_35e7b192f95e41ce860f860043f86c3b = L.map(
+                "map_35e7b192f95e41ce860f860043f86c3b",
+                {
+                    center: [42.44, -76.5],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6ce7230faae94d6e9c2d3319d024eb2c = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+            var marker_561ebda602b44aec981e98fc27c0f6a0 = L.marker(
+                [42.444695, -76.482233],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_3ba253b2a4e94acb9ef7170d97653139 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c65982efc29249c99764604f8eb583d9 = $(`<div id="html_c65982efc29249c99764604f8eb583d9" style="width: 100.0%; height: 100.0%;">Intro to Cultural Analytics</div>`)[0];
+            popup_3ba253b2a4e94acb9ef7170d97653139.setContent(html_c65982efc29249c99764604f8eb583d9);
+        
+
+        marker_561ebda602b44aec981e98fc27c0f6a0.bindPopup(popup_3ba253b2a4e94acb9ef7170d97653139)
+        ;
+
+        
+    
+    
+            var marker_2a9e0b9bad2c480a80fbe634e7b51e5c = L.marker(
+                [42.442376, -76.4851492],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_32436f105593490b9a94f1ead841f09d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_07a354e836f146a69d1cd4c7915368ff = $(`<div id="html_07a354e836f146a69d1cd4c7915368ff" style="width: 100.0%; height: 100.0%;">College Town Bagels</div>`)[0];
+            popup_32436f105593490b9a94f1ead841f09d.setContent(html_07a354e836f146a69d1cd4c7915368ff);
+        
+
+        marker_2a9e0b9bad2c480a80fbe634e7b51e5c.bindPopup(popup_32436f105593490b9a94f1ead841f09d)
+        ;
+
+        
+    
+    
+            var marker_485684dec8a840d6946c2d5edafa5ea0 = L.marker(
+                [42.4528206, -76.4916375],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_6d266d1a65eb4ef897d2ebdddc864ee3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a640ea7cd8b446faae0f4939a32fe6a = $(`<div id="html_4a640ea7cd8b446faae0f4939a32fe6a" style="width: 100.0%; height: 100.0%;">Ithaca Falls</div>`)[0];
+            popup_6d266d1a65eb4ef897d2ebdddc864ee3.setContent(html_4a640ea7cd8b446faae0f4939a32fe6a);
+        
+
+        marker_485684dec8a840d6946c2d5edafa5ea0.bindPopup(popup_6d266d1a65eb4ef897d2ebdddc864ee3)
+        ;
+
+        
+    
+    
+            var marker_dac1f2d83d3c43c58917a3453584f8ff = L.marker(
+                [42.4406028, -76.4986321],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_1fc4330d3fbe4df5bd8a9e04950c4d01 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cde9a0bfb2d042c98adc200ad93993dc = $(`<div id="html_cde9a0bfb2d042c98adc200ad93993dc" style="width: 100.0%; height: 100.0%;">Moosewood Restaurant</div>`)[0];
+            popup_1fc4330d3fbe4df5bd8a9e04950c4d01.setContent(html_cde9a0bfb2d042c98adc200ad93993dc);
+        
+
+        marker_dac1f2d83d3c43c58917a3453584f8ff.bindPopup(popup_1fc4330d3fbe4df5bd8a9e04950c4d01)
+        ;
+
+        
+    
+    
+            var marker_00a3271b5aa24656824db5406b08ff42 = L.marker(
+                [42.442901, -76.4821345],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_1428f746a1d34cf687d8e6fd1956a0c6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cce845739a09441ebd6569a81fe9063c = $(`<div id="html_cce845739a09441ebd6569a81fe9063c" style="width: 100.0%; height: 100.0%;">Cascadilla Gorge Trail</div>`)[0];
+            popup_1428f746a1d34cf687d8e6fd1956a0c6.setContent(html_cce845739a09441ebd6569a81fe9063c);
+        
+
+        marker_00a3271b5aa24656824db5406b08ff42.bindPopup(popup_1428f746a1d34cf687d8e6fd1956a0c6)
+        ;
+
+        
+    
+    
+            var marker_1112c35ae5c943e2bfd76025fa0e6efd = L.marker(
+                [39.50521605, -84.73684158001765],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_878f25d99a4a42f1933ae026a1e829b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_aeb05aeddeee4e5d86bba57c6c28f395 = $(`<div id="html_aeb05aeddeee4e5d86bba57c6c28f395" style="width: 100.0%; height: 100.0%;">Phillips Hall</div>`)[0];
+            popup_878f25d99a4a42f1933ae026a1e829b5.setContent(html_aeb05aeddeee4e5d86bba57c6c28f395);
+        
+
+        marker_1112c35ae5c943e2bfd76025fa0e6efd.bindPopup(popup_878f25d99a4a42f1933ae026a1e829b5)
+        ;
+
+        
+    
+    
+            var marker_5e9c00ea7dc24646a196f9adbe2e3b55 = L.marker(
+                [52.6856775, -2.6696902],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_efd026f8a1084caab626d9fb12e704a8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2736d6dd6079454fad2fc64e09e641c8 = $(`<div id="html_2736d6dd6079454fad2fc64e09e641c8" style="width: 100.0%; height: 100.0%;">Carriage House Cafe</div>`)[0];
+            popup_efd026f8a1084caab626d9fb12e704a8.setContent(html_2736d6dd6079454fad2fc64e09e641c8);
+        
+
+        marker_5e9c00ea7dc24646a196f9adbe2e3b55.bindPopup(popup_efd026f8a1084caab626d9fb12e704a8)
+        ;
+
+        
+    
+    
+            var marker_da6ccd0249414dc68d555877e6fb9636 = L.marker(
+                [41.55455965, -72.65719640136265],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_52b3cdc8207f4f9f98183da811dfb978 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f5c11008ca6946a6a2eb05e81d0de662 = $(`<div id="html_f5c11008ca6946a6a2eb05e81d0de662" style="width: 100.0%; height: 100.0%;">Olin Library</div>`)[0];
+            popup_52b3cdc8207f4f9f98183da811dfb978.setContent(html_f5c11008ca6946a6a2eb05e81d0de662);
+        
+
+        marker_da6ccd0249414dc68d555877e6fb9636.bindPopup(popup_52b3cdc8207f4f9f98183da811dfb978)
+        ;
+
+        
+    
+    
+            var marker_c2faed3a43f74cfb88fea3b41ee4ca59 = L.marker(
+                [42.4444648, -76.5088551],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_331d1f51d08c42c19f3d85085ea94dd5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f3c1618921c34953afc5afbd8872a947 = $(`<div id="html_f3c1618921c34953afc5afbd8872a947" style="width: 100.0%; height: 100.0%;">Purity Ice Cream</div>`)[0];
+            popup_331d1f51d08c42c19f3d85085ea94dd5.setContent(html_f3c1618921c34953afc5afbd8872a947);
+        
+
+        marker_c2faed3a43f74cfb88fea3b41ee4ca59.bindPopup(popup_331d1f51d08c42c19f3d85085ea94dd5)
+        ;
+
+        
+    
+    
+            var marker_42bc7395551d466285593097873c323d = L.marker(
+                [42.41616635, -76.51643960416096],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_c09fff35bb3742d38c92ec5031fdd95b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1cd2c7e75e444160961c69f2cb93d98b = $(`<div id="html_1cd2c7e75e444160961c69f2cb93d98b" style="width: 100.0%; height: 100.0%;">Buttermilk Falls State Park</div>`)[0];
+            popup_c09fff35bb3742d38c92ec5031fdd95b.setContent(html_1cd2c7e75e444160961c69f2cb93d98b);
+        
+
+        marker_42bc7395551d466285593097873c323d.bindPopup(popup_c09fff35bb3742d38c92ec5031fdd95b)
+        ;
+
+        
+    
+    
+            var marker_b9ae9f6e95f94fa98e84b7e0ecc466ae = L.marker(
+                [42.44837125, -76.48663815582152],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_8817ec66609c42449f497073f2b7f1f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c97e74f7332c40e1b0c7488111ed05ce = $(`<div id="html_c97e74f7332c40e1b0c7488111ed05ce" style="width: 100.0%; height: 100.0%;">Libe Slope</div>`)[0];
+            popup_8817ec66609c42449f497073f2b7f1f4.setContent(html_c97e74f7332c40e1b0c7488111ed05ce);
+        
+
+        marker_b9ae9f6e95f94fa98e84b7e0ecc466ae.bindPopup(popup_8817ec66609c42449f497073f2b7f1f4)
+        ;
+
+        
+    
+    
+            var marker_45f8e41989ff4811950fa1c762ba5cb9 = L.marker(
+                [42.4504599, -76.46922826589551],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_cde8706b06054a78adff12e45ee7231f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60d79f3328494435916fb424e65a405f = $(`<div id="html_60d79f3328494435916fb424e65a405f" style="width: 100.0%; height: 100.0%;">Mundy Wildflower Garden</div>`)[0];
+            popup_cde8706b06054a78adff12e45ee7231f.setContent(html_60d79f3328494435916fb424e65a405f);
+        
+
+        marker_45f8e41989ff4811950fa1c762ba5cb9.bindPopup(popup_cde8706b06054a78adff12e45ee7231f)
+        ;
+
+        
+    
+    
+            var marker_b1b4de5a2cdd414282cc07e7435cdf0a = L.marker(
+                [42.45123265, -76.47572448152835],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_47f494d6f4444601bd0c7109ba4af018 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7f9319a34c5b4d8eb8325125bc448eb0 = $(`<div id="html_7f9319a34c5b4d8eb8325125bc448eb0" style="width: 100.0%; height: 100.0%;">Beebe Lake</div>`)[0];
+            popup_47f494d6f4444601bd0c7109ba4af018.setContent(html_7f9319a34c5b4d8eb8325125bc448eb0);
+        
+
+        marker_b1b4de5a2cdd414282cc07e7435cdf0a.bindPopup(popup_47f494d6f4444601bd0c7109ba4af018)
+        ;
+
+        
+    
+    
+            var marker_4238ee8e90a745eba96578717412f20c = L.marker(
+                [42.491, -76.4587],
+                {}
+            ).addTo(map_35e7b192f95e41ce860f860043f86c3b);
+        
+    
+        var popup_1806c81c0b7245668339ad133d5057a6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eb0dd9844be849c595025a0fec13ab0f = $(`<div id="html_eb0dd9844be849c595025a0fec13ab0f" style="width: 100.0%; height: 100.0%;">Ithaca Tompkins Airport</div>`)[0];
+            popup_1806c81c0b7245668339ad133d5057a6.setContent(html_eb0dd9844be849c595025a0fec13ab0f);
+        
+
+        marker_4238ee8e90a745eba96578717412f20c.bindPopup(popup_1806c81c0b7245668339ad133d5057a6)
+        ;
+
+        
+    
+</script>

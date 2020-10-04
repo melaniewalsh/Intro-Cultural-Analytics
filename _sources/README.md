@@ -1,4 +1,8 @@
-**Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)**  
+# Introduction to Cultural Analytics & Python
+
+Website: https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/welcome.html
+
+Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)
 
 This website hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020. It includes a short online textbook designed for the class.
 
@@ -17,4 +21,4 @@ This course was inspired by a range of excellent course materials, including tho
 
 ## License
 
-This book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License]https://creativecommons.org/licenses/by-nc-sa/4.0/. The code licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/#).
+This book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/). The code is licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/#).
