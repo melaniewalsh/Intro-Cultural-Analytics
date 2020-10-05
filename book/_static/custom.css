@@ -1,31 +1,23 @@
 /* Put your custom CSS here */
 
+/* Give bottom margin to images */
+img {
+  margin-bottom: 1rem;
+
+}
+/* Change license image from having any margin */
 img.license {
   margin-bottom: 0px;
 }
+
+/* Fix sidebar and make appear above cells */
+
 div.sidebar {
 background: white;
 position: relative;
 z-index: 1;
 }
-.cell_input div.highlight, .cell_input pre, .cell_output .output * {
 
-  background-color: none!;
-}	
-a
-{
-target: "_blank" !;
-}
-
-/* Make ANSI outputs have color */
-div.highlight .-Color[class*=-Red] {
-    color: #E75C58 !important;
-}
-/* Give bottom margin to image */
-img {
-  margin-bottom: 1rem;
-
-}
 
 /* Center images */
 .center {
@@ -42,7 +34,7 @@ img {
 
 }
 
-/* change style for error cell outputs */
+/* Change style for error cell outputs */
 
 .cell_output .output.traceback {
   /*  border: 1.5px solid #ef0000;*/
@@ -225,7 +217,6 @@ a:visited {
   color: #069cff;
 
 }
-
 
 /* Make custom command line style Jupyter tag command line */
 
