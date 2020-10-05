@@ -13,3 +13,4 @@ sklearn
 spacy
 regex
 seaborn
+jupyterlab~=2.0
