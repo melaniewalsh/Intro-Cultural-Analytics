@@ -1,4 +1,5 @@
-// Works like jQuery's $(document).ready.
+// Script to make links open in a new tab
+// Code taken and lightly modified from Rob Wise https://robwise.github.io/blog/javascript-external-links-open-new-window
 // Supports IE8+. Courtesy of http://youmightnotneedjquery.com/
 function ready(fn) {
   if (document.readyState != 'loading') {
@@ -21,7 +22,7 @@ ready(function() {
                                      + website
                                      + ')|(localhost:\\d{4})|(\\/.*))(\\/.*)?$', '');
 
-  var anchorEls = document.querySelectorAll('a.reference.external, a.binder-button, a.issues-button');
+  var anchorEls = document.querySelectorAll('a.reference.external, a.binder-button, a.issues-button, a.repository-button');
   var anchorElsLength = anchorEls.length;
 
   for (var i = 0; i < anchorElsLength; i++) {
