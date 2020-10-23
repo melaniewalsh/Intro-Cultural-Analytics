@@ -1,14 +1,30 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Twitter Data Analysis &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -17,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -25,9 +44,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -42,8 +61,8 @@
     <link rel="next" title="Twitter Data Sharing" href="Twitter-Data-Sharing.html" />
     <link rel="prev" title="Twitter Data Collection" href="Twitter-Data-Collection.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
@@ -339,7 +358,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -365,6 +385,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -418,6 +439,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -433,12 +455,12 @@
 <h2>Twarc<a class="headerlink" href="#twarc" title="Permalink to this headline">¶</a></h2>
 <p><strong>Search</strong></p>
 <p>Search for tweets that mentioned “Infinite Jest” from the last 7-14 days, only from verified accounts</p>
-<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;Infinite</span> <span class="pre">Jest</span> <span class="pre">filter:verified&quot;</span> <span class="pre">&gt;</span> <span class="pre">infinite_jest_verified_tweets.jsonl</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;Infinite</span> <span class="pre">Jest</span> <span class="pre">filter:verified&quot;</span> <span class="pre">&gt;</span> <span class="pre">twitter-data/infinite_jest_verified_tweets.jsonl</span></code></p>
 <p><strong>JSON to CSV</strong></p>
 <p>Transform .jsonl to .csv file</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py --extra-field rt_text retweeted_status.full_text twitter-data/infinite_jest_verified_tweets.jsonl &gt; twitter-data/infinite_jest_verified_tweets.csv
 </pre></div>
 </div>
 </div>
@@ -468,7 +490,7 @@
 <p><strong>Read in CSV file</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;infinite_jest_verified_tweets.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infinite_jest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;twitter-data/infinite_jest_verified_tweets.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5676,7 +5698,7 @@
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/tags.py infinite_jest_verified_tweets.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/tags.py twitter-data/infinite_jest_verified_tweets.jsonl
 </pre></div>
 </div>
 </div>
@@ -5692,7 +5714,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">twarc/utils/wordcloud.py</span> <span class="pre">tweets.jsonl</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/wordcloud.py infinite_jest_verified_tweets.jsonl &gt; infinite_jest_verified_tweets.html
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/wordcloud.py twitter-data/infinite_jest_verified_tweets.jsonl &gt; twitter-data/infinite_jest_verified_tweets.html
 </pre></div>
 </div>
 </div>
@@ -5701,7 +5723,7 @@
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;infinite_jest_verified_tweets.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">800,</span> <span class="na">height</span><span class="o">=</span><span class="s">800</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;twitter-data/infinite_jest_verified_tweets.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">800,</span> <span class="na">height</span><span class="o">=</span><span class="s">800</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -5723,7 +5745,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/emojis.py infinite_jest_verified_tweets.jsonl --number <span class="m">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/emojis.py twitter-data/infinite_jest_verified_tweets.jsonl --number <span class="m">10</span>
 </pre></div>
 </div>
 </div>
@@ -5925,7 +5947,10 @@
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

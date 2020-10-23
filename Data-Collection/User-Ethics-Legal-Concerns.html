@@ -1,14 +1,30 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>User Ethics &amp; Legal Concerns &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -17,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -25,9 +44,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -42,8 +61,8 @@
     <link rel="next" title="Web Scraping — Part 1" href="Web-Scraping-Part1.html" />
     <link rel="prev" title="Data Collection" href="Data-Collection.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
@@ -339,7 +358,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -365,6 +385,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -386,8 +407,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#models-examples">
+   Models &amp; Examples
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -398,6 +419,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -410,11 +432,11 @@
 <p>Before we dive into collecting data from the internet, we need to discuss some serious questions. Is it legal and/or ethical to computationally collect data from the internet? Is it legal and/or ethical to publish research that includes internet users’ data without their knowledge?</p>
 <div class="section" id="legal-concerns">
 <h2>Legal Concerns<a class="headerlink" href="#legal-concerns" title="Permalink to this headline">¶</a></h2>
-<p>If internet data is publicly available (e.g., tweets from a public Twitter account), it is generally considered legal to collect this data — even if a particular platform says that you can’t. In 2019, the Ninth Circuit Court of Appeals ruled that <a class="reference external" href="https://www.eff.org/deeplinks/2019/09/victory-ruling-hiq-v-linkedin-protects-scraping-public-data#:~:text=Linkedin%20Protects%20Scraping%20of%20Public%20Data,-Share%20It%20Share&amp;text=In%20a%20long%2Dawaited%20decision,and%20Abuse%20Act%20(CFAA).">web scraping does not violate anti-hacking laws</a>.</p>
+<p>If internet data is publicly available (e.g., tweets from a public Twitter account), it is generally considered legal to collect this data, even if a particular platform says that you cannot. In 2019, the Ninth Circuit Court of Appeals ruled that web scraping does not violate anti-hacking laws. You can <a class="reference external" href="https://www.eff.org/deeplinks/2019/09/victory-ruling-hiq-v-linkedin-protects-scraping-public-data#:~:text=Linkedin%20Protects%20Scraping%20of%20Public%20Data,-Share%20It%20Share&amp;text=In%20a%20long%2Dawaited%20decision,and%20Abuse%20Act%20(CFAA).">read more about this legal ruling</a> from the Electronic Frontier Foundation.</p>
 </div>
 <div class="section" id="institutional-review-boards-irbs">
 <h2>Institutional Review Boards (IRBs)<a class="headerlink" href="#institutional-review-boards-irbs" title="Permalink to this headline">¶</a></h2>
-<p>Research that involves human participants (e.g., surveys, interviews, blood draws) needs to be approved by an Institutional Review Board (IRB). But research about publicly available internet data has not typically required IRB approval.</p>
+<p>Research that involves human participants (e.g., surveys, interviews, blood draws) needs to be approved by an Institutional Review Board (IRB). But research about publicly available internet data does not typically require IRB approval.</p>
 <p>The <a class="reference external" href="https://researchservices.cornell.edu/sites/default/files/2019-05/IRB%20Policy%2020.pdf">Cornell Institutional Review Board</a> recommends being cautious with regard to data mining from the internet, however, and seeking “formal confirmation of non-human participant research status”:</p>
 <blockquote>
 <div><p>If the individual or social media/network site has not placed any restrictions on
@@ -432,17 +454,17 @@ determination, because of the emerging ethical sensitivities in this area.</p></
 </div>
 <div class="section" id="user-ethics">
 <h2>User Ethics<a class="headerlink" href="#user-ethics" title="Permalink to this headline">¶</a></h2>
-<p>Just because something is legal or gets approved by an IRB does not mean it is ethical, however. Collecting, sharing, and publishing internet data created by or about individuals can lead to unwanted public scrutiny, harm, and other negative consequences for those individuals. For these reasons, some researchers attempt to anonymize internet data before sharing it or before publishing an article that cites a post specifically. Yet anonymizing internet data does not give proper credit to internet users as creators and authors.</p>
+<p>Just because something is legal or gets approved by an IRB does not mean it is ethical. Collecting, sharing, and publishing internet data created by or about individuals can lead to unwanted public scrutiny, harm, and other negative consequences for those individuals. For these reasons, some researchers attempt to anonymize internet data before sharing it or before publishing an article that cites a post specifically. Yet anonymizing internet data also does not give credit to internet users as creators and authors.</p>
 <p>There is no single, simple answer to the many difficult questions raised by internet data collection. It is important to develop an ethical framework that responds to the specifics of your particular research project or use case (e.g., the platform, the people involved, the context, the potential consequences, etc.).</p>
-<p>In my own research, I have started seeking explicit permission from internet users when I want to quote them in a published article. And, in this book, I have only shared internet data that meets a certain threshold of publicness, posts that have already been exposed to wide and public attention like tweets from verified Twitter accounts or Reddit posts with a certain number of upvotes.</p>
+<p>In my own research, I have started seeking explicit permission from internet users when I want to quote them in a published article. In this book, I only share internet data that meets a certain threshold of publicness, such as tweets from verified Twitter accounts or Reddit posts with a certain number of upvotes. This is an approach that I have developed based on some of the models and readings included below.</p>
 </div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="models-examples">
+<h2>Models &amp; Examples<a class="headerlink" href="#models-examples" title="Permalink to this headline">¶</a></h2>
 <p>Below are a few examples of how researchers have approached social media data in published research:</p>
 <ul class="simple">
-<li><p>In their <a class="reference external" href="https://maria-antoniak.github.io/resources/2019_cscw_birth_stories.pdf">article about  a Reddit subcommunity dedicated to birthstories (r/birthstories)</a>, Maria Antoniak, David Mimno, and Karen Levy paraphrased Reddit submissions discussed in the article and then deleted all collected Reddit data after the article was published.</p></li>
-<li><p>In their <a class="reference external" href="https://cmsimpact.org/wp-content/uploads/2016/03/beyond_the_hashtags_2016.pdf">report about the #BlackLivesMatter movement</a>, Deen Freelon, Charlton McIlwain, and Meredith D. Clark included links to tweets rather than the full text of tweets and only linked to tweets with a minimum of 100 retweets published by Twitter users who had at least 3,000 followers or were verified. They embargoed their Twitter data for a year and then publicly released a list of tweet IDs. Tweet IDs can be used by third-parties to re-download any tweets that have not been deleted yet.</p></li>
-<li><p>In her <a class="reference external" href="http://www.digitalhumanities.org/dhq/vol/9/2/000209/000209.html">article about the #GirlsLikeUs hashtag</a>, created by trans advocate Janet Mock, Moya Bailey asked for Mock’s permission to work on the project before it began and collaborated with Mock to develop research questions and determine the project’s direction.</p></li>
+<li><p>In Maria Antoniak, David Mimno, and Karen Levy’s <a class="reference external" href="https://maria-antoniak.github.io/resources/2019_cscw_birth_stories.pdf">article about  a Reddit subcommunity dedicated to birthstories (r/BabyBumps)</a>, they paraphrased Reddit submissions discussed in the article and then deleted all collected Reddit data after the article was published.</p></li>
+<li><p>In Deen Freelon, Charlton McIlwain, and Meredith D. Clark’s <a class="reference external" href="https://cmsimpact.org/wp-content/uploads/2016/03/beyond_the_hashtags_2016.pdf">report about the #BlackLivesMatter movement</a>, they included links to tweets rather than the full text of tweets and only linked to tweets with a minimum of 100 retweets published by Twitter users who had at least 3,000 followers or were verified. They embargoed their Twitter data for a year and then publicly released a list of tweet IDs. Tweet IDs can be used by third-parties to re-download any tweets that have not been deleted yet, as I discuss in the lesson <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Twitter-Data-Sharing.html">“Twitter Data Sharing”</a>.</p></li>
+<li><p>In Moya Bailey’s <a class="reference external" href="http://www.digitalhumanities.org/dhq/vol/9/2/000209/000209.html">article about the #GirlsLikeUs hashtag</a>, created by trans advocate Janet Mock, she asked for Mock’s permission to work on the project before it began and collaborated with Mock to develop research questions and determine the project’s direction.</p></li>
 </ul>
 </div>
 <div class="section" id="recommended-reading">
@@ -510,7 +532,10 @@ determination, because of the emerging ethical sensitivities in this area.</p></
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

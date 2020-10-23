@@ -1,14 +1,30 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Reddit Data Collection with PSAW &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <title>Reddit Data Collection with Pushshift and PSAW &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -17,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -25,9 +44,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -42,15 +61,15 @@
     <link rel="next" title="Text Analysis" href="../Text-Analysis/Text-Analysis.html" />
     <link rel="prev" title="Twitter Data Sharing" href="Twitter-Data-Sharing.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Reddit-Data-Collection-With-PSAW.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Reddit Data Collection with PSAW" />
-<meta property="og:description" content="Reddit Data Collection with PSAW  Install PSAW  !pip install psaw  Collecting psaw   Downloading psaw-0.0.12-py3-none-any.whl (15 kB) Requirement already satisf" />
+<meta property="og:title"       content="Reddit Data Collection with Pushshift and PSAW" />
+<meta property="og:description" content="Reddit Data Collection with Pushshift and PSAW  Pushshift article on arXiv: https://arxiv.org/abs/2001.08435 (PDF)  Why do people use Pushshift’s API instead of" />
 <meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
 
 <meta name="twitter:card" content="summary" />
@@ -339,7 +358,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -365,6 +385,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -376,28 +397,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-pushshiftapi">
-   Import PushshiftAPI
+  <a class="reference internal nav-link" href="#collect-reddit-submissions-for-a-subreddit-with-more-than-a-certain-upvote-score">
+   Collect Reddit submissions for a subreddit (with more than a certain upvote score)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#initialize-pushshiftapi">
-   Initialize PushshiftAPI
+  <a class="reference internal nav-link" href="#collect-reddit-submissions-based-on-search-keyword">
+   Collect Reddit submissions based on search keyword
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#collect-reddit-submissions-with-more-than-a-certain-upvote-score">
-   Collect Reddit submissions (with more than a certain upvote score)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#collect-reddit-submissions-with-search-keyword">
-   Collect Reddit submissions (with search keyword)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#collect-reddit-comments-with-search-keyword">
-   Collect Reddit comments (with search keyword)
+  <a class="reference internal nav-link" href="#collect-reddit-comments-based-on-search-keyword">
+   Collect Reddit comments based on search keyword
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -408,18 +419,19 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#collect-reddit-submissions-comments-with-multiple-search-keywords">
-   Collect Reddit submissions/comments (with multiple search keywords)
+  <a class="reference internal nav-link" href="#collect-reddit-submissions-comments-based-on-multiple-search-keywords">
+   Collect Reddit submissions/comments based on multiple search keywords
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#collect-reddit-submissions-comments-with-start-and-end-dates">
-   Collect Reddit submissions/comments (with start and end dates)
+   Collect Reddit submissions/comments with start and end dates
   </a>
  </li>
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -427,8 +439,21 @@
         
               <div>
                 
-  <div class="section" id="reddit-data-collection-with-psaw">
-<h1>Reddit Data Collection with PSAW<a class="headerlink" href="#reddit-data-collection-with-psaw" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="reddit-data-collection-with-pushshift-and-psaw">
+<h1>Reddit Data Collection with Pushshift and PSAW<a class="headerlink" href="#reddit-data-collection-with-pushshift-and-psaw" title="Permalink to this headline">¶</a></h1>
+<p>Pushshift article on arXiv: https://arxiv.org/abs/2001.08435 (<a class="reference external" href="https://arxiv.org/pdf/2001.08435.pdf">PDF</a>)</p>
+<blockquote>
+<div><p>Why do people use Pushshift’s API instead of the official Reddit API?</p>
+</div></blockquote>
+<blockquote>
+<div><p>In short, Pushshift makes it
+much easier for researchers to query and retrieve historical
+Reddit data, provides extended functionality by providing fulltext search against comments and submissions, and has larger
+single query limits.</p>
+</div></blockquote>
+<blockquote>
+<div><p>— Jason Baumgartner, et al., <a class="reference external" href="https://arxiv.org/pdf/2001.08435.pdf">“The Pushshift Reddit Dataset”</a></p>
+</div></blockquote>
 <div class="section" id="install-psaw">
 <h2>Install PSAW<a class="headerlink" href="#install-psaw" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -452,7 +477,7 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-<p><strong>Import Pandas and Set Display Options</strong></p>
+<p>Import Pandas and Set Display Options</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -462,9 +487,7 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="import-pushshiftapi">
-<h2>Import PushshiftAPI<a class="headerlink" href="#import-pushshiftapi" title="Permalink to this headline">¶</a></h2>
+<p>Import PushshiftAPI</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psaw</span> <span class="kn">import</span> <span class="n">PushshiftAPI</span>
@@ -472,9 +495,7 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="initialize-pushshiftapi">
-<h2>Initialize PushshiftAPI<a class="headerlink" href="#initialize-pushshiftapi" title="Permalink to this headline">¶</a></h2>
+<p>Initialize PushshiftAPI</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">PushshiftAPI</span><span class="p">()</span>
@@ -483,9 +504,9 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-<div class="section" id="collect-reddit-submissions-with-more-than-a-certain-upvote-score">
-<h2>Collect Reddit submissions (with more than a certain upvote score)<a class="headerlink" href="#collect-reddit-submissions-with-more-than-a-certain-upvote-score" title="Permalink to this headline">¶</a></h2>
-<p><strong>Set up generator to make API request</strong></p>
+<div class="section" id="collect-reddit-submissions-for-a-subreddit-with-more-than-a-certain-upvote-score">
+<h2>Collect Reddit submissions for a subreddit (with more than a certain upvote score)<a class="headerlink" href="#collect-reddit-submissions-for-a-subreddit-with-more-than-a-certain-upvote-score" title="Permalink to this headline">¶</a></h2>
+<p>Set up generator to make API request</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">subreddit</span><span class="o">=</span><span class="s1">&#39;AmITheAsshole&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
@@ -493,7 +514,7 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-<p><strong>Grab data for each Reddit submission and make into a DataFrame</strong></p>
+<p>Grab data for each Reddit submission and make into a DataFrame</p>
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -501,8 +522,16 @@ Successfully installed psaw-0.0.12
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages/psaw/PushshiftAPI.py:192: UserWarning: Got non 200 code 429
+  warnings.warn(&quot;Got non 200 code %s&quot; % response.status_code)
+/Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages/psaw/PushshiftAPI.py:180: UserWarning: Unable to connect to pushshift.io. Retrying after backoff.
+  warnings.warn(&quot;Unable to connect to pushshift.io. Retrying after backoff.&quot;)
+</pre></div>
 </div>
-<p><strong>Check shape</strong></p>
+</div>
+</div>
+<p>Check how many Reddit posts have been collected:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">shape</span>
@@ -510,12 +539,12 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2932, 78)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2959, 78)
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Check columns</strong></p>
+<p>Check what columns/metdata exist in this data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">columns</span>
@@ -527,7 +556,7 @@ Successfully installed psaw-0.0.12
        &#39;author_flair_css_class&#39;, &#39;author_flair_richtext&#39;, &#39;author_flair_text&#39;,
        &#39;author_flair_type&#39;, &#39;author_fullname&#39;, &#39;author_patreon_flair&#39;,
        &#39;author_premium&#39;, &#39;awarders&#39;, &#39;can_mod_post&#39;, &#39;contest_mode&#39;,
-       &#39;created_utc&#39;, &#39;domain&#39;, &#39;full_link&#39;, &#39;gilded&#39;, &#39;gildings&#39;, &#39;id&#39;,
+       &#39;created_utc&#39;, &#39;domain&#39;, &#39;edited&#39;, &#39;full_link&#39;, &#39;gildings&#39;, &#39;id&#39;,
        &#39;is_crosspostable&#39;, &#39;is_meta&#39;, &#39;is_original_content&#39;,
        &#39;is_reddit_media_domain&#39;, &#39;is_robot_indexable&#39;, &#39;is_self&#39;, &#39;is_video&#39;,
        &#39;link_flair_background_color&#39;, &#39;link_flair_richtext&#39;,
@@ -538,18 +567,18 @@ Successfully installed psaw-0.0.12
        &#39;stickied&#39;, &#39;subreddit&#39;, &#39;subreddit_id&#39;, &#39;subreddit_subscribers&#39;,
        &#39;subreddit_type&#39;, &#39;suggested_sort&#39;, &#39;thumbnail&#39;, &#39;title&#39;,
        &#39;total_awards_received&#39;, &#39;treatment_tags&#39;, &#39;upvote_ratio&#39;, &#39;url&#39;,
-       &#39;whitelist_status&#39;, &#39;wls&#39;, &#39;created&#39;, &#39;edited&#39;, &#39;removed_by_category&#39;,
-       &#39;link_flair_template_id&#39;, &#39;link_flair_text&#39;, &#39;post_hint&#39;, &#39;preview&#39;,
-       &#39;author_flair_background_color&#39;, &#39;author_flair_template_id&#39;,
-       &#39;author_flair_text_color&#39;, &#39;link_flair_css_class&#39;, &#39;banned_by&#39;,
-       &#39;top_awarded_type&#39;, &#39;steward_reports&#39;, &#39;updated_utc&#39;, &#39;og_description&#39;,
+       &#39;whitelist_status&#39;, &#39;wls&#39;, &#39;created&#39;, &#39;gilded&#39;, &#39;top_awarded_type&#39;,
+       &#39;removed_by_category&#39;, &#39;link_flair_template_id&#39;, &#39;link_flair_text&#39;,
+       &#39;author_flair_background_color&#39;, &#39;author_flair_text_color&#39;, &#39;post_hint&#39;,
+       &#39;preview&#39;, &#39;author_flair_template_id&#39;, &#39;link_flair_css_class&#39;,
+       &#39;banned_by&#39;, &#39;steward_reports&#39;, &#39;updated_utc&#39;, &#39;og_description&#39;,
        &#39;og_title&#39;, &#39;author_cakeday&#39;, &#39;rte_mode&#39;],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Transform to datetime</strong></p>
+<p>Transform to datetime</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">aita_submissions</span><span class="p">[</span><span class="s1">&#39;created_utc&#39;</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
@@ -557,9 +586,93 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1787</th>
+      <td>AITA for not paying for college for my pregnant daughter?</td>
+      <td>5913</td>
+    </tr>
+    <tr>
+      <th>1563</th>
+      <td>AITA for offering my sister to pay for an abortion but not offering to support the child finacially if she keeps it?</td>
+      <td>9111</td>
+    </tr>
+    <tr>
+      <th>1422</th>
+      <td>AITA for snapping at my sister when she encouraged her 4 y/o daughter to fingerprint with my makeup?</td>
+      <td>4420</td>
+    </tr>
+    <tr>
+      <th>2908</th>
+      <td>AITA For purposely stopping my classmate from winning an award and subsequently making her cry?</td>
+      <td>32356</td>
+    </tr>
+    <tr>
+      <th>2412</th>
+      <td>AITA for not giving up my table (at a restaurant) for a pregnant woman who needed it for accessibility?</td>
+      <td>11900</td>
+    </tr>
+    <tr>
+      <th>2672</th>
+      <td>AITA for not allowing people to access a swimming hole that has been used for generations, but is on our property?</td>
+      <td>4618</td>
+    </tr>
+    <tr>
+      <th>1220</th>
+      <td>AITA for giving both of my kids the same money for Back to School Shopping?</td>
+      <td>3749</td>
+    </tr>
+    <tr>
+      <th>1707</th>
+      <td>WIBTA if I stopped inviting my triggered friend to movie night?</td>
+      <td>12656</td>
+    </tr>
+    <tr>
+      <th>949</th>
+      <td>AITA for leaving my girlfriend alone in the ER to go workout?</td>
+      <td>2718</td>
+    </tr>
+    <tr>
+      <th>566</th>
+      <td>AITA for doing the bare minimum babysitting because my mom and stepdad expect me to fo it for free?</td>
+      <td>4467</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">,</span> <span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -732,9 +845,9 @@ Successfully installed psaw-0.0.12
 </div></div></div>
 </div>
 </div>
-<div class="section" id="collect-reddit-submissions-with-search-keyword">
-<h2>Collect Reddit submissions (with search keyword)<a class="headerlink" href="#collect-reddit-submissions-with-search-keyword" title="Permalink to this headline">¶</a></h2>
-<p><strong>Set up generator to make API request</strong></p>
+<div class="section" id="collect-reddit-submissions-based-on-search-keyword">
+<h2>Collect Reddit submissions based on search keyword<a class="headerlink" href="#collect-reddit-submissions-based-on-search-keyword" title="Permalink to this headline">¶</a></h2>
+<p>Set up generator to make API request</p>
 <p>The cell below should only take a second to run</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -743,7 +856,7 @@ Successfully installed psaw-0.0.12
 </div>
 </div>
 </div>
-<p><strong>Grab data for each Reddit submission and make into a DataFrame</strong></p>
+<p>Grab data for each Reddit submission and make into a DataFrame</p>
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1013,9 +1126,9 @@ Name: subreddit, dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="collect-reddit-comments-with-search-keyword">
-<h2>Collect Reddit comments (with search keyword)<a class="headerlink" href="#collect-reddit-comments-with-search-keyword" title="Permalink to this headline">¶</a></h2>
-<p><strong>Set up generator to make API request</strong></p>
+<div class="section" id="collect-reddit-comments-based-on-search-keyword">
+<h2>Collect Reddit comments based on search keyword<a class="headerlink" href="#collect-reddit-comments-based-on-search-keyword" title="Permalink to this headline">¶</a></h2>
+<p>Set up generator to make API request</p>
 <p>The cell below should only take a second to run</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1026,7 +1139,7 @@ Name: subreddit, dtype: int64
 </div>
 <div class="section" id="grab-data-for-each-reddit-comment-that-mentions-query-and-make-into-a-dataframe">
 <h3>Grab data for each Reddit comment that mentions query and make into a dataframe<a class="headerlink" href="#grab-data-for-each-reddit-comment-that-mentions-query-and-make-into-a-dataframe" title="Permalink to this headline">¶</a></h3>
-<p><strong>Grab data for each Reddit comment and make into a DataFrame</strong></p>
+<p>Grab data for each Reddit comment and make into a DataFrame</p>
 <p>The cell below should take a while to run. It’s searching through Reddit’s entire history. It’s ok if you periodically get errors while it’s running.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1037,8 +1150,8 @@ Name: subreddit, dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="collect-reddit-submissions-comments-with-multiple-search-keywords">
-<h2>Collect Reddit submissions/comments (with multiple search keywords)<a class="headerlink" href="#collect-reddit-submissions-comments-with-multiple-search-keywords" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="collect-reddit-submissions-comments-based-on-multiple-search-keywords">
+<h2>Collect Reddit submissions/comments based on multiple search keywords<a class="headerlink" href="#collect-reddit-submissions-comments-based-on-multiple-search-keywords" title="Permalink to this headline">¶</a></h2>
 <p>To search for multiple phrases —  George Orwell OR J.R.R. Tolkein — use parentheses and the bitwise OR operator</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1057,7 +1170,7 @@ Name: subreddit, dtype: int64
 </div>
 </div>
 <div class="section" id="collect-reddit-submissions-comments-with-start-and-end-dates">
-<h2>Collect Reddit submissions/comments (with start and end dates)<a class="headerlink" href="#collect-reddit-submissions-comments-with-start-and-end-dates" title="Permalink to this headline">¶</a></h2>
+<h2>Collect Reddit submissions/comments with start and end dates<a class="headerlink" href="#collect-reddit-submissions-comments-with-start-and-end-dates" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
@@ -1126,7 +1239,10 @@ Name: subreddit, dtype: int64
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

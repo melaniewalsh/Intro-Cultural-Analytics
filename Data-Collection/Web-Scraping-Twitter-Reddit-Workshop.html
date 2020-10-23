@@ -1,0 +1,1412 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Scraping with Twitter and Reddit &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Web-Scraping-Twitter-Reddit-Workshop.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Web-Scraping-Twitter-Reddit-Workshop.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Web Scraping with Twitter and Reddit" />
+<meta property="og:description" content="Web Scraping with Twitter and Reddit  A workshop for the Cornell Data Journal // October 15, 2020 // 5-6pm  Hosted by Melanie Walsh    This material draws from " />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Homework/HW-Description-Without-Links.html">
+   Homework Assignments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Python.html">
+   Programming in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   Data Analysis (Pandas)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data-Collection.html">
+   Data Collection (Web Scraping, APIs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Text-Analysis/Text-Analysis.html">
+   Text Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   Network Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   Mapping
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Data-Collection/Web-Scraping-Twitter-Reddit-Workshop.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2FData-Collection/Web-Scraping-Twitter-Reddit-Workshop.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Data-Collection/Web-Scraping-Twitter-Reddit-Workshop.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="web-scraping-with-twitter-and-reddit">
+<h1>Web Scraping with Twitter and Reddit<a class="headerlink" href="#web-scraping-with-twitter-and-reddit" title="Permalink to this headline">¶</a></h1>
+<p>A workshop for the <a class="reference external" href="https://www.facebook.com/cornelldatajournal/">Cornell Data Journal</a> // October 15, 2020 // 5-6pm</p>
+<p>Hosted by <a class="reference external" href="https://melaniewalsh.org/">Melanie Walsh</a></p>
+<p><img alt="" src="../_images/Cornell-Data-Journal-Workshop-image.jpg" /></p>
+<p>This material draws from extensively from my online textbook, <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/welcome.html"><em>Introduction to Cultural Analytics &amp; Python</em></a></p>
+</div>
+<div class="section" id="why-collect-social-media-data">
+<h1>Why Collect Social Media Data?<a class="headerlink" href="#why-collect-social-media-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Maybe you’re interested in internet language trends, like this <a class="reference external" href="https://pudding.cool/2019/10/laugh/#lol">Pudding article about the rise of “lol” on Reddit</a></p></li>
+<li><p>Maybe you’re interested in Twitter bots, trolls, or online protest movements, like this <a class="reference external" href="https://www.nytimes.com/interactive/2019/09/18/world/asia/hk-twitter.html">NYT article about Twitter bots and Hong Kong protestors</a> or this <a class="reference external" href="https://fivethirtyeight.com/features/why-were-sharing-3-million-russian-troll-tweets/">538 article about Russian trolls</a></p></li>
+<li><p>Maybe you’re interested in how online communities develop and relate to each other, like this <a class="reference external" href="https://lmcinnes.github.io/subreddit_mapping/subreddit_map.html">mapping of subreddits</a> or this <a class="reference external" href="https://fivethirtyeight.com/features/the-worst-tweeter-in-politics-isnt-trump/">538 piece about how people respond to politicians on Twitter</a></p></li>
+</ul>
+<p><img alt="" src="../_images/Pudding-lols.png" /></p>
+</div>
+<div class="section" id="how-can-we-collect-social-media-data-ethically">
+<h1>How Can We Collect Social Media Data Ethically?<a class="headerlink" href="#how-can-we-collect-social-media-data-ethically" title="Permalink to this headline">¶</a></h1>
+<p>How can we collect social media data ethically — in a way that respects users’ privacy, safety, and creative production? This question is not a footnote or an afterthought. This question instead needs to be asked at the very beginning of any project that will collect and analyze social media data — as well as at every subsequent step in the project.</p>
+<p>In my <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/User-Ethics-Legal-Concerns.html">online textbook</a>, I discuss that it is generally considered legal to collect publicly available social media data. Just because something is legal does not mean it is ethical, however. Collecting, sharing, and publishing internet data created by or about individuals can lead to unwanted public scrutiny, harm, and other negative consequences for those individuals. For these reasons, some researchers attempt to anonymize internet data before sharing it or before publishing an article that cites a post specifically. Yet anonymizing internet data also does not give credit to internet users as creators and authors.</p>
+<p>There is no single, simple answer to the many difficult questions raised by internet data collection. It is important to develop an ethical framework that responds to the specifics of your particular research project or use case (e.g., the platform, the people involved, the context, the potential consequences, etc.).</p>
+<p>Below are a few examples of how researchers have approached social media data in published research:</p>
+<ul class="simple">
+<li><p>In Maria Antoniak, David Mimno, and Karen Levy’s <a class="reference external" href="https://maria-antoniak.github.io/resources/2019_cscw_birth_stories.pdf">article about  a Reddit subcommunity dedicated to birthstories (r/BabyBumps)</a>, they paraphrased Reddit submissions discussed in the article and then deleted all collected Reddit data after the article was published.</p></li>
+<li><p>In Deen Freelon, Charlton McIlwain, and Meredith D. Clark’s <a class="reference external" href="https://cmsimpact.org/wp-content/uploads/2016/03/beyond_the_hashtags_2016.pdf">report about the #BlackLivesMatter movement</a>, they included links to tweets rather than the full text of tweets and only linked to tweets with a minimum of 100 retweets published by Twitter users who had at least 3,000 followers or were verified. They embargoed their Twitter data for a year and then publicly released a list of tweet IDs. Tweet IDs can be used by third-parties to re-download any tweets that have not been deleted yet, as I discuss in the lesson <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Twitter-Data-Sharing.html">“Twitter Data Sharing”</a>.</p></li>
+<li><p>In Moya Bailey’s <a class="reference external" href="http://www.digitalhumanities.org/dhq/vol/9/2/000209/000209.html">article about the #GirlsLikeUs hashtag</a>, created by trans advocate Janet Mock, she asked for Mock’s permission to work on the project before it began and collaborated with Mock to develop research questions and determine the project’s direction.</p></li>
+</ul>
+</div>
+<div class="section" id="how-can-we-collect-social-media-data-with-computational-tools">
+<h1>How Can We Collect Social Media Data With Computational Tools?<a class="headerlink" href="#how-can-we-collect-social-media-data-with-computational-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="apis-vs-web-scraping">
+<h2>APIs vs Web Scraping<a class="headerlink" href="#apis-vs-web-scraping" title="Permalink to this headline">¶</a></h2>
+<p>An Application Programming Interface (API) allows you to programmatically extract and interact with data under the hood of websites, social networks, and other projects that make their data publicly available. Twitter and Reddit both offer APIs that allow users to access their data. However, because these APIs are controlled by the companies themselves, they also come with limitations. For example, Twitter does not allow users to collect tweets more than one week in the past without a paid subscription.</p>
+<p>Another way that you might collect data from the internet or social media is via web scraping. When you get data from an API, you’re getting data from an internal source (from “inside” Twitter). When you “scrape” the surface of a web page, you’re getting data from the user-facing surface of a web page, just like the web page you would pull up if you opened Chrome and typed “twitter.com”. This makes web scraping sometimes clunky and unreliable when compared to an API, although it’s often the only option if there’s not an available API or the API does not offer what you’re looking for.</p>
+</div>
+<div class="section" id="reddit">
+<h2>Reddit<a class="headerlink" href="#reddit" title="Permalink to this headline">¶</a></h2>
+<p>Though Reddit has its own API, there is a more popular API for working with Reddit called Pushshift. You can read more about Pushshift in this arXiv article: https://arxiv.org/abs/2001.08435 (<a class="reference external" href="https://arxiv.org/pdf/2001.08435.pdf">PDF</a>)</p>
+<blockquote>
+<div><p>Why do people use Pushshift’s API instead of the official Reddit API?</p>
+</div></blockquote>
+<blockquote>
+<div><p>In short, Pushshift makes it
+much easier for researchers to query and retrieve historical
+Reddit data, provides extended functionality by providing fulltext search against comments and submissions, and has larger
+single query limits.</p>
+</div></blockquote>
+<blockquote>
+<div><p>— Jason Baumgartner, et al., <a class="reference external" href="https://arxiv.org/pdf/2001.08435.pdf">“The Pushshift Reddit Dataset”</a></p>
+</div></blockquote>
+<div class="section" id="install-psaw">
+<h3>Install PSAW<a class="headerlink" href="#install-psaw" title="Permalink to this headline">¶</a></h3>
+<p>To work with the Pushshift API, we’re going to install and use a Python wrapper called <a class="reference external" href="https://github.com/dmarx/psaw">PSAW</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install psaw
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import Pandas and set display options</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import PushshiftAPI</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psaw</span> <span class="kn">import</span> <span class="n">PushshiftAPI</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initialize PushshiftAPI</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">PushshiftAPI</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="psaw-usage">
+<h2>PSAW Usage<a class="headerlink" href="#psaw-usage" title="Permalink to this headline">¶</a></h2>
+<p>To collect Reddit posts:</p>
+<p><code class="docutils literal notranslate"><span class="pre">api_request_generator</span> <span class="pre">=</span> <span class="pre">api.search_submissions(subreddit=&quot;subrredit</span> <span class="pre">of</span> <span class="pre">interest&quot;,</span> <span class="pre">score=&quot;&gt;certain</span> <span class="pre">upvote</span> <span class="pre">score&quot;,</span> <span class="pre">q=&quot;search</span> <span class="pre">keyword&quot;,</span> <span class="pre">before=date,</span> <span class="pre">after=date</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">reddit_submissions</span> <span class="pre">=</span> <span class="pre">pd.DataFrame([submission.d_</span> <span class="pre">for</span> <span class="pre">submission</span> <span class="pre">in</span> <span class="pre">api_request_generator])</span></code></p>
+<p>To collect Reddit comments:</p>
+<p><code class="docutils literal notranslate"><span class="pre">api_request_generator</span> <span class="pre">=</span> <span class="pre">api.search_comments(subreddit=&quot;subrredit</span> <span class="pre">of</span> <span class="pre">interest&quot;,</span> <span class="pre">score=&quot;&gt;certain</span> <span class="pre">upvote</span> <span class="pre">score&quot;,</span> <span class="pre">q=&quot;search</span> <span class="pre">keyword&quot;,</span> <span class="pre">before=date,</span> <span class="pre">after=date</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">reddit_comments</span> <span class="pre">=</span> <span class="pre">pd.DataFrame([comment.d_</span> <span class="pre">for</span> <span class="pre">comment</span> <span class="pre">in</span> <span class="pre">api_request_generator])</span></code></p>
+</div>
+<div class="section" id="collect-reddit-submissions-for-a-subreddit-with-more-than-a-certain-upvote-score">
+<h2>Collect Reddit submissions for a subreddit (with more than a certain upvote score)<a class="headerlink" href="#collect-reddit-submissions-for-a-subreddit-with-more-than-a-certain-upvote-score" title="Permalink to this headline">¶</a></h2>
+<p>Set up generator to make API request</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">subreddit</span><span class="o">=</span><span class="s1">&#39;AmITheAsshole&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grab data for each Reddit submission and make into a DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages/psaw/PushshiftAPI.py:192: UserWarning: Got non 200 code 429
+  warnings.warn(&quot;Got non 200 code %s&quot; % response.status_code)
+/Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages/psaw/PushshiftAPI.py:180: UserWarning: Unable to connect to pushshift.io. Retrying after backoff.
+  warnings.warn(&quot;Unable to connect to pushshift.io. Retrying after backoff.&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check how many Reddit posts have been collected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2959, 78)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check what columns/metdata exist in this data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;all_awardings&#39;, &#39;allow_live_comments&#39;, &#39;author&#39;,
+       &#39;author_flair_css_class&#39;, &#39;author_flair_richtext&#39;, &#39;author_flair_text&#39;,
+       &#39;author_flair_type&#39;, &#39;author_fullname&#39;, &#39;author_patreon_flair&#39;,
+       &#39;author_premium&#39;, &#39;awarders&#39;, &#39;can_mod_post&#39;, &#39;contest_mode&#39;,
+       &#39;created_utc&#39;, &#39;domain&#39;, &#39;edited&#39;, &#39;full_link&#39;, &#39;gildings&#39;, &#39;id&#39;,
+       &#39;is_crosspostable&#39;, &#39;is_meta&#39;, &#39;is_original_content&#39;,
+       &#39;is_reddit_media_domain&#39;, &#39;is_robot_indexable&#39;, &#39;is_self&#39;, &#39;is_video&#39;,
+       &#39;link_flair_background_color&#39;, &#39;link_flair_richtext&#39;,
+       &#39;link_flair_text_color&#39;, &#39;link_flair_type&#39;, &#39;locked&#39;, &#39;media_only&#39;,
+       &#39;no_follow&#39;, &#39;num_comments&#39;, &#39;num_crossposts&#39;, &#39;over_18&#39;,
+       &#39;parent_whitelist_status&#39;, &#39;permalink&#39;, &#39;pinned&#39;, &#39;pwls&#39;,
+       &#39;retrieved_on&#39;, &#39;score&#39;, &#39;selftext&#39;, &#39;send_replies&#39;, &#39;spoiler&#39;,
+       &#39;stickied&#39;, &#39;subreddit&#39;, &#39;subreddit_id&#39;, &#39;subreddit_subscribers&#39;,
+       &#39;subreddit_type&#39;, &#39;suggested_sort&#39;, &#39;thumbnail&#39;, &#39;title&#39;,
+       &#39;total_awards_received&#39;, &#39;treatment_tags&#39;, &#39;upvote_ratio&#39;, &#39;url&#39;,
+       &#39;whitelist_status&#39;, &#39;wls&#39;, &#39;created&#39;, &#39;gilded&#39;, &#39;top_awarded_type&#39;,
+       &#39;removed_by_category&#39;, &#39;link_flair_template_id&#39;, &#39;link_flair_text&#39;,
+       &#39;author_flair_background_color&#39;, &#39;author_flair_text_color&#39;, &#39;post_hint&#39;,
+       &#39;preview&#39;, &#39;author_flair_template_id&#39;, &#39;link_flair_css_class&#39;,
+       &#39;banned_by&#39;, &#39;steward_reports&#39;, &#39;updated_utc&#39;, &#39;og_description&#39;,
+       &#39;og_title&#39;, &#39;author_cakeday&#39;, &#39;rte_mode&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2002</th>
+      <td>AITA for cooking my Muslim date non halal meal after he said he doesn’t eat halal? my friends think I’m a major ass.</td>
+      <td>14669</td>
+    </tr>
+    <tr>
+      <th>2513</th>
+      <td>AITA for thinking my girlfriend sleeping with her dad is inappropriate?</td>
+      <td>7864</td>
+    </tr>
+    <tr>
+      <th>1098</th>
+      <td>AITA for keeping my father's love child a secret?</td>
+      <td>9130</td>
+    </tr>
+    <tr>
+      <th>880</th>
+      <td>AITA for wanting to work out when I get home from work?</td>
+      <td>3785</td>
+    </tr>
+    <tr>
+      <th>2706</th>
+      <td>AITA for telling a girl that she’s not “just being honest”, she’s just being a bitch?</td>
+      <td>16531</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>AITA for showing up at my cousin's wedding in a hoodie and jean shorts?</td>
+      <td>17238</td>
+    </tr>
+    <tr>
+      <th>2624</th>
+      <td>AITAH for pressing charges against my pregnant best friend?</td>
+      <td>3420</td>
+    </tr>
+    <tr>
+      <th>2319</th>
+      <td>WIBTA for getting an annulment after my wife told me about her previous history of abuse the day after we married?</td>
+      <td>5623</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>AITA For snapping at my husband this morning because he makes fun of my weight.</td>
+      <td>6997</td>
+    </tr>
+    <tr>
+      <th>1212</th>
+      <td>AITA for not letting my sister and her baby live with me?</td>
+      <td>4628</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Select columns of interest</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>author</th>
+      <th>title</th>
+      <th>selftext</th>
+      <th>url</th>
+      <th>subreddit</th>
+      <th>score</th>
+      <th>num_comments</th>
+      <th>num_crossposts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>stolen-ideas</td>
+      <td>WIBTA if I sue my SIL for stealing my book and making a huge profit from it?</td>
+      <td>I (24f) write as a hobby, and I like sharing my short stories with my small following. I do want to publish one day, but I want to make it perfect first since it's not edited yet.\n\nThe unfinished book we're talking about came from an idea that I started to build when I was in middle school. I just finished it last year, but because of the virus, I was forced to put that project aside to ensure steady employment with my day job.\n\nMy brother and SIL came to visit me to introduce their baby...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/is9p55/wibta_if_i_sue_my_sil_for_stealing_my_book_and/</td>
+      <td>AmItheAsshole</td>
+      <td>2128</td>
+      <td>1176</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Current_Task9048</td>
+      <td>AITA for ignoring SIL's apology for a prank gone wrong?</td>
+      <td>My MIL is not allowed to be alone with my son for a variety of reasons. She is very unstable and manipulative. SIL (not daughter, also married in) does not have the same experience at all and adores MIL. I know SIL thinks i am being over dramatic, but she had never undermined me before.\n\nThe other day i got a text from SIL saying that my husband had dropped off our son with MIL. I immediately panicked and contacted my husband but he wasn't picking up (he was actually at his dad's house and...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/is92vb/aita_for_ignoring_sils_apology_for_a_prank_gone/</td>
+      <td>AmItheAsshole</td>
+      <td>2012</td>
+      <td>1305</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TheJellyTypewriter</td>
+      <td>WIBTA for hiding a family heirloom, so my dad can't give it to his fiance?</td>
+      <td>My great-grandmother was an exceptional embroiderer. She would cover massive canvasses. She never taught me,( I taught myself later in life)  but I loved seeing her work when we went to her house. She died when I was 14. A few years ago, my grandmother gave our family one of her final pieces for Christmas, it's been hanging in the stairway ever since. \n\nLast year my father started dating this horribly toxic woman, who in 6 months had destroyed my dad's relationships with all his children, ...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/is6yg8/wibta_for_hiding_a_family_heirloom_so_my_dad_cant/</td>
+      <td>AmItheAsshole</td>
+      <td>5028</td>
+      <td>1184</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Throwawayolderbro534</td>
+      <td>AITA for cutting my elderly parents off financially after they kicked out my gay brother?</td>
+      <td>Throwaway because a lot of my friends use Reddit.\n\nI’m a 24 year old software engineer originally from an Arab Muslim country. I moved to the United States with my parents when I was five years old, and my younger brother was born here. He is now 16.\n\nA year ago, my brother came out to me as gay. It wasn’t a surprise to me, I’ve always been very close to my brother. We grew up in a majority white town and my brother was picked on frequently as a kid for being Arab, and on top of that he’...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/is55v4/aita_for_cutting_my_elderly_parents_off/</td>
+      <td>AmItheAsshole</td>
+      <td>21816</td>
+      <td>3599</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>coffeebobbie</td>
+      <td>AITA for fencing my property</td>
+      <td>When my grandmother passed about 10 years ago my family began to use her home as a vacation home.  We've spent the last decade improving the property, which is about twice as big as the neighboring ones because plots were cheaper 50 years ago when my grandmother purchased it. We have a 1/4 acre wooded backyard that has never been fenced.  The neighbors have built a porch up to their property line that overlooks our backyard, and spend quite a bit of time out there.  They have been throwing r...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/is2b8p/aita_for_fencing_my_property/</td>
+      <td>AmItheAsshole</td>
+      <td>2186</td>
+      <td>618</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2954</th>
+      <td>BackgroundJellyfish</td>
+      <td>AITA for hitting my girlfriend out of reflex for her scaring me?</td>
+      <td>Hi, so my girlfriend and i watched a horror movie recently, called The Last Exorcism. Now keep in mind, i HATE horror, i get very scared easily. but she likes horror, and practically begged me to watch it with her. So, i did watch it, and have been very jumpy lately. It was pretty scary, because horror movies have always given me nightmares.\n\n\nMy girlfriend, however, thinks it's funny how i am. She has picked up me bad habit. She likes to sneak up behind me and make a loud noise to startl...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/9bxoro/aita_for_hitting_my_girlfriend_out_of_reflex_for/</td>
+      <td>AmItheAsshole</td>
+      <td>2719</td>
+      <td>405</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2955</th>
+      <td>Marylebone_Road</td>
+      <td>AITA for thinking that this sub is only so people can have their decisions validated and never actually post something assholish they've done?</td>
+      <td></td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/9blev1/aita_for_thinking_that_this_sub_is_only_so_people/</td>
+      <td>AmItheAsshole</td>
+      <td>2001</td>
+      <td>104</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2956</th>
+      <td>treefiddyfive</td>
+      <td>AITA for not believing my daughter is non-binary?</td>
+      <td>Recently my daughter has 'come out' to me as non binary, meaning that she supposedly does not believe she is a man or a woman. I heard her out and let her speak, and tried to calmly ask her how she has come to this conclusion. The conversation was civil until I told her I did not believe she is anything but a woman. At this point, she started crying, calling me a bigot, and my wife had to take over. My wife tells me I am being insensitive. \n\n\nThey want me to refer to them as 'they', which...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/9aeeed/aita_for_not_believing_my_daughter_is_nonbinary/</td>
+      <td>AmItheAsshole</td>
+      <td>2068</td>
+      <td>905</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2957</th>
+      <td>grizzythekid</td>
+      <td>AITA for throwing a soda on the ground near the dude I bought it for?</td>
+      <td>I was going to McDonald's for a quick bite to go, when a drunk maybe homeless, definitely in some state guy asked if I could but him a burger. I said sure, having been drunk plenty of times myself, I know a burger hits the spot when you're on one. So I buy two big cheeseburger meals, and walk out. I've got all the food in a bag, and two drinks in the other. I set the drinks down on an outside table and fish out one burger and hand it to him. I set the fries on the table for him, as he his un...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/8s56a3/aita_for_throwing_a_soda_on_the_ground_near_the/</td>
+      <td>AmItheAsshole</td>
+      <td>3532</td>
+      <td>90</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2958</th>
+      <td>Pettheftthrow</td>
+      <td>AITA for refusing to return a lost pet?</td>
+      <td>So over two years ago a cat appeared in my yard. He was skinny, skittish, unneutered, and had a serious abscess on his rump, likely from a cat bite wound. I took him to the vet that night and had him treated. The vet estimated he was about six months old.\n\nI called the local county shelters to file a found cat report. I also posted on Craigslist, posted his info at local vet offices, and kept an eye out for flyers. He was scanned for a microchip and didn't have one. \n\nAt that point I did...</td>
+      <td>https://www.reddit.com/r/AmItheAsshole/comments/8ikrb0/aita_for_refusing_to_return_a_lost_pet/</td>
+      <td>AmItheAsshole</td>
+      <td>2387</td>
+      <td>169</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2959 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>Output to CSV file</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aita_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;top_aita_submissions.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-reddit-submissions-based-on-search-keyword-with-more-than-a-certain-upvote-score">
+<h2>Collect Reddit submissions based on search keyword (with more than a certain upvote score)<a class="headerlink" href="#collect-reddit-submissions-based-on-search-keyword-with-more-than-a-certain-upvote-score" title="Permalink to this headline">¶</a></h2>
+<p>Set up generator to make API request</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_request_generator</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">search_submissions</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Cornell&#39;</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;&gt;2000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grab data for each Reddit submission and make into a DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_submissions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">submission</span><span class="o">.</span><span class="n">d_</span> <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">api_request_generator</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_submissions</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(112, 83)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_submissions</span><span class="p">[[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;selftext&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;subreddit&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">,</span> <span class="s1">&#39;num_crossposts&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>author</th>
+      <th>title</th>
+      <th>selftext</th>
+      <th>url</th>
+      <th>subreddit</th>
+      <th>score</th>
+      <th>num_comments</th>
+      <th>num_crossposts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>the_light_of_dawn</td>
+      <td>Reggie's Lecture At Cornell: Reggie Calls Wii U A "Failure Forward" Because It Led To Switch</td>
+      <td></td>
+      <td>https://www.resetera.com/threads/reggies-lecture-at-cornell-the-thread.148387/#post-25675346</td>
+      <td>NintendoSwitch</td>
+      <td>3410</td>
+      <td>363</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>evaee00</td>
+      <td>Can you please not apply to Cornell? My son wants to apply there too!</td>
+      <td>So this is a story that happened to my friend this year and I am honestly so shocked by this.\n\nSo basically my friend is a regular good student at school, has amazing after school activities, and is student government president. She also has a perfect SAT score.\n\nIt has been my friends dream to go to Cornell. Both her parents went and she has been in love with it for years.\n\nNow enter entitled mom and entitled son.\n\nMy friend’s mother gets a call on her mobile from the entitled mom.\...</td>
+      <td>https://www.reddit.com/r/entitledparents/comments/de5ngd/can_you_please_not_apply_to_cornell_my_son_wants/</td>
+      <td>entitledparents</td>
+      <td>11375</td>
+      <td>241</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MistWeaver80</td>
+      <td>New research from Cornell University shows that plants can communicate with each other when they come under attack from pests. Plants share messages in the form of airborne chemicals known as volatile organic compounds (VOCs) that transfer information among plants.</td>
+      <td></td>
+      <td>https://www.cell.com/current-biology/fulltext/S0960-9822(19)31027-9?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982219310279%3Fshowall%3Dtrue</td>
+      <td>science</td>
+      <td>3651</td>
+      <td>237</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BoomWhatWhat</td>
+      <td>Cornell will eliminate medical school debt for all students who qualify for financial aid, starting this fall</td>
+      <td></td>
+      <td>https://www.cnn.com/2019/09/17/us/cornell-scholarship-financial-aid-trnd/index.html</td>
+      <td>news</td>
+      <td>44406</td>
+      <td>2220</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SirCSquared</td>
+      <td>I took this photo at the last Soundgarden concert. Chris Cornell took his life that night.</td>
+      <td></td>
+      <td>https://i.redd.it/op394mbhgkd31.jpg</td>
+      <td>lastimages</td>
+      <td>4759</td>
+      <td>185</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>vinitmodi7</td>
+      <td>Found This at Cornell Campus</td>
+      <td></td>
+      <td>http://i.imgur.com/8o7l3rs.jpg</td>
+      <td>funny</td>
+      <td>2442</td>
+      <td>178</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>CUAskAnAstronomer</td>
+      <td>We are Cornell University's Ask An Astronomer Team. Ask Us Anything!</td>
+      <td>Hi Reddit!\n\nWe are the Ask an Astronomer Team at Cornell University. We are a team of graduate students within the Department of Astronomy that volunteers time to answer questions from the public, both online and in various events hosted throughout the city of Ithaca, NY. Our [website](http://curious.astro.cornell.edu) describes what we do and how to contact us.\n\nWhenever a popular article is posted about astronomy on Reddit, we notice that a lot of questions float around typically. A fe...</td>
+      <td>http://www.reddit.com/r/IAmA/comments/1iuc2i/we_are_cornell_universitys_ask_an_astronomer_team/</td>
+      <td>IAmA</td>
+      <td>2010</td>
+      <td>1168</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>ChrisCornellSG</td>
+      <td>Hey Reddit, I'm Chris Cornell from Soundgarden. AMA in 45 min!</td>
+      <td>Soundgarden will be on tour this May: [tour info](http://soundgardenworld.com/second-leg-of-us-tour/)  \n  \nAnd we put out our first album in over 15 years last November: [King Animal](http://en.wikipedia.org/wiki/King_Animal)  \n  \n[Twitter Proof 1] (https://twitter.com/soundgarden/status/321342408791044096)  \n[Twitter Proof 2] (https://twitter.com/chriscornell/status/321341541685813248)  \n  \nThanks everyone! That was great! See you out at the shows.</td>
+      <td>http://www.reddit.com/r/IAmA/comments/1bxp4f/hey_reddit_im_chris_cornell_from_soundgarden_ama/</td>
+      <td>IAmA</td>
+      <td>2264</td>
+      <td>2562</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>pendulumlover</td>
+      <td>Found this on a water fountain at Cornell...</td>
+      <td></td>
+      <td>http://i.imgur.com/XA3Pbl2.jpg</td>
+      <td>funny</td>
+      <td>2121</td>
+      <td>257</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>frogmentation</td>
+      <td>Cornell study discovers parrots name their chicks</td>
+      <td></td>
+      <td>http://www.news.cornell.edu/stories/July11/ParrotNaming.html</td>
+      <td>science</td>
+      <td>2221</td>
+      <td>177</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>112 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>Where are the popular “Cornell” Reddit posts appearing?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_submissions</span><span class="p">[</span><span class="s1">&#39;subreddit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>science                 22
+IAmA                    11
+The_Donald               7
+todayilearned            7
+Music                    5
+news                     4
+SandersForPresident      3
+videos                   3
+askscience               3
+politics                 2
+movies                   2
+funny                    2
+lastimages               2
+InternetIsBeautiful      2
+Showerthoughts           2
+OldSchoolCool            2
+unpopularopinion         1
+coolguides               1
+relationships            1
+conspiracy               1
+Damnthatsinteresting     1
+DunderMifflin            1
+westworld                1
+TwoXChromosomes          1
+AskHistorians            1
+tattoos                  1
+Metal                    1
+AdviceAnimals            1
+Guitar                   1
+interestingasfuck        1
+offmychest               1
+lego                     1
+uncensorednews           1
+HistoryPorn              1
+entitledparents          1
+LadyBoners               1
+EarthPorn                1
+CFB                      1
+Awwducational            1
+NintendoSwitch           1
+bidenbro                 1
+KotakuInAction           1
+RetroFuturism            1
+reactiongifs             1
+space                    1
+vegan                    1
+pics                     1
+AmItheAsshole            1
+SeattleWA                1
+Name: subreddit, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_submissions</span><span class="p">[</span><span class="s1">&#39;subreddit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1196355d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/Web-Scraping-Twitter-Reddit-Workshop_55_1.png" src="../_images/Web-Scraping-Twitter-Reddit-Workshop_55_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="twitter">
+<h2>Twitter<a class="headerlink" href="#twitter" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to collect Twitter data with the Python/command line tool <a class="reference external" href="https://github.com/DocNow/twarc">twarc</a>. This tool was developed by a project called <a class="reference external" href="https://www.docnow.io/">Documenting the Now</a>. The DocNow team develops tools and ethical frameworks for social media research.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twarc
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="twitter-api-keys">
+<h2>Twitter API Keys<a class="headerlink" href="#twitter-api-keys" title="Permalink to this headline">¶</a></h2>
+<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we use it. You can find instructions for the application process and for installing and configuring twarc here: <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Collecting-Cultural-Data/Twitter-Collection-Setup.html">Twitter Collection Setup</a>.</p>
+<p>You can configure twarc by running <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">conifgure</span></code> on the command line, or you can type your Twitter handle (without the &#64; symbol) and <a class="reference external" href="https://developer.twitter.com/en/apps">API keys</a> into the quotation marks below and run the cell.</p>
+<p>🚨 Skip running this cell if you’ve already configured twarc!! 🚨</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Insert Your Twitter API Info here</span>
+
+<span class="n">twitter_handle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">consumer_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">access_token_secret</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="c1">#The Code That Will Configure Twarc</span>
+<span class="n">configuration</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;[</span><span class="si">{</span><span class="n">twitter_handle</span><span class="si">}</span><span class="s2">]</span>
+<span class="s2">consumer_key=</span><span class="si">{</span><span class="n">consumer_key</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">consumer_secret = </span><span class="si">{</span><span class="n">consumer_secret</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">access_token = </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">access_token_secret= </span><span class="si">{</span><span class="n">access_token_secret</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">config_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s2">&quot;.twarc&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-tweets-from-past-7-days">
+<h3>Collect Tweets From Past 7 days<a class="headerlink" href="#collect-tweets-from-past-7-days" title="Permalink to this headline">¶</a></h3>
+<p>With the free version of the Twitter API, there are basically two ways to collect your own Twitter data: in real time or ~7 days in the past. To get data any further in the past requires a paid version of the Twitter API. We’re going to demonstrate how to collect Twitter data from the past ~7 days, but you can explore the other functionalities of Twarc by reading through <a class="reference external" href="https://github.com/DocNow/twarc">the documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;cornell&quot;</span> <span class="pre">&gt;</span> <span class="pre">cornell_search.jsonl</span></code></p>
+<p>To collect tweets from approximately 7 days in the past, you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
+<p>Search for tweets that mention “cornell” but only from verified accounts</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;cornell filter:verified&quot;</span> &gt; cornell_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many tweets were collected?</p>
+<p> Mac/Chrome OS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l cornell_search.jsonl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     804 cornell_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png width=20 align='left' > Windows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>find /v /c <span class="s2">&quot;&quot;</span> cornell_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you download <a class="reference external" href="https://github.com/DocNow/twarc#utilities">Twarc utilities</a>, you can easily transform a Twitter jsonl file into a CSV file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py cornell_search.jsonl &gt; cornell_search.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>What columns or metadata categories are available in this data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_tweet_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;cornell_search.csv&quot;</span><span class="p">)</span>
+<span class="n">cornell_tweet_df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;tweet_url&#39;, &#39;created_at&#39;, &#39;parsed_created_at&#39;,
+       &#39;user_screen_name&#39;, &#39;text&#39;, &#39;tweet_type&#39;, &#39;coordinates&#39;, &#39;hashtags&#39;,
+       &#39;media&#39;, &#39;urls&#39;, &#39;favorite_count&#39;, &#39;in_reply_to_screen_name&#39;,
+       &#39;in_reply_to_status_id&#39;, &#39;in_reply_to_user_id&#39;, &#39;lang&#39;, &#39;place&#39;,
+       &#39;possibly_sensitive&#39;, &#39;retweet_count&#39;, &#39;retweet_or_quote_id&#39;,
+       &#39;retweet_or_quote_screen_name&#39;, &#39;retweet_or_quote_user_id&#39;, &#39;source&#39;,
+       &#39;user_id&#39;, &#39;user_created_at&#39;, &#39;user_default_profile_image&#39;,
+       &#39;user_description&#39;, &#39;user_favourites_count&#39;, &#39;user_followers_count&#39;,
+       &#39;user_friends_count&#39;, &#39;user_listed_count&#39;, &#39;user_location&#39;, &#39;user_name&#39;,
+       &#39;user_statuses_count&#39;, &#39;user_time_zone&#39;, &#39;user_urls&#39;, &#39;user_verified&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at random sample of tweets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_tweet_df</span><span class="p">[[</span><span class="s1">&#39;user_screen_name&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;retweet_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_screen_name</th>
+      <th>text</th>
+      <th>retweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>134</th>
+      <td>CornellNews</td>
+      <td>New and extremely sensitive instruments are allowing scientists to use a novel source of information – gravitational waves – to understand fundamental principles of nature. https://t.co/C0yKh9Hca7</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>NeWNetwork</td>
+      <td>Tonight, NeW at @Cornell University is partnering with other groups on campus to host a debate featuring @LisaDaftari. https://t.co/WrhZNupGVO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>GEResearch</td>
+      <td>"Heart-felt" news! Proud to partner with @rpi, @Cornell  and Cleerly Health on an @NIH project, applying #artificialintelligence tech to improve cardiac CT diagnosis. @GEHealthcare @generalelectric \nhttps://t.co/o7oRfqyC7b</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>585</th>
+      <td>wellreadblkgirl</td>
+      <td>TODAY: Noted authors, scholars and poets will celebrate Toni Morrison, M.A. ’55, with a livestreamed community reading of her first novel “The Bluest Eye,” on the 50th anniversary of its release. @CornellCAS\nhttps://t.co/rPlh6tnX0o</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>459</th>
+      <td>CornellAlumni</td>
+      <td>In her fourth State of the University Address, @Cornell President Martha E. Pollack announced that two residence halls will be named for Justice Ruth Bader Ginsburg ’54 and Nobel Prize-winning author Toni Morrison, M.A. ’55. @CornellAlumni #RBG #equity https://t.co/efzUQcJ1yV</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>579</th>
+      <td>cornellsun</td>
+      <td>Last week’s Student Assembly election drew a historically low voter turnout — less than a fifth of Cornell students casted their ballots.\nhttps://t.co/deyRRjqWgd</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>ADsXe</td>
+      <td>Chris Cornell Talks to A.D. Rowntree https://t.co/hunb5ICRqo</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>detikcom</td>
+      <td>Peneliti dari Cornell University telah menciptakan teknologi baru di mana sistem earphone yang dapat mengetahui ekspresi wajah penggunanya meski pakai masker. Teknologi tersebut dinamai C-Face, bagaimana cara kerjanya? \n\nvia @detikinet https://t.co/xnxiT2BU0l</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>MikeABCColumbia</td>
+      <td>I love stories like this man.\n\nGamecock RB Kevin Harris was a three-star RB... had offers from Air Force, Army, Cornell, Elon, Furman, Mercer, MTSU, Navy, The Citadel, Tulane, and Wofford.\n\nNow... he's second in the SEC in rushing, behind only Alabama's Najee Harris.</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Paul_Cornell</td>
+      <td>A lot of science folks are posting some superb spider photos for #Arachtober so I thought I'd resurrect a few of my rather less scientific sketches. Maybe next year 31 spiders and their handlers... https://t.co/eU41F0Y3Op</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Look at most retweeted tweets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_tweet_df</span><span class="p">[[</span><span class="s1">&#39;user_screen_name&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;retweet_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;retweet_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_screen_name</th>
+      <th>text</th>
+      <th>retweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>777</th>
+      <td>AskMrMickey</td>
+      <td>Dr. Fauci at a Cornell event: "The potential for what COVID can do ... is very, very much different from influenza. You don't get a pandemic that kills a million people and it isn't even over yet within influenza. So it is not correct to say it's the same as flu."</td>
+      <td>1097</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>dasoulassassin</td>
+      <td>#GatesFoundation awarded $10 million to Cornell Alliance for Science. Investment comes when foundation under fire for spending billions on ag development schemes that critics say are entrenching farming methods that benefit corporations over people. \n\nhttps://t.co/lzlZGUeQMG</td>
+      <td>467</td>
+    </tr>
+    <tr>
+      <th>754</th>
+      <td>RobertKennedyJr</td>
+      <td>#GatesFoundation awarded $10 million to Cornell Alliance for Science. Investment comes when foundation under fire for spending billions on ag development schemes that critics say are entrenching farming methods that benefit corporations over people. \n\nhttps://t.co/lzlZGUeQMG</td>
+      <td>467</td>
+    </tr>
+    <tr>
+      <th>338</th>
+      <td>JamesPMorrison</td>
+      <td>President* Trump has been the single largest driver of misinformation about the COVID19 pandemic, a Cornell research study finds.\n\nIs Trump the biggest COVID19 #SuperSpreader on planet earth?\n\n@StandForBetter https://t.co/fnVoXSSsDO https://t.co/TFWS6YmArP https://t.co/Oquj9eTY9D</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>tanita_tikaram</td>
+      <td>President* Trump has been the single largest driver of misinformation about the COVID19 pandemic, a Cornell research study finds.\n\nIs Trump the biggest COVID19 #SuperSpreader on planet earth?\n\n@StandForBetter https://t.co/fnVoXSSsDO https://t.co/TFWS6YmArP https://t.co/Oquj9eTY9D</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>551</th>
+      <td>cornellsun</td>
+      <td>The newly updated site includes an interactive synopsis of 2020’s sustainability accomplishments, including Cornell’s carbon neutrality progress, education and engagement.\nhttps://t.co/BJ1MFVB1Z3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>550</th>
+      <td>Manning4USCong</td>
+      <td>@small4lyfe @Ilhan Show me where in the 14th amendment the right to privacy is discussed. \nhttps://t.co/EELxavghCC\nNot even RBG bought this justification.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>jrburns</td>
+      <td>@DaveOBrienCT I worked with a couple who went to Cornell. Cornell College in Iowa.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>548</th>
+      <td>Paul_Cornell</td>
+      <td>@marryshelleyy I’d best not read it, in case some of the concepts are similar.  Which is probably me being overtly worried about legal stuff, and is frustrating, because I love encouraging new takes.  Put it online and I’ll promote it without looking!</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>sidhubaba</td>
+      <td>The only story I care about today https://t.co/6gwMb0NDvB</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>804 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Output to CSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cornell_tweet_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;cornell_tweets.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="twitter-data-sharing">
+<h2>Twitter Data Sharing<a class="headerlink" href="#twitter-data-sharing" title="Permalink to this headline">¶</a></h2>
+<p>Twitter discourages developers and researchers from sharing full Twitter data openly on the web. They instead encourage developers and researchers to share <em>tweet IDs</em>:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.twitter.com/en/developer-terms/policy#4-e">If you provide Twitter Content to third parties, including downloadable datasets or via an API, you may only distribute <strong>Tweet IDs</strong>, Direct Message IDs, and/or User IDs.</a></p>
+</div></blockquote>
+<p>Tweet IDs are unique identifiers assigned to every tweet. They look like a random string of numbers: 1189206626135355397. Each tweet ID can be used to download the full data associated with that tweet (if the tweet still exists). This is a process called “hydration.”</p>
+<img src="https://cdn.pixabay.com/photo/2013/07/12/19/24/sapling-154734_960_720.png" width=100% ><p><strong>Hydration: a young tweet ID sprouts into a full tweet (to be read in David Attenborough’s voice)</strong></p>
+<p>You can read more about Twitter data sharing in my <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Twitter-Data-Sharing.html">online textbook</a>.</p>
+</div>
+</div>
+<div class="section" id="resources">
+<h1>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/pushshift/api">Pushshift</a></p>
+<ul>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/2001.08435.pdf">Pushshift arXiv paper PDF</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/dmarx/psaw">PSAW</a></p></li>
+<li><p><a class="reference external" href="https://github.com/DocNow/twarc">Twarc</a></p></li>
+<li><p><a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/getting-started/guide">Twitter API documentation</a></p></li>
+</ul>
+</div>
+<div class="section" id="recommended-reading-social-media-data-ethics">
+<h1>Recommended Reading: Social Media Data Ethics<a class="headerlink" href="#recommended-reading-social-media-data-ethics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docnow.io/docs/docnow-whitepaper-2018.pdf">Doc Now White Paper</a>, Bergis Jules, Ed Summers, Dr. Vernon Mitchell, Jr.</p></li>
+<li><p><a href="https://cmci.colorado.edu/~cafi5706/ICWSM2020_datascraping.pdf">No Robots, Spiders, or Scrapers: Legal and Ethical Regulation of Data Collection Methods in Social Media Terms of Service</a>, Casey Fiesler, Nathan Beard, Brian C. Keegan</p></li>
+<li><p><a class="reference external" href="http://www.digitalhumanities.org/dhq/vol/9/2/000209/000209.html">#transform(ing)DH Writing and Research: An Autoethnography of Digital Humanities and Feminist Ethics</a>, Moya Bailey</p></li>
+<li><p><a class="reference external" href="https://modelviewculture.com/pieces/the-twitterethics-manifesto">The #TwitterEthics Manifesto</a>, Dorothy Kim and Eunsong Kim</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Data-Collection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

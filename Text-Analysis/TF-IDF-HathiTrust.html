@@ -1,0 +1,4520 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>TF-IDF with HathiTrust Data &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF-HathiTrust.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TF-IDF with Scikit-Learn" href="TF-IDF-Scikit-Learn.html" />
+    <link rel="prev" title="TF-IDF" href="TF-IDF.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF-HathiTrust.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="TF-IDF with HathiTrust Data" />
+<meta property="og:description" content="TF-IDF with HathiTrust Data  In this lesson, we’re going to learn about a text analysis method called term frequency–inverse document frequency, often abbreviat" />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Homework/HW-Description-Without-Links.html">
+   Homework Assignments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Python.html">
+   Programming in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   Data Analysis (Pandas)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Data-Collection/Data-Collection.html">
+   Data Collection (Web Scraping, APIs)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Text-Analysis.html">
+   Text Analysis
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="TF-IDF.html">
+     TF-IDF
+    </a>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html#keyword-extraction">
+     Keyword Extraction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   Network Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   Mapping
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Text-Analysis/TF-IDF-HathiTrust.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2FText-Analysis/TF-IDF-HathiTrust.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Text-Analysis/TF-IDF-HathiTrust.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lost-in-the-city-by-edward-p-jones">
+     <em>
+      Lost in the City
+     </em>
+     by Edward P. Jones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breaking-down-the-tf-idf-formula">
+   Breaking Down the TF-IDF Formula
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-test-it-out">
+     Let’s test it out
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-hathitrust-extracted-features">
+   Get HathiTrust Extracted Features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-dataframe-of-word-frequencies-from-volume-s">
+     Make DataFrame of Word Frequencies From Volume(s)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-volume">
+       Single Volume
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-volumes">
+       Multiple Volumes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-story-titles">
+   Add story titles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sum-word-counts-for-each-story">
+   Sum Word Counts For Each Story
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-infrequent-words-stopwords-punctuation">
+   Remove Infrequent Words, Stopwords, &amp; Punctuation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-idf">
+   TF-IDF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#term-frequency">
+     Term Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#document-frequency">
+     Document Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-number-of-documents">
+     Total Number of Documents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inverse-document-frequency">
+     Inverse Document Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     TF- IDF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-resources">
+   Further Resources
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tf-idf-with-hathitrust-data">
+<h1>TF-IDF with HathiTrust Data<a class="headerlink" href="#tf-idf-with-hathitrust-data" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we’re going to learn about a text analysis method called <em>term frequency–inverse document frequency</em>, often abbreviated <em>tf-idf</em>.</p>
+<p>While calculating the most frequent words in a text can be useful, the most frequent words in a text usually aren’t the most interesting words in a text, even if we get rid of stop words (“the, “and,” “to,” etc.). Tf-idf is a method that builds off word frequency but it more specifically tries to identify the most distinctively frequent or significant words in a document.</p>
+<p>In this lesson, we will cover how to:</p>
+<ul class="simple">
+<li><p>Calculate and normalize tf-idf scores for each short story in Edward P. Jones’s <em>Lost in the City</em></p></li>
+<li><p>Download and process HathiTrust extracted features — that is, word frequencies for books in the HathiTrust Digital Library (including in-copyright books like <em>Lost in the City</em>)</p></li>
+<li><p>Prepare HathiTrust extracted features for tf-idf analysis</p></li>
+</ul>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lost-in-the-city-by-edward-p-jones">
+<h3><em>Lost in the City</em> by Edward P. Jones<a class="headerlink" href="#lost-in-the-city-by-edward-p-jones" title="Permalink to this headline">¶</a></h3>
+<blockquote class="epigraph">
+<div><p>[T]he pigeon had taken a step and dropped from the ledge. He caught an upwind that took him nearly as high as the tops of the empty K Street houses. He flew farther into Northeast, into the color and sounds of the city’s morning. She did nothing, aside from following him, with her eyes, with her heart, as far as she could.</p>
+<p class="attribution">—Edward P. Jones, “The Girl Who Raised Pigeons,” <em>Lost in the City</em> (1993)</p>
+</div></blockquote>
+<p>Edward P. Jones’s <em>Lost in the City</em> (1993) is a collection of 14 short stories set in Washington D.C. The first short story, “The Girl Who Raised Pigeons,” begins with a young girl raising homing pigeons on her roof.</p>
+<p>How distinctive is a “pigeon” in the world of <em>Lost in the City</em>? What does this uniqueness (or lackthereof) tell us about the meaning of pigeons in first short story “The Girl Who Raised Pigeons” and the collection as a whole? These are just a few of the questions that we’re going to try to answer with tf-idf.</p>
+<p>If you already have a collection of plain text (.txt) files that you’d like to analyze, one of the easiest ways to calculate tf-idf scores is to use the Python library scikit-learn. It has a quick and nifty module called <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">TfidfVectorizer</a>, which does all the math for you behind the scenes. We will cover how to use the TfidfVectorizer in the next lesson.</p>
+<p>In this lesson, however, we’re going to calculate tf-idf scores manually because <em>Lost in the City</em> is still in-copyright, which means that, for legal reasons, we can’t easily share or access plain text files of the book.</p>
+<p>Luckily, the <a class="reference external" href="https://www.hathitrust.org/">HathiTrust Digital Library</a>—which contains digitized books from Google Books as well as many university libraries—has released word frequencies per page for all 17 million books in its catalog. These word frequencies (plus part of speech tags) are otherwise known as “extracted features.” There’s a lot of text analysis that we can do with extracted features alone, including tf-idf.</p>
+<p>So to calculate tf-idf scores for <em>Lost in the City</em>, we’re going to use HathiTrust extracted features. That’s why we’re not using sci-kit learn’s TfidfVectorizer. It works great with plain text files but not so great with extracted features.</p>
+</div>
+</div>
+<div class="section" id="breaking-down-the-tf-idf-formula">
+<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Permalink to this headline">¶</a></h2>
+<p>But first, let’s quickly discuss the tf-idf formula. The idea is pretty simple.</p>
+<p><strong>tf-idf = term_frequency * inverse_document_frequency</strong></p>
+<p><strong>term_frequency</strong> = number of times a given term appears in document</p>
+<p><strong>inverse_document_frequency</strong> = log(total number of documents / number of documents with term) + 1*****</p>
+<p>You take the number of times a term occurs in a document (term frequency). Then you take the number of documents in which the same term occurs at least once divided by the total number of documents (document frequency), and you flip that fraction on its head (inverse document frequency). Then you multiply the two numbers together (term_frequency * inverse_document_frequency).</p>
+<p>The reason we take the <em>inverse</em>, or flipped fraction, of document frequency is to boost the rarer words that occur in relatively few documents. Think about the inverse document frequency for the word “said” vs the word “pigeon.” The term “said” appears in 13 (document frequency) of 14 (total documents) <em>Lost in the City</em> stories (14 / 13 –&gt; a smaller inverse document frequency) while the term “pigeons” only occurs in 2 (document frequency) of the 14 stories (total documents) (14 / 2 –&gt; a bigger inverse document frequency, a bigger tf-idf boost).</p>
+<p>*There are a bunch of slightly different ways that you can calculate inverse document frequency. The version of idf that we’re going to use is the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn default</a>, which uses “smoothing” aka it adds a “1” to the numerator and denominator:</p>
+<p><strong>inverse_document_frequency</strong>  = log((1 + total_number_of_documents) / (number_of_documents_with_term +1)) + 1</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<blockquote>
+<div><p>If smooth_idf=True (the default), the constant “1” is added to the numerator and denominator of the idf as if an extra document was seen containing every term in the collection exactly once, which prevents zero divisions: idf(t) = log [ (1 + n) / (1 + df(t)) ] + 1.<br />
+-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn documentation</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="let-s-test-it-out">
+<h3>Let’s test it out<a class="headerlink" href="#let-s-test-it-out" title="Permalink to this headline">¶</a></h3>
+<p>We need the <code class="docutils literal notranslate"><span class="pre">log()</span></code> function for our calculation, otherwise known as <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a>, so we’re going to import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>“said”</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
+<span class="n">number_of_documents_with_term</span> <span class="o">=</span> <span class="mi">13</span> <span class="c1">##number of short stories the contain the word &quot;said&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">47</span> <span class="c1">##number of times &quot;said&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
+<span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total_number_of_documents</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">number_of_documents_with_term</span> <span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.24266495988672
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>“pigeons”</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1">##total number of short stories in *Lost in the City*</span>
+<span class="n">number_of_documents_with_term</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">##number of short stories the contain the word &quot;pigeons&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">##number of times &quot;pigeons&quot; appears in &quot;The Girl Who Raised Pigeons&quot;</span>
+<span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total_number_of_documents</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">number_of_documents_with_term</span> <span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.28313737302301
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>tf–idf scores for “The Girl Who Raised Pigeons”</strong></p>
+<p>“said” = 50.48<br>
+“pigeons” = 78.28</p>
+<p>Though the word “said” appears 47 times in “The Girl Who Raised Pigeons” and the word “pigeons” only appears 30 times, “pigeons” has a higher tf–idf score than “said” because it’s a rarer word. The word “pigeons” appears in 2 of 14 stories, while “said” appears in 13 of 14 stories, almost all of them.</p>
+</div>
+</div>
+<div class="section" id="get-hathitrust-extracted-features">
+<h2>Get HathiTrust Extracted Features<a class="headerlink" href="#get-hathitrust-extracted-features" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s try to calculate tf-idf scores for all the words in all the short stories in <em>Lost in the City</em>. To do so, we need word counts, or HathiTrust extracted features, for each story in the collection.</p>
+<p>To work with HathiTrust’s extracted features, we first need to install and import the <a class="reference external" href="https://github.com/htrc/htrc-feature-reader">HathiTrust Feature Reader</a>.</p>
+<p>Install HathiTrust Feature Reader</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install htrc-feature-reader
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import necessary libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc_features</span> <span class="kn">import</span> <span class="n">Volume</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we need to locate the the HathiTrust volume ID for <em>Lost in the City</em>. If we search the HathiTrust catalog for this book and then click on “Limited (search only),” it will take us to the following web page: https://babel.hathitrust.org/cgi/pt?id=mdp.39015029970129.</p>
+<p>The HathiTrust Volume ID for <em>Lost in the City</em> is located after <code class="docutils literal notranslate"><span class="pre">id=</span></code> this URL: <code class="docutils literal notranslate"><span class="pre">mdp.39015029970129</span></code>.</p>
+<div class="section" id="make-dataframe-of-word-frequencies-from-volume-s">
+<h3>Make DataFrame of Word Frequencies From Volume(s)<a class="headerlink" href="#make-dataframe-of-word-frequencies-from-volume-s" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="single-volume">
+<h4>Single Volume<a class="headerlink" href="#single-volume" title="Permalink to this headline">¶</a></h4>
+<p>To get HathiTrust extracted features for a single volume, we can create a <code class="docutils literal notranslate"><span class="pre">[Volume</span></code> object](https://github.com/htrc/htrc-feature-reader#volume) and use the <code class="docutils literal notranslate"><span class="pre">.tokenlist()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Volume</span><span class="p">(</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>section</th>
+      <th>token</th>
+      <th>pos</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>,</th>
+      <th>,</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>.046</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3560</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>AWARD</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">260</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>world</th>
+      <th>NN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>would</th>
+      <th>MD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>writers</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>written</th>
+      <th>VBN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>•</th>
+      <th>SYM</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>51297 rows × 1 columns</p>
+</div></div></div>
+</div>
+<p>For each page in <em>Lost in the City</em>, this DataFrame displays the page number and section type as well as every word/token that appears on the page, its part-of-speech, and the number of times that word/token occurs on the page. As you can see, there are 51,297 rows in this DataFrame — one for each token that appears on each page.</p>
+<p>Let’s look at a sample of just 20 words from page 11.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Volume</span><span class="p">(</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">()[</span><span class="mi">500</span><span class="p">:</span><span class="mi">520</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>section</th>
+      <th>token</th>
+      <th>pos</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="20" valign="top">11</th>
+      <th rowspan="20" valign="top">body</th>
+      <th>out</th>
+      <th>RP</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>over</th>
+      <th>IN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>part</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>past</th>
+      <th>IN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>pee</th>
+      <th>VB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>pigeon</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>pigeons</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>reach</th>
+      <th>VB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>remained</th>
+      <th>VBD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>roof</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>room</th>
+      <th>NN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>say</th>
+      <th>VB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>seemed</th>
+      <th>VBD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>set</th>
+      <th>VBN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>share</th>
+      <th>VB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>she</th>
+      <th>PRP</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>silenccBometimes</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>silence</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>simple</th>
+      <th>JJ</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>slats</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can also get metadata for a HathiTrust volume by asking for <a class="reference external" href="https://github.com/htrc/htrc-feature-reader#volume">certain attributes</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Volume</span><span class="p">(</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Volume</span><span class="p">(</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">page_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>260
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Volume</span><span class="p">(</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">publisher</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;HarperPerennial&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiple-volumes">
+<h4>Multiple Volumes<a class="headerlink" href="#multiple-volumes" title="Permalink to this headline">¶</a></h4>
+<p>We might want to get extracted features for multiple volumes at the same time, so we’re also going to practice a workflow that will allow us to read in multiple HathiTrust books, even though we’re only reading in one book at this moment.</p>
+<p>Insert list of desired HathiTrust volume(s)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loop through this list of volume IDs and make a DataFrame that includes extracted features, book title, and publication year, then make a list of all DataFrames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">hathi_id</span> <span class="ow">in</span> <span class="n">volume_ids</span><span class="p">:</span>
+    
+    <span class="c1">#Read in HathiTrust volume</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">)</span>
+    
+    <span class="c1">#Make dataframe from token list -- do not include part of speech, sections, or case sensitivity</span>
+    <span class="n">token_df</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">(</span><span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">drop_section</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1">#Add book column</span>
+    <span class="n">token_df</span><span class="p">[</span><span class="s1">&#39;book&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">title</span>
+    
+    <span class="c1">#Add publication year column</span>
+    <span class="n">token_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">year</span>
+    
+    <span class="n">all_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Concatenate the list of DataFrames</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preview the DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>book</th>
+      <th>year</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>lowercase</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th>,</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>.046</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>3560</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">260</th>
+      <th>would</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>writers</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>written</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>york</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>•</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+  </tbody>
+</table>
+<p>47307 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Change from multi-level index to regular index with <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> <span class="o">=</span> <span class="n">lost_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>page</th>
+      <th>lowercase</th>
+      <th>count</th>
+      <th>book</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>,</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>.046</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1993</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3560</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>a</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>47302</th>
+      <td>260</td>
+      <td>would</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47303</th>
+      <td>260</td>
+      <td>writers</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47304</th>
+      <td>260</td>
+      <td>written</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47305</th>
+      <td>260</td>
+      <td>york</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47306</th>
+      <td>260</td>
+      <td>•</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+  </tbody>
+</table>
+<p>47307 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Nice! We now have a DataFrame of word counts per page for <em>Lost in the City</em>.</p>
+<p>But what we need to move forward with tf-idf is a way of splitting this collection into its individual stories. Remember: to use tf-idf, we need a <em>collection</em> of texts because we need to compare word frequency for one document with all the other documents in the collection.</p>
+</div>
+</div>
+</div>
+<div class="section" id="add-story-titles">
+<h2>Add story titles<a class="headerlink" href="#add-story-titles" title="Permalink to this headline">¶</a></h2>
+<p>How can we split up <em>Lost in the City</em> into individual stories?</p>
+<p>Sometimes HathiTrust Extracted Features helpfully include “section” information for a book, such as chapter titles. Unfortunately, the extracted features for <em>Lost in the City</em> do not include chapter or story titles.</p>
+<p>They do, however, include page numbers and, if you specify <code class="docutils literal notranslate"><span class="pre">volume.tokenlist(case=True)</span></code>, words with case sensitivity. When I manually combed through the HTRC token list with case sensitivity turned on, I noticed that the title page for each short story seemed to format the title in all-caps. So I searched for all-caps words from each story title and noted down the corresponding page number. This should give us a marker of where every story begins and ends.</p>
+<p>The function below will add in <em>Lost in the City</em>’s story titles for the correct page numbers and corresponding words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_story_titles</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Front Matter&quot;</span>
+    <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;01: The Girl Who Raised Pigeons&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">35</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">41</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;02: The First Day&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">41</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">63</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;03: The Night Rhonda Ferguson Was Killed&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">63</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;04: Young Lions&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">85</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">113</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;05: The Store&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">113</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">125</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;06: An Orange Line Train to Ballston&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">125</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">149</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;07: The Sunday Following Mother&#39;s Day&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">149</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">159</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;08: Lost in the City&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">159</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">184</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;09: His Mother&#39;s House&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">184</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">191</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;10: A Butterfly on F Street&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">191</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">209</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;11: Gospel&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">209</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">225</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;12: A New Man&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">225</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">237</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;13: A Dark Night&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">237</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;=</span> <span class="mi">252</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;14: Marie&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="mi">252</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Back Matter&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below we add a new column of story titles to the DataFrame by <code class="docutils literal notranslate"><span class="pre">apply()</span></code>ing our function to the “page” column and dumping the results to <code class="docutils literal notranslate"><span class="pre">lost_df_flattened['story']</span></code>. You can read more about applying functions in <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part3.html#applying-functions">“Pandas Basics - Part 3”</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_story_titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also going to drop the “Front Matter” and “Back Matter” from the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Front Matter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Back Matter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sum-word-counts-for-each-story">
+<h2>Sum Word Counts For Each Story<a class="headerlink" href="#sum-word-counts-for-each-story" title="Permalink to this headline">¶</a></h2>
+<p>Page-level information is great. But for tf-idf purposes, we really only care about the frequency of words for every story. Below we group by story and calculate the sum of word frequencies for all the pages in that story.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;story&#39;</span><span class="p">,</span> <span class="s1">&#39;lowercase&#39;</span><span class="p">])[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>story</th>
+      <th>lowercase</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>!</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>''</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'d</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'ll</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18082</th>
+      <td>14: Marie</td>
+      <td>yet</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18083</th>
+      <td>14: Marie</td>
+      <td>you</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>18084</th>
+      <td>14: Marie</td>
+      <td>you-know-who</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18085</th>
+      <td>14: Marie</td>
+      <td>young</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>18086</th>
+      <td>14: Marie</td>
+      <td>your</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>18087 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Notice how the “page” column no longer exists in the DataFrame and our rows have slimmed down from more than 40,000 to 18,000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;story&#39;</span><span class="p">,</span> <span class="s1">&#39;lowercase&#39;</span><span class="p">])[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-infrequent-words-stopwords-punctuation">
+<h2>Remove Infrequent Words, Stopwords, &amp; Punctuation<a class="headerlink" href="#remove-infrequent-words-stopwords-punctuation" title="Permalink to this headline">¶</a></h2>
+<p>We will conclude with some final pre-processing steps. We will remove the list of stopwords defined below.</p>
+<p>Make list of stopwords</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOPS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;yourself&#39;</span><span class="p">,</span> <span class="s1">&#39;yourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;him&#39;</span><span class="p">,</span> <span class="s1">&#39;his&#39;</span><span class="p">,</span> <span class="s1">&#39;himself&#39;</span><span class="p">,</span> <span class="s1">&#39;she&#39;</span><span class="p">,</span> <span class="s1">&#39;her&#39;</span><span class="p">,</span> <span class="s1">&#39;hers&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;herself&#39;</span><span class="p">,</span> <span class="s1">&#39;it&#39;</span><span class="p">,</span> <span class="s1">&#39;its&#39;</span><span class="p">,</span> <span class="s1">&#39;itself&#39;</span><span class="p">,</span> <span class="s1">&#39;they&#39;</span><span class="p">,</span> <span class="s1">&#39;them&#39;</span><span class="p">,</span> <span class="s1">&#39;their&#39;</span><span class="p">,</span> <span class="s1">&#39;theirs&#39;</span><span class="p">,</span> <span class="s1">&#39;themselves&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;what&#39;</span><span class="p">,</span> <span class="s1">&#39;which&#39;</span><span class="p">,</span> <span class="s1">&#39;who&#39;</span><span class="p">,</span> <span class="s1">&#39;whom&#39;</span><span class="p">,</span> <span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">,</span> <span class="s1">&#39;these&#39;</span><span class="p">,</span> <span class="s1">&#39;those&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;are&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;was&#39;</span><span class="p">,</span> <span class="s1">&#39;were&#39;</span><span class="p">,</span> <span class="s1">&#39;be&#39;</span><span class="p">,</span> <span class="s1">&#39;been&#39;</span><span class="p">,</span> <span class="s1">&#39;being&#39;</span><span class="p">,</span> <span class="s1">&#39;have&#39;</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;having&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;does&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;did&#39;</span><span class="p">,</span> <span class="s1">&#39;doing&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;an&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;but&#39;</span><span class="p">,</span> <span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;because&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;until&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;while&#39;</span><span class="p">,</span> <span class="s1">&#39;of&#39;</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="s1">&#39;by&#39;</span><span class="p">,</span> <span class="s1">&#39;for&#39;</span><span class="p">,</span> <span class="s1">&#39;with&#39;</span><span class="p">,</span> <span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="s1">&#39;against&#39;</span><span class="p">,</span> <span class="s1">&#39;between&#39;</span><span class="p">,</span> <span class="s1">&#39;into&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;through&#39;</span><span class="p">,</span> <span class="s1">&#39;during&#39;</span><span class="p">,</span> <span class="s1">&#39;before&#39;</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span><span class="p">,</span> <span class="s1">&#39;above&#39;</span><span class="p">,</span> <span class="s1">&#39;below&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="s1">&#39;over&#39;</span><span class="p">,</span> <span class="s1">&#39;under&#39;</span><span class="p">,</span> <span class="s1">&#39;again&#39;</span><span class="p">,</span> <span class="s1">&#39;further&#39;</span><span class="p">,</span> <span class="s1">&#39;then&#39;</span><span class="p">,</span> <span class="s1">&#39;once&#39;</span><span class="p">,</span> <span class="s1">&#39;here&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;there&#39;</span><span class="p">,</span> <span class="s1">&#39;when&#39;</span><span class="p">,</span> <span class="s1">&#39;where&#39;</span><span class="p">,</span> <span class="s1">&#39;why&#39;</span><span class="p">,</span> <span class="s1">&#39;how&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="s1">&#39;each&#39;</span><span class="p">,</span> <span class="s1">&#39;few&#39;</span><span class="p">,</span> <span class="s1">&#39;more&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;most&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="s1">&#39;some&#39;</span><span class="p">,</span> <span class="s1">&#39;such&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;nor&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;only&#39;</span><span class="p">,</span> <span class="s1">&#39;own&#39;</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="s1">&#39;so&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;than&#39;</span><span class="p">,</span> <span class="s1">&#39;too&#39;</span><span class="p">,</span> <span class="s1">&#39;very&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;can&#39;</span><span class="p">,</span> <span class="s1">&#39;will&#39;</span><span class="p">,</span> <span class="s1">&#39;just&#39;</span><span class="p">,</span> <span class="s1">&#39;don&#39;</span><span class="p">,</span> <span class="s1">&#39;should&#39;</span><span class="p">,</span> <span class="s1">&#39;now&#39;</span><span class="p">,</span> <span class="s1">&#39;ve&#39;</span><span class="p">,</span> <span class="s1">&#39;ll&#39;</span><span class="p">,</span> <span class="s1">&#39;amp&#39;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remove stopwords</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">STOPS</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will also remove punctuation by using a regular expression <code class="docutils literal notranslate"><span class="pre">[^A-Za-z\s]</span></code>, which matches anything that’s not a letter and drops it from the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z\s]&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Remove words that appear less than 5 times in a book</span>
+<span class="c1">#word_frequency_df_test = word_frequency_df[word_frequency_df[&#39;count&#39;] &gt; 5]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>story</th>
+      <th>lowercase</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absently</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absolute</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>accepted</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18079</th>
+      <td>14: Marie</td>
+      <td>years</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>18080</th>
+      <td>14: Marie</td>
+      <td>yes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18081</th>
+      <td>14: Marie</td>
+      <td>yesterday</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18082</th>
+      <td>14: Marie</td>
+      <td>yet</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18085</th>
+      <td>14: Marie</td>
+      <td>young</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>15726 rows × 3 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tf-idf">
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="term-frequency">
+<h3>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this headline">¶</a></h3>
+<p>We already have term frequencies for each document. Let’s rename the columns so that they’re consistent with the tf-idf vocabulary that we’ve been using.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lowercase&#39;</span><span class="p">:</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="s1">&#39;term_frequency&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>story</th>
+      <th>term</th>
+      <th>term_frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absently</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absolute</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>accepted</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18079</th>
+      <td>14: Marie</td>
+      <td>years</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>18080</th>
+      <td>14: Marie</td>
+      <td>yes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18081</th>
+      <td>14: Marie</td>
+      <td>yesterday</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18082</th>
+      <td>14: Marie</td>
+      <td>yet</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18085</th>
+      <td>14: Marie</td>
+      <td>young</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>15726 rows × 3 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="document-frequency">
+<h3>Document Frequency<a class="headerlink" href="#document-frequency" title="Permalink to this headline">¶</a></h3>
+<p>To calculate the number of documents or stories in which each term appears, we’re going to create a separate DataFrame and do some Pandas manipulation and calculation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document_frequency_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">word_frequency_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;term&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you inspect parts of the complex chain of Pandas methods above (which is always a great way to learn!), you will see that we’re momentarily reshaping the DataFrame to see if each term appears in each story…</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;term&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>term</th>
+      <th>abandoned</th>
+      <th>abhored</th>
+      <th>abide</th>
+      <th>ability</th>
+      <th>able</th>
+      <th>abomination</th>
+      <th>aboum</th>
+      <th>aboutfcfteen</th>
+      <th>abqu</th>
+      <th>absently</th>
+      <th>...</th>
+      <th>ypu</th>
+      <th>yr</th>
+      <th>ysirs</th>
+      <th>ythe</th>
+      <th>yuddini</th>
+      <th>zigzagging</th>
+      <th>zion</th>
+      <th>zipped</th>
+      <th>zippers</th>
+      <th>zoo</th>
+    </tr>
+    <tr>
+      <th>story</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>01: The Girl Who Raised Pigeons</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>02: The First Day</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>03: The Night Rhonda Ferguson Was Killed</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>04: Young Lions</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>05: The Store</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>06: An Orange Line Train to Ballston</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>07: The Sunday Following Mother's Day</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>08: Lost in the City</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>09: His Mother's House</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10: A Butterfly on F Street</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11: Gospel</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12: A New Man</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13: A Dark Night</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14: Marie</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>14 rows × 6207 columns</p>
+</div></div></div>
+</div>
+<p>Then we’re adding up how many stories each term appears in (<code class="docutils literal notranslate"><span class="pre">.sum()</span></code>) and resetting the index (<code class="docutils literal notranslate"><span class="pre">.reset_index()</span></code>) to make a DataFrame.</p>
+<p>Finally, we will rename the column in this DataFrame and merge it into our word frequency DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document_frequency_df</span> <span class="o">=</span> <span class="n">document_frequency_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;document_frequency&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">document_frequency_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have term frequency and document frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>story</th>
+      <th>term</th>
+      <th>term_frequency</th>
+      <th>document_frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>abandoned</td>
+      <td>1</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>09: His Mother's House</td>
+      <td>abandoned</td>
+      <td>1</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>able</td>
+      <td>3</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>15721</th>
+      <td>14: Marie</td>
+      <td>whim</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15722</th>
+      <td>14: Marie</td>
+      <td>wilamena</td>
+      <td>20</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15723</th>
+      <td>14: Marie</td>
+      <td>wise</td>
+      <td>8</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15724</th>
+      <td>14: Marie</td>
+      <td>womanish</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15725</th>
+      <td>14: Marie</td>
+      <td>worships</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>15726 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>As you can see in the DataFrame above, the term “abandoned” appears 2 times in the story “The Girl Who Raised Pigeons” (term frequency), and it appears in 3 different stories in the collection overall (document frequency).</p>
+</div>
+<div class="section" id="total-number-of-documents">
+<h3>Total Number of Documents<a class="headerlink" href="#total-number-of-documents" title="Permalink to this headline">¶</a></h3>
+<p>To calculate the total number of documents are in the collection, we count how many unique values are in the “story” column (we know the answer should be 14 short stories).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inverse-document-frequency">
+<h3>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this headline">¶</a></h3>
+<p>As we previously established, there are a lot of slightly different versions of the tf-idf formula, but we’re going to use the default version from the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn library</a> that adds “smoothing” to inverse document frequency.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">docs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">document</span> <span class="n">frequency</span><span class="p">)</span> <span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;idf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total_number_of_documents</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;document_frequency&#39;</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>TF- IDF<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we will calculate tf-idf by multiplying term frequency and inverse document frequency together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;tfidf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;term_frequency&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;idf&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we will normalize these values with the scikit-learn library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;tfidf_normalized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[[</span><span class="s1">&#39;tfidf&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We did it! Now let’s inspect the top 15 words with the highest tfidf scores for each story in the collection</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;tfidf_normalized&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;story&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>story</th>
+      <th>term</th>
+      <th>term_frequency</th>
+      <th>document_frequency</th>
+      <th>idf</th>
+      <th>tfidf</th>
+      <th>tfidf_normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>655</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>betsy</td>
+      <td>44</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>132.655733</td>
+      <td>0.106417</td>
+    </tr>
+    <tr>
+      <th>3317</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>jenny</td>
+      <td>42</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>126.625927</td>
+      <td>0.101580</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>ann</td>
+      <td>45</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>117.424706</td>
+      <td>0.094199</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>robert</td>
+      <td>36</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>108.536509</td>
+      <td>0.087069</td>
+    </tr>
+    <tr>
+      <th>1384</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>coop</td>
+      <td>28</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>84.417285</td>
+      <td>0.067720</td>
+    </tr>
+    <tr>
+      <th>7887</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>would</td>
+      <td>84</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>84.000000</td>
+      <td>0.067385</td>
+    </tr>
+    <tr>
+      <th>5053</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>pigeons</td>
+      <td>30</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>78.283137</td>
+      <td>0.062799</td>
+    </tr>
+    <tr>
+      <th>4238</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>miss</td>
+      <td>46</td>
+      <td>10.0</td>
+      <td>1.310155</td>
+      <td>60.267127</td>
+      <td>0.048347</td>
+    </tr>
+    <tr>
+      <th>688</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>birds</td>
+      <td>29</td>
+      <td>5.0</td>
+      <td>1.916291</td>
+      <td>55.572431</td>
+      <td>0.044581</td>
+    </tr>
+    <tr>
+      <th>1191</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>clara</td>
+      <td>17</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>51.253351</td>
+      <td>0.041116</td>
+    </tr>
+    <tr>
+      <th>5622</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>said</td>
+      <td>47</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>50.242665</td>
+      <td>0.040305</td>
+    </tr>
+    <tr>
+      <th>5350</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>ralph</td>
+      <td>17</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>44.360445</td>
+      <td>0.035586</td>
+    </tr>
+    <tr>
+      <th>4189</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>miles</td>
+      <td>21</td>
+      <td>4.0</td>
+      <td>2.098612</td>
+      <td>44.070858</td>
+      <td>0.035354</td>
+    </tr>
+    <tr>
+      <th>5052</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>pigeon</td>
+      <td>14</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>42.208642</td>
+      <td>0.033860</td>
+    </tr>
+    <tr>
+      <th>6837</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>thelma</td>
+      <td>14</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>42.208642</td>
+      <td>0.033860</td>
+    </tr>
+    <tr>
+      <th>4340</th>
+      <td>02: The First Day</td>
+      <td>mother</td>
+      <td>42</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>44.897701</td>
+      <td>0.036017</td>
+    </tr>
+    <tr>
+      <th>7772</th>
+      <td>02: The First Day</td>
+      <td>woman</td>
+      <td>23</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>23.000000</td>
+      <td>0.018451</td>
+    </tr>
+    <tr>
+      <th>8659</th>
+      <td>02: The First Day</td>
+      <td>takes</td>
+      <td>7</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>18.266065</td>
+      <td>0.014653</td>
+    </tr>
+    <tr>
+      <th>3895</th>
+      <td>02: The First Day</td>
+      <td>looks</td>
+      <td>6</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>15.656627</td>
+      <td>0.012560</td>
+    </tr>
+    <tr>
+      <th>8568</th>
+      <td>02: The First Day</td>
+      <td>says</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td>1.916291</td>
+      <td>13.414035</td>
+      <td>0.010761</td>
+    </tr>
+    <tr>
+      <th>8210</th>
+      <td>02: The First Day</td>
+      <td>form</td>
+      <td>6</td>
+      <td>4.0</td>
+      <td>2.098612</td>
+      <td>12.591674</td>
+      <td>0.010101</td>
+    </tr>
+    <tr>
+      <th>5701</th>
+      <td>02: The First Day</td>
+      <td>school</td>
+      <td>10</td>
+      <td>11.0</td>
+      <td>1.223144</td>
+      <td>12.231436</td>
+      <td>0.009812</td>
+    </tr>
+    <tr>
+      <th>8575</th>
+      <td>02: The First Day</td>
+      <td>seaton</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>12.059612</td>
+      <td>0.009674</td>
+    </tr>
+    <tr>
+      <th>4757</th>
+      <td>02: The First Day</td>
+      <td>one</td>
+      <td>12</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>12.000000</td>
+      <td>0.009626</td>
+    </tr>
+    <tr>
+      <th>8268</th>
+      <td>02: The First Day</td>
+      <td>jersey</td>
+      <td>5</td>
+      <td>3.0</td>
+      <td>2.321756</td>
+      <td>11.608779</td>
+      <td>0.009313</td>
+    </tr>
+    <tr>
+      <th>8667</th>
+      <td>02: The First Day</td>
+      <td>tells</td>
+      <td>4</td>
+      <td>3.0</td>
+      <td>2.321756</td>
+      <td>9.287023</td>
+      <td>0.007450</td>
+    </tr>
+    <tr>
+      <th>8036</th>
+      <td>02: The First Day</td>
+      <td>appears</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>9.044709</td>
+      <td>0.007256</td>
+    </tr>
+    <tr>
+      <th>8046</th>
+      <td>02: The First Day</td>
+      <td>asks</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>9.044709</td>
+      <td>0.007256</td>
+    </tr>
+    <tr>
+      <th>8089</th>
+      <td>02: The First Day</td>
+      <td>blondelle</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>9.044709</td>
+      <td>0.007256</td>
+    </tr>
+    <tr>
+      <th>8358</th>
+      <td>02: The First Day</td>
+      <td>mary</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>9.044709</td>
+      <td>0.007256</td>
+    </tr>
+    <tr>
+      <th>8974</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>cassandra</td>
+      <td>130</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>391.937393</td>
+      <td>0.314415</td>
+    </tr>
+    <tr>
+      <th>9693</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>melanie</td>
+      <td>65</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>195.968696</td>
+      <td>0.157207</td>
+    </tr>
+    <tr>
+      <th>8778</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>anita</td>
+      <td>68</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>177.441778</td>
+      <td>0.142345</td>
+    </tr>
+    <tr>
+      <th>10002</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>rhonda</td>
+      <td>42</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>126.625927</td>
+      <td>0.101580</td>
+    </tr>
+    <tr>
+      <th>5623</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>said</td>
+      <td>109</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>116.520223</td>
+      <td>0.093473</td>
+    </tr>
+    <tr>
+      <th>9386</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>gladys</td>
+      <td>38</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>99.158641</td>
+      <td>0.079546</td>
+    </tr>
+    <tr>
+      <th>8944</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>car</td>
+      <td>42</td>
+      <td>11.0</td>
+      <td>1.223144</td>
+      <td>51.372029</td>
+      <td>0.041211</td>
+    </tr>
+    <tr>
+      <th>6510</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>street</td>
+      <td>42</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>44.897701</td>
+      <td>0.036017</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>back</td>
+      <td>39</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>39.000000</td>
+      <td>0.031286</td>
+    </tr>
+    <tr>
+      <th>2602</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>get</td>
+      <td>36</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>38.483743</td>
+      <td>0.030872</td>
+    </tr>
+    <tr>
+      <th>2646</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>girls</td>
+      <td>17</td>
+      <td>4.0</td>
+      <td>2.098612</td>
+      <td>35.676409</td>
+      <td>0.028620</td>
+    </tr>
+    <tr>
+      <th>2204</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>father</td>
+      <td>32</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>34.207772</td>
+      <td>0.027442</td>
+    </tr>
+    <tr>
+      <th>10481</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>wesley</td>
+      <td>13</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>33.922693</td>
+      <td>0.027213</td>
+    </tr>
+    <tr>
+      <th>9571</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>joyce</td>
+      <td>12</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>31.313255</td>
+      <td>0.025120</td>
+    </tr>
+    <tr>
+      <th>9833</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>pearl</td>
+      <td>11</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>28.703817</td>
+      <td>0.023026</td>
+    </tr>
+    <tr>
+      <th>10696</th>
+      <td>04: Young Lions</td>
+      <td>caesar</td>
+      <td>75</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>226.117727</td>
+      <td>0.181393</td>
+    </tr>
+    <tr>
+      <th>11527</th>
+      <td>04: Young Lions</td>
+      <td>sherman</td>
+      <td>60</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>180.894181</td>
+      <td>0.145114</td>
+    </tr>
+    <tr>
+      <th>11198</th>
+      <td>04: Young Lions</td>
+      <td>manny</td>
+      <td>44</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>132.655733</td>
+      <td>0.106417</td>
+    </tr>
+    <tr>
+      <th>10701</th>
+      <td>04: Young Lions</td>
+      <td>carol</td>
+      <td>29</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>87.432188</td>
+      <td>0.070139</td>
+    </tr>
+    <tr>
+      <th>5624</th>
+      <td>04: Young Lions</td>
+      <td>said</td>
+      <td>71</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>75.898494</td>
+      <td>0.060886</td>
+    </tr>
+    <tr>
+      <th>11452</th>
+      <td>04: Young Lions</td>
+      <td>retarded</td>
+      <td>22</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>57.407634</td>
+      <td>0.046053</td>
+    </tr>
+    <tr>
+      <th>7890</th>
+      <td>04: Young Lions</td>
+      <td>would</td>
+      <td>57</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>57.000000</td>
+      <td>0.045726</td>
+    </tr>
+    <tr>
+      <th>11016</th>
+      <td>04: Young Lions</td>
+      <td>heh</td>
+      <td>17</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>51.253351</td>
+      <td>0.041116</td>
+    </tr>
+    <tr>
+      <th>7774</th>
+      <td>04: Young Lions</td>
+      <td>woman</td>
+      <td>44</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>44.000000</td>
+      <td>0.035297</td>
+    </tr>
+    <tr>
+      <th>10568</th>
+      <td>04: Young Lions</td>
+      <td>anna</td>
+      <td>13</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>39.193739</td>
+      <td>0.031441</td>
+    </tr>
+    <tr>
+      <th>4006</th>
+      <td>04: Young Lions</td>
+      <td>man</td>
+      <td>34</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>36.345758</td>
+      <td>0.029157</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>04: Young Lions</td>
+      <td>back</td>
+      <td>35</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>35.000000</td>
+      <td>0.028077</td>
+    </tr>
+    <tr>
+      <th>1401</th>
+      <td>04: Young Lions</td>
+      <td>could</td>
+      <td>29</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>31.000793</td>
+      <td>0.024869</td>
+    </tr>
+    <tr>
+      <th>7199</th>
+      <td>04: Young Lions</td>
+      <td>two</td>
+      <td>30</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>30.000000</td>
+      <td>0.024066</td>
+    </tr>
+    <tr>
+      <th>2205</th>
+      <td>04: Young Lions</td>
+      <td>father</td>
+      <td>28</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>29.931800</td>
+      <td>0.024011</td>
+    </tr>
+    <tr>
+      <th>12577</th>
+      <td>05: The Store</td>
+      <td>penny</td>
+      <td>57</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>148.737961</td>
+      <td>0.119319</td>
+    </tr>
+    <tr>
+      <th>5625</th>
+      <td>05: The Store</td>
+      <td>said</td>
+      <td>79</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>84.450437</td>
+      <td>0.067747</td>
+    </tr>
+    <tr>
+      <th>7891</th>
+      <td>05: The Store</td>
+      <td>would</td>
+      <td>79</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>79.000000</td>
+      <td>0.063374</td>
+    </tr>
+    <tr>
+      <th>6479</th>
+      <td>05: The Store</td>
+      <td>store</td>
+      <td>51</td>
+      <td>10.0</td>
+      <td>1.310155</td>
+      <td>66.817901</td>
+      <td>0.053602</td>
+    </tr>
+    <tr>
+      <th>12353</th>
+      <td>05: The Store</td>
+      <td>jenkins</td>
+      <td>19</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>57.283157</td>
+      <td>0.045953</td>
+    </tr>
+    <tr>
+      <th>12375</th>
+      <td>05: The Store</td>
+      <td>kentucky</td>
+      <td>23</td>
+      <td>3.0</td>
+      <td>2.321756</td>
+      <td>53.400384</td>
+      <td>0.042838</td>
+    </tr>
+    <tr>
+      <th>12427</th>
+      <td>05: The Store</td>
+      <td>lonney</td>
+      <td>17</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>51.253351</td>
+      <td>0.041116</td>
+    </tr>
+    <tr>
+      <th>455</th>
+      <td>05: The Store</td>
+      <td>back</td>
+      <td>50</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>50.000000</td>
+      <td>0.040110</td>
+    </tr>
+    <tr>
+      <th>4760</th>
+      <td>05: The Store</td>
+      <td>one</td>
+      <td>48</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>48.000000</td>
+      <td>0.038506</td>
+    </tr>
+    <tr>
+      <th>4343</th>
+      <td>05: The Store</td>
+      <td>mother</td>
+      <td>42</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>44.897701</td>
+      <td>0.036017</td>
+    </tr>
+    <tr>
+      <th>6969</th>
+      <td>05: The Store</td>
+      <td>time</td>
+      <td>42</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>42.000000</td>
+      <td>0.033693</td>
+    </tr>
+    <tr>
+      <th>1552</th>
+      <td>05: The Store</td>
+      <td>day</td>
+      <td>40</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>40.000000</td>
+      <td>0.032088</td>
+    </tr>
+    <tr>
+      <th>1402</th>
+      <td>05: The Store</td>
+      <td>could</td>
+      <td>34</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>36.345758</td>
+      <td>0.029157</td>
+    </tr>
+    <tr>
+      <th>2206</th>
+      <td>05: The Store</td>
+      <td>father</td>
+      <td>32</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>34.207772</td>
+      <td>0.027442</td>
+    </tr>
+    <tr>
+      <th>11865</th>
+      <td>05: The Store</td>
+      <td>baxter</td>
+      <td>11</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>33.163933</td>
+      <td>0.026604</td>
+    </tr>
+    <tr>
+      <th>13144</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marcus</td>
+      <td>38</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>114.566315</td>
+      <td>0.091906</td>
+    </tr>
+    <tr>
+      <th>13046</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>avis</td>
+      <td>26</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>78.387479</td>
+      <td>0.062883</td>
+    </tr>
+    <tr>
+      <th>13146</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marvin</td>
+      <td>24</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>72.357672</td>
+      <td>0.058046</td>
+    </tr>
+    <tr>
+      <th>13145</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marvella</td>
+      <td>23</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>69.342769</td>
+      <td>0.055627</td>
+    </tr>
+    <tr>
+      <th>5626</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>said</td>
+      <td>64</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>68.415544</td>
+      <td>0.054883</td>
+    </tr>
+    <tr>
+      <th>4008</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>man</td>
+      <td>63</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>67.346551</td>
+      <td>0.054026</td>
+    </tr>
+    <tr>
+      <th>7084</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>train</td>
+      <td>25</td>
+      <td>5.0</td>
+      <td>1.916291</td>
+      <td>47.907268</td>
+      <td>0.038432</td>
+    </tr>
+    <tr>
+      <th>13216</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>subway</td>
+      <td>15</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>45.223545</td>
+      <td>0.036279</td>
+    </tr>
+    <tr>
+      <th>13087</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>dreadlocks</td>
+      <td>11</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>33.163933</td>
+      <td>0.026604</td>
+    </tr>
+    <tr>
+      <th>13086</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>dreadlock</td>
+      <td>8</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>24.119224</td>
+      <td>0.019349</td>
+    </tr>
+    <tr>
+      <th>3765</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>line</td>
+      <td>18</td>
+      <td>10.0</td>
+      <td>1.310155</td>
+      <td>23.582789</td>
+      <td>0.018918</td>
+    </tr>
+    <tr>
+      <th>4800</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>orange</td>
+      <td>11</td>
+      <td>4.0</td>
+      <td>2.098612</td>
+      <td>23.084735</td>
+      <td>0.018519</td>
+    </tr>
+    <tr>
+      <th>4344</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>mother</td>
+      <td>17</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>18.172879</td>
+      <td>0.014578</td>
+    </tr>
+    <tr>
+      <th>13050</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>ballston</td>
+      <td>6</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>18.089418</td>
+      <td>0.014511</td>
+    </tr>
+    <tr>
+      <th>3741</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>like</td>
+      <td>17</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>17.000000</td>
+      <td>0.013638</td>
+    </tr>
+    <tr>
+      <th>13627</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>madeleine</td>
+      <td>74</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>223.102824</td>
+      <td>0.178974</td>
+    </tr>
+    <tr>
+      <th>13626</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>maddie</td>
+      <td>62</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>186.923987</td>
+      <td>0.149952</td>
+    </tr>
+    <tr>
+      <th>13770</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>samuel</td>
+      <td>41</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>123.611024</td>
+      <td>0.099162</td>
+    </tr>
+    <tr>
+      <th>13769</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>sam</td>
+      <td>34</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>102.506703</td>
+      <td>0.082232</td>
+    </tr>
+    <tr>
+      <th>5627</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>said</td>
+      <td>81</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>86.588423</td>
+      <td>0.069462</td>
+    </tr>
+    <tr>
+      <th>7893</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>would</td>
+      <td>71</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>71.000000</td>
+      <td>0.056957</td>
+    </tr>
+    <tr>
+      <th>13711</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>pookie</td>
+      <td>21</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>63.312963</td>
+      <td>0.050790</td>
+    </tr>
+    <tr>
+      <th>9093</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>curtis</td>
+      <td>16</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>41.751007</td>
+      <td>0.033493</td>
+    </tr>
+    <tr>
+      <th>13281</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>arnisa</td>
+      <td>13</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>39.193739</td>
+      <td>0.031441</td>
+    </tr>
+    <tr>
+      <th>13893</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>williams</td>
+      <td>12</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>36.178836</td>
+      <td>0.029023</td>
+    </tr>
+    <tr>
+      <th>1404</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>could</td>
+      <td>33</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>35.276765</td>
+      <td>0.028299</td>
+    </tr>
+    <tr>
+      <th>1554</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>day</td>
+      <td>35</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>35.000000</td>
+      <td>0.028077</td>
+    </tr>
+    <tr>
+      <th>4009</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>man</td>
+      <td>32</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>34.207772</td>
+      <td>0.027442</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>back</td>
+      <td>33</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>33.000000</td>
+      <td>0.026473</td>
+    </tr>
+    <tr>
+      <th>4762</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>one</td>
+      <td>32</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>32.000000</td>
+      <td>0.025671</td>
+    </tr>
+    <tr>
+      <th>14079</th>
+      <td>08: Lost in the City</td>
+      <td>lydia</td>
+      <td>32</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>96.476897</td>
+      <td>0.077394</td>
+    </tr>
+    <tr>
+      <th>5628</th>
+      <td>08: Lost in the City</td>
+      <td>said</td>
+      <td>46</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>49.173672</td>
+      <td>0.039447</td>
+    </tr>
+    <tr>
+      <th>4346</th>
+      <td>08: Lost in the City</td>
+      <td>mother</td>
+      <td>44</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>47.035686</td>
+      <td>0.037732</td>
+    </tr>
+    <tr>
+      <th>10969</th>
+      <td>08: Lost in the City</td>
+      <td>georgia</td>
+      <td>19</td>
+      <td>3.0</td>
+      <td>2.321756</td>
+      <td>44.113361</td>
+      <td>0.035388</td>
+    </tr>
+    <tr>
+      <th>972</th>
+      <td>08: Lost in the City</td>
+      <td>cab</td>
+      <td>13</td>
+      <td>5.0</td>
+      <td>1.916291</td>
+      <td>24.911780</td>
+      <td>0.019984</td>
+    </tr>
+    <tr>
+      <th>9157</th>
+      <td>08: Lost in the City</td>
+      <td>driver</td>
+      <td>8</td>
+      <td>5.0</td>
+      <td>1.916291</td>
+      <td>15.330326</td>
+      <td>0.012298</td>
+    </tr>
+    <tr>
+      <th>13908</th>
+      <td>08: Lost in the City</td>
+      <td>antibes</td>
+      <td>5</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>15.074515</td>
+      <td>0.012093</td>
+    </tr>
+    <tr>
+      <th>13976</th>
+      <td>08: Lost in the City</td>
+      <td>dreaming</td>
+      <td>5</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>15.074515</td>
+      <td>0.012093</td>
+    </tr>
+    <tr>
+      <th>3455</th>
+      <td>08: Lost in the City</td>
+      <td>know</td>
+      <td>15</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>15.000000</td>
+      <td>0.012033</td>
+    </tr>
+    <tr>
+      <th>7894</th>
+      <td>08: Lost in the City</td>
+      <td>would</td>
+      <td>15</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>15.000000</td>
+      <td>0.012033</td>
+    </tr>
+    <tr>
+      <th>2607</th>
+      <td>08: Lost in the City</td>
+      <td>get</td>
+      <td>14</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>14.965900</td>
+      <td>0.012006</td>
+    </tr>
+    <tr>
+      <th>4010</th>
+      <td>08: Lost in the City</td>
+      <td>man</td>
+      <td>14</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>14.965900</td>
+      <td>0.012006</td>
+    </tr>
+    <tr>
+      <th>6925</th>
+      <td>08: Lost in the City</td>
+      <td>thought</td>
+      <td>14</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>14.000000</td>
+      <td>0.011231</td>
+    </tr>
+    <tr>
+      <th>10189</th>
+      <td>08: Lost in the City</td>
+      <td>sorry</td>
+      <td>9</td>
+      <td>8.0</td>
+      <td>1.510826</td>
+      <td>13.597431</td>
+      <td>0.010908</td>
+    </tr>
+    <tr>
+      <th>4763</th>
+      <td>08: Lost in the City</td>
+      <td>one</td>
+      <td>13</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>13.000000</td>
+      <td>0.010429</td>
+    </tr>
+    <tr>
+      <th>9572</th>
+      <td>09: His Mother's House</td>
+      <td>joyce</td>
+      <td>84</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>219.192785</td>
+      <td>0.175838</td>
+    </tr>
+    <tr>
+      <th>14513</th>
+      <td>09: His Mother's House</td>
+      <td>rickey</td>
+      <td>64</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>192.953793</td>
+      <td>0.154789</td>
+    </tr>
+    <tr>
+      <th>14529</th>
+      <td>09: His Mother's House</td>
+      <td>santiago</td>
+      <td>54</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>162.804763</td>
+      <td>0.130603</td>
+    </tr>
+    <tr>
+      <th>5629</th>
+      <td>09: His Mother's House</td>
+      <td>said</td>
+      <td>96</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>102.623316</td>
+      <td>0.082325</td>
+    </tr>
+    <tr>
+      <th>14384</th>
+      <td>09: His Mother's House</td>
+      <td>humphrey</td>
+      <td>33</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>99.491800</td>
+      <td>0.079813</td>
+    </tr>
+    <tr>
+      <th>9834</th>
+      <td>09: His Mother's House</td>
+      <td>pearl</td>
+      <td>22</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>57.407634</td>
+      <td>0.046053</td>
+    </tr>
+    <tr>
+      <th>14527</th>
+      <td>09: His Mother's House</td>
+      <td>sandy</td>
+      <td>18</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>54.268254</td>
+      <td>0.043534</td>
+    </tr>
+    <tr>
+      <th>4764</th>
+      <td>09: His Mother's House</td>
+      <td>one</td>
+      <td>50</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>50.000000</td>
+      <td>0.040110</td>
+    </tr>
+    <tr>
+      <th>7895</th>
+      <td>09: His Mother's House</td>
+      <td>would</td>
+      <td>49</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>49.000000</td>
+      <td>0.039308</td>
+    </tr>
+    <tr>
+      <th>14577</th>
+      <td>09: His Mother's House</td>
+      <td>smokey</td>
+      <td>16</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>48.238448</td>
+      <td>0.038697</td>
+    </tr>
+    <tr>
+      <th>3172</th>
+      <td>09: His Mother's House</td>
+      <td>house</td>
+      <td>35</td>
+      <td>12.0</td>
+      <td>1.143101</td>
+      <td>40.008530</td>
+      <td>0.032095</td>
+    </tr>
+    <tr>
+      <th>3744</th>
+      <td>09: His Mother's House</td>
+      <td>like</td>
+      <td>38</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>38.000000</td>
+      <td>0.030484</td>
+    </tr>
+    <tr>
+      <th>4347</th>
+      <td>09: His Mother's House</td>
+      <td>mother</td>
+      <td>35</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>37.414751</td>
+      <td>0.030014</td>
+    </tr>
+    <tr>
+      <th>6671</th>
+      <td>09: His Mother's House</td>
+      <td>table</td>
+      <td>29</td>
+      <td>11.0</td>
+      <td>1.223144</td>
+      <td>35.471163</td>
+      <td>0.028455</td>
+    </tr>
+    <tr>
+      <th>7779</th>
+      <td>09: His Mother's House</td>
+      <td>woman</td>
+      <td>35</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>35.000000</td>
+      <td>0.028077</td>
+    </tr>
+    <tr>
+      <th>9700</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>mildred</td>
+      <td>27</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>70.454824</td>
+      <td>0.056519</td>
+    </tr>
+    <tr>
+      <th>7780</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>woman</td>
+      <td>29</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>29.000000</td>
+      <td>0.023264</td>
+    </tr>
+    <tr>
+      <th>14675</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>butterfly</td>
+      <td>7</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>21.104321</td>
+      <td>0.016930</td>
+    </tr>
+    <tr>
+      <th>14710</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>mansfield</td>
+      <td>6</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>18.089418</td>
+      <td>0.014511</td>
+    </tr>
+    <tr>
+      <th>5630</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>said</td>
+      <td>16</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>17.103886</td>
+      <td>0.013721</td>
+    </tr>
+    <tr>
+      <th>6517</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>street</td>
+      <td>14</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>14.965900</td>
+      <td>0.012006</td>
+    </tr>
+    <tr>
+      <th>14713</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>median</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>12.059612</td>
+      <td>0.009674</td>
+    </tr>
+    <tr>
+      <th>14750</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>woolworth</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>12.059612</td>
+      <td>0.009674</td>
+    </tr>
+    <tr>
+      <th>460</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>back</td>
+      <td>10</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>10.000000</td>
+      <td>0.008022</td>
+    </tr>
+    <tr>
+      <th>5672</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>say</td>
+      <td>9</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>9.620936</td>
+      <td>0.007718</td>
+    </tr>
+    <tr>
+      <th>14714</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>morton</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>9.044709</td>
+      <td>0.007256</td>
+    </tr>
+    <tr>
+      <th>9258</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>f</td>
+      <td>5</td>
+      <td>6.0</td>
+      <td>1.762140</td>
+      <td>8.810700</td>
+      <td>0.007068</td>
+    </tr>
+    <tr>
+      <th>1557</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>day</td>
+      <td>8</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>0.006418</td>
+    </tr>
+    <tr>
+      <th>7896</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>would</td>
+      <td>8</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>0.006418</td>
+    </tr>
+    <tr>
+      <th>9387</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>gladys</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>7.828314</td>
+      <td>0.006280</td>
+    </tr>
+    <tr>
+      <th>15094</th>
+      <td>11: Gospel</td>
+      <td>vivian</td>
+      <td>68</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>205.013405</td>
+      <td>0.164463</td>
+    </tr>
+    <tr>
+      <th>14845</th>
+      <td>11: Gospel</td>
+      <td>diane</td>
+      <td>42</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>126.625927</td>
+      <td>0.101580</td>
+    </tr>
+    <tr>
+      <th>14943</th>
+      <td>11: Gospel</td>
+      <td>maude</td>
+      <td>32</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>96.476897</td>
+      <td>0.077394</td>
+    </tr>
+    <tr>
+      <th>5631</th>
+      <td>11: Gospel</td>
+      <td>said</td>
+      <td>77</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>82.312451</td>
+      <td>0.066032</td>
+    </tr>
+    <tr>
+      <th>8779</th>
+      <td>11: Gospel</td>
+      <td>anita</td>
+      <td>25</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>65.235948</td>
+      <td>0.052333</td>
+    </tr>
+    <tr>
+      <th>15005</th>
+      <td>11: Gospel</td>
+      <td>reverend</td>
+      <td>18</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>46.969882</td>
+      <td>0.037680</td>
+    </tr>
+    <tr>
+      <th>14895</th>
+      <td>11: Gospel</td>
+      <td>gospelteers</td>
+      <td>15</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>45.223545</td>
+      <td>0.036279</td>
+    </tr>
+    <tr>
+      <th>14938</th>
+      <td>11: Gospel</td>
+      <td>mae</td>
+      <td>15</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>45.223545</td>
+      <td>0.036279</td>
+    </tr>
+    <tr>
+      <th>2845</th>
+      <td>11: Gospel</td>
+      <td>group</td>
+      <td>26</td>
+      <td>7.0</td>
+      <td>1.628609</td>
+      <td>42.343825</td>
+      <td>0.033968</td>
+    </tr>
+    <tr>
+      <th>7897</th>
+      <td>11: Gospel</td>
+      <td>would</td>
+      <td>42</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>42.000000</td>
+      <td>0.033693</td>
+    </tr>
+    <tr>
+      <th>1408</th>
+      <td>11: Gospel</td>
+      <td>could</td>
+      <td>39</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>41.690722</td>
+      <td>0.033445</td>
+    </tr>
+    <tr>
+      <th>1176</th>
+      <td>11: Gospel</td>
+      <td>church</td>
+      <td>26</td>
+      <td>9.0</td>
+      <td>1.405465</td>
+      <td>36.542093</td>
+      <td>0.029314</td>
+    </tr>
+    <tr>
+      <th>14835</th>
+      <td>11: Gospel</td>
+      <td>counsel</td>
+      <td>12</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>36.178836</td>
+      <td>0.029023</td>
+    </tr>
+    <tr>
+      <th>7795</th>
+      <td>11: Gospel</td>
+      <td>women</td>
+      <td>31</td>
+      <td>12.0</td>
+      <td>1.143101</td>
+      <td>35.436126</td>
+      <td>0.028427</td>
+    </tr>
+    <tr>
+      <th>4013</th>
+      <td>11: Gospel</td>
+      <td>man</td>
+      <td>31</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>33.138779</td>
+      <td>0.026584</td>
+    </tr>
+    <tr>
+      <th>15347</th>
+      <td>12: A New Man</td>
+      <td>woodrow</td>
+      <td>57</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>171.849472</td>
+      <td>0.137859</td>
+    </tr>
+    <tr>
+      <th>15280</th>
+      <td>12: A New Man</td>
+      <td>rita</td>
+      <td>22</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>66.327866</td>
+      <td>0.053209</td>
+    </tr>
+    <tr>
+      <th>7898</th>
+      <td>12: A New Man</td>
+      <td>would</td>
+      <td>37</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>37.000000</td>
+      <td>0.029682</td>
+    </tr>
+    <tr>
+      <th>5632</th>
+      <td>12: A New Man</td>
+      <td>said</td>
+      <td>33</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>35.276765</td>
+      <td>0.028299</td>
+    </tr>
+    <tr>
+      <th>4014</th>
+      <td>12: A New Man</td>
+      <td>man</td>
+      <td>27</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>28.862808</td>
+      <td>0.023154</td>
+    </tr>
+    <tr>
+      <th>15185</th>
+      <td>12: A New Man</td>
+      <td>elaine</td>
+      <td>9</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>27.134127</td>
+      <td>0.021767</td>
+    </tr>
+    <tr>
+      <th>1409</th>
+      <td>12: A New Man</td>
+      <td>could</td>
+      <td>23</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>24.586836</td>
+      <td>0.019724</td>
+    </tr>
+    <tr>
+      <th>2213</th>
+      <td>12: A New Man</td>
+      <td>father</td>
+      <td>22</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>23.517843</td>
+      <td>0.018866</td>
+    </tr>
+    <tr>
+      <th>4767</th>
+      <td>12: A New Man</td>
+      <td>one</td>
+      <td>23</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>23.000000</td>
+      <td>0.018451</td>
+    </tr>
+    <tr>
+      <th>15161</th>
+      <td>12: A New Man</td>
+      <td>cunningham</td>
+      <td>7</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>21.104321</td>
+      <td>0.016930</td>
+    </tr>
+    <tr>
+      <th>1547</th>
+      <td>12: A New Man</td>
+      <td>daughter</td>
+      <td>16</td>
+      <td>10.0</td>
+      <td>1.310155</td>
+      <td>20.962479</td>
+      <td>0.016816</td>
+    </tr>
+    <tr>
+      <th>8531</th>
+      <td>12: A New Man</td>
+      <td>read</td>
+      <td>12</td>
+      <td>7.0</td>
+      <td>1.628609</td>
+      <td>19.543304</td>
+      <td>0.015678</td>
+    </tr>
+    <tr>
+      <th>2029</th>
+      <td>12: A New Man</td>
+      <td>even</td>
+      <td>16</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>17.103886</td>
+      <td>0.013721</td>
+    </tr>
+    <tr>
+      <th>4732</th>
+      <td>12: A New Man</td>
+      <td>old</td>
+      <td>16</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>17.103886</td>
+      <td>0.013721</td>
+    </tr>
+    <tr>
+      <th>5300</th>
+      <td>12: A New Man</td>
+      <td>put</td>
+      <td>16</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>17.103886</td>
+      <td>0.013721</td>
+    </tr>
+    <tr>
+      <th>15424</th>
+      <td>13: A Dark Night</td>
+      <td>garrett</td>
+      <td>38</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>114.566315</td>
+      <td>0.091906</td>
+    </tr>
+    <tr>
+      <th>15361</th>
+      <td>13: A Dark Night</td>
+      <td>beatrice</td>
+      <td>31</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>93.461994</td>
+      <td>0.074976</td>
+    </tr>
+    <tr>
+      <th>15377</th>
+      <td>13: A Dark Night</td>
+      <td>carmena</td>
+      <td>20</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>60.298060</td>
+      <td>0.048371</td>
+    </tr>
+    <tr>
+      <th>5633</th>
+      <td>13: A Dark Night</td>
+      <td>said</td>
+      <td>49</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>52.380651</td>
+      <td>0.042020</td>
+    </tr>
+    <tr>
+      <th>10438</th>
+      <td>13: A Dark Night</td>
+      <td>uncle</td>
+      <td>14</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>36.532131</td>
+      <td>0.029306</td>
+    </tr>
+    <tr>
+      <th>15517</th>
+      <td>13: A Dark Night</td>
+      <td>thunder</td>
+      <td>12</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>36.178836</td>
+      <td>0.029023</td>
+    </tr>
+    <tr>
+      <th>15433</th>
+      <td>13: A Dark Night</td>
+      <td>henry</td>
+      <td>10</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>30.149030</td>
+      <td>0.024186</td>
+    </tr>
+    <tr>
+      <th>1737</th>
+      <td>13: A Dark Night</td>
+      <td>door</td>
+      <td>27</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>27.000000</td>
+      <td>0.021660</td>
+    </tr>
+    <tr>
+      <th>1516</th>
+      <td>13: A Dark Night</td>
+      <td>daddy</td>
+      <td>17</td>
+      <td>8.0</td>
+      <td>1.510826</td>
+      <td>25.684036</td>
+      <td>0.020604</td>
+    </tr>
+    <tr>
+      <th>15442</th>
+      <td>13: A Dark Night</td>
+      <td>joe</td>
+      <td>8</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>24.119224</td>
+      <td>0.019349</td>
+    </tr>
+    <tr>
+      <th>4768</th>
+      <td>13: A Dark Night</td>
+      <td>one</td>
+      <td>23</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>23.000000</td>
+      <td>0.018451</td>
+    </tr>
+    <tr>
+      <th>15364</th>
+      <td>13: A Dark Night</td>
+      <td>boone</td>
+      <td>7</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>21.104321</td>
+      <td>0.016930</td>
+    </tr>
+    <tr>
+      <th>15451</th>
+      <td>13: A Dark Night</td>
+      <td>lightning</td>
+      <td>7</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>21.104321</td>
+      <td>0.016930</td>
+    </tr>
+    <tr>
+      <th>7899</th>
+      <td>13: A Dark Night</td>
+      <td>would</td>
+      <td>21</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>21.000000</td>
+      <td>0.016846</td>
+    </tr>
+    <tr>
+      <th>14055</th>
+      <td>13: A Dark Night</td>
+      <td>john</td>
+      <td>10</td>
+      <td>4.0</td>
+      <td>2.098612</td>
+      <td>20.986123</td>
+      <td>0.016835</td>
+    </tr>
+    <tr>
+      <th>13633</th>
+      <td>14: Marie</td>
+      <td>marie</td>
+      <td>49</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>127.862458</td>
+      <td>0.102572</td>
+    </tr>
+    <tr>
+      <th>15719</th>
+      <td>14: Marie</td>
+      <td>vernelle</td>
+      <td>30</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>90.447091</td>
+      <td>0.072557</td>
+    </tr>
+    <tr>
+      <th>15722</th>
+      <td>14: Marie</td>
+      <td>wilamena</td>
+      <td>20</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>60.298060</td>
+      <td>0.048371</td>
+    </tr>
+    <tr>
+      <th>5634</th>
+      <td>14: Marie</td>
+      <td>said</td>
+      <td>51</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>54.518636</td>
+      <td>0.043735</td>
+    </tr>
+    <tr>
+      <th>7900</th>
+      <td>14: Marie</td>
+      <td>would</td>
+      <td>36</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>36.000000</td>
+      <td>0.028879</td>
+    </tr>
+    <tr>
+      <th>4016</th>
+      <td>14: Marie</td>
+      <td>man</td>
+      <td>32</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>34.207772</td>
+      <td>0.027442</td>
+    </tr>
+    <tr>
+      <th>11492</th>
+      <td>14: Marie</td>
+      <td>security</td>
+      <td>13</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>33.922693</td>
+      <td>0.027213</td>
+    </tr>
+    <tr>
+      <th>7784</th>
+      <td>14: Marie</td>
+      <td>woman</td>
+      <td>31</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>31.000000</td>
+      <td>0.024868</td>
+    </tr>
+    <tr>
+      <th>15662</th>
+      <td>14: Marie</td>
+      <td>receptionist</td>
+      <td>10</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>30.149030</td>
+      <td>0.024186</td>
+    </tr>
+    <tr>
+      <th>7027</th>
+      <td>14: Marie</td>
+      <td>told</td>
+      <td>25</td>
+      <td>13.0</td>
+      <td>1.068993</td>
+      <td>26.724822</td>
+      <td>0.021439</td>
+    </tr>
+    <tr>
+      <th>11578</th>
+      <td>14: Marie</td>
+      <td>social</td>
+      <td>10</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>26.094379</td>
+      <td>0.020933</td>
+    </tr>
+    <tr>
+      <th>4769</th>
+      <td>14: Marie</td>
+      <td>one</td>
+      <td>25</td>
+      <td>14.0</td>
+      <td>1.000000</td>
+      <td>25.000000</td>
+      <td>0.020055</td>
+    </tr>
+    <tr>
+      <th>15552</th>
+      <td>14: Marie</td>
+      <td>calhoun</td>
+      <td>8</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>24.119224</td>
+      <td>0.019349</td>
+    </tr>
+    <tr>
+      <th>15723</th>
+      <td>14: Marie</td>
+      <td>wise</td>
+      <td>8</td>
+      <td>1.0</td>
+      <td>3.014903</td>
+      <td>24.119224</td>
+      <td>0.019349</td>
+    </tr>
+    <tr>
+      <th>15037</th>
+      <td>14: Marie</td>
+      <td>smith</td>
+      <td>9</td>
+      <td>2.0</td>
+      <td>2.609438</td>
+      <td>23.484941</td>
+      <td>0.018840</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It turns out that “pigeons” are pretty unique to the first short story in <em>Lost in the City</em> and have a normalized tf-idf score of .062, making it one of the most distinctive words in that story along with “coop” and “birds.”</p>
+<p>What are some other distinctive words in <em>Lost in the City</em>?</p>
+</div>
+</div>
+<div class="section" id="further-resources">
+<h2>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Peter Organisciak and Boris Capitanu, <a class="reference external" href="https://programminghistorian.org/en/lessons/text-mining-with-extracted-features">“Text Mining in Python through the HTRC Feature Reader,”</a> <em>The Programming Historian</em></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Text-Analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="TF-IDF.html" title="previous page">TF-IDF</a>
+    <a class='right-next' id="next-link" href="TF-IDF-Scikit-Learn.html" title="next page">TF-IDF with Scikit-Learn</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
