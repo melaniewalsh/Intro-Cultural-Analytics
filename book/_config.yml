@@ -74,11 +74,11 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions: 
-  - sphinx_reredirects 
-  #- notfound.extension  # A list of extra extensions to load by Sphinx (added to those already used by JB).
+#  - sphinx_reredirects 
+  # - notfound.extension  # A list of extra extensions to load by Sphinx (added to those already used by JB).
   config:
-    redirects:
-      "features/*": "https://melaniewalsh.github.io/Intro-Cultural-Analytics/$source.html"
-  #  notfound_context:
-  #      body: "<h1>Page not found.</h1>\n\nSorry, this page cannot be found. Try the <a href='index.html'> home page </a> or <a href='search.html'> search page </a> to find what you're looking for.</p>."
-    #notfound_no_urls_prefix: True
+    #redirects:
+      #"features/*": "https://melaniewalsh.github.io/Intro-Cultural-Analytics/$source.html"
+    # notfound_context:
+    #     body: "<h1>Page not found.</h1>\n\nSorry, this page cannot be found. Try the <a href='index.html'> home page </a> or <a href='search.html'> search page </a> to find what you're looking for.</p>."
+    # notfound_no_urls_prefix: True

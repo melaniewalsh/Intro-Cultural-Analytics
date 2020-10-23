@@ -73,6 +73,9 @@
   - file: Text-Analysis/Text-Analysis
     sections:
       - file: Text-Analysis/TF-IDF
+        sections:
+          - file: Text-Analysis/TF-IDF-HathiTrust
+          - file: Text-Analysis/TF-IDF-Scikit-Learn
       - file: Text-Analysis/Topic-Modeling
         sections:
           - file: Text-Analysis/Topic-Modeling-Overview

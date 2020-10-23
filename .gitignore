@@ -19,4 +19,5 @@ venv.bak/
 # Jupyter book
 book/_build/
 book/features
+in-progress/
 #

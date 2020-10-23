@@ -8,7 +8,7 @@ bokeh
 bs4
 requests
 twarc
-little_mallet_wrapper
+git+https://github.com/maria-antoniak/little-mallet-wrapper.git
 sklearn
 spacy
 regex
