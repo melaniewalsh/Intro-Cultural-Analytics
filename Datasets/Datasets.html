@@ -476,13 +476,7 @@ Original source: Hannah Anderson and Matt Daniels, <em>The Pudding</em></p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Pudding/Pudding-Film-Dialogue-Clean.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Pudding/Pudding-Film-Dialogue-Clean.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -505,148 +499,137 @@ Original source: Hannah Anderson and Matt Daniels, <em>The Pudding</em></p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>script_id</th>
-      <th>character</th>
-      <th>words</th>
-      <th>gender</th>
-      <th>age</th>
       <th>title</th>
       <th>release_year</th>
-      <th>gross</th>
+      <th>character</th>
+      <th>gender</th>
+      <th>words</th>
       <th>proportion_of_dialogue</th>
-      <th>after_2000</th>
+      <th>age</th>
+      <th>gross</th>
+      <th>script_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>8910</th>
-      <td>2924</td>
-      <td>Danny Witwer</td>
-      <td>2178</td>
-      <td>Man</td>
-      <td>26.0</td>
-      <td>Minority Report</td>
-      <td>2002</td>
-      <td>197.0</td>
-      <td>0.150758</td>
-      <td>True</td>
+      <th>19885</th>
+      <td>Noah</td>
+      <td>2014</td>
+      <td>Shem</td>
+      <td>man</td>
+      <td>547</td>
+      <td>0.089997</td>
+      <td>22.0</td>
+      <td>107.0</td>
+      <td>7659</td>
     </tr>
     <tr>
-      <th>1478</th>
-      <td>992</td>
-      <td>Draco Malfoy</td>
-      <td>458</td>
-      <td>Man</td>
-      <td>17.0</td>
-      <td>Harry Potter and the Prisoner of Azkaban</td>
-      <td>2004</td>
-      <td>348.0</td>
-      <td>0.029585</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>9727</th>
-      <td>3133</td>
-      <td>Mrs. Gardiner</td>
-      <td>350</td>
-      <td>Woman</td>
-      <td>59.0</td>
-      <td>Pride &amp; Prejudice</td>
-      <td>2005</td>
-      <td>52.0</td>
-      <td>0.018319</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>18789</th>
-      <td>7175</td>
-      <td>Jenna</td>
-      <td>233</td>
-      <td>Woman</td>
-      <td>25.0</td>
-      <td>Hatchet</td>
-      <td>2006</td>
+      <th>15107</th>
+      <td>Star Trek: Generations</td>
+      <td>1994</td>
+      <td>Lursa</td>
+      <td>woman</td>
+      <td>130</td>
+      <td>0.014183</td>
       <td>NaN</td>
-      <td>0.064525</td>
-      <td>True</td>
+      <td>157.0</td>
+      <td>5035</td>
     </tr>
     <tr>
-      <th>6852</th>
-      <td>2368</td>
-      <td>Singh</td>
-      <td>118</td>
-      <td>Man</td>
-      <td>NaN</td>
-      <td>Gandhi</td>
-      <td>1982</td>
-      <td>NaN</td>
-      <td>0.008423</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>20359</th>
-      <td>7858</td>
-      <td>James</td>
-      <td>3516</td>
-      <td>Man</td>
-      <td>48.0</td>
-      <td>Get Hard</td>
+      <th>21000</th>
+      <td>Star Wars: Episode VII - The Force Awakens</td>
       <td>2015</td>
-      <td>93.0</td>
-      <td>0.338272</td>
-      <td>True</td>
+      <td>C-3Po</td>
+      <td>man</td>
+      <td>138</td>
+      <td>0.020702</td>
+      <td>69.0</td>
+      <td>927.0</td>
+      <td>8099</td>
     </tr>
     <tr>
-      <th>553</th>
-      <td>771</td>
-      <td>Argyle Wallace</td>
-      <td>214</td>
-      <td>Man</td>
-      <td>49.0</td>
-      <td>Braveheart</td>
-      <td>1995</td>
-      <td>151.0</td>
-      <td>0.036290</td>
-      <td>False</td>
+      <th>600</th>
+      <td>Broken Arrow</td>
+      <td>1996</td>
+      <td>Secretary Of De</td>
+      <td>man</td>
+      <td>291</td>
+      <td>0.034809</td>
+      <td>53.0</td>
+      <td>138.0</td>
+      <td>779</td>
     </tr>
     <tr>
-      <th>15444</th>
-      <td>5166</td>
-      <td>Leland Palmer</td>
-      <td>646</td>
-      <td>Man</td>
-      <td>45.0</td>
-      <td>Twin Peaks: Fire Walk with Me</td>
-      <td>1992</td>
-      <td>8.0</td>
-      <td>0.067320</td>
-      <td>False</td>
+      <th>21607</th>
+      <td>Brick Mansions</td>
+      <td>2014</td>
+      <td>Grandfather Col</td>
+      <td>man</td>
+      <td>182</td>
+      <td>0.021237</td>
+      <td>78.0</td>
+      <td>21.0</td>
+      <td>8410</td>
     </tr>
     <tr>
-      <th>4248</th>
-      <td>1684</td>
-      <td>James Mayfield</td>
-      <td>205</td>
-      <td>Man</td>
-      <td>63.0</td>
-      <td>Arbitrage</td>
-      <td>2012</td>
-      <td>8.0</td>
-      <td>0.017176</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>13020</th>
-      <td>4306</td>
-      <td>Ahmed Zubaidi</td>
-      <td>191</td>
-      <td>Man</td>
+      <th>10975</th>
+      <td>Terminator Salvation</td>
+      <td>2009</td>
+      <td>Morrison</td>
+      <td>man</td>
+      <td>133</td>
+      <td>0.032102</td>
       <td>NaN</td>
-      <td>Green Zone</td>
-      <td>2010</td>
-      <td>38.0</td>
-      <td>0.025092</td>
-      <td>True</td>
+      <td>145.0</td>
+      <td>3516</td>
+    </tr>
+    <tr>
+      <th>20247</th>
+      <td>Die Hard: With a Vengeance</td>
+      <td>1995</td>
+      <td>Simon Gruber</td>
+      <td>man</td>
+      <td>1185</td>
+      <td>0.178814</td>
+      <td>47.0</td>
+      <td>200.0</td>
+      <td>7818</td>
+    </tr>
+    <tr>
+      <th>10402</th>
+      <td>S1m0ne</td>
+      <td>2002</td>
+      <td>Viktor Taransky</td>
+      <td>man</td>
+      <td>10520</td>
+      <td>0.408766</td>
+      <td>62.0</td>
+      <td>14.0</td>
+      <td>3345</td>
+    </tr>
+    <tr>
+      <th>3600</th>
+      <td>10 Things I Hate About You</td>
+      <td>1999</td>
+      <td>Kat Stratford</td>
+      <td>woman</td>
+      <td>4718</td>
+      <td>0.239736</td>
+      <td>18.0</td>
+      <td>65.0</td>
+      <td>1512</td>
+    </tr>
+    <tr>
+      <th>9879</th>
+      <td>Reindeer Games</td>
+      <td>2000</td>
+      <td>Jumpy</td>
+      <td>man</td>
+      <td>964</td>
+      <td>0.042140</td>
+      <td>56.0</td>
+      <td>37.0</td>
+      <td>3190</td>
     </tr>
   </tbody>
 </table>
