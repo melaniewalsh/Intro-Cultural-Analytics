@@ -27,7 +27,7 @@ execute:
 #######################################################################################
 # Parse and render settings
 parse:
-  myst_extended_syntax      : false  # enable MyST extended syntax support (see documents for details)
+  myst_extended_syntax      : true  # enable MyST extended syntax support (see documents for details)
   myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
 
 #######################################################################################
