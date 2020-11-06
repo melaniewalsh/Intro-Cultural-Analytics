@@ -172,6 +172,11 @@
     </a>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="TF-IDF-Scikit-Learn.html">
        TF-IDF with Scikit-Learn
       </a>
@@ -983,8 +988,8 @@
 </pre></div>
 </div>
 <p>Next we process our texts with the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.process_string()</span></code>. This function will take every individual text file, transform all the text to lowercase as well as remove stopwords, punctuation, and numbers, and then add the processed text to our master list <code class="docutils literal notranslate"><span class="pre">training_data</span></code>.</p>
-<div class="python-review admonition">
-<p class="admonition-title">Python Review!</p>
+<div class="pythonreview admonition">
+<p class="admonition-title"> Python Review</p>
 <p>Take a moment to study this code and reflect about what’s happening here. This is a very common Python pattern! We make an empty list, iterate through every file, open and read each text file, process the texts, and finally append them to the previously empty list.</p>
 </div>
 <div class="cell docutils container">
@@ -2081,6 +2086,7 @@ Probability: 0.008
 </div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="your-turn">
 <h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
 <p>Choose a topic from the results above and write down its corresponding topic number below.</p>

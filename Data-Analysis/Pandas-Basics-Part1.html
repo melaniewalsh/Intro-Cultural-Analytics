@@ -490,6 +490,14 @@
 </div>
 </div>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#If using Google Colab</span>
+<span class="c1">#bellevue_df = pd.read_csv(&#39;s3://intro-ca/data/bellevue_almshouse_modified.csv&#39;, delimiter=&quot;,&quot;, parse_dates=[&#39;date_in&#39;])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>This creates a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe">DataFrame object</a> — often abbreviated as <em>df</em>, e.g., <em>bellevue_df</em>. A DataFrame looks and acts a lot like a spreadsheet. But it has special powers and functions that we will discuss in the next few lessons.</p>
 <p>When reading in the CSV file, we also specified the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> and <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>. The <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> specifies the character that separates or “delimits” the columns in our dataset. For CSV files, the delimiter will most often be a comma. (CSV is short for <em>Comma Separated Values</em>.) Sometimes, however, the delimiter of a CSV file might be a tab (<code class="docutils literal notranslate"><span class="pre">/t</span></code>) or, more rarely, another character.</p>
 <p>We also included the <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> parameter to specify which column contains date information.</p>
@@ -1790,7 +1798,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112db7f10&gt;
 </pre></div>
 </div>
-<img alt="../_images/Pandas-Basics-Part1_62_1.png" src="../_images/Pandas-Basics-Part1_62_1.png" />
+<img alt="../_images/Pandas-Basics-Part1_63_1.png" src="../_images/Pandas-Basics-Part1_63_1.png" />
 </div>
 </div>
 <p>We specify the title with the <code class="docutils literal notranslate"><span class="pre">title=</span></code> parameter and the kind of plot by altering the <code class="docutils literal notranslate"><span class="pre">kind=</span></code> parameter:</p>
@@ -1812,7 +1820,7 @@ Name: profession, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pandas-Basics-Part1_64_0.png" src="../_images/Pandas-Basics-Part1_64_0.png" />
+<img alt="../_images/Pandas-Basics-Part1_65_0.png" src="../_images/Pandas-Basics-Part1_65_0.png" />
 </div>
 </div>
 <p>To make a pie chart, we can set <code class="docutils literal notranslate"><span class="pre">kind='pie'</span></code></p>
@@ -1826,7 +1834,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1130ee590&gt;
 </pre></div>
 </div>
-<img alt="../_images/Pandas-Basics-Part1_66_1.png" src="../_images/Pandas-Basics-Part1_66_1.png" />
+<img alt="../_images/Pandas-Basics-Part1_67_1.png" src="../_images/Pandas-Basics-Part1_67_1.png" />
 </div>
 </div>
 </div>
@@ -2220,7 +2228,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x113785a90&gt;
 </pre></div>
 </div>
-<img alt="../_images/Pandas-Basics-Part1_79_1.png" src="../_images/Pandas-Basics-Part1_79_1.png" />
+<img alt="../_images/Pandas-Basics-Part1_80_1.png" src="../_images/Pandas-Basics-Part1_80_1.png" />
 </div>
 </div>
 <p>There’s a lot we can do with filters beyond exact value matches with an equals operator <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>

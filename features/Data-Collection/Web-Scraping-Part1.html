@@ -546,7 +546,8 @@
 <h2>Responses and Requests<a class="headerlink" href="#responses-and-requests" title="Permalink to this headline">¶</a></h2>
 <p>To programmatically access the text data attached to every URL, we can use a Python library called <a class="reference external" href="https://requests.readthedocs.io/en/master/">requests</a>.</p>
 <p>When you type in a URL in your search address bar, you’re sending an HTTP <strong>request</strong> for a web page, and the server which stores that web page will accordingly send back a <strong>response</strong>, some web page data that your browser will render.</p>
-<img src="../images/request-response.png" class="center"><div class="section" id="import-requests">
+<img alt="../../_images/request-response1.png" class="center" src="../../_images/request-response1.png" />
+<div class="section" id="import-requests">
 <h3>Import Requests<a class="headerlink" href="#import-requests" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,7 +604,8 @@
 </div>
 </div>
 </div>
-<img src="../images/Ghostboogers.png" class="center" ></div>
+<img alt="../../_images/Ghostboogers1.png" class="center" src="../../_images/Ghostboogers1.png" />
+</div>
 <div class="section" id="extract-text-from-web-page">
 <h3>Extract Text From Web Page<a class="headerlink" href="#extract-text-from-web-page" title="Permalink to this headline">¶</a></h3>
 <p>To actually get at the text data in the reponse, we need to use <code class="docutils literal notranslate"><span class="pre">.text</span></code>, which we will save in a variable called <code class="docutils literal notranslate"><span class="pre">html_string</span></code>. The text data that we’re getting is formatted in the HTML markup language, which we will talk more about in the BeautifulSoup section below.</p>
@@ -52094,7 +52096,8 @@ if (typeof lycos_ad !== &quot;undefined&quot; &amp;&amp; &quot;slider&quot; in l
 <div class="section" id="web-scraping">
 <h2>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this headline">¶</a></h2>
 <p>Not all web pages will be as easy to scrape as these screenplay files, however. Let’s say we wanted to scrape the lyrics for Missy Elliott’s song “The Rain (Supa Dupa Fly)” (1997) from Genius.com.</p>
-<img src="../images/Missy-Elliott.png" class="center" ><p>Even at a glance, we can tell that this <em>Genius</em> web page is a lot more complicated than the <em>Ghostbusters</em> page and that it contains a lot of information beyond the lyrics.</p>
+<img alt="../../_images/Missy-Elliott1.png" class="center" src="../../_images/Missy-Elliott1.png" />
+<p>Even at a glance, we can tell that this <em>Genius</em> web page is a lot more complicated than the <em>Ghostbusters</em> page and that it contains a lot of information beyond the lyrics.</p>
 <p>Sure enough, if we use our requests library again and try to grab the data for this web page, the underlying data is much more complicated, too.</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -53748,7 +53751,8 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <div class="section" id="html">
 <h2>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
 <p>Parrish’s website is titled “Kittens and the TV Shows They Love.” It can be found at the following URL: http://static.decontextualize.com/kittens.html</p>
-<img src="../images/kittens-web.png" class="center" ><p>If we use our requests library on this Kittens TV website, this is what we get:</p>
+<img alt="../../_images/kittens-web1.png" class="center" src="../../_images/kittens-web1.png" />
+<p>If we use our requests library on this Kittens TV website, this is what we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://static.decontextualize.com/kittens.html&quot;</span><span class="p">)</span>
@@ -54173,8 +54177,10 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <div class="section" id="inspect-html-elements-with-browser">
 <h2>Inspect HTML Elements with Browser<a class="headerlink" href="#inspect-html-elements-with-browser" title="Permalink to this headline">¶</a></h2>
 <p>Most times if you’re looking to extract something from an HTML document, it’s best to use your “Inspect” capabilities in your web browser. You can hover over elements that you’re interested in and find that specific element in the HTML.</p>
-<img src="../images/inspect.png" class="center"><p>For example, if we hover over the main header:</p>
-<img src="../images/inspect-h1.png" class="center" ></div>
+<img alt="../../_images/inspect1.png" class="center" src="../../_images/inspect1.png" />
+<p>For example, if we hover over the main header:</p>
+<img alt="../../_images/inspect-h11.png" class="center" src="../../_images/inspect-h11.png" />
+</div>
 <div class="section" id="your-turn">
 <h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
 <p>Ok so now we’ve learned a little bit about how to use BeautifulSoup to parse HTML documents. So how would we apply what we’ve learned to extract Missy Elliott lyrics?</p>

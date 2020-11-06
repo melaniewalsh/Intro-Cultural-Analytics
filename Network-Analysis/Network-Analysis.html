@@ -439,6 +439,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (2.4)
+Requirement already satisfied: decorator&gt;=4.3.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from networkx) (4.4.2)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="import-libraries">
@@ -2713,7 +2719,7 @@
 </div>
 </div>
 <p>Make a Pandas dataframe from the degree data <code class="docutils literal notranslate"><span class="pre">G.nodes(data='degree')</span></code>, then sort from highest to lowest</p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">])</span>
 <span class="n">degree_df</span> <span class="o">=</span> <span class="n">degree_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -5367,6 +5373,53 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25</th>
+      <td>Thoros</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Gendry</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Beric</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Anguy</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5374,6 +5427,118 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>28</th>
+      <td>Belwas</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Jon Arryn</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Jorah</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Missandei</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Worm</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Viserys</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Barristan</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Illyrio</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Rhaegar</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Rakharo</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Aegon</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Daenerys</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Robert</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Irri</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Drogo</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Daario</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Kraznys</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5381,6 +5546,163 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>Theon</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Brienne</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Edmure</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Lothar</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Catelyn</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Hoster</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Jeyne</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Lysa</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Petyr</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Robb</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Roslin</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Sansa</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Nan</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Walder</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Luwin</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Cersei</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>Ramsay</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Eddard</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>Rickard</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Bran</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Brynden</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Arya</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Robert Arryn</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Rickon</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Roose</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Marillion</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5388,6 +5710,173 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>73</th>
+      <td>Cressen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Davos</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Craster</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Salladhor</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Eddison</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Gilly</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Melisandre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Dalla</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Janos</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Karl</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Aemon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Orell</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Jojen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Samwell</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Shireen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Alliser</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Mance</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Jon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Qhorin</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Hodor</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Bowen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Meera</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Ygritte</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Stannis</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Val</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Grenn</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Styr</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Rattleshirt</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5395,6 +5884,193 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>Margaery</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Olenna</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Ellaria</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>Mace</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Chataya</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>Doran</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Myrcella</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Lancel</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Ilyn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Kevan</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Balon</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Aerys</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jaime</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Tyrion</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tywin</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Amory</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Oberyn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Gregor</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Joffrey</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Sandor</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Loras</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Tommen</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Bronn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Podrick</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Elia</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Meryn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Pycelle</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Shae</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Varys</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Qyburn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Renly</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>Walton</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Plot a sample of 40 characters with their modularity class indicated by a star</p>
 <div class="cell docutils container">
@@ -5426,9 +6102,7 @@
 <p>Plot all GOT characters with their modularity class indicated by a star (tak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">communities_df</span><span class="p">,</span>
               <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;modularity_class&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
@@ -5436,43 +6110,2027 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Modularity Class&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;GOT Characters By Modularity Class&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/Network-Analysis_75_0.png" src="../_images/Network-Analysis_75_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:01:07.423365
-</pre></div>
-</div>
 </div>
 </div>
 </div>
 <div class="section" id="all-network-metrics">
 <h2>All Network Metrics<a class="headerlink" href="#all-network-metrics" title="Permalink to this headline">¶</a></h2>
 <p>Create a Pandas dataframe of all network attributes by creating a <code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary of <code class="docutils literal notranslate"><span class="pre">G.nodes(data=True)</span></code>…</p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Aemon&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 74,
+  &#39;betweenness&#39;: 0.004622508177397137,
+  &#39;modularity_class&#39;: 1},
+ &#39;Grenn&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 81,
+  &#39;betweenness&#39;: 5.989817310572027e-05,
+  &#39;modularity_class&#39;: 1},
+ &#39;Samwell&#39;: {&#39;degree&#39;: 15,
+  &#39;weighted_degree&#39;: 282,
+  &#39;betweenness&#39;: 0.03227262859511145,
+  &#39;modularity_class&#39;: 1},
+ &#39;Aerys&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 37,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Jaime&#39;: {&#39;degree&#39;: 24,
+  &#39;weighted_degree&#39;: 372,
+  &#39;betweenness&#39;: 0.09994344156136246,
+  &#39;modularity_class&#39;: 0},
+ &#39;Robert&#39;: {&#39;degree&#39;: 18,
+  &#39;weighted_degree&#39;: 128,
+  &#39;betweenness&#39;: 0.2094523840293194,
+  &#39;modularity_class&#39;: 3},
+ &#39;Tyrion&#39;: {&#39;degree&#39;: 36,
+  &#39;weighted_degree&#39;: 551,
+  &#39;betweenness&#39;: 0.19791284320277353,
+  &#39;modularity_class&#39;: 0},
+ &#39;Tywin&#39;: {&#39;degree&#39;: 22,
+  &#39;weighted_degree&#39;: 204,
+  &#39;betweenness&#39;: 0.06553840423231058,
+  &#39;modularity_class&#39;: 0},
+ &#39;Alliser&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 29,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Mance&#39;: {&#39;degree&#39;: 12,
+  &#39;weighted_degree&#39;: 160,
+  &#39;betweenness&#39;: 0.007275961371756524,
+  &#39;modularity_class&#39;: 1},
+ &#39;Amory&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 5,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Oberyn&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 76,
+  &#39;betweenness&#39;: 0.01958014232946847,
+  &#39;modularity_class&#39;: 0},
+ &#39;Arya&#39;: {&#39;degree&#39;: 19,
+  &#39;weighted_degree&#39;: 269,
+  &#39;betweenness&#39;: 0.07960711308183888,
+  &#39;modularity_class&#39;: 2},
+ &#39;Anguy&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 15,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 4},
+ &#39;Beric&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 75,
+  &#39;betweenness&#39;: 0.0006091214266627511,
+  &#39;modularity_class&#39;: 4},
+ &#39;Bran&#39;: {&#39;degree&#39;: 14,
+  &#39;weighted_degree&#39;: 344,
+  &#39;betweenness&#39;: 0.06301659941786954,
+  &#39;modularity_class&#39;: 2},
+ &#39;Brynden&#39;: {&#39;degree&#39;: 8,
+  &#39;weighted_degree&#39;: 55,
+  &#39;betweenness&#39;: 0.004727134574764742,
+  &#39;modularity_class&#39;: 2},
+ &#39;Cersei&#39;: {&#39;degree&#39;: 20,
+  &#39;weighted_degree&#39;: 226,
+  &#39;betweenness&#39;: 0.02674643287824232,
+  &#39;modularity_class&#39;: 2},
+ &#39;Gendry&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 59,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 4},
+ &#39;Gregor&#39;: {&#39;degree&#39;: 12,
+  &#39;weighted_degree&#39;: 117,
+  &#39;betweenness&#39;: 0.005879915417737236,
+  &#39;modularity_class&#39;: 0},
+ &#39;Joffrey&#39;: {&#39;degree&#39;: 18,
+  &#39;weighted_degree&#39;: 255,
+  &#39;betweenness&#39;: 0.025434099443917696,
+  &#39;modularity_class&#39;: 0},
+ &#39;Jon&#39;: {&#39;degree&#39;: 26,
+  &#39;weighted_degree&#39;: 442,
+  &#39;betweenness&#39;: 0.22996466368473173,
+  &#39;modularity_class&#39;: 1},
+ &#39;Rickon&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 81,
+  &#39;betweenness&#39;: 0.0007626320968639029,
+  &#39;modularity_class&#39;: 2},
+ &#39;Roose&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 17,
+  &#39;betweenness&#39;: 0.0002629599012559427,
+  &#39;modularity_class&#39;: 2},
+ &#39;Sandor&#39;: {&#39;degree&#39;: 13,
+  &#39;weighted_degree&#39;: 137,
+  &#39;betweenness&#39;: 0.014162278987154626,
+  &#39;modularity_class&#39;: 0},
+ &#39;Thoros&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 60,
+  &#39;betweenness&#39;: 0.0019261823273239152,
+  &#39;modularity_class&#39;: 4},
+ &#39;Balon&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 29,
+  &#39;betweenness&#39;: 0.0006281164805527878,
+  &#39;modularity_class&#39;: 0},
+ &#39;Loras&#39;: {&#39;degree&#39;: 9,
+  &#39;weighted_degree&#39;: 76,
+  &#39;betweenness&#39;: 0.003780752291533962,
+  &#39;modularity_class&#39;: 0},
+ &#39;Belwas&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 67,
+  &#39;betweenness&#39;: 0.018867924528301886,
+  &#39;modularity_class&#39;: 3},
+ &#39;Barristan&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 63,
+  &#39;betweenness&#39;: 0.04011407489067884,
+  &#39;modularity_class&#39;: 3},
+ &#39;Illyrio&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 10,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Hodor&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 177,
+  &#39;betweenness&#39;: 0.0021937273446681065,
+  &#39;modularity_class&#39;: 1},
+ &#39;Jojen&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 125,
+  &#39;betweenness&#39;: 0.0004064518889316733,
+  &#39;modularity_class&#39;: 1},
+ &#39;Luwin&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 8,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Meera&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 139,
+  &#39;betweenness&#39;: 0.0019922569692430686,
+  &#39;modularity_class&#39;: 1},
+ &#39;Nan&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 18,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Theon&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 38,
+  &#39;betweenness&#39;: 0.00047177590304274953,
+  &#39;modularity_class&#39;: 2},
+ &#39;Brienne&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 122,
+  &#39;betweenness&#39;: 0.0015376001520469229,
+  &#39;modularity_class&#39;: 2},
+ &#39;Bronn&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 59,
+  &#39;betweenness&#39;: 0.00010482180293501046,
+  &#39;modularity_class&#39;: 0},
+ &#39;Podrick&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 64,
+  &#39;betweenness&#39;: 0.0008358985235471674,
+  &#39;modularity_class&#39;: 0},
+ &#39;Lothar&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 34,
+  &#39;betweenness&#39;: 0.0006600525898733143,
+  &#39;modularity_class&#39;: 2},
+ &#39;Walder&#39;: {&#39;degree&#39;: 8,
+  &#39;weighted_degree&#39;: 87,
+  &#39;betweenness&#39;: 0.0032731813973401044,
+  &#39;modularity_class&#39;: 2},
+ &#39;Catelyn&#39;: {&#39;degree&#39;: 18,
+  &#39;weighted_degree&#39;: 184,
+  &#39;betweenness&#39;: 0.04890588265764755,
+  &#39;modularity_class&#39;: 2},
+ &#39;Edmure&#39;: {&#39;degree&#39;: 8,
+  &#39;weighted_degree&#39;: 98,
+  &#39;betweenness&#39;: 0.0063172332740347534,
+  &#39;modularity_class&#39;: 2},
+ &#39;Hoster&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 24,
+  &#39;betweenness&#39;: 0.0002426336765959408,
+  &#39;modularity_class&#39;: 2},
+ &#39;Jeyne&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 28,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Lysa&#39;: {&#39;degree&#39;: 10,
+  &#39;weighted_degree&#39;: 108,
+  &#39;betweenness&#39;: 0.015215156305177053,
+  &#39;modularity_class&#39;: 2},
+ &#39;Petyr&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 89,
+  &#39;betweenness&#39;: 0.0011502139845250673,
+  &#39;modularity_class&#39;: 2},
+ &#39;Robb&#39;: {&#39;degree&#39;: 25,
+  &#39;weighted_degree&#39;: 342,
+  &#39;betweenness&#39;: 0.1269644713830151,
+  &#39;modularity_class&#39;: 2},
+ &#39;Roslin&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 32,
+  &#39;betweenness&#39;: 6.751960581039384e-05,
+  &#39;modularity_class&#39;: 2},
+ &#39;Sansa&#39;: {&#39;degree&#39;: 26,
+  &#39;weighted_degree&#39;: 383,
+  &#39;betweenness&#39;: 0.12672031668498004,
+  &#39;modularity_class&#39;: 2},
+ &#39;Stannis&#39;: {&#39;degree&#39;: 14,
+  &#39;weighted_degree&#39;: 146,
+  &#39;betweenness&#39;: 0.1026998617273264,
+  &#39;modularity_class&#39;: 1},
+ &#39;Elia&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 29,
+  &#39;betweenness&#39;: 0.002996853410630337,
+  &#39;modularity_class&#39;: 0},
+ &#39;Ilyn&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 32,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Meryn&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 47,
+  &#39;betweenness&#39;: 0.00025900705642512993,
+  &#39;modularity_class&#39;: 0},
+ &#39;Pycelle&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 24,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Shae&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 45,
+  &#39;betweenness&#39;: 0.0012523948930099663,
+  &#39;modularity_class&#39;: 0},
+ &#39;Varys&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 49,
+  &#39;betweenness&#39;: 0.0009094137867722772,
+  &#39;modularity_class&#39;: 0},
+ &#39;Craster&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 75,
+  &#39;betweenness&#39;: 0.018867924528301886,
+  &#39;modularity_class&#39;: 1},
+ &#39;Karl&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 6,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Daario&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 30,
+  &#39;betweenness&#39;: 5.989817310572027e-05,
+  &#39;modularity_class&#39;: 3},
+ &#39;Drogo&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 35,
+  &#39;betweenness&#39;: 5.989817310572027e-05,
+  &#39;modularity_class&#39;: 3},
+ &#39;Irri&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 33,
+  &#39;betweenness&#39;: 0.00017969451931716083,
+  &#39;modularity_class&#39;: 3},
+ &#39;Daenerys&#39;: {&#39;degree&#39;: 14,
+  &#39;weighted_degree&#39;: 232,
+  &#39;betweenness&#39;: 0.15720345212054956,
+  &#39;modularity_class&#39;: 3},
+ &#39;Aegon&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 8,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Jorah&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 89,
+  &#39;betweenness&#39;: 0.002329891127259132,
+  &#39;modularity_class&#39;: 3},
+ &#39;Kraznys&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 10,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Missandei&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 30,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Rakharo&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 7,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Rhaegar&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 42,
+  &#39;betweenness&#39;: 0.007312671807481101,
+  &#39;modularity_class&#39;: 3},
+ &#39;Viserys&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 19,
+  &#39;betweenness&#39;: 0.015644391307527945,
+  &#39;modularity_class&#39;: 3},
+ &#39;Worm&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 14,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 3},
+ &#39;Davos&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 87,
+  &#39;betweenness&#39;: 0.056064690026954175,
+  &#39;modularity_class&#39;: 1},
+ &#39;Cressen&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 4,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Salladhor&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 16,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Eddard&#39;: {&#39;degree&#39;: 12,
+  &#39;weighted_degree&#39;: 108,
+  &#39;betweenness&#39;: 0.019341416465723616,
+  &#39;modularity_class&#39;: 2},
+ &#39;Eddison&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 24,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Gilly&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 69,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Qyburn&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 11,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Renly&#39;: {&#39;degree&#39;: 8,
+  &#39;weighted_degree&#39;: 55,
+  &#39;betweenness&#39;: 0.004227926858198188,
+  &#39;modularity_class&#39;: 0},
+ &#39;Tommen&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 31,
+  &#39;betweenness&#39;: 0.0006984420191967362,
+  &#39;modularity_class&#39;: 0},
+ &#39;Janos&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 37,
+  &#39;betweenness&#39;: 0.02355861153253357,
+  &#39;modularity_class&#39;: 1},
+ &#39;Bowen&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 11,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Kevan&#39;: {&#39;degree&#39;: 6,
+  &#39;weighted_degree&#39;: 50,
+  &#39;betweenness&#39;: 0.019219915043818533,
+  &#39;modularity_class&#39;: 0},
+ &#39;Margaery&#39;: {&#39;degree&#39;: 7,
+  &#39;weighted_degree&#39;: 96,
+  &#39;betweenness&#39;: 0.0010973522354777933,
+  &#39;modularity_class&#39;: 0},
+ &#39;Myrcella&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 18,
+  &#39;betweenness&#39;: 0.0006235971795124951,
+  &#39;modularity_class&#39;: 0},
+ &#39;Dalla&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 21,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Melisandre&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 62,
+  &#39;betweenness&#39;: 0.00860866854841803,
+  &#39;modularity_class&#39;: 1},
+ &#39;Orell&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 6,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Qhorin&#39;: {&#39;degree&#39;: 5,
+  &#39;weighted_degree&#39;: 59,
+  &#39;betweenness&#39;: 0.0002635519616651692,
+  &#39;modularity_class&#39;: 1},
+ &#39;Rattleshirt&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 44,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Styr&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 23,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Val&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 31,
+  &#39;betweenness&#39;: 0.005898334987101542,
+  &#39;modularity_class&#39;: 1},
+ &#39;Ygritte&#39;: {&#39;degree&#39;: 4,
+  &#39;weighted_degree&#39;: 82,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Jon Arryn&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 11,
+  &#39;betweenness&#39;: 0.0005764583325230229,
+  &#39;modularity_class&#39;: 3},
+ &#39;Lancel&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 7,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Olenna&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 12,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Marillion&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 23,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Robert Arryn&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 19,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Ellaria&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 10,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Mace&#39;: {&#39;degree&#39;: 3,
+  &#39;weighted_degree&#39;: 20,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Rickard&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 11,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Ramsay&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 4,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 2},
+ &#39;Chataya&#39;: {&#39;degree&#39;: 2,
+  &#39;weighted_degree&#39;: 9,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Shireen&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 5,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 1},
+ &#39;Doran&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 5,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0},
+ &#39;Walton&#39;: {&#39;degree&#39;: 1,
+  &#39;weighted_degree&#39;: 10,
+  &#39;betweenness&#39;: 0.0,
+  &#39;modularity_class&#39;: 0}}
+</pre></div>
+</div>
+</div>
 </div>
 <p>…and then <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.T.html">transposing it</a> (flipping the columns and rows) with <code class="docutils literal notranslate"><span class="pre">.T</span></code></p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">nodes_df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree</th>
+      <th>weighted_degree</th>
+      <th>betweenness</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Aemon</th>
+      <td>5.0</td>
+      <td>74.0</td>
+      <td>0.004623</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Grenn</th>
+      <td>4.0</td>
+      <td>81.0</td>
+      <td>0.000060</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Samwell</th>
+      <td>15.0</td>
+      <td>282.0</td>
+      <td>0.032273</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Aerys</th>
+      <td>4.0</td>
+      <td>37.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Jaime</th>
+      <td>24.0</td>
+      <td>372.0</td>
+      <td>0.099943</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Robert</th>
+      <td>18.0</td>
+      <td>128.0</td>
+      <td>0.209452</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Tyrion</th>
+      <td>36.0</td>
+      <td>551.0</td>
+      <td>0.197913</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tywin</th>
+      <td>22.0</td>
+      <td>204.0</td>
+      <td>0.065538</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Alliser</th>
+      <td>3.0</td>
+      <td>29.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Mance</th>
+      <td>12.0</td>
+      <td>160.0</td>
+      <td>0.007276</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Amory</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Oberyn</th>
+      <td>7.0</td>
+      <td>76.0</td>
+      <td>0.019580</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Arya</th>
+      <td>19.0</td>
+      <td>269.0</td>
+      <td>0.079607</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Anguy</th>
+      <td>2.0</td>
+      <td>15.0</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Beric</th>
+      <td>6.0</td>
+      <td>75.0</td>
+      <td>0.000609</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Bran</th>
+      <td>14.0</td>
+      <td>344.0</td>
+      <td>0.063017</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Brynden</th>
+      <td>8.0</td>
+      <td>55.0</td>
+      <td>0.004727</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Cersei</th>
+      <td>20.0</td>
+      <td>226.0</td>
+      <td>0.026746</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Gendry</th>
+      <td>4.0</td>
+      <td>59.0</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Gregor</th>
+      <td>12.0</td>
+      <td>117.0</td>
+      <td>0.005880</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Joffrey</th>
+      <td>18.0</td>
+      <td>255.0</td>
+      <td>0.025434</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Jon</th>
+      <td>26.0</td>
+      <td>442.0</td>
+      <td>0.229965</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Rickon</th>
+      <td>6.0</td>
+      <td>81.0</td>
+      <td>0.000763</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Roose</th>
+      <td>4.0</td>
+      <td>17.0</td>
+      <td>0.000263</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Sandor</th>
+      <td>13.0</td>
+      <td>137.0</td>
+      <td>0.014162</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Thoros</th>
+      <td>5.0</td>
+      <td>60.0</td>
+      <td>0.001926</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Balon</th>
+      <td>6.0</td>
+      <td>29.0</td>
+      <td>0.000628</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Loras</th>
+      <td>9.0</td>
+      <td>76.0</td>
+      <td>0.003781</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Belwas</th>
+      <td>4.0</td>
+      <td>67.0</td>
+      <td>0.018868</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Barristan</th>
+      <td>6.0</td>
+      <td>63.0</td>
+      <td>0.040114</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Illyrio</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Hodor</th>
+      <td>4.0</td>
+      <td>177.0</td>
+      <td>0.002194</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Jojen</th>
+      <td>4.0</td>
+      <td>125.0</td>
+      <td>0.000406</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Luwin</th>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Meera</th>
+      <td>5.0</td>
+      <td>139.0</td>
+      <td>0.001992</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Nan</th>
+      <td>2.0</td>
+      <td>18.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Theon</th>
+      <td>4.0</td>
+      <td>38.0</td>
+      <td>0.000472</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Brienne</th>
+      <td>7.0</td>
+      <td>122.0</td>
+      <td>0.001538</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Bronn</th>
+      <td>4.0</td>
+      <td>59.0</td>
+      <td>0.000105</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Podrick</th>
+      <td>5.0</td>
+      <td>64.0</td>
+      <td>0.000836</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Lothar</th>
+      <td>5.0</td>
+      <td>34.0</td>
+      <td>0.000660</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Walder</th>
+      <td>8.0</td>
+      <td>87.0</td>
+      <td>0.003273</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Catelyn</th>
+      <td>18.0</td>
+      <td>184.0</td>
+      <td>0.048906</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Edmure</th>
+      <td>8.0</td>
+      <td>98.0</td>
+      <td>0.006317</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Hoster</th>
+      <td>3.0</td>
+      <td>24.0</td>
+      <td>0.000243</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Jeyne</th>
+      <td>2.0</td>
+      <td>28.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Lysa</th>
+      <td>10.0</td>
+      <td>108.0</td>
+      <td>0.015215</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Petyr</th>
+      <td>7.0</td>
+      <td>89.0</td>
+      <td>0.001150</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Robb</th>
+      <td>25.0</td>
+      <td>342.0</td>
+      <td>0.126964</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Roslin</th>
+      <td>4.0</td>
+      <td>32.0</td>
+      <td>0.000068</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Sansa</th>
+      <td>26.0</td>
+      <td>383.0</td>
+      <td>0.126720</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Stannis</th>
+      <td>14.0</td>
+      <td>146.0</td>
+      <td>0.102700</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Elia</th>
+      <td>5.0</td>
+      <td>29.0</td>
+      <td>0.002997</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Ilyn</th>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Meryn</th>
+      <td>7.0</td>
+      <td>47.0</td>
+      <td>0.000259</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Pycelle</th>
+      <td>4.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Shae</th>
+      <td>5.0</td>
+      <td>45.0</td>
+      <td>0.001252</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Varys</th>
+      <td>7.0</td>
+      <td>49.0</td>
+      <td>0.000909</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Craster</th>
+      <td>5.0</td>
+      <td>75.0</td>
+      <td>0.018868</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Karl</th>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Daario</th>
+      <td>4.0</td>
+      <td>30.0</td>
+      <td>0.000060</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Drogo</th>
+      <td>4.0</td>
+      <td>35.0</td>
+      <td>0.000060</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Irri</th>
+      <td>4.0</td>
+      <td>33.0</td>
+      <td>0.000180</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Daenerys</th>
+      <td>14.0</td>
+      <td>232.0</td>
+      <td>0.157203</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Aegon</th>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Jorah</th>
+      <td>6.0</td>
+      <td>89.0</td>
+      <td>0.002330</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Kraznys</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Missandei</th>
+      <td>2.0</td>
+      <td>30.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Rakharo</th>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Rhaegar</th>
+      <td>6.0</td>
+      <td>42.0</td>
+      <td>0.007313</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Viserys</th>
+      <td>3.0</td>
+      <td>19.0</td>
+      <td>0.015644</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Worm</th>
+      <td>1.0</td>
+      <td>14.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Davos</th>
+      <td>5.0</td>
+      <td>87.0</td>
+      <td>0.056065</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Cressen</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Salladhor</th>
+      <td>1.0</td>
+      <td>16.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Eddard</th>
+      <td>12.0</td>
+      <td>108.0</td>
+      <td>0.019341</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Eddison</th>
+      <td>3.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Gilly</th>
+      <td>4.0</td>
+      <td>69.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Qyburn</th>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Renly</th>
+      <td>8.0</td>
+      <td>55.0</td>
+      <td>0.004228</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tommen</th>
+      <td>5.0</td>
+      <td>31.0</td>
+      <td>0.000698</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Janos</th>
+      <td>6.0</td>
+      <td>37.0</td>
+      <td>0.023559</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Bowen</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Kevan</th>
+      <td>6.0</td>
+      <td>50.0</td>
+      <td>0.019220</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Margaery</th>
+      <td>7.0</td>
+      <td>96.0</td>
+      <td>0.001097</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Myrcella</th>
+      <td>4.0</td>
+      <td>18.0</td>
+      <td>0.000624</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Dalla</th>
+      <td>3.0</td>
+      <td>21.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Melisandre</th>
+      <td>4.0</td>
+      <td>62.0</td>
+      <td>0.008609</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Orell</th>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Qhorin</th>
+      <td>5.0</td>
+      <td>59.0</td>
+      <td>0.000264</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Rattleshirt</th>
+      <td>4.0</td>
+      <td>44.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Styr</th>
+      <td>2.0</td>
+      <td>23.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Val</th>
+      <td>4.0</td>
+      <td>31.0</td>
+      <td>0.005898</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Ygritte</th>
+      <td>4.0</td>
+      <td>82.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Jon Arryn</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000576</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Lancel</th>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Olenna</th>
+      <td>2.0</td>
+      <td>12.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Marillion</th>
+      <td>3.0</td>
+      <td>23.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Robert Arryn</th>
+      <td>3.0</td>
+      <td>19.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Ellaria</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Mace</th>
+      <td>3.0</td>
+      <td>20.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Rickard</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Ramsay</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Chataya</th>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Shireen</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Doran</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Walton</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>degree</th>
+      <th>weighted_degree</th>
+      <th>betweenness</th>
+      <th>modularity_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Jon</th>
+      <td>26.0</td>
+      <td>442.0</td>
+      <td>0.229965</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Robert</th>
+      <td>18.0</td>
+      <td>128.0</td>
+      <td>0.209452</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Tyrion</th>
+      <td>36.0</td>
+      <td>551.0</td>
+      <td>0.197913</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Daenerys</th>
+      <td>14.0</td>
+      <td>232.0</td>
+      <td>0.157203</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Robb</th>
+      <td>25.0</td>
+      <td>342.0</td>
+      <td>0.126964</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Sansa</th>
+      <td>26.0</td>
+      <td>383.0</td>
+      <td>0.126720</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Stannis</th>
+      <td>14.0</td>
+      <td>146.0</td>
+      <td>0.102700</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Jaime</th>
+      <td>24.0</td>
+      <td>372.0</td>
+      <td>0.099943</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Arya</th>
+      <td>19.0</td>
+      <td>269.0</td>
+      <td>0.079607</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Tywin</th>
+      <td>22.0</td>
+      <td>204.0</td>
+      <td>0.065538</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Bran</th>
+      <td>14.0</td>
+      <td>344.0</td>
+      <td>0.063017</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Davos</th>
+      <td>5.0</td>
+      <td>87.0</td>
+      <td>0.056065</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Catelyn</th>
+      <td>18.0</td>
+      <td>184.0</td>
+      <td>0.048906</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Barristan</th>
+      <td>6.0</td>
+      <td>63.0</td>
+      <td>0.040114</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Samwell</th>
+      <td>15.0</td>
+      <td>282.0</td>
+      <td>0.032273</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Cersei</th>
+      <td>20.0</td>
+      <td>226.0</td>
+      <td>0.026746</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Joffrey</th>
+      <td>18.0</td>
+      <td>255.0</td>
+      <td>0.025434</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Janos</th>
+      <td>6.0</td>
+      <td>37.0</td>
+      <td>0.023559</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Oberyn</th>
+      <td>7.0</td>
+      <td>76.0</td>
+      <td>0.019580</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Eddard</th>
+      <td>12.0</td>
+      <td>108.0</td>
+      <td>0.019341</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Kevan</th>
+      <td>6.0</td>
+      <td>50.0</td>
+      <td>0.019220</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Belwas</th>
+      <td>4.0</td>
+      <td>67.0</td>
+      <td>0.018868</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Craster</th>
+      <td>5.0</td>
+      <td>75.0</td>
+      <td>0.018868</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Viserys</th>
+      <td>3.0</td>
+      <td>19.0</td>
+      <td>0.015644</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Lysa</th>
+      <td>10.0</td>
+      <td>108.0</td>
+      <td>0.015215</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Sandor</th>
+      <td>13.0</td>
+      <td>137.0</td>
+      <td>0.014162</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Melisandre</th>
+      <td>4.0</td>
+      <td>62.0</td>
+      <td>0.008609</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Rhaegar</th>
+      <td>6.0</td>
+      <td>42.0</td>
+      <td>0.007313</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Mance</th>
+      <td>12.0</td>
+      <td>160.0</td>
+      <td>0.007276</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Edmure</th>
+      <td>8.0</td>
+      <td>98.0</td>
+      <td>0.006317</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Val</th>
+      <td>4.0</td>
+      <td>31.0</td>
+      <td>0.005898</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Gregor</th>
+      <td>12.0</td>
+      <td>117.0</td>
+      <td>0.005880</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Brynden</th>
+      <td>8.0</td>
+      <td>55.0</td>
+      <td>0.004727</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Aemon</th>
+      <td>5.0</td>
+      <td>74.0</td>
+      <td>0.004623</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Renly</th>
+      <td>8.0</td>
+      <td>55.0</td>
+      <td>0.004228</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Loras</th>
+      <td>9.0</td>
+      <td>76.0</td>
+      <td>0.003781</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Walder</th>
+      <td>8.0</td>
+      <td>87.0</td>
+      <td>0.003273</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Elia</th>
+      <td>5.0</td>
+      <td>29.0</td>
+      <td>0.002997</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Jorah</th>
+      <td>6.0</td>
+      <td>89.0</td>
+      <td>0.002330</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Hodor</th>
+      <td>4.0</td>
+      <td>177.0</td>
+      <td>0.002194</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Meera</th>
+      <td>5.0</td>
+      <td>139.0</td>
+      <td>0.001992</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Thoros</th>
+      <td>5.0</td>
+      <td>60.0</td>
+      <td>0.001926</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Brienne</th>
+      <td>7.0</td>
+      <td>122.0</td>
+      <td>0.001538</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Shae</th>
+      <td>5.0</td>
+      <td>45.0</td>
+      <td>0.001252</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Petyr</th>
+      <td>7.0</td>
+      <td>89.0</td>
+      <td>0.001150</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Margaery</th>
+      <td>7.0</td>
+      <td>96.0</td>
+      <td>0.001097</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Varys</th>
+      <td>7.0</td>
+      <td>49.0</td>
+      <td>0.000909</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Podrick</th>
+      <td>5.0</td>
+      <td>64.0</td>
+      <td>0.000836</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Rickon</th>
+      <td>6.0</td>
+      <td>81.0</td>
+      <td>0.000763</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Tommen</th>
+      <td>5.0</td>
+      <td>31.0</td>
+      <td>0.000698</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Lothar</th>
+      <td>5.0</td>
+      <td>34.0</td>
+      <td>0.000660</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Balon</th>
+      <td>6.0</td>
+      <td>29.0</td>
+      <td>0.000628</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Myrcella</th>
+      <td>4.0</td>
+      <td>18.0</td>
+      <td>0.000624</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Beric</th>
+      <td>6.0</td>
+      <td>75.0</td>
+      <td>0.000609</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Jon Arryn</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000576</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Theon</th>
+      <td>4.0</td>
+      <td>38.0</td>
+      <td>0.000472</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Jojen</th>
+      <td>4.0</td>
+      <td>125.0</td>
+      <td>0.000406</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Qhorin</th>
+      <td>5.0</td>
+      <td>59.0</td>
+      <td>0.000264</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Roose</th>
+      <td>4.0</td>
+      <td>17.0</td>
+      <td>0.000263</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Meryn</th>
+      <td>7.0</td>
+      <td>47.0</td>
+      <td>0.000259</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Hoster</th>
+      <td>3.0</td>
+      <td>24.0</td>
+      <td>0.000243</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Irri</th>
+      <td>4.0</td>
+      <td>33.0</td>
+      <td>0.000180</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Bronn</th>
+      <td>4.0</td>
+      <td>59.0</td>
+      <td>0.000105</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Roslin</th>
+      <td>4.0</td>
+      <td>32.0</td>
+      <td>0.000068</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Daario</th>
+      <td>4.0</td>
+      <td>30.0</td>
+      <td>0.000060</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Drogo</th>
+      <td>4.0</td>
+      <td>35.0</td>
+      <td>0.000060</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Grenn</th>
+      <td>4.0</td>
+      <td>81.0</td>
+      <td>0.000060</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Marillion</th>
+      <td>3.0</td>
+      <td>23.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Ramsay</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Doran</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Mace</th>
+      <td>3.0</td>
+      <td>20.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Shireen</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Robert Arryn</th>
+      <td>3.0</td>
+      <td>19.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Dalla</th>
+      <td>3.0</td>
+      <td>21.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Chataya</th>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Orell</th>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Ygritte</th>
+      <td>4.0</td>
+      <td>82.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Olenna</th>
+      <td>2.0</td>
+      <td>12.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Rattleshirt</th>
+      <td>4.0</td>
+      <td>44.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Rickard</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Lancel</th>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Styr</th>
+      <td>2.0</td>
+      <td>23.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Ellaria</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Ilyn</th>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Bowen</th>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Pycelle</th>
+      <td>4.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Aerys</th>
+      <td>4.0</td>
+      <td>37.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Alliser</th>
+      <td>3.0</td>
+      <td>29.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Amory</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Anguy</th>
+      <td>2.0</td>
+      <td>15.0</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Gendry</th>
+      <td>4.0</td>
+      <td>59.0</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Illyrio</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Luwin</th>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Nan</th>
+      <td>2.0</td>
+      <td>18.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Jeyne</th>
+      <td>2.0</td>
+      <td>28.0</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Karl</th>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Qyburn</th>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Aegon</th>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Kraznys</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Missandei</th>
+      <td>2.0</td>
+      <td>30.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Rakharo</th>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Worm</th>
+      <td>1.0</td>
+      <td>14.0</td>
+      <td>0.000000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Cressen</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Salladhor</th>
+      <td>1.0</td>
+      <td>16.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Eddison</th>
+      <td>3.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Gilly</th>
+      <td>4.0</td>
+      <td>69.0</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Walton</th>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
