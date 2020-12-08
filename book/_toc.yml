@@ -12,11 +12,7 @@
 
   - file: syllabus
     title: Course Syllabus
-    
-  - file: Homework/HW-Description-Without-Links
-
-
-
+  
 - part: The Book
   chapters:
   - file: Command-Line/The-Command-Line

@@ -20,4 +20,6 @@ venv.bak/
 book/_build/
 book/features
 in-progress/
-#
+
+# VS Code
+.vscode
