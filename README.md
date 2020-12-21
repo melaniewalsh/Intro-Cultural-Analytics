@@ -4,7 +4,9 @@ Website: https://melaniewalsh.github.io/Intro-Cultural-Analytics/
 
 Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)
 
-This website hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020. It includes a short online textbook designed for the class.
+This website hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020. It includes an online textbook designed for the class.
+
+For a quick breakdown of what's in this repository and how it functions as a Jupyter Book, see [Quick Jupyter Book Overview and Directory Structure](JupyterBookOverview.md).
 
 ## What is Cultural Analytics?
 Cultural analytics is the study of culture with computational methods. Culture is a broad term that includes literature, history, politics, art, music, social media, and a lot more. Cultural analytics is a growing research area in fields like [Digital Humanities](https://cmu-lib.github.io/dhlg/what-are-dh/) and [Information Science](https://infosci.cornell.edu/research). 

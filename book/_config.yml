@@ -74,6 +74,7 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions: 
+    - sphinx_inline_tabs
 #  - sphinx_reredirects 
   # - notfound.extension  # A list of extra extensions to load by Sphinx (added to those already used by JB).
   config:

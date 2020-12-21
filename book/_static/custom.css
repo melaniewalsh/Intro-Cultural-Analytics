@@ -273,7 +273,7 @@ div.cell.tag_command_line .highlight .c1 {
 }
 
 div.cell.tag_command_line .ansi-bold {
-  color: red;
+  color: red !important;
 }
 
 
@@ -299,8 +299,11 @@ div.cell.tag_command_line .ansi-bold {
   font-weight: bold 
 } 
 
+div.highlight .-Color[class*=-Red] {
+    color: red !important;
+}
 .ansi-bold {
-  color: red;
+  color: red !important;
 }
 
 .highlight .k {
