@@ -52,7 +52,6 @@
       - file: Data-Collection/Git-GitHub
       - file: Data-Collection/APIs
       - file: Data-Collection/Song-Genius-Data-Collection
-        expand_sections: false
         sections:
           - file: Data-Collection/Genius-API
           - file: Data-Collection/LyricsGenius
@@ -85,7 +84,6 @@
   - file: Network-Analysis/Network-Analysis-Home
     sections:
       - file: Network-Analysis/Network-Analysis
-      - file: Network-Analysis/Make-Character-Network
       - file: Network-Analysis/Making-Network-Viz-with-Bokeh
   - file: Mapping/Mapping-Home
     sections:

@@ -11,11 +11,13 @@ Below I will briefly explain the structure of this repository and some important
 
 ### Configuration file
 
-The configuration file [`/book/_config.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_config.yml) is where I establish key features of the book, such as its title and logo as well as whether we want to be able to open our Jupyter notebook files in the cloud.
+The configuration file [`/book/_config.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_config.yml) is where I establish key features of the book, such as its title, logo, and whether you can open the Jupyter notebook files in the cloud.
  
 ### Table of Contents file
 
-The table of contents file `/jupyterbook/_toc.yml` establishes the table of contents structure on the left-hand side of the web page. To include a markdown or Jupyter notebook file in the table of contents, you include the flag `- file:` followed by the file path *without* the file extension, as shown below: 
+The table of contents file `/book/_toc.yml` establishes the table of contents structure on the left-hand side of the web page.
+
+To include a Markdown or Jupyter notebook file in the table of contents, you include the flag `- file:` followed by the file path *without* the file extension, as shown below: 
 ```
 - file: welcome
 
@@ -46,26 +48,30 @@ If you want the title in the table of contents to be different from the title in
 
 ### Notebooks
 
-The Jupyter notebook files can be found in directories named for chapters, e.g., `book/Python`
+The Jupyter notebook files can be found in directories named for chapters, e.g., `/book/Python`
 
 ### Data
 
-Data can be can be found in `book/data`
+Data can be can be found in `/book/data`
 
 ### Texts
 
-Data can be can be found in `book/texts`
+Data can be can be found in `/book/texts`
 
 ### Custom CSS
 
-Custom CSS styling can be found in [`book/_static/custom.css`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_static/custom.css) (it's a bit messy at the moment, sorry)
+Custom CSS styling can be found in [`/book/_static/custom.css`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_static/custom.css) (it's a bit messy at the moment, sorry)
 
 
 ## How to Build and Publish Jupyter Book with GitHub Pages
 
-Run `jupyter-book build book` or `jb build book`, where "book" is the directory with your Jupyter notebook files. A fully-rendered HTML version of the book will be built in `book/_build/html/`. You can push these HTML files to a GitHub pages website by pushing them to the `gh-pages` branch of a GitHub repository.
+- Run `jupyter-book build book` or `jb build book`, where "book" is the directory with your Jupyter notebook files
+
+A fully-rendered HTML version of the book will be built in `/book/_build/html/`. You can push these HTML files to a GitHub pages website by pushing them to the `gh-pages` branch of a GitHub repository.
  
-One easy way to push to the `gh-pages` branch is to [install `gh-import`](https://jupyterbook.org/publish/gh-pages.html#push-your-book-to-a-branch-hosted-by-github-pages) and run `ghp-import -n -p -f book/_build/html`
+One easy way to push to the `gh-pages` branch is to [install `gh-import`](https://jupyterbook.org/publish/gh-pages.html#push-your-book-to-a-branch-hosted-by-github-pages).
+
+- Then run `ghp-import -n -p -f book/_build/html`
 
 
 ## Learn More About Jupyter Book
