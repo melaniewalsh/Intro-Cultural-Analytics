@@ -1,12 +1,12 @@
 # Introduction to Cultural Analytics & Python
 
-Course website and textbook: https://melaniewalsh.github.io/Intro-Cultural-Analytics/
-
 Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)
 
 This repository hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020 and 2021. It includes an online textbook designed for the class, *Introduction to Cultural Analytics & Python*, which demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. 
 
-# Quick Jupyter Book Overview and Directory Structure
+Course website and textbook: https://melaniewalsh.github.io/Intro-Cultural-Analytics/
+
+# Jupyter Book Overview and Repository Structure
 
 The website and textbook are powered by Jupyter Book. The Python package [`jupyter-book`](https://jupyterbook.org/start/build.html) processes the Jupyter notebook files from this repository and outputs them as the publication-quality HTML files that generate the [corresponding website](https://melaniewalsh.github.io/Intro-Cultural-Analytics/).
 
@@ -78,7 +78,7 @@ Texts can be can be found in [`/book/texts`](https://github.com/melaniewalsh/Int
 Custom CSS styling can be found in [`/book/_static/custom.css`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_static/custom.css) (it's a bit messy at the moment, sorry)
 
 
-## How to Build and Publish Jupyter Book with GitHub Pages
+# How to Build and Publish Jupyter Book with GitHub Pages
 
 - Run `jupyter-book build /book` or `jb build /book`, where `/book` is the directory with your Jupyter notebook files
 
