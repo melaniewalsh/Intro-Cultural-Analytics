@@ -16,8 +16,10 @@
 - part: The Book
   chapters:
   - file: Command-Line/The-Command-Line
+    title: 1. The Command Line
 
   - file: Python/Python
+    title: 2. Python Basics
     sections:
       - file: Python/Installation
       - file: Python/How-to-Use-Jupyter-Notebooks
@@ -36,7 +38,7 @@
       - file: Python/What-Were-Not-Covering
       
   - file: Data-Analysis/Data-Analysis
-    title: Data Analysis (Pandas)
+    title: 3. Data Analysis (Pandas)
     sections:
       - file: Data-Analysis/Pandas-Basics-Part1
       - file: Data-Analysis/Pandas-Basics-Part2
@@ -44,7 +46,7 @@
       - file: Data-Analysis/Pandas-Merge-Datasets
 
   - file: Data-Collection/Data-Collection
-    title: Data Collection (Web Scraping, APIs)
+    title: 4. Data Collection (Web Scraping, APIs)
     sections:
       - file: Data-Collection/User-Ethics-Legal-Concerns
       - file: Data-Collection/Web-Scraping-Part1
@@ -66,6 +68,7 @@
         title: Reddit Data Collection
           
   - file: Text-Analysis/Text-Analysis
+    title: 5. Text Analysis
     sections:
       - file: Text-Analysis/TF-IDF
         sections:
@@ -82,10 +85,12 @@
       - file: Text-Analysis/POS-Keywords
           
   - file: Network-Analysis/Network-Analysis-Home
+    title: 6. Network Analysis
     sections:
       - file: Network-Analysis/Network-Analysis
       - file: Network-Analysis/Making-Network-Viz-with-Bokeh
   - file: Mapping/Mapping-Home
+    title: 7. Mapping 
     sections:
       - file: Mapping/Mapping
       - file: Mapping/Custom-Maps
