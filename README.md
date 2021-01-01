@@ -4,18 +4,20 @@ Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Bo
 
 This repository hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020 and 2021. It includes an online textbook designed for the class, *Introduction to Cultural Analytics & Python*, which demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. 
 
+[![Intro Cultural Analytics home page](book/images/intro-ca-home-page-12-30-2020.png)](https://melaniewalsh.github.io/Intro-Cultural-Analytics/)
+
 Course website and textbook: https://melaniewalsh.github.io/Intro-Cultural-Analytics/
 
 # Jupyter Book Overview and Repository Structure
 
-The website and textbook are powered by Jupyter Book. The Python package [`jupyter-book`](https://jupyterbook.org/start/build.html) processes the Jupyter notebook files from this repository and outputs them as the publication-quality HTML files that generate the [corresponding website](https://melaniewalsh.github.io/Intro-Cultural-Analytics/).
+The Python package [`jupyter-book`](https://jupyterbook.org/start/build.html) processes the Jupyter notebook files from this repository and outputs them as the publication-quality HTML files that generate the [corresponding website](https://melaniewalsh.github.io/Intro-Cultural-Analytics/).
 
 The HTML files are currently hidden in this branch of the GitHub repository, but you can find them in the [gh-pages branch](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/gh-pages).
 
 Below I will briefly explain the structure of this repository and some important Jupyter Book features.
 
--  `/book` contains all the materials that generate the Jupyter Book
-- `/binder` contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud 
+-  [`/book`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/book) contains all the materials that generate the Jupyter Book
+- [`/binder`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/binder) contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud 
 
 ### Configuration file
 
