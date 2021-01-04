@@ -19,7 +19,8 @@ venv.bak/
 # Jupyter book
 book/_build/
 book/features
-/in-progress
+in-progress
+scraps
 
 # VS Code
 .vscode
