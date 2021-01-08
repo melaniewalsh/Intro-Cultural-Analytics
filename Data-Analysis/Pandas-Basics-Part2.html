@@ -580,7 +580,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Data-Analysis/Pandas-Basics-Part2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/1.0?urlpath=lab/tree/book/Data-Analysis/Pandas-Basics-Part2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -768,7 +768,7 @@ sought or capture the inhumanity of this archive’s formation.</p>
 </div>
 </div>
 <p>This creates a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#DataFrame">DataFrame object</a> — often abbreviated as <em>df</em>, e.g., <em>slave_voyages_df</em>. A DataFrame looks and acts a lot like a spreadsheet. But it has special powers and functions that we will discuss in the next few lessons.</p>
-<p>When reading in the CSV file, we also specified the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> and <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>. The <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> specifies the character that separates or “delimits” the columns in our dataset. For CSV files, the delimiter will most often be a comma. (CSV is short for <em>Comma Separated Values</em>.) Sometimes, however, the delimiter of a CSV file might be a tab (<code class="docutils literal notranslate"><span class="pre">/t</span></code>) or, more rarely, another character.</p>
+<p>When reading in the CSV file, we also specified the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> and <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>. The <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> specifies the character that separates or “delimits” the columns in our dataset. For CSV files, the delimiter will most often be a comma. (CSV is short for <em>Comma Separated Values</em>.) Sometimes, however, the delimiter of a CSV file might be a tab (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) or, more rarely, another character.</p>
 <p><strong>Display Data</strong></p>
 <p>We can display a DataFrame in a Jupyter notebook simply by running a cell with the variable name of the DataFrame.</p>
 <div class="margin sidebar">
@@ -1586,7 +1586,7 @@ dtype: object
 <p class="attribution">—Jennifer Morgan, <a class="reference external" href="https://read.dukeupress.edu/history-of-the-present/article-abstract/6/2/184/153282/Accounting-for-The-Most-Excruciating-Torment?redirectedFrom=PDF">“Accounting for ‘The Most Excruciating Torment’”</a></p>
 </div></blockquote>
 <p>Responsible data analysis requires understanding missing data. The Trans-Atlantic Slave Trade Database, as historian Jennifer Morgan <a class="reference external" href="https://read.dukeupress.edu/history-of-the-present/article-abstract/6/2/184/153282/Accounting-for-The-Most-Excruciating-Torment?redirectedFrom=PDF">writes</a>, contains innumerable “silences” and “gaps.” These silences include the thoughts, feelings, and experiences of the enslaved African people on board the voyages — silences that cannot be found in the database itself.</p>
-<p>There are other kinds of silences and gaps that can be detected in the database itself, however. For example, while some of the voyages in the the Trans-Atlantic Slave Trade Database recorded information about how many enslaved women and children were aboard, most did not. Yet focusing on the data that is there and analyzing trends in the missing data can help shed light on the history of gender and enslavement. The fact that most ship captains did not record gender information, Morgan argues, helps tells us about their “priorities”: “[W]e can assume that had it been financially significant to have more men than women that data would have been more scrupulously recorded.”</p>
+<p>There are other kinds of silences and gaps that can be detected in the database itself, however. For example, while some of the voyages in the the Trans-Atlantic Slave Trade Database recorded information about how many enslaved women and children were aboard, most did not. Yet focusing on the data that is there and analyzing trends in the missing data can help shed light on the history of gender and enslavement. The fact that most ship captains did not record gender information, Morgan argues, helps tell us about their “priorities”: “[W]e can assume that had it been financially significant to have more men than women that data would have been more scrupulously recorded.”</p>
 <div class="section" id="isna-notna">
 <h3>.isna() / .notna()<a class="headerlink" href="#isna-notna" title="Permalink to this headline">¶</a></h3>
 <p>Pandas has special ways of dealing with missing data. As you may have already noticed, blank rows in a CSV file show up as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in a Pandas DataFrame.</p>
@@ -2399,7 +2399,6 @@ Name: percent_women, Length: 20741, dtype: object
       <th>vessel_name</th>
       <th>captain's_name</th>
       <th>voyage_id</th>
-      <th>sources</th>
       <th>total_women</th>
       <th>total_men</th>
     </tr>
@@ -2420,7 +2419,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td></td>
       <td>NaN</td>
       <td>42987</td>
-      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2471,7 +2469,6 @@ Name: percent_women, Length: 20741, dtype: object
       <th>vessel_name</th>
       <th>captain's_name</th>
       <th>voyage_id</th>
-      <th>sources</th>
       <th>total_women</th>
       <th>total_men</th>
     </tr>
@@ -2492,7 +2489,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>S José Diligente</td>
       <td>Estepa</td>
       <td>14378</td>
-      <td>[u'AGI, Santo Domingo 2207&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (S...</td>
       <td>82.00000</td>
       <td>0.00000</td>
     </tr>
@@ -2511,7 +2507,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Elisabeth</td>
       <td>Beliveau</td>
       <td>31883</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>89.69640</td>
       <td>10.90920</td>
     </tr>
@@ -2530,7 +2525,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>S Jan</td>
       <td>Veer, Adriaen Blaes van der</td>
       <td>21566</td>
-      <td>[u'BDB34&lt;&gt;Binder, Franz, Dataset of 17th centu...</td>
       <td>141.37500</td>
       <td>53.62500</td>
     </tr>
@@ -2549,7 +2543,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Descubridor</td>
       <td>Benoit&lt;br/&gt; Valdes</td>
       <td>14868</td>
-      <td>[u'Klein,Havana dataset&lt;&gt;&lt;p&gt;&lt;em&gt;University of ...</td>
       <td>127.14362</td>
       <td>50.85638</td>
     </tr>
@@ -2568,13 +2561,11 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Vencedor</td>
       <td>Iturrondo</td>
       <td>14857</td>
-      <td>[u'Klein,Havana dataset&lt;&gt;&lt;p&gt;&lt;em&gt;University of ...</td>
       <td>47.85495</td>
       <td>0.00000</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -2606,7 +2597,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Polaca</td>
       <td>NaN</td>
       <td>46554</td>
-      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2625,7 +2615,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Gato</td>
       <td>NaN</td>
       <td>4394</td>
-      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2644,7 +2633,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td></td>
       <td>NaN</td>
       <td>4395</td>
-      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2663,7 +2651,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Cicerón</td>
       <td>Mesquita</td>
       <td>5052</td>
-      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2682,13 +2669,12 @@ Name: percent_women, Length: 20741, dtype: object
       <td></td>
       <td>NaN</td>
       <td>4998</td>
-      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>20741 rows × 16 columns</p>
+<p>20741 rows × 15 columns</p>
 </div></div></div>
 </div>
 <p>By default, Pandas will sort in “ascending” order, from the smallest value to the largest value. If we want to sort the largest values first, we need to include another parameter <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code>.</p>
@@ -2731,7 +2717,6 @@ Name: percent_women, Length: 20741, dtype: object
       <th>vessel_name</th>
       <th>captain's_name</th>
       <th>voyage_id</th>
-      <th>sources</th>
       <th>total_women</th>
       <th>total_men</th>
     </tr>
@@ -2752,7 +2737,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>S José Diligente</td>
       <td>Estepa</td>
       <td>14378</td>
-      <td>[u'AGI, Santo Domingo 2207&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (S...</td>
       <td>82.00000</td>
       <td>0.00000</td>
     </tr>
@@ -2771,7 +2755,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Elisabeth</td>
       <td>Beliveau</td>
       <td>31883</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>89.69640</td>
       <td>10.90920</td>
     </tr>
@@ -2790,7 +2773,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>S Jan</td>
       <td>Veer, Adriaen Blaes van der</td>
       <td>21566</td>
-      <td>[u'BDB34&lt;&gt;Binder, Franz, Dataset of 17th centu...</td>
       <td>141.37500</td>
       <td>53.62500</td>
     </tr>
@@ -2809,7 +2791,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Descubridor</td>
       <td>Benoit&lt;br/&gt; Valdes</td>
       <td>14868</td>
-      <td>[u'Klein,Havana dataset&lt;&gt;&lt;p&gt;&lt;em&gt;University of ...</td>
       <td>127.14362</td>
       <td>50.85638</td>
     </tr>
@@ -2828,7 +2809,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Vencedor</td>
       <td>Iturrondo</td>
       <td>14857</td>
-      <td>[u'Klein,Havana dataset&lt;&gt;&lt;p&gt;&lt;em&gt;University of ...</td>
       <td>47.85495</td>
       <td>0.00000</td>
     </tr>
@@ -2847,7 +2827,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Supremo Habanero</td>
       <td>Blanco, Pedro</td>
       <td>14372</td>
-      <td>[u'AA,s2,v18,n71-74,p283,d189&lt;&gt;&lt;i&gt;Arquivos de ...</td>
       <td>112.26784</td>
       <td>51.73216</td>
     </tr>
@@ -2866,7 +2845,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Saint Jean Triomphant</td>
       <td>Gaulart, J</td>
       <td>33087</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>46.77993</td>
       <td>11.69481</td>
     </tr>
@@ -2885,7 +2863,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Florida</td>
       <td>Payne, Samuel</td>
       <td>75489</td>
-      <td>[u"Tattersfield,26-7&lt;&gt;Tattersfield, Nigel, &lt;i&gt;...</td>
       <td>240.00120</td>
       <td>119.99880</td>
     </tr>
@@ -2904,7 +2881,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Rusthof</td>
       <td>Bovenmans, Anthony&lt;br/&gt; Theunissen, Willem</td>
       <td>10278</td>
-      <td>[u'Postma,304-401&lt;&gt;Postma, Johannes Menne, &lt;i&gt;...</td>
       <td>475.99680</td>
       <td>174.99756</td>
     </tr>
@@ -2923,7 +2899,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Elizabeth</td>
       <td>Francis, William</td>
       <td>9558</td>
-      <td>[u'T70/599&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury&lt;/p...</td>
       <td>157.82514</td>
       <td>63.13054</td>
     </tr>
@@ -2942,7 +2917,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Blackamore</td>
       <td>Bowles</td>
       <td>9552</td>
-      <td>[u'T70/599,23&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury...</td>
       <td>241.20791</td>
       <td>131.79209</td>
     </tr>
@@ -2961,7 +2935,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Fame</td>
       <td>Jenkins, William</td>
       <td>18138</td>
-      <td>[u'Richardson,IV&lt;&gt;&lt;p&gt;Richardson, David, &lt;em&gt;Br...</td>
       <td>129.29200</td>
       <td>59.59600</td>
     </tr>
@@ -2980,7 +2953,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Allepine</td>
       <td>Thwaites, William</td>
       <td>9559</td>
-      <td>[u'T70/599,223&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasur...</td>
       <td>171.74508</td>
       <td>60.61701</td>
     </tr>
@@ -2999,7 +2971,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Royal African Packet</td>
       <td>Cornwell, Henry</td>
       <td>76460</td>
-      <td>[u'CO390/7&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew)&lt;/p&gt;', u'CO38...</td>
       <td>128.92341</td>
       <td>18.27291</td>
     </tr>
@@ -3018,7 +2989,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Lenox</td>
       <td>Wilkins, Amos</td>
       <td>9980</td>
-      <td>[u'T70/937,f.63&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasu...</td>
       <td>139.75704</td>
       <td>72.04005</td>
     </tr>
@@ -3037,7 +3007,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>S Ana</td>
       <td>Amaro, Rodriguez de Oliveira</td>
       <td>96099</td>
-      <td>[u'AGNA, IX, 10-4-7&lt;&gt;&lt;p&gt;&lt;em&gt;Archivo General de...</td>
       <td>101.33280</td>
       <td>50.66720</td>
     </tr>
@@ -3056,7 +3025,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Clarita</td>
       <td>Carballo, Alberto</td>
       <td>14375</td>
-      <td>[u'AA,s2,v18,n71-74,p293,d194&lt;&gt;&lt;i&gt;Arquivos de ...</td>
       <td>136.22019</td>
       <td>82.77981</td>
     </tr>
@@ -3075,7 +3043,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>African</td>
       <td>Mingham, John</td>
       <td>9918</td>
-      <td>[u'T70/10,17,56&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasu...</td>
       <td>248.19200</td>
       <td>120.48000</td>
     </tr>
@@ -3094,7 +3061,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Duc d'Orléans</td>
       <td>Villers, Chevalier de</td>
       <td>31886</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>254.92275</td>
       <td>156.07725</td>
     </tr>
@@ -3113,7 +3079,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Prothée</td>
       <td>Hantier, J</td>
       <td>32873</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>128.84130</td>
       <td>69.99930</td>
     </tr>
@@ -3132,7 +3097,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Don de Dieu</td>
       <td>Masson Du Bocage, Guillaume</td>
       <td>33119</td>
-      <td>[u'mettas,II&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire ...</td>
       <td>131.59505</td>
       <td>27.80165</td>
     </tr>
@@ -3151,7 +3115,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Francis</td>
       <td>Wimple, Ralph</td>
       <td>9838</td>
-      <td>[u'T70/11,16-8&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasur...</td>
       <td>161.95152</td>
       <td>65.65530</td>
     </tr>
@@ -3170,7 +3133,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Vine</td>
       <td>Coleman, John</td>
       <td>9987</td>
-      <td>[u'T70/937&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury&lt;/p...</td>
       <td>132.55194</td>
       <td>76.36092</td>
     </tr>
@@ -3189,7 +3151,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>John and Betty</td>
       <td>Denton, William</td>
       <td>92352</td>
-      <td>[u'UVA,JCLCarterLetterbk, Robert Carter, 1727....</td>
       <td>97.30840</td>
       <td>63.69160</td>
     </tr>
@@ -3208,7 +3169,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Jefferie</td>
       <td>Daile, Benjamin</td>
       <td>9669</td>
-      <td>[u'T70/11,15&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury&lt;...</td>
       <td>185.74270</td>
       <td>124.25730</td>
     </tr>
@@ -3227,7 +3187,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Fidèle</td>
       <td>Bonneau, Jean</td>
       <td>30111</td>
-      <td>[u'mettas,I&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire d...</td>
       <td>30.95248</td>
       <td>12.38120</td>
     </tr>
@@ -3246,7 +3205,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Hope</td>
       <td>Grible, John</td>
       <td>9927</td>
-      <td>[u'T70/16,7,9&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury...</td>
       <td>137.41592</td>
       <td>78.52272</td>
     </tr>
@@ -3265,7 +3223,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Arthur</td>
       <td>Penny, George</td>
       <td>9898</td>
-      <td>[u'T70/10,20&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury&lt;...</td>
       <td>96.56156</td>
       <td>53.64440</td>
     </tr>
@@ -3284,7 +3241,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Eaglet</td>
       <td>Waugh, John</td>
       <td>9896</td>
-      <td>[u'T70/10,38&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury&lt;...</td>
       <td>85.69616</td>
       <td>42.84808</td>
     </tr>
@@ -3303,7 +3259,6 @@ Name: percent_women, Length: 20741, dtype: object
       <td>Success</td>
       <td>Duke, Abraham</td>
       <td>9584</td>
-      <td>[u'T70/599,32&lt;&gt;&lt;p&gt;&lt;em&gt;BNA&lt;/em&gt; (Kew), Treasury...</td>
       <td>162.76622</td>
       <td>72.02146</td>
     </tr>
@@ -3437,7 +3392,6 @@ Name: total_women, Length: 20741, dtype: float64
       <th>vessel_name</th>
       <th>captain's_name</th>
       <th>voyage_id</th>
-      <th>sources</th>
       <th>total_women</th>
       <th>total_men</th>
     </tr>
@@ -3458,7 +3412,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>S José Diligente</td>
       <td>Estepa</td>
       <td>14378</td>
-      <td>[u'AGI, Santo Domingo 2207&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (S...</td>
       <td>82.0</td>
       <td>0.0</td>
     </tr>
@@ -3493,7 +3446,7 @@ Name: total_women, Length: 20741, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x14a269e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fdd2d0c2150&gt;
 </pre></div>
 </div>
 </div>
@@ -3536,13 +3489,11 @@ Name: total_women, Length: 20741, dtype: float64
       <th>vessel_name</th>
       <th>captain's_name</th>
       <th>voyage_id</th>
-      <th>sources</th>
       <th>total_women</th>
       <th>total_men</th>
     </tr>
     <tr>
       <th>national_affiliation</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -3574,7 +3525,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>290</td>
       <td>163</td>
       <td>290</td>
-      <td>290</td>
       <td>119</td>
       <td>119</td>
     </tr>
@@ -3591,7 +3541,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>121</td>
       <td>3381</td>
       <td>3289</td>
-      <td>3381</td>
       <td>3381</td>
       <td>708</td>
       <td>708</td>
@@ -3610,7 +3559,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>10536</td>
       <td>10226</td>
       <td>10536</td>
-      <td>10536</td>
       <td>1123</td>
       <td>1123</td>
     </tr>
@@ -3627,7 +3575,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>51</td>
       <td>1389</td>
       <td>1316</td>
-      <td>1389</td>
       <td>1389</td>
       <td>200</td>
       <td>200</td>
@@ -3646,7 +3593,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>4</td>
       <td>2</td>
       <td>4</td>
-      <td>4</td>
       <td>0</td>
       <td>0</td>
     </tr>
@@ -3663,7 +3609,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>0</td>
       <td>1009</td>
       <td>874</td>
-      <td>1009</td>
       <td>1009</td>
       <td>42</td>
       <td>42</td>
@@ -3682,7 +3627,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>1528</td>
       <td>1323</td>
       <td>1528</td>
-      <td>1528</td>
       <td>468</td>
       <td>468</td>
     </tr>
@@ -3699,7 +3643,6 @@ Name: total_women, Length: 20741, dtype: float64
       <td>31</td>
       <td>1446</td>
       <td>1283</td>
-      <td>1446</td>
       <td>1446</td>
       <td>223</td>
       <td>223</td>
@@ -3770,7 +3713,7 @@ Name: percent_women, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ef4fe50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd2bda9750&gt;
 </pre></div>
 </div>
 <img alt="../_images/Pandas-Basics-Part2_113_1.png" src="../_images/Pandas-Basics-Part2_113_1.png" />
@@ -3802,7 +3745,7 @@ Name: percent_women, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14ea04310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd2beb51d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/Pandas-Basics-Part2_118_1.png" src="../_images/Pandas-Basics-Part2_118_1.png" />
@@ -3812,12 +3755,12 @@ Name: percent_women, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
-<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14fce9d10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd2c112310&gt;
 </pre></div>
 </div>
 <img alt="../_images/Pandas-Basics-Part2_120_1.png" src="../_images/Pandas-Basics-Part2_120_1.png" />
@@ -3827,27 +3770,27 @@ Name: percent_women, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span> <span class="s1">&#39;total_men&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
-<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women and Men on Voyages&quot;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women and Men on Voyages&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f9fb950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd2c0a6550&gt;
 </pre></div>
 </div>
 <img alt="../_images/Pandas-Basics-Part2_122_1.png" src="../_images/Pandas-Basics-Part2_122_1.png" />
 </div>
 </div>
-<p>Finally, we can also add in the total number of enslaved people who embarked on the voyages, offering a perspective of how mcuh gender information we have about the voyages compared to the total number of voyages.</p>
+<p>Finally, we can also add in the total number of enslaved people who embarked on the voyages, offering a perspective of how much gender information we have about the voyages compared to the total number of voyages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[[</span><span class="s1">&#39;total_women&#39;</span><span class="p">,</span>  <span class="s1">&#39;total_men&#39;</span><span class="p">,</span> <span class="s1">&#39;total_embarked&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
-<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s1">Total Number of Enslaved People on Voyages&#39;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s1">Total Number of Enslaved People on Voyages&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14f728c50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd2c448f90&gt;
 </pre></div>
 </div>
 <img alt="../_images/Pandas-Basics-Part2_124_1.png" src="../_images/Pandas-Basics-Part2_124_1.png" />
