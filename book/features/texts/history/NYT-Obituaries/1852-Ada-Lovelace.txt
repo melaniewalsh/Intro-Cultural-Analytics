@@ -1,0 +1,45 @@
+A gifted mathematician who is now recognized as the first computer programmer.By CLAIRE CAIN MILLER
+
+ A century before the dawn of the computer age, Ada Lovelace imagined the modern-day, general-purpose computer. It could be programmed to follow instructions, she wrote in 1843. It could not just calculate but also create, as it “weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.” The computer she was writing about, the British inventor Charles Babbage’s Analytical Engine, was never built. But her writings about computing have earned Lovelace — who died of uterine cancer in 1852 at 36 — recognition as the first computer programmer. 
+
+ The program she wrote for the Analytical Engine was to calculate the seventh Bernoulli number. (Bernoulli numbers, named after the Swiss mathematician Jacob Bernoulli, are used in many different areas of mathematics.) But her deeper influence was to see the potential of computing. The machines could go beyond calculating numbers, she said, to understand symbols and be used to create music or art.
+
+ “This insight would become the core concept of the digital age,” Walter Isaacson wrote in his book “The Innovators.” “Any piece of content, data or information — music, text, pictures, numbers, symbols, sounds, video — could be expressed in digital form and manipulated by machines.” She also explored the ramifications of what a computer could do, writing about the responsibility placed on the person programming the machine, and raising and then dismissing the notion that computers could someday think and create on their own — what we now call artificial intelligence.
+
+ “The Analytical Engine has no pretensions whatever to originate any thing,” she wrote. “It can do whatever we know how to order it to perform.”
+
+ Lovelace, a British socialite who was the daughter of Lord Byron, the Romantic poet, had a gift for combining art and science, one of her biographers, Betty Alexandra Toole, has written. She thought of math and logic as creative and imaginative, and called it “poetical science.”
+
+ Math “constitutes the language through which alone we can adequately express the great facts of the natural world,” Lovelace wrote.
+
+ Her work, which was rediscovered in the mid-20th century, inspired the Defense Department to name a programming language after her and each October Ada Lovelace Day signifies a celebration of women in technology. Lovelace lived when women were not considered to be prominent scientific thinkers, and her skills were often described as masculine.
+
+ “With an understanding thoroughly masculine in solidity, grasp and firmness, Lady Lovelace had all the delicacies of the most refined female character,” said an obituary in The London Examiner.
+
+ Babbage, who called her the “enchantress of numbers,” once wrote that she “has thrown her magical spell around the most abstract of Sciences and has grasped it with a force which few masculine intellects (in our own country at least) could have exerted over it.”
+
+ Augusta Ada Byron was born on Dec. 10, 1815, in London, to Lord Byron and Annabella Milbanke. Her parents separated when she was an infant, and her father died when she was 8. Her mother — whom Lord Byron called the “princess of parallelograms” and, after their falling out, a “mathematical Medea” — was a social reformer from a wealthy family who had a deep interest in mathematics.
+
+ An etching from a portrait of Lovelace as a child. She is said to have had a gift for combining art and science. Smith Collection/Gado/Getty Images
+
+ Lovelace showed a passion for math and mechanics from a young age, encouraged by her mother. Because of her class, she had access to private tutors and to intellectuals in British scientific and literary society. She was insatiably curious and surrounded herself with big thinkers of the day, including Mary Somerville, a scientist and writer.
+
+ It was Somerville who introduced Lovelace to Babbage when she was 17, at a salon he hosted soon after she made her society debut. He showed her a two-foot high, brass mechanical calculator he had built, and it gripped her imagination. They began a correspondence about math and science that lasted almost two decades.
+
+ She also met her husband, William King, through Somerville. They married in 1835, when she was 19. He soon became an earl, and she became the Countess of Lovelace. By 1839, she had given birth to two sons and a daughter.
+
+ She was determined, however, not to let her family life slow her work. The year she was married, she wrote to Somerville: “I now read Mathematics every day and am occupied in Trigonometry and in preliminaries to Cubic and Biquadratic Equations. So you see that matrimony has by no means lessened my taste for these pursuits, nor my determination to carry them on.”
+
+ In 1840, Lovelace asked Augustus De Morgan, a math professor in London, to tutor her. Through exchanging letters, he taught her university-level math. He later wrote to her mother that if a young male student had shown her skill, “they would have certainly made him an original mathematical investigator, perhaps of first-rate eminence.”
+
+ It was in 1843, when she was 27, that Lovelace wrote her most lasting contribution to computer science.
+
+ She published her translation of an academic paper about the Babbage Analytical Engine and added a section, nearly three times the length of the paper, titled, “Notes.” Here, she described how the computer would work, imagined its potential and wrote the first program.
+
+ Researchers have come to see it as “an extraordinary document,” said Ursula Martin, a computer scientist at the University of Oxford who has studied Lovelace’s life and work. “She’s talking about the abstract principles of computation, how you could program it, and big ideas like maybe it could compose music, maybe it could think.”
+
+ Lovelace died less than a decade later, on Nov. 27, 1852. In the “Notes,” she imagined a future in which computers could do more powerful and faster analysis than humans.
+
+ “A new, a vast and a powerful language is developed for the future use of analysis,” she wrote, “in which to wield its truths so that these may become of more speedy and accurate practical application for the purposes of mankind.”
+
+ Claire Cain Miller writes about gender for The Upshot. She first learned about Ada Lovelace while covering the tech industry, where women are severely underrepresented.
