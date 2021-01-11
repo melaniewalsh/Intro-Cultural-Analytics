@@ -1,1 +1,0 @@
-print("I'm a sample file, too!")

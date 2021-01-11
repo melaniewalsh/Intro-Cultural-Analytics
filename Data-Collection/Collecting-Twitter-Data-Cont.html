@@ -1,0 +1,3372 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collecting Twitter Data &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Collecting-Twitter-Data-Cont.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/Collecting-Twitter-Data-Cont.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Collecting Twitter Data" />
+<meta property="og:description" content="Collecting Twitter Data  This interactive Jupyter notebook will allow you to experiment with Twarc without prior set-up or installation.  Most of the cells belo" />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Python/Python.html">
+   2. Python Basics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Text-Analysis/Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Text-Analysis/TF-IDF.html">
+     TF-IDF
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Text-Analysis/Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/POS-Keywords.html#keyword-extraction">
+     Keyword Extraction
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#geocoding-with-geopy">
+     Geocoding with GeoPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#making-interactive-maps">
+     Making Interactive Maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Data-Collection/Collecting-Twitter-Data-Cont.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2FData-Collection/Collecting-Twitter-Data-Cont.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Data-Collection/Collecting-Twitter-Data-Cont.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    Collecting Twitter Data
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-a-jupyter-cell">
+   <strong>
+    Run a Jupyter cell
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   <strong>
+    Installation
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     Python
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#twarc">
+     Twarc
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-a-twitter-developer-account">
+   <strong>
+    Set up a Twitter developer account
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   <strong>
+    Collecting Twitter Data
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-realtime-live">
+     Filter realtime (live)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-last-7-days">
+     Search (last 7 days)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-how-many-tweets-have-been-collected">
+     Check how many tweets have been collected
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-json-file-to-csv-file">
+     Convert JSON file to CSV file
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-the-python-library-pandas-and-read-in-tweet-csv-files">
+     Import the Python library “pandas” and read in tweet CSV files
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#see-entire-csv-file-for-first-10-rows">
+     See entire CSV file for first 10 rows
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#see-only-select-select-columns">
+     See only select select columns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-keywords-features">
+     Finding Keywords/ Features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sample-word-frequencies">
+       Sample Word Frequencies:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#guess-demographic">
+       Guess demographic
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-of-tweet">
+       Time of tweet
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-tweet-analysis">
+   <strong>
+    Basic Tweet Analysis
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#twarc-utilities-twarc-utils">
+     Twarc utilities
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       twarc/utils
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-top-hashtags-twarc-utils-tags-py">
+     Identify Top Hashtags
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       twarc/utils/tags.py
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-word-cloud-twarc-utils-wordcloud-py">
+     Create a Word Cloud
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       twarc/utils/wordcloud.py
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-top-emojis-twarc-utils-emojis-py">
+     Identify Top Emojis
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       twarc/utils/emojis.py
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="collecting-twitter-data">
+<h1><strong>Collecting Twitter Data</strong><a class="headerlink" href="#collecting-twitter-data" title="Permalink to this headline">¶</a></h1>
+<p>This interactive Jupyter notebook will allow you to experiment with Twarc without prior set-up or installation.</p>
+<p>Most of the cells below include code that should be run on the command line. These cells all begin with an exclamation point <code class="docutils literal notranslate"><span class="pre">!</span></code>. The <code class="docutils literal notranslate"><span class="pre">!</span></code> allows a Jupyter notebook to run code from a shell.
+<img alt="the command line" src="Data-Collection/images/command-line.png" /></p>
+</div>
+<div class="section" id="run-a-jupyter-cell">
+<h1><strong>Run a Jupyter cell</strong><a class="headerlink" href="#run-a-jupyter-cell" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nice! You did it. You just ran a cell.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nice! You did it. You just ran a cell.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="installation">
+<h1><strong>Installation</strong><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>I recommend installing Python with Anaconda:</p>
+<p>https://docs.continuum.io/anaconda/install/</p>
+</div>
+<div class="section" id="twarc">
+<h2>Twarc<a class="headerlink" href="#twarc" title="Permalink to this headline">¶</a></h2>
+<p>To install twarc, you can run “pip install twarc” on the command line. The command below specifies the latest version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="s1">&#39;twarc == 1.7.5&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: twarc==1.7.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (1.7.5)
+Requirement already satisfied: pytest in /srv/conda/envs/notebook/lib/python3.7/site-packages (from twarc==1.7.5) (5.3.0)
+Requirement already satisfied: requests-oauthlib in /srv/conda/envs/notebook/lib/python3.7/site-packages (from twarc==1.7.5) (1.3.0)
+Requirement already satisfied: python-dateutil in /srv/conda/envs/notebook/lib/python3.7/site-packages (from twarc==1.7.5) (2.8.0)
+Requirement already satisfied: pluggy&lt;1.0,&gt;=0.12 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (0.13.0)
+Requirement already satisfied: more-itertools&gt;=4.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (7.2.0)
+Requirement already satisfied: wcwidth in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (0.1.7)
+Requirement already satisfied: py&gt;=1.5.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (1.8.0)
+Requirement already satisfied: importlib-metadata&gt;=0.12; python_version &lt; &quot;3.8&quot; in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (0.23)
+Requirement already satisfied: packaging in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (19.2)
+Requirement already satisfied: attrs&gt;=17.4.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest-&gt;twarc==1.7.5) (19.1.0)
+Requirement already satisfied: requests&gt;=2.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests-oauthlib-&gt;twarc==1.7.5) (2.22.0)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests-oauthlib-&gt;twarc==1.7.5) (3.0.1)
+Requirement already satisfied: six&gt;=1.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from python-dateutil-&gt;twarc==1.7.5) (1.12.0)
+Requirement already satisfied: zipp&gt;=0.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from importlib-metadata&gt;=0.12; python_version &lt; &quot;3.8&quot;-&gt;pytest-&gt;twarc==1.7.5) (0.6.0)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from packaging-&gt;pytest-&gt;twarc==1.7.5) (2.4.5)
+Requirement already satisfied: idna&lt;2.9,&gt;=2.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests&gt;=2.0.0-&gt;requests-oauthlib-&gt;twarc==1.7.5) (2.8)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests&gt;=2.0.0-&gt;requests-oauthlib-&gt;twarc==1.7.5) (2019.9.11)
+Requirement already satisfied: chardet&lt;3.1.0,&gt;=3.0.2 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests&gt;=2.0.0-&gt;requests-oauthlib-&gt;twarc==1.7.5) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests&gt;=2.0.0-&gt;requests-oauthlib-&gt;twarc==1.7.5) (1.25.3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or you can download and open twarc as a zip file: https://github.com/DocNow/twarc/archive/master.zip</p>
+<p>More detailed instruction about twarc and installation can be found at https://github.com/DocNow/twarc</p>
+</div>
+</div>
+<div class="section" id="set-up-a-twitter-developer-account">
+<h1><strong>Set up a Twitter developer account</strong><a class="headerlink" href="#set-up-a-twitter-developer-account" title="Permalink to this headline">¶</a></h1>
+<p>*Twarc won’t work in this notebook unless you configure it with your own consumer key, consumer secret, access token, and access token secret.</p>
+<ol class="simple">
+<li><p>Create a Twitter developer account and Twitter application. If you haven’t done so yet, you can follow the instructions on our GitHub repo: https://github.com/melaniewalsh/Humanities-Data-Society/blob/master/TwitterFirstSteps.md</p></li>
+<li><p>Record consumer key, consumer secret, access token, and access token secret</p></li>
+<li><p>Open a terminal</p></li>
+</ol>
+<p><img alt="" src="Data-Collection/images/terminal.png" /></p>
+<ol class="simple">
+<li><p>Configure twarc by entering <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">configure</span></code> and following the prompts</p></li>
+</ol>
+<p><img alt="" src="Data-Collection/images/twarc-configure.png" /></p>
+<p>Now you should be able to use twarc in this notebook!</p>
+</div>
+<div class="section" id="id1">
+<h1><strong>Collecting Twitter Data</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><strong>“Ok boomer”</strong> has become Generation Z’s endlessly repeated retort to the problem of older people who just don’t get it, a rallying cry for millions of fed up kids. Teenagers use it to reply to cringey YouTube videos, Donald Trump tweets, and basically any person over 30 who says something condescending about young people — and the issues that matter to them.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>-Taylor Lorenz, <a class="reference external" href="https://www.nytimes.com/2019/10/29/style/ok-boomer.html">“‘OK Boomer’ Marks the End of Friendly Generational Relations”</a></p>
+</div></blockquote>
+<div class="section" id="filter-realtime-live">
+<h2>Filter realtime (live)<a class="headerlink" href="#filter-realtime-live" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc filter <span class="s2">&quot;ok boomer&quot;</span> &gt; ok_boomer_filter.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="search-last-7-days">
+<h2>Search (last 7 days)<a class="headerlink" href="#search-last-7-days" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc search <span class="s2">&quot;morissey&quot;</span> &gt; moz.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="check-how-many-tweets-have-been-collected">
+<h2>Check how many tweets have been collected<a class="headerlink" href="#check-how-many-tweets-have-been-collected" title="Permalink to this headline">¶</a></h2>
+<p><em>The command “wc” with the “-l” flag tells you how many lines are in a file</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wc -l moz.jsonl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>121 moz.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-json-file-to-csv-file">
+<h2>Convert JSON file to CSV file<a class="headerlink" href="#convert-json-file-to-csv-file" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/json2csv.py moz.jsonl &gt; moz.csv
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-the-python-library-pandas-and-read-in-tweet-csv-files">
+<h2>Import the Python library “pandas” and read in tweet CSV files<a class="headerlink" href="#import-the-python-library-pandas-and-read-in-tweet-csv-files" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">pandas</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">pandas</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_columns&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">pandas</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">moz</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;moz.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="see-entire-csv-file-for-first-10-rows">
+<h2>See entire CSV file for first 10 rows<a class="headerlink" href="#see-entire-csv-file-for-first-10-rows" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moz</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>tweet_url</th>
+      <th>created_at</th>
+      <th>parsed_created_at</th>
+      <th>user_screen_name</th>
+      <th>text</th>
+      <th>tweet_type</th>
+      <th>coordinates</th>
+      <th>hashtags</th>
+      <th>media</th>
+      <th>urls</th>
+      <th>favorite_count</th>
+      <th>in_reply_to_screen_name</th>
+      <th>in_reply_to_status_id</th>
+      <th>in_reply_to_user_id</th>
+      <th>lang</th>
+      <th>place</th>
+      <th>possibly_sensitive</th>
+      <th>retweet_count</th>
+      <th>retweet_or_quote_id</th>
+      <th>retweet_or_quote_screen_name</th>
+      <th>retweet_or_quote_user_id</th>
+      <th>source</th>
+      <th>user_id</th>
+      <th>user_created_at</th>
+      <th>user_default_profile_image</th>
+      <th>user_description</th>
+      <th>user_favourites_count</th>
+      <th>user_followers_count</th>
+      <th>user_friends_count</th>
+      <th>user_listed_count</th>
+      <th>user_location</th>
+      <th>user_name</th>
+      <th>user_statuses_count</th>
+      <th>user_time_zone</th>
+      <th>user_urls</th>
+      <th>user_verified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1197898902801977344</td>
+      <td>https://twitter.com/TheRichardM/status/1197898902801977344</td>
+      <td>Fri Nov 22 15:25:28 +0000 2019</td>
+      <td>2019-11-22 15:25:28+00:00</td>
+      <td>TheRichardM</td>
+      <td>Guess I'll see what this Morissey guy is all about.</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="https://about.twitter.com/products/tweetdeck" rel="nofollow"&gt;TweetDeck&lt;/a&gt;</td>
+      <td>15329910</td>
+      <td>Sun Jul 06 02:23:46 +0000 2008</td>
+      <td>False</td>
+      <td>Working to boost Tulsa, OK's tech &amp; game dev scene. Former Reviews Editor at Joystiq (RIP). Member of the Oregon Trail Generation.</td>
+      <td>5490</td>
+      <td>4352</td>
+      <td>348</td>
+      <td>263</td>
+      <td>Tulsa, OK</td>
+      <td>Richard Mitchell</td>
+      <td>17559</td>
+      <td>NaN</td>
+      <td>http://8bitninja.com</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1197896641719783424</td>
+      <td>https://twitter.com/PlayingPolitix/status/1197896641719783424</td>
+      <td>Fri Nov 22 15:16:29 +0000 2019</td>
+      <td>2019-11-22 15:16:29+00:00</td>
+      <td>PlayingPolitix</td>
+      <td>@MarieResists52 There's are Morissey and  Ramones versions too</td>
+      <td>reply</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>MarieResists52</td>
+      <td>1.197881e+18</td>
+      <td>2.260900e+09</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="https://mobile.twitter.com" rel="nofollow"&gt;Twitter Web App&lt;/a&gt;</td>
+      <td>744970093646381057</td>
+      <td>Mon Jun 20 19:08:06 +0000 2016</td>
+      <td>False</td>
+      <td>Resister of Tyrants and Purveyor of the World's Greatest Playing Cards. Check them out at the link below.</td>
+      <td>22315</td>
+      <td>29709</td>
+      <td>31694</td>
+      <td>16</td>
+      <td>Des Moines, IA</td>
+      <td>PLAYING POLITICS</td>
+      <td>27914</td>
+      <td>NaN</td>
+      <td>http://www.playingpoliticscards.com</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1197892196445368320</td>
+      <td>https://twitter.com/tinycalamities/status/1197892196445368320</td>
+      <td>Fri Nov 22 14:58:50 +0000 2019</td>
+      <td>2019-11-22 14:58:50+00:00</td>
+      <td>tinycalamities</td>
+      <td>Based on my playlist, Spotify thinks I’m interested in Morissey #imnot #fixyouralgorithms</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>imnot fixyouralgorithms</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" rel="nofollow"&gt;Twitter for iPhone&lt;/a&gt;</td>
+      <td>116732050</td>
+      <td>Tue Feb 23 12:12:03 +0000 2010</td>
+      <td>False</td>
+      <td>slippery slipstream</td>
+      <td>649</td>
+      <td>30</td>
+      <td>54</td>
+      <td>1</td>
+      <td>Copenhagen(-ish)</td>
+      <td>based hogling</td>
+      <td>681</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1197889982284914688</td>
+      <td>https://twitter.com/RealMathead/status/1197889982284914688</td>
+      <td>Fri Nov 22 14:50:02 +0000 2019</td>
+      <td>2019-11-22 14:50:02+00:00</td>
+      <td>RealMathead</td>
+      <td>@jeffhorowitzPMP @victoryrhoad @pattonoswalt Yeah, sadly. Even more sadly, Morissey is a total bellend.</td>
+      <td>reply</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>jeffhorowitzPMP</td>
+      <td>1.197515e+18</td>
+      <td>3.130546e+07</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="https://mobile.twitter.com" rel="nofollow"&gt;Twitter Web App&lt;/a&gt;</td>
+      <td>155591933</td>
+      <td>Mon Jun 14 15:20:08 +0000 2010</td>
+      <td>False</td>
+      <td>free and cheap forever</td>
+      <td>2861</td>
+      <td>39</td>
+      <td>389</td>
+      <td>0</td>
+      <td>Aachen</td>
+      <td>mathead</td>
+      <td>1181</td>
+      <td>NaN</td>
+      <td>http://blog.headsign.de</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1197853998851796993</td>
+      <td>https://twitter.com/NeuroBrick/status/1197853998851796993</td>
+      <td>Fri Nov 22 12:27:03 +0000 2019</td>
+      <td>2019-11-22 12:27:03+00:00</td>
+      <td>NeuroBrick</td>
+      <td>@TheEbonyMaw I can't remember, but I think it was a woman. \n\nThere were several lefty celebs including Jack Morissey who tweeted that they should be fed to a woodchipper.\n\nLOL\n\nSue them all.</td>
+      <td>reply</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>TheEbonyMaw</td>
+      <td>1.197852e+18</td>
+      <td>1.034265e+18</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="https://mobile.twitter.com" rel="nofollow"&gt;Twitter Web App&lt;/a&gt;</td>
+      <td>1146714432803753984</td>
+      <td>Thu Jul 04 09:36:40 +0000 2019</td>
+      <td>False</td>
+      <td>Traumatized into becoming a full-time shitposter. Neuroscience grad. Hi. DMs open. Follow me for egirl feet pics.</td>
+      <td>40151</td>
+      <td>457</td>
+      <td>166</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Brick</td>
+      <td>13790</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1197841189577166848</td>
+      <td>https://twitter.com/inceltown/status/1197841189577166848</td>
+      <td>Fri Nov 22 11:36:09 +0000 2019</td>
+      <td>2019-11-22 11:36:09+00:00</td>
+      <td>inceltown</td>
+      <td>@GrogsGamut There are a lot of ways to mock this but the Morissey song rules them all</td>
+      <td>reply</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>GrogsGamut</td>
+      <td>1.197839e+18</td>
+      <td>5.056053e+07</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://mvilla.it/fenix" rel="nofollow"&gt;Fenix 2&lt;/a&gt;</td>
+      <td>757413154280181760</td>
+      <td>Mon Jul 25 03:12:23 +0000 2016</td>
+      <td>False</td>
+      <td>You ask some dumb questions, bro</td>
+      <td>2418</td>
+      <td>26</td>
+      <td>60</td>
+      <td>0</td>
+      <td>Your Yard</td>
+      <td>Parasocial Anomaly</td>
+      <td>2136</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1197814959129759745</td>
+      <td>https://twitter.com/Eli_LetMeIn/status/1197814959129759745</td>
+      <td>Fri Nov 22 09:51:55 +0000 2019</td>
+      <td>2019-11-22 09:51:55+00:00</td>
+      <td>Eli_LetMeIn</td>
+      <td>Let the right one in,\nLet the old dreams die.\n\n-Let the right one slip in,#Morissey</td>
+      <td>original</td>
+      <td>NaN</td>
+      <td>Morissey</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://twittbot.net/" rel="nofollow"&gt;twittbot.net&lt;/a&gt;</td>
+      <td>2653020834</td>
+      <td>Thu Jul 17 06:24:24 +0000 2014</td>
+      <td>False</td>
+      <td>Let the right one in (렛미인) by John Ajvide Lindqvist (2004 novel), Tomas Alfredson (2008 film). 영화와 원작을 기반으로 한 98% 자동봇입니다. with @Oskar_LetMeIn</td>
+      <td>595</td>
+      <td>27</td>
+      <td>1</td>
+      <td>2</td>
+      <td>wherever Oskar goes</td>
+      <td>엘리</td>
+      <td>33467</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1197790909598855168</td>
+      <td>https://twitter.com/bclelandgt/status/1197790909598855168</td>
+      <td>Fri Nov 22 08:16:21 +0000 2019</td>
+      <td>2019-11-22 08:16:21+00:00</td>
+      <td>bclelandgt</td>
+      <td>@resultprospect @bwilky23 @SP_Duckworth @history_of_punk @PunkArt1977 @johnnyramone @MarkyRamone @punkrochelle @punkrockscience Morissey wrote this song</td>
+      <td>reply</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>resultprospect</td>
+      <td>1.197760e+18</td>
+      <td>2.293899e+09</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>&lt;a href="http://klinkerapps.com" rel="nofollow"&gt;Talon Android&lt;/a&gt;</td>
+      <td>47385962</td>
+      <td>Mon Jun 15 17:14:58 +0000 2009</td>
+      <td>False</td>
+      <td>Veteran, historian. Research focuses on Confederacy's ties to British colonies, filibustering (the fun kind), and the seamy side of Civil War diplomacy</td>
+      <td>970</td>
+      <td>223</td>
+      <td>412</td>
+      <td>5</td>
+      <td>Calgary, Alberta</td>
+      <td>Beau Cleland</td>
+      <td>7754</td>
+      <td>NaN</td>
+      <td>http://filibusteringhistory.wordpress.com</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1197745687447797760</td>
+      <td>https://twitter.com/TheScarlixAct/status/1197745687447797760</td>
+      <td>Fri Nov 22 05:16:39 +0000 2019</td>
+      <td>2019-11-22 05:16:39+00:00</td>
+      <td>TheScarlixAct</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>retweet</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>1.197532e+18</td>
+      <td>itssophiepia</td>
+      <td>3.168678e+07</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" rel="nofollow"&gt;Twitter for iPhone&lt;/a&gt;</td>
+      <td>700867512745865216</td>
+      <td>Sat Feb 20 02:20:11 +0000 2016</td>
+      <td>False</td>
+      <td>"Find Your Freedom In The Music" -Lady Gaga, Dance In the Dark, 2009 [Fan account]</td>
+      <td>33405</td>
+      <td>553</td>
+      <td>1462</td>
+      <td>0</td>
+      <td>Canada</td>
+      <td>G A G A • LG6</td>
+      <td>58337</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1197699913477279744</td>
+      <td>https://twitter.com/voidflavour/status/1197699913477279744</td>
+      <td>Fri Nov 22 02:14:46 +0000 2019</td>
+      <td>2019-11-22 02:14:46+00:00</td>
+      <td>voidflavour</td>
+      <td>morissey however..... ❌ https://t.co/87R2VD1L86</td>
+      <td>quote</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/voidflavour/status/1197699693725155328</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>0</td>
+      <td>1.197700e+18</td>
+      <td>voidflavour</td>
+      <td>7.351593e+17</td>
+      <td>&lt;a href="http://twitter.com/download/iphone" rel="nofollow"&gt;Twitter for iPhone&lt;/a&gt;</td>
+      <td>735159319818162176</td>
+      <td>Tue May 24 17:23:35 +0000 2016</td>
+      <td>False</td>
+      <td>love, you shine like verdigris 💚</td>
+      <td>39532</td>
+      <td>112</td>
+      <td>210</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>iero chaddi is bacc</td>
+      <td>38541</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="see-only-select-select-columns">
+<h2>See only select select columns<a class="headerlink" href="#see-only-select-select-columns" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moz</span><span class="p">[[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;tweet_type&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_screen_name&#39;</span> <span class="p">,</span> <span class="s1">&#39;user_location&#39;</span><span class="p">,</span> <span class="s1">&#39;hashtags&#39;</span><span class="p">,</span> <span class="s1">&#39;urls&#39;</span><span class="p">,</span> <span class="s1">&#39;retweet_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>created_at</th>
+      <th>tweet_type</th>
+      <th>text</th>
+      <th>user_name</th>
+      <th>user_screen_name</th>
+      <th>user_location</th>
+      <th>hashtags</th>
+      <th>urls</th>
+      <th>retweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Fri Nov 22 15:25:28 +0000 2019</td>
+      <td>original</td>
+      <td>Guess I'll see what this Morissey guy is all about.</td>
+      <td>Richard Mitchell</td>
+      <td>TheRichardM</td>
+      <td>Tulsa, OK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Fri Nov 22 15:16:29 +0000 2019</td>
+      <td>reply</td>
+      <td>@MarieResists52 There's are Morissey and  Ramones versions too</td>
+      <td>PLAYING POLITICS</td>
+      <td>PlayingPolitix</td>
+      <td>Des Moines, IA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Fri Nov 22 14:58:50 +0000 2019</td>
+      <td>original</td>
+      <td>Based on my playlist, Spotify thinks I’m interested in Morissey #imnot #fixyouralgorithms</td>
+      <td>based hogling</td>
+      <td>tinycalamities</td>
+      <td>Copenhagen(-ish)</td>
+      <td>imnot fixyouralgorithms</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Fri Nov 22 14:50:02 +0000 2019</td>
+      <td>reply</td>
+      <td>@jeffhorowitzPMP @victoryrhoad @pattonoswalt Yeah, sadly. Even more sadly, Morissey is a total bellend.</td>
+      <td>mathead</td>
+      <td>RealMathead</td>
+      <td>Aachen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Fri Nov 22 12:27:03 +0000 2019</td>
+      <td>reply</td>
+      <td>@TheEbonyMaw I can't remember, but I think it was a woman. \n\nThere were several lefty celebs including Jack Morissey who tweeted that they should be fed to a woodchipper.\n\nLOL\n\nSue them all.</td>
+      <td>Brick</td>
+      <td>NeuroBrick</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Fri Nov 22 11:36:09 +0000 2019</td>
+      <td>reply</td>
+      <td>@GrogsGamut There are a lot of ways to mock this but the Morissey song rules them all</td>
+      <td>Parasocial Anomaly</td>
+      <td>inceltown</td>
+      <td>Your Yard</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Fri Nov 22 09:51:55 +0000 2019</td>
+      <td>original</td>
+      <td>Let the right one in,\nLet the old dreams die.\n\n-Let the right one slip in,#Morissey</td>
+      <td>엘리</td>
+      <td>Eli_LetMeIn</td>
+      <td>wherever Oskar goes</td>
+      <td>Morissey</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Fri Nov 22 08:16:21 +0000 2019</td>
+      <td>reply</td>
+      <td>@resultprospect @bwilky23 @SP_Duckworth @history_of_punk @PunkArt1977 @johnnyramone @MarkyRamone @punkrochelle @punkrockscience Morissey wrote this song</td>
+      <td>Beau Cleland</td>
+      <td>bclelandgt</td>
+      <td>Calgary, Alberta</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Fri Nov 22 05:16:39 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>G A G A • LG6</td>
+      <td>TheScarlixAct</td>
+      <td>Canada</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Fri Nov 22 02:14:46 +0000 2019</td>
+      <td>quote</td>
+      <td>morissey however..... ❌ https://t.co/87R2VD1L86</td>
+      <td>iero chaddi is bacc</td>
+      <td>voidflavour</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/voidflavour/status/1197699693725155328</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Fri Nov 22 01:50:50 +0000 2019</td>
+      <td>reply</td>
+      <td>@DylanRoth @RiggedPig @Slammy_P normally I think dunking on the clown president is pointless and performative but this is incredibly funny, even more so now that we know that morissey is Also Bad</td>
+      <td>meg ʕ •́؈•̀)</td>
+      <td>megclark_txt</td>
+      <td>bed-stuy, bklyn</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Thu Nov 21 23:45:54 +0000 2019</td>
+      <td>quote</td>
+      <td>Your entire personality can be determined by whether you like this one or the Morissey one better https://t.co/aC5qm0hgwk</td>
+      <td>Victoria Aveson</td>
+      <td>VAvesonMD</td>
+      <td>Manhattan, NY</td>
+      <td>NaN</td>
+      <td>https://twitter.com/saosasha/status/1197320791706263552</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Thu Nov 21 23:22:57 +0000 2019</td>
+      <td>original</td>
+      <td>this person on the bus is being inconsiderate AND has a morissey patch on their backpack lol that shit checks out</td>
+      <td>catra apologist</td>
+      <td>submaureens</td>
+      <td>Pittsburgh, PA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Thu Nov 21 20:17:59 +0000 2019</td>
+      <td>original</td>
+      <td>Eu tentando comprar uma camiseta do The Smiths \n\nVendedora: não tem, pode ser do morissey?\n\nVomitei por dentro</td>
+      <td>Everaldo Jr</td>
+      <td>everaldocjunior</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Thu Nov 21 19:44:57 +0000 2019</td>
+      <td>original</td>
+      <td>Good morning to everyone but Morissey</td>
+      <td>Spooky Tony</td>
+      <td>anthonylibman</td>
+      <td>Temecula, CA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Thu Nov 21 17:46:56 +0000 2019</td>
+      <td>original</td>
+      <td>Hold on to your friends  #morissey  #masterpiece #music #melody #memories</td>
+      <td>Nicola Gaia</td>
+      <td>monegasque11</td>
+      <td>Principauté de Monaco</td>
+      <td>morissey masterpiece music melody memories</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Thu Nov 21 17:44:00 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>Meruem</td>
+      <td>HardikShahil777</td>
+      <td>out of reach</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Thu Nov 21 17:33:56 +0000 2019</td>
+      <td>original</td>
+      <td>Holy internet - there is already a Ramones, Bright Eyes, and Morissey version...  #wellplayed https://t.co/gIdzLTNRts</td>
+      <td>scornado</td>
+      <td>scornado</td>
+      <td>Dallas Texas</td>
+      <td>wellplayed</td>
+      <td>https://gizmodo.com/trumps-i-want-nothing-rant-transformed-into-songs-by-th-1839976421?utm_campaign=socialflow_gizmodo_facebook&amp;utm_source=gizmodo_facebook&amp;utm_medium=socialflow&amp;fbclid=IwAR2zjeNNLHtKRBnpLD_ZQn9U2800vThhAt5LURdaMoLHGoWCInXqPJSYx64</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Thu Nov 21 17:14:12 +0000 2019</td>
+      <td>reply</td>
+      <td>@maartjejan Ja maf was hij altijd, maar hij treedt nu in de voetsporen van Morissey.</td>
+      <td>Rebecca</td>
+      <td>MrsvanP</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Thu Nov 21 16:20:08 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>Manny 🤠</td>
+      <td>m_aannyy</td>
+      <td>San Diego, CA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Thu Nov 21 15:50:11 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>Aylin ✨</td>
+      <td>AylinDodogan</td>
+      <td>Amsterdam, Netherlands</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Thu Nov 21 15:22:25 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>shade-riah carey</td>
+      <td>mimiisourqueen</td>
+      <td>New York, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Thu Nov 21 15:10:59 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @itssophiepia: artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop do…</td>
+      <td>Nickolas Cruz</td>
+      <td>LBS27Avatar16</td>
+      <td>Central Florida</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Thu Nov 21 15:08:49 +0000 2019</td>
+      <td>original</td>
+      <td>artists who have never won a single grammy:\nbackstreet boys\nnicki minaj\nkaty perry\nbob marley\ntupac\nguns n roses\nsnoop dogg\nbjork\nramones\ndiana ross\nbusta rhymes\nmorissey\niggy pop\n\ndoes that mean they aren't successful and have never left a legacy? NO</td>
+      <td>𝙨𝙤𝙥𝙝 𝙢𝙚𝙩 𝙖𝙫𝙖 𝙩𝙬𝙞𝙘𝙚</td>
+      <td>itssophiepia</td>
+      <td>ava max’s boobs</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Thu Nov 21 14:20:57 +0000 2019</td>
+      <td>reply</td>
+      <td>@radioeinsMusik Musste grad ausschalten, weil ich Morissey nicht mehr ertrage.</td>
+      <td>Ulf Sturhann</td>
+      <td>ulfington</td>
+      <td>Berlin</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Thu Nov 21 14:11:07 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @rafapaternostro: Um bocado de gente respondendo aquele tweet sobre n ter arte de direita e até agr n vi nada de morissey????????</td>
+      <td>o bom e velho sonic</td>
+      <td>filho_terciofut</td>
+      <td>Fátima, Fortaleza</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Thu Nov 21 14:00:31 +0000 2019</td>
+      <td>original</td>
+      <td>Um bocado de gente respondendo aquele tweet sobre n ter arte de direita e até agr n vi nada de morissey????????</td>
+      <td>patermonstro</td>
+      <td>rafapaternostro</td>
+      <td>salvadô</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Thu Nov 21 10:49:33 +0000 2019</td>
+      <td>quote</td>
+      <td>Rachel Riley is so quickly becoming the Morissey of left wing comedy and it’s deeply traumatic https://t.co/NhiMIs6H6Y</td>
+      <td>Mattie</td>
+      <td>shattiemannon</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/unionlib/status/1197422998640373760</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Thu Nov 21 10:47:37 +0000 2019</td>
+      <td>quote</td>
+      <td>Trump's words song like Morissey https://t.co/JxWHyFny8y</td>
+      <td>Amy E. Botelho</td>
+      <td>AmyEBotelho1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/pattonoswalt/status/1197378478368157696</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Thu Nov 21 09:45:53 +0000 2019</td>
+      <td>quote</td>
+      <td>Alma Matters - Morissey? https://t.co/NqVmEmzoLo</td>
+      <td>ꦠꦫ [ TARA ] Sixspath</td>
+      <td>bersuarsuara</td>
+      <td>0341</td>
+      <td>NaN</td>
+      <td>https://twitter.com/itsmeborii/status/1197450761984069632</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Thu Nov 21 06:56:15 +0000 2019</td>
+      <td>reply</td>
+      <td>@donttrythis It turns out that Morissey is massively racist, so this might be more appropriate than you might think</td>
+      <td>Chem 2006</td>
+      <td>Chem2006</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Thu Nov 21 06:08:44 +0000 2019</td>
+      <td>quote</td>
+      <td>Now a Morissey version!! https://t.co/J8MSSHlepT</td>
+      <td>Shani Komulainen</td>
+      <td>shanikom</td>
+      <td>Montreal, QC</td>
+      <td>NaN</td>
+      <td>https://twitter.com/victoryrhoad/status/1197284841613602819</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Thu Nov 21 05:36:56 +0000 2019</td>
+      <td>reply</td>
+      <td>@njmorrissey @Picketer I think I prefer the other Twitter Morissey . Makes more sense.</td>
+      <td>Steve, Term 4 &amp; surviving</td>
+      <td>Steve_Pinel</td>
+      <td>Sunshine Coast, Queensland</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Thu Nov 21 04:15:24 +0000 2019</td>
+      <td>reply</td>
+      <td>@TheeHonestAndy @Corydakin @KkevrockK Morissey put up 31 points in 59 games last year. Decent production</td>
+      <td>Mike</td>
+      <td>mikedirsa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Thu Nov 21 00:19:37 +0000 2019</td>
+      <td>original</td>
+      <td>Fuck Marry Kill:\nJim Morrison \nAlanis Morissette \nMorissey</td>
+      <td>Mid-Level Tyrant</td>
+      <td>N8_Groves</td>
+      <td>Bongwater</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Wed Nov 20 23:53:23 +0000 2019</td>
+      <td>reply</td>
+      <td>@WhimsicalPhil Or Morissey’s</td>
+      <td>Sparkles</td>
+      <td>WebbAndrewebb</td>
+      <td>Batavia, IL</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Wed Nov 20 23:18:55 +0000 2019</td>
+      <td>original</td>
+      <td>@ceschi can you put The Morissey song and The way we grow back tails on spotify?</td>
+      <td>Madison Mon🐉</td>
+      <td>MadisonMondrag1</td>
+      <td>United States</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Wed Nov 20 22:09:47 +0000 2019</td>
+      <td>quote</td>
+      <td>Are these Morissey lyrics? https://t.co/qMCtph1yAn</td>
+      <td>le croixbusier</td>
+      <td>_newyorkshitty</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/gettyimagesnews/status/1197202729334128642</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Wed Nov 20 22:04:42 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @ADA_SIX: the UK has a morissey problem</td>
+      <td>Whale Incantation 👽</td>
+      <td>fromikotosirius</td>
+      <td>Oregon</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Wed Nov 20 21:35:08 +0000 2019</td>
+      <td>reply</td>
+      <td>@JakeConlon James Morissey</td>
+      <td>Nacho Vidal</td>
+      <td>BeastOfTheHeath</td>
+      <td>The Black Country</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Wed Nov 20 21:31:04 +0000 2019</td>
+      <td>reply</td>
+      <td>@SaraFarizan Morissey would totally be on Trump’s side too.</td>
+      <td>Barry Goldblatt on Hiatus</td>
+      <td>barrygoldblatt</td>
+      <td>Brooklyn, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Wed Nov 20 21:19:52 +0000 2019</td>
+      <td>quote</td>
+      <td>Perfect Morissey lyrics https://t.co/Yc6nO2LG5j</td>
+      <td>txjulez</td>
+      <td>Just_Julia</td>
+      <td>United States</td>
+      <td>NaN</td>
+      <td>https://twitter.com/mrdankelly/status/1197206229610909696</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Wed Nov 20 20:36:43 +0000 2019</td>
+      <td>original</td>
+      <td>the UK has a morissey problem</td>
+      <td>fsion player</td>
+      <td>ADA_SIX</td>
+      <td>Wisconsin (She/They)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Wed Nov 20 20:32:01 +0000 2019</td>
+      <td>reply</td>
+      <td>@OilerDadMike @KkevrockK @Singh390000 @mikedirsa @oilers4thewin_ @oilthrilla39 @ginny_jenny @Kage_99 @GlenMah @GeorgesLaraque @ItsShaunWithAu @OilersAlbMom @3erlei @JeffHeero @amyjones_03 Morissey of Jets</td>
+      <td>Sam H</td>
+      <td>TheOilerBrit</td>
+      <td>Sheffield, England</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Wed Nov 20 18:10:59 +0000 2019</td>
+      <td>original</td>
+      <td>New Listing! Nicely appointed Creekside condo hotel unit with a large deck overlooking Mt Morissey for outside enjoyment. Listed for $44,900. https://t.co/3u17NQUH4m https://t.co/NyXqW7Pn7n</td>
+      <td>Kirsten Mason</td>
+      <td>kirstenlmason</td>
+      <td>Kamloops, BC</td>
+      <td>NaN</td>
+      <td>https://www.homeforsale.at/207-3170_CREEKSIDE_WAY_yy0e3-22cz</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Wed Nov 20 18:04:42 +0000 2019</td>
+      <td>reply</td>
+      <td>@MisterMcFlee Morissey ça devient compliqué ;)</td>
+      <td>Franck V 🇫🇷⭐⭐</td>
+      <td>Qifran</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Wed Nov 20 17:53:05 +0000 2019</td>
+      <td>reply</td>
+      <td>@bensemchee @BillyIdol Love Billy. He guest DJ's sometimes on Sirius/XM Channel 33 ... it's the New Wave channel and I believe the name of it is First Wave ... lots of early 80's stuff from Echo &amp;amp; the Bunnymen to Billy Idol to Elvis Costello to Missing Persons to Morissey to Depeche Mode ... enjoy</td>
+      <td>Jim Bob</td>
+      <td>GlendaleAg</td>
+      <td>Glendale, CA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Wed Nov 20 16:32:12 +0000 2019</td>
+      <td>reply</td>
+      <td>@Beardynoise I think a lot about how "This Is Why We Fight" is Colin's take on the structure used in so many of his beloved Morissey solo songs.</td>
+      <td>It’s Miles</td>
+      <td>sleepssundays</td>
+      <td>United Kingdom</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Wed Nov 20 16:19:38 +0000 2019</td>
+      <td>reply</td>
+      <td>@NefariousBanana Morissey being “problematic” is amusing to me. All the woke loners that idolized him growing up have lost their hero. Lol</td>
+      <td>HeyFella</td>
+      <td>DustinTL</td>
+      <td>VHS Shop - horror section</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Wed Nov 20 15:26:36 +0000 2019</td>
+      <td>quote</td>
+      <td>Les Smiths/Morissey/Johnny Marr, et ça continue. https://t.co/3lDD4NqTX1</td>
+      <td>Monsieur McFlee</td>
+      <td>MisterMcFlee</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/Interflora/status/1197163247603990528</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Wed Nov 20 10:27:04 +0000 2019</td>
+      <td>reply</td>
+      <td>@TheBecSoc Does Joy Morissey live here or have any plans to move here? Genuine question but it seems impossible to actually get an answer.</td>
+      <td>Angie</td>
+      <td>angiepalin</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Wed Nov 20 08:26:20 +0000 2019</td>
+      <td>original</td>
+      <td>@DaveyHavok is the millennial morissey and that is a fact</td>
+      <td>jenkins</td>
+      <td>absoluteradlad</td>
+      <td>Hell</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Wed Nov 20 04:17:11 +0000 2019</td>
+      <td>reply</td>
+      <td>@MickeyBlowtorch @River_Horror Wait.... Morissey?   I am from Houston, how did I not know this?</td>
+      <td>Dread Pirate Charlie</td>
+      <td>ceaster14</td>
+      <td>Houston, TX</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Tue Nov 19 21:24:24 +0000 2019</td>
+      <td>reply</td>
+      <td>@abbythetweet Ewww Morissey. \n\nYaaaaaay Coolio.</td>
+      <td>Marlon</td>
+      <td>TheMixedUpBrit</td>
+      <td>London</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Tue Nov 19 11:37:51 +0000 2019</td>
+      <td>reply</td>
+      <td>@RajaOthman Srh dgr lagu morissey.</td>
+      <td>Dick Cheney Jopie</td>
+      <td>DickChenney</td>
+      <td>Kuching</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Tue Nov 19 05:09:51 +0000 2019</td>
+      <td>original</td>
+      <td>just found out morissey is still alive. very upset. much to think about</td>
+      <td>Bren</td>
+      <td>brenthefren</td>
+      <td>Baltimore, MD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Tue Nov 19 04:14:42 +0000 2019</td>
+      <td>reply</td>
+      <td>@StreetNightLive Meh legal stuff has happened before. Morissey, Milk tee are the two big ones that come to mind. Reminds me of Kanye and realtree.</td>
+      <td>NigoNOWHERE(Jun)</td>
+      <td>NigoNOWHEREJun</td>
+      <td>NOWHERE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Tue Nov 19 01:11:48 +0000 2019</td>
+      <td>quote</td>
+      <td>alreet morissey https://t.co/oxRnNtsCS0</td>
+      <td>Lewis Russ</td>
+      <td>LewisRuss1</td>
+      <td>North East, England</td>
+      <td>NaN</td>
+      <td>https://twitter.com/animatedtext/status/1196587966954491906</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Mon Nov 18 22:25:59 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Independent conservative with brains</td>
+      <td>kcesas64</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Mon Nov 18 21:56:25 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>jelly</td>
+      <td>jelly63756541</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Mon Nov 18 21:52:05 +0000 2019</td>
+      <td>reply</td>
+      <td>@BluDazza17 i like the Pogues and the Dubliners etc , great stuff IMO, \nSo we have to agree if you look good and can't play an instrument at least make the lyrics good, Bob Dylan , lennon / mcCartney . Morissey esq. ( even though your only fkin 19)</td>
+      <td>beergutblue</td>
+      <td>thecloggsofwar</td>
+      <td>Maghull</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Mon Nov 18 21:02:07 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Michael Greer</td>
+      <td>thetalentscout</td>
+      <td>California</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Mon Nov 18 20:40:42 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Donna isom</td>
+      <td>Donnaisom10</td>
+      <td>Georgia, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Mon Nov 18 20:22:43 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>#ClearFlynnNow</td>
+      <td>SweetFreedom29</td>
+      <td>Freedom, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Mon Nov 18 20:08:07 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Mrs. Dirty Driver</td>
+      <td>guntotinchick</td>
+      <td>🇺🇸Oklahoma🇺🇸</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Mon Nov 18 19:40:46 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>I'm with Q</td>
+      <td>ImwithQ1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Mon Nov 18 19:31:42 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Joe</td>
+      <td>JoePcbfirearms</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Mon Nov 18 19:31:17 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>j r nance</td>
+      <td>rnance1950</td>
+      <td>NC</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Mon Nov 18 19:29:38 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Charles Copeland</td>
+      <td>charles28083</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Mon Nov 18 19:28:58 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>frank lazor</td>
+      <td>franklazor</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Mon Nov 18 19:28:50 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Bill Frederiksen</td>
+      <td>BillEagle1951</td>
+      <td>Missouri, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Mon Nov 18 19:28:43 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Jim Ortiz</td>
+      <td>jdo65mustangJim</td>
+      <td>GA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Mon Nov 18 19:27:25 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>sailorbytr8</td>
+      <td>sailorbytr8</td>
+      <td>New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Mon Nov 18 19:27:13 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @mefbama: Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your child…</td>
+      <td>Tonya Smith</td>
+      <td>TonyaSmith007</td>
+      <td>Texas, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Mon Nov 18 19:25:54 +0000 2019</td>
+      <td>original</td>
+      <td>Democrats claim they care about children, but then elect child predators Joe Morissey. Think they really care about your children if they don't care about the ones in their own districts?</td>
+      <td>Melanie</td>
+      <td>mefbama</td>
+      <td>TN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Mon Nov 18 16:13:17 +0000 2019</td>
+      <td>original</td>
+      <td>Morissey is a strong advocate of dairy milk</td>
+      <td>The Milk(wo)man</td>
+      <td>woah_milk</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Mon Nov 18 13:31:53 +0000 2019</td>
+      <td>reply</td>
+      <td>And talked shit about Morissey</td>
+      <td>elv</td>
+      <td>strangertraiIs</td>
+      <td>no(el)rway</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Mon Nov 18 12:54:38 +0000 2019</td>
+      <td>quote</td>
+      <td>- Swans\n- Death Grips\n- Radiohead\n- Godspeed You! Black Emperor\n- Daughters\n- Talking Heads\n- The Smiths (Fuck Morissey)\n- Nick Cave &amp;amp; The Bad Seeds\n- Standing On The Corner\n- Fishmans https://t.co/vpQgChQo8T</td>
+      <td>Enrico</td>
+      <td>_TheRapTake</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/dazeddoors/status/1193381667030876160</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Mon Nov 18 10:49:56 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @paulgibbins: Paul Heaton is the songwriter everyone thought Morissey was https://t.co/RlCVhfxS0f</td>
+      <td>barry mann</td>
+      <td>barryma58505541</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://twitter.com/PaulHeatonSolo/status/1196231413785354240</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Mon Nov 18 10:39:16 +0000 2019</td>
+      <td>original</td>
+      <td>morissey started the acephobe blocklist</td>
+      <td>ℌ𝔞𝔫𝔫𝔞𝔥 🦇</td>
+      <td>thottyhannah</td>
+      <td>Cork/Tipperary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Mon Nov 18 10:25:58 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @paulgibbins: Paul Heaton is the songwriter everyone thought Morissey was https://t.co/RlCVhfxS0f</td>
+      <td>Slurs</td>
+      <td>SlursBand</td>
+      <td>Newcastle Upon Tyne, England</td>
+      <td>NaN</td>
+      <td>https://twitter.com/PaulHeatonSolo/status/1196231413785354240</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Mon Nov 18 09:57:15 +0000 2019</td>
+      <td>quote</td>
+      <td>Paul Heaton is the songwriter everyone thought Morissey was https://t.co/RlCVhfxS0f</td>
+      <td>Paul Gibbins</td>
+      <td>paulgibbins</td>
+      <td>pauljgibbins@gmail.com</td>
+      <td>NaN</td>
+      <td>https://twitter.com/PaulHeatonSolo/status/1196231413785354240</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Mon Nov 18 06:38:10 +0000 2019</td>
+      <td>original</td>
+      <td>To show horny at a reproach is to acknowledge that one may have deserved it.- Morissey</td>
+      <td>Wise Prson Once Said</td>
+      <td>wisepersonsaid</td>
+      <td>The World</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Mon Nov 18 01:43:28 +0000 2019</td>
+      <td>reply</td>
+      <td>@Shaper079 @GoonerRiot @AnnieHe62939267 @Mikaredd30 @MichaelCoudrey @realDonaldTrump Literally any transcript from any of theses depositions proves the wb is full of it. \n\n95% of what we have heard so far is hearsay.\n\nMorissey.</td>
+      <td>Richard151</td>
+      <td>TypicalHB</td>
+      <td>SC</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Mon Nov 18 00:38:41 +0000 2019</td>
+      <td>original</td>
+      <td>I do not want the sip that passeth understanding, I want the understanding that brings explode.- Morissey</td>
+      <td>Wise Prson Once Said</td>
+      <td>wisepersonsaid</td>
+      <td>The World</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Sun Nov 17 15:38:53 +0000 2019</td>
+      <td>original</td>
+      <td>Being born is like being delight. And then sold into slavery.- Morissey</td>
+      <td>Wise Prson Once Said</td>
+      <td>wisepersonsaid</td>
+      <td>The World</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Sun Nov 17 03:42:04 +0000 2019</td>
+      <td>original</td>
+      <td>The more you ignore me, the closer I get - Morissey</td>
+      <td>emanon</td>
+      <td>sirapbandungg</td>
+      <td>Malaysia</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Sat Nov 16 23:32:21 +0000 2019</td>
+      <td>original</td>
+      <td>The smiths tao bom \nPq morissey tinha q ser um cuzao???</td>
+      <td>regina phalange</td>
+      <td>perurhanna</td>
+      <td>Araraquara, Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Sat Nov 16 22:18:00 +0000 2019</td>
+      <td>reply</td>
+      <td>Vasy has to have that\n\nGoal: Ehlers (9) PPG from Connor (9) and Morissey (12)</td>
+      <td>Bay ⚡ Bolts</td>
+      <td>Bay_Bolts</td>
+      <td>Tampa Bay, FL</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Sat Nov 16 21:13:33 +0000 2019</td>
+      <td>reply</td>
+      <td>@Causeur Non, le rock se porte encore très bien d'autant plus qu'il est de moins en moins de gauche. Voyez les discours de Bruce Dickinson, Morissey, du leader des EODM qui voient à quel point la gauche se couche devant les pires obscurantistes islamiques #Soumission</td>
+      <td>Ze Bestfriend</td>
+      <td>AndreVallois</td>
+      <td>Vincennes</td>
+      <td>Soumission</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Sat Nov 16 18:38:01 +0000 2019</td>
+      <td>original</td>
+      <td>Buzzfeed as made by Morissey</td>
+      <td>my aesthetic</td>
+      <td>aesthetixbot</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Sat Nov 16 17:59:55 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @etheraldime: Morissey je t'aime tellement c'est pas grave si t'es raciste quand je t'écoute j'entends pas nique les arabes</td>
+      <td>suzannE</td>
+      <td>suzxcf</td>
+      <td>insta suzxcf</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Sat Nov 16 16:48:46 +0000 2019</td>
+      <td>quote</td>
+      <td>Oohhh, I’m on board with revisiting some Kurosawa joints while #TheMandalorian season is running 👍\n\nHard pass on Clint Eastwood though.  He’s basically Morissey-level of canceled at this point. https://t.co/jtYk6Jb1iR</td>
+      <td>peter gillette</td>
+      <td>baldingyoda</td>
+      <td>cbus</td>
+      <td>TheMandalorian</td>
+      <td>https://twitter.com/Breznican/status/1117463228525744129</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Sat Nov 16 15:53:53 +0000 2019</td>
+      <td>original</td>
+      <td>morissey fez uma música sobre a sobrancelha do boy (?) namoral eu compondo</td>
+      <td>leo</td>
+      <td>nalileeoo</td>
+      <td>Alegre, Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Sat Nov 16 14:05:34 +0000 2019</td>
+      <td>original</td>
+      <td>ja dizia morissey\n\nque diferença faz essa merda?</td>
+      <td>leo</td>
+      <td>nalileeoo</td>
+      <td>Alegre, Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Sat Nov 16 12:30:32 +0000 2019</td>
+      <td>original</td>
+      <td>and while I’m at it, Morissey may be cancelled, but the Smiths guitarist Johnny Marr is the baseline for why modern emo sounds the way it does</td>
+      <td>The Polaroid Notebook</td>
+      <td>TPNband</td>
+      <td>Florida, USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Sat Nov 16 06:06:23 +0000 2019</td>
+      <td>reply</td>
+      <td>@astarjapreta The smiths que o morissey é um babaca</td>
+      <td>Hi, nara!</td>
+      <td>whyynara</td>
+      <td>Palmas.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Sat Nov 16 00:06:06 +0000 2019</td>
+      <td>original</td>
+      <td>gente se o morissey já tivesse morto eu poderia jurar que sou a reencarnação dele pq ó</td>
+      <td>leo</td>
+      <td>nalileeoo</td>
+      <td>Alegre, Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Sat Nov 16 00:05:32 +0000 2019</td>
+      <td>original</td>
+      <td>mais triste que as composições do morissey</td>
+      <td>leo</td>
+      <td>nalileeoo</td>
+      <td>Alegre, Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Fri Nov 15 21:07:15 +0000 2019</td>
+      <td>retweet</td>
+      <td>RT @necrosystems: nrx anti-humanist morissey...."I am inhuman and I need to be loved"</td>
+      <td>INANE DREAMZ</td>
+      <td>DreamzInane</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="finding-keywords-features">
+<h2>Finding Keywords/ Features<a class="headerlink" href="#finding-keywords-features" title="Permalink to this headline">¶</a></h2>
+<p>Applying a few basic heuristics can begin to help identify interesting ideas for relevent keywords.</p>
+<div class="section" id="sample-word-frequencies">
+<h3>Sample Word Frequencies:<a class="headerlink" href="#sample-word-frequencies" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wp_Mimno</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\w[\w\-</span><span class="se">\&#39;</span><span class="s2">]*\w|\w&quot;</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="n">tweet</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">moz</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]],</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">bag_of_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">wp_Mimno</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+        <span class="n">bag_of_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag_of_words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;donttrythis&#39;,
+ &#39;it&#39;,
+ &#39;turns&#39;,
+ &#39;out&#39;,
+ &#39;that&#39;,
+ &#39;morissey&#39;,
+ &#39;is&#39;,
+ &#39;massively&#39;,
+ &#39;racist&#39;,
+ &#39;so&#39;,
+ &#39;this&#39;,
+ &#39;might&#39;,
+ &#39;be&#39;,
+ &#39;more&#39;,
+ &#39;appropriate&#39;,
+ &#39;than&#39;,
+ &#39;you&#39;,
+ &#39;might&#39;,
+ &#39;think&#39;,
+ &#39;bludazza17&#39;,
+ &#39;i&#39;,
+ &#39;like&#39;,
+ &#39;the&#39;,
+ &#39;pogues&#39;,
+ &#39;and&#39;,
+ &#39;the&#39;,
+ &#39;dubliners&#39;,
+ &#39;etc&#39;,
+ &#39;great&#39;,
+ &#39;stuff&#39;,
+ &#39;imo&#39;,
+ &#39;so&#39;,
+ &#39;we&#39;,
+ &#39;have&#39;,
+ &#39;to&#39;,
+ &#39;agree&#39;,
+ &#39;if&#39;,
+ &#39;you&#39;,
+ &#39;look&#39;,
+ &#39;good&#39;,
+ &#39;and&#39;,
+ &quot;can&#39;t&quot;,
+ &#39;play&#39;,
+ &#39;an&#39;,
+ &#39;instrument&#39;,
+ &#39;at&#39;,
+ &#39;least&#39;,
+ &#39;make&#39;,
+ &#39;the&#39;,
+ &#39;lyrics&#39;,
+ &#39;good&#39;,
+ &#39;bob&#39;,
+ &#39;dylan&#39;,
+ &#39;lennon&#39;,
+ &#39;mccartney&#39;,
+ &#39;morissey&#39;,
+ &#39;esq&#39;,
+ &#39;even&#39;,
+ &#39;though&#39;,
+ &#39;your&#39;,
+ &#39;only&#39;,
+ &#39;fkin&#39;,
+ &#39;19&#39;,
+ &#39;rt&#39;,
+ &#39;mefbama&#39;,
+ &#39;democrats&#39;,
+ &#39;claim&#39;,
+ &#39;they&#39;,
+ &#39;care&#39;,
+ &#39;about&#39;,
+ &#39;children&#39;,
+ &#39;but&#39;,
+ &#39;then&#39;,
+ &#39;elect&#39;,
+ &#39;child&#39;,
+ &#39;predators&#39;,
+ &#39;joe&#39;,
+ &#39;morissey&#39;,
+ &#39;think&#39;,
+ &#39;they&#39;,
+ &#39;really&#39;,
+ &#39;care&#39;,
+ &#39;about&#39;,
+ &#39;your&#39;,
+ &#39;child&#39;,
+ &#39;um&#39;,
+ &#39;bocado&#39;,
+ &#39;de&#39;,
+ &#39;gente&#39;,
+ &#39;respondendo&#39;,
+ &#39;aquele&#39;,
+ &#39;tweet&#39;,
+ &#39;sobre&#39;,
+ &#39;n&#39;,
+ &#39;ter&#39;,
+ &#39;arte&#39;,
+ &#39;de&#39;,
+ &#39;direita&#39;,
+ &#39;e&#39;,
+ &#39;até&#39;,
+ &#39;agr&#39;,
+ &#39;n&#39;,
+ &#39;vi&#39;,
+ &#39;nada&#39;,
+ &#39;de&#39;,
+ &#39;morissey&#39;,
+ &#39;astarjapreta&#39;,
+ &#39;the&#39;,
+ &#39;smiths&#39;,
+ &#39;que&#39;,
+ &#39;o&#39;,
+ &#39;morissey&#39;,
+ &#39;é&#39;,
+ &#39;um&#39;,
+ &#39;babaca&#39;,
+ &#39;rt&#39;,
+ &#39;itssophiepia&#39;,
+ &#39;artists&#39;,
+ &#39;who&#39;,
+ &#39;have&#39;,
+ &#39;never&#39;,
+ &#39;won&#39;,
+ &#39;a&#39;,
+ &#39;single&#39;,
+ &#39;grammy&#39;,
+ &#39;backstreet&#39;,
+ &#39;boys&#39;,
+ &#39;nicki&#39;,
+ &#39;minaj&#39;,
+ &#39;katy&#39;,
+ &#39;perry&#39;,
+ &#39;bob&#39;,
+ &#39;marley&#39;,
+ &#39;tupac&#39;,
+ &#39;guns&#39;,
+ &#39;n&#39;,
+ &#39;roses&#39;,
+ &#39;snoop&#39;,
+ &#39;do&#39;,
+ &#39;based&#39;,
+ &#39;on&#39;,
+ &#39;my&#39;,
+ &#39;playlist&#39;,
+ &#39;spotify&#39;,
+ &#39;thinks&#39;,
+ &#39;i&#39;,
+ &#39;m&#39;,
+ &#39;interested&#39;,
+ &#39;in&#39;,
+ &#39;morissey&#39;,
+ &#39;imnot&#39;,
+ &#39;fixyouralgorithms&#39;,
+ &#39;artists&#39;,
+ &#39;who&#39;,
+ &#39;have&#39;,
+ &#39;never&#39;,
+ &#39;won&#39;,
+ &#39;a&#39;,
+ &#39;single&#39;,
+ &#39;grammy&#39;,
+ &#39;backstreet&#39;,
+ &#39;boys&#39;,
+ &#39;nicki&#39;,
+ &#39;minaj&#39;,
+ &#39;katy&#39;,
+ &#39;perry&#39;,
+ &#39;bob&#39;,
+ &#39;marley&#39;,
+ &#39;tupac&#39;,
+ &#39;guns&#39;,
+ &#39;n&#39;,
+ &#39;roses&#39;,
+ &#39;snoop&#39;,
+ &#39;dogg&#39;,
+ &#39;bjork&#39;,
+ &#39;ramones&#39;,
+ &#39;diana&#39;,
+ &#39;ross&#39;,
+ &#39;busta&#39;,
+ &#39;rhymes&#39;,
+ &#39;morissey&#39;,
+ &#39;iggy&#39;,
+ &#39;pop&#39;,
+ &#39;does&#39;,
+ &#39;that&#39;,
+ &#39;mean&#39;,
+ &#39;they&#39;,
+ &quot;aren&#39;t&quot;,
+ &#39;successful&#39;,
+ &#39;and&#39;,
+ &#39;have&#39;,
+ &#39;never&#39;,
+ &#39;left&#39;,
+ &#39;a&#39;,
+ &#39;legacy&#39;,
+ &#39;no&#39;,
+ &#39;abbythetweet&#39;,
+ &#39;ewww&#39;,
+ &#39;morissey&#39;,
+ &#39;yaaaaaay&#39;,
+ &#39;coolio&#39;,
+ &#39;resultprospect&#39;,
+ &#39;bwilky23&#39;,
+ &#39;sp_duckworth&#39;,
+ &#39;history_of_punk&#39;,
+ &#39;punkart1977&#39;,
+ &#39;johnnyramone&#39;,
+ &#39;markyramone&#39;,
+ &#39;punkrochelle&#39;,
+ &#39;punkrockscience&#39;,
+ &#39;morissey&#39;,
+ &#39;wrote&#39;,
+ &#39;this&#39;,
+ &#39;song&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_count</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">bag_of_words</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;donttrythis&#39;: 1,
+ &#39;it&#39;: 1,
+ &#39;turns&#39;: 1,
+ &#39;out&#39;: 1,
+ &#39;that&#39;: 2,
+ &#39;morissey&#39;: 9,
+ &#39;is&#39;: 1,
+ &#39;massively&#39;: 1,
+ &#39;racist&#39;: 1,
+ &#39;so&#39;: 2,
+ &#39;this&#39;: 2,
+ &#39;might&#39;: 2,
+ &#39;be&#39;: 1,
+ &#39;more&#39;: 1,
+ &#39;appropriate&#39;: 1,
+ &#39;than&#39;: 1,
+ &#39;you&#39;: 2,
+ &#39;think&#39;: 2,
+ &#39;bludazza17&#39;: 1,
+ &#39;i&#39;: 2,
+ &#39;like&#39;: 1,
+ &#39;the&#39;: 4,
+ &#39;pogues&#39;: 1,
+ &#39;and&#39;: 3,
+ &#39;dubliners&#39;: 1,
+ &#39;etc&#39;: 1,
+ &#39;great&#39;: 1,
+ &#39;stuff&#39;: 1,
+ &#39;imo&#39;: 1,
+ &#39;we&#39;: 1,
+ &#39;have&#39;: 4,
+ &#39;to&#39;: 1,
+ &#39;agree&#39;: 1,
+ &#39;if&#39;: 1,
+ &#39;look&#39;: 1,
+ &#39;good&#39;: 2,
+ &quot;can&#39;t&quot;: 1,
+ &#39;play&#39;: 1,
+ &#39;an&#39;: 1,
+ &#39;instrument&#39;: 1,
+ &#39;at&#39;: 1,
+ &#39;least&#39;: 1,
+ &#39;make&#39;: 1,
+ &#39;lyrics&#39;: 1,
+ &#39;bob&#39;: 3,
+ &#39;dylan&#39;: 1,
+ &#39;lennon&#39;: 1,
+ &#39;mccartney&#39;: 1,
+ &#39;esq&#39;: 1,
+ &#39;even&#39;: 1,
+ &#39;though&#39;: 1,
+ &#39;your&#39;: 2,
+ &#39;only&#39;: 1,
+ &#39;fkin&#39;: 1,
+ &#39;19&#39;: 1,
+ &#39;rt&#39;: 2,
+ &#39;mefbama&#39;: 1,
+ &#39;democrats&#39;: 1,
+ &#39;claim&#39;: 1,
+ &#39;they&#39;: 3,
+ &#39;care&#39;: 2,
+ &#39;about&#39;: 2,
+ &#39;children&#39;: 1,
+ &#39;but&#39;: 1,
+ &#39;then&#39;: 1,
+ &#39;elect&#39;: 1,
+ &#39;child&#39;: 2,
+ &#39;predators&#39;: 1,
+ &#39;joe&#39;: 1,
+ &#39;really&#39;: 1,
+ &#39;um&#39;: 2,
+ &#39;bocado&#39;: 1,
+ &#39;de&#39;: 3,
+ &#39;gente&#39;: 1,
+ &#39;respondendo&#39;: 1,
+ &#39;aquele&#39;: 1,
+ &#39;tweet&#39;: 1,
+ &#39;sobre&#39;: 1,
+ &#39;n&#39;: 4,
+ &#39;ter&#39;: 1,
+ &#39;arte&#39;: 1,
+ &#39;direita&#39;: 1,
+ &#39;e&#39;: 1,
+ &#39;até&#39;: 1,
+ &#39;agr&#39;: 1,
+ &#39;vi&#39;: 1,
+ &#39;nada&#39;: 1,
+ &#39;astarjapreta&#39;: 1,
+ &#39;smiths&#39;: 1,
+ &#39;que&#39;: 1,
+ &#39;o&#39;: 1,
+ &#39;é&#39;: 1,
+ &#39;babaca&#39;: 1,
+ &#39;itssophiepia&#39;: 1,
+ &#39;artists&#39;: 2,
+ &#39;who&#39;: 2,
+ &#39;never&#39;: 3,
+ &#39;won&#39;: 2,
+ &#39;a&#39;: 3,
+ &#39;single&#39;: 2,
+ &#39;grammy&#39;: 2,
+ &#39;backstreet&#39;: 2,
+ &#39;boys&#39;: 2,
+ &#39;nicki&#39;: 2,
+ &#39;minaj&#39;: 2,
+ &#39;katy&#39;: 2,
+ &#39;perry&#39;: 2,
+ &#39;marley&#39;: 2,
+ &#39;tupac&#39;: 2,
+ &#39;guns&#39;: 2,
+ &#39;roses&#39;: 2,
+ &#39;snoop&#39;: 2,
+ &#39;do&#39;: 1,
+ &#39;based&#39;: 1,
+ &#39;on&#39;: 1,
+ &#39;my&#39;: 1,
+ &#39;playlist&#39;: 1,
+ &#39;spotify&#39;: 1,
+ &#39;thinks&#39;: 1,
+ &#39;m&#39;: 1,
+ &#39;interested&#39;: 1,
+ &#39;in&#39;: 1,
+ &#39;imnot&#39;: 1,
+ &#39;fixyouralgorithms&#39;: 1,
+ &#39;dogg&#39;: 1,
+ &#39;bjork&#39;: 1,
+ &#39;ramones&#39;: 1,
+ &#39;diana&#39;: 1,
+ &#39;ross&#39;: 1,
+ &#39;busta&#39;: 1,
+ &#39;rhymes&#39;: 1,
+ &#39;iggy&#39;: 1,
+ &#39;pop&#39;: 1,
+ &#39;does&#39;: 1,
+ &#39;mean&#39;: 1,
+ &quot;aren&#39;t&quot;: 1,
+ &#39;successful&#39;: 1,
+ &#39;left&#39;: 1,
+ &#39;legacy&#39;: 1,
+ &#39;no&#39;: 1,
+ &#39;abbythetweet&#39;: 1,
+ &#39;ewww&#39;: 1,
+ &#39;yaaaaaay&#39;: 1,
+ &#39;coolio&#39;: 1,
+ &#39;resultprospect&#39;: 1,
+ &#39;bwilky23&#39;: 1,
+ &#39;sp_duckworth&#39;: 1,
+ &#39;history_of_punk&#39;: 1,
+ &#39;punkart1977&#39;: 1,
+ &#39;johnnyramone&#39;: 1,
+ &#39;markyramone&#39;: 1,
+ &#39;punkrochelle&#39;: 1,
+ &#39;punkrockscience&#39;: 1,
+ &#39;wrote&#39;: 1,
+ &#39;song&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="guess-demographic">
+<h3>Guess demographic<a class="headerlink" href="#guess-demographic" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install gender-guesser
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gender-guesser
+?25l  Downloading https://files.pythonhosted.org/packages/13/fb/3f2aac40cd2421e164cab1668e0ca10685fcf896bd6b3671088f8aab356e/gender_guesser-0.4.0-py2.py3-none-any.whl (379kB)
+     |████████████████████████████████| 389kB 6.6MB/s eta 0:00:01
+?25hInstalling collected packages: gender-guesser
+Successfully installed gender-guesser-0.4.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gender_guesser.detector</span> <span class="k">as</span> <span class="nn">gender</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="n">tweet</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">moz</span><span class="p">[</span><span class="s2">&quot;user_name&quot;</span><span class="p">]],</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#you can probably tell this will not be useful#</span>
+<span class="n">samples</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Arya H.H. Achsan&#39;,
+ &#39;Michael Greer&#39;,
+ &#39;eduardadedidodu&#39;,
+ &#39;Brittney Barlett&#39;,
+ &#39;Mme Z (Goose in the streets, Aughra in the sheets)&#39;,
+ &#39;Aylin ✨&#39;,
+ &#39;Sam H&#39;,
+ &#39;avant-garbage&#39;,
+ &#39;Steve, Term 4 &amp; surviving&#39;,
+ &#39;Ze Bestfriend&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gender_guesser.detector</span> <span class="k">as</span> <span class="nn">gender</span>
+<span class="n">detector</span> <span class="o">=</span> <span class="n">gender</span><span class="o">.</span><span class="n">Detector</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">detector</span><span class="o">.</span><span class="n">get_gender</span><span class="p">(</span><span class="n">first_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arya unknown
+Michael male
+eduardadedidodu unknown
+Brittney female
+Mme unknown
+Aylin female
+Sam mostly_male
+avant-garbage unknown
+Steve, unknown
+Ze andy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span><span class="o">.</span><span class="n">get_gender</span><span class="p">(</span><span class="s2">&quot;Malcolm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;male&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span><span class="o">.</span><span class="n">get_gender</span><span class="p">(</span><span class="s2">&quot;Malcolmina&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;unknown&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-of-tweet">
+<h3>Time of tweet<a class="headerlink" href="#time-of-tweet" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="n">tweet</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">moz</span><span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">]],</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Wed Nov 20 18:04:42 +0000 2019&#39;,
+ &#39;Tue Nov 19 01:11:48 +0000 2019&#39;,
+ &#39;Thu Nov 21 16:20:08 +0000 2019&#39;,
+ &#39;Sun Nov 17 15:38:53 +0000 2019&#39;,
+ &#39;Fri Nov 15 13:37:14 +0000 2019&#39;,
+ &#39;Fri Nov 22 14:50:02 +0000 2019&#39;,
+ &#39;Wed Nov 20 15:26:36 +0000 2019&#39;,
+ &#39;Thu Nov 21 20:17:59 +0000 2019&#39;,
+ &#39;Mon Nov 18 21:02:07 +0000 2019&#39;,
+ &#39;Thu Nov 21 15:22:25 +0000 2019&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_birds</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ok_nooners</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">night_owls</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">time_info</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time_info</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">time_increments</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_increments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span> 
+        <span class="n">night_owls</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_increments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">night_owls</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_increments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="n">ok_nooners</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_increments</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">ok_nooners</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">early_birds</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_birds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ok_nooners</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">night_owls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-tweet-analysis">
+<h1><strong>Basic Tweet Analysis</strong><a class="headerlink" href="#basic-tweet-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="twarc-utilities-twarc-utils">
+<h2>Twarc utilities <code class="docutils literal notranslate"><span class="pre">twarc/utils</span></code><a class="headerlink" href="#twarc-utilities-twarc-utils" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="identify-top-hashtags-twarc-utils-tags-py">
+<h2>Identify Top Hashtags <code class="docutils literal notranslate"><span class="pre">twarc/utils/tags.py</span></code><a class="headerlink" href="#identify-top-hashtags-twarc-utils-tags-py" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/tags.py ok_boomer_search.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-word-cloud-twarc-utils-wordcloud-py">
+<h2>Create a Word Cloud <code class="docutils literal notranslate"><span class="pre">twarc/utils/wordcloud.py</span></code><a class="headerlink" href="#create-a-word-cloud-twarc-utils-wordcloud-py" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/wordcloud.py ok_boomer_search.jsonl &gt; ok_boomer_search.html
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="xref myst">ok_boomer_search.html</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/wordcloud.py ok_boomer_filter.jsonl &gt; ok_boomer_filer.html
+</pre></div>
+</div>
+</div>
+</div>
+<p>View your word cloud:</p>
+<p><span class="xref myst">ok_boomer_filter.html</span></p>
+</div>
+<div class="section" id="identify-top-emojis-twarc-utils-emojis-py">
+<h2>Identify Top Emojis <code class="docutils literal notranslate"><span class="pre">twarc/utils/emojis.py</span></code><a class="headerlink" href="#identify-top-emojis-twarc-utils-emojis-py" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python twarc/utils/emojis.py ok_boomer_search.jsonl <span class="p">|</span> head -n <span class="m">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Data-Collection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

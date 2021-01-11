@@ -1,0 +1,5856 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TF-IDF with Scikit-Learn &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF-Scikit-Learn.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Topic Modeling" href="Topic-Modeling.html" />
+    <link rel="prev" title="TF-IDF with HathiTrust Data" href="TF-IDF-HathiTrust.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF-Scikit-Learn.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="TF-IDF with Scikit-Learn" />
+<meta property="og:description" content="TF-IDF with Scikit-Learn  In the previous lesson, we learned about a text analysis method called term frequency–inverse document frequency, often abbreviated tf" />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Python/Python.html">
+   2. Python Basics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Data-Collection/Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Data-Collection/Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Data-Collection/Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="TF-IDF.html">
+     TF-IDF
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="POS-Keywords.html#keyword-extraction">
+     Keyword Extraction
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#geocoding-with-geopy">
+     Geocoding with GeoPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#making-interactive-maps">
+     Making Interactive Maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Text-Analysis/TF-IDF-Scikit-Learn.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2FText-Analysis/TF-IDF-Scikit-Learn.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Text-Analysis/TF-IDF-Scikit-Learn.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#u-s-inaugural-addresses">
+     U.S. Inaugural Addresses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breaking-down-the-tf-idf-formula">
+   Breaking Down the TF-IDF Formula
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   TF-IDF with scikit-learn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-directory-path">
+     Set Directory Path
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculate-tfidf">
+   Calculate tf–idf
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn!
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tf-idf-with-scikit-learn">
+<h1>TF-IDF with Scikit-Learn<a class="headerlink" href="#tf-idf-with-scikit-learn" title="Permalink to this headline">¶</a></h1>
+<p>In the previous lesson, we learned about a text analysis method called <em>term frequency–inverse document frequency</em>, often abbreviated <em>tf-idf</em>. Tf-idf is a method that tries to identify the most distinctively frequent or significant words in a document. We specifically learned how to calculate tf-idf scores using word frequencies per page—or “extracted features”—made available by the HathiTrust Digital Library.</p>
+<p>In this lesson, we’re going to learn how to calculate tf-idf scores using a collection of plain text (.txt) files and the Python library scikit-learn, which has a quick and nifty module called <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">TfidfVectorizer</a>.</p>
+<p>In this lesson, we will cover how to:</p>
+<ul class="simple">
+<li><p>Calculate and normalize tf-idf scores for U.S. Inaugural Addresses with scikit-learn</p></li>
+</ul>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="u-s-inaugural-addresses">
+<h3>U.S. Inaugural Addresses<a class="headerlink" href="#u-s-inaugural-addresses" title="Permalink to this headline">¶</a></h3>
+<blockquote class="epigraph">
+<div><p>This is the meaning of our liberty and our creed; why men and women and children of every race and every faith can join in celebration across this magnificent Mall, and why a man whose father less than 60 years ago might not have been served at a local restaurant can now stand before you to take a most sacred oath.  So let us mark this day with remembrance of who we are and how far we have traveled.</p>
+<p class="attribution">—Barack Obama, Inaugural Presidential Address, January 2009 </p>
+</div></blockquote>
+<p>During Barack Obama’s Inaugural Address in January 2009, he mentioned “women” four different times, including in the passage quoted above. How distinctive is Obama’s inclusion of women in this address compared to all other U.S. Presidents? This is one of the questions that we’re going to try to answer with tf-idf.</p>
+</div>
+</div>
+<div class="section" id="breaking-down-the-tf-idf-formula">
+<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Permalink to this headline">¶</a></h2>
+<p>But first, let’s quickly discuss the tf-idf formula. The idea is pretty simple.</p>
+<p><strong>tf-idf = term_frequency * inverse_document_frequency</strong></p>
+<p><strong>term_frequency</strong> = number of times a given term appears in document</p>
+<p><strong>inverse_document_frequency</strong> = log(total number of documents / number of documents with term) + 1*****</p>
+<p>You take the number of times a term occurs in a document (term frequency). Then you take the number of documents in which the same term occurs at least once divided by the total number of documents (document frequency), and you flip that fraction on its head (inverse document frequency). Then you multiply the two numbers together (term_frequency * inverse_document_frequency).</p>
+<p>The reason we take the <em>inverse</em>, or flipped fraction, of document frequency is to boost the rarer words that occur in relatively few documents. Think about the inverse document frequency for the word “said” vs the word “pigeon.” The term “said” appears in 13 (document frequency) of 14 (total documents) <em>Lost in the City</em> stories (14 / 13 –&gt; a smaller inverse document frequency) while the term “pigeons” only occurs in 2 (document frequency) of the 14 stories (total documents) (14 / 2 –&gt; a bigger inverse document frequency, a bigger tf-idf boost).</p>
+<p>*There are a bunch of slightly different ways that you can calculate inverse document frequency. The version of idf that we’re going to use is the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn default</a>, which uses “smoothing” aka it adds a “1” to the numerator and denominator:</p>
+<p><strong>inverse_document_frequency</strong>  = log((1 + total_number_of_documents) / (number_of_documents_with_term +1)) + 1</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<blockquote>
+<div><p>If smooth_idf=True (the default), the constant “1” is added to the numerator and denominator of the idf as if an extra document was seen containing every term in the collection exactly once, which prevents zero divisions: idf(t) = log [ (1 + n) / (1 + df(t)) ] + 1.<br />
+-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn documentation</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>TF-IDF with scikit-learn<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>, imported as <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, is a popular Python library for machine learning approaches such as clustering, classification, and regression. Though we’re not doing any machine learning in this lesson, we’re nevertheless going to use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> and <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>.</p>
+<p>Install scikit-learn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install sklearn
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sklearn in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (0.0)
+Requirement already satisfied: scikit-learn in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from sklearn) (0.20.3)
+Requirement already satisfied: numpy&gt;=1.8.2 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from scikit-learn-&gt;sklearn) (1.17.4)
+Requirement already satisfied: scipy&gt;=0.13.3 in /Users/melaniewalsh/anaconda3/lib/python3.7/site-packages (from scikit-learn-&gt;sklearn) (1.3.1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import necessary modules and libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>  
+<span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also going to import <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and change its default display setting. And we’re going to import two libraries that will help us work with files and the file system: <a class="reference external" href="https://docs.python.org/3/library/pathlib.html##basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a>.</p>
+<div class="section" id="set-directory-path">
+<h3>Set Directory Path<a class="headerlink" href="#set-directory-path" title="Permalink to this headline">¶</a></h3>
+<p>Below we’re setting the directory filepath that contains all the text files that we want to analyze.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/US_Inaugural_Addresses/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’re going to use <code class="docutils literal notranslate"><span class="pre">glob</span></code> and <code class="docutils literal notranslate"><span class="pre">Path</span></code> to make a list of all the filepaths in that directory and a list of all the short story titles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;../texts/history/US_Inaugural_Addresses/01_washington_1789.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/02_washington_1793.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/03_adams_john_1797.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/04_jefferson_1801.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/05_jefferson_1805.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/06_madison_1809.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/07_madison_1813.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/08_monroe_1817.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/09_monroe_1821.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/10_adams_john_quincy_1825.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/11_jackson_1829.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/12_jackson_1833.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/13_van_buren_1837.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/14_harrison_1841.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/15_polk_1845.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/16_taylor_1849.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/17_pierce_1853.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/18_buchanan_1857.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/19_lincoln_1861.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/20_lincoln_1865.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/21_grant_1869.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/22_grant_1873.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/23_hayes_1877.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/24_garfield_1881.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/25_cleveland_1885.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/26_harrison_1889.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/27_cleveland_1893.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/28_mckinley_1897.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/29_mckinley_1901.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/30_roosevelt_theodore_1905.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/31_taft_1909.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/32_wilson_1913.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/33_wilson_1917.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/34_harding_1921.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/35_coolidge_1925.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/36_hoover_1929.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/37_roosevelt_franklin_1933.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/38_roosevelt_franklin_1937.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/39_roosevelt_franklin_1941.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/40_roosevelt_franklin_1945.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/41_truman_1949.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/42_eisenhower_1953.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/43_eisenhower_1957.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/44_kennedy_1961.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/45_johnson_1965.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/46_nixon_1969.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/47_nixon_1973.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/48_carter_1977.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/49_reagan_1981.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/50_reagan_1985.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/51_bush_george_h_w_1989.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/52_clinton_1993.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/53_clinton_1997.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/54_bush_george_w_2001.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/55_bush_george_w_2005.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/56_obama_2009.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/57_obama_2013.txt&#39;,
+ &#39;../texts/history/US_Inaugural_Addresses/58_trump_2017.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;01_washington_1789&#39;,
+ &#39;02_washington_1793&#39;,
+ &#39;03_adams_john_1797&#39;,
+ &#39;04_jefferson_1801&#39;,
+ &#39;05_jefferson_1805&#39;,
+ &#39;06_madison_1809&#39;,
+ &#39;07_madison_1813&#39;,
+ &#39;08_monroe_1817&#39;,
+ &#39;09_monroe_1821&#39;,
+ &#39;10_adams_john_quincy_1825&#39;,
+ &#39;11_jackson_1829&#39;,
+ &#39;12_jackson_1833&#39;,
+ &#39;13_van_buren_1837&#39;,
+ &#39;14_harrison_1841&#39;,
+ &#39;15_polk_1845&#39;,
+ &#39;16_taylor_1849&#39;,
+ &#39;17_pierce_1853&#39;,
+ &#39;18_buchanan_1857&#39;,
+ &#39;19_lincoln_1861&#39;,
+ &#39;20_lincoln_1865&#39;,
+ &#39;21_grant_1869&#39;,
+ &#39;22_grant_1873&#39;,
+ &#39;23_hayes_1877&#39;,
+ &#39;24_garfield_1881&#39;,
+ &#39;25_cleveland_1885&#39;,
+ &#39;26_harrison_1889&#39;,
+ &#39;27_cleveland_1893&#39;,
+ &#39;28_mckinley_1897&#39;,
+ &#39;29_mckinley_1901&#39;,
+ &#39;30_roosevelt_theodore_1905&#39;,
+ &#39;31_taft_1909&#39;,
+ &#39;32_wilson_1913&#39;,
+ &#39;33_wilson_1917&#39;,
+ &#39;34_harding_1921&#39;,
+ &#39;35_coolidge_1925&#39;,
+ &#39;36_hoover_1929&#39;,
+ &#39;37_roosevelt_franklin_1933&#39;,
+ &#39;38_roosevelt_franklin_1937&#39;,
+ &#39;39_roosevelt_franklin_1941&#39;,
+ &#39;40_roosevelt_franklin_1945&#39;,
+ &#39;41_truman_1949&#39;,
+ &#39;42_eisenhower_1953&#39;,
+ &#39;43_eisenhower_1957&#39;,
+ &#39;44_kennedy_1961&#39;,
+ &#39;45_johnson_1965&#39;,
+ &#39;46_nixon_1969&#39;,
+ &#39;47_nixon_1973&#39;,
+ &#39;48_carter_1977&#39;,
+ &#39;49_reagan_1981&#39;,
+ &#39;50_reagan_1985&#39;,
+ &#39;51_bush_george_h_w_1989&#39;,
+ &#39;52_clinton_1993&#39;,
+ &#39;53_clinton_1997&#39;,
+ &#39;54_bush_george_w_2001&#39;,
+ &#39;55_bush_george_w_2005&#39;,
+ &#39;56_obama_2009&#39;,
+ &#39;57_obama_2013&#39;,
+ &#39;58_trump_2017&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-tfidf">
+<h2>Calculate tf–idf<a class="headerlink" href="#calculate-tfidf" title="Permalink to this headline">¶</a></h2>
+<p>To calculate tf–idf scores for every word, we’re going to use scikit-learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code></a>.</p>
+<p>When you initialize TfidfVectorizer, you can choose to set it with different parameters. These parameters will change the way you calculate tf–idf.</p>
+<p>The recommended way to run <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> is with smoothing (<code class="docutils literal notranslate"><span class="pre">smooth_idf</span> <span class="pre">=</span> <span class="pre">True</span></code>) and normalization (<code class="docutils literal notranslate"><span class="pre">norm='l2'</span></code>) turned on. These parameters will better account for differences in text length, and overall produce more meaningful tf–idf scores. Smoothing and L2 normalization are actually the default settings for <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code>, so to turn them on, you don’t need to include any extra code at all.</p>
+<p>Initialize TfidfVectorizer with desired parameters (default smoothing and normalization)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run TfidfVectorizer on our <code class="docutils literal notranslate"><span class="pre">text_files</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vector</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a DataFrame out of the resulting tf–idf vector, setting the “feature names” or words as columns and the titles as rows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add column for document frequency aka number of times word appears in all documents</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;00_Document Frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tfidf_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_slice</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="p">[[</span><span class="s1">&#39;government&#39;</span><span class="p">,</span> <span class="s1">&#39;borders&#39;</span><span class="p">,</span> <span class="s1">&#39;people&#39;</span><span class="p">,</span> <span class="s1">&#39;obama&#39;</span><span class="p">,</span> <span class="s1">&#39;war&#39;</span><span class="p">,</span> <span class="s1">&#39;honor&#39;</span><span class="p">,</span><span class="s1">&#39;foreign&#39;</span><span class="p">,</span> <span class="s1">&#39;men&#39;</span><span class="p">,</span> <span class="s1">&#39;women&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">]]</span>
+<span class="n">tfidf_slice</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>government</th>
+      <th>borders</th>
+      <th>people</th>
+      <th>obama</th>
+      <th>war</th>
+      <th>honor</th>
+      <th>foreign</th>
+      <th>men</th>
+      <th>women</th>
+      <th>children</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>00_Document Frequency</th>
+      <td>53.00</td>
+      <td>5.00</td>
+      <td>56.00</td>
+      <td>3.00</td>
+      <td>45.00</td>
+      <td>32.00</td>
+      <td>32.00</td>
+      <td>47.00</td>
+      <td>15.00</td>
+      <td>22.00</td>
+    </tr>
+    <tr>
+      <th>01_washington_1789</th>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>02_washington_1793</th>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>03_adams_john_1797</th>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.19</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.10</td>
+      <td>0.12</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>04_jefferson_1801</th>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>05_jefferson_1805</th>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <th>06_madison_1809</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>07_madison_1813</th>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>08_monroe_1817</th>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.01</td>
+      <td>0.10</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>09_monroe_1821</th>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>10_adams_john_quincy_1825</th>
+      <td>0.15</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.08</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>11_jackson_1829</th>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.07</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>12_jackson_1833</th>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>13_van_buren_1837</th>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.06</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>14_harrison_1841</th>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>15_polk_1845</th>
+      <td>0.26</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.01</td>
+      <td>0.09</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>16_taylor_1849</th>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>17_pierce_1853</th>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <th>18_buchanan_1857</th>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>19_lincoln_1861</th>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.13</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>20_lincoln_1865</th>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.27</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>21_grant_1869</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>22_grant_1873</th>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>23_hayes_1877</th>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>24_garfield_1881</th>
+      <td>0.19</td>
+      <td>0.00</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>25_cleveland_1885</th>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>26_harrison_1889</th>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>27_cleveland_1893</th>
+      <td>0.15</td>
+      <td>0.00</td>
+      <td>0.22</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>28_mckinley_1897</th>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.03</td>
+      <td>0.06</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>29_mckinley_1901</th>
+      <td>0.15</td>
+      <td>0.00</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.04</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>30_roosevelt_theodore_1905</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <th>31_taft_1909</th>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>32_wilson_1913</th>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.10</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>33_wilson_1917</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>34_harding_1921</th>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>35_coolidge_1925</th>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>36_hoover_1929</th>
+      <td>0.20</td>
+      <td>0.04</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>37_roosevelt_franklin_1933</th>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>38_roosevelt_franklin_1937</th>
+      <td>0.18</td>
+      <td>0.03</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.07</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <th>39_roosevelt_franklin_1941</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.03</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>40_roosevelt_franklin_1945</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.05</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <th>41_truman_1949</th>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>42_eisenhower_1953</th>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>43_eisenhower_1957</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>44_kennedy_1961</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>45_johnson_1965</th>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>46_nixon_1969</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.13</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>47_nixon_1973</th>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <th>48_carter_1977</th>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>49_reagan_1981</th>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <th>50_reagan_1985</th>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.04</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>51_bush_george_h_w_1989</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.06</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>52_clinton_1993</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.13</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>53_clinton_1997</th>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <th>54_bush_george_w_2001</th>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>55_bush_george_w_2005</th>
+      <td>0.03</td>
+      <td>0.06</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>56_obama_2009</th>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.07</td>
+      <td>0.03</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.08</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>57_obama_2013</th>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>58_trump_2017</th>
+      <td>0.04</td>
+      <td>0.11</td>
+      <td>0.11</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.03</td>
+      <td>0.05</td>
+      <td>0.04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s drop “OO_Document Frequency” since we were just using it for illustration purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;00_Document Frequency&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s reorganize the DataFrame so that the words are in rows rather than columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>level_0</th>
+      <th>level_1</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01_washington_1789</td>
+      <td>000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01_washington_1789</td>
+      <td>03</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01_washington_1789</td>
+      <td>04</td>
+      <td>0.023259</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01_washington_1789</td>
+      <td>05</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01_washington_1789</td>
+      <td>100</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>530936</th>
+      <td>00_Document Frequency</td>
+      <td>zachary</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>530937</th>
+      <td>00_Document Frequency</td>
+      <td>zeal</td>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <th>530938</th>
+      <td>00_Document Frequency</td>
+      <td>zealous</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>530939</th>
+      <td>00_Document Frequency</td>
+      <td>zealously</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>530940</th>
+      <td>00_Document Frequency</td>
+      <td>zone</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>530941 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="s1">&#39;level_0&#39;</span><span class="p">:</span> <span class="s1">&#39;document&#39;</span><span class="p">,</span><span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="s1">&#39;level_2&#39;</span><span class="p">:</span> <span class="s1">&#39;term&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find out the top 10 words with the highest tf–idf for every story, we’re going to sort by document and tfidf score and then groupby document and take the first 10 values.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">,</span><span class="s1">&#39;tfidf&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;document&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>term</th>
+      <th>tfidf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3707</th>
+      <td>01_washington_1789</td>
+      <td>government</td>
+      <td>0.113681</td>
+    </tr>
+    <tr>
+      <th>4108</th>
+      <td>01_washington_1789</td>
+      <td>immutable</td>
+      <td>0.103883</td>
+    </tr>
+    <tr>
+      <th>4175</th>
+      <td>01_washington_1789</td>
+      <td>impressions</td>
+      <td>0.103883</td>
+    </tr>
+    <tr>
+      <th>6337</th>
+      <td>01_washington_1789</td>
+      <td>providential</td>
+      <td>0.103883</td>
+    </tr>
+    <tr>
+      <th>5631</th>
+      <td>01_washington_1789</td>
+      <td>ought</td>
+      <td>0.103728</td>
+    </tr>
+    <tr>
+      <th>6351</th>
+      <td>01_washington_1789</td>
+      <td>public</td>
+      <td>0.103102</td>
+    </tr>
+    <tr>
+      <th>6117</th>
+      <td>01_washington_1789</td>
+      <td>present</td>
+      <td>0.097516</td>
+    </tr>
+    <tr>
+      <th>6389</th>
+      <td>01_washington_1789</td>
+      <td>qualifications</td>
+      <td>0.096372</td>
+    </tr>
+    <tr>
+      <th>5811</th>
+      <td>01_washington_1789</td>
+      <td>peculiarly</td>
+      <td>0.090546</td>
+    </tr>
+    <tr>
+      <th>653</th>
+      <td>01_washington_1789</td>
+      <td>article</td>
+      <td>0.085786</td>
+    </tr>
+    <tr>
+      <th>9018</th>
+      <td>02_washington_1793</td>
+      <td>1793</td>
+      <td>0.229350</td>
+    </tr>
+    <tr>
+      <th>9643</th>
+      <td>02_washington_1793</td>
+      <td>arrive</td>
+      <td>0.229350</td>
+    </tr>
+    <tr>
+      <th>17576</th>
+      <td>02_washington_1793</td>
+      <td>upbraidings</td>
+      <td>0.229350</td>
+    </tr>
+    <tr>
+      <th>13250</th>
+      <td>02_washington_1793</td>
+      <td>incurring</td>
+      <td>0.208140</td>
+    </tr>
+    <tr>
+      <th>17700</th>
+      <td>02_washington_1793</td>
+      <td>violated</td>
+      <td>0.208140</td>
+    </tr>
+    <tr>
+      <th>17872</th>
+      <td>02_washington_1793</td>
+      <td>willingly</td>
+      <td>0.208140</td>
+    </tr>
+    <tr>
+      <th>13368</th>
+      <td>02_washington_1793</td>
+      <td>injunctions</td>
+      <td>0.193091</td>
+    </tr>
+    <tr>
+      <th>13705</th>
+      <td>02_washington_1793</td>
+      <td>knowingly</td>
+      <td>0.193091</td>
+    </tr>
+    <tr>
+      <th>15157</th>
+      <td>02_washington_1793</td>
+      <td>previous</td>
+      <td>0.193091</td>
+    </tr>
+    <tr>
+      <th>17910</th>
+      <td>02_washington_1793</td>
+      <td>witnesses</td>
+      <td>0.193091</td>
+    </tr>
+    <tr>
+      <th>23821</th>
+      <td>03_adams_john_1797</td>
+      <td>people</td>
+      <td>0.191180</td>
+    </tr>
+    <tr>
+      <th>21705</th>
+      <td>03_adams_john_1797</td>
+      <td>government</td>
+      <td>0.160937</td>
+    </tr>
+    <tr>
+      <th>23959</th>
+      <td>03_adams_john_1797</td>
+      <td>pleasing</td>
+      <td>0.147066</td>
+    </tr>
+    <tr>
+      <th>21462</th>
+      <td>03_adams_john_1797</td>
+      <td>foreign</td>
+      <td>0.116874</td>
+    </tr>
+    <tr>
+      <th>23356</th>
+      <td>03_adams_john_1797</td>
+      <td>nations</td>
+      <td>0.114480</td>
+    </tr>
+    <tr>
+      <th>26711</th>
+      <td>03_adams_john_1797</td>
+      <td>virtuous</td>
+      <td>0.110813</td>
+    </tr>
+    <tr>
+      <th>22016</th>
+      <td>03_adams_john_1797</td>
+      <td>houses</td>
+      <td>0.110300</td>
+    </tr>
+    <tr>
+      <th>22799</th>
+      <td>03_adams_john_1797</td>
+      <td>legislatures</td>
+      <td>0.110300</td>
+    </tr>
+    <tr>
+      <th>19759</th>
+      <td>03_adams_john_1797</td>
+      <td>constitution</td>
+      <td>0.104525</td>
+    </tr>
+    <tr>
+      <th>21983</th>
+      <td>03_adams_john_1797</td>
+      <td>honor</td>
+      <td>0.102265</td>
+    </tr>
+    <tr>
+      <th>30704</th>
+      <td>04_jefferson_1801</td>
+      <td>government</td>
+      <td>0.155691</td>
+    </tr>
+    <tr>
+      <th>33171</th>
+      <td>04_jefferson_1801</td>
+      <td>principle</td>
+      <td>0.130113</td>
+    </tr>
+    <tr>
+      <th>31814</th>
+      <td>04_jefferson_1801</td>
+      <td>let</td>
+      <td>0.117970</td>
+    </tr>
+    <tr>
+      <th>34063</th>
+      <td>04_jefferson_1801</td>
+      <td>safety</td>
+      <td>0.108427</td>
+    </tr>
+    <tr>
+      <th>32010</th>
+      <td>04_jefferson_1801</td>
+      <td>man</td>
+      <td>0.106841</td>
+    </tr>
+    <tr>
+      <th>35095</th>
+      <td>04_jefferson_1801</td>
+      <td>thousandth</td>
+      <td>0.104513</td>
+    </tr>
+    <tr>
+      <th>30979</th>
+      <td>04_jefferson_1801</td>
+      <td>honest</td>
+      <td>0.101696</td>
+    </tr>
+    <tr>
+      <th>30327</th>
+      <td>04_jefferson_1801</td>
+      <td>fellow</td>
+      <td>0.097240</td>
+    </tr>
+    <tr>
+      <th>33893</th>
+      <td>04_jefferson_1801</td>
+      <td>retire</td>
+      <td>0.094848</td>
+    </tr>
+    <tr>
+      <th>32574</th>
+      <td>04_jefferson_1801</td>
+      <td>opinion</td>
+      <td>0.092587</td>
+    </tr>
+    <tr>
+      <th>42347</th>
+      <td>05_jefferson_1805</td>
+      <td>public</td>
+      <td>0.180456</td>
+    </tr>
+    <tr>
+      <th>39257</th>
+      <td>05_jefferson_1805</td>
+      <td>false</td>
+      <td>0.135863</td>
+    </tr>
+    <tr>
+      <th>43618</th>
+      <td>05_jefferson_1805</td>
+      <td>state</td>
+      <td>0.121514</td>
+    </tr>
+    <tr>
+      <th>44836</th>
+      <td>05_jefferson_1805</td>
+      <td>whatsoever</td>
+      <td>0.116886</td>
+    </tr>
+    <tr>
+      <th>40872</th>
+      <td>05_jefferson_1805</td>
+      <td>limits</td>
+      <td>0.107085</td>
+    </tr>
+    <tr>
+      <th>37368</th>
+      <td>05_jefferson_1805</td>
+      <td>citizens</td>
+      <td>0.106592</td>
+    </tr>
+    <tr>
+      <th>42486</th>
+      <td>05_jefferson_1805</td>
+      <td>reason</td>
+      <td>0.104438</td>
+    </tr>
+    <tr>
+      <th>37481</th>
+      <td>05_jefferson_1805</td>
+      <td>comforts</td>
+      <td>0.101880</td>
+    </tr>
+    <tr>
+      <th>42131</th>
+      <td>05_jefferson_1805</td>
+      <td>press</td>
+      <td>0.101549</td>
+    </tr>
+    <tr>
+      <th>39138</th>
+      <td>05_jefferson_1805</td>
+      <td>expenses</td>
+      <td>0.096524</td>
+    </tr>
+    <tr>
+      <th>49179</th>
+      <td>06_madison_1809</td>
+      <td>improvements</td>
+      <td>0.152559</td>
+    </tr>
+    <tr>
+      <th>45923</th>
+      <td>06_madison_1809</td>
+      <td>belligerent</td>
+      <td>0.123161</td>
+    </tr>
+    <tr>
+      <th>51346</th>
+      <td>06_madison_1809</td>
+      <td>public</td>
+      <td>0.122235</td>
+    </tr>
+    <tr>
+      <th>50353</th>
+      <td>06_madison_1809</td>
+      <td>nations</td>
+      <td>0.104588</td>
+    </tr>
+    <tr>
+      <th>51728</th>
+      <td>06_madison_1809</td>
+      <td>rendered</td>
+      <td>0.101706</td>
+    </tr>
+    <tr>
+      <th>45782</th>
+      <td>06_madison_1809</td>
+      <td>authorities</td>
+      <td>0.089155</td>
+    </tr>
+    <tr>
+      <th>45793</th>
+      <td>06_madison_1809</td>
+      <td>avail</td>
+      <td>0.089155</td>
+    </tr>
+    <tr>
+      <th>48041</th>
+      <td>06_madison_1809</td>
+      <td>examples</td>
+      <td>0.089155</td>
+    </tr>
+    <tr>
+      <th>46898</th>
+      <td>06_madison_1809</td>
+      <td>councils</td>
+      <td>0.085894</td>
+    </tr>
+    <tr>
+      <th>50558</th>
+      <td>06_madison_1809</td>
+      <td>ones</td>
+      <td>0.085894</td>
+    </tr>
+    <tr>
+      <th>62759</th>
+      <td>07_madison_1813</td>
+      <td>war</td>
+      <td>0.254249</td>
+    </tr>
+    <tr>
+      <th>55101</th>
+      <td>07_madison_1813</td>
+      <td>british</td>
+      <td>0.222972</td>
+    </tr>
+    <tr>
+      <th>59062</th>
+      <td>07_madison_1813</td>
+      <td>massacre</td>
+      <td>0.119009</td>
+    </tr>
+    <tr>
+      <th>55204</th>
+      <td>07_madison_1813</td>
+      <td>captives</td>
+      <td>0.108003</td>
+    </tr>
+    <tr>
+      <th>55976</th>
+      <td>07_madison_1813</td>
+      <td>cruel</td>
+      <td>0.108003</td>
+    </tr>
+    <tr>
+      <th>60175</th>
+      <td>07_madison_1813</td>
+      <td>prisoners</td>
+      <td>0.108003</td>
+    </tr>
+    <tr>
+      <th>61096</th>
+      <td>07_madison_1813</td>
+      <td>savage</td>
+      <td>0.108003</td>
+    </tr>
+    <tr>
+      <th>56740</th>
+      <td>07_madison_1813</td>
+      <td>element</td>
+      <td>0.085005</td>
+    </tr>
+    <tr>
+      <th>56841</th>
+      <td>07_madison_1813</td>
+      <td>enemy</td>
+      <td>0.085005</td>
+    </tr>
+    <tr>
+      <th>57980</th>
+      <td>07_madison_1813</td>
+      <td>honorable</td>
+      <td>0.084762</td>
+    </tr>
+    <tr>
+      <th>70620</th>
+      <td>08_monroe_1817</td>
+      <td>states</td>
+      <td>0.184195</td>
+    </tr>
+    <tr>
+      <th>66700</th>
+      <td>08_monroe_1817</td>
+      <td>government</td>
+      <td>0.174125</td>
+    </tr>
+    <tr>
+      <th>66734</th>
+      <td>08_monroe_1817</td>
+      <td>great</td>
+      <td>0.160658</td>
+    </tr>
+    <tr>
+      <th>71462</th>
+      <td>08_monroe_1817</td>
+      <td>union</td>
+      <td>0.117193</td>
+    </tr>
+    <tr>
+      <th>68816</th>
+      <td>08_monroe_1817</td>
+      <td>people</td>
+      <td>0.112825</td>
+    </tr>
+    <tr>
+      <th>71465</th>
+      <td>08_monroe_1817</td>
+      <td>united</td>
+      <td>0.112076</td>
+    </tr>
+    <tr>
+      <th>65026</th>
+      <td>08_monroe_1817</td>
+      <td>dangers</td>
+      <td>0.108567</td>
+    </tr>
+    <tr>
+      <th>68360</th>
+      <td>08_monroe_1817</td>
+      <td>naval</td>
+      <td>0.104713</td>
+    </tr>
+    <tr>
+      <th>66457</th>
+      <td>08_monroe_1817</td>
+      <td>foreign</td>
+      <td>0.103460</td>
+    </tr>
+    <tr>
+      <th>69168</th>
+      <td>08_monroe_1817</td>
+      <td>principles</td>
+      <td>0.097766</td>
+    </tr>
+    <tr>
+      <th>75733</th>
+      <td>09_monroe_1821</td>
+      <td>great</td>
+      <td>0.173751</td>
+    </tr>
+    <tr>
+      <th>79619</th>
+      <td>09_monroe_1821</td>
+      <td>states</td>
+      <td>0.137384</td>
+    </tr>
+    <tr>
+      <th>78909</th>
+      <td>09_monroe_1821</td>
+      <td>revenue</td>
+      <td>0.115018</td>
+    </tr>
+    <tr>
+      <th>80757</th>
+      <td>09_monroe_1821</td>
+      <td>war</td>
+      <td>0.113785</td>
+    </tr>
+    <tr>
+      <th>77742</th>
+      <td>09_monroe_1821</td>
+      <td>parties</td>
+      <td>0.109318</td>
+    </tr>
+    <tr>
+      <th>80464</th>
+      <td>09_monroe_1821</td>
+      <td>united</td>
+      <td>0.108029</td>
+    </tr>
+    <tr>
+      <th>73496</th>
+      <td>09_monroe_1821</td>
+      <td>commerce</td>
+      <td>0.105001</td>
+    </tr>
+    <tr>
+      <th>75444</th>
+      <td>09_monroe_1821</td>
+      <td>force</td>
+      <td>0.102947</td>
+    </tr>
+    <tr>
+      <th>75490</th>
+      <td>09_monroe_1821</td>
+      <td>fortifications</td>
+      <td>0.098741</td>
+    </tr>
+    <tr>
+      <th>80026</th>
+      <td>09_monroe_1821</td>
+      <td>term</td>
+      <td>0.094808</td>
+    </tr>
+    <tr>
+      <th>89460</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>union</td>
+      <td>0.257335</td>
+    </tr>
+    <tr>
+      <th>84698</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>government</td>
+      <td>0.147726</td>
+    </tr>
+    <tr>
+      <th>84633</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>general</td>
+      <td>0.109221</td>
+    </tr>
+    <tr>
+      <th>87960</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>rights</td>
+      <td>0.096300</td>
+    </tr>
+    <tr>
+      <th>83509</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>dissensions</td>
+      <td>0.095289</td>
+    </tr>
+    <tr>
+      <th>87342</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>public</td>
+      <td>0.094573</td>
+    </tr>
+    <tr>
+      <th>82752</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>constitution</td>
+      <td>0.090300</td>
+    </tr>
+    <tr>
+      <th>86792</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>peace</td>
+      <td>0.088183</td>
+    </tr>
+    <tr>
+      <th>82909</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>country</td>
+      <td>0.086898</td>
+    </tr>
+    <tr>
+      <th>86829</th>
+      <td>10_adams_john_quincy_1825</td>
+      <td>performance</td>
+      <td>0.085565</td>
+    </tr>
+    <tr>
+      <th>96341</th>
+      <td>11_jackson_1829</td>
+      <td>public</td>
+      <td>0.160747</td>
+    </tr>
+    <tr>
+      <th>93633</th>
+      <td>11_jackson_1829</td>
+      <td>generally</td>
+      <td>0.122711</td>
+    </tr>
+    <tr>
+      <th>92371</th>
+      <td>11_jackson_1829</td>
+      <td>diffidence</td>
+      <td>0.112691</td>
+    </tr>
+    <tr>
+      <th>92130</th>
+      <td>11_jackson_1829</td>
+      <td>defending</td>
+      <td>0.105878</td>
+    </tr>
+    <tr>
+      <th>97272</th>
+      <td>11_jackson_1829</td>
+      <td>shall</td>
+      <td>0.104933</td>
+    </tr>
+    <tr>
+      <th>96907</th>
+      <td>11_jackson_1829</td>
+      <td>revenue</td>
+      <td>0.102776</td>
+    </tr>
+    <tr>
+      <th>98938</th>
+      <td>11_jackson_1829</td>
+      <td>worth</td>
+      <td>0.100312</td>
+    </tr>
+    <tr>
+      <th>93697</th>
+      <td>11_jackson_1829</td>
+      <td>government</td>
+      <td>0.099698</td>
+    </tr>
+    <tr>
+      <th>93306</th>
+      <td>11_jackson_1829</td>
+      <td>federal</td>
+      <td>0.093100</td>
+    </tr>
+    <tr>
+      <th>96034</th>
+      <td>11_jackson_1829</td>
+      <td>power</td>
+      <td>0.092071</td>
+    </tr>
+    <tr>
+      <th>107458</th>
+      <td>12_jackson_1833</td>
+      <td>union</td>
+      <td>0.212766</td>
+    </tr>
+    <tr>
+      <th>102696</th>
+      <td>12_jackson_1833</td>
+      <td>government</td>
+      <td>0.207559</td>
+    </tr>
+    <tr>
+      <th>106616</th>
+      <td>12_jackson_1833</td>
+      <td>states</td>
+      <td>0.141549</td>
+    </tr>
+    <tr>
+      <th>104812</th>
+      <td>12_jackson_1833</td>
+      <td>people</td>
+      <td>0.136557</td>
+    </tr>
+    <tr>
+      <th>105112</th>
+      <td>12_jackson_1833</td>
+      <td>preservation</td>
+      <td>0.128319</td>
+    </tr>
+    <tr>
+      <th>102631</th>
+      <td>12_jackson_1833</td>
+      <td>general</td>
+      <td>0.125422</td>
+    </tr>
+    <tr>
+      <th>102081</th>
+      <td>12_jackson_1833</td>
+      <td>exercise</td>
+      <td>0.119275</td>
+    </tr>
+    <tr>
+      <th>103234</th>
+      <td>12_jackson_1833</td>
+      <td>inculcate</td>
+      <td>0.116720</td>
+    </tr>
+    <tr>
+      <th>105283</th>
+      <td>12_jackson_1833</td>
+      <td>proportion</td>
+      <td>0.116720</td>
+    </tr>
+    <tr>
+      <th>105036</th>
+      <td>12_jackson_1833</td>
+      <td>powers</td>
+      <td>0.113757</td>
+    </tr>
+    <tr>
+      <th>112415</th>
+      <td>13_van_buren_1837</td>
+      <td>institutions</td>
+      <td>0.186889</td>
+    </tr>
+    <tr>
+      <th>113811</th>
+      <td>13_van_buren_1837</td>
+      <td>people</td>
+      <td>0.138465</td>
+    </tr>
+    <tr>
+      <th>111695</th>
+      <td>13_van_buren_1837</td>
+      <td>government</td>
+      <td>0.116561</td>
+    </tr>
+    <tr>
+      <th>115860</th>
+      <td>13_van_buren_1837</td>
+      <td>supposed</td>
+      <td>0.109949</td>
+    </tr>
+    <tr>
+      <th>109906</th>
+      <td>13_van_buren_1837</td>
+      <td>country</td>
+      <td>0.109276</td>
+    </tr>
+    <tr>
+      <th>108231</th>
+      <td>13_van_buren_1837</td>
+      <td>actual</td>
+      <td>0.096382</td>
+    </tr>
+    <tr>
+      <th>111132</th>
+      <td>13_van_buren_1837</td>
+      <td>experience</td>
+      <td>0.093444</td>
+    </tr>
+    <tr>
+      <th>108255</th>
+      <td>13_van_buren_1837</td>
+      <td>adherence</td>
+      <td>0.083833</td>
+    </tr>
+    <tr>
+      <th>109627</th>
+      <td>13_van_buren_1837</td>
+      <td>conduct</td>
+      <td>0.081635</td>
+    </tr>
+    <tr>
+      <th>113566</th>
+      <td>13_van_buren_1837</td>
+      <td>opinions</td>
+      <td>0.081597</td>
+    </tr>
+    <tr>
+      <th>123031</th>
+      <td>14_harrison_1841</td>
+      <td>power</td>
+      <td>0.204207</td>
+    </tr>
+    <tr>
+      <th>118748</th>
+      <td>14_harrison_1841</td>
+      <td>constitution</td>
+      <td>0.183336</td>
+    </tr>
+    <tr>
+      <th>120073</th>
+      <td>14_harrison_1841</td>
+      <td>executive</td>
+      <td>0.157153</td>
+    </tr>
+    <tr>
+      <th>122810</th>
+      <td>14_harrison_1841</td>
+      <td>people</td>
+      <td>0.141584</td>
+    </tr>
+    <tr>
+      <th>120694</th>
+      <td>14_harrison_1841</td>
+      <td>government</td>
+      <td>0.141142</td>
+    </tr>
+    <tr>
+      <th>124000</th>
+      <td>14_harrison_1841</td>
+      <td>roman</td>
+      <td>0.110538</td>
+    </tr>
+    <tr>
+      <th>124614</th>
+      <td>14_harrison_1841</td>
+      <td>states</td>
+      <td>0.108621</td>
+    </tr>
+    <tr>
+      <th>118359</th>
+      <td>14_harrison_1841</td>
+      <td>citizens</td>
+      <td>0.105857</td>
+    </tr>
+    <tr>
+      <th>118292</th>
+      <td>14_harrison_1841</td>
+      <td>character</td>
+      <td>0.102640</td>
+    </tr>
+    <tr>
+      <th>124609</th>
+      <td>14_harrison_1841</td>
+      <td>state</td>
+      <td>0.094976</td>
+    </tr>
+    <tr>
+      <th>134455</th>
+      <td>15_polk_1845</td>
+      <td>union</td>
+      <td>0.259054</td>
+    </tr>
+    <tr>
+      <th>129693</th>
+      <td>15_polk_1845</td>
+      <td>government</td>
+      <td>0.256967</td>
+    </tr>
+    <tr>
+      <th>133613</th>
+      <td>15_polk_1845</td>
+      <td>states</td>
+      <td>0.218122</td>
+    </tr>
+    <tr>
+      <th>134041</th>
+      <td>15_polk_1845</td>
+      <td>texas</td>
+      <td>0.199846</td>
+    </tr>
+    <tr>
+      <th>132903</th>
+      <td>15_polk_1845</td>
+      <td>revenue</td>
+      <td>0.146541</td>
+    </tr>
+    <tr>
+      <th>132033</th>
+      <td>15_polk_1845</td>
+      <td>powers</td>
+      <td>0.124655</td>
+    </tr>
+    <tr>
+      <th>132307</th>
+      <td>15_polk_1845</td>
+      <td>protection</td>
+      <td>0.107385</td>
+    </tr>
+    <tr>
+      <th>127747</th>
+      <td>15_polk_1845</td>
+      <td>constitution</td>
+      <td>0.106528</td>
+    </tr>
+    <tr>
+      <th>130463</th>
+      <td>15_polk_1845</td>
+      <td>interests</td>
+      <td>0.105054</td>
+    </tr>
+    <tr>
+      <th>129169</th>
+      <td>15_polk_1845</td>
+      <td>extended</td>
+      <td>0.090179</td>
+    </tr>
+    <tr>
+      <th>142267</th>
+      <td>16_taylor_1849</td>
+      <td>shall</td>
+      <td>0.266204</td>
+    </tr>
+    <tr>
+      <th>138692</th>
+      <td>16_taylor_1849</td>
+      <td>government</td>
+      <td>0.118031</td>
+    </tr>
+    <tr>
+      <th>137649</th>
+      <td>16_taylor_1849</td>
+      <td>duties</td>
+      <td>0.117893</td>
+    </tr>
+    <tr>
+      <th>140457</th>
+      <td>16_taylor_1849</td>
+      <td>object</td>
+      <td>0.104293</td>
+    </tr>
+    <tr>
+      <th>136675</th>
+      <td>16_taylor_1849</td>
+      <td>congress</td>
+      <td>0.103865</td>
+    </tr>
+    <tr>
+      <th>141353</th>
+      <td>16_taylor_1849</td>
+      <td>purity</td>
+      <td>0.101793</td>
+    </tr>
+    <tr>
+      <th>143651</th>
+      <td>16_taylor_1849</td>
+      <td>vested</td>
+      <td>0.101793</td>
+    </tr>
+    <tr>
+      <th>140091</th>
+      <td>16_taylor_1849</td>
+      <td>measures</td>
+      <td>0.101637</td>
+    </tr>
+    <tr>
+      <th>136903</th>
+      <td>16_taylor_1849</td>
+      <td>country</td>
+      <td>0.101169</td>
+    </tr>
+    <tr>
+      <th>135322</th>
+      <td>16_taylor_1849</td>
+      <td>affections</td>
+      <td>0.097017</td>
+    </tr>
+    <tr>
+      <th>147825</th>
+      <td>17_pierce_1853</td>
+      <td>hardly</td>
+      <td>0.114001</td>
+    </tr>
+    <tr>
+      <th>150028</th>
+      <td>17_pierce_1853</td>
+      <td>power</td>
+      <td>0.102456</td>
+    </tr>
+    <tr>
+      <th>149999</th>
+      <td>17_pierce_1853</td>
+      <td>position</td>
+      <td>0.086643</td>
+    </tr>
+    <tr>
+      <th>145746</th>
+      <td>17_pierce_1853</td>
+      <td>constitutional</td>
+      <td>0.086105</td>
+    </tr>
+    <tr>
+      <th>147111</th>
+      <td>17_pierce_1853</td>
+      <td>expect</td>
+      <td>0.084436</td>
+    </tr>
+    <tr>
+      <th>147691</th>
+      <td>17_pierce_1853</td>
+      <td>government</td>
+      <td>0.084048</td>
+    </tr>
+    <tr>
+      <th>144526</th>
+      <td>17_pierce_1853</td>
+      <td>apparent</td>
+      <td>0.080332</td>
+    </tr>
+    <tr>
+      <th>150609</th>
+      <td>17_pierce_1853</td>
+      <td>regarded</td>
+      <td>0.080332</td>
+    </tr>
+    <tr>
+      <th>151266</th>
+      <td>17_pierce_1853</td>
+      <td>shall</td>
+      <td>0.079615</td>
+    </tr>
+    <tr>
+      <th>148847</th>
+      <td>17_pierce_1853</td>
+      <td>like</td>
+      <td>0.079229</td>
+    </tr>
+    <tr>
+      <th>160610</th>
+      <td>18_buchanan_1857</td>
+      <td>states</td>
+      <td>0.208199</td>
+    </tr>
+    <tr>
+      <th>154744</th>
+      <td>18_buchanan_1857</td>
+      <td>constitution</td>
+      <td>0.188573</td>
+    </tr>
+    <tr>
+      <th>160265</th>
+      <td>18_buchanan_1857</td>
+      <td>shall</td>
+      <td>0.161784</td>
+    </tr>
+    <tr>
+      <th>159381</th>
+      <td>18_buchanan_1857</td>
+      <td>question</td>
+      <td>0.157007</td>
+    </tr>
+    <tr>
+      <th>161827</th>
+      <td>18_buchanan_1857</td>
+      <td>whilst</td>
+      <td>0.141119</td>
+    </tr>
+    <tr>
+      <th>161028</th>
+      <td>18_buchanan_1857</td>
+      <td>territory</td>
+      <td>0.140852</td>
+    </tr>
+    <tr>
+      <th>161452</th>
+      <td>18_buchanan_1857</td>
+      <td>union</td>
+      <td>0.126444</td>
+    </tr>
+    <tr>
+      <th>156690</th>
+      <td>18_buchanan_1857</td>
+      <td>government</td>
+      <td>0.119554</td>
+    </tr>
+    <tr>
+      <th>154673</th>
+      <td>18_buchanan_1857</td>
+      <td>congress</td>
+      <td>0.118357</td>
+    </tr>
+    <tr>
+      <th>158806</th>
+      <td>18_buchanan_1857</td>
+      <td>people</td>
+      <td>0.105501</td>
+    </tr>
+    <tr>
+      <th>163743</th>
+      <td>19_lincoln_1861</td>
+      <td>constitution</td>
+      <td>0.214478</td>
+    </tr>
+    <tr>
+      <th>170451</th>
+      <td>19_lincoln_1861</td>
+      <td>union</td>
+      <td>0.203738</td>
+    </tr>
+    <tr>
+      <th>163215</th>
+      <td>19_lincoln_1861</td>
+      <td>case</td>
+      <td>0.152422</td>
+    </tr>
+    <tr>
+      <th>169609</th>
+      <td>19_lincoln_1861</td>
+      <td>states</td>
+      <td>0.144861</td>
+    </tr>
+    <tr>
+      <th>167186</th>
+      <td>19_lincoln_1861</td>
+      <td>minority</td>
+      <td>0.131514</td>
+    </tr>
+    <tr>
+      <th>167805</th>
+      <td>19_lincoln_1861</td>
+      <td>people</td>
+      <td>0.130763</td>
+    </tr>
+    <tr>
+      <th>163377</th>
+      <td>19_lincoln_1861</td>
+      <td>clause</td>
+      <td>0.125738</td>
+    </tr>
+    <tr>
+      <th>165689</th>
+      <td>19_lincoln_1861</td>
+      <td>government</td>
+      <td>0.123837</td>
+    </tr>
+    <tr>
+      <th>169264</th>
+      <td>19_lincoln_1861</td>
+      <td>shall</td>
+      <td>0.123099</td>
+    </tr>
+    <tr>
+      <th>166740</th>
+      <td>19_lincoln_1861</td>
+      <td>law</td>
+      <td>0.122872</td>
+    </tr>
+    <tr>
+      <th>179746</th>
+      <td>20_lincoln_1865</td>
+      <td>war</td>
+      <td>0.267217</td>
+    </tr>
+    <tr>
+      <th>176516</th>
+      <td>20_lincoln_1865</td>
+      <td>offenses</td>
+      <td>0.234524</td>
+    </tr>
+    <tr>
+      <th>179894</th>
+      <td>20_lincoln_1865</td>
+      <td>woe</td>
+      <td>0.234524</td>
+    </tr>
+    <tr>
+      <th>174672</th>
+      <td>20_lincoln_1865</td>
+      <td>god</td>
+      <td>0.151269</td>
+    </tr>
+    <tr>
+      <th>176515</th>
+      <td>20_lincoln_1865</td>
+      <td>offense</td>
+      <td>0.141890</td>
+    </tr>
+    <tr>
+      <th>179856</th>
+      <td>20_lincoln_1865</td>
+      <td>wills</td>
+      <td>0.141890</td>
+    </tr>
+    <tr>
+      <th>171492</th>
+      <td>20_lincoln_1865</td>
+      <td>answered</td>
+      <td>0.131631</td>
+    </tr>
+    <tr>
+      <th>178396</th>
+      <td>20_lincoln_1865</td>
+      <td>slaves</td>
+      <td>0.123674</td>
+    </tr>
+    <tr>
+      <th>179450</th>
+      <td>20_lincoln_1865</td>
+      <td>union</td>
+      <td>0.114955</td>
+    </tr>
+    <tr>
+      <th>171426</th>
+      <td>20_lincoln_1865</td>
+      <td>altogether</td>
+      <td>0.111675</td>
+    </tr>
+    <tr>
+      <th>182572</th>
+      <td>21_grant_1869</td>
+      <td>dollar</td>
+      <td>0.270439</td>
+    </tr>
+    <tr>
+      <th>185776</th>
+      <td>21_grant_1869</td>
+      <td>paying</td>
+      <td>0.162263</td>
+    </tr>
+    <tr>
+      <th>182035</th>
+      <td>21_grant_1869</td>
+      <td>deal</td>
+      <td>0.152454</td>
+    </tr>
+    <tr>
+      <th>187507</th>
+      <td>21_grant_1869</td>
+      <td>specie</td>
+      <td>0.152454</td>
+    </tr>
+    <tr>
+      <th>182050</th>
+      <td>21_grant_1869</td>
+      <td>debt</td>
+      <td>0.135097</td>
+    </tr>
+    <tr>
+      <th>181898</th>
+      <td>21_grant_1869</td>
+      <td>country</td>
+      <td>0.127604</td>
+    </tr>
+    <tr>
+      <th>180302</th>
+      <td>21_grant_1869</td>
+      <td>advisable</td>
+      <td>0.116606</td>
+    </tr>
+    <tr>
+      <th>184745</th>
+      <td>21_grant_1869</td>
+      <td>laws</td>
+      <td>0.115834</td>
+    </tr>
+    <tr>
+      <th>185778</th>
+      <td>21_grant_1869</td>
+      <td>payments</td>
+      <td>0.108175</td>
+    </tr>
+    <tr>
+      <th>185774</th>
+      <td>21_grant_1869</td>
+      <td>pay</td>
+      <td>0.098658</td>
+    </tr>
+    <tr>
+      <th>195281</th>
+      <td>22_grant_1873</td>
+      <td>proposition</td>
+      <td>0.187222</td>
+    </tr>
+    <tr>
+      <th>191582</th>
+      <td>22_grant_1873</td>
+      <td>domingo</td>
+      <td>0.177516</td>
+    </tr>
+    <tr>
+      <th>196070</th>
+      <td>22_grant_1873</td>
+      <td>santo</td>
+      <td>0.177516</td>
+    </tr>
+    <tr>
+      <th>197205</th>
+      <td>22_grant_1873</td>
+      <td>transit</td>
+      <td>0.177516</td>
+    </tr>
+    <tr>
+      <th>197024</th>
+      <td>22_grant_1873</td>
+      <td>territory</td>
+      <td>0.121158</td>
+    </tr>
+    <tr>
+      <th>192172</th>
+      <td>22_grant_1873</td>
+      <td>extermination</td>
+      <td>0.118344</td>
+    </tr>
+    <tr>
+      <th>196629</th>
+      <td>22_grant_1873</td>
+      <td>steam</td>
+      <td>0.118344</td>
+    </tr>
+    <tr>
+      <th>196981</th>
+      <td>22_grant_1873</td>
+      <td>telegraph</td>
+      <td>0.118344</td>
+    </tr>
+    <tr>
+      <th>190897</th>
+      <td>22_grant_1873</td>
+      <td>country</td>
+      <td>0.117529</td>
+    </tr>
+    <tr>
+      <th>192165</th>
+      <td>22_grant_1873</td>
+      <td>extension</td>
+      <td>0.116618</td>
+    </tr>
+    <tr>
+      <th>199896</th>
+      <td>23_hayes_1877</td>
+      <td>country</td>
+      <td>0.186357</td>
+    </tr>
+    <tr>
+      <th>201685</th>
+      <td>23_hayes_1877</td>
+      <td>government</td>
+      <td>0.167722</td>
+    </tr>
+    <tr>
+      <th>198890</th>
+      <td>23_hayes_1877</td>
+      <td>behalf</td>
+      <td>0.128316</td>
+    </tr>
+    <tr>
+      <th>204329</th>
+      <td>23_hayes_1877</td>
+      <td>public</td>
+      <td>0.123944</td>
+    </tr>
+    <tr>
+      <th>203966</th>
+      <td>23_hayes_1877</td>
+      <td>political</td>
+      <td>0.121034</td>
+    </tr>
+    <tr>
+      <th>205605</th>
+      <td>23_hayes_1877</td>
+      <td>states</td>
+      <td>0.113587</td>
+    </tr>
+    <tr>
+      <th>203735</th>
+      <td>23_hayes_1877</td>
+      <td>party</td>
+      <td>0.112549</td>
+    </tr>
+    <tr>
+      <th>200483</th>
+      <td>23_hayes_1877</td>
+      <td>dispute</td>
+      <td>0.112503</td>
+    </tr>
+    <tr>
+      <th>203728</th>
+      <td>23_hayes_1877</td>
+      <td>parties</td>
+      <td>0.109554</td>
+    </tr>
+    <tr>
+      <th>204583</th>
+      <td>23_hayes_1877</td>
+      <td>reform</td>
+      <td>0.104365</td>
+    </tr>
+    <tr>
+      <th>210684</th>
+      <td>24_garfield_1881</td>
+      <td>government</td>
+      <td>0.186855</td>
+    </tr>
+    <tr>
+      <th>212800</th>
+      <td>24_garfield_1881</td>
+      <td>people</td>
+      <td>0.162132</td>
+    </tr>
+    <tr>
+      <th>208738</th>
+      <td>24_garfield_1881</td>
+      <td>constitution</td>
+      <td>0.158292</td>
+    </tr>
+    <tr>
+      <th>214604</th>
+      <td>24_garfield_1881</td>
+      <td>states</td>
+      <td>0.135047</td>
+    </tr>
+    <tr>
+      <th>215446</th>
+      <td>24_garfield_1881</td>
+      <td>union</td>
+      <td>0.132321</td>
+    </tr>
+    <tr>
+      <th>214787</th>
+      <td>24_garfield_1881</td>
+      <td>suffrage</td>
+      <td>0.119992</td>
+    </tr>
+    <tr>
+      <th>212377</th>
+      <td>24_garfield_1881</td>
+      <td>negro</td>
+      <td>0.118782</td>
+    </tr>
+    <tr>
+      <th>207765</th>
+      <td>24_garfield_1881</td>
+      <td>authority</td>
+      <td>0.117232</td>
+    </tr>
+    <tr>
+      <th>208667</th>
+      <td>24_garfield_1881</td>
+      <td>congress</td>
+      <td>0.112598</td>
+    </tr>
+    <tr>
+      <th>211735</th>
+      <td>24_garfield_1881</td>
+      <td>law</td>
+      <td>0.103639</td>
+    </tr>
+    <tr>
+      <th>221799</th>
+      <td>25_cleveland_1885</td>
+      <td>people</td>
+      <td>0.210468</td>
+    </tr>
+    <tr>
+      <th>219683</th>
+      <td>25_cleveland_1885</td>
+      <td>government</td>
+      <td>0.209164</td>
+    </tr>
+    <tr>
+      <th>221727</th>
+      <td>25_cleveland_1885</td>
+      <td>partisan</td>
+      <td>0.169436</td>
+    </tr>
+    <tr>
+      <th>222327</th>
+      <td>25_cleveland_1885</td>
+      <td>public</td>
+      <td>0.163662</td>
+    </tr>
+    <tr>
+      <th>223258</th>
+      <td>25_cleveland_1885</td>
+      <td>shall</td>
+      <td>0.129498</td>
+    </tr>
+    <tr>
+      <th>217737</th>
+      <td>25_cleveland_1885</td>
+      <td>constitution</td>
+      <td>0.127856</td>
+    </tr>
+    <tr>
+      <th>220453</th>
+      <td>25_cleveland_1885</td>
+      <td>interests</td>
+      <td>0.118207</td>
+    </tr>
+    <tr>
+      <th>219180</th>
+      <td>25_cleveland_1885</td>
+      <td>extravagance</td>
+      <td>0.111416</td>
+    </tr>
+    <tr>
+      <th>217346</th>
+      <td>25_cleveland_1885</td>
+      <td>citizen</td>
+      <td>0.102825</td>
+    </tr>
+    <tr>
+      <th>223691</th>
+      <td>25_cleveland_1885</td>
+      <td>strife</td>
+      <td>0.101661</td>
+    </tr>
+    <tr>
+      <th>230798</th>
+      <td>26_harrison_1889</td>
+      <td>people</td>
+      <td>0.172358</td>
+    </tr>
+    <tr>
+      <th>229740</th>
+      <td>26_harrison_1889</td>
+      <td>laws</td>
+      <td>0.154418</td>
+    </tr>
+    <tr>
+      <th>232602</th>
+      <td>26_harrison_1889</td>
+      <td>states</td>
+      <td>0.138614</td>
+    </tr>
+    <tr>
+      <th>225821</th>
+      <td>26_harrison_1889</td>
+      <td>ballot</td>
+      <td>0.137159</td>
+    </tr>
+    <tr>
+      <th>231326</th>
+      <td>26_harrison_1889</td>
+      <td>public</td>
+      <td>0.128566</td>
+    </tr>
+    <tr>
+      <th>230136</th>
+      <td>26_harrison_1889</td>
+      <td>methods</td>
+      <td>0.119162</td>
+    </tr>
+    <tr>
+      <th>232257</th>
+      <td>26_harrison_1889</td>
+      <td>shall</td>
+      <td>0.118483</td>
+    </tr>
+    <tr>
+      <th>228544</th>
+      <td>26_harrison_1889</td>
+      <td>friendly</td>
+      <td>0.104267</td>
+    </tr>
+    <tr>
+      <th>227985</th>
+      <td>26_harrison_1889</td>
+      <td>european</td>
+      <td>0.103349</td>
+    </tr>
+    <tr>
+      <th>226736</th>
+      <td>26_harrison_1889</td>
+      <td>constitution</td>
+      <td>0.089360</td>
+    </tr>
+    <tr>
+      <th>239797</th>
+      <td>27_cleveland_1893</td>
+      <td>people</td>
+      <td>0.221563</td>
+    </tr>
+    <tr>
+      <th>237681</th>
+      <td>27_cleveland_1893</td>
+      <td>government</td>
+      <td>0.148364</td>
+    </tr>
+    <tr>
+      <th>237556</th>
+      <td>27_cleveland_1893</td>
+      <td>frugality</td>
+      <td>0.128050</td>
+    </tr>
+    <tr>
+      <th>240325</th>
+      <td>27_cleveland_1893</td>
+      <td>public</td>
+      <td>0.102520</td>
+    </tr>
+    <tr>
+      <th>241226</th>
+      <td>27_cleveland_1893</td>
+      <td>service</td>
+      <td>0.101813</td>
+    </tr>
+    <tr>
+      <th>241840</th>
+      <td>27_cleveland_1893</td>
+      <td>support</td>
+      <td>0.099946</td>
+    </tr>
+    <tr>
+      <th>234436</th>
+      <td>27_cleveland_1893</td>
+      <td>american</td>
+      <td>0.097267</td>
+    </tr>
+    <tr>
+      <th>234215</th>
+      <td>27_cleveland_1893</td>
+      <td>activity</td>
+      <td>0.095964</td>
+    </tr>
+    <tr>
+      <th>237682</th>
+      <td>27_cleveland_1893</td>
+      <td>governmental</td>
+      <td>0.095964</td>
+    </tr>
+    <tr>
+      <th>235893</th>
+      <td>27_cleveland_1893</td>
+      <td>countrymen</td>
+      <td>0.088564</td>
+    </tr>
+    <tr>
+      <th>244663</th>
+      <td>28_mckinley_1897</td>
+      <td>congress</td>
+      <td>0.188773</td>
+    </tr>
+    <tr>
+      <th>249890</th>
+      <td>28_mckinley_1897</td>
+      <td>revenue</td>
+      <td>0.168489</td>
+    </tr>
+    <tr>
+      <th>248796</th>
+      <td>28_mckinley_1897</td>
+      <td>people</td>
+      <td>0.161797</td>
+    </tr>
+    <tr>
+      <th>246680</th>
+      <td>28_mckinley_1897</td>
+      <td>government</td>
+      <td>0.156633</td>
+    </tr>
+    <tr>
+      <th>247872</th>
+      <td>28_mckinley_1897</td>
+      <td>loans</td>
+      <td>0.149356</td>
+    </tr>
+    <tr>
+      <th>247770</th>
+      <td>28_mckinley_1897</td>
+      <td>legislation</td>
+      <td>0.126367</td>
+    </tr>
+    <tr>
+      <th>249324</th>
+      <td>28_mckinley_1897</td>
+      <td>public</td>
+      <td>0.107057</td>
+    </tr>
+    <tr>
+      <th>244127</th>
+      <td>28_mckinley_1897</td>
+      <td>business</td>
+      <td>0.106759</td>
+    </tr>
+    <tr>
+      <th>246714</th>
+      <td>28_mckinley_1897</td>
+      <td>great</td>
+      <td>0.105322</td>
+    </tr>
+    <tr>
+      <th>249904</th>
+      <td>28_mckinley_1897</td>
+      <td>revision</td>
+      <td>0.099571</td>
+    </tr>
+    <tr>
+      <th>256568</th>
+      <td>29_mckinley_1901</td>
+      <td>islands</td>
+      <td>0.216480</td>
+    </tr>
+    <tr>
+      <th>253961</th>
+      <td>29_mckinley_1901</td>
+      <td>cuba</td>
+      <td>0.206329</td>
+    </tr>
+    <tr>
+      <th>255679</th>
+      <td>29_mckinley_1901</td>
+      <td>government</td>
+      <td>0.153681</td>
+    </tr>
+    <tr>
+      <th>255058</th>
+      <td>29_mckinley_1901</td>
+      <td>executive</td>
+      <td>0.147843</td>
+    </tr>
+    <tr>
+      <th>256326</th>
+      <td>29_mckinley_1901</td>
+      <td>inhabitants</td>
+      <td>0.147374</td>
+    </tr>
+    <tr>
+      <th>253662</th>
+      <td>29_mckinley_1901</td>
+      <td>congress</td>
+      <td>0.141999</td>
+    </tr>
+    <tr>
+      <th>257795</th>
+      <td>29_mckinley_1901</td>
+      <td>people</td>
+      <td>0.116839</td>
+    </tr>
+    <tr>
+      <th>259599</th>
+      <td>29_mckinley_1901</td>
+      <td>states</td>
+      <td>0.102186</td>
+    </tr>
+    <tr>
+      <th>260444</th>
+      <td>29_mckinley_1901</td>
+      <td>united</td>
+      <td>0.100439</td>
+    </tr>
+    <tr>
+      <th>258071</th>
+      <td>29_mckinley_1901</td>
+      <td>preparation</td>
+      <td>0.097925</td>
+    </tr>
+    <tr>
+      <th>267599</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>regards</td>
+      <td>0.199163</td>
+    </tr>
+    <tr>
+      <th>267166</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>problems</td>
+      <td>0.182463</td>
+    </tr>
+    <tr>
+      <th>268947</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>tasks</td>
+      <td>0.150068</td>
+    </tr>
+    <tr>
+      <th>261589</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>aright</td>
+      <td>0.146306</td>
+    </tr>
+    <tr>
+      <th>267754</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>republic</td>
+      <td>0.121428</td>
+    </tr>
+    <tr>
+      <th>265817</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>life</td>
+      <td>0.118701</td>
+    </tr>
+    <tr>
+      <th>262219</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>cause</td>
+      <td>0.116483</td>
+    </tr>
+    <tr>
+      <th>264188</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>faced</td>
+      <td>0.115730</td>
+    </tr>
+    <tr>
+      <th>262608</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>conditions</td>
+      <td>0.115373</td>
+    </tr>
+    <tr>
+      <th>269866</th>
+      <td>30_roosevelt_theodore_1905</td>
+      <td>wish</td>
+      <td>0.106771</td>
+    </tr>
+    <tr>
+      <th>274471</th>
+      <td>31_taft_1909</td>
+      <td>interstate</td>
+      <td>0.206957</td>
+    </tr>
+    <tr>
+      <th>271124</th>
+      <td>31_taft_1909</td>
+      <td>business</td>
+      <td>0.201378</td>
+    </tr>
+    <tr>
+      <th>277940</th>
+      <td>31_taft_1909</td>
+      <td>tariff</td>
+      <td>0.154802</td>
+    </tr>
+    <tr>
+      <th>275370</th>
+      <td>31_taft_1909</td>
+      <td>negro</td>
+      <td>0.153669</td>
+    </tr>
+    <tr>
+      <th>277469</th>
+      <td>31_taft_1909</td>
+      <td>south</td>
+      <td>0.129384</td>
+    </tr>
+    <tr>
+      <th>273677</th>
+      <td>31_taft_1909</td>
+      <td>government</td>
+      <td>0.121451</td>
+    </tr>
+    <tr>
+      <th>276256</th>
+      <td>31_taft_1909</td>
+      <td>proper</td>
+      <td>0.114684</td>
+    </tr>
+    <tr>
+      <th>276381</th>
+      <td>31_taft_1909</td>
+      <td>race</td>
+      <td>0.113413</td>
+    </tr>
+    <tr>
+      <th>273292</th>
+      <td>31_taft_1909</td>
+      <td>feeling</td>
+      <td>0.111255</td>
+    </tr>
+    <tr>
+      <th>271156</th>
+      <td>31_taft_1909</td>
+      <td>canal</td>
+      <td>0.110879</td>
+    </tr>
+    <tr>
+      <th>282710</th>
+      <td>32_wilson_1913</td>
+      <td>great</td>
+      <td>0.158659</td>
+    </tr>
+    <tr>
+      <th>284100</th>
+      <td>32_wilson_1913</td>
+      <td>men</td>
+      <td>0.142924</td>
+    </tr>
+    <tr>
+      <th>282236</th>
+      <td>32_wilson_1913</td>
+      <td>familiar</td>
+      <td>0.141669</td>
+    </tr>
+    <tr>
+      <th>286642</th>
+      <td>32_wilson_1913</td>
+      <td>stirred</td>
+      <td>0.141669</td>
+    </tr>
+    <tr>
+      <th>286709</th>
+      <td>32_wilson_1913</td>
+      <td>studied</td>
+      <td>0.141669</td>
+    </tr>
+    <tr>
+      <th>287046</th>
+      <td>32_wilson_1913</td>
+      <td>things</td>
+      <td>0.123915</td>
+    </tr>
+    <tr>
+      <th>283635</th>
+      <td>32_wilson_1913</td>
+      <td>justice</td>
+      <td>0.105759</td>
+    </tr>
+    <tr>
+      <th>282676</th>
+      <td>32_wilson_1913</td>
+      <td>government</td>
+      <td>0.105520</td>
+    </tr>
+    <tr>
+      <th>283815</th>
+      <td>32_wilson_1913</td>
+      <td>life</td>
+      <td>0.102168</td>
+    </tr>
+    <tr>
+      <th>283892</th>
+      <td>32_wilson_1913</td>
+      <td>look</td>
+      <td>0.100095</td>
+    </tr>
+    <tr>
+      <th>296864</th>
+      <td>33_wilson_1917</td>
+      <td>wished</td>
+      <td>0.228593</td>
+    </tr>
+    <tr>
+      <th>289872</th>
+      <td>33_wilson_1917</td>
+      <td>counsel</td>
+      <td>0.174639</td>
+    </tr>
+    <tr>
+      <th>294339</th>
+      <td>33_wilson_1917</td>
+      <td>purpose</td>
+      <td>0.152933</td>
+    </tr>
+    <tr>
+      <th>288203</th>
+      <td>33_wilson_1917</td>
+      <td>action</td>
+      <td>0.149960</td>
+    </tr>
+    <tr>
+      <th>295250</th>
+      <td>33_wilson_1917</td>
+      <td>shall</td>
+      <td>0.134404</td>
+    </tr>
+    <tr>
+      <th>296059</th>
+      <td>33_wilson_1917</td>
+      <td>thought</td>
+      <td>0.126568</td>
+    </tr>
+    <tr>
+      <th>295577</th>
+      <td>33_wilson_1917</td>
+      <td>stand</td>
+      <td>0.121313</td>
+    </tr>
+    <tr>
+      <th>295227</th>
+      <td>33_wilson_1917</td>
+      <td>set</td>
+      <td>0.111215</td>
+    </tr>
+    <tr>
+      <th>293960</th>
+      <td>33_wilson_1917</td>
+      <td>politics</td>
+      <td>0.108510</td>
+    </tr>
+    <tr>
+      <th>290605</th>
+      <td>33_wilson_1917</td>
+      <td>drawn</td>
+      <td>0.104783</td>
+    </tr>
+    <tr>
+      <th>305905</th>
+      <td>34_harding_1921</td>
+      <td>world</td>
+      <td>0.196268</td>
+    </tr>
+    <tr>
+      <th>298346</th>
+      <td>34_harding_1921</td>
+      <td>civilization</td>
+      <td>0.157095</td>
+    </tr>
+    <tr>
+      <th>297428</th>
+      <td>34_harding_1921</td>
+      <td>america</td>
+      <td>0.155684</td>
+    </tr>
+    <tr>
+      <th>305732</th>
+      <td>34_harding_1921</td>
+      <td>war</td>
+      <td>0.120631</td>
+    </tr>
+    <tr>
+      <th>303639</th>
+      <td>34_harding_1921</td>
+      <td>relationship</td>
+      <td>0.118846</td>
+    </tr>
+    <tr>
+      <th>303750</th>
+      <td>34_harding_1921</td>
+      <td>republic</td>
+      <td>0.117160</td>
+    </tr>
+    <tr>
+      <th>302572</th>
+      <td>34_harding_1921</td>
+      <td>order</td>
+      <td>0.110128</td>
+    </tr>
+    <tr>
+      <th>305356</th>
+      <td>34_harding_1921</td>
+      <td>understanding</td>
+      <td>0.109915</td>
+    </tr>
+    <tr>
+      <th>302380</th>
+      <td>34_harding_1921</td>
+      <td>new</td>
+      <td>0.097567</td>
+    </tr>
+    <tr>
+      <th>297436</th>
+      <td>34_harding_1921</td>
+      <td>amid</td>
+      <td>0.095077</td>
+    </tr>
+    <tr>
+      <th>307884</th>
+      <td>35_coolidge_1925</td>
+      <td>country</td>
+      <td>0.120814</td>
+    </tr>
+    <tr>
+      <th>311597</th>
+      <td>35_coolidge_1925</td>
+      <td>ought</td>
+      <td>0.116721</td>
+    </tr>
+    <tr>
+      <th>312745</th>
+      <td>35_coolidge_1925</td>
+      <td>represents</td>
+      <td>0.114495</td>
+    </tr>
+    <tr>
+      <th>313945</th>
+      <td>35_coolidge_1925</td>
+      <td>tax</td>
+      <td>0.112826</td>
+    </tr>
+    <tr>
+      <th>309707</th>
+      <td>35_coolidge_1925</td>
+      <td>great</td>
+      <td>0.109908</td>
+    </tr>
+    <tr>
+      <th>312254</th>
+      <td>35_coolidge_1925</td>
+      <td>property</td>
+      <td>0.108285</td>
+    </tr>
+    <tr>
+      <th>311723</th>
+      <td>35_coolidge_1925</td>
+      <td>party</td>
+      <td>0.107300</td>
+    </tr>
+    <tr>
+      <th>313580</th>
+      <td>35_coolidge_1925</td>
+      <td>stands</td>
+      <td>0.107257</td>
+    </tr>
+    <tr>
+      <th>311767</th>
+      <td>35_coolidge_1925</td>
+      <td>peace</td>
+      <td>0.104170</td>
+    </tr>
+    <tr>
+      <th>311789</th>
+      <td>35_coolidge_1925</td>
+      <td>people</td>
+      <td>0.101306</td>
+    </tr>
+    <tr>
+      <th>322807</th>
+      <td>36_hoover_1929</td>
+      <td>sup</td>
+      <td>0.296865</td>
+    </tr>
+    <tr>
+      <th>318672</th>
+      <td>36_hoover_1929</td>
+      <td>government</td>
+      <td>0.202690</td>
+    </tr>
+    <tr>
+      <th>317821</th>
+      <td>36_hoover_1929</td>
+      <td>enforcement</td>
+      <td>0.194371</td>
+    </tr>
+    <tr>
+      <th>315025</th>
+      <td>36_hoover_1929</td>
+      <td>18th</td>
+      <td>0.134706</td>
+    </tr>
+    <tr>
+      <th>321207</th>
+      <td>36_hoover_1929</td>
+      <td>progress</td>
+      <td>0.132406</td>
+    </tr>
+    <tr>
+      <th>318281</th>
+      <td>36_hoover_1929</td>
+      <td>federal</td>
+      <td>0.126183</td>
+    </tr>
+    <tr>
+      <th>319026</th>
+      <td>36_hoover_1929</td>
+      <td>ideals</td>
+      <td>0.113418</td>
+    </tr>
+    <tr>
+      <th>316119</th>
+      <td>36_hoover_1929</td>
+      <td>business</td>
+      <td>0.108323</td>
+    </tr>
+    <tr>
+      <th>319730</th>
+      <td>36_hoover_1929</td>
+      <td>laws</td>
+      <td>0.107051</td>
+    </tr>
+    <tr>
+      <th>320766</th>
+      <td>36_hoover_1929</td>
+      <td>peace</td>
+      <td>0.103883</td>
+    </tr>
+    <tr>
+      <th>327891</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>helped</td>
+      <td>0.215644</td>
+    </tr>
+    <tr>
+      <th>328736</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>leadership</td>
+      <td>0.191084</td>
+    </tr>
+    <tr>
+      <th>331673</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>stricken</td>
+      <td>0.129390</td>
+    </tr>
+    <tr>
+      <th>326744</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>emergency</td>
+      <td>0.123225</td>
+    </tr>
+    <tr>
+      <th>326401</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>discipline</td>
+      <td>0.117971</td>
+    </tr>
+    <tr>
+      <th>330806</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>respects</td>
+      <td>0.117971</td>
+    </tr>
+    <tr>
+      <th>329235</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>money</td>
+      <td>0.113371</td>
+    </tr>
+    <tr>
+      <th>329318</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>national</td>
+      <td>0.110570</td>
+    </tr>
+    <tr>
+      <th>330522</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>recovery</td>
+      <td>0.102349</td>
+    </tr>
+    <tr>
+      <th>324199</th>
+      <td>37_roosevelt_franklin_1933</td>
+      <td>action</td>
+      <td>0.097007</td>
+    </tr>
+    <tr>
+      <th>335172</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>democracy</td>
+      <td>0.178041</td>
+    </tr>
+    <tr>
+      <th>336670</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>government</td>
+      <td>0.177222</td>
+    </tr>
+    <tr>
+      <th>338146</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>millions</td>
+      <td>0.140722</td>
+    </tr>
+    <tr>
+      <th>338671</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>paint</td>
+      <td>0.121461</td>
+    </tr>
+    <tr>
+      <th>338786</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>people</td>
+      <td>0.115789</td>
+    </tr>
+    <tr>
+      <th>335664</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>economic</td>
+      <td>0.114184</td>
+    </tr>
+    <tr>
+      <th>339954</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>road</td>
+      <td>0.112944</td>
+    </tr>
+    <tr>
+      <th>339205</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>progress</td>
+      <td>0.104463</td>
+    </tr>
+    <tr>
+      <th>335255</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>despair</td>
+      <td>0.100302</td>
+    </tr>
+    <tr>
+      <th>338316</th>
+      <td>38_roosevelt_franklin_1937</td>
+      <td>nation</td>
+      <td>0.099688</td>
+    </tr>
+    <tr>
+      <th>344171</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>democracy</td>
+      <td>0.244486</td>
+    </tr>
+    <tr>
+      <th>346666</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>know</td>
+      <td>0.189060</td>
+    </tr>
+    <tr>
+      <th>349486</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>speaks</td>
+      <td>0.183385</td>
+    </tr>
+    <tr>
+      <th>343032</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>br</td>
+      <td>0.163241</td>
+    </tr>
+    <tr>
+      <th>347315</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>nation</td>
+      <td>0.162241</td>
+    </tr>
+    <tr>
+      <th>342423</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>america</td>
+      <td>0.140133</td>
+    </tr>
+    <tr>
+      <th>346808</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>life</td>
+      <td>0.117815</td>
+    </tr>
+    <tr>
+      <th>349517</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>spirit</td>
+      <td>0.114445</td>
+    </tr>
+    <tr>
+      <th>345513</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>freedom</td>
+      <td>0.109295</td>
+    </tr>
+    <tr>
+      <th>342035</th>
+      <td>39_roosevelt_franklin_1941</td>
+      <td>1941</td>
+      <td>0.108911</td>
+    </tr>
+    <tr>
+      <th>355738</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>learned</td>
+      <td>0.300396</td>
+    </tr>
+    <tr>
+      <th>359010</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>test</td>
+      <td>0.194731</td>
+    </tr>
+    <tr>
+      <th>351035</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>1945</td>
+      <td>0.189849</td>
+    </tr>
+    <tr>
+      <th>358243</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>shall</td>
+      <td>0.173637</td>
+    </tr>
+    <tr>
+      <th>359224</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>trend</td>
+      <td>0.172292</td>
+    </tr>
+    <tr>
+      <th>356197</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>mistakes</td>
+      <td>0.159835</td>
+    </tr>
+    <tr>
+      <th>356762</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>peace</td>
+      <td>0.159442</td>
+    </tr>
+    <tr>
+      <th>359109</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>today</td>
+      <td>0.154299</td>
+    </tr>
+    <tr>
+      <th>359551</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>upward</td>
+      <td>0.150172</td>
+    </tr>
+    <tr>
+      <th>354582</th>
+      <td>40_roosevelt_franklin_1945</td>
+      <td>gain</td>
+      <td>0.142278</td>
+    </tr>
+    <tr>
+      <th>368898</th>
+      <td>41_truman_1949</td>
+      <td>world</td>
+      <td>0.196051</td>
+    </tr>
+    <tr>
+      <th>365318</th>
+      <td>41_truman_1949</td>
+      <td>nations</td>
+      <td>0.194029</td>
+    </tr>
+    <tr>
+      <th>366200</th>
+      <td>41_truman_1949</td>
+      <td>program</td>
+      <td>0.171656</td>
+    </tr>
+    <tr>
+      <th>365784</th>
+      <td>41_truman_1949</td>
+      <td>peoples</td>
+      <td>0.166989</td>
+    </tr>
+    <tr>
+      <th>362169</th>
+      <td>41_truman_1949</td>
+      <td>democracy</td>
+      <td>0.154140</td>
+    </tr>
+    <tr>
+      <th>363511</th>
+      <td>41_truman_1949</td>
+      <td>freedom</td>
+      <td>0.149297</td>
+    </tr>
+    <tr>
+      <th>361488</th>
+      <td>41_truman_1949</td>
+      <td>communism</td>
+      <td>0.147134</td>
+    </tr>
+    <tr>
+      <th>365761</th>
+      <td>41_truman_1949</td>
+      <td>peace</td>
+      <td>0.144167</td>
+    </tr>
+    <tr>
+      <th>361877</th>
+      <td>41_truman_1949</td>
+      <td>countries</td>
+      <td>0.137013</td>
+    </tr>
+    <tr>
+      <th>366518</th>
+      <td>41_truman_1949</td>
+      <td>recovery</td>
+      <td>0.135785</td>
+    </tr>
+    <tr>
+      <th>372507</th>
+      <td>42_eisenhower_1953</td>
+      <td>free</td>
+      <td>0.205803</td>
+    </tr>
+    <tr>
+      <th>372209</th>
+      <td>42_eisenhower_1953</td>
+      <td>faith</td>
+      <td>0.154561</td>
+    </tr>
+    <tr>
+      <th>377897</th>
+      <td>42_eisenhower_1953</td>
+      <td>world</td>
+      <td>0.146449</td>
+    </tr>
+    <tr>
+      <th>374783</th>
+      <td>42_eisenhower_1953</td>
+      <td>peoples</td>
+      <td>0.139466</td>
+    </tr>
+    <tr>
+      <th>375182</th>
+      <td>42_eisenhower_1953</td>
+      <td>productivity</td>
+      <td>0.133826</td>
+    </tr>
+    <tr>
+      <th>376658</th>
+      <td>42_eisenhower_1953</td>
+      <td>strength</td>
+      <td>0.130430</td>
+    </tr>
+    <tr>
+      <th>374760</th>
+      <td>42_eisenhower_1953</td>
+      <td>peace</td>
+      <td>0.123845</td>
+    </tr>
+    <tr>
+      <th>372510</th>
+      <td>42_eisenhower_1953</td>
+      <td>freedom</td>
+      <td>0.123320</td>
+    </tr>
+    <tr>
+      <th>376241</th>
+      <td>42_eisenhower_1953</td>
+      <td>shall</td>
+      <td>0.105970</td>
+    </tr>
+    <tr>
+      <th>372929</th>
+      <td>42_eisenhower_1953</td>
+      <td>hold</td>
+      <td>0.105028</td>
+    </tr>
+    <tr>
+      <th>386896</th>
+      <td>43_eisenhower_1957</td>
+      <td>world</td>
+      <td>0.193893</td>
+    </tr>
+    <tr>
+      <th>381509</th>
+      <td>43_eisenhower_1957</td>
+      <td>freedom</td>
+      <td>0.179599</td>
+    </tr>
+    <tr>
+      <th>385154</th>
+      <td>43_eisenhower_1957</td>
+      <td>seek</td>
+      <td>0.176008</td>
+    </tr>
+    <tr>
+      <th>383316</th>
+      <td>43_eisenhower_1957</td>
+      <td>nations</td>
+      <td>0.175538</td>
+    </tr>
+    <tr>
+      <th>383782</th>
+      <td>43_eisenhower_1957</td>
+      <td>peoples</td>
+      <td>0.158270</td>
+    </tr>
+    <tr>
+      <th>385681</th>
+      <td>43_eisenhower_1957</td>
+      <td>strives</td>
+      <td>0.146428</td>
+    </tr>
+    <tr>
+      <th>383759</th>
+      <td>43_eisenhower_1957</td>
+      <td>peace</td>
+      <td>0.136639</td>
+    </tr>
+    <tr>
+      <th>381884</th>
+      <td>43_eisenhower_1957</td>
+      <td>help</td>
+      <td>0.132688</td>
+    </tr>
+    <tr>
+      <th>380526</th>
+      <td>43_eisenhower_1957</td>
+      <td>divided</td>
+      <td>0.115450</td>
+    </tr>
+    <tr>
+      <th>383273</th>
+      <td>43_eisenhower_1957</td>
+      <td>mr</td>
+      <td>0.111886</td>
+    </tr>
+    <tr>
+      <th>391774</th>
+      <td>44_kennedy_1961</td>
+      <td>let</td>
+      <td>0.267869</td>
+    </tr>
+    <tr>
+      <th>394306</th>
+      <td>44_kennedy_1961</td>
+      <td>sides</td>
+      <td>0.262849</td>
+    </tr>
+    <tr>
+      <th>392921</th>
+      <td>44_kennedy_1961</td>
+      <td>pledge</td>
+      <td>0.160960</td>
+    </tr>
+    <tr>
+      <th>387632</th>
+      <td>44_kennedy_1961</td>
+      <td>ask</td>
+      <td>0.107713</td>
+    </tr>
+    <tr>
+      <th>387864</th>
+      <td>44_kennedy_1961</td>
+      <td>begin</td>
+      <td>0.106495</td>
+    </tr>
+    <tr>
+      <th>388991</th>
+      <td>44_kennedy_1961</td>
+      <td>dare</td>
+      <td>0.106495</td>
+    </tr>
+    <tr>
+      <th>395895</th>
+      <td>44_kennedy_1961</td>
+      <td>world</td>
+      <td>0.103110</td>
+    </tr>
+    <tr>
+      <th>390313</th>
+      <td>44_kennedy_1961</td>
+      <td>final</td>
+      <td>0.102311</td>
+    </tr>
+    <tr>
+      <th>392370</th>
+      <td>44_kennedy_1961</td>
+      <td>new</td>
+      <td>0.096600</td>
+    </tr>
+    <tr>
+      <th>390120</th>
+      <td>44_kennedy_1961</td>
+      <td>explore</td>
+      <td>0.094223</td>
+    </tr>
+    <tr>
+      <th>397251</th>
+      <td>45_johnson_1965</td>
+      <td>change</td>
+      <td>0.276090</td>
+    </tr>
+    <tr>
+      <th>397887</th>
+      <td>45_johnson_1965</td>
+      <td>covenant</td>
+      <td>0.242891</td>
+    </tr>
+    <tr>
+      <th>400969</th>
+      <td>45_johnson_1965</td>
+      <td>man</td>
+      <td>0.174391</td>
+    </tr>
+    <tr>
+      <th>401031</th>
+      <td>45_johnson_1965</td>
+      <td>mastery</td>
+      <td>0.153532</td>
+    </tr>
+    <tr>
+      <th>401309</th>
+      <td>45_johnson_1965</td>
+      <td>nation</td>
+      <td>0.152475</td>
+    </tr>
+    <tr>
+      <th>404425</th>
+      <td>45_johnson_1965</td>
+      <td>union</td>
+      <td>0.150512</td>
+    </tr>
+    <tr>
+      <th>401508</th>
+      <td>45_johnson_1965</td>
+      <td>old</td>
+      <td>0.129184</td>
+    </tr>
+    <tr>
+      <th>404267</th>
+      <td>45_johnson_1965</td>
+      <td>trying</td>
+      <td>0.109663</td>
+    </tr>
+    <tr>
+      <th>401779</th>
+      <td>45_johnson_1965</td>
+      <td>people</td>
+      <td>0.108677</td>
+    </tr>
+    <tr>
+      <th>399814</th>
+      <td>45_johnson_1965</td>
+      <td>harvest</td>
+      <td>0.102355</td>
+    </tr>
+    <tr>
+      <th>413682</th>
+      <td>46_nixon_1969</td>
+      <td>voices</td>
+      <td>0.208854</td>
+    </tr>
+    <tr>
+      <th>410756</th>
+      <td>46_nixon_1969</td>
+      <td>peace</td>
+      <td>0.144624</td>
+    </tr>
+    <tr>
+      <th>409772</th>
+      <td>46_nixon_1969</td>
+      <td>let</td>
+      <td>0.140977</td>
+    </tr>
+    <tr>
+      <th>407641</th>
+      <td>46_nixon_1969</td>
+      <td>earth</td>
+      <td>0.139513</td>
+    </tr>
+    <tr>
+      <th>409659</th>
+      <td>46_nixon_1969</td>
+      <td>know</td>
+      <td>0.137969</td>
+    </tr>
+    <tr>
+      <th>409968</th>
+      <td>46_nixon_1969</td>
+      <td>man</td>
+      <td>0.135416</td>
+    </tr>
+    <tr>
+      <th>410778</th>
+      <td>46_nixon_1969</td>
+      <td>people</td>
+      <td>0.131270</td>
+    </tr>
+    <tr>
+      <th>413893</th>
+      <td>46_nixon_1969</td>
+      <td>world</td>
+      <td>0.128264</td>
+    </tr>
+    <tr>
+      <th>411901</th>
+      <td>46_nixon_1969</td>
+      <td>rhetoric</td>
+      <td>0.119219</td>
+    </tr>
+    <tr>
+      <th>408467</th>
+      <td>46_nixon_1969</td>
+      <td>forward</td>
+      <td>0.113215</td>
+    </tr>
+    <tr>
+      <th>414415</th>
+      <td>47_nixon_1973</td>
+      <td>america</td>
+      <td>0.307074</td>
+    </tr>
+    <tr>
+      <th>418771</th>
+      <td>47_nixon_1973</td>
+      <td>let</td>
+      <td>0.282212</td>
+    </tr>
+    <tr>
+      <th>419755</th>
+      <td>47_nixon_1973</td>
+      <td>peace</td>
+      <td>0.211567</td>
+    </tr>
+    <tr>
+      <th>420963</th>
+      <td>47_nixon_1973</td>
+      <td>role</td>
+      <td>0.190395</td>
+    </tr>
+    <tr>
+      <th>422892</th>
+      <td>47_nixon_1973</td>
+      <td>world</td>
+      <td>0.177760</td>
+    </tr>
+    <tr>
+      <th>419938</th>
+      <td>47_nixon_1973</td>
+      <td>policies</td>
+      <td>0.176224</td>
+    </tr>
+    <tr>
+      <th>420803</th>
+      <td>47_nixon_1973</td>
+      <td>responsibility</td>
+      <td>0.164016</td>
+    </tr>
+    <tr>
+      <th>419367</th>
+      <td>47_nixon_1973</td>
+      <td>new</td>
+      <td>0.158606</td>
+    </tr>
+    <tr>
+      <th>414102</th>
+      <td>47_nixon_1973</td>
+      <td>abroad</td>
+      <td>0.154815</td>
+    </tr>
+    <tr>
+      <th>417932</th>
+      <td>47_nixon_1973</td>
+      <td>home</td>
+      <td>0.126653</td>
+    </tr>
+    <tr>
+      <th>424023</th>
+      <td>48_carter_1977</td>
+      <td>br</td>
+      <td>0.222574</td>
+    </tr>
+    <tr>
+      <th>428306</th>
+      <td>48_carter_1977</td>
+      <td>nation</td>
+      <td>0.191717</td>
+    </tr>
+    <tr>
+      <th>425593</th>
+      <td>48_carter_1977</td>
+      <td>dream</td>
+      <td>0.181515</td>
+    </tr>
+    <tr>
+      <th>430652</th>
+      <td>48_carter_1977</td>
+      <td>strength</td>
+      <td>0.147104</td>
+    </tr>
+    <tr>
+      <th>428366</th>
+      <td>48_carter_1977</td>
+      <td>new</td>
+      <td>0.142111</td>
+    </tr>
+    <tr>
+      <th>428117</th>
+      <td>48_carter_1977</td>
+      <td>micah</td>
+      <td>0.118797</td>
+    </tr>
+    <tr>
+      <th>431014</th>
+      <td>48_carter_1977</td>
+      <td>thee</td>
+      <td>0.107811</td>
+    </tr>
+    <tr>
+      <th>430508</th>
+      <td>48_carter_1977</td>
+      <td>spirit</td>
+      <td>0.107000</td>
+    </tr>
+    <tr>
+      <th>426975</th>
+      <td>48_carter_1977</td>
+      <td>human</td>
+      <td>0.101203</td>
+    </tr>
+    <tr>
+      <th>425827</th>
+      <td>48_carter_1977</td>
+      <td>enhance</td>
+      <td>0.100016</td>
+    </tr>
+    <tr>
+      <th>435659</th>
+      <td>49_reagan_1981</td>
+      <td>government</td>
+      <td>0.162397</td>
+    </tr>
+    <tr>
+      <th>432416</th>
+      <td>49_reagan_1981</td>
+      <td>americans</td>
+      <td>0.156895</td>
+    </tr>
+    <tr>
+      <th>435894</th>
+      <td>49_reagan_1981</td>
+      <td>heroes</td>
+      <td>0.137410</td>
+    </tr>
+    <tr>
+      <th>432873</th>
+      <td>49_reagan_1981</td>
+      <td>believe</td>
+      <td>0.136126</td>
+    </tr>
+    <tr>
+      <th>440605</th>
+      <td>49_reagan_1981</td>
+      <td>ve</td>
+      <td>0.115339</td>
+    </tr>
+    <tr>
+      <th>438175</th>
+      <td>49_reagan_1981</td>
+      <td>productivity</td>
+      <td>0.104753</td>
+    </tr>
+    <tr>
+      <th>440770</th>
+      <td>49_reagan_1981</td>
+      <td>weapon</td>
+      <td>0.104753</td>
+    </tr>
+    <tr>
+      <th>435503</th>
+      <td>49_reagan_1981</td>
+      <td>freedom</td>
+      <td>0.102964</td>
+    </tr>
+    <tr>
+      <th>434594</th>
+      <td>49_reagan_1981</td>
+      <td>dreams</td>
+      <td>0.101106</td>
+    </tr>
+    <tr>
+      <th>440100</th>
+      <td>49_reagan_1981</td>
+      <td>today</td>
+      <td>0.093813</td>
+    </tr>
+    <tr>
+      <th>444658</th>
+      <td>50_reagan_1985</td>
+      <td>government</td>
+      <td>0.161165</td>
+    </tr>
+    <tr>
+      <th>444502</th>
+      <td>50_reagan_1985</td>
+      <td>freedom</td>
+      <td>0.159998</td>
+    </tr>
+    <tr>
+      <th>446405</th>
+      <td>50_reagan_1985</td>
+      <td>nuclear</td>
+      <td>0.153623</td>
+    </tr>
+    <tr>
+      <th>449604</th>
+      <td>50_reagan_1985</td>
+      <td>ve</td>
+      <td>0.153623</td>
+    </tr>
+    <tr>
+      <th>449770</th>
+      <td>50_reagan_1985</td>
+      <td>weapons</td>
+      <td>0.140173</td>
+    </tr>
+    <tr>
+      <th>446774</th>
+      <td>50_reagan_1985</td>
+      <td>people</td>
+      <td>0.137038</td>
+    </tr>
+    <tr>
+      <th>449889</th>
+      <td>50_reagan_1985</td>
+      <td>world</td>
+      <td>0.127236</td>
+    </tr>
+    <tr>
+      <th>444916</th>
+      <td>50_reagan_1985</td>
+      <td>history</td>
+      <td>0.104777</td>
+    </tr>
+    <tr>
+      <th>444973</th>
+      <td>50_reagan_1985</td>
+      <td>human</td>
+      <td>0.104777</td>
+    </tr>
+    <tr>
+      <th>448172</th>
+      <td>50_reagan_1985</td>
+      <td>senator</td>
+      <td>0.102416</td>
+    </tr>
+    <tr>
+      <th>452556</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>don</td>
+      <td>0.186313</td>
+    </tr>
+    <tr>
+      <th>451038</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>breeze</td>
+      <td>0.184416</td>
+    </tr>
+    <tr>
+      <th>455363</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>new</td>
+      <td>0.137266</td>
+    </tr>
+    <tr>
+      <th>453520</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>friends</td>
+      <td>0.136820</td>
+    </tr>
+    <tr>
+      <th>452560</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>door</td>
+      <td>0.133889</td>
+    </tr>
+    <tr>
+      <th>458875</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>word</td>
+      <td>0.131722</td>
+    </tr>
+    <tr>
+      <th>455265</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>mr</td>
+      <td>0.126821</td>
+    </tr>
+    <tr>
+      <th>453763</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>hand</td>
+      <td>0.125086</td>
+    </tr>
+    <tr>
+      <th>450968</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>blowing</td>
+      <td>0.110649</td>
+    </tr>
+    <tr>
+      <th>458027</th>
+      <td>51_bush_george_h_w_1989</td>
+      <td>things</td>
+      <td>0.110609</td>
+    </tr>
+    <tr>
+      <th>459410</th>
+      <td>52_clinton_1993</td>
+      <td>america</td>
+      <td>0.318908</td>
+    </tr>
+    <tr>
+      <th>467887</th>
+      <td>52_clinton_1993</td>
+      <td>world</td>
+      <td>0.226715</td>
+    </tr>
+    <tr>
+      <th>459413</th>
+      <td>52_clinton_1993</td>
+      <td>americans</td>
+      <td>0.206865</td>
+    </tr>
+    <tr>
+      <th>467097</th>
+      <td>52_clinton_1993</td>
+      <td>today</td>
+      <td>0.185539</td>
+    </tr>
+    <tr>
+      <th>460244</th>
+      <td>52_clinton_1993</td>
+      <td>change</td>
+      <td>0.170522</td>
+    </tr>
+    <tr>
+      <th>465686</th>
+      <td>52_clinton_1993</td>
+      <td>renewal</td>
+      <td>0.136867</td>
+    </tr>
+    <tr>
+      <th>466112</th>
+      <td>52_clinton_1993</td>
+      <td>season</td>
+      <td>0.136867</td>
+    </tr>
+    <tr>
+      <th>463005</th>
+      <td>52_clinton_1993</td>
+      <td>idea</td>
+      <td>0.134993</td>
+    </tr>
+    <tr>
+      <th>463766</th>
+      <td>52_clinton_1993</td>
+      <td>let</td>
+      <td>0.132521</td>
+    </tr>
+    <tr>
+      <th>464772</th>
+      <td>52_clinton_1993</td>
+      <td>people</td>
+      <td>0.129272</td>
+    </tr>
+    <tr>
+      <th>469224</th>
+      <td>53_clinton_1997</td>
+      <td>century</td>
+      <td>0.321300</td>
+    </tr>
+    <tr>
+      <th>473361</th>
+      <td>53_clinton_1997</td>
+      <td>new</td>
+      <td>0.279600</td>
+    </tr>
+    <tr>
+      <th>468409</th>
+      <td>53_clinton_1997</td>
+      <td>america</td>
+      <td>0.199997</td>
+    </tr>
+    <tr>
+      <th>474208</th>
+      <td>53_clinton_1997</td>
+      <td>promise</td>
+      <td>0.164327</td>
+    </tr>
+    <tr>
+      <th>476886</th>
+      <td>53_clinton_1997</td>
+      <td>world</td>
+      <td>0.135071</td>
+    </tr>
+    <tr>
+      <th>472675</th>
+      <td>53_clinton_1997</td>
+      <td>land</td>
+      <td>0.131027</td>
+    </tr>
+    <tr>
+      <th>473301</th>
+      <td>53_clinton_1997</td>
+      <td>nation</td>
+      <td>0.117062</td>
+    </tr>
+    <tr>
+      <th>468412</th>
+      <td>53_clinton_1997</td>
+      <td>americans</td>
+      <td>0.115029</td>
+    </tr>
+    <tr>
+      <th>476082</th>
+      <td>53_clinton_1997</td>
+      <td>time</td>
+      <td>0.108057</td>
+    </tr>
+    <tr>
+      <th>472765</th>
+      <td>53_clinton_1997</td>
+      <td>let</td>
+      <td>0.105270</td>
+    </tr>
+    <tr>
+      <th>484633</th>
+      <td>54_bush_george_w_2001</td>
+      <td>story</td>
+      <td>0.341166</td>
+    </tr>
+    <tr>
+      <th>477408</th>
+      <td>54_bush_george_w_2001</td>
+      <td>america</td>
+      <td>0.193152</td>
+    </tr>
+    <tr>
+      <th>478325</th>
+      <td>54_bush_george_w_2001</td>
+      <td>civility</td>
+      <td>0.160853</td>
+    </tr>
+    <tr>
+      <th>482300</th>
+      <td>54_bush_george_w_2001</td>
+      <td>nation</td>
+      <td>0.130448</td>
+    </tr>
+    <tr>
+      <th>477286</th>
+      <td>54_bush_george_w_2001</td>
+      <td>affirm</td>
+      <td>0.120640</td>
+    </tr>
+    <tr>
+      <th>481008</th>
+      <td>54_bush_george_w_2001</td>
+      <td>ideals</td>
+      <td>0.109491</td>
+    </tr>
+    <tr>
+      <th>477411</th>
+      <td>54_bush_george_w_2001</td>
+      <td>americans</td>
+      <td>0.108207</td>
+    </tr>
+    <tr>
+      <th>483207</th>
+      <td>54_bush_george_w_2001</td>
+      <td>promise</td>
+      <td>0.108207</td>
+    </tr>
+    <tr>
+      <th>478491</th>
+      <td>54_bush_george_w_2001</td>
+      <td>compassion</td>
+      <td>0.107388</td>
+    </tr>
+    <tr>
+      <th>478319</th>
+      <td>54_bush_george_w_2001</td>
+      <td>citizens</td>
+      <td>0.106730</td>
+    </tr>
+    <tr>
+      <th>489497</th>
+      <td>55_bush_george_w_2005</td>
+      <td>freedom</td>
+      <td>0.349948</td>
+    </tr>
+    <tr>
+      <th>486407</th>
+      <td>55_bush_george_w_2005</td>
+      <td>america</td>
+      <td>0.284882</td>
+    </tr>
+    <tr>
+      <th>490786</th>
+      <td>55_bush_george_w_2005</td>
+      <td>liberty</td>
+      <td>0.174494</td>
+    </tr>
+    <tr>
+      <th>486410</th>
+      <td>55_bush_george_w_2005</td>
+      <td>americans</td>
+      <td>0.140443</td>
+    </tr>
+    <tr>
+      <th>494272</th>
+      <td>55_bush_george_w_2005</td>
+      <td>tyranny</td>
+      <td>0.127272</td>
+    </tr>
+    <tr>
+      <th>493148</th>
+      <td>55_bush_george_w_2005</td>
+      <td>seen</td>
+      <td>0.110386</td>
+    </tr>
+    <tr>
+      <th>491299</th>
+      <td>55_bush_george_w_2005</td>
+      <td>nation</td>
+      <td>0.096199</td>
+    </tr>
+    <tr>
+      <th>487194</th>
+      <td>55_bush_george_w_2005</td>
+      <td>cause</td>
+      <td>0.092545</td>
+    </tr>
+    <tr>
+      <th>489911</th>
+      <td>55_bush_george_w_2005</td>
+      <td>history</td>
+      <td>0.092422</td>
+    </tr>
+    <tr>
+      <th>487126</th>
+      <td>55_bush_george_w_2005</td>
+      <td>came</td>
+      <td>0.091988</td>
+    </tr>
+    <tr>
+      <th>495406</th>
+      <td>56_obama_2009</td>
+      <td>america</td>
+      <td>0.148351</td>
+    </tr>
+    <tr>
+      <th>500298</th>
+      <td>56_obama_2009</td>
+      <td>nation</td>
+      <td>0.120229</td>
+    </tr>
+    <tr>
+      <th>500358</th>
+      <td>56_obama_2009</td>
+      <td>new</td>
+      <td>0.118002</td>
+    </tr>
+    <tr>
+      <th>503093</th>
+      <td>56_obama_2009</td>
+      <td>today</td>
+      <td>0.114792</td>
+    </tr>
+    <tr>
+      <th>498590</th>
+      <td>56_obama_2009</td>
+      <td>generation</td>
+      <td>0.100654</td>
+    </tr>
+    <tr>
+      <th>499762</th>
+      <td>56_obama_2009</td>
+      <td>let</td>
+      <td>0.091100</td>
+    </tr>
+    <tr>
+      <th>499578</th>
+      <td>56_obama_2009</td>
+      <td>jobs</td>
+      <td>0.090727</td>
+    </tr>
+    <tr>
+      <th>496911</th>
+      <td>56_obama_2009</td>
+      <td>crisis</td>
+      <td>0.087235</td>
+    </tr>
+    <tr>
+      <th>498779</th>
+      <td>56_obama_2009</td>
+      <td>hard</td>
+      <td>0.084859</td>
+    </tr>
+    <tr>
+      <th>503861</th>
+      <td>56_obama_2009</td>
+      <td>women</td>
+      <td>0.084859</td>
+    </tr>
+    <tr>
+      <th>508585</th>
+      <td>57_obama_2013</td>
+      <td>journey</td>
+      <td>0.167591</td>
+    </tr>
+    <tr>
+      <th>505899</th>
+      <td>57_obama_2013</td>
+      <td>creed</td>
+      <td>0.139659</td>
+    </tr>
+    <tr>
+      <th>507589</th>
+      <td>57_obama_2013</td>
+      <td>generation</td>
+      <td>0.127260</td>
+    </tr>
+    <tr>
+      <th>504405</th>
+      <td>57_obama_2013</td>
+      <td>america</td>
+      <td>0.125044</td>
+    </tr>
+    <tr>
+      <th>505509</th>
+      <td>57_obama_2013</td>
+      <td>complete</td>
+      <td>0.114891</td>
+    </tr>
+    <tr>
+      <th>510741</th>
+      <td>57_obama_2013</td>
+      <td>requires</td>
+      <td>0.114891</td>
+    </tr>
+    <tr>
+      <th>509767</th>
+      <td>57_obama_2013</td>
+      <td>people</td>
+      <td>0.110351</td>
+    </tr>
+    <tr>
+      <th>512078</th>
+      <td>57_obama_2013</td>
+      <td>time</td>
+      <td>0.105563</td>
+    </tr>
+    <tr>
+      <th>512092</th>
+      <td>57_obama_2013</td>
+      <td>today</td>
+      <td>0.103668</td>
+    </tr>
+    <tr>
+      <th>506970</th>
+      <td>57_obama_2013</td>
+      <td>evident</td>
+      <td>0.100896</td>
+    </tr>
+    <tr>
+      <th>513404</th>
+      <td>58_trump_2017</td>
+      <td>america</td>
+      <td>0.350162</td>
+    </tr>
+    <tr>
+      <th>515585</th>
+      <td>58_trump_2017</td>
+      <td>dreams</td>
+      <td>0.156436</td>
+    </tr>
+    <tr>
+      <th>513405</th>
+      <td>58_trump_2017</td>
+      <td>american</td>
+      <td>0.149226</td>
+    </tr>
+    <tr>
+      <th>517576</th>
+      <td>58_trump_2017</td>
+      <td>jobs</td>
+      <td>0.142766</td>
+    </tr>
+    <tr>
+      <th>519262</th>
+      <td>58_trump_2017</td>
+      <td>protected</td>
+      <td>0.132439</td>
+    </tr>
+    <tr>
+      <th>518409</th>
+      <td>58_trump_2017</td>
+      <td>obama</td>
+      <td>0.120288</td>
+    </tr>
+    <tr>
+      <th>518766</th>
+      <td>58_trump_2017</td>
+      <td>people</td>
+      <td>0.112370</td>
+    </tr>
+    <tr>
+      <th>521001</th>
+      <td>58_trump_2017</td>
+      <td>thank</td>
+      <td>0.109171</td>
+    </tr>
+    <tr>
+      <th>513989</th>
+      <td>58_trump_2017</td>
+      <td>borders</td>
+      <td>0.107075</td>
+    </tr>
+    <tr>
+      <th>521596</th>
+      <td>58_trump_2017</td>
+      <td>ve</td>
+      <td>0.107075</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">,</span><span class="s1">&#39;tfidf&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;document&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can zoom in on particular words and particular documents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span><span class="p">[</span><span class="n">top_tfidf</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;women&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>term</th>
+      <th>tfidf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>503861</th>
+      <td>56_obama_2009</td>
+      <td>women</td>
+      <td>0.084859</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It turns out that the term “women” is very distinctive in Obama’s Inaugural Address.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span><span class="p">[</span><span class="n">top_tfidf</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;obama&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>term</th>
+      <th>tfidf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>495406</th>
+      <td>56_obama_2009</td>
+      <td>america</td>
+      <td>0.148351</td>
+    </tr>
+    <tr>
+      <th>500298</th>
+      <td>56_obama_2009</td>
+      <td>nation</td>
+      <td>0.120229</td>
+    </tr>
+    <tr>
+      <th>500358</th>
+      <td>56_obama_2009</td>
+      <td>new</td>
+      <td>0.118002</td>
+    </tr>
+    <tr>
+      <th>503093</th>
+      <td>56_obama_2009</td>
+      <td>today</td>
+      <td>0.114792</td>
+    </tr>
+    <tr>
+      <th>498590</th>
+      <td>56_obama_2009</td>
+      <td>generation</td>
+      <td>0.100654</td>
+    </tr>
+    <tr>
+      <th>499762</th>
+      <td>56_obama_2009</td>
+      <td>let</td>
+      <td>0.091100</td>
+    </tr>
+    <tr>
+      <th>499578</th>
+      <td>56_obama_2009</td>
+      <td>jobs</td>
+      <td>0.090727</td>
+    </tr>
+    <tr>
+      <th>496911</th>
+      <td>56_obama_2009</td>
+      <td>crisis</td>
+      <td>0.087235</td>
+    </tr>
+    <tr>
+      <th>498779</th>
+      <td>56_obama_2009</td>
+      <td>hard</td>
+      <td>0.084859</td>
+    </tr>
+    <tr>
+      <th>503861</th>
+      <td>56_obama_2009</td>
+      <td>women</td>
+      <td>0.084859</td>
+    </tr>
+    <tr>
+      <th>508585</th>
+      <td>57_obama_2013</td>
+      <td>journey</td>
+      <td>0.167591</td>
+    </tr>
+    <tr>
+      <th>505899</th>
+      <td>57_obama_2013</td>
+      <td>creed</td>
+      <td>0.139659</td>
+    </tr>
+    <tr>
+      <th>507589</th>
+      <td>57_obama_2013</td>
+      <td>generation</td>
+      <td>0.127260</td>
+    </tr>
+    <tr>
+      <th>504405</th>
+      <td>57_obama_2013</td>
+      <td>america</td>
+      <td>0.125044</td>
+    </tr>
+    <tr>
+      <th>505509</th>
+      <td>57_obama_2013</td>
+      <td>complete</td>
+      <td>0.114891</td>
+    </tr>
+    <tr>
+      <th>510741</th>
+      <td>57_obama_2013</td>
+      <td>requires</td>
+      <td>0.114891</td>
+    </tr>
+    <tr>
+      <th>509767</th>
+      <td>57_obama_2013</td>
+      <td>people</td>
+      <td>0.110351</td>
+    </tr>
+    <tr>
+      <th>512078</th>
+      <td>57_obama_2013</td>
+      <td>time</td>
+      <td>0.105563</td>
+    </tr>
+    <tr>
+      <th>512092</th>
+      <td>57_obama_2013</td>
+      <td>today</td>
+      <td>0.103668</td>
+    </tr>
+    <tr>
+      <th>506970</th>
+      <td>57_obama_2013</td>
+      <td>evident</td>
+      <td>0.100896</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span><span class="p">[</span><span class="n">top_tfidf</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>term</th>
+      <th>tfidf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>513404</th>
+      <td>58_trump_2017</td>
+      <td>america</td>
+      <td>0.350162</td>
+    </tr>
+    <tr>
+      <th>515585</th>
+      <td>58_trump_2017</td>
+      <td>dreams</td>
+      <td>0.156436</td>
+    </tr>
+    <tr>
+      <th>513405</th>
+      <td>58_trump_2017</td>
+      <td>american</td>
+      <td>0.149226</td>
+    </tr>
+    <tr>
+      <th>517576</th>
+      <td>58_trump_2017</td>
+      <td>jobs</td>
+      <td>0.142766</td>
+    </tr>
+    <tr>
+      <th>519262</th>
+      <td>58_trump_2017</td>
+      <td>protected</td>
+      <td>0.132439</td>
+    </tr>
+    <tr>
+      <th>518409</th>
+      <td>58_trump_2017</td>
+      <td>obama</td>
+      <td>0.120288</td>
+    </tr>
+    <tr>
+      <th>518766</th>
+      <td>58_trump_2017</td>
+      <td>people</td>
+      <td>0.112370</td>
+    </tr>
+    <tr>
+      <th>521001</th>
+      <td>58_trump_2017</td>
+      <td>thank</td>
+      <td>0.109171</td>
+    </tr>
+    <tr>
+      <th>513989</th>
+      <td>58_trump_2017</td>
+      <td>borders</td>
+      <td>0.107075</td>
+    </tr>
+    <tr>
+      <th>521596</th>
+      <td>58_trump_2017</td>
+      <td>ve</td>
+      <td>0.107075</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tfidf</span><span class="p">[</span><span class="n">top_tfidf</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;kennedy&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>term</th>
+      <th>tfidf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>391774</th>
+      <td>44_kennedy_1961</td>
+      <td>let</td>
+      <td>0.267869</td>
+    </tr>
+    <tr>
+      <th>394306</th>
+      <td>44_kennedy_1961</td>
+      <td>sides</td>
+      <td>0.262849</td>
+    </tr>
+    <tr>
+      <th>392921</th>
+      <td>44_kennedy_1961</td>
+      <td>pledge</td>
+      <td>0.160960</td>
+    </tr>
+    <tr>
+      <th>387632</th>
+      <td>44_kennedy_1961</td>
+      <td>ask</td>
+      <td>0.107713</td>
+    </tr>
+    <tr>
+      <th>387864</th>
+      <td>44_kennedy_1961</td>
+      <td>begin</td>
+      <td>0.106495</td>
+    </tr>
+    <tr>
+      <th>388991</th>
+      <td>44_kennedy_1961</td>
+      <td>dare</td>
+      <td>0.106495</td>
+    </tr>
+    <tr>
+      <th>395895</th>
+      <td>44_kennedy_1961</td>
+      <td>world</td>
+      <td>0.103110</td>
+    </tr>
+    <tr>
+      <th>390313</th>
+      <td>44_kennedy_1961</td>
+      <td>final</td>
+      <td>0.102311</td>
+    </tr>
+    <tr>
+      <th>392370</th>
+      <td>44_kennedy_1961</td>
+      <td>new</td>
+      <td>0.096600</td>
+    </tr>
+    <tr>
+      <th>390120</th>
+      <td>44_kennedy_1961</td>
+      <td>explore</td>
+      <td>0.094223</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Take a few minutes to explore the dataframe below and then answer the following questions.</p>
+<p><strong>1.</strong> What is the difference between a tf-idf score and raw word frequency?</p>
+<p><strong>Your answer here</strong></p>
+<p><strong>2.</strong> Based on the dataframe above, what is one potential problem or limitation that you notice with tf-idf scores?</p>
+<p><strong>Your answer here</strong></p>
+<p><strong>3.</strong> What’s another collection of texts that you think might be interesting to analyze with tf-idf scores?  Why?</p>
+<p><strong>Your answer here</strong></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Text-Analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="TF-IDF-HathiTrust.html" title="previous page">TF-IDF with HathiTrust Data</a>
+    <a class='right-next' id="next-link" href="Topic-Modeling.html" title="next page">Topic Modeling</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

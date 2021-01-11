@@ -1,0 +1,355 @@
+/* Put your custom CSS here */
+
+/* Give bottom margin to images */
+img {
+  margin-bottom: 1rem;
+
+}
+/* Change license image from having any margin */
+img.license {
+  margin-bottom: 0px;
+}
+
+/* Fix sidebar and make appear above cells */
+
+div.sidebar {
+background: white;
+position: relative;
+z-index: 1;
+}
+
+
+/* Center images */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Change download text font to match regular link font*/
+.xref.download.docutils.literal.notranslate {
+
+  font-family: Lato, sans-serif;
+  font-size: 1rem !important;
+  font-weight: 400;
+
+}
+
+/* Change style for error cell outputs */
+
+.cell_output .output.traceback {
+  /*  border: 1.5px solid #ef0000;*/
+    background:  #ffd2d233;
+}
+
+/* Make custom style for error cell outputs */
+
+.cell_output .output.traceback .highlight .nn {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .gt {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .kc {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .s2 {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .mi {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .nb {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .k {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .ow {
+  color: #000000;
+font-weight: normal } 
+
+.cell_output .output.traceback .highlight .nf {
+  color: #000000;
+font-weight: normal }
+
+.cell_output .output.traceback .highlight .bp {
+  color: #000000;
+font-weight: normal }
+
+.cell_output .output.traceback .highlight .o {
+  color: #000000;
+font-weight: bold } 
+
+
+.cell_output .output.traceback .highlight .ne {
+  color: red;
+font-weight: bold } 
+
+
+#image-border {
+  border: solid .2px #bababa;
+}
+
+thead {
+    border-bottom: 1px solid black;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+  }
+tr,
+th,
+td { 
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.1em;
+    line-height: normal;
+    white-space: normal;
+    max-width: none;
+    border: 1px solid #dee2e6;
+  }
+th {
+    font-weight: bold;
+  }
+tbody tr:nth-child(odd) {
+    background: #f5f5f5;
+  }
+tbody tr:hover {
+    background: rgba(66, 165, 245, 0.2);
+  }
+
+  /* Make custom Python Review admonition */
+
+.admonition.pythonreview {
+  border-color: #229932
+}
+
+.admonition.pythonreview .admonition-title {
+  background-color: #6cd279
+}
+
+.admonition.pythonreview .admonition-title:before {
+  color: #2abf3d;
+  content: "🐍"
+}
+
+  /* Make custom Pandas Review admonition */
+  
+.admonition.pandasreview {
+  border-color: #000000
+}
+
+.admonition.pandasreview .admonition-title {
+  background-color: #6cd279
+}
+
+.admonition.pandasreview .admonition-title:before {
+  color: #6cd279;
+  content: "🐼" !important
+}
+
+
+
+/* Make custom Terminology admonition */
+
+.admonition.terminology {
+  border-color: #ffdf55
+}
+
+.admonition.terminology .admonition-title {
+  background-color: #f4e5a4
+}
+
+.admonition.terminology .admonition-title:before {
+  color: #ffdf55;
+  content: "📙"
+}
+
+/* Make custom Heads Up admonition */
+
+.admonition.headsup {
+  border-color: #b5bff4
+}
+
+.admonition.headsup .admonition-title {
+  background-color:#b5bff4
+}
+
+.admonition.headsup .admonition-title:before {
+  color: #b5bff4;
+  content: "🗣️"
+}
+
+.admonition.info {
+  background-color:#ffffff;
+  border-color:#eeeeee;
+}
+
+.admonition.info .admonition-title {
+  font-weight: 1 ;
+  background-color:#ffffff;
+}
+
+.admonition.info .admonition-title:before {
+  color: #eeeeee;
+  content: "";
+  font-weight: 1 ;
+}
+
+code {
+  color: #002aff;
+}
+/* Change link font */
+
+a {
+  color: #069cff;
+
+}
+main.bd-content #main-content a, main.bd-content #main-content a:visited {
+    color: #069cff;
+}
+a:visited {
+  color: #069cff;
+
+}
+
+/* Make custom command line style Jupyter tag command line */
+
+div.cell.tag_command_line div.cell, div.cell.tag_command_line div.cell div.cell_input, div.cell.tag_command_line div.cell_input pre, div.cell.tag_command_line .cell_output .output * {
+  background-color: #000000 ;
+  color: #ffffff;
+  
+}
+
+div.cell.tag_command_line  div.cell_input {
+    padding-left: 0em;
+    padding-right: 0em;
+    border: 1px #ccc solid;
+    background-color: #f7f7f7;
+    border-left-color: #13d56f !important;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-width: medium;
+}
+
+div.cell.tag_command_line .highlight .kn {
+  color: #ffffff;
+  font-weight: normal
+} 
+
+div.cell.tag_command_line .highlight .k {
+  color: #ffffff;
+  font-weight: normal
+}
+
+div.cell.tag_command_line .highlight .s2 {
+  color: #ffffff;
+  font-weight: normal
+}
+
+div.cell.tag_command_line .highlight .mi {
+  color: #ffffff;
+  font-weight: normal
+}
+
+div.cell.tag_command_line .highlight .mf {
+  color: #ffffff;
+  font-weight: normal
+}
+
+div.cell.tag_command_line .highlight .o {
+  color: #ffffff;
+  font-weight: normal
+}
+
+div.cell.tag_command_line .highlight .c1 {
+  color: #ffffff;
+  font-weight: bold
+}
+
+div.cell.tag_command_line .ansi-bold {
+  color: red !important;
+}
+
+
+/* Change syntax highlihgting */
+
+/* Make comments a different color */
+
+
+.highlight .c1 {
+  color: #0598e0 !important;
+  font-style: normal;
+  font-weight: 400
+}
+
+.highlight .sd {
+  color: #0598e0 !important;
+  font-style: normal;
+  font-weight: 400
+}
+
+.highlight .kn {
+  color: green;
+  font-weight: bold 
+} 
+
+div.highlight .-Color[class*=-Red] {
+    color: red !important;
+}
+.ansi-bold {
+  color: red !important;
+}
+
+.highlight .k {
+  color: green;
+  font-weight: bold 
+}
+
+.highlight .o {
+  color: #aa22ff 
+}
+
+.highlight .nb {
+  color: green
+}
+
+.highlight .nf {
+  color: #00f;
+  font-weight: normal} 
+
+.highlight .s2 {
+  color: #ba2121
+}
+.highlight .sa {
+  color: #ba2121
+}
+.highlight .se {
+  color: #ba2121
+}
+.highlight .s1 {
+  color: #ba2121
+}
+
+.highlight .ow {
+  color: green; font-weight: bold
+}
+
+.highlight .nn {
+  color: #000000 } 
+  
+  .p-Widget {
+    max-height: 24em;
+    overflow-y: auto;
+}
+
+.highlight .mi, .mh, .mf {
+  color: green 
+} 
+}
+

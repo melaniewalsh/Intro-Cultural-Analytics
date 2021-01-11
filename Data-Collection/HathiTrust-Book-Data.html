@@ -1,0 +1,4874 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HathiTrust Book Data &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/HathiTrust-Book-Data.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Collection/HathiTrust-Book-Data.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="HathiTrust Book Data" />
+<meta property="og:description" content="HathiTrust Book Data  Install HTRC Feature Reader  !pip install htrc-feature-reader  from htrc_features import Volume  volume = Volume(&#34;mdp.39015029970129&#34;)  uc" />
+<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/favicon.ico" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Python/Python.html">
+   2. Python Basics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Text-Analysis/Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Text-Analysis/TF-IDF.html">
+     TF-IDF
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Text-Analysis/Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/POS-Keywords.html#keyword-extraction">
+     Keyword Extraction
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#geocoding-with-geopy">
+     Geocoding with GeoPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html#making-interactive-maps">
+     Making Interactive Maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Data-Collection/HathiTrust-Book-Data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2FData-Collection/HathiTrust-Book-Data.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/Data-Collection/HathiTrust-Book-Data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-htrc-feature-reader">
+   Install HTRC Feature Reader
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-a-hathitrust-volume-id">
+   Find a HathiTrust Volume ID
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-volume-ids-from-a-hathitrust-collection">
+   Download Volume IDs From A HathiTrust Collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-volume-ids-from-hathitrust-workset">
+   Download Volume IDs From HathiTrust Workset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-hathitrust-extracted-features-from-the-web">
+   Download HathiTrust Extracted Features From the Web
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-hathitrust-extracted-features-from-local-file">
+   Read in HathiTrust Extracted Features From Local File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-word-frequency-pandas-dataframe-from-hathitrust-volume-s">
+   Make Word Frequency Pandas DataFrame from HathiTrust Volume(s)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-infrequent-words-stopwords-punctuation">
+   Remove Infrequent Words, Stopwords, &amp; Punctuation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tfidf">
+   TFIDF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-document-frequency">
+     Calculate Document Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-total-number-of-documents">
+     Calculate Total Number of Documents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-tfidf">
+     Calculate TFIDF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-metadata">
+   Get Metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#work-with-tokens">
+   Work With Tokens
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-resources">
+   Further Resources
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hathitrust-book-data">
+<h1>HathiTrust Book Data<a class="headerlink" href="#hathitrust-book-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-htrc-feature-reader">
+<h2>Install HTRC Feature Reader<a class="headerlink" href="#install-htrc-feature-reader" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install htrc-feature-reader
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc_features</span> <span class="kn">import</span> <span class="n">Volume</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="s2">&quot;mdp.39015029970129&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>uc2.ark:/13960/t7pn9353t</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong><a href='http://hdl.handle.net/2027/mdp.39015029970129'>Lost in the city : stories /</a></strong> by <em>Jones, Edward P.</em> (1993, 260 pages) - <code>mdp.39015029970129</code></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">publisher</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;HarperPerennial&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>section</th>
+      <th>token</th>
+      <th>pos</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>,</th>
+      <th>,</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>.046</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3560</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>AWARD</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">260</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>world</th>
+      <th>NN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>would</th>
+      <th>MD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>writers</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>written</th>
+      <th>VBN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>•</th>
+      <th>SYM</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>51297 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>section</th>
+      <th>token</th>
+      <th>pos</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>149</th>
+      <th>body</th>
+      <th>of</th>
+      <th>IN</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <th>body</th>
+      <th>ever</th>
+      <th>RB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <th>body</th>
+      <th>his</th>
+      <th>PRP$</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <th>body</th>
+      <th>do</th>
+      <th>VB</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <th>body</th>
+      <th>down</th>
+      <th>IN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <th>body</th>
+      <th>different</th>
+      <th>JJ</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <th>body</th>
+      <th>for</th>
+      <th>IN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <th>body</th>
+      <th>train</th>
+      <th>NN</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <th>body</th>
+      <th>way</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <th>body</th>
+      <th>We</th>
+      <th>PRP</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <th>body</th>
+      <th>dressing</th>
+      <th>VBG</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <th>body</th>
+      <th>drunk</th>
+      <th>JJ</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <th>body</th>
+      <th>world</th>
+      <th>NN</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <th>body</th>
+      <th>go</th>
+      <th>VB</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <th>body</th>
+      <th>longest</th>
+      <th>JJS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <th>body</th>
+      <th>Roger</th>
+      <th>NNP</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <th>body</th>
+      <th>she</th>
+      <th>PRP</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <th>body</th>
+      <th>People</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <th>body</th>
+      <th>He</th>
+      <th>PRP</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <th>body</th>
+      <th>did</th>
+      <th>VBD</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="find-a-hathitrust-volume-id">
+<h2>Find a HathiTrust Volume ID<a class="headerlink" href="#find-a-hathitrust-volume-id" title="Permalink to this headline">¶</a></h2>
+<p>You can find a book’s HathiTrust volume ID by following these steps:</p>
+<ul class="simple">
+<li><p>First, search the HathiTrust catalog. I recommend searching with the <a class="reference external" href="https://catalog.hathitrust.org/Search/Advanced">Advanced Catalog Search</a>.</p></li>
+<li><p>When you find the item that you’re looking for, click “Limited (Search only)” or “Full View,” depending on the copyright status of the item</p></li>
+<li><p>Then copy and paste the HathiID from the URL of the web page that you’re taken to</p>
+<ul>
+<li><p>For example:</p>
+<ul>
+<li><p>https://babel.hathitrust.org/cgi/pt?id=mdp.39015029970129 -&gt; <code class="docutils literal notranslate"><span class="pre">mdp.39015029970129</span></code></p></li>
+<li><p>https://babel.hathitrust.org/cgi/pt?id=uc2.ark:/13960/t7pn9353t&amp;view=1up&amp;seq=7 -&gt; <code class="docutils literal notranslate"><span class="pre">uc2.ark:/13960/t7pn9353t</span></code></p></li>
+</ul>
+</li>
+<li><p>When in doubt, look in the left sidebar for “Permanent link to this book.” The volume ID will follow 2027</p>
+<ul>
+<li><p>https://hdl.handle.net/2027/uc2.ark:/13960/t7pn9353t -&gt; <code class="docutils literal notranslate"><span class="pre">uc2.ark:/13960/t7pn9353t</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;../videos/Find-HathiTrust-Volume-ID.mp4&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;400px&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="100%"
+    height="400px"
+    src="../videos/Find-HathiTrust-Volume-ID.mp4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>https://babel.hathitrust.org/cgi/pt?id=mdp.39015029970129</p>
+</div>
+<div class="section" id="download-volume-ids-from-a-hathitrust-collection">
+<h2>Download Volume IDs From A HathiTrust Collection<a class="headerlink" href="#download-volume-ids-from-a-hathitrust-collection" title="Permalink to this headline">¶</a></h2>
+<p>https://solr2.htrc.illinois.edu/solr-ef/?solr-key-q=17083A600227127535CCB993F515A8220&amp;start=31&amp;group-by-vol=0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install htrc
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting htrc
+  Using cached htrc-0.1.53.tar.gz (81 kB)
+Collecting PyLD
+  Using cached PyLD-2.0.3.tar.gz (70 kB)
+Requirement already satisfied: future in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from htrc) (0.18.2)
+Collecting prov
+  Using cached prov-1.5.3-py2.py3-none-any.whl (423 kB)
+Collecting unicodecsv
+  Using cached unicodecsv-0.14.1.tar.gz (10 kB)
+Collecting progressbar2
+  Using cached progressbar2-3.53.1-py2.py3-none-any.whl (25 kB)
+Requirement already satisfied: requests in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from htrc) (2.23.0)
+Collecting argparse==1.1
+  Using cached argparse-1.1.zip (151 kB)
+Collecting topicexplorer==1.0b226
+  Using cached topicexplorer-1.0b226-py2.py3-none-any.whl (2.2 MB)
+Requirement already satisfied: cachetools in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from PyLD-&gt;htrc) (4.1.0)
+Collecting frozendict
+  Using cached frozendict-1.2.tar.gz (2.6 kB)
+Requirement already satisfied: lxml in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from PyLD-&gt;htrc) (4.5.2)
+Collecting rdflib&gt;=4.2.1
+  Using cached rdflib-5.0.0-py3-none-any.whl (231 kB)
+Requirement already satisfied: six&gt;=1.9.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from prov-&gt;htrc) (1.14.0)
+Requirement already satisfied: python-dateutil&gt;=2.2 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from prov-&gt;htrc) (2.8.1)
+Requirement already satisfied: networkx&gt;=2.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from prov-&gt;htrc) (2.4)
+Collecting python-utils&gt;=2.3.0
+  Using cached python_utils-2.4.0-py2.py3-none-any.whl (12 kB)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from requests-&gt;htrc) (1.25.9)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from requests-&gt;htrc) (2020.6.20)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from requests-&gt;htrc) (3.0.4)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from requests-&gt;htrc) (2.9)
+Requirement already satisfied: matplotlib&gt;=2.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (3.2.1)
+Collecting webtest&gt;=2.0.29
+  Using cached WebTest-2.0.35-py2.py3-none-any.whl (32 kB)
+Collecting brewer2mpl&lt;1.5.0,&gt;=1.4.0
+  Using cached brewer2mpl-1.4.1-py2.py3-none-any.whl (24 kB)
+Collecting numpy&lt;1.16.4,&gt;=1.11.3
+  Downloading numpy-1.16.3-cp37-cp37m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (13.9 MB)
+     |████████████████████████████████| 13.9 MB 12.5 MB/s eta 0:00:01
+?25hCollecting waitress&gt;=1.0.0
+  Downloading waitress-1.4.4-py2.py3-none-any.whl (58 kB)
+     |████████████████████████████████| 58 kB 12.6 MB/s eta 0:00:01
+?25hRequirement already satisfied: nltk&lt;4.0.0,&gt;=3.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (3.5)
+Requirement already satisfied: notebook&gt;=4.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (6.0.3)
+Collecting bottle&gt;=0.12.0
+  Downloading bottle-0.12.18-py3-none-any.whl (89 kB)
+     |████████████████████████████████| 89 kB 9.2 MB/s  eta 0:00:01
+?25hRequirement already satisfied: Unidecode in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (1.1.1)
+Processing /Users/melaniewalsh/Library/Caches/pip/wheels/40/15/30/7d8f7cea2902b4db79e3fea550d7d7b85ecb27ef992b618f3f/wget-3.2-cp37-none-any.whl
+Collecting Paste==2.0.3
+  Using cached Paste-2.0.3-py34-none-any.whl (625 kB)
+Collecting sortedcontainers&gt;=1.5.7
+  Downloading sortedcontainers-2.2.2-py2.py3-none-any.whl (29 kB)
+Processing /Users/melaniewalsh/Library/Caches/pip/wheels/28/77/e4/0311145b9c2e2f01470e744855131f9e34d6919687550f87d1/ujson-1.35-cp37-cp37m-macosx_10_7_x86_64.whl
+Collecting pdfminer.six==20170720
+  Using cached pdfminer.six-20170720.tar.gz (12.0 MB)
+Requirement already satisfied: decorator&gt;=4.0.5 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (4.4.2)
+Collecting pystache==0.5.4
+  Downloading pystache-0.5.4.tar.gz (75 kB)
+     |████████████████████████████████| 75 kB 6.1 MB/s eta 0:00:011
+?25hCollecting pybtex==0.21
+  Downloading pybtex-0.21.tar.gz (364 kB)
+     |████████████████████████████████| 364 kB 7.4 MB/s eta 0:00:01
+?25hRequirement already satisfied: scipy&gt;=0.19.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (1.4.1)
+Collecting vsm&gt;=0.4.15
+  Using cached vsm-0.4.15-cp37-cp37m-macosx_10_7_x86_64.whl (230 kB)
+Requirement already satisfied: scikit-learn&gt;=0.18.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from topicexplorer==1.0b226-&gt;htrc) (0.22.2.post1)
+Collecting langdetect&gt;=1.0.0
+  Downloading langdetect-1.0.8.tar.gz (981 kB)
+     |████████████████████████████████| 981 kB 9.3 MB/s eta 0:00:01
+?25hCollecting profilehooks&gt;=1.8.0
+  Downloading profilehooks-1.12.0-py2.py3-none-any.whl (12 kB)
+Collecting mock&gt;=2.0.0
+  Downloading mock-4.0.2-py3-none-any.whl (28 kB)
+Collecting snakeviz&gt;=0.4.0
+  Downloading snakeviz-2.1.0-py2.py3-none-any.whl (282 kB)
+     |████████████████████████████████| 282 kB 21.5 MB/s eta 0:00:01
+?25hRequirement already satisfied: pyparsing in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from rdflib&gt;=4.2.1-&gt;prov-&gt;htrc) (2.4.7)
+Collecting isodate
+  Using cached isodate-0.6.0-py2.py3-none-any.whl (45 kB)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.10.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (1.2.0)
+Collecting WebOb&gt;=1.2
+  Downloading WebOb-1.8.6-py2.py3-none-any.whl (114 kB)
+     |████████████████████████████████| 114 kB 19.9 MB/s eta 0:00:01
+?25hRequirement already satisfied: beautifulsoup4 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from webtest&gt;=2.0.29-&gt;topicexplorer==1.0b226-&gt;htrc) (4.6.0)
+Requirement already satisfied: tqdm in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nltk&lt;4.0.0,&gt;=3.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (4.46.0)
+Requirement already satisfied: regex in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nltk&lt;4.0.0,&gt;=3.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (2018.1.10)
+Requirement already satisfied: joblib in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nltk&lt;4.0.0,&gt;=3.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.14.1)
+Requirement already satisfied: click in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nltk&lt;4.0.0,&gt;=3.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (7.1.2)
+Requirement already satisfied: jupyter-client&gt;=5.3.4 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (6.1.3)
+Requirement already satisfied: ipython-genutils in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.2.0)
+Requirement already satisfied: ipykernel in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (5.2.1)
+Requirement already satisfied: nbformat in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (5.0.6)
+Requirement already satisfied: nbconvert in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (5.6.1)
+Requirement already satisfied: pyzmq&gt;=17 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (19.0.0)
+Requirement already satisfied: Send2Trash in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (1.5.0)
+Requirement already satisfied: jinja2 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (2.11.2)
+Requirement already satisfied: jupyter-core&gt;=4.6.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (4.6.3)
+Requirement already satisfied: terminado&gt;=0.8.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.8.3)
+Requirement already satisfied: tornado&gt;=5.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (6.0.4)
+Requirement already satisfied: prometheus-client in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.7.1)
+Requirement already satisfied: traitlets&gt;=4.2.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (4.3.3)
+Collecting pycryptodome
+  Downloading pycryptodome-3.9.8-cp37-cp37m-macosx_10_6_intel.whl (14.1 MB)
+     |████████████████████████████████| 14.1 MB 10.8 MB/s eta 0:00:01  |                                | 20 kB 4.6 MB/s eta 0:00:048.5 MB/s eta 0:00:02
+?25hRequirement already satisfied: PyYAML&gt;=3.01 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from pybtex==0.21-&gt;topicexplorer==1.0b226-&gt;htrc) (5.3.1)
+Requirement already satisfied: latexcodec&gt;=1.0.4 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from pybtex==0.21-&gt;topicexplorer==1.0b226-&gt;htrc) (2.0.0)
+Collecting py4j
+  Downloading py4j-0.10.9.1-py2.py3-none-any.whl (198 kB)
+     |████████████████████████████████| 198 kB 8.0 MB/s eta 0:00:01
+?25hCollecting cython
+  Downloading Cython-0.29.21-cp37-cp37m-macosx_10_9_x86_64.whl (1.9 MB)
+     |████████████████████████████████| 1.9 MB 14.6 MB/s eta 0:00:01
+?25hCollecting translate
+  Downloading translate-3.5.0-py2.py3-none-any.whl (14 kB)
+Requirement already satisfied: appnope; platform_system == &quot;Darwin&quot; in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.1.0)
+Requirement already satisfied: ipython&gt;=5.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (7.14.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbformat-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (3.2.0)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.8.4)
+Requirement already satisfied: testpath in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.4.4)
+Requirement already satisfied: defusedxml in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.6.0)
+Requirement already satisfied: bleach in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (3.1.5)
+Requirement already satisfied: pygments in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (2.6.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.3)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (1.4.2)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from jinja2-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (1.1.1)
+Collecting tox
+  Downloading tox-3.20.0-py2.py3-none-any.whl (83 kB)
+     |████████████████████████████████| 83 kB 2.7 MB/s eta 0:00:011
+?25hCollecting pre-commit
+  Downloading pre_commit-2.7.1-py2.py3-none-any.whl (171 kB)
+     |████████████████████████████████| 171 kB 10.4 MB/s eta 0:00:01
+?25hRequirement already satisfied: backcall in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.1.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (3.0.5)
+Requirement already satisfied: pexpect; sys_platform != &quot;win32&quot; in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (4.8.0)
+Requirement already satisfied: jedi&gt;=0.10 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.17.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (46.1.3.post20200325)
+Requirement already satisfied: pickleshare in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.7.5)
+Requirement already satisfied: attrs&gt;=17.4.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (19.3.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.16.0)
+Requirement already satisfied: importlib-metadata; python_version &lt; &quot;3.8&quot; in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (1.6.0)
+Requirement already satisfied: webencodings in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.5.1)
+Requirement already satisfied: packaging in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (20.1)
+Requirement already satisfied: py&gt;=1.4.17 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from tox-&gt;translate-&gt;vsm&gt;=0.4.15-&gt;topicexplorer==1.0b226-&gt;htrc) (1.9.0)
+Requirement already satisfied: filelock&gt;=3.0.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from tox-&gt;translate-&gt;vsm&gt;=0.4.15-&gt;topicexplorer==1.0b226-&gt;htrc) (3.0.10)
+Requirement already satisfied: toml&gt;=0.9.4 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from tox-&gt;translate-&gt;vsm&gt;=0.4.15-&gt;topicexplorer==1.0b226-&gt;htrc) (0.10.1)
+Collecting virtualenv!=20.0.0,!=20.0.1,!=20.0.2,!=20.0.3,!=20.0.4,!=20.0.5,!=20.0.6,!=20.0.7,&gt;=16.0.0
+  Downloading virtualenv-20.0.31-py2.py3-none-any.whl (4.9 MB)
+     |████████████████████████████████| 4.9 MB 2.9 MB/s eta 0:00:01     |████████▌                       | 1.3 MB 2.9 MB/s eta 0:00:02     |████████████████████▎           | 3.1 MB 2.9 MB/s eta 0:00:01     |████████████████████████████▎   | 4.3 MB 2.9 MB/s eta 0:00:01
+?25hRequirement already satisfied: pluggy&gt;=0.12.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from tox-&gt;translate-&gt;vsm&gt;=0.4.15-&gt;topicexplorer==1.0b226-&gt;htrc) (0.13.1)
+Collecting nodeenv&gt;=0.11.1
+  Downloading nodeenv-1.5.0-py2.py3-none-any.whl (21 kB)
+Collecting cfgv&gt;=2.0.0
+  Downloading cfgv-3.2.0-py2.py3-none-any.whl (7.3 kB)
+Collecting identify&gt;=1.0.0
+  Downloading identify-1.5.4-py2.py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 7.2 MB/s  eta 0:00:01
+?25hRequirement already satisfied: wcwidth in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.1.9)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from pexpect; sys_platform != &quot;win32&quot;-&gt;ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.6.0)
+Requirement already satisfied: parso&gt;=0.7.0 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from jedi&gt;=0.10-&gt;ipython&gt;=5.0.0-&gt;ipykernel-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (0.7.0)
+Requirement already satisfied: zipp&gt;=0.5 in /Users/melaniewalsh/opt/anaconda3/lib/python3.7/site-packages (from importlib-metadata; python_version &lt; &quot;3.8&quot;-&gt;jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook&gt;=4.0.0-&gt;topicexplorer==1.0b226-&gt;htrc) (3.1.0)
+Collecting appdirs&lt;2,&gt;=1.4.3
+  Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Collecting distlib&lt;1,&gt;=0.3.1
+  Downloading distlib-0.3.1-py2.py3-none-any.whl (335 kB)
+     |████████████████████████████████| 335 kB 11.0 MB/s eta 0:00:01
+?25hBuilding wheels for collected packages: htrc, PyLD, unicodecsv, argparse, frozendict, pdfminer.six, pystache, pybtex, langdetect
+  Building wheel for htrc (setup.py) ... ?25ldone
+?25h  Created wheel for htrc: filename=htrc-0.1.53-py3-none-any.whl size=141298 sha256=59ec494ea26fd096d0cff6bd8ea8e5101c93e328502c2b9ebccc59ec66aa2385
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/84/e9/eb/eca433a7f59f75a7a4c055d1d45d6d7f6c646dc7082fb0f592
+  Building wheel for PyLD (setup.py) ... ?25ldone
+?25h  Created wheel for PyLD: filename=PyLD-2.0.3-py3-none-any.whl size=70851 sha256=380cc8dd744e91034ff9da5f025c36422e3800625b50edf4346b7f4f29cbbad3
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/cb/96/f3/73dbc98120b9f1835a00e015d400709b452032e388ad6fb205
+  Building wheel for unicodecsv (setup.py) ... ?25ldone
+?25h  Created wheel for unicodecsv: filename=unicodecsv-0.14.1-py3-none-any.whl size=10766 sha256=17ed2b26317384ae5108f2cfd426d12c23b9e263f48ce3b99b9c3730d42182e9
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/1a/f4/8a/a5024fb77b32ed369e5c409081e5f00fbe3b92fdad653f6e69
+  Building wheel for argparse (setup.py) ... ?25ldone
+?25h  Created wheel for argparse: filename=argparse-1.1-py3-none-any.whl size=20733 sha256=f9abeafad4ef5877b4b79580cd34fcae80b32ff1a3b4d0b1b5eed1b207aeecb4
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/59/e1/77/ca719b6be5cfdef5d09090cb37f86df1d9bbdd0749a0e48860
+  Building wheel for frozendict (setup.py) ... ?25ldone
+?25h  Created wheel for frozendict: filename=frozendict-1.2-py3-none-any.whl size=3148 sha256=d9d3a55ed9dc3153775aab1cf050559d6ae5696987d74e97c955cf72b2dc51eb
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/68/17/69/ac196dd181e620bba5fae5488e4fd6366a7316dce13cf88776
+  Building wheel for pdfminer.six (setup.py) ... ?25ldone
+?25h  Created wheel for pdfminer.six: filename=pdfminer.six-20170720-py3-none-any.whl size=5598447 sha256=95e7d0c852080b036eba1fdd793fbcd74fd068f433f565bad82a9d2c9519759b
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/80/45/53/67894b7a665e79cb590c6d8852f1873ceece60cc2e5d4516cd
+  Building wheel for pystache (setup.py) ... ?25ldone
+?25h  Created wheel for pystache: filename=pystache-0.5.4-py3-none-any.whl size=82928 sha256=08eb8804a86f3c345ba361d798bd9cec8772df60ff15d80510feccc6cfd3f52c
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/7e/fc/21/ac5286aa035303d281ff1a1c2fe6ce3682d2ee2bdcf7f6d89a
+  Building wheel for pybtex (setup.py) ... ?25ldone
+?25h  Created wheel for pybtex: filename=pybtex-0.21-py3-none-any.whl size=271751 sha256=122f9e8cccdcaf0fa202986aa4ad15e5802c497dd3def2a9c590f61dd674e78e
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/ef/6d/e4/35b7a97b22025eece3f61bfef19246ce990043b964bf168100
+  Building wheel for langdetect (setup.py) ... ?25ldone
+?25h  Created wheel for langdetect: filename=langdetect-1.0.8-py3-none-any.whl size=993191 sha256=a83a1d893ebb520eadb64fc30bb2468abf060be07fd6d112e53df2a4b9aeb85e
+  Stored in directory: /Users/melaniewalsh/Library/Caches/pip/wheels/59/f6/9d/85068904dba861c0b9af74e286265a08da438748ee5ae56067
+Successfully built htrc PyLD unicodecsv argparse frozendict pdfminer.six pystache pybtex langdetect
+Installing collected packages: frozendict, PyLD, isodate, rdflib, prov, unicodecsv, python-utils, progressbar2, argparse, WebOb, waitress, webtest, brewer2mpl, numpy, bottle, wget, Paste, sortedcontainers, ujson, pycryptodome, pdfminer.six, pystache, pybtex, py4j, cython, appdirs, distlib, virtualenv, tox, nodeenv, cfgv, identify, pre-commit, translate, vsm, langdetect, profilehooks, mock, snakeviz, topicexplorer, htrc
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.18.4
+    Uninstalling numpy-1.18.4:
+      Successfully uninstalled numpy-1.18.4
+  Attempting uninstall: pybtex
+    Found existing installation: pybtex 0.22.2
+    Uninstalling pybtex-0.22.2:
+      Successfully uninstalled pybtex-0.22.2
+<span class=" -Color -Color-Red">ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.</span>
+
+<span class=" -Color -Color-Red">We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.</span>
+
+<span class=" -Color -Color-Red">tensorflow 2.1.0 requires wrapt&gt;=1.11.1, which is not installed.</span>
+<span class=" -Color -Color-Red">tensorboard 2.1.1 requires werkzeug&gt;=0.11.15, which is not installed.</span>
+<span class=" -Color -Color-Red">plotly-express 0.4.1 requires patsy&gt;=0.5, which is not installed.</span>
+<span class=" -Color -Color-Red">plotly-express 0.4.1 requires statsmodels&gt;=0.9.0, which is not installed.</span>
+<span class=" -Color -Color-Red">mordecai 2.0.3 requires h5py&gt;=2.6.0, which is not installed.</span>
+<span class=" -Color -Color-Red">keras 2.3.1 requires h5py, which is not installed.</span>
+<span class=" -Color -Color-Red">keras-applications 1.0.8 requires h5py, which is not installed.</span>
+<span class=" -Color -Color-Red">torchvision 0.7.0 requires torch==1.6.0, but you&#39;ll have torch 1.5.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">mordecai 2.0.3 requires spacy&lt;2.1.0,&gt;=2.0.3, but you&#39;ll have spacy 2.2.4 which is incompatible.</span>
+Successfully installed Paste-2.0.3 PyLD-2.0.3 WebOb-1.8.6 appdirs-1.4.4 argparse-1.1 bottle-0.12.18 brewer2mpl-1.4.1 cfgv-3.2.0 cython-0.29.21 distlib-0.3.1 frozendict-1.2 htrc-0.1.53 identify-1.5.4 isodate-0.6.0 langdetect-1.0.8 mock-4.0.2 nodeenv-1.5.0 numpy-1.16.3 pdfminer.six-20170720 pre-commit-2.7.1 profilehooks-1.12.0 progressbar2-3.53.1 prov-1.5.3 py4j-0.10.9.1 pybtex-0.21 pycryptodome-3.9.8 pystache-0.5.4 python-utils-2.4.0 rdflib-5.0.0 snakeviz-2.1.0 sortedcontainers-2.2.2 topicexplorer-1.0b226 tox-3.20.0 translate-3.5.0 ujson-1.35 unicodecsv-0.14.1 virtualenv-20.0.31 vsm-0.4.15 waitress-1.4.4 webtest-2.0.35 wget-3.2
+<span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.2; however, version 20.2.3 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/melaniewalsh/opt/anaconda3/bin/python3 -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>James Baldwin HathiTrust collection that I created: https://babel.hathitrust.org/cgi/mb?a=listis;c=2098723708</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc</span> <span class="kn">import</span> <span class="n">workset</span>
+<span class="n">volume_ids</span> <span class="o">=</span> <span class="n">workset</span><span class="o">.</span><span class="n">load_hathitrust_collection</span><span class="p">(</span><span class="s1">&#39;https://babel.hathitrust.org/cgi/mb?a=listis;c=2098723708&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_ids</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;uva.x000691804&#39;,
+ &#39;mdp.39015041612683&#39;,
+ &#39;mdp.39015084118606&#39;,
+ &#39;mdp.39015031598124&#39;,
+ &#39;uva.x002228607&#39;,
+ &#39;mdp.39015063278306&#39;,
+ &#39;mdp.39015054289775&#39;,
+ &#39;mdp.39015046412022&#39;,
+ &#39;mdp.39015027359721&#39;,
+ &#39;mdp.39015019555161&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">hathi_id</span> <span class="ow">in</span> <span class="n">volume_ids</span><span class="p">:</span>
+    <span class="n">vol</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">,</span> <span class="n">vol</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uva.x000691804 Another country
+mdp.39015041612683 Collected essays /
+mdp.39015084118606 The devil finds work : an essay /
+mdp.39015031598124 The fire next time /
+uva.x002228607 Giovanni&#39;s room /
+mdp.39015063278306 Go tell it on the mountain /
+mdp.39015054289775 If Beale Street could talk /
+mdp.39015046412022 Just above my head /
+mdp.39015027359721 Little man, little man : a story of childhood /
+mdp.39015019555161 Notes of a native son /
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-volume-ids-from-hathitrust-workset">
+<h2>Download Volume IDs From HathiTrust Workset<a class="headerlink" href="#download-volume-ids-from-hathitrust-workset" title="Permalink to this headline">¶</a></h2>
+<p>Make a Workset. Then Download volumes IDs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_ids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;James-Baldwin-Workset.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">hathi_id</span> <span class="ow">in</span> <span class="n">volume_ids</span><span class="p">:</span>
+    <span class="n">vol</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">,</span> <span class="n">vol</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mdp.39015041612683 Collected essays /
+pst.000043352395 Evidence of things not seen /
+mdp.39015011372029 No name in the street.
+uc1.32106002160320 Giovanni&#39;s room; a novel.
+mdp.39015001385916 The devil finds work : an essay /
+uc1.32106005373219 Go tell it on the mountain.
+mdp.39015013970754 The amen corner; a play. -
+mdp.39015027359721 Little man, little man : a story of childhood /
+uc1.32106007393728 Another country.
+mdp.39076006860543 Just above my head /
+mdp.39015000361173 Notes of a native son.
+pst.000027232392 Going to meet the man.
+uc1.32106018392966 The fire next time /
+mdp.39015015148243 Blues for Mister Charlie.
+uc1.32106013535023 Tell me how long the train&#39;s been gone; a novel.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-hathitrust-extracted-features-from-the-web">
+<h2>Download HathiTrust Extracted Features From the Web<a class="headerlink" href="#download-hathitrust-extracted-features-from-the-web" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc_features</span> <span class="kn">import</span> <span class="n">Volume</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="s2">&quot;mdp.39015029970129&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>uc2.ark:/13960/t7pn9353t</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong><a href='http://hdl.handle.net/2027/uc2.ark:/13960/t7pn9353t'>Dubliners /</a></strong> by <em>Joyce, James, 1882-1941.</em> (1922, 296 pages) - <code>uc2.ark:/13960/t7pn9353t</code></div></div>
+</div>
+</div>
+<div class="section" id="read-in-hathitrust-extracted-features-from-local-file">
+<h2>Read in HathiTrust Extracted Features From Local File<a class="headerlink" href="#read-in-hathitrust-extracted-features-from-local-file" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc_features</span> <span class="kn">import</span> <span class="n">Volume</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="s2">&quot;hathi-files/mdp/31272/mdp.39015029970129.json.bz2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong><a href='http://hdl.handle.net/2027/mdp.39015029970129'>Lost in the city : stories /</a></strong> by <em>Jones, Edward P.</em> (1993, 260 pages) - <code>mdp.39015029970129</code></div></div>
+</div>
+</div>
+<div class="section" id="make-word-frequency-pandas-dataframe-from-hathitrust-volume-s">
+<h2>Make Word Frequency Pandas DataFrame from HathiTrust Volume(s)<a class="headerlink" href="#make-word-frequency-pandas-dataframe-from-hathitrust-volume-s" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">htrc_features</span> <span class="kn">import</span> <span class="n">Volume</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mdp.39015029970129&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">hathi_id</span> <span class="ow">in</span> <span class="n">volume_ids</span><span class="p">:</span>
+    <span class="c1">#Read in volume</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">(</span><span class="n">hathi_id</span><span class="p">)</span>
+    
+    <span class="c1">#Make dataframe from token list -- do not include part of speech, sections, or case sensitivity</span>
+    <span class="n">token_df</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">(</span><span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">drop_section</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1">#Add book column</span>
+    <span class="n">token_df</span><span class="p">[</span><span class="s1">&#39;book&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">title</span>
+    
+    <span class="c1">#Add publication year column</span>
+    <span class="n">token_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">year</span>
+    
+    <span class="n">all_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>book</th>
+      <th>year</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>lowercase</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th>,</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>.046</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>3560</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">260</th>
+      <th>would</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>writers</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>written</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>york</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>•</th>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+  </tbody>
+</table>
+<p>47307 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Change from multi-level index to regular index with <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> <span class="o">=</span> <span class="n">lost_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>page</th>
+      <th>lowercase</th>
+      <th>count</th>
+      <th>book</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>,</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>.046</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1993</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3560</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>a</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>47302</th>
+      <td>260</td>
+      <td>would</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47303</th>
+      <td>260</td>
+      <td>writers</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47304</th>
+      <td>260</td>
+      <td>written</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47305</th>
+      <td>260</td>
+      <td>york</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <th>47306</th>
+      <td>260</td>
+      <td>•</td>
+      <td>1</td>
+      <td>Lost in the city : stories /</td>
+      <td>1993</td>
+    </tr>
+  </tbody>
+</table>
+<p>47307 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_chapter_titles</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;01: The Girl Who Raised Pigeons&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">35</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">41</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;02: The First Day&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">41</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">63</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;03: The Night Rhonda Ferguson Was Killed&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">63</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;04: Young Lions&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">85</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">113</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;05: The Store&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">113</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">125</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;06: An Orange Line Train to Ballston&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">125</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">149</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;07: The Sunday Following Mother&#39;s Day&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">149</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">159</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;08: Lost in the City&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">159</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">184</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;09: His Mother&#39;s House&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">184</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">191</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;10: A Butterfly on F Street&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">191</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">209</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;11: Gospel&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">209</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">225</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;12: A New Man&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">225</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">237</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;13: A Dark Night&quot;</span>
+    <span class="k">elif</span> <span class="n">page</span> <span class="o">&gt;=</span> <span class="mi">237</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;14: Marie&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;chapter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add_chapter_titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;chapter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>05: The Store                               5989
+01: The Girl Who Raised Pigeons             4999
+09: His Mother&#39;s House                      4966
+07: The Sunday Following Mother&#39;s Day       4825
+04: Young Lions                             4313
+03: The Night Rhonda Ferguson Was Killed    4119
+11: Gospel                                  3668
+14: Marie                                   3194
+12: A New Man                               2846
+13: A Dark Night                            2341
+08: Lost in the City                        1964
+06: An Orange Line Train to Ballston        1817
+02: The First Day                           1023
+10: A Butterfly on F Street                  865
+Name: chapter, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Summarize token counts for each book</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;chapter&#39;</span><span class="p">,</span> <span class="s1">&#39;lowercase&#39;</span><span class="p">])[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chapter</th>
+      <th>lowercase</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>!</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>''</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'d</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>'ll</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18249</th>
+      <td>14: Marie</td>
+      <td>your</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>18250</th>
+      <td>14: Marie</td>
+      <td>|</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18251</th>
+      <td>14: Marie</td>
+      <td>•</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18252</th>
+      <td>14: Marie</td>
+      <td>€</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18253</th>
+      <td>14: Marie</td>
+      <td>™</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>18254 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;chapter&#39;</span><span class="p">,</span> <span class="s1">&#39;lowercase&#39;</span><span class="p">])[[</span><span class="s1">&#39;count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-infrequent-words-stopwords-punctuation">
+<h2>Remove Infrequent Words, Stopwords, &amp; Punctuation<a class="headerlink" href="#remove-infrequent-words-stopwords-punctuation" title="Permalink to this headline">¶</a></h2>
+<p>Remove words that appear less than 5 times in a book</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#word_frequency_df = word_frequency_df[word_frequency_df[&#39;count&#39;] &gt; 5]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remove stopwords</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOPS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;yourself&#39;</span><span class="p">,</span> <span class="s1">&#39;yourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;him&#39;</span><span class="p">,</span> <span class="s1">&#39;his&#39;</span><span class="p">,</span> <span class="s1">&#39;himself&#39;</span><span class="p">,</span> <span class="s1">&#39;she&#39;</span><span class="p">,</span> <span class="s1">&#39;her&#39;</span><span class="p">,</span> <span class="s1">&#39;hers&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;herself&#39;</span><span class="p">,</span> <span class="s1">&#39;it&#39;</span><span class="p">,</span> <span class="s1">&#39;its&#39;</span><span class="p">,</span> <span class="s1">&#39;itself&#39;</span><span class="p">,</span> <span class="s1">&#39;they&#39;</span><span class="p">,</span> <span class="s1">&#39;them&#39;</span><span class="p">,</span> <span class="s1">&#39;their&#39;</span><span class="p">,</span> <span class="s1">&#39;theirs&#39;</span><span class="p">,</span> <span class="s1">&#39;themselves&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;what&#39;</span><span class="p">,</span> <span class="s1">&#39;which&#39;</span><span class="p">,</span> <span class="s1">&#39;who&#39;</span><span class="p">,</span> <span class="s1">&#39;whom&#39;</span><span class="p">,</span> <span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">,</span> <span class="s1">&#39;these&#39;</span><span class="p">,</span> <span class="s1">&#39;those&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;are&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;was&#39;</span><span class="p">,</span> <span class="s1">&#39;were&#39;</span><span class="p">,</span> <span class="s1">&#39;be&#39;</span><span class="p">,</span> <span class="s1">&#39;been&#39;</span><span class="p">,</span> <span class="s1">&#39;being&#39;</span><span class="p">,</span> <span class="s1">&#39;have&#39;</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;having&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;does&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;did&#39;</span><span class="p">,</span> <span class="s1">&#39;doing&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;an&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;but&#39;</span><span class="p">,</span> <span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;because&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;until&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;while&#39;</span><span class="p">,</span> <span class="s1">&#39;of&#39;</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="s1">&#39;by&#39;</span><span class="p">,</span> <span class="s1">&#39;for&#39;</span><span class="p">,</span> <span class="s1">&#39;with&#39;</span><span class="p">,</span> <span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="s1">&#39;against&#39;</span><span class="p">,</span> <span class="s1">&#39;between&#39;</span><span class="p">,</span> <span class="s1">&#39;into&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;through&#39;</span><span class="p">,</span> <span class="s1">&#39;during&#39;</span><span class="p">,</span> <span class="s1">&#39;before&#39;</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span><span class="p">,</span> <span class="s1">&#39;above&#39;</span><span class="p">,</span> <span class="s1">&#39;below&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="s1">&#39;over&#39;</span><span class="p">,</span> <span class="s1">&#39;under&#39;</span><span class="p">,</span> <span class="s1">&#39;again&#39;</span><span class="p">,</span> <span class="s1">&#39;further&#39;</span><span class="p">,</span> <span class="s1">&#39;then&#39;</span><span class="p">,</span> <span class="s1">&#39;once&#39;</span><span class="p">,</span> <span class="s1">&#39;here&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;there&#39;</span><span class="p">,</span> <span class="s1">&#39;when&#39;</span><span class="p">,</span> <span class="s1">&#39;where&#39;</span><span class="p">,</span> <span class="s1">&#39;why&#39;</span><span class="p">,</span> <span class="s1">&#39;how&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="s1">&#39;each&#39;</span><span class="p">,</span> <span class="s1">&#39;few&#39;</span><span class="p">,</span> <span class="s1">&#39;more&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;most&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="s1">&#39;some&#39;</span><span class="p">,</span> <span class="s1">&#39;such&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;nor&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;only&#39;</span><span class="p">,</span> <span class="s1">&#39;own&#39;</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="s1">&#39;so&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;than&#39;</span><span class="p">,</span> <span class="s1">&#39;too&#39;</span><span class="p">,</span> <span class="s1">&#39;very&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;can&#39;</span><span class="p">,</span> <span class="s1">&#39;will&#39;</span><span class="p">,</span> <span class="s1">&#39;just&#39;</span><span class="p">,</span> <span class="s1">&#39;don&#39;</span><span class="p">,</span> <span class="s1">&#39;should&#39;</span><span class="p">,</span> <span class="s1">&#39;now&#39;</span><span class="p">,</span> <span class="s1">&#39;ve&#39;</span><span class="p">,</span> <span class="s1">&#39;ll&#39;</span><span class="p">,</span> <span class="s1">&#39;amp&#39;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">STOPS</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remove punctuation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z\s]&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chapter</th>
+      <th>lowercase</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absently</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absolute</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>accepted</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18242</th>
+      <td>14: Marie</td>
+      <td>yes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18243</th>
+      <td>14: Marie</td>
+      <td>yesterday</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18244</th>
+      <td>14: Marie</td>
+      <td>yet</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18245</th>
+      <td>14: Marie</td>
+      <td>york</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18248</th>
+      <td>14: Marie</td>
+      <td>young</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>15857 rows × 3 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tfidf">
+<h2>TFIDF<a class="headerlink" href="#tfidf" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lowercase&#39;</span><span class="p">:</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="s1">&#39;term_frequency&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chapter</th>
+      <th>term</th>
+      <th>term_frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absently</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>absolute</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>accepted</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18242</th>
+      <td>14: Marie</td>
+      <td>yes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18243</th>
+      <td>14: Marie</td>
+      <td>yesterday</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18244</th>
+      <td>14: Marie</td>
+      <td>yet</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18245</th>
+      <td>14: Marie</td>
+      <td>york</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18248</th>
+      <td>14: Marie</td>
+      <td>young</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>15857 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="calculate-document-frequency">
+<h3>Calculate Document Frequency<a class="headerlink" href="#calculate-document-frequency" title="Permalink to this headline">¶</a></h3>
+<p>In how many stories in the collection does this term appear?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document_frequency_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">word_frequency_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;chapter&#39;</span><span class="p">,</span><span class="s1">&#39;term&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document_frequency_df</span> <span class="o">=</span> <span class="n">document_frequency_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;document_frequency&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">document_frequency_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chapter</th>
+      <th>term</th>
+      <th>term_frequency</th>
+      <th>document_frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>abandoned</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>abandoned</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>09: His Mother's House</td>
+      <td>abandoned</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>able</td>
+      <td>2</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>able</td>
+      <td>3</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>15852</th>
+      <td>14: Marie</td>
+      <td>wise</td>
+      <td>8</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15853</th>
+      <td>14: Marie</td>
+      <td>wittily</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15854</th>
+      <td>14: Marie</td>
+      <td>womanish</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15855</th>
+      <td>14: Marie</td>
+      <td>worships</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15856</th>
+      <td>14: Marie</td>
+      <td>writers</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>15857 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>As you can see in the DataFrame above, the term “abandoned” appears 2 times in the story “The Girl Who Raised Pigeons” (term frequency), and it appears in 3 different stories in the collection overall (document frequency).</p>
+</div>
+<div class="section" id="calculate-total-number-of-documents">
+<h3>Calculate Total Number of Documents<a class="headerlink" href="#calculate-total-number-of-documents" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_number_of_documents</span> <span class="o">=</span> <span class="n">lost_df_flattened</span><span class="p">[</span><span class="s1">&#39;chapter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-tfidf">
+<h3>Calculate TFIDF<a class="headerlink" href="#calculate-tfidf" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">term_frequency</span> <span class="o">*</span> <span class="n">inverse_document_frequency</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span> <span class="p">[</span> <span class="n">n</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Scikitlearn version of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">inverse document frequency with smoothing</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">df</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total_number_of_documents</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;document_frequency&#39;</span><span class="p">])))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        2.321756
+1        2.321756
+2        2.321756
+3        1.143101
+4        1.143101
+           ...   
+15852    3.014903
+15853    3.014903
+15854    3.014903
+15855    3.014903
+15856    3.014903
+Name: document_frequency, Length: 15857, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;tfidf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;term_frequency&#39;</span><span class="p">]</span>  <span class="o">*</span>       \
+                            <span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total_number_of_documents</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;document_frequency&#39;</span><span class="p">])))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#word_frequency_df[&#39;tfidf_standardized&#39;]= (word_frequency_df[&#39;tfidf&#39;] - word_frequency_df[&#39;tfidf&#39;].mean())/word_frequency_df[&#39;tfidf&#39;].std()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="p">[</span><span class="s1">&#39;tfidf_sklearnnormalized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">word_frequency_df</span><span class="p">[[</span><span class="s1">&#39;tfidf&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find top 15 words with highest tfidf scores for each book</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_frequency_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chapter&#39;</span><span class="p">,</span><span class="s1">&#39;tfidf_sklearnnormalized&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;chapter&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chapter</th>
+      <th>term</th>
+      <th>term_frequency</th>
+      <th>document_frequency</th>
+      <th>tfidf</th>
+      <th>tfidf_normalized</th>
+      <th>tfidf_sklearnnormalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>658</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>betsy</td>
+      <td>44</td>
+      <td>1</td>
+      <td>132.655733</td>
+      <td>14.525708</td>
+      <td>0.106340</td>
+    </tr>
+    <tr>
+      <th>3321</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>jenny</td>
+      <td>42</td>
+      <td>1</td>
+      <td>126.625927</td>
+      <td>13.842227</td>
+      <td>0.101506</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>ann</td>
+      <td>45</td>
+      <td>2</td>
+      <td>117.424706</td>
+      <td>12.799266</td>
+      <td>0.094130</td>
+    </tr>
+    <tr>
+      <th>5578</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>robert</td>
+      <td>36</td>
+      <td>1</td>
+      <td>108.536509</td>
+      <td>11.791786</td>
+      <td>0.087005</td>
+    </tr>
+    <tr>
+      <th>1387</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>coop</td>
+      <td>28</td>
+      <td>1</td>
+      <td>84.417285</td>
+      <td>9.057864</td>
+      <td>0.067671</td>
+    </tr>
+    <tr>
+      <th>7904</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>would</td>
+      <td>84</td>
+      <td>14</td>
+      <td>84.000000</td>
+      <td>9.010564</td>
+      <td>0.067336</td>
+    </tr>
+    <tr>
+      <th>5064</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>pigeons</td>
+      <td>30</td>
+      <td>2</td>
+      <td>78.283137</td>
+      <td>8.362556</td>
+      <td>0.062753</td>
+    </tr>
+    <tr>
+      <th>4248</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>miss</td>
+      <td>46</td>
+      <td>10</td>
+      <td>60.267127</td>
+      <td>6.320435</td>
+      <td>0.048311</td>
+    </tr>
+    <tr>
+      <th>691</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>birds</td>
+      <td>29</td>
+      <td>5</td>
+      <td>55.572431</td>
+      <td>5.788290</td>
+      <td>0.044548</td>
+    </tr>
+    <tr>
+      <th>1194</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>clara</td>
+      <td>17</td>
+      <td>1</td>
+      <td>51.253351</td>
+      <td>5.298721</td>
+      <td>0.041086</td>
+    </tr>
+    <tr>
+      <th>5634</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>said</td>
+      <td>47</td>
+      <td>13</td>
+      <td>50.242665</td>
+      <td>5.184159</td>
+      <td>0.040276</td>
+    </tr>
+    <tr>
+      <th>5362</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>ralph</td>
+      <td>17</td>
+      <td>2</td>
+      <td>44.360445</td>
+      <td>4.517407</td>
+      <td>0.035560</td>
+    </tr>
+    <tr>
+      <th>4199</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>miles</td>
+      <td>21</td>
+      <td>4</td>
+      <td>44.070858</td>
+      <td>4.484583</td>
+      <td>0.035328</td>
+    </tr>
+    <tr>
+      <th>5063</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>pigeon</td>
+      <td>14</td>
+      <td>1</td>
+      <td>42.208642</td>
+      <td>4.273500</td>
+      <td>0.033835</td>
+    </tr>
+    <tr>
+      <th>6851</th>
+      <td>01: The Girl Who Raised Pigeons</td>
+      <td>thelma</td>
+      <td>14</td>
+      <td>1</td>
+      <td>42.208642</td>
+      <td>4.273500</td>
+      <td>0.033835</td>
+    </tr>
+    <tr>
+      <th>4350</th>
+      <td>02: The First Day</td>
+      <td>mother</td>
+      <td>42</td>
+      <td>13</td>
+      <td>44.897701</td>
+      <td>4.578306</td>
+      <td>0.035991</td>
+    </tr>
+    <tr>
+      <th>7789</th>
+      <td>02: The First Day</td>
+      <td>woman</td>
+      <td>23</td>
+      <td>14</td>
+      <td>23.000000</td>
+      <td>2.096194</td>
+      <td>0.018437</td>
+    </tr>
+    <tr>
+      <th>8680</th>
+      <td>02: The First Day</td>
+      <td>takes</td>
+      <td>7</td>
+      <td>2</td>
+      <td>18.266065</td>
+      <td>1.559601</td>
+      <td>0.014642</td>
+    </tr>
+    <tr>
+      <th>3903</th>
+      <td>02: The First Day</td>
+      <td>looks</td>
+      <td>6</td>
+      <td>2</td>
+      <td>15.656627</td>
+      <td>1.263820</td>
+      <td>0.012551</td>
+    </tr>
+    <tr>
+      <th>8589</th>
+      <td>02: The First Day</td>
+      <td>says</td>
+      <td>7</td>
+      <td>5</td>
+      <td>13.414035</td>
+      <td>1.009621</td>
+      <td>0.010753</td>
+    </tr>
+    <tr>
+      <th>8229</th>
+      <td>02: The First Day</td>
+      <td>form</td>
+      <td>6</td>
+      <td>4</td>
+      <td>12.591674</td>
+      <td>0.916407</td>
+      <td>0.010094</td>
+    </tr>
+    <tr>
+      <th>5713</th>
+      <td>02: The First Day</td>
+      <td>school</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12.231436</td>
+      <td>0.875573</td>
+      <td>0.009805</td>
+    </tr>
+    <tr>
+      <th>8596</th>
+      <td>02: The First Day</td>
+      <td>seaton</td>
+      <td>4</td>
+      <td>1</td>
+      <td>12.059612</td>
+      <td>0.856097</td>
+      <td>0.009667</td>
+    </tr>
+    <tr>
+      <th>4768</th>
+      <td>02: The First Day</td>
+      <td>one</td>
+      <td>12</td>
+      <td>14</td>
+      <td>12.000000</td>
+      <td>0.849340</td>
+      <td>0.009619</td>
+    </tr>
+    <tr>
+      <th>8287</th>
+      <td>02: The First Day</td>
+      <td>jersey</td>
+      <td>5</td>
+      <td>3</td>
+      <td>11.608779</td>
+      <td>0.804995</td>
+      <td>0.009306</td>
+    </tr>
+    <tr>
+      <th>8688</th>
+      <td>02: The First Day</td>
+      <td>tells</td>
+      <td>4</td>
+      <td>3</td>
+      <td>9.287023</td>
+      <td>0.541823</td>
+      <td>0.007445</td>
+    </tr>
+    <tr>
+      <th>8054</th>
+      <td>02: The First Day</td>
+      <td>appears</td>
+      <td>3</td>
+      <td>1</td>
+      <td>9.044709</td>
+      <td>0.514357</td>
+      <td>0.007250</td>
+    </tr>
+    <tr>
+      <th>8064</th>
+      <td>02: The First Day</td>
+      <td>asks</td>
+      <td>3</td>
+      <td>1</td>
+      <td>9.044709</td>
+      <td>0.514357</td>
+      <td>0.007250</td>
+    </tr>
+    <tr>
+      <th>8107</th>
+      <td>02: The First Day</td>
+      <td>blondelle</td>
+      <td>3</td>
+      <td>1</td>
+      <td>9.044709</td>
+      <td>0.514357</td>
+      <td>0.007250</td>
+    </tr>
+    <tr>
+      <th>8378</th>
+      <td>02: The First Day</td>
+      <td>mary</td>
+      <td>3</td>
+      <td>1</td>
+      <td>9.044709</td>
+      <td>0.514357</td>
+      <td>0.007250</td>
+    </tr>
+    <tr>
+      <th>8997</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>cassandra</td>
+      <td>130</td>
+      <td>1</td>
+      <td>391.937393</td>
+      <td>43.915371</td>
+      <td>0.314185</td>
+    </tr>
+    <tr>
+      <th>9719</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>melanie</td>
+      <td>65</td>
+      <td>1</td>
+      <td>195.968696</td>
+      <td>21.702254</td>
+      <td>0.157092</td>
+    </tr>
+    <tr>
+      <th>8800</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>anita</td>
+      <td>68</td>
+      <td>2</td>
+      <td>177.441778</td>
+      <td>19.602221</td>
+      <td>0.142241</td>
+    </tr>
+    <tr>
+      <th>10030</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>rhonda</td>
+      <td>42</td>
+      <td>1</td>
+      <td>126.625927</td>
+      <td>13.842227</td>
+      <td>0.101506</td>
+    </tr>
+    <tr>
+      <th>5635</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>said</td>
+      <td>109</td>
+      <td>13</td>
+      <td>116.520223</td>
+      <td>12.696742</td>
+      <td>0.093405</td>
+    </tr>
+    <tr>
+      <th>9411</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>gladys</td>
+      <td>38</td>
+      <td>2</td>
+      <td>99.158641</td>
+      <td>10.728801</td>
+      <td>0.079488</td>
+    </tr>
+    <tr>
+      <th>8967</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>car</td>
+      <td>42</td>
+      <td>11</td>
+      <td>51.372029</td>
+      <td>5.312173</td>
+      <td>0.041181</td>
+    </tr>
+    <tr>
+      <th>6524</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>street</td>
+      <td>42</td>
+      <td>13</td>
+      <td>44.897701</td>
+      <td>4.578306</td>
+      <td>0.035991</td>
+    </tr>
+    <tr>
+      <th>456</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>back</td>
+      <td>39</td>
+      <td>14</td>
+      <td>39.000000</td>
+      <td>3.909799</td>
+      <td>0.031263</td>
+    </tr>
+    <tr>
+      <th>2606</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>get</td>
+      <td>36</td>
+      <td>13</td>
+      <td>38.483743</td>
+      <td>3.851281</td>
+      <td>0.030849</td>
+    </tr>
+    <tr>
+      <th>2650</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>girls</td>
+      <td>17</td>
+      <td>4</td>
+      <td>35.676409</td>
+      <td>3.533069</td>
+      <td>0.028599</td>
+    </tr>
+    <tr>
+      <th>2208</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>father</td>
+      <td>32</td>
+      <td>13</td>
+      <td>34.207772</td>
+      <td>3.366599</td>
+      <td>0.027422</td>
+    </tr>
+    <tr>
+      <th>10510</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>wesley</td>
+      <td>13</td>
+      <td>2</td>
+      <td>33.922693</td>
+      <td>3.334285</td>
+      <td>0.027193</td>
+    </tr>
+    <tr>
+      <th>9596</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>joyce</td>
+      <td>12</td>
+      <td>2</td>
+      <td>31.313255</td>
+      <td>3.038504</td>
+      <td>0.025101</td>
+    </tr>
+    <tr>
+      <th>9859</th>
+      <td>03: The Night Rhonda Ferguson Was Killed</td>
+      <td>pearl</td>
+      <td>11</td>
+      <td>2</td>
+      <td>28.703817</td>
+      <td>2.742723</td>
+      <td>0.023010</td>
+    </tr>
+    <tr>
+      <th>10727</th>
+      <td>04: Young Lions</td>
+      <td>caesar</td>
+      <td>75</td>
+      <td>1</td>
+      <td>226.117727</td>
+      <td>25.119656</td>
+      <td>0.181261</td>
+    </tr>
+    <tr>
+      <th>11562</th>
+      <td>04: Young Lions</td>
+      <td>sherman</td>
+      <td>60</td>
+      <td>1</td>
+      <td>180.894181</td>
+      <td>19.993552</td>
+      <td>0.145008</td>
+    </tr>
+    <tr>
+      <th>11231</th>
+      <td>04: Young Lions</td>
+      <td>manny</td>
+      <td>44</td>
+      <td>1</td>
+      <td>132.655733</td>
+      <td>14.525708</td>
+      <td>0.106340</td>
+    </tr>
+    <tr>
+      <th>10732</th>
+      <td>04: Young Lions</td>
+      <td>carol</td>
+      <td>29</td>
+      <td>1</td>
+      <td>87.432188</td>
+      <td>9.399604</td>
+      <td>0.070087</td>
+    </tr>
+    <tr>
+      <th>5636</th>
+      <td>04: Young Lions</td>
+      <td>said</td>
+      <td>71</td>
+      <td>13</td>
+      <td>75.898494</td>
+      <td>8.092256</td>
+      <td>0.060842</td>
+    </tr>
+    <tr>
+      <th>11487</th>
+      <td>04: Young Lions</td>
+      <td>retarded</td>
+      <td>22</td>
+      <td>2</td>
+      <td>57.407634</td>
+      <td>5.996311</td>
+      <td>0.046019</td>
+    </tr>
+    <tr>
+      <th>7907</th>
+      <td>04: Young Lions</td>
+      <td>would</td>
+      <td>57</td>
+      <td>14</td>
+      <td>57.000000</td>
+      <td>5.950105</td>
+      <td>0.045692</td>
+    </tr>
+    <tr>
+      <th>11049</th>
+      <td>04: Young Lions</td>
+      <td>heh</td>
+      <td>17</td>
+      <td>1</td>
+      <td>51.253351</td>
+      <td>5.298721</td>
+      <td>0.041086</td>
+    </tr>
+    <tr>
+      <th>7791</th>
+      <td>04: Young Lions</td>
+      <td>woman</td>
+      <td>44</td>
+      <td>14</td>
+      <td>44.000000</td>
+      <td>4.476551</td>
+      <td>0.035271</td>
+    </tr>
+    <tr>
+      <th>10598</th>
+      <td>04: Young Lions</td>
+      <td>anna</td>
+      <td>13</td>
+      <td>1</td>
+      <td>39.193739</td>
+      <td>3.931760</td>
+      <td>0.031418</td>
+    </tr>
+    <tr>
+      <th>4015</th>
+      <td>04: Young Lions</td>
+      <td>man</td>
+      <td>34</td>
+      <td>13</td>
+      <td>36.345758</td>
+      <td>3.608940</td>
+      <td>0.029135</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>04: Young Lions</td>
+      <td>back</td>
+      <td>35</td>
+      <td>14</td>
+      <td>35.000000</td>
+      <td>3.456398</td>
+      <td>0.028057</td>
+    </tr>
+    <tr>
+      <th>1404</th>
+      <td>04: Young Lions</td>
+      <td>could</td>
+      <td>29</td>
+      <td>13</td>
+      <td>31.000793</td>
+      <td>3.003086</td>
+      <td>0.024851</td>
+    </tr>
+    <tr>
+      <th>7213</th>
+      <td>04: Young Lions</td>
+      <td>two</td>
+      <td>30</td>
+      <td>14</td>
+      <td>30.000000</td>
+      <td>2.889646</td>
+      <td>0.024049</td>
+    </tr>
+    <tr>
+      <th>2209</th>
+      <td>04: Young Lions</td>
+      <td>father</td>
+      <td>28</td>
+      <td>13</td>
+      <td>29.931800</td>
+      <td>2.881916</td>
+      <td>0.023994</td>
+    </tr>
+    <tr>
+      <th>12619</th>
+      <td>05: The Store</td>
+      <td>penny</td>
+      <td>57</td>
+      <td>2</td>
+      <td>148.737961</td>
+      <td>16.348634</td>
+      <td>0.119231</td>
+    </tr>
+    <tr>
+      <th>5637</th>
+      <td>05: The Store</td>
+      <td>said</td>
+      <td>79</td>
+      <td>13</td>
+      <td>84.450437</td>
+      <td>9.061621</td>
+      <td>0.067697</td>
+    </tr>
+    <tr>
+      <th>7908</th>
+      <td>05: The Store</td>
+      <td>would</td>
+      <td>79</td>
+      <td>14</td>
+      <td>79.000000</td>
+      <td>8.443813</td>
+      <td>0.063328</td>
+    </tr>
+    <tr>
+      <th>6493</th>
+      <td>05: The Store</td>
+      <td>store</td>
+      <td>51</td>
+      <td>10</td>
+      <td>66.817901</td>
+      <td>7.062968</td>
+      <td>0.053563</td>
+    </tr>
+    <tr>
+      <th>12393</th>
+      <td>05: The Store</td>
+      <td>jenkins</td>
+      <td>19</td>
+      <td>1</td>
+      <td>57.283157</td>
+      <td>5.982201</td>
+      <td>0.045919</td>
+    </tr>
+    <tr>
+      <th>12415</th>
+      <td>05: The Store</td>
+      <td>kentucky</td>
+      <td>23</td>
+      <td>3</td>
+      <td>53.400384</td>
+      <td>5.542088</td>
+      <td>0.042807</td>
+    </tr>
+    <tr>
+      <th>12467</th>
+      <td>05: The Store</td>
+      <td>lonney</td>
+      <td>17</td>
+      <td>1</td>
+      <td>51.253351</td>
+      <td>5.298721</td>
+      <td>0.041086</td>
+    </tr>
+    <tr>
+      <th>458</th>
+      <td>05: The Store</td>
+      <td>back</td>
+      <td>50</td>
+      <td>14</td>
+      <td>50.000000</td>
+      <td>5.156653</td>
+      <td>0.040081</td>
+    </tr>
+    <tr>
+      <th>4771</th>
+      <td>05: The Store</td>
+      <td>one</td>
+      <td>48</td>
+      <td>14</td>
+      <td>48.000000</td>
+      <td>4.929952</td>
+      <td>0.038478</td>
+    </tr>
+    <tr>
+      <th>4353</th>
+      <td>05: The Store</td>
+      <td>mother</td>
+      <td>42</td>
+      <td>13</td>
+      <td>44.897701</td>
+      <td>4.578306</td>
+      <td>0.035991</td>
+    </tr>
+    <tr>
+      <th>6983</th>
+      <td>05: The Store</td>
+      <td>time</td>
+      <td>42</td>
+      <td>14</td>
+      <td>42.000000</td>
+      <td>4.249850</td>
+      <td>0.033668</td>
+    </tr>
+    <tr>
+      <th>1555</th>
+      <td>05: The Store</td>
+      <td>day</td>
+      <td>40</td>
+      <td>14</td>
+      <td>40.000000</td>
+      <td>4.023150</td>
+      <td>0.032065</td>
+    </tr>
+    <tr>
+      <th>1405</th>
+      <td>05: The Store</td>
+      <td>could</td>
+      <td>34</td>
+      <td>13</td>
+      <td>36.345758</td>
+      <td>3.608940</td>
+      <td>0.029135</td>
+    </tr>
+    <tr>
+      <th>2210</th>
+      <td>05: The Store</td>
+      <td>father</td>
+      <td>32</td>
+      <td>13</td>
+      <td>34.207772</td>
+      <td>3.366599</td>
+      <td>0.027422</td>
+    </tr>
+    <tr>
+      <th>11902</th>
+      <td>05: The Store</td>
+      <td>baxter</td>
+      <td>11</td>
+      <td>1</td>
+      <td>33.163933</td>
+      <td>3.248279</td>
+      <td>0.026585</td>
+    </tr>
+    <tr>
+      <th>13190</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marcus</td>
+      <td>38</td>
+      <td>1</td>
+      <td>114.566315</td>
+      <td>12.475266</td>
+      <td>0.091839</td>
+    </tr>
+    <tr>
+      <th>13092</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>avis</td>
+      <td>26</td>
+      <td>1</td>
+      <td>78.387479</td>
+      <td>8.374383</td>
+      <td>0.062837</td>
+    </tr>
+    <tr>
+      <th>13192</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marvin</td>
+      <td>24</td>
+      <td>1</td>
+      <td>72.357672</td>
+      <td>7.690903</td>
+      <td>0.058003</td>
+    </tr>
+    <tr>
+      <th>13191</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>marvella</td>
+      <td>23</td>
+      <td>1</td>
+      <td>69.342769</td>
+      <td>7.349162</td>
+      <td>0.055587</td>
+    </tr>
+    <tr>
+      <th>5638</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>said</td>
+      <td>64</td>
+      <td>13</td>
+      <td>68.415544</td>
+      <td>7.244061</td>
+      <td>0.054843</td>
+    </tr>
+    <tr>
+      <th>4017</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>man</td>
+      <td>63</td>
+      <td>13</td>
+      <td>67.346551</td>
+      <td>7.122890</td>
+      <td>0.053986</td>
+    </tr>
+    <tr>
+      <th>7098</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>train</td>
+      <td>25</td>
+      <td>5</td>
+      <td>47.907268</td>
+      <td>4.919441</td>
+      <td>0.038403</td>
+    </tr>
+    <tr>
+      <th>13263</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>subway</td>
+      <td>15</td>
+      <td>1</td>
+      <td>45.223545</td>
+      <td>4.615240</td>
+      <td>0.036252</td>
+    </tr>
+    <tr>
+      <th>13133</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>dreadlocks</td>
+      <td>11</td>
+      <td>1</td>
+      <td>33.163933</td>
+      <td>3.248279</td>
+      <td>0.026585</td>
+    </tr>
+    <tr>
+      <th>13132</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>dreadlock</td>
+      <td>8</td>
+      <td>1</td>
+      <td>24.119224</td>
+      <td>2.223058</td>
+      <td>0.019334</td>
+    </tr>
+    <tr>
+      <th>3772</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>line</td>
+      <td>18</td>
+      <td>10</td>
+      <td>23.582789</td>
+      <td>2.162253</td>
+      <td>0.018904</td>
+    </tr>
+    <tr>
+      <th>4811</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>orange</td>
+      <td>11</td>
+      <td>4</td>
+      <td>23.084735</td>
+      <td>2.105799</td>
+      <td>0.018505</td>
+    </tr>
+    <tr>
+      <th>4354</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>mother</td>
+      <td>17</td>
+      <td>13</td>
+      <td>18.172879</td>
+      <td>1.549038</td>
+      <td>0.014568</td>
+    </tr>
+    <tr>
+      <th>13096</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>ballston</td>
+      <td>6</td>
+      <td>1</td>
+      <td>18.089418</td>
+      <td>1.539578</td>
+      <td>0.014501</td>
+    </tr>
+    <tr>
+      <th>3748</th>
+      <td>06: An Orange Line Train to Ballston</td>
+      <td>like</td>
+      <td>17</td>
+      <td>14</td>
+      <td>17.000000</td>
+      <td>1.416092</td>
+      <td>0.013628</td>
+    </tr>
+    <tr>
+      <th>13677</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>madeleine</td>
+      <td>74</td>
+      <td>1</td>
+      <td>223.102824</td>
+      <td>24.777916</td>
+      <td>0.178844</td>
+    </tr>
+    <tr>
+      <th>13676</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>maddie</td>
+      <td>62</td>
+      <td>1</td>
+      <td>186.923987</td>
+      <td>20.677033</td>
+      <td>0.149842</td>
+    </tr>
+    <tr>
+      <th>13820</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>samuel</td>
+      <td>41</td>
+      <td>1</td>
+      <td>123.611024</td>
+      <td>13.500487</td>
+      <td>0.099089</td>
+    </tr>
+    <tr>
+      <th>13819</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>sam</td>
+      <td>34</td>
+      <td>1</td>
+      <td>102.506703</td>
+      <td>11.108305</td>
+      <td>0.082171</td>
+    </tr>
+    <tr>
+      <th>5639</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>said</td>
+      <td>81</td>
+      <td>13</td>
+      <td>86.588423</td>
+      <td>9.303963</td>
+      <td>0.069411</td>
+    </tr>
+    <tr>
+      <th>7910</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>would</td>
+      <td>71</td>
+      <td>14</td>
+      <td>71.000000</td>
+      <td>7.537010</td>
+      <td>0.056915</td>
+    </tr>
+    <tr>
+      <th>13761</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>pookie</td>
+      <td>21</td>
+      <td>1</td>
+      <td>63.312963</td>
+      <td>6.665682</td>
+      <td>0.050753</td>
+    </tr>
+    <tr>
+      <th>9116</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>curtis</td>
+      <td>16</td>
+      <td>2</td>
+      <td>41.751007</td>
+      <td>4.221627</td>
+      <td>0.033468</td>
+    </tr>
+    <tr>
+      <th>13329</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>arnisa</td>
+      <td>13</td>
+      <td>1</td>
+      <td>39.193739</td>
+      <td>3.931760</td>
+      <td>0.031418</td>
+    </tr>
+    <tr>
+      <th>13943</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>williams</td>
+      <td>12</td>
+      <td>1</td>
+      <td>36.178836</td>
+      <td>3.590019</td>
+      <td>0.029002</td>
+    </tr>
+    <tr>
+      <th>1407</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>could</td>
+      <td>33</td>
+      <td>13</td>
+      <td>35.276765</td>
+      <td>3.487769</td>
+      <td>0.028279</td>
+    </tr>
+    <tr>
+      <th>1557</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>day</td>
+      <td>35</td>
+      <td>14</td>
+      <td>35.000000</td>
+      <td>3.456398</td>
+      <td>0.028057</td>
+    </tr>
+    <tr>
+      <th>4018</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>man</td>
+      <td>32</td>
+      <td>13</td>
+      <td>34.207772</td>
+      <td>3.366599</td>
+      <td>0.027422</td>
+    </tr>
+    <tr>
+      <th>460</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>back</td>
+      <td>33</td>
+      <td>14</td>
+      <td>33.000000</td>
+      <td>3.229697</td>
+      <td>0.026453</td>
+    </tr>
+    <tr>
+      <th>4773</th>
+      <td>07: The Sunday Following Mother's Day</td>
+      <td>one</td>
+      <td>32</td>
+      <td>14</td>
+      <td>32.000000</td>
+      <td>3.116347</td>
+      <td>0.025652</td>
+    </tr>
+    <tr>
+      <th>14129</th>
+      <td>08: Lost in the City</td>
+      <td>lydia</td>
+      <td>32</td>
+      <td>1</td>
+      <td>96.476897</td>
+      <td>10.424825</td>
+      <td>0.077338</td>
+    </tr>
+    <tr>
+      <th>5640</th>
+      <td>08: Lost in the City</td>
+      <td>said</td>
+      <td>46</td>
+      <td>13</td>
+      <td>49.173672</td>
+      <td>5.062988</td>
+      <td>0.039419</td>
+    </tr>
+    <tr>
+      <th>4356</th>
+      <td>08: Lost in the City</td>
+      <td>mother</td>
+      <td>44</td>
+      <td>13</td>
+      <td>47.035686</td>
+      <td>4.820647</td>
+      <td>0.037705</td>
+    </tr>
+    <tr>
+      <th>11002</th>
+      <td>08: Lost in the City</td>
+      <td>georgia</td>
+      <td>19</td>
+      <td>3</td>
+      <td>44.113361</td>
+      <td>4.489400</td>
+      <td>0.035362</td>
+    </tr>
+    <tr>
+      <th>975</th>
+      <td>08: Lost in the City</td>
+      <td>cab</td>
+      <td>13</td>
+      <td>5</td>
+      <td>24.911780</td>
+      <td>2.312895</td>
+      <td>0.019970</td>
+    </tr>
+    <tr>
+      <th>9180</th>
+      <td>08: Lost in the City</td>
+      <td>driver</td>
+      <td>8</td>
+      <td>5</td>
+      <td>15.330326</td>
+      <td>1.226834</td>
+      <td>0.012289</td>
+    </tr>
+    <tr>
+      <th>13958</th>
+      <td>08: Lost in the City</td>
+      <td>antibes</td>
+      <td>5</td>
+      <td>1</td>
+      <td>15.074515</td>
+      <td>1.197837</td>
+      <td>0.012084</td>
+    </tr>
+    <tr>
+      <th>14026</th>
+      <td>08: Lost in the City</td>
+      <td>dreaming</td>
+      <td>5</td>
+      <td>1</td>
+      <td>15.074515</td>
+      <td>1.197837</td>
+      <td>0.012084</td>
+    </tr>
+    <tr>
+      <th>3460</th>
+      <td>08: Lost in the City</td>
+      <td>know</td>
+      <td>15</td>
+      <td>14</td>
+      <td>15.000000</td>
+      <td>1.189391</td>
+      <td>0.012024</td>
+    </tr>
+    <tr>
+      <th>7911</th>
+      <td>08: Lost in the City</td>
+      <td>would</td>
+      <td>15</td>
+      <td>14</td>
+      <td>15.000000</td>
+      <td>1.189391</td>
+      <td>0.012024</td>
+    </tr>
+    <tr>
+      <th>2611</th>
+      <td>08: Lost in the City</td>
+      <td>get</td>
+      <td>14</td>
+      <td>13</td>
+      <td>14.965900</td>
+      <td>1.185526</td>
+      <td>0.011997</td>
+    </tr>
+    <tr>
+      <th>4019</th>
+      <td>08: Lost in the City</td>
+      <td>man</td>
+      <td>14</td>
+      <td>13</td>
+      <td>14.965900</td>
+      <td>1.185526</td>
+      <td>0.011997</td>
+    </tr>
+    <tr>
+      <th>6939</th>
+      <td>08: Lost in the City</td>
+      <td>thought</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14.000000</td>
+      <td>1.076041</td>
+      <td>0.011223</td>
+    </tr>
+    <tr>
+      <th>10217</th>
+      <td>08: Lost in the City</td>
+      <td>sorry</td>
+      <td>9</td>
+      <td>8</td>
+      <td>13.597431</td>
+      <td>1.030409</td>
+      <td>0.010900</td>
+    </tr>
+    <tr>
+      <th>4774</th>
+      <td>08: Lost in the City</td>
+      <td>one</td>
+      <td>13</td>
+      <td>14</td>
+      <td>13.000000</td>
+      <td>0.962690</td>
+      <td>0.010421</td>
+    </tr>
+    <tr>
+      <th>9597</th>
+      <td>09: His Mother's House</td>
+      <td>joyce</td>
+      <td>84</td>
+      <td>2</td>
+      <td>219.192785</td>
+      <td>24.334712</td>
+      <td>0.175709</td>
+    </tr>
+    <tr>
+      <th>14563</th>
+      <td>09: His Mother's House</td>
+      <td>rickey</td>
+      <td>64</td>
+      <td>1</td>
+      <td>192.953793</td>
+      <td>21.360513</td>
+      <td>0.154676</td>
+    </tr>
+    <tr>
+      <th>14579</th>
+      <td>09: His Mother's House</td>
+      <td>santiago</td>
+      <td>54</td>
+      <td>1</td>
+      <td>162.804763</td>
+      <td>17.943111</td>
+      <td>0.130508</td>
+    </tr>
+    <tr>
+      <th>5641</th>
+      <td>09: His Mother's House</td>
+      <td>said</td>
+      <td>96</td>
+      <td>13</td>
+      <td>102.623316</td>
+      <td>11.121523</td>
+      <td>0.082265</td>
+    </tr>
+    <tr>
+      <th>14434</th>
+      <td>09: His Mother's House</td>
+      <td>humphrey</td>
+      <td>33</td>
+      <td>1</td>
+      <td>99.491800</td>
+      <td>10.766565</td>
+      <td>0.079755</td>
+    </tr>
+    <tr>
+      <th>9860</th>
+      <td>09: His Mother's House</td>
+      <td>pearl</td>
+      <td>22</td>
+      <td>2</td>
+      <td>57.407634</td>
+      <td>5.996311</td>
+      <td>0.046019</td>
+    </tr>
+    <tr>
+      <th>14577</th>
+      <td>09: His Mother's House</td>
+      <td>sandy</td>
+      <td>18</td>
+      <td>1</td>
+      <td>54.268254</td>
+      <td>5.640461</td>
+      <td>0.043503</td>
+    </tr>
+    <tr>
+      <th>4775</th>
+      <td>09: His Mother's House</td>
+      <td>one</td>
+      <td>50</td>
+      <td>14</td>
+      <td>50.000000</td>
+      <td>5.156653</td>
+      <td>0.040081</td>
+    </tr>
+    <tr>
+      <th>7912</th>
+      <td>09: His Mother's House</td>
+      <td>would</td>
+      <td>49</td>
+      <td>14</td>
+      <td>49.000000</td>
+      <td>5.043303</td>
+      <td>0.039279</td>
+    </tr>
+    <tr>
+      <th>14627</th>
+      <td>09: His Mother's House</td>
+      <td>smokey</td>
+      <td>16</td>
+      <td>1</td>
+      <td>48.238448</td>
+      <td>4.956980</td>
+      <td>0.038669</td>
+    </tr>
+    <tr>
+      <th>3176</th>
+      <td>09: His Mother's House</td>
+      <td>house</td>
+      <td>35</td>
+      <td>12</td>
+      <td>40.008530</td>
+      <td>4.024116</td>
+      <td>0.032072</td>
+    </tr>
+    <tr>
+      <th>3751</th>
+      <td>09: His Mother's House</td>
+      <td>like</td>
+      <td>38</td>
+      <td>14</td>
+      <td>38.000000</td>
+      <td>3.796449</td>
+      <td>0.030462</td>
+    </tr>
+    <tr>
+      <th>4357</th>
+      <td>09: His Mother's House</td>
+      <td>mother</td>
+      <td>35</td>
+      <td>13</td>
+      <td>37.414751</td>
+      <td>3.730111</td>
+      <td>0.029992</td>
+    </tr>
+    <tr>
+      <th>6685</th>
+      <td>09: His Mother's House</td>
+      <td>table</td>
+      <td>29</td>
+      <td>11</td>
+      <td>35.471163</td>
+      <td>3.509804</td>
+      <td>0.028434</td>
+    </tr>
+    <tr>
+      <th>7796</th>
+      <td>09: His Mother's House</td>
+      <td>woman</td>
+      <td>35</td>
+      <td>14</td>
+      <td>35.000000</td>
+      <td>3.456398</td>
+      <td>0.028057</td>
+    </tr>
+    <tr>
+      <th>9726</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>mildred</td>
+      <td>27</td>
+      <td>2</td>
+      <td>70.454824</td>
+      <td>7.475214</td>
+      <td>0.056478</td>
+    </tr>
+    <tr>
+      <th>7797</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>woman</td>
+      <td>29</td>
+      <td>14</td>
+      <td>29.000000</td>
+      <td>2.776296</td>
+      <td>0.023247</td>
+    </tr>
+    <tr>
+      <th>14726</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>butterfly</td>
+      <td>7</td>
+      <td>1</td>
+      <td>21.104321</td>
+      <td>1.881318</td>
+      <td>0.016918</td>
+    </tr>
+    <tr>
+      <th>14761</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>mansfield</td>
+      <td>6</td>
+      <td>1</td>
+      <td>18.089418</td>
+      <td>1.539578</td>
+      <td>0.014501</td>
+    </tr>
+    <tr>
+      <th>5642</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>said</td>
+      <td>16</td>
+      <td>13</td>
+      <td>17.103886</td>
+      <td>1.427867</td>
+      <td>0.013711</td>
+    </tr>
+    <tr>
+      <th>6531</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>street</td>
+      <td>14</td>
+      <td>13</td>
+      <td>14.965900</td>
+      <td>1.185526</td>
+      <td>0.011997</td>
+    </tr>
+    <tr>
+      <th>14764</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>median</td>
+      <td>4</td>
+      <td>1</td>
+      <td>12.059612</td>
+      <td>0.856097</td>
+      <td>0.009667</td>
+    </tr>
+    <tr>
+      <th>14801</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>woolworth</td>
+      <td>4</td>
+      <td>1</td>
+      <td>12.059612</td>
+      <td>0.856097</td>
+      <td>0.009667</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>back</td>
+      <td>10</td>
+      <td>14</td>
+      <td>10.000000</td>
+      <td>0.622639</td>
+      <td>0.008016</td>
+    </tr>
+    <tr>
+      <th>5684</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>say</td>
+      <td>9</td>
+      <td>13</td>
+      <td>9.620936</td>
+      <td>0.579672</td>
+      <td>0.007712</td>
+    </tr>
+    <tr>
+      <th>14765</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>morton</td>
+      <td>3</td>
+      <td>1</td>
+      <td>9.044709</td>
+      <td>0.514357</td>
+      <td>0.007250</td>
+    </tr>
+    <tr>
+      <th>9282</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>f</td>
+      <td>5</td>
+      <td>6</td>
+      <td>8.810700</td>
+      <td>0.487832</td>
+      <td>0.007063</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>day</td>
+      <td>8</td>
+      <td>14</td>
+      <td>8.000000</td>
+      <td>0.395939</td>
+      <td>0.006413</td>
+    </tr>
+    <tr>
+      <th>7913</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>would</td>
+      <td>8</td>
+      <td>14</td>
+      <td>8.000000</td>
+      <td>0.395939</td>
+      <td>0.006413</td>
+    </tr>
+    <tr>
+      <th>9412</th>
+      <td>10: A Butterfly on F Street</td>
+      <td>gladys</td>
+      <td>3</td>
+      <td>2</td>
+      <td>7.828314</td>
+      <td>0.376478</td>
+      <td>0.006275</td>
+    </tr>
+    <tr>
+      <th>15149</th>
+      <td>11: Gospel</td>
+      <td>vivian</td>
+      <td>68</td>
+      <td>1</td>
+      <td>205.013405</td>
+      <td>22.727474</td>
+      <td>0.164343</td>
+    </tr>
+    <tr>
+      <th>14896</th>
+      <td>11: Gospel</td>
+      <td>diane</td>
+      <td>42</td>
+      <td>1</td>
+      <td>126.625927</td>
+      <td>13.842227</td>
+      <td>0.101506</td>
+    </tr>
+    <tr>
+      <th>14996</th>
+      <td>11: Gospel</td>
+      <td>maude</td>
+      <td>32</td>
+      <td>1</td>
+      <td>96.476897</td>
+      <td>10.424825</td>
+      <td>0.077338</td>
+    </tr>
+    <tr>
+      <th>5643</th>
+      <td>11: Gospel</td>
+      <td>said</td>
+      <td>77</td>
+      <td>13</td>
+      <td>82.312451</td>
+      <td>8.819280</td>
+      <td>0.065983</td>
+    </tr>
+    <tr>
+      <th>8801</th>
+      <td>11: Gospel</td>
+      <td>anita</td>
+      <td>25</td>
+      <td>2</td>
+      <td>65.235948</td>
+      <td>6.883653</td>
+      <td>0.052294</td>
+    </tr>
+    <tr>
+      <th>15059</th>
+      <td>11: Gospel</td>
+      <td>reverend</td>
+      <td>18</td>
+      <td>2</td>
+      <td>46.969882</td>
+      <td>4.813188</td>
+      <td>0.037652</td>
+    </tr>
+    <tr>
+      <th>14947</th>
+      <td>11: Gospel</td>
+      <td>gospelteers</td>
+      <td>15</td>
+      <td>1</td>
+      <td>45.223545</td>
+      <td>4.615240</td>
+      <td>0.036252</td>
+    </tr>
+    <tr>
+      <th>14991</th>
+      <td>11: Gospel</td>
+      <td>mae</td>
+      <td>15</td>
+      <td>1</td>
+      <td>45.223545</td>
+      <td>4.615240</td>
+      <td>0.036252</td>
+    </tr>
+    <tr>
+      <th>2849</th>
+      <td>11: Gospel</td>
+      <td>group</td>
+      <td>26</td>
+      <td>7</td>
+      <td>42.343825</td>
+      <td>4.288823</td>
+      <td>0.033944</td>
+    </tr>
+    <tr>
+      <th>7914</th>
+      <td>11: Gospel</td>
+      <td>would</td>
+      <td>42</td>
+      <td>14</td>
+      <td>42.000000</td>
+      <td>4.249850</td>
+      <td>0.033668</td>
+    </tr>
+    <tr>
+      <th>1411</th>
+      <td>11: Gospel</td>
+      <td>could</td>
+      <td>39</td>
+      <td>13</td>
+      <td>41.690722</td>
+      <td>4.214793</td>
+      <td>0.033420</td>
+    </tr>
+    <tr>
+      <th>1179</th>
+      <td>11: Gospel</td>
+      <td>church</td>
+      <td>26</td>
+      <td>9</td>
+      <td>36.542093</td>
+      <td>3.631195</td>
+      <td>0.029293</td>
+    </tr>
+    <tr>
+      <th>14886</th>
+      <td>11: Gospel</td>
+      <td>counsel</td>
+      <td>12</td>
+      <td>1</td>
+      <td>36.178836</td>
+      <td>3.590019</td>
+      <td>0.029002</td>
+    </tr>
+    <tr>
+      <th>7812</th>
+      <td>11: Gospel</td>
+      <td>women</td>
+      <td>31</td>
+      <td>12</td>
+      <td>35.436126</td>
+      <td>3.505833</td>
+      <td>0.028406</td>
+    </tr>
+    <tr>
+      <th>4022</th>
+      <td>11: Gospel</td>
+      <td>man</td>
+      <td>31</td>
+      <td>13</td>
+      <td>33.138779</td>
+      <td>3.245428</td>
+      <td>0.026565</td>
+    </tr>
+    <tr>
+      <th>15403</th>
+      <td>12: A New Man</td>
+      <td>woodrow</td>
+      <td>57</td>
+      <td>1</td>
+      <td>171.849472</td>
+      <td>18.968331</td>
+      <td>0.137758</td>
+    </tr>
+    <tr>
+      <th>15335</th>
+      <td>12: A New Man</td>
+      <td>rita</td>
+      <td>22</td>
+      <td>1</td>
+      <td>66.327866</td>
+      <td>7.007422</td>
+      <td>0.053170</td>
+    </tr>
+    <tr>
+      <th>7915</th>
+      <td>12: A New Man</td>
+      <td>would</td>
+      <td>37</td>
+      <td>14</td>
+      <td>37.000000</td>
+      <td>3.683098</td>
+      <td>0.029660</td>
+    </tr>
+    <tr>
+      <th>5644</th>
+      <td>12: A New Man</td>
+      <td>said</td>
+      <td>33</td>
+      <td>13</td>
+      <td>35.276765</td>
+      <td>3.487769</td>
+      <td>0.028279</td>
+    </tr>
+    <tr>
+      <th>4023</th>
+      <td>12: A New Man</td>
+      <td>man</td>
+      <td>27</td>
+      <td>13</td>
+      <td>28.862808</td>
+      <td>2.760745</td>
+      <td>0.023137</td>
+    </tr>
+    <tr>
+      <th>15240</th>
+      <td>12: A New Man</td>
+      <td>elaine</td>
+      <td>9</td>
+      <td>1</td>
+      <td>27.134127</td>
+      <td>2.564798</td>
+      <td>0.021751</td>
+    </tr>
+    <tr>
+      <th>1412</th>
+      <td>12: A New Man</td>
+      <td>could</td>
+      <td>23</td>
+      <td>13</td>
+      <td>24.586836</td>
+      <td>2.276062</td>
+      <td>0.019709</td>
+    </tr>
+    <tr>
+      <th>2217</th>
+      <td>12: A New Man</td>
+      <td>father</td>
+      <td>22</td>
+      <td>13</td>
+      <td>23.517843</td>
+      <td>2.154891</td>
+      <td>0.018852</td>
+    </tr>
+    <tr>
+      <th>4778</th>
+      <td>12: A New Man</td>
+      <td>one</td>
+      <td>23</td>
+      <td>14</td>
+      <td>23.000000</td>
+      <td>2.096194</td>
+      <td>0.018437</td>
+    </tr>
+    <tr>
+      <th>15216</th>
+      <td>12: A New Man</td>
+      <td>cunningham</td>
+      <td>7</td>
+      <td>1</td>
+      <td>21.104321</td>
+      <td>1.881318</td>
+      <td>0.016918</td>
+    </tr>
+    <tr>
+      <th>1550</th>
+      <td>12: A New Man</td>
+      <td>daughter</td>
+      <td>16</td>
+      <td>10</td>
+      <td>20.962479</td>
+      <td>1.865240</td>
+      <td>0.016804</td>
+    </tr>
+    <tr>
+      <th>8552</th>
+      <td>12: A New Man</td>
+      <td>read</td>
+      <td>12</td>
+      <td>7</td>
+      <td>19.543304</td>
+      <td>1.704376</td>
+      <td>0.015666</td>
+    </tr>
+    <tr>
+      <th>2033</th>
+      <td>12: A New Man</td>
+      <td>even</td>
+      <td>16</td>
+      <td>13</td>
+      <td>17.103886</td>
+      <td>1.427867</td>
+      <td>0.013711</td>
+    </tr>
+    <tr>
+      <th>4743</th>
+      <td>12: A New Man</td>
+      <td>old</td>
+      <td>16</td>
+      <td>13</td>
+      <td>17.103886</td>
+      <td>1.427867</td>
+      <td>0.013711</td>
+    </tr>
+    <tr>
+      <th>5312</th>
+      <td>12: A New Man</td>
+      <td>put</td>
+      <td>16</td>
+      <td>13</td>
+      <td>17.103886</td>
+      <td>1.427867</td>
+      <td>0.013711</td>
+    </tr>
+    <tr>
+      <th>15480</th>
+      <td>13: A Dark Night</td>
+      <td>garrett</td>
+      <td>38</td>
+      <td>1</td>
+      <td>114.566315</td>
+      <td>12.475266</td>
+      <td>0.091839</td>
+    </tr>
+    <tr>
+      <th>15417</th>
+      <td>13: A Dark Night</td>
+      <td>beatrice</td>
+      <td>31</td>
+      <td>1</td>
+      <td>93.461994</td>
+      <td>10.083084</td>
+      <td>0.074921</td>
+    </tr>
+    <tr>
+      <th>15433</th>
+      <td>13: A Dark Night</td>
+      <td>carmena</td>
+      <td>20</td>
+      <td>1</td>
+      <td>60.298060</td>
+      <td>6.323941</td>
+      <td>0.048336</td>
+    </tr>
+    <tr>
+      <th>5645</th>
+      <td>13: A Dark Night</td>
+      <td>said</td>
+      <td>49</td>
+      <td>13</td>
+      <td>52.380651</td>
+      <td>5.426500</td>
+      <td>0.041989</td>
+    </tr>
+    <tr>
+      <th>10467</th>
+      <td>13: A Dark Night</td>
+      <td>uncle</td>
+      <td>14</td>
+      <td>2</td>
+      <td>36.532131</td>
+      <td>3.630065</td>
+      <td>0.029285</td>
+    </tr>
+    <tr>
+      <th>15573</th>
+      <td>13: A Dark Night</td>
+      <td>thunder</td>
+      <td>12</td>
+      <td>1</td>
+      <td>36.178836</td>
+      <td>3.590019</td>
+      <td>0.029002</td>
+    </tr>
+    <tr>
+      <th>15489</th>
+      <td>13: A Dark Night</td>
+      <td>henry</td>
+      <td>10</td>
+      <td>1</td>
+      <td>30.149030</td>
+      <td>2.906539</td>
+      <td>0.024168</td>
+    </tr>
+    <tr>
+      <th>1740</th>
+      <td>13: A Dark Night</td>
+      <td>door</td>
+      <td>27</td>
+      <td>14</td>
+      <td>27.000000</td>
+      <td>2.549595</td>
+      <td>0.021644</td>
+    </tr>
+    <tr>
+      <th>1519</th>
+      <td>13: A Dark Night</td>
+      <td>daddy</td>
+      <td>17</td>
+      <td>8</td>
+      <td>25.684036</td>
+      <td>2.400430</td>
+      <td>0.020589</td>
+    </tr>
+    <tr>
+      <th>15498</th>
+      <td>13: A Dark Night</td>
+      <td>joe</td>
+      <td>8</td>
+      <td>1</td>
+      <td>24.119224</td>
+      <td>2.223058</td>
+      <td>0.019334</td>
+    </tr>
+    <tr>
+      <th>4779</th>
+      <td>13: A Dark Night</td>
+      <td>one</td>
+      <td>23</td>
+      <td>14</td>
+      <td>23.000000</td>
+      <td>2.096194</td>
+      <td>0.018437</td>
+    </tr>
+    <tr>
+      <th>15420</th>
+      <td>13: A Dark Night</td>
+      <td>boone</td>
+      <td>7</td>
+      <td>1</td>
+      <td>21.104321</td>
+      <td>1.881318</td>
+      <td>0.016918</td>
+    </tr>
+    <tr>
+      <th>15507</th>
+      <td>13: A Dark Night</td>
+      <td>lightning</td>
+      <td>7</td>
+      <td>1</td>
+      <td>21.104321</td>
+      <td>1.881318</td>
+      <td>0.016918</td>
+    </tr>
+    <tr>
+      <th>7916</th>
+      <td>13: A Dark Night</td>
+      <td>would</td>
+      <td>21</td>
+      <td>14</td>
+      <td>21.000000</td>
+      <td>1.869493</td>
+      <td>0.016834</td>
+    </tr>
+    <tr>
+      <th>14105</th>
+      <td>13: A Dark Night</td>
+      <td>john</td>
+      <td>10</td>
+      <td>4</td>
+      <td>20.986123</td>
+      <td>1.867920</td>
+      <td>0.016823</td>
+    </tr>
+    <tr>
+      <th>13683</th>
+      <td>14: Marie</td>
+      <td>marie</td>
+      <td>49</td>
+      <td>2</td>
+      <td>127.862458</td>
+      <td>13.982389</td>
+      <td>0.102497</td>
+    </tr>
+    <tr>
+      <th>15845</th>
+      <td>14: Marie</td>
+      <td>vernelle</td>
+      <td>30</td>
+      <td>1</td>
+      <td>90.447091</td>
+      <td>9.741344</td>
+      <td>0.072504</td>
+    </tr>
+    <tr>
+      <th>15851</th>
+      <td>14: Marie</td>
+      <td>wilamena</td>
+      <td>20</td>
+      <td>1</td>
+      <td>60.298060</td>
+      <td>6.323941</td>
+      <td>0.048336</td>
+    </tr>
+    <tr>
+      <th>5646</th>
+      <td>14: Marie</td>
+      <td>said</td>
+      <td>51</td>
+      <td>13</td>
+      <td>54.518636</td>
+      <td>5.668842</td>
+      <td>0.043703</td>
+    </tr>
+    <tr>
+      <th>7917</th>
+      <td>14: Marie</td>
+      <td>would</td>
+      <td>37</td>
+      <td>14</td>
+      <td>37.000000</td>
+      <td>3.683098</td>
+      <td>0.029660</td>
+    </tr>
+    <tr>
+      <th>4025</th>
+      <td>14: Marie</td>
+      <td>man</td>
+      <td>32</td>
+      <td>13</td>
+      <td>34.207772</td>
+      <td>3.366599</td>
+      <td>0.027422</td>
+    </tr>
+    <tr>
+      <th>11527</th>
+      <td>14: Marie</td>
+      <td>security</td>
+      <td>13</td>
+      <td>2</td>
+      <td>33.922693</td>
+      <td>3.334285</td>
+      <td>0.027193</td>
+    </tr>
+    <tr>
+      <th>7801</th>
+      <td>14: Marie</td>
+      <td>woman</td>
+      <td>31</td>
+      <td>14</td>
+      <td>31.000000</td>
+      <td>3.002996</td>
+      <td>0.024850</td>
+    </tr>
+    <tr>
+      <th>15778</th>
+      <td>14: Marie</td>
+      <td>receptionist</td>
+      <td>10</td>
+      <td>1</td>
+      <td>30.149030</td>
+      <td>2.906539</td>
+      <td>0.024168</td>
+    </tr>
+    <tr>
+      <th>7041</th>
+      <td>14: Marie</td>
+      <td>told</td>
+      <td>25</td>
+      <td>13</td>
+      <td>26.724822</td>
+      <td>2.518404</td>
+      <td>0.021423</td>
+    </tr>
+    <tr>
+      <th>11613</th>
+      <td>14: Marie</td>
+      <td>social</td>
+      <td>10</td>
+      <td>2</td>
+      <td>26.094379</td>
+      <td>2.446943</td>
+      <td>0.020918</td>
+    </tr>
+    <tr>
+      <th>4780</th>
+      <td>14: Marie</td>
+      <td>one</td>
+      <td>26</td>
+      <td>14</td>
+      <td>26.000000</td>
+      <td>2.436245</td>
+      <td>0.020842</td>
+    </tr>
+    <tr>
+      <th>15618</th>
+      <td>14: Marie</td>
+      <td>calhoun</td>
+      <td>8</td>
+      <td>1</td>
+      <td>24.119224</td>
+      <td>2.223058</td>
+      <td>0.019334</td>
+    </tr>
+    <tr>
+      <th>15852</th>
+      <td>14: Marie</td>
+      <td>wise</td>
+      <td>8</td>
+      <td>1</td>
+      <td>24.119224</td>
+      <td>2.223058</td>
+      <td>0.019334</td>
+    </tr>
+    <tr>
+      <th>15091</th>
+      <td>14: Marie</td>
+      <td>smith</td>
+      <td>9</td>
+      <td>2</td>
+      <td>23.484941</td>
+      <td>2.151162</td>
+      <td>0.018826</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-metadata">
+<h2>Get Metadata<a class="headerlink" href="#get-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Lost in the city : stories /&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">page_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>260
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">publisher</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;HarperPerennial&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">handle_url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://hdl.handle.net/2027/mdp.39015029970129&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">meta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: &#39;mdp.39015029970129&#39;,
+ &#39;metadata_schema_version&#39;: &#39;https://schemas.hathitrust.org/EF_Schema_MetadataSubSchema_v_3.0&#39;,
+ &#39;enumeration_chronology&#39;: None,
+ &#39;type_of_resource&#39;: &#39;http://id.loc.gov/ontologies/bibframe/Text&#39;,
+ &#39;title&#39;: &#39;Lost in the city : stories /&#39;,
+ &#39;date_created&#39;: 20200209,
+ &#39;pub_date&#39;: 1993,
+ &#39;language&#39;: &#39;eng&#39;,
+ &#39;access_profile&#39;: &#39;google&#39;,
+ &#39;isbn&#39;: &#39;0060975571&#39;,
+ &#39;issn&#39;: None,
+ &#39;lccn&#39;: &#39;92054781&#39;,
+ &#39;oclc&#39;: &#39;27685090&#39;,
+ &#39;page_count&#39;: 260,
+ &#39;feature_schema_version&#39;: &#39;https://schemas.hathitrust.org/EF_Schema_FeaturesSubSchema_v_3.0&#39;,
+ &#39;access_rights&#39;: &#39;ic&#39;,
+ &#39;alternate_title&#39;: None,
+ &#39;category&#39;: &#39;American literature&#39;,
+ &#39;genre_ld&#39;: [&#39;http://id.loc.gov/vocabulary/marcgt/doc&#39;,
+  &#39;http://id.loc.gov/vocabulary/marcgt/fic&#39;],
+ &#39;genre&#39;: [&#39;document (computer)&#39;, &#39;fiction&#39;],
+ &#39;contributor_ld&#39;: {&#39;id&#39;: &#39;http://www.viaf.org/viaf/114552168&#39;,
+  &#39;type&#39;: &#39;http://id.loc.gov/ontologies/bibframe/Person&#39;,
+  &#39;name&#39;: &#39;Jones, Edward P.&#39;},
+ &#39;contributor&#39;: &#39;Jones, Edward P.&#39;,
+ &#39;handle_url&#39;: &#39;http://hdl.handle.net/2027/mdp.39015029970129&#39;,
+ &#39;source_institution_ld&#39;: {&#39;type&#39;: &#39;http://id.loc.gov/ontologies/bibframe/Organization&#39;,
+  &#39;name&#39;: &#39;MIU&#39;},
+ &#39;source_institution&#39;: &#39;MIU&#39;,
+ &#39;lcc&#39;: &#39;PS3560.O4813L67 1993&#39;,
+ &#39;type&#39;: [&#39;DataFeedItem&#39;, &#39;Book&#39;],
+ &#39;is_part_of&#39;: None,
+ &#39;last_rights_update_date&#39;: 20170725,
+ &#39;pub_place_ld&#39;: {&#39;id&#39;: &#39;http://id.loc.gov/vocabulary/countries/nyu&#39;,
+  &#39;type&#39;: &#39;http://id.loc.gov/ontologies/bibframe/Place&#39;,
+  &#39;name&#39;: &#39;New York (State)&#39;},
+ &#39;pub_place&#39;: &#39;New York (State)&#39;,
+ &#39;main_entity_of_page&#39;: [&#39;https://catalog.hathitrust.org/Record/002724042&#39;,
+  &#39;http://catalog.hathitrust.org/api/volumes/brief/oclc/27685090.json&#39;,
+  &#39;http://catalog.hathitrust.org/api/volumes/full/oclc/27685090.json&#39;],
+ &#39;publisher_ld&#39;: {&#39;id&#39;: &#39;http://catalogdata.library.illinois.edu/lod/entities/ProvisionActivityAgent/ht/HarperPerennial&#39;,
+  &#39;type&#39;: &#39;http://id.loc.gov/ontologies/bibframe/Organization&#39;,
+  &#39;name&#39;: &#39;HarperPerennial&#39;},
+ &#39;publisher&#39;: &#39;HarperPerennial&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>All possible metadata categories</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;id&#39;, &#39;metadata_schema_version&#39;, &#39;enumeration_chronology&#39;, &#39;type_of_resource&#39;, &#39;title&#39;, &#39;date_created&#39;, &#39;pub_date&#39;, &#39;language&#39;, &#39;access_profile&#39;, &#39;isbn&#39;, &#39;issn&#39;, &#39;lccn&#39;, &#39;oclc&#39;, &#39;page_count&#39;, &#39;feature_schema_version&#39;, &#39;access_rights&#39;, &#39;alternate_title&#39;, &#39;category&#39;, &#39;genre_ld&#39;, &#39;genre&#39;, &#39;contributor_ld&#39;, &#39;contributor&#39;, &#39;handle_url&#39;, &#39;source_institution_ld&#39;, &#39;source_institution&#39;, &#39;lcc&#39;, &#39;type&#39;, &#39;is_part_of&#39;, &#39;last_rights_update_date&#39;, &#39;pub_place_ld&#39;, &#39;pub_place&#39;, &#39;main_entity_of_page&#39;, &#39;publisher_ld&#39;, &#39;publisher&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="work-with-tokens">
+<h2>Work With Tokens<a class="headerlink" href="#work-with-tokens" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>page</th>
+      <th>section</th>
+      <th>token</th>
+      <th>pos</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>,</th>
+      <th>,</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>.046</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3560</th>
+      <th>CD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>AWARD</th>
+      <th>NN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">260</th>
+      <th rowspan="5" valign="top">body</th>
+      <th>world</th>
+      <th>NN</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>would</th>
+      <th>MD</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>writers</th>
+      <th>NNS</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>written</th>
+      <th>VBN</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>•</th>
+      <th>SYM</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>51297 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume</span><span class="o">.</span><span class="n">tokenlist</span><span class="p">(</span><span class="n">page</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">section</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR:root:Invalid section argument: None
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="further-resources">
+<h2>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h2>
+<p>Peter Organisciak and Boris Capitanu, <a class="reference external" href="https://programminghistorian.org/en/lessons/text-mining-with-extracted-features">“Text Mining in Python through the HTRC Feature Reader,”</a> <em>The Programming Historian</em></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Data-Collection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-86905362-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
