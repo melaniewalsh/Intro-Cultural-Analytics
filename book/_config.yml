@@ -10,7 +10,7 @@ author                      : <a href="https://melaniewalsh.org/">Melanie Walsh<
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : "images/logo/favicon.ico"  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
-exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**/in-progress", "**/other_files"]
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**/in-progress", "**/other_files", "features", "scraps"]
 
 #######################################################################################
 # Execution settings
@@ -79,6 +79,15 @@ sphinx:
     - notfound.extension
   # A list of extra extensions to load by Sphinx (added to those already used by JB).
   config:
+      myst_enable_extensions: 
+      - amsmath
+      - colon_fence
+      - deflist
+      - dollarmath
+      - html_image
+      - replacements
+      - smartquotes
+      - substitution
     #redirects:
       #"features/*": "https://melaniewalsh.github.io/Intro-Cultural-Analytics/$source.html"
       notfound_context:
