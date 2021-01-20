@@ -25,7 +25,7 @@ stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
  'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so',
  'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now', 've', 'll', 'amp']
 
-filepath_of_text = "../texts/literature/The-Yellow-Wallpaper.txt"
+filepath_of_text = "../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt"
 number_of_desired_words = 40
 
 # Read in File

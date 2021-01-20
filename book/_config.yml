@@ -7,7 +7,7 @@
 # Book settings
 title                       : Introduction to Cultural Analytics & Python  # The title of the book. Will be placed in the left navbar.
 author                      : <a href="https://melaniewalsh.org/">Melanie Walsh</a>  # The author of the book
-copyright                   : "2020"  # Copyright year to be placed in the footer
+copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : "images/logo/favicon.ico"  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**/in-progress", "**/other_files"]
