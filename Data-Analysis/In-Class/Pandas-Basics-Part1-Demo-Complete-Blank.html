@@ -743,6 +743,13 @@
 <div><p>If you installed Python with Anaconda, you should already have Pandas installed. If you did not install Python with Anaconda, see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">Pandas Installation</a>.</p>
 </div></blockquote>
 <p>To use the Pandas library, we first need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>The above <code class="docutils literal notranslate"><span class="pre">import</span></code> statement not only imports the Pandas library but also gives it an alias or nickname — <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This alias will save us from having to type out the entire words <code class="docutils literal notranslate"><span class="pre">pandas</span></code> each time we need to use it. Many Python libraries have commonly used aliases like <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
 <p>By default, Pandas will display 60 rows and 20 columns. I often change <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">Pandas’ default display settings</a> to show more rows or columns.</p>
 <div class="cell docutils container">
@@ -757,7 +764,6 @@
 <h2>Read in CSV File<a class="headerlink" href="#read-in-csv-file" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="students-what-do-you-notice-about-the-data-already">
 <h3>❓🧐  Students: What do you notice about the data already?<a class="headerlink" href="#students-what-do-you-notice-about-the-data-already" title="Permalink to this headline">¶</a></h3>
-<p><em>Jot down some observations (double-click to type)</em></p>
 <p>To read in a CSV file, we will use the method <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and insert the name of our desired file path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,6 +771,209 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_in</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>full_name</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>disease</th>
+      <th>profession</th>
+      <th>children</th>
+      <th>sent_to</th>
+      <th>sender1</th>
+      <th>sender2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1847-04-17</td>
+      <td>Mary</td>
+      <td>Gallagher</td>
+      <td>Mary Gallagher</td>
+      <td>28.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>Child Alana 10 days</td>
+      <td>Hospital</td>
+      <td>superintendent</td>
+      <td>hd. gibbens</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1847-04-08</td>
+      <td>John</td>
+      <td>Sanin (?)</td>
+      <td>John Sanin (?)</td>
+      <td>19.0</td>
+      <td>m</td>
+      <td>recent emigrant</td>
+      <td>laborer</td>
+      <td>Catherine 2 mo</td>
+      <td>NaN</td>
+      <td>george w. anderson</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1847-04-17</td>
+      <td>Anthony</td>
+      <td>Clark</td>
+      <td>Anthony Clark</td>
+      <td>60.0</td>
+      <td>m</td>
+      <td>recent emigrant</td>
+      <td>laborer</td>
+      <td>Charles Riley afed 10 days</td>
+      <td>Hospital</td>
+      <td>george w. anderson</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1847-04-08</td>
+      <td>Lawrence</td>
+      <td>Feeney</td>
+      <td>Lawrence Feeney</td>
+      <td>32.0</td>
+      <td>m</td>
+      <td>recent emigrant</td>
+      <td>laborer</td>
+      <td>Child</td>
+      <td>NaN</td>
+      <td>george w. anderson</td>
+      <td>james donnelly</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1847-04-13</td>
+      <td>Henry</td>
+      <td>Joyce</td>
+      <td>Henry Joyce</td>
+      <td>21.0</td>
+      <td>m</td>
+      <td>recent emigrant</td>
+      <td>NaN</td>
+      <td>Child 1 mo</td>
+      <td>NaN</td>
+      <td>george w. anderson</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9593</th>
+      <td>1846-05-23</td>
+      <td>Joseph</td>
+      <td>Aton</td>
+      <td>Joseph Aton</td>
+      <td>69.0</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>shoemaker</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9594</th>
+      <td>1847-06-17</td>
+      <td>Mary</td>
+      <td>Smith</td>
+      <td>Mary Smith</td>
+      <td>47.0</td>
+      <td>f</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9595</th>
+      <td>1847-06-22</td>
+      <td>Francis</td>
+      <td>Riley</td>
+      <td>Francis Riley</td>
+      <td>29.0</td>
+      <td>m</td>
+      <td>lame</td>
+      <td>superintendent</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9596</th>
+      <td>1847-07-02</td>
+      <td>Martin</td>
+      <td>Dunn</td>
+      <td>Martin Dunn</td>
+      <td>4.0</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9597</th>
+      <td>1847-07-08</td>
+      <td>Elizabeth</td>
+      <td>Post</td>
+      <td>Elizabeth Post</td>
+      <td>32.0</td>
+      <td>f</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Hospital</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>9598 rows × 12 columns</p>
+</div></div></div>
 </div>
 <p>This creates a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe">DataFrame object</a>, one of the two main data structures in Pandas. A DataFrame looks and acts a lot like a spreadsheet, but it has special powers and functions that we will discuss below and in the next few lessons.</p>
 <table class="colwidths-auto table">
@@ -804,11 +1013,32 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       28.0
+1       19.0
+2       60.0
+3       32.0
+4       21.0
+        ... 
+9593    69.0
+9594    47.0
+9595    29.0
+9596     4.0
+9597    32.0
+Name: age, Length: 9598, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Technically, a single column in a DataFrame is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dsintro"><em>Series</em> object</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">bellevue_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -858,6 +1088,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.337039170506916
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="how-old-is-the-oldest-person">
@@ -868,6 +1103,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97.0
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="how-young-is-the-youngest-person">
@@ -875,6 +1115,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08
 </pre></div>
 </div>
 </div>
@@ -889,6 +1134,183 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>laborer                        3116
+married                        1586
+spinster                       1522
+widow                          1055
+shoemaker                       158
+tailor                          116
+blacksmith                      104
+mason                            99
+weaver                           66
+carpenter                        65
+baker                            48
+waiter                           41
+clerk                            28
+stone cutter                     27
+painter                          26
+gardener                         25
+cooper                           24
+farmer                           21
+peddler                          20
+cartman                          15
+wheelwright                      14
+hatter                           12
+hostler                          12
+butcher                          11
+printer                          11
+tinsmith                         10
+coachman                         10
+boot maker                       10
+teacher                          10
+sailor                           10
+servant                           9
+boiler maker                      9
+harness maker                     9
+nailer                            8
+cabinet maker                     8
+boatman                           8
+plasterer                         6
+nail maker                        6
+umbrella maker                    6
+porter                            6
+(illegible)                       6
+grocer                            5
+seaman                            5
+machinist                         5
+soldier                           5
+marble polisher                   5
+turner                            4
+dyer                              4
+ship carpenter                    4
+barkeeper                         4
+hackman                           4
+brick layer                       4
+book maker                        4
+tinman                            4
+courier                           3
+miner                             3
+merchant                          3
+seamstress                        3
+pavier                            3
+store keeper                      3
+saddler                           3
+varnisher                         3
+paper stainer                     3
+brass founder                     3
+brewer                            3
+starch maker                      3
+locksmith                         3
+barker                            2
+single                            2
+tanner                            2
+copper smith                      2
+morocco dresser                   2
+type caster                       2
+sawyer                            2
+calico printer                    2
+engraver                          2
+quarry man                        2
+cab driver                        2
+food carrier                      2
+paper maker                       2
+lawyer                            2
+glove maker                       2
+stevedore                         2
+sail maker                        2
+carver                            2
+shipwright                        2
+chair maker                       2
+barber                            2
+stove maker                       2
+engineer                          2
+glass cutter                      2
+rigger                            2
+basket maker                      1
+gw anderson per e witherell       1
+flagger                           1
+gas manufacturer                  1
+school teacher                    1
+dancing master                    1
+polisher                          1
+cabrener                          1
+oysterman                         1
+saw maker                         1
+stage driver                      1
+groom                             1
+apothecary                        1
+waterman                          1
+musician                          1
+caulker                           1
+brass turner                      1
+joiner                            1
+glover                            1
+truss maker                       1
+book seller                       1
+music painter                     1
+marble sawyer                     1
+cotton sampler                    1
+stone sawyer                      1
+gun maker                         1
+manow(?)                          1
+iron moulder                      1
+soap boiler                       1
+paper-carrier                     1
+flag cutter                       1
+soap comber                       1
+cook                              1
+clery                             1
+wood sawyer                       1
+book keeper                       1
+marketmab                         1
+sham                              1
+fishman                           1
+jeweller                          1
+soapmaker                         1
+builder                           1
+magician                          1
+manufacturer                      1
+hodman                            1
+flag pavier                       1
+croper                            1
+leather dresser                   1
+miniature painter                 1
+superintendent                    1
+hacker                            1
+ship sawyer                       1
+surveyor                          1
+gas fitter                        1
+brush maker                       1
+wool manufacturer                 1
+marble cutter                     1
+moulder                           1
+parrier                           1
+strap maker                       1
+copoper                           1
+auctioneer                        1
+tavern keeper                     1
+plumber                           1
+dugget                            1
+rectifier                         1
+jobber                            1
+cabman                            1
+schoolmaster                      1
+mariner                           1
+paner                             1
+book pedlar                       1
+leather draper                    1
+shop keeper                       1
+cloth printer                     1
+book binder                       1
+upholsterer                       1
+teamster                          1
+drayman                           1
+chandler                          1
+Name: profession, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="what-stands-out-to-you-about-this-list-what-kind-of-patterns-do-you-notice">
@@ -900,6 +1322,86 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span><span class="p">[</span><span class="s1">&#39;disease&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sickness           2710
+recent emigrant    1975
+destitution         846
+fever               192
+insane              138
+pregnant            134
+sore                 79
+intemperance         71
+illegible            47
+typhus               46
+injuries             32
+ulcers               26
+ophthalmia           19
+vagrant              17
+lame                 15
+debility             12
+rheumatism           11
+blind                 9
+bronchitis            9
+phthisis              8
+dropsy                8
+old age               7
+syphilis              7
+dysentery             6
+diarrhea              6
+erysipelas            6
+cripple               5
+broken bone           5
+drunkenness           3
+burn                  3
+measles               3
+delusion dreams       2
+tuberculosis          2
+scrofula              2
+fits                  2
+sprain                2
+scarletina            2
+jaundice              2
+piles                 2
+pneumonia             2
+abandonment           2
+from trial            1
+eczema                1
+congested head        1
+paralysis             1
+tumor                 1
+neuralgia             1
+ungovernable          1
+ague                  1
+hernia                1
+spinal disease        1
+seizure               1
+disabled              1
+horrors               1
+smallpox              1
+contusion             1
+abscess               1
+bruise                1
+severed limb          1
+orchitis              1
+emotional             1
+phagadaena            1
+sunburn               1
+ascites               1
+asthma                1
+deaf                  1
+poorly                1
+hypochondria          1
+colic                 1
+bleeding              1
+del femur             1
+cut                   1
+throat cut            1
+rickets               1
+beggar                1
+Name: disease, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -931,6 +1433,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       False
+1       False
+2       False
+3       False
+4       False
+        ...  
+9593    False
+9594     True
+9595    False
+9596    False
+9597    False
+Name: sent_to, Length: 9598, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -938,6 +1456,973 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_in</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>full_name</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>disease</th>
+      <th>profession</th>
+      <th>children</th>
+      <th>sent_to</th>
+      <th>sender1</th>
+      <th>sender2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>249</th>
+      <td>1847-05-17</td>
+      <td>Elizabeth</td>
+      <td>Cauley</td>
+      <td>Elizabeth Cauley</td>
+      <td>24.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>Son Walter 4 mo</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>1847-03-22</td>
+      <td>Sarah</td>
+      <td>Corrigan</td>
+      <td>Sarah Corrigan</td>
+      <td>21.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>1847-06-13</td>
+      <td>Bridget</td>
+      <td>Reynolds</td>
+      <td>Bridget Reynolds</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>oscar s. field</td>
+    </tr>
+    <tr>
+      <th>499</th>
+      <td>1847-06-09</td>
+      <td>Rose</td>
+      <td>Dinns</td>
+      <td>Rose Dinns</td>
+      <td>22.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>1847-08-21</td>
+      <td>Bridget</td>
+      <td>Redding</td>
+      <td>Bridget Redding</td>
+      <td>25.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1041</th>
+      <td>1847-03-13</td>
+      <td>Betty</td>
+      <td>Dunn</td>
+      <td>Betty Dunn</td>
+      <td>34.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>1290</th>
+      <td>1847-02-17</td>
+      <td>Catherine</td>
+      <td>Doherty</td>
+      <td>Catherine Doherty</td>
+      <td>34.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1426</th>
+      <td>1847-05-31</td>
+      <td>Catherine</td>
+      <td>Riley</td>
+      <td>Catherine Riley</td>
+      <td>28.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>1494</th>
+      <td>1847-06-14</td>
+      <td>Brigt</td>
+      <td>Frikee?</td>
+      <td>Brigt Frikee?</td>
+      <td>25.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>1584</th>
+      <td>1847-10-28</td>
+      <td>Ellen</td>
+      <td>Lamb</td>
+      <td>Ellen Lamb</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1685</th>
+      <td>1847-03-09</td>
+      <td>Catherine</td>
+      <td>McManus</td>
+      <td>Catherine McManus</td>
+      <td>21.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>james donnelly</td>
+    </tr>
+    <tr>
+      <th>1746</th>
+      <td>1847-05-08</td>
+      <td>Ellen</td>
+      <td>O'Brien</td>
+      <td>Ellen O'Brien</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>1863</th>
+      <td>1847-06-01</td>
+      <td>Bridget</td>
+      <td>Nash</td>
+      <td>Bridget Nash</td>
+      <td>30.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>1960</th>
+      <td>1847-05-13</td>
+      <td>Mary</td>
+      <td>Gallagher</td>
+      <td>Mary Gallagher</td>
+      <td>18.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>2370</th>
+      <td>1847-02-13</td>
+      <td>Eliza</td>
+      <td>Latimer</td>
+      <td>Eliza Latimer</td>
+      <td>19.0</td>
+      <td>f</td>
+      <td>recent emigrant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5194</th>
+      <td>1847-02-22</td>
+      <td>Mary</td>
+      <td>Toohey</td>
+      <td>Mary Toohey</td>
+      <td>34.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>5286</th>
+      <td>1847-03-16</td>
+      <td>Mary</td>
+      <td>Mullen</td>
+      <td>Mary Mullen</td>
+      <td>27.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>james donnelly</td>
+    </tr>
+    <tr>
+      <th>5309</th>
+      <td>1847-03-22</td>
+      <td>Margaret</td>
+      <td>Welsh</td>
+      <td>Margaret Welsh</td>
+      <td>24.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>5310</th>
+      <td>1847-03-22</td>
+      <td>Elizabeth</td>
+      <td>McDonald</td>
+      <td>Elizabeth McDonald</td>
+      <td>26.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>5321</th>
+      <td>1847-03-24</td>
+      <td>Mary Jane</td>
+      <td>Stevens</td>
+      <td>Mary Jane Stevens</td>
+      <td>30.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>5445</th>
+      <td>1847-04-15</td>
+      <td>Alice</td>
+      <td>Duffy</td>
+      <td>Alice Duffy</td>
+      <td>28.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>5629</th>
+      <td>1847-05-10</td>
+      <td>Jane</td>
+      <td>McCann</td>
+      <td>Jane McCann</td>
+      <td>22.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>5636</th>
+      <td>1847-05-10</td>
+      <td>Susan</td>
+      <td>Patterson</td>
+      <td>Susan Patterson</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>george w. anderson</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>5777</th>
+      <td>1847-08-11</td>
+      <td>Bridget</td>
+      <td>Grady</td>
+      <td>Bridget Grady</td>
+      <td>35.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>thomas b. tappen</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5935</th>
+      <td>1847-07-15</td>
+      <td>Ellen</td>
+      <td>Connolly</td>
+      <td>Ellen Connolly</td>
+      <td>25.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6003</th>
+      <td>1847-07-19</td>
+      <td>Mary</td>
+      <td>Kelly</td>
+      <td>Mary Kelly</td>
+      <td>27.0</td>
+      <td>f</td>
+      <td>sickness</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>charles j. sutton</td>
+    </tr>
+    <tr>
+      <th>6051</th>
+      <td>1847-07-22</td>
+      <td>Ann</td>
+      <td>Clark</td>
+      <td>Ann Clark</td>
+      <td>23.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6052</th>
+      <td>1847-07-22</td>
+      <td>Mary</td>
+      <td>Diffen</td>
+      <td>Mary Diffen</td>
+      <td>32.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6053</th>
+      <td>1847-07-22</td>
+      <td>Mary Ann</td>
+      <td>Williamson</td>
+      <td>Mary Ann Williamson</td>
+      <td>50.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6102</th>
+      <td>1847-07-25</td>
+      <td>Margaret</td>
+      <td>McCabe</td>
+      <td>Margaret McCabe</td>
+      <td>40.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6265</th>
+      <td>1847-08-06</td>
+      <td>Elizabeth</td>
+      <td>Wilkinson</td>
+      <td>Elizabeth Wilkinson</td>
+      <td>13.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7140</th>
+      <td>1847-10-20</td>
+      <td>Bridget</td>
+      <td>Riley</td>
+      <td>Bridget Riley</td>
+      <td>18.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7209</th>
+      <td>1847-10-27</td>
+      <td>Ann</td>
+      <td>Rourke</td>
+      <td>Ann Rourke</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7221</th>
+      <td>1847-10-28</td>
+      <td>Catherine</td>
+      <td>McDermott</td>
+      <td>Catherine McDermott</td>
+      <td>28.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7280</th>
+      <td>1847-11-02</td>
+      <td>Ellen</td>
+      <td>Sweeney</td>
+      <td>Ellen Sweeney</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7297</th>
+      <td>1847-11-04</td>
+      <td>Mary</td>
+      <td>Smith</td>
+      <td>Mary Smith</td>
+      <td>30.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7312</th>
+      <td>1847-11-05</td>
+      <td>Bridget</td>
+      <td>Campbell</td>
+      <td>Bridget Campbell</td>
+      <td>23.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7338</th>
+      <td>1847-11-08</td>
+      <td>Bridget</td>
+      <td>Laughlin</td>
+      <td>Bridget Laughlin</td>
+      <td>21.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7347</th>
+      <td>1847-11-09</td>
+      <td>Catherine</td>
+      <td>Gillespie</td>
+      <td>Catherine Gillespie</td>
+      <td>34.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7417</th>
+      <td>1847-11-16</td>
+      <td>Eliza</td>
+      <td>Martin</td>
+      <td>Eliza Martin</td>
+      <td>30.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7470</th>
+      <td>1847-11-20</td>
+      <td>Catherine</td>
+      <td>O'Brien</td>
+      <td>Catherine O'Brien</td>
+      <td>29.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>william w. lyons</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8009</th>
+      <td>1847-06-15</td>
+      <td>Hannah</td>
+      <td>Keatherson</td>
+      <td>Hannah Keatherson</td>
+      <td>14.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8100</th>
+      <td>1847-02-12</td>
+      <td>Mary</td>
+      <td>McGrath</td>
+      <td>Mary McGrath</td>
+      <td>26.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8101</th>
+      <td>1847-02-18</td>
+      <td>Jane</td>
+      <td>Smith</td>
+      <td>Jane Smith</td>
+      <td>25.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8125</th>
+      <td>1847-04-19</td>
+      <td>Mary</td>
+      <td>Smith</td>
+      <td>Mary Smith</td>
+      <td>23.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8129</th>
+      <td>1847-04-22</td>
+      <td>Ellen</td>
+      <td>McCalu</td>
+      <td>Ellen McCalu</td>
+      <td>24.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>seamstress</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>commissioners of emigration</td>
+    </tr>
+    <tr>
+      <th>8134</th>
+      <td>1847-05-08</td>
+      <td>Judah</td>
+      <td>Fallen</td>
+      <td>Judah Fallen</td>
+      <td>30.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8180</th>
+      <td>1847-05-15</td>
+      <td>Catherine</td>
+      <td>Seele</td>
+      <td>Catherine Seele</td>
+      <td>25.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8203</th>
+      <td>1847-05-18</td>
+      <td>Mary</td>
+      <td>Andrews</td>
+      <td>Mary Andrews</td>
+      <td>26.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>8285</th>
+      <td>1847-05-26</td>
+      <td>Ellen</td>
+      <td>McCake</td>
+      <td>Ellen McCake</td>
+      <td>23.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8303</th>
+      <td>1847-05-27</td>
+      <td>Sarah</td>
+      <td>Campbell</td>
+      <td>Sarah Campbell</td>
+      <td>22.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8364</th>
+      <td>1847-06-01</td>
+      <td>Bridget</td>
+      <td>Keanan</td>
+      <td>Bridget Keanan</td>
+      <td>20.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>benson s. hopkins</td>
+    </tr>
+    <tr>
+      <th>8379</th>
+      <td>1847-06-02</td>
+      <td>Sarah</td>
+      <td>Cormick</td>
+      <td>Sarah Cormick</td>
+      <td>46.0</td>
+      <td>f</td>
+      <td>destitution</td>
+      <td>widow</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8410</th>
+      <td>1847-06-04</td>
+      <td>Mary</td>
+      <td>Hart</td>
+      <td>Mary Hart</td>
+      <td>37.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8424</th>
+      <td>1847-06-05</td>
+      <td>Ann</td>
+      <td>Smith</td>
+      <td>Ann Smith</td>
+      <td>24.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8479</th>
+      <td>1847-06-11</td>
+      <td>Mary</td>
+      <td>McMagh</td>
+      <td>Mary McMagh</td>
+      <td>28.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>oscar s. field</td>
+    </tr>
+    <tr>
+      <th>8498</th>
+      <td>1847-06-13</td>
+      <td>Mary</td>
+      <td>Henry</td>
+      <td>Mary Henry</td>
+      <td>27.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>8506</th>
+      <td>1847-06-14</td>
+      <td>Mary</td>
+      <td>Keeler</td>
+      <td>Mary Keeler</td>
+      <td>44.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>cook</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>oscar s. field</td>
+    </tr>
+    <tr>
+      <th>8541</th>
+      <td>1847-06-17</td>
+      <td>Mary</td>
+      <td>Smith</td>
+      <td>Mary Smith</td>
+      <td>23.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>8581</th>
+      <td>1847-06-19</td>
+      <td>Martha</td>
+      <td>McConnelly</td>
+      <td>Martha McConnelly</td>
+      <td>35.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>spinster</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>peter c. johnston</td>
+    </tr>
+    <tr>
+      <th>8714</th>
+      <td>1847-06-26</td>
+      <td>Jane</td>
+      <td>Davis</td>
+      <td>Jane Davis</td>
+      <td>18.0</td>
+      <td>f</td>
+      <td>pregnant</td>
+      <td>married</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>moses g. leonard</td>
+      <td>edward witherell</td>
+    </tr>
+    <tr>
+      <th>9594</th>
+      <td>1847-06-17</td>
+      <td>Mary</td>
+      <td>Smith</td>
+      <td>Mary Smith</td>
+      <td>47.0</td>
+      <td>f</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Hospital Ward 38</td>
+      <td>[blank]</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +2474,7 @@
         
           By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.

@@ -689,7 +689,7 @@
     <span class="n">split_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="n">lowercase_text</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">split_words</span>
 
-<span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
 <span class="n">number_of_desired_words</span> <span class="o">=</span> <span class="mi">40</span>
 
 <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
@@ -811,7 +811,7 @@
 <p>Here we establish some variables that we’re going to use later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
 <span class="n">number_of_desired_words</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
  <span class="s1">&#39;yourself&#39;</span><span class="p">,</span> <span class="s1">&#39;yourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;him&#39;</span><span class="p">,</span> <span class="s1">&#39;his&#39;</span><span class="p">,</span> <span class="s1">&#39;himself&#39;</span><span class="p">,</span> <span class="s1">&#39;she&#39;</span><span class="p">,</span> <span class="s1">&#39;her&#39;</span><span class="p">,</span> <span class="s1">&#39;hers&#39;</span><span class="p">,</span>
@@ -977,7 +977,7 @@
 
 <span class="c1"># Define Filepaths and Assign Variables</span>
 
-<span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper.txt&quot;</span>
+<span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
 <span class="n">number_of_desired_words</span> <span class="o">=</span> <span class="mi">40</span>
 
 <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
@@ -1128,12 +1128,12 @@
 <p>or Louisa May Alcott’s <em>Little Women</em></p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python word_frequency.py ../texts/literature/Little-Women.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python word_frequency.py ../texts/literature/Little-Women_Louisa-May-Alcott.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;jo&#39;, 1416), (&#39;one&#39;, 903), (&#39;said&#39;, 841), (&#39;little&#39;, 773), (&#39;meg&#39;, 704), (&#39;amy&#39;, 670), (&#39;laurie&#39;, 615), (&#39;like&#39;, 607), (&#39;beth&#39;, 496), (&#39;good&#39;, 480), (&#39;would&#39;, 441), (&#39;see&#39;, 425), (&#39;go&#39;, 402), (&#39;old&#39;, 396), (&#39;mother&#39;, 388), (&#39;much&#39;, 377), (&#39;never&#39;, 375), (&#39;well&#39;, 372), (&#39;could&#39;, 360), (&#39;away&#39;, 343), (&#39;mr&#39;, 334), (&#39;time&#39;, 332), (&#39;march&#39;, 326), (&#39;know&#39;, 322), (&#39;made&#39;, 305), (&#39;home&#39;, 288), (&#39;young&#39;, 286), (&#39;girls&#39;, 282), (&#39;come&#39;, 280), (&#39;day&#39;, 280), (&#39;think&#39;, 280), (&#39;say&#39;, 277), (&#39;came&#39;, 275), (&#39;went&#39;, 275), (&#39;dear&#39;, 266), (&#39;face&#39;, 265), (&#39;got&#39;, 260), (&#39;make&#39;, 258), (&#39;mrs&#39;, 257), (&#39;asked&#39;, 256)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;jo&#39;, 1395), (&#39;one&#39;, 898), (&#39;said&#39;, 839), (&#39;little&#39;, 758), (&#39;meg&#39;, 697), (&#39;amy&#39;, 659), (&#39;laurie&#39;, 608), (&#39;like&#39;, 604), (&#39;beth&#39;, 482), (&#39;good&#39;, 479), (&#39;would&#39;, 440), (&#39;see&#39;, 422), (&#39;m&#39;, 407), (&#39;go&#39;, 400), (&#39;old&#39;, 394), (&#39;mother&#39;, 382), (&#39;never&#39;, 375), (&#39;much&#39;, 375), (&#39;well&#39;, 371), (&#39;could&#39;, 359), (&#39;away&#39;, 340), (&#39;time&#39;, 330), (&#39;mr&#39;, 324), (&#39;know&#39;, 321), (&#39;march&#39;, 320), (&#39;made&#39;, 303), (&#39;home&#39;, 286), (&#39;young&#39;, 285), (&#39;girls&#39;, 281), (&#39;think&#39;, 280), (&#39;day&#39;, 279), (&#39;come&#39;, 278), (&#39;say&#39;, 277), (&#39;went&#39;, 274), (&#39;came&#39;, 273), (&#39;dear&#39;, 265), (&#39;got&#39;, 260), (&#39;face&#39;, 260), (&#39;make&#39;, 257), (&#39;asked&#39;, 255)]
 </pre></div>
 </div>
 </div>
@@ -1181,7 +1181,7 @@
         
           By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.

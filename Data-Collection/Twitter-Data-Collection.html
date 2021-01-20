@@ -625,8 +625,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#collect-tweets-from-past-7-days">
-     Collect Tweets From Past 7 days
+    <a class="reference internal nav-link" href="#collect-tweets-from-the-past-7-days">
+     Collect Tweets From the Past 7 days
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -735,7 +735,7 @@
 </div>
 <div class="section" id="twitter-api-free-version">
 <h2>Twitter API (Free Version)<a class="headerlink" href="#twitter-api-free-version" title="Permalink to this headline">¶</a></h2>
-<p>With the free version of the Twitter API, there are basically two ways to collect your own Twitter data: in real time or ~7 days in the past. To get data any further in the past requires a paid version of the Twitter API. Twarc allows you to collect tweets both in real time and ~7 days in the past.</p>
+<p>With the free version of the Twitter API, there are basically two ways to collect your own Twitter data: in real time or from the past ~7 days. To get data any further in the past requires a paid version of the Twitter API. Twarc allows you to collect tweets both in real time and from the past ~7 days.</p>
 <div class="section" id="collect-tweets-in-real-time">
 <h3>Collect Tweets in Real Time<a class="headerlink" href="#collect-tweets-in-real-time" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to collect tweets with twarc is to use the command line. To collect tweets in real time, you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">filter</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
@@ -789,12 +789,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="collect-tweets-from-past-7-days">
-<h3>Collect Tweets From Past 7 days<a class="headerlink" href="#collect-tweets-from-past-7-days" title="Permalink to this headline">¶</a></h3>
-<p>To collect tweets from approximately 7 days in the past, you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
+<div class="section" id="collect-tweets-from-the-past-7-days">
+<h3>Collect Tweets From the Past 7 days<a class="headerlink" href="#collect-tweets-from-the-past-7-days" title="Permalink to this headline">¶</a></h3>
+<p>To collect tweets from the past 7 days (approximately), you can use the command <code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span></code>, followed by a search query, then the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename of your choosing with the “.jsonl” file extension (which outputs your Twitter data to this JSONL file).</p>
 <p>Run a collection of tweets from the past ~7 days that include the word “coronavirus” for 10 seconds:</p>
 <p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;coronavirus&quot;</span> <span class="pre">&gt;</span> <span class="pre">coronavirus_search.jsonl</span></code></p>
-<p>Run a collection of tweets from the last ~7 days that include the word “Shakespeare”:</p>
+<p>Run a collection of tweets from the past ~7 days that include the word “Shakespeare”:</p>
 <p><code class="docutils literal notranslate"><span class="pre">twarc</span> <span class="pre">search</span> <span class="pre">&quot;Shakespeare&quot;</span> <span class="pre">&gt;</span> <span class="pre">shakespeare_search.jsonl</span></code></p>
 <div class="section" id="id1">
 <h4>Check Number of Tweets Collected<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
@@ -970,7 +970,7 @@ Resolving deltas: 100% (2180/2180), done.
         
           By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
