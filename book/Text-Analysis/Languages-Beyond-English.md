@@ -1,0 +1,18 @@
+# Working in Languages Beyond English
+Most of the tools and tutorials you'll find for computational text analysis assume that you're working with English text. While some tools are *inherently* English-specific (like natural language processing algorithms trained on English data), other tools can be used more or less the same with text in other languages -- though you may need to first do some *pre-processing* to create a derivative version of your text that works better with these tools.
+
+The pre-processing steps needed to make texts in other languages usable with computational text analysis methods vary depending on the language. Some languages that do not separate words with spaces (such as Chinese) require you to insert spaces between words. Other languages with more *inflection* than English (e.g. where words appear in different forms, depending on how they're used) should be *lemmatized* (replacing every variant word form with the dictionary form), or at least *stemmed* (cutting off the inflection at the end of the word, which usually -- but not always -- leaves you with something resembling the root, e.g. Spanish `hablar` 'to speak' and its inflected forms `hablo` 'I speak', `hablas` 'you speak' all become `hab` when stemmed).
+
+For some languages (particularly those known as *agglutinative languages*, where words are formed by repeatedly gluing together *morphemes*, or small bits of meaning, such that a single "word" can be translated as an entire English sentence), the situation is more complicated. How would you reduce a word like Turkish *Çekoslovakyalılaştıramadıklarımızdanmışsınız* 'you are reportedly one of those that we could not make Czechoslovakian' down to a root that you could count?
+
+When doing text analysis in English, you can do things like methods involving word frequency without thinking too much about questions like "what, actually is a word?" The ways you have to modify text in many other languages to make it compatible with computational text analysis -- even to the point of harming human readability -- mean that you have to grapple with this question more directly when working with other languages.
+
+Depending on what language you're working with, you may quickly discover the difference in resources available for your language, compared to English. There are zero tools or resources to support computational analysis (e.g. lemmatizers/stemmers, let alone part-of-speech or named-entity recognition taggers) of most of the roughly 6,500 languages spoken in the world. Out of the 100 languages with the greatest number of speakers, at least 2/3 are missing the tools you'll need to complete all the activities in this section of the textbook.
+
+
+## Working with non-English languages in this chapter
+The methods introduced in the text analysis chapter can be organized into two groups: methods based on word counts (for which you need a lemmatizer or stemmer for many languages, and a segmenter for others that don't put spaces between word), and methods using language-specific NLP algorithms. There are more resources to support the first set than the second.
+
+There are sub-pages describing how to prepare texts in the languages requested by the 2021 Cultural Analytics students (along with other languages commonly requested by US students) for TF-IDF and topic modeling. If you want to work with one of these languages, first use the pre-processing code for your language, then use the derivate text it generates with the TF-IDF and topic modeling code.
+
+The named-entity recognition and part-of-speech keywords sections also have language-specific dependencies; there are separate versions of those tutorials for a number of requested languages.
