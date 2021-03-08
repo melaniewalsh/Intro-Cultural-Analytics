@@ -70,6 +70,9 @@
   - file: Text-Analysis/Text-Analysis
     title: 5. Text Analysis
     sections:
+	  - file: Text-Analysis/Languages-Beyond-English
+	    sections:
+		  - file: Text-Analysis/Preprocessing-Danish
       - file: Text-Analysis/TF-IDF
         sections:
           - file: Text-Analysis/TF-IDF-HathiTrust
@@ -82,8 +85,11 @@
           - file: Text-Analysis/Topic-Modeling-CSV
           - file: Text-Analysis/Topic-Modeling-Time-Series
       - file: Text-Analysis/Named-Entity-Recognition
+	    sections:
+		  - file: Text-Analysis/Named-Entity-Recognition-Danish
       - file: Text-Analysis/POS-Keywords
-          
+	    sections:
+		  - file: Text-Analysis/POS-Keywords-Danish
   - file: Network-Analysis/Network-Analysis-Home
     title: 6. Network Analysis
     sections:
