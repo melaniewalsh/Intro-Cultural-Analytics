@@ -1,6 +1,0 @@
-:orphan:
-
-404: Page not found
-===================
-
-Go back to the main page.
