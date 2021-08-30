@@ -1,0 +1,1206 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Files &amp; Character Encoding &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/07-Files-Character-Encoding.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Comparisons &amp; Conditionals" href="08-Comparisons-Conditionals.html" />
+    <link rel="prev" title="String Methods" href="06-String-Methods.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-Python.html">
+   2. Python Basics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04-Data-Collection/10-Twitter.html">
+     Twitter Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-Text-Analysis/00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-Python/07-Files-Character-Encoding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F02-Python/07-Files-Character-Encoding.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/02-Python/07-Files-Character-Encoding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-a-text-file">
+   Open a Text File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-a-text-file">
+   Read a Text File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-a-text-file">
+   Write a Text File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#character-encoding">
+   Character Encoding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-utf-8-encoding">
+   Adding (UTF-8) Encoding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debugging-tip">
+   Debugging Tip
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-advanced-open-and-read-all-files-in-a-directory">
+   More Advanced: Open and Read All Files in a Directory
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="files-character-encoding">
+<h1>Files &amp; Character Encoding<a class="headerlink" href="#files-character-encoding" title="Permalink to this headline">¶</a></h1>
+<p><em>Note: You can explore the <a class="reference external" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/02-Python/Workbooks/07.5-Files-Character-Encoding-WORKBOOK.ipynb">associated workbook</a> for this chapter in the cloud.</em></p>
+<div class="section" id="open-a-text-file">
+<h2>Open a Text File<a class="headerlink" href="#open-a-text-file" title="Permalink to this headline">¶</a></h2>
+<p>If you want to read or write a text file with Python, it is necessary to first open the file. To open a file, you can use Python’s built-in <code class="docutils literal notranslate"><span class="pre">open()</span></code> function.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-file.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;sample-file.txt&#39; mode=&#39;r&#39; encoding=&#39;utf-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function parentheses, you insert the filepath to be opened in quotation marks. You should also insert a character encoding, which we will talk more about below. This function returns what’s called a <em>file object</em>.</p>
+</div>
+<div class="section" id="read-a-text-file">
+<h2>Read a Text File<a class="headerlink" href="#read-a-text-file" title="Permalink to this headline">¶</a></h2>
+<p>A file object does not contain readable text. To read this file object as text, you need to use the <code class="docutils literal notranslate"><span class="pre">.read()</span></code> method.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-file.txt&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;This text file is now open and being read!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="write-a-text-file">
+<h2>Write a Text File<a class="headerlink" href="#write-a-text-file" title="Permalink to this headline">¶</a></h2>
+<p>The default mode for the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function is to read text files: <code class="docutils literal notranslate"><span class="pre">mode</span> <span class="pre">=</span> <span class="pre">'r'</span></code>.</p>
+<p>But you can use the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function to write files, too. Simply set the mode to write: <code class="docutils literal notranslate"><span class="pre">mode</span> <span class="pre">=</span> <span class="pre">'w'</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;a-new-file.txt&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;a-new-file.txt&#39; mode=&#39;w&#39; encoding=&#39;utf-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To write something to this newly opened text fle, you can use the <code class="docutils literal notranslate"><span class="pre">.write()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;a-new-file.txt&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;I just wrote this to a text file. Alright!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we read this newly created text file, we can see that the <code class="docutils literal notranslate"><span class="pre">.write()</span></code> method worked correctly:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;a-new-file.txt&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I just wrote this to a text file. Alright!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="character-encoding">
+<h2>Character Encoding<a class="headerlink" href="#character-encoding" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why do we need to include <code class="docutils literal notranslate"><span class="pre">encoding='utf-8'</span></code> to open our text file? Well, UTF-8 is a character encoding (a specific kind of <a class="reference external" href="https://home.unicode.org/basic-info/faq/">Unicode</a>). We need to specify a character encoding because — <em>gasp!</em> — computers don’t actually know what text is. Character encodings are systems that map characters to numbers. Each character is given a specific ID number. This way, computers can actually read and understand characters.</p>
+<p>You can check any characters’ “code point,” or place in the Unicode universe, with the function <code class="docutils literal notranslate"><span class="pre">ord()</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;💩&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128169
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;ত&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2468
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unicode is the most popular character encoding on the internet. It even includes emojis. Yet, as Aditya Mukerjee points out in his essay “<a class="reference external" href="https://modelviewculture.com/pieces/i-can-text-you-a-pile-of-poo-but-i-cant-write-my-name">I Can Text You A Pile of Poo, But I Can’t Write My Name</a>”, Unicode still does not include characters that are essential to the Bengali alphabet as well as to many other non-English languages.</p>
+</div>
+<div class="section" id="adding-utf-8-encoding">
+<h2>Adding (UTF-8) Encoding<a class="headerlink" href="#adding-utf-8-encoding" title="Permalink to this headline">¶</a></h2>
+<p>It’s always good practice to explicitly specify UTF-8 encoding when opening files.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_text_default</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-character-encoding.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_text_default</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+This is an example of curly quotation marks:
+“She said, ‘I won’t bungle the encoding!’”
+***
+
+***
+This is an example of an emoji:
+💩
+***
+
+***
+This is an example of Bengali:
+আদিত্য মুখোপাধ্যায় পোপ টাইপ করতে পারেন তবে তাঁর নাম বানান করতে পারবেন না
+(Aditya Mukerjee can type poop but cannot spell his own name)
+***
+
+***This is an example of Russian:
+Говорили, что на набережной появилось новое лицо: дама с собачкой.
+(It was said that a new person had appeared on the sea-front: a lady with a little dog.)
+
+***
+This is an example of Chinese:
+如果我们想学习中文短篇小说怎么办？
+(What if we want to study Chinese short stories?)
+***
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look what happens if we read in the exact same text with a different encoding.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_text_iso</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-character-encoding.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_text_iso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+This is an example of curly quotation marks:
+âShe said, âI wonât bungle the encoding!ââ
+***
+
+***
+This is an example of an emoji:
+ð©
+***
+
+***
+This is an example of Bengali:
+à¦à¦¦à¦¿à¦¤à§à¦¯ à¦®à§à¦à§à¦ªà¦¾à¦§à§à¦¯à¦¾à¦¯à¦¼ à¦ªà§à¦ª à¦à¦¾à¦à¦ª à¦à¦°à¦¤à§ à¦ªà¦¾à¦°à§à¦¨ à¦¤à¦¬à§ à¦¤à¦¾à¦à¦° à¦¨à¦¾à¦® à¦¬à¦¾à¦¨à¦¾à¦¨ à¦à¦°à¦¤à§ à¦ªà¦¾à¦°à¦¬à§à¦¨ à¦¨à¦¾
+(Aditya Mukerjee can type poop but cannot spell his own name)
+***
+
+***This is an example of Russian:
+ÐÐ¾Ð²Ð¾ÑÐ¸Ð»Ð¸, ÑÑÐ¾ Ð½Ð° Ð½Ð°Ð±ÐµÑÐµÐ¶Ð½Ð¾Ð¹ Ð¿Ð¾ÑÐ²Ð¸Ð»Ð¾ÑÑ Ð½Ð¾Ð²Ð¾Ðµ Ð»Ð¸ÑÐ¾: Ð´Ð°Ð¼Ð° Ñ ÑÐ¾Ð±Ð°ÑÐºÐ¾Ð¹.
+(It was said that a new person had appeared on the sea-front: a lady with a little dog.)
+
+***
+This is an example of Chinese:
+å¦ææä»¬æ³å­¦ä¹ ä¸­æç­ç¯å°è¯´æä¹åï¼
+(What if we want to study Chinese short stories?)
+***
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_text_ascii</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-character-encoding.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_text_ascii</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">70</span><span class="o">-</span><span class="mi">1</span><span class="n">d14095d0aa9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">full_text_ascii</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-character-encoding.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">full_text_ascii</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/encodings/ascii.py</span> in <span class="ni">decode</span><span class="nt">(self, input, final)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">class</span> <span class="nc">IncrementalDecoder</span><span class="p">(</span><span class="n">codecs</span><span class="o">.</span><span class="n">IncrementalDecoder</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">26</span>         <span class="k">return</span> <span class="n">codecs</span><span class="o">.</span><span class="n">ascii_decode</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> 
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">class</span> <span class="nc">StreamWriter</span><span class="p">(</span><span class="n">Codec</span><span class="p">,</span><span class="n">codecs</span><span class="o">.</span><span class="n">StreamWriter</span><span class="p">):</span>
+
+<span class="nn">UnicodeDecodeError: &#39;ascii&#39; codec can&#39;t decode byte 0xe2 in position 49: ordinal not</span> in <span class="ni">range</span><span class="nt">(128)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="debugging-tip">
+<h2>Debugging Tip<a class="headerlink" href="#debugging-tip" title="Permalink to this headline">¶</a></h2>
+<p>If you’re trying to read or analyze a text file, and it looks kind of weird, it’s likely an encoding error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_text_iso</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample-character-encoding.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_text_iso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+This is an example of curly quotation marks:
+âShe said, âI wonât bungle the encoding!ââ
+***
+
+***
+This is an example of an emoji:
+ð©
+***
+
+***
+This is an example of Bengali:
+à¦à¦¦à¦¿à¦¤à§à¦¯ à¦®à§à¦à§à¦ªà¦¾à¦§à§à¦¯à¦¾à¦¯à¦¼ à¦ªà§à¦ª à¦à¦¾à¦à¦ª à¦à¦°à¦¤à§ à¦ªà¦¾à¦°à§à¦¨ à¦¤à¦¬à§ à¦¤à¦¾à¦à¦° à¦¨à¦¾à¦® à¦¬à¦¾à¦¨à¦¾à¦¨ à¦à¦°à¦¤à§ à¦ªà¦¾à¦°à¦¬à§à¦¨ à¦¨à¦¾
+(Aditya Mukerjee can type poop but cannot spell his own name)
+***
+
+***This is an example of Russian:
+ÐÐ¾Ð²Ð¾ÑÐ¸Ð»Ð¸, ÑÑÐ¾ Ð½Ð° Ð½Ð°Ð±ÐµÑÐµÐ¶Ð½Ð¾Ð¹ Ð¿Ð¾ÑÐ²Ð¸Ð»Ð¾ÑÑ Ð½Ð¾Ð²Ð¾Ðµ Ð»Ð¸ÑÐ¾: Ð´Ð°Ð¼Ð° Ñ ÑÐ¾Ð±Ð°ÑÐºÐ¾Ð¹.
+(It was said that a new person had appeared on the sea-front: a lady with a little dog.)
+
+***
+This is an example of Chinese:
+å¦ææä»¬æ³å­¦ä¹ ä¸­æç­ç¯å°è¯´æä¹åï¼
+(What if we want to study Chinese short stories?)
+***
+</pre></div>
+</div>
+</div>
+</div>
+<p>As David C. Zentgraf writes in his useful blog post about <a class="reference external" href="http://kunststube.net/encoding/">character encoding</a>:</p>
+<blockquote>
+<div><p>If you open a document and it looks like this [see garbled stuff above], there’s one and only one reason for it: Your text editor, browser, word processor or whatever else that’s trying to read the document is assuming the wrong encoding. That’s all. The document is not broken…there’s no magic you need to perform, you simply need to select the right encoding to display the document.</p>
+</div></blockquote>
+<p>No magic! Just double check the encoding.</p>
+</div>
+<div class="section" id="more-advanced-open-and-read-all-files-in-a-directory">
+<h2>More Advanced: Open and Read All Files in a Directory<a class="headerlink" href="#more-advanced-open-and-read-all-files-in-a-directory" title="Permalink to this headline">¶</a></h2>
+<p>We haven’t fully discussed Python modules and for loops yet, but once you’re comfortable with these concepts, it’s helpful to know how to work with all the files in a directory.</p>
+<p><strong>Import Path library</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory_path</span> <span class="o">=</span> <span class="s1">&#39;sample-directory&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Loop through any file in the directory with the star <code class="docutils literal notranslate"><span class="pre">*</span></code> character, which matches anything</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">directory_path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample-directory/.ipynb_checkpoints
+sample-directory/01-sample-file.txt
+sample-directory/02-sample-file.txt
+sample-directory/03.py
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Loop through just text files in the directory with <code class="docutils literal notranslate"><span class="pre">*.txt</span></code>, which matches only files that end with “.txt”</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">directory_path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample-directory/01-sample-file.txt
+sample-directory/02-sample-file.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>To read these text files, simply add in the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function and <code class="docutils literal notranslate"><span class="pre">.read()</span></code> method</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">directory_path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Here&#39;s the contents of the first file!
+Here&#39;s the contents of the second file!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02-Python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="06-String-Methods.html" title="previous page">String Methods</a>
+    <a class='right-next' id="next-link" href="08-Comparisons-Conditionals.html" title="next page">Comparisons &amp; Conditionals</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

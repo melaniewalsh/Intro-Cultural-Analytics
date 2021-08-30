@@ -19,12 +19,6 @@ z-index: 1;
 }
 
 
-/* Center images */
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 /* Change download text font to match regular link font*/
 .xref.download.docutils.literal.notranslate {
 
@@ -45,35 +39,35 @@ z-index: 1;
 
 .cell_output .output.traceback .highlight .nn {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .gt {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .kc {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .s2 {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .mi {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .nb {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .k {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .ow {
   color: #000000;
-font-weight: normal } 
+font-weight: normal }
 
 .cell_output .output.traceback .highlight .nf {
   color: #000000;
@@ -85,12 +79,12 @@ font-weight: normal }
 
 .cell_output .output.traceback .highlight .o {
   color: #000000;
-font-weight: bold } 
+font-weight: bold }
 
 
 .cell_output .output.traceback .highlight .ne {
   color: red;
-font-weight: bold } 
+font-weight: bold }
 
 
 #image-border {
@@ -104,7 +98,7 @@ thead {
   }
 tr,
 th,
-td { 
+td {
     text-align: center;
     vertical-align: middle;
     padding: 0.1em;
@@ -139,17 +133,18 @@ tbody tr:hover {
 }
 
   /* Make custom Pandas Review admonition */
-  
+
 .admonition.pandasreview {
   border-color: #000000
 }
 
 .admonition.pandasreview .admonition-title {
-  background-color: #6cd279
+  background-color: black;
+  color: white;
 }
 
 .admonition.pandasreview .admonition-title:before {
-  color: #6cd279;
+  color: white;
   content: "🐼" !important
 }
 
@@ -223,7 +218,7 @@ a:visited {
 div.cell.tag_command_line div.cell, div.cell.tag_command_line div.cell div.cell_input, div.cell.tag_command_line div.cell_input pre, div.cell.tag_command_line .cell_output .output * {
   background-color: #000000 ;
   color: #ffffff;
-  
+
 }
 
 div.cell.tag_command_line  div.cell_input {
@@ -240,7 +235,7 @@ div.cell.tag_command_line  div.cell_input {
 div.cell.tag_command_line .highlight .kn {
   color: #ffffff;
   font-weight: normal
-} 
+}
 
 div.cell.tag_command_line .highlight .k {
   color: #ffffff;
@@ -282,11 +277,6 @@ div.cell.tag_command_line .ansi-bold {
 /* Make comments a different color */
 
 
-.highlight .c1 {
-  color: #0598e0 !important;
-  font-style: normal;
-  font-weight: 400
-}
 
 .highlight .sd {
   color: #0598e0 !important;
@@ -296,8 +286,8 @@ div.cell.tag_command_line .ansi-bold {
 
 .highlight .kn {
   color: green;
-  font-weight: bold 
-} 
+  font-weight: bold
+}
 
 div.highlight .-Color[class*=-Red] {
     color: red !important;
@@ -308,11 +298,11 @@ div.highlight .-Color[class*=-Red] {
 
 .highlight .k {
   color: green;
-  font-weight: bold 
+  font-weight: bold
 }
 
 .highlight .o {
-  color: #aa22ff 
+  color: #aa22ff
 }
 
 .highlight .nb {
@@ -321,7 +311,7 @@ div.highlight .-Color[class*=-Red] {
 
 .highlight .nf {
   color: #00f;
-  font-weight: normal} 
+  font-weight: normal}
 
 .highlight .s2 {
   color: #ba2121
@@ -341,15 +331,14 @@ div.highlight .-Color[class*=-Red] {
 }
 
 .highlight .nn {
-  color: #000000 } 
-  
+  color: #000000 }
+
   .p-Widget {
     max-height: 24em;
     overflow-y: auto;
 }
 
 .highlight .mi, .mh, .mf {
-  color: green 
-} 
+  color: green
 }
-
+}

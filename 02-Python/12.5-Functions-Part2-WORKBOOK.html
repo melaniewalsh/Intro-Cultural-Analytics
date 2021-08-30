@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions (Part II) — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/12.5-Functions-Part2-WORKBOOK.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Command-Line/The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Python/Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Python/What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Data-Analysis/Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Analysis/Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Data-Collection/Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Data-Collection/Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Data-Collection/Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Data-Collection/Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Data-Collection/Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Text-Analysis/Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Text-Analysis/TF-IDF.html">
+     TF-IDF
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Text-Analysis/Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Text-Analysis/POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Text-Analysis/Languages-Beyond-English.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Preprocessing-Danish.html">
+       Danish pre-processing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/Named-Entity-Recognition-Danish.html">
+       Named Entity Recognition: Danish
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Text-Analysis/POS-Keywords-Danish.html">
+       Part-of-Speech Tagging
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python/Randomize-Students.html">
+   Make Random Student Groups
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-Python/12.5-Functions-Part2-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F02-Python/12.5-Functions-Part2-WORKBOOK.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/02-Python/12.5-Functions-Part2-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-formatting-quick-review">
+   Python Formatting — Quick Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-modules-packages-libraries-review">
+   Python Modules/Packages/Libraries — Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-functions-review">
+   Python Functions — Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-chinese-zodiac-calculator">
+   Exercise 1 — Chinese Zodiac Calculator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-make-a-chinese-zodiac-python-script">
+   Exercise 2 — Make a Chinese Zodiac Python Script!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-movie-recommender-script">
+   Exercise 3 — Movie Recommender Script
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="functions-part-ii-workbook">
+<h1>Functions (Part II) — Workbook<a class="headerlink" href="#functions-part-ii-workbook" title="Permalink to this headline">¶</a></h1>
+<p>A <em>function</em> is way of bundling up code to perform specific tasks. It’s kind of like making a little Python wind-up toy that runs on command.</p>
+<div class="section" id="python-formatting-quick-review">
+<h2>Python Formatting — Quick Review<a class="headerlink" href="#python-formatting-quick-review" title="Permalink to this headline">¶</a></h2>
+<p>Inconsistent spacing — it works, but it’s not ideal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">70</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;=</span><span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;It is piping hot!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Consistent spacing — it works, and it’s more ideal!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is piping hot!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inconsistent spacing — it works, but it’s not ideal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39; kiwi &#39;</span><span class="p">,</span> <span class="s1">&#39; kumquat &#39;</span><span class="p">,</span> <span class="s1">&#39; apple &#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Consistent spacing — it works, and it’s more ideal!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-modules-packages-libraries-review">
+<h2>Python Modules/Packages/Libraries — Review<a class="headerlink" href="#python-modules-packages-libraries-review" title="Permalink to this headline">¶</a></h2>
+<p>You can use pre-made Python code designed by other people — otherwise known as <strong>modules, packages, or libraries</strong> — by using an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module will count items and return a dictionary: https://docs.python.org/3/library/collections.html#collections.Counter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kumquat&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">]</span>
+<span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/re.html">regular expressions</a> module, imported as <code class="docutils literal notranslate"><span class="pre">re</span></code>, will allow you to use regular expressions — a special pattern-matching language that allows you to do sophisticated find-and-replace and text manipulation. We will discuss regular expressions more in the coming weeks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_string</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m presenting this sample string: feel free to copy this construction.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Regular Expression Pattern</p></th>
+<th class="text-align:center head"><p>Matches</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td class="text-align:center"><p>word</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code></p></td>
+<td class="text-align:center"><p>NOT word</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td class="text-align:center"><p>digit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\D</span></code></p></td>
+<td class="text-align:center"><p>NOT digit</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-align:center"><p>1 or more instances</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">{4}</span></code></p></td>
+<td class="text-align:center"><p>Exactly 4 instances</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;\W+&#39;</span><span class="p">,</span> <span class="n">sample_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_string</span> <span class="o">=</span> <span class="s2">&quot;This is a long string 1984 with a year in it but </span><span class="se">\</span>
+<span class="s2">                it also has an age 72 and a salary 52k&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\d</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">year_string</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-functions-review">
+<h2>Python Functions — Review<a class="headerlink" href="#python-functions-review" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i.pinimg.com/originals/62/9c/24/629c24707ded09d6fbe294e5de9e73a3.gif" /></p>
+<p>To convert Celsius to Fahrenheit, you can use the following formula:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(0°C</span> <span class="pre">×</span> <span class="pre">9/5)</span> <span class="pre">+</span> <span class="pre">32</span> <span class="pre">=</span> <span class="pre">32°F</span></code></p>
+<p>Make a function called <code class="docutils literal notranslate"><span class="pre">make_fahrenheit()</span></code> that will take in any temperature in Celsius and return the converted temperature in degrees Fahrenheit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_fahrenheit</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+    <span class="n">fahrenheit_temp</span> <span class="o">=</span> <span class="p">(</span><span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+    <span class="k">return</span> <span class="n">fahrenheit_temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a new function <code class="docutils literal notranslate"><span class="pre">is_it_warm()</span></code> that builds on our <code class="docutils literal notranslate"><span class="pre">make_fahrenheit()</span></code> function. This function will convert Celsius to Fahrenehit but it will also print out a statement about whether it is warm outside.</p>
+<p>Of course, what one person thinks is warm will be different from what another person thinks is warm. So this function will take in 2 arguments: the temperature in Celsius and the threshold for what is considered a warm temperature.</p>
+<p><em>Note: you can call another function from within a function, as below.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_it_warm</span><span class="p">(</span><span class="n">celsius_temp</span><span class="p">,</span> <span class="n">my_threshold</span><span class="p">):</span>
+    <span class="n">converted_temp</span> <span class="o">=</span> <span class="n">make_fahrenheit</span><span class="p">(</span><span class="n">celsius_temp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">converted_temp</span> <span class="o">&gt;</span> <span class="n">my_threshold</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The temperature is </span><span class="si">{</span><span class="n">converted_temp</span><span class="si">}</span><span class="s2">°F. Thus, it is warm outside.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The temperature is </span><span class="si">{</span><span class="n">converted_temp</span><span class="si">}</span><span class="s2">°F. Thus, it is NOT warm outside.&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_it_warm</span><span class="p">(</span><span class="n">celsius_temp</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">my_threshold</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 50.0°F. Thus, it is warm outside.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>: How would you re-write <code class="docutils literal notranslate"><span class="pre">is_it_warm()</span></code> to give it a default threshold?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_it_warm</span><span class="p">(</span><span class="n">celsius_temp</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 68.0°F. Thus, it is NOT warm outside.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-chinese-zodiac-calculator">
+<h2>Exercise 1 — Chinese Zodiac Calculator<a class="headerlink" href="#exercise-1-chinese-zodiac-calculator" title="Permalink to this headline">¶</a></h2>
+<p>Make a function called <code class="docutils literal notranslate"><span class="pre">chinese_zodiac()</span></code> that will take in someone’s birth year and then report their corresponding Chinese zodiac.</p>
+<p>You can make this function however you want, but here are 12 lists with the corresponding birth years for every zodiac sign.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rat_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1924</span><span class="p">,</span> <span class="mi">1936</span><span class="p">,</span> <span class="mi">1948</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1972</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="mi">1996</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2032</span><span class="p">]</span>
+<span class="n">ox_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1925</span><span class="p">,</span> <span class="mi">1937</span><span class="p">,</span> <span class="mi">1949</span><span class="p">,</span> <span class="mi">1961</span><span class="p">,</span> <span class="mi">1973</span><span class="p">,</span> <span class="mi">1985</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="mi">2009</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2033</span><span class="p">]</span>
+<span class="n">tiger_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1926</span><span class="p">,</span> <span class="mi">1938</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">1962</span><span class="p">,</span> <span class="mi">1974</span><span class="p">,</span> <span class="mi">1986</span><span class="p">,</span> <span class="mi">1998</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2034</span><span class="p">]</span>
+<span class="n">rabbit_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1927</span><span class="p">,</span> <span class="mi">1939</span><span class="p">,</span> <span class="mi">1951</span><span class="p">,</span> <span class="mi">1963</span><span class="p">,</span> <span class="mi">1975</span><span class="p">,</span> <span class="mi">1987</span><span class="p">,</span> <span class="mi">1999</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2023</span><span class="p">,</span> <span class="mi">2035</span><span class="p">]</span>
+<span class="n">dragon_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1928</span><span class="p">,</span> <span class="mi">1940</span><span class="p">,</span> <span class="mi">1952</span><span class="p">,</span> <span class="mi">1964</span><span class="p">,</span> <span class="mi">1976</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2024</span><span class="p">,</span> <span class="mi">2036</span><span class="p">]</span>
+<span class="n">snake_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1929</span><span class="p">,</span> <span class="mi">1941</span><span class="p">,</span> <span class="mi">1953</span><span class="p">,</span> <span class="mi">1965</span><span class="p">,</span> <span class="mi">1977</span><span class="p">,</span> <span class="mi">1989</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2025</span><span class="p">,</span> <span class="mi">2037</span><span class="p">]</span>
+<span class="n">horse_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1930</span><span class="p">,</span> <span class="mi">1942</span><span class="p">,</span> <span class="mi">1954</span><span class="p">,</span> <span class="mi">1966</span><span class="p">,</span> <span class="mi">1978</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2026</span><span class="p">,</span> <span class="mi">2038</span><span class="p">]</span>
+<span class="n">sheep_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1931</span><span class="p">,</span> <span class="mi">1943</span><span class="p">,</span> <span class="mi">1955</span><span class="p">,</span> <span class="mi">1967</span><span class="p">,</span> <span class="mi">1979</span><span class="p">,</span> <span class="mi">1991</span><span class="p">,</span> <span class="mi">2003</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="mi">2027</span><span class="p">,</span> <span class="mi">2039</span><span class="p">]</span>
+<span class="n">monkey_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1932</span><span class="p">,</span> <span class="mi">1944</span><span class="p">,</span> <span class="mi">1956</span><span class="p">,</span> <span class="mi">1968</span><span class="p">,</span> <span class="mi">1980</span><span class="p">,</span> <span class="mi">1992</span><span class="p">,</span> <span class="mi">2004</span><span class="p">,</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">2028</span><span class="p">,</span> <span class="mi">2040</span><span class="p">]</span>
+<span class="n">rooster_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1933</span><span class="p">,</span> <span class="mi">1945</span><span class="p">,</span> <span class="mi">1957</span><span class="p">,</span> <span class="mi">1969</span><span class="p">,</span> <span class="mi">1981</span><span class="p">,</span> <span class="mi">1993</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">2029</span><span class="p">,</span> <span class="mi">2041</span><span class="p">]</span>
+<span class="n">dog_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1934</span><span class="p">,</span> <span class="mi">1946</span><span class="p">,</span> <span class="mi">1958</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1982</span><span class="p">,</span> <span class="mi">1994</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2030</span><span class="p">,</span> <span class="mi">2042</span><span class="p">]</span>
+<span class="n">pig_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1935</span><span class="p">,</span> <span class="mi">1947</span><span class="p">,</span> <span class="mi">1959</span><span class="p">,</span> <span class="mi">1971</span><span class="p">,</span> <span class="mi">1983</span><span class="p">,</span> <span class="mi">1995</span><span class="p">,</span> <span class="mi">2007</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2031</span><span class="p">,</span> <span class="mi">2043</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>🐀 Rat<br />
+🐂 Ox<br />
+🐅 Tiger<br />
+🐇 Rabbit<br />
+🐉 Dragon<br />
+🐍 Snake<br />
+🐎 Horse<br />
+🐑 Sheep / 🐐 Goat / 🐏 Ram<br />
+🐒 Monkey<br />
+🐓 Rooster<br />
+🐕 Dog<br />
+🐖 Pig</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chinese_zodiac</span> <span class="c1">#Your Code Here 👇</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chinese_zodiac</span><span class="p">(</span><span class="mi">2008</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You were born in the year of the Rat 🐀
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chinese_zodiac</span><span class="p">(</span><span class="c1">#Enter your birth year!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chinese_zodiac</span><span class="p">(</span><span class="c1">#Enter your partner&#39;s birth year!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-2-make-a-chinese-zodiac-python-script">
+<h2>Exercise 2 — Make a Chinese Zodiac Python Script!<a class="headerlink" href="#exercise-2-make-a-chinese-zodiac-python-script" title="Permalink to this headline">¶</a></h2>
+<p>Now we want to make a Python script called <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code> that we can run from the command line. The script will ask a user to enter their birth year and then report their Chinese zodiac animal.</p>
+<p>To make this script, open Visual Studio Code (<a class="reference external" href="https://code.visualstudio.com/download">download here</a> if you don’t already have it). Choose “Open Folder” and then select “GitHub/Intro-CA-SP21/book”. Go to File -&gt; Make a New File, then save this file as <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code>.</p>
+<p>Now you want to add in your Python (you can combine your <code class="docutils literal notranslate"><span class="pre">chinese_zodiac()</span></code> function with a few other necessary lines of code!).</p>
+<p>To test out the script, you can right-click the <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code> file and select “Open in Integrated Terminal”. Then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">zodiac.py</span></code> from the Terminal.</p>
+</div>
+<div class="section" id="exercise-3-movie-recommender-script">
+<h2>Exercise 3 — Movie Recommender Script<a class="headerlink" href="#exercise-3-movie-recommender-script" title="Permalink to this headline">¶</a></h2>
+<p>Make a Python script called <code class="docutils literal notranslate"><span class="pre">movie_recommender.py</span></code> that asks a user to type in their favorite dessert from some provided options (such as cake, pie, ice cream, mochi, flan, or candy) and then recommends a movie to them based on this selection.</p>
+<p><img alt="" src="images/movie_recommender.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02-Python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

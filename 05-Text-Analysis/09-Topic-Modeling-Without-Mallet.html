@@ -1,0 +1,1730 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic Modeling — With Tomotopy &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Topic Modeling — CSV Files" href="10-Topic-Modeling-CSV.html" />
+    <link rel="prev" title="Topic Modeling — Text Files" href="08-Topic-Modeling-Text-Files.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04-Data-Collection/10-Twitter.html">
+     Twitter Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-york-times-obituaries">
+     <em>
+      New York Times
+     </em>
+     Obituaries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-packages">
+   Install Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-packages">
+   Import Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-training-data-from-text-files">
+   Get Training Data From Text Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-topic-model">
+   Train Topic Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-top-documents-and-titles">
+   Examine Top Documents and Titles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heatmap">
+   Heatmap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-a-csv-file">
+   Output a CSV File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn!
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="topic-modeling-with-tomotopy">
+<h1>Topic Modeling — With Tomotopy<a class="headerlink" href="#topic-modeling-with-tomotopy" title="Permalink to this headline">¶</a></h1>
+<p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or single text that has been separated into smaller text chunks.</p>
+<p>In this particular lesson, we’re going to use <a class="reference external" href="https://github.com/bab2min/tomotopy">Tomotopy</a> to topic model 379 obituaries published by <em>The New York Times</em>.</p>
+<p>While Mallet is a fantastic tool that is widely embraced throughout the DH community, it can also pose challenges for scholars because it requires the installation and configuration of Mallet/the Java Development Kit. Tomotopy is a topic modeling tool that is written purely in Python, and it seems to be a good alternative to Mallet.</p>
+<hr class="docutils" />
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-york-times-obituaries">
+<h3><em>New York Times</em> Obituaries<a class="headerlink" href="#new-york-times-obituaries" title="Permalink to this headline">¶</a></h3>
+<blockquote class="epigraph" style=" padding: 10px">
+<p>Georgia O’Keeffe, the undisputed doyenne of American painting and a leader, with her husband, Alfred Stieglitz, of a crucial phase in the development and dissemination of American modernism, died yesterday at St. Vincent Hospital in Santa Fe, N.M.</p>
+<p class ="attribution">
+    —Edith Evans Asbury, <a href="https://www.nytimes.com/1986/03/07/obituaries/georgia-o-keeffe-dead-at-98-shaper-of-modern-art-in-us.html">Georgia O'Keefe Dead At 98</a>
+    </p>
+</blockquote><p>This dataset is based on data originally collected by Matt Lavin for his <em>Programming Historian</em> <a class="reference external" href="https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf#lesson-dataset">TF-IDF tutorial</a>. I have re-scraped the obituaries so that the subject’s name and death year is included in each text file name, and I have added 13 more <a class="reference external" href="https://www.nytimes.com/interactive/2018/obituaries/overlooked.html">“Overlooked”</a> obituaries, including <a class="reference external" href="https://www.nytimes.com/2019/01/02/obituaries/karen-sparck-jones-overlooked.html">Karen Spärck Jones</a>, the computer scientist who introduced TF-IDF.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-packages">
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tomotopy
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-packages">
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s import <code class="docutils literal notranslate"><span class="pre">tomotopy</span></code>, <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<p>We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tomotopy</span> <span class="k">as</span> <span class="nn">tp</span>
+<span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-training-data-from-text-files">
+<h2>Get Training Data From Text Files<a class="headerlink" href="#get-training-data-from-text-files" title="Permalink to this headline">¶</a></h2>
+<p>Before we topic model the <em>NYT</em> obituaries, we need to process the text files and prepare them for analysis. The steps below demonstrate how to process texts if your corpus is a collection of separate text files. In the next lesson, we’ll demonstrate how to process texts that come from a CSV file.</p>
+<p class="title">Note</p>
+<p>We’re calling these text files our <em>training data</em>, because we’re <em>training</em> our topic model with these texts. The topic model will be learning and extracting topics based on these texts.</p>
+</div><p>To get the necessary text files, we’re going to make a variable and assign it the file path for the directory that contains the text files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’re going to use the <code class="docutils literal notranslate"><span class="pre">glob.gob()</span></code> function to make a list of all (<code class="docutils literal notranslate"><span class="pre">*</span></code>) the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in that directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we process our texts with the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.process_string()</span></code>.</p>
+<p>This function will take every individual text file, transform all the text to lowercase as well as remove stopwords, punctuation, and numbers, and then add the processed text to our master list <code class="docutils literal notranslate"><span class="pre">training_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">original_texts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">processed_text</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+    <span class="n">training_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_text</span><span class="p">)</span>
+    <span class="n">original_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">training_data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">original_texts</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(379, 379, 379)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-topic-model">
+<h2>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of topics to return</span>
+<span class="n">num_topics</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># Numer of topic words to print out</span>
+<span class="n">num_topic_words</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Intialize the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">LDAModel</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">num_topics</span><span class="p">)</span>
+
+<span class="c1"># Add each document to the model, after splitting it up into words</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">training_data</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add_doc</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic Model Training...</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Iterate over the data 10 times</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">iterations</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">iterations</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Iteration: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\t</span><span class="s1">Log-likelihood: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">ll_per_word</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topic Model Results:</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Print out top 10 words for each topic</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">topic_individual_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">topic_number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">):</span>
+    <span class="n">topic_words</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">get_topic_words</span><span class="p">(</span><span class="n">topic_id</span><span class="o">=</span><span class="n">topic_number</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="n">num_topic_words</span><span class="p">))</span>
+    <span class="n">topics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topic_words</span><span class="p">)</span>
+    <span class="n">topic_individual_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topic_words</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic_words</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic Model Training...
+
+
+Iteration: 0	Log-likelihood: -10.147201521861968
+Iteration: 10	Log-likelihood: -9.782205299903422
+Iteration: 20	Log-likelihood: -9.647394965920114
+Iteration: 30	Log-likelihood: -9.579161044754324
+Iteration: 40	Log-likelihood: -9.523919459170235
+Iteration: 50	Log-likelihood: -9.486029305400086
+Iteration: 60	Log-likelihood: -9.451744556960438
+Iteration: 70	Log-likelihood: -9.422499595850962
+Iteration: 80	Log-likelihood: -9.393694151871706
+Iteration: 90	Log-likelihood: -9.373238453748217
+
+Topic Model Results:
+
+
+✨Topic 0✨
+
+justice mao people china one communist court wrote warren many
+
+✨Topic 1✨
+
+music band jazz musical sinatra played years neill big became
+
+✨Topic 2✨
+
+miss mrs new said york women died years woman black
+
+✨Topic 3✨
+
+art paris work music works moses artist picasso new century
+
+✨Topic 4✨
+
+film said won theater films movie broadway hollywood television movies
+
+✨Topic 5✨
+
+president general house roosevelt grant state gen office law republican
+
+✨Topic 6✨
+
+university said books book work life children professor also child
+
+✨Topic 7✨
+
+times new wrote years story york first one life like
+
+✨Topic 8✨
+
+united party political government soviet general war army states american
+
+✨Topic 9✨
+
+war france hitler french german germany queen prince england britain
+
+✨Topic 10✨
+
+new business york kennedy company news year years editor became
+
+✨Topic 11✨
+
+many made great one old public received times four several
+
+✨Topic 12✨
+
+time one would could said life never came made people
+
+✨Topic 13✨
+
+king israel peace said jewish arab israeli british minister egypt
+
+✨Topic 14✨
+
+first world years two later new man united known long
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-top-documents-and-titles">
+<h2>Examine Top Documents and Titles<a class="headerlink" href="#examine-top-documents-and-titles" title="Permalink to this headline">¶</a></h2>
+<p>Load topic distributions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get_topic_dist</span><span class="p">())</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">docs</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make functions for displaying top documents. The <code class="docutils literal notranslate"><span class="pre">get_top_docs()</span></code> function is taken from Maria Antoniak’s <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper/blob/c89bfbeddb11ddc2a6874476985275a7b2a6c1fd/little_mallet_wrapper/little_mallet_wrapper.py#L164">Little Mallet Wrapper</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">make_md</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">string</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">get_top_docs</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_index</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    
+    <span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([(</span><span class="n">_distribution</span><span class="p">[</span><span class="n">topic_index</span><span class="p">],</span> <span class="n">_document</span><span class="p">)</span> 
+                          <span class="k">for</span> <span class="n">_distribution</span><span class="p">,</span> <span class="n">_document</span> 
+                          <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">topic_distributions</span><span class="p">,</span> <span class="n">docs</span><span class="p">)],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">topic_words</span> <span class="o">=</span> <span class="n">topics</span><span class="p">[</span><span class="n">topic_index</span><span class="p">]</span>
+    
+    <span class="n">make_md</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;### ✨Topic </span><span class="si">{</span><span class="n">topic_index</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic_words</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">---&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">probability</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">sorted_data</span><span class="p">[:</span><span class="n">n</span><span class="p">]:</span>
+        <span class="c1"># Make topic words bolded</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">topic_words</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">b</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="se">\\</span><span class="s2">b&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+        
+        <span class="n">make_md</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;✨  </span><span class="se">\n</span><span class="s1">**Topic Probability**: </span><span class="si">{</span><span class="n">probability</span><span class="si">}</span><span class="s1">  </span><span class="se">\n</span><span class="s1">**Document**: </span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display top titles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/Users/melwalsh/Documents/Intro-Cultural-Analytics/book/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.2971937954425812<br />
+<strong>Document</strong>: 1976-Mao-Tse-Tung</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.25366345047950745<br />
+<strong>Document</strong>: 1974-Earl-Warren</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.24932962656021118<br />
+<strong>Document</strong>: 1993-Thurgood-Marshall</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.24574586749076843<br />
+<strong>Document</strong>: 2000-Pierre-Trudeau</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.23010674118995667<br />
+<strong>Document</strong>: 1989-Andrei-Sakharov</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.22531503438949585<br />
+<strong>Document</strong>: 1975-Chiang-Kai-shek</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/Users/melwalsh/Documents/Intro-Cultural-Analytics/book/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.5446100831031799<br />
+<strong>Document</strong>: 1983-Earl-Hines</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.5283928513526917<br />
+<strong>Document</strong>: 1993-Dizzy-Gillespie</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4744018316268921<br />
+<strong>Document</strong>: 1986-Benny-Goodman</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4569990336894989<br />
+<strong>Document</strong>: 1983-Muddy-Waters</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4541119337081909<br />
+<strong>Document</strong>: 1991-Miles-Davis</p>
+</div>
+</div>
+<p>Display top documents with topic words bolded</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">original_texts</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/Users/melwalsh/Documents/Intro-Cultural-Analytics/book/05-Text-Analysis/09-Topic-Modeling-Without-Mallet.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.5446100831031799<br />
+<strong>Document</strong>: April 24, 1983</p>
+<p>OBITUARY</p>
+<p>Earl Hines, 77, Father of Modern Jazz Piano, Dies</p>
+<p>By JON PARELES</p>
+<p>Earl (Fatha) Hines, the father of modern <strong>jazz</strong> piano, died Friday in Oakland, Calif., after a heart attack. He was 77 <strong>years</strong> old. In his pioneering work with Louis Armstrong in the late 1920's, Mr.</p>
+<p>Hines virtually redefined <strong>jazz</strong> piano. With what he called ''trumpet style,'' Mr. Hines <strong>played</strong> horn-like solo lines in octaves with his right hand and spurred them with chords from his left. He thus carved a place for the piano as a solo instrument outside the rhythm section and defined the roles of both hands for the next generations of jazz pianists.</p>
+<p>Mr. Hines's strong right hand and angular melodic ideas continued to sound contemporary throughout his career. In the 1930's and 1940's, he led a Chicago <strong>big</strong> <strong>band</strong> that began the careers of the singers Billy Eckstine and Sarah Vaughan and included the saxophonists Wardell Gray and Budd Johnson. That <strong>band</strong> <strong>became</strong> an incubator for be-bop in the early 1940's, when it featured the trumpeter Dizzy Gillespie and the saxophonist Charlie</p>
+<p>Parker.</p>
+<p>Son of Two Musicians</p>
+<p>Earl Hines was born in Duquesne, Pa. His father was a trumpeter and his mother <strong>played</strong> piano and organ. He took up the trumpet as a child, but began studying classical piano at the age of 9. After three <strong>years</strong> of lessons, he decided he was more interested in jazz piano, and by the time he was 15 years old he was leading his own trio.</p>
+<p>Mr. Hines worked with <strong>big</strong> bands led by Lois B. Deppe in Pittsburgh and Carroll Dickerson and Sammy Stewart in Chicago, and in 1927 he joined a quintet led by Louis Armstrong at Chicago's Savoy Ballroom.</p>
+<p>With Mr. Armstrong, he made such recordings as ''West End Blues'' and ''Weather Bird,'' and in 1928 he recorded solos, including ''A Monday Date'' and ''Caution Blues,'' that established his style and have had a lasting influence on jazz piano.</p>
+<p>Mr. Hines started his own big band in 1928 at Chicago's Grand Terrace Ballroom, and stayed in residence there for more than a decade, although he toured for part of each year. His was one of the first black big bands to tour the South.</p>
+<p>Thn ''Jelly Jelly'' and ''Stormy Monday Blues.'' Although he left the Grand Terrace in 1940, Mr. Hines led a big band nearly continuously until 1947; at one point the group included a string section composed entirely of women.</p>
+<p>Origin of Nickname</p>
+<p>A Chicago disk jockey called him ''Fatha'' in the 1930's and the nickname - as in ''Father of modern piano'' -stayed with him. After dissolving his band, Mr. Hines worked with smaller groups. He rejoined Mr.</p>
+<p>Armstrong from 1948 to 1951, then led his own bands. In 1957, he toured Europe with an all-star group including the trombonist Jack Teagarden, but he spent much of the 1950's playing Dixieland jazz - <strong>music</strong> that he had not be Jack Teagarden, but he spent much of the 1950's playing Dixieland jazz - <strong>music</strong> that he had not been a part of - on the West Coast.</p>
+<p>He re-emerged with triumphant concerts and recordings in the early 1960's, and was elected a member of Downbeat magazine's jazz hall of fame in 1965. In 1966, the United States sponsored Mr. Hines' group on a tour of the Soviet Union, where he played for 92,000 people.</p>
+<p>Since the 1950's, Mr. Hines had been based in the San Francisco Bay area, and he continued to tour Europe, Japan and the United States through the early 1980's. He played his final engagement last weekend in San Francisco.</p>
+<p>Mr. Hines is survived by a granddaughter. He was divorced from his wife, Janie, in 1980.</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.5283928513526917<br />
+<strong>Document</strong>: January 7, 1993</p>
+<p>OBITUARY</p>
+<p>Dizzy Gillespie, Who Sounded Some of Modern Jazz's Earliest Notes, Dies at 75</p>
+<p>By PETER WATROUS</p>
+<p>Dizzy Gillespie, the trumpet player whose role as a founding father of modern <strong>jazz</strong> made him a major figure in 20th-century American <strong>music</strong> and whose signature moon cheeks and bent trumpet made him one of the world's most instantly recognizable figures, died yesterday at Englewood Hospital in Englewood, N.J.</p>
+<p>Mr. Gillespie, who was 75, had been suffering for some time from pancreatic cancer, his press agent, Virginia Wicks, said.</p>
+<p>In a nearly 60-year career as a composer, <strong>band</strong> leader and innovative player, Mr. Gillespie cut a huge swath through the <strong>jazz</strong> world. In the early 40's, along with the alto saxophonist Charlie (Yardbird) Parker, he initiated be-bop, the sleek, intense, high-speed revolution that has become jazz's most enduring style. In subsequent <strong>years</strong> he incorporated Afro-Cuban <strong>music</strong> into jazz, creating a new genre from the combination.</p>
+<p>In the naturally effervescent Mr. Gillespie, opposites existed. His playing -- and he performed constantly until nearly the end of his life -- was meteoric, full of virtuosic invention and deadly serious.</p>
+<p>But with his endlessly funny asides, his huge variety of facial expressions and his natural comic gifts, he was as much a pure entertainer as an accomplished artist. In some ways, he seemed to sum up all the possibilities of American popular art.</p>
+<p>From Carolina To the Big Bands</p>
+<p>John Birks Gillespie was born in Cheraw, S.C., on Oct. 21, 1917. His father, a bricklayer, led a local <strong>band</strong>, and by the age of 14 the young Gillespie was practicing the trumpet. He and his family moved to Philadelphia two <strong>years</strong> later, and Mr. Gillespie, though he thought about entering Temple University, quickly began a succession of professional jobs.</p>
+<p>He worked with Bill Doggett, the pianist and organist, who fired him for not being able to read music well enough, and then Frank Fairfax, a <strong>big</strong>-band leader whose orchestra included the trumpeter Charlie</p>
+<p>Shavers and the clarinetist Jimmy Hamilton. Mr. Gillespie was listening to the trumpeter Roy Eldridge, copying his solos and emulating his style, and was soon performing with Teddy Hill's band at the Savoy Ballroom on the basis of his ability to reproduce Mr. Eldridge's style.</p>
+<p>According to legend, it was Mr. Hill who gave Mr. Gillespie his nickname because of his odd clothing style and his fondness for practical jokes. Mr. Gillespie began cultivating his personality, putting his feet up on music stands during shows and regularly cracking jokes. But by May 1937 he was also recording improvisations with the Hill band and helping the performances by setting riffs behind soloists.</p>
+<p>Two years later, Mr. Gillepsie was considered accomplished enough to take part in a series of all-star recordings with Lionel Hampton, Benny Carter, Coleman Hawkins, Ben Webster and Chu Berry. He soloed on &quot;Hot Mallets.&quot;</p>
+<p>That year, 1939, he joined Cab Calloway's band, one of the leading black orchestras of the era. Though a dance band, its musicians, who included the bassist Milt Hinton and the guitarist Danny Barker, liked to experiment. Mr. Gillespie would work on the harmonic substitutions that eventually <strong>became</strong> be-bop. Mr. Gillespie was a regular soloist with the band, and by then his harmonic sensibility was beginning to take shape.</p>
+<p>Joining With Parker To Mold New Style</p>
+<p>It was while touring with the Calloway band in 1940 that Mr. Gillespie met Charlie Parker in Kansas City. And it was with him that Mr. Gillespie began formulating the style that was eventually called be-bop. Along with a handful of other musicians, including Thelonious Monk and Kenny Clarke, Mr. Gillespie and Mr. Parker would regularly experiment.</p>
+<p>On live recordings of the period, especially the two solos on the tune &quot;Kerouac,&quot; recorded in 1941 at Minton's Uptown Playhouse, a club in Harlem, can be heard his increasing interest in harmony, sleeker rhythms and a divergence from the style of Mr. Eldridge. Mr. Gillespie was blunt about his relationship with Mr. Parker, calling him &quot;the other side of my heartbeat,&quot; and freely giving him credit for some of the rhythmic innovations of be-bop.</p>
+<p>At the same time that Mr. Gillespie was experimenting with the new style, he was regularly arranging and recording for Mr. Calloway, including one of his better improvisations on &quot;Pickin' the</p>
+<p>Cabbage,&quot; a piece he composed and arranged. In September 1941, at the State Theater in Hartford, Mr. Gillespie was involved in an incident that shaped his reputation and his career. Mr. Calloway saw a spitball thrown on stage and thought Mr. Gillespie had done it; the two men fought, and Mr. Gillespie pulled a knife and put a cut in Mr. Calloway's posterior that required 10 stitches to close.</p>
+<p>Mr. Gillespie was fired from that job, but spent the next several years working with some of the biggest names in jazz, including Coleman Hawkins (who recorded the first version of Mr. Gillespie's classic &quot;Woody 'N' You&quot;), Benny Carter, Les Hite (for whom he recorded &quot;Jersey Bounce,&quot; considered the first be-bop solo), Lucky Millinder, Earl Hines, Ella Fitzgerald and Duke Ellington. For Mr. Millinder he made &quot;Little John Special,&quot; which includes a riff of Mr. Gillespie's that was later fleshed out into the composition &quot;Salt Peanuts,&quot; one of his best-known pieces.</p>
+<p>The early 40's were a turbulent time for jazz. Be-bop was slowly making itself felt, but at the same time a series of disputes between recording companies and the musicians' union resulted in a recording ban, so Mr. Gillespie and Mr. Parker were rarely recorded. In 1943 Mr. Gillespie led a band with the be-bop bassist Oscar Pettiford at the Onyx Club on 52d Street in Manhattan. And in 1944, the singer Billy Eckstine took over part of the Earl Hines band and created the first be-bop orchestra, of which few recorded performaces exist. Mr. Gillespie was the music director, and the band featured his &quot;Night in Tunisia.&quot;</p>
+<p>It was in 1945 that Mr. Gillespie began to break out. He undertook an ambitious recording schedule, recording with the pianist Clyde Hart and with Mr. Parker, Cootie Williams, Red Norvo, Sarah Vaughan and Slim Gaillard. And he began series of his own recordings that have since become some of jazz's most important pieces.</p>
+<p>Recording under his own name for the first time, he made &quot;I Can't Get Started,&quot; &quot;Good Bait,&quot; &quot;Salt Peanuts&quot; and &quot;Be-bop,&quot; during one session in January 1945.</p>
+<p>He followed it up with a recording date featuring Mr. Parker that included &quot;Groovin' High,&quot; &quot;Dizzy Atmosphere&quot; and &quot;All the Things You Are.&quot;</p>
+<p>These recordings, with their tight ensemble passages, precisely articulated rhythms and dissonance as part of the palate of jazz, were to influence jazz forever. Though Mr. Gillespie enjoyed playing for dancers, this was music that was meant first and foremost to be listened to. It was virtuosic in a way not heard before, and it was music that sent music students scurrying to their turntables to learn the improvisations by heart.</p>
+<p>They were also the recordings that captured Mr. Gillespie at his most impressive. His lines, jagged and angular, always seemed off balance. He used chromatic figures, and was not afraid to resolve a line on a vinegary, bitter note. And his improvising was eruptive; suddenly, a line would bolt into the high register, only to come tumbling down.</p>
+<p>Mr. Gillespie did more than just record in 1945. He put together the first of his <strong>big</strong> bands, and then formed a quintet with Mr. Parker that Mr. Gillespie called &quot;The height of perfection in our music.&quot; It included Bud Powell on piano, Ray Brown on bass and Max Roach on drums. Later that year, Mr. Gillespie reformed the big band, called the Hepsations of 1945. Despitea tour of the South that was almost catastrophically unsuccessful, the band stayed together for the next four years. Another Revolution: Afro-Cuban Jazz</p>
+<p>It was with this big band, whose name <strong>became</strong> the Dizzy Gillespie Orchestra, that Mr. Gillespie created his second revolution in the late 1940's. An old friend, the Cuban trumpeter Mario Bauza, who had made it possible for him to join the Calloway orchestra, introduced Mr. Gillespie to the Cuban conga player Luciano (Chano Pozo) Gonzales. &quot;Dizzy used to ask me about Cuban rhythms all the time,&quot; said Mr. Bauza. &quot;I introduced him to Chano Pozo, and they wrote 'Manteca.' It was a good marriage of two cultures. That was the beginning of Afro-Cuban jazz. That blew up the whole world.&quot;</p>
+<p>Mr. Gillespie quickly produced the sketches for &quot;Cubana Be&quot; and &quot;Cubana Bop,&quot; which were finished by the composer and arranger George Russell and included some of the first modal harmonies in jazz. And in &quot;Manteca,&quot; Mr. Gillespie's collaboration with Mr. Pozo, he created a work that is still performed and quoted regularly, by both Latin orchestras and by jazz musicians. Without the sophisticated arrangements and the conjunction of Latin rhythms and jazz harmonies that Mr. Gillespie provided, both jazz and Latin music would be radically different today.</p>
+<p>The band's highest moments, however, were when Mr. Gillespie -- in a move that characterized his career -- hired some of the young be-boppers on the scene. Among them were the pianist John Lewis, vibraphonist Milt Jackson, bassist Ray Brown and drummer Kenny Clarke, who went on to form the Modern Jazz Quartet. &quot;It was an incredible experience because so much was going on,&quot; Mr. Lewis recalled. &quot;Not only was he using these great be-bop arrangements but he was so encouraging. It was my first job, a formative experience.&quot;</p>
+<p>Mr. Gillespie's was the last great evolutionary big band, and during its tenure he hired the best soloists, from Jimmy Heath, James Moody and Sonny Stitt to John Coltrane and Paul Gonzalves. Arrangements like &quot;Things to Come,&quot; with their exhilarating precision, were be-bop and orchestral landmarks, with dense harmonies and flashy rhythms.</p>
+<p>And it was with his big band that Mr. Gillespie fully developed the other side of his <strong>musical</strong> personality. With songs like &quot;He Beeped When He Should Have Bopped,&quot; &quot;Ool Ya Koo&quot;, &quot;Oo</p>
+<p>Pop A Da&quot; and others, he began popularizing the Bohemian, Dadaesque aspects of be-bop.</p>
+<p>Mr. Gillespie was a keen popularizer, and with his sense of comedy managed to make his shows into an extraordinary mixture of entertainment and esthetics. In so doing, he was following in the path of his ex-bandleader, Mr. Calloway, as well as Louis Armstrong and Fats Waller.</p>
+<p>From then on, he cultivated an audience that went beyond the average jazz fan, and it was this reputation that helped in his later career. And at the same time, be-bop fashion made an appearance, with Mr. Gillespie, in thick glasses and a beret, leading the way.</p>
+<p>The big-band business slowed down considerably in the late 1940's and early 50's, and Mr. Gillespie teamed with Stan Kenton's orchestra as a featured soloist. Then he began using a small group again.</p>
+<p>He formed his own record company in 1951, Dee Gee, which folded soon after. Mr. Gillespie and Mr. Parker recorded for Verve, with Mr. Monk, and he and Mr. Parker performed at Birdland in Manhattan the next year. He toured Europe and in 1953 joined Mr. Parker, Mr. Powell, Mr. Roach and the bassist Charles Mingus for a concert at Massey Hall in Toronto that became legendary for its disorganization and for acrimony among performers.</p>
+<p>It was also in 1953 that someone fell on Mr. Gillespie's trumpet, and bent it. When he <strong>played</strong> the misshapen instrument, Mr. Gillespie found he could hear the sound more clearly, and so decided to keep it. Along with those cheeks, it became his trademark.</p>
+<p>During the 1950's Mr. Gillespie recorded with with Stan Getz, Stuff Smith, Sonny Stitt, Mr. Eldridge and others. In 1956, he formed another big band and, at the behest of the United States State</p>
+<p>Department, toured the Middle East and South America. In 1957, Mr. Gillespie presided over &quot;The Eternal Triangle,&quot; a recording that includes Mr. Stitt and Sonny Rollins and some of the hardest trumpet blowing ever recorded.</p>
+<p>Through the 1960's and 70's, Mr. Gillespie toured frequently, playing up to 300 shows a year, sometimes with an electric bassist and a guitarist, sometimes with a more traditional group. And in 1974 he signed with Pablo Records and began recording prolifically again. He won Grammies in 1975 and 1980, and he published his autobiography, &quot;To Be or Not to Bop,&quot; in 1979.</p>
+<p>In the last decade, Mr. Gillespie's career seemed recharged, and he became ubiquitous on the concert circuit as a special guest. He formed a Latin big band that performed with Paquito De Rivera, among others, and he constantly shuffled the personnel of his small groups.</p>
+<p>Last year, in honor of his 75th birthday, Mr. Gillepsie <strong>played</strong> for four weeks at the Blue Note club in Manhattan, a stint that featured perhaps the greatest selection of jazz musicians ever brought together for a tribute. The month covered his career, from small groups, to Afro-Cuban jazz to a big band. As usual, he was his witty amiable self, in command of both the audience and his trumpet.</p>
+<p>Mr. Gillespie is survived by his wife of 52 years, Lorraine.</p>
+<p>Seeking the Best Of a Huge Output</p>
+<p>Dizzy Gillespie's recorded output was immense, spanning nearly 60 years and comprising hundreds of albums. Not all of his important recordings have been issued on CD, but the vinyl versions are worth hunting for.</p>
+<p>Afro Cuban Jazz Verve The Be-Bop Revolution RCA Bird and Diz Verve The Development of an American Artist Smithsonian Diz and Getz Verve Dizzy and the Double Six of Paris Phillips</p>
+<p>Dizzy at Newport Verve Dizzy on the French Riviera Phillips Dizzy's Diamonds Verve Duets Verve The Gifted Ones (with Roy Eldridge) Pablo Live at the Royal Festival</p>
+<p>Hall Enja Oscar Peterson and Dizzy Gillespie Pablo Portrait of Duke Ellington Verve Shaw Nuff Musicraft Sonny Side Up (with Sonny Stitt) Verve</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4744018316268921<br />
+<strong>Document</strong>: June 14, 1986</p>
+<p>OBITUARY</p>
+<p>BENNY GOODMAN, KING OF SWING, IS DEAD</p>
+<p>By JOHN S. WILSON</p>
+<p>Benny Goodman, the King of Swing whose clarinet led a generation of <strong>music</strong> fans into the Big Band era in the 1930's, died yesterday afternoon at his Manhattan apartment, apparently of a heart attack.</p>
+<p>He was 77 <strong>years</strong> old.</p>
+<p>The death of the man who brought <strong>jazz</strong> to Carnegie Hall and enthralled millions with renditions of ''Sweet Georgia Brown'' and ''Stompin' at the Savoy'' brought expressions of grief and loss from his colleagues.</p>
+<p>Lionel Hampton, the vibraphonist, recalled that Mr. Goodman was the first major <strong>music</strong> figure to put black and white musicians together on stage in the 1930's. ''The most important thing that Benny Goodman did,'' he said, ''was to put Teddy Wilson and me in the quartet. It was instant integration. Black people didn't mix with whites then. Benny introduced us as Mr. Lionel Hampton and Mr. Teddy Wilson. He opened the door for Jackie Robinson. He gave music character and style.''</p>
+<p>Apple Cheeks and Horn-Rims</p>
+<p>The tall, apple-cheeked bandleader with the horn-rimmed glasses had had a pacemaker implanted in 1984, but he had been active and about town in recent months, and had appeared to be in good health yesterday morning, according to Lloyd Rauch, his personal assistant.</p>
+<p>Mr. Goodman apparently died while taking a nap on a guest-room couch in his apartment at 200 East 66th Street. The body was found by a housekeeper, Anna Lekander, Mr. Rauch said.</p>
+<p>Mr. Goodman <strong>became</strong> the King of Swing the night of Aug. 21, 1935, at the Palomar Ballroom in Hollywood. In the following <strong>years</strong>, he drew throngs to nightclubs and theaters and introduced <strong>jazz</strong> to Carnegie Hall, toured the world as a representative of a distinctive</p>
+<p>American culture, was instrumental in breaking the barrier that had kept white and black <strong>musical</strong> groups separate and developed a <strong>band</strong> that was a training ground for many other <strong>band</strong> leaders, including</p>
+<p>Harry James, Gene Krupa, Lionel Hampton and Teddy Wilson.</p>
+<p>Last month, Mr. Goodman was awarded an honorary Doctor of Music degree at Columbia University's commencement ceremonies, the latest in a long list of honors that included lifetime achievement awards at the Grammy show in February and from the Kennedy Center in Washington in 1982.</p>
+<p>But when he arrived at the Palomar in the summer of 1935 with a 14-piece band that he had formed a year before, there was no aura of success around Mr. Goodman. He was, in fact, so discouraged that he was prepared to give up his band and return to freelancing. His career as a band leader had been discouraging. His orchestra had been dismissed from the only two engagements it had had in New York and, after completing a 26-week contract on a network radio program, it had set out on a cross-country trek from New York to California. The reaction to Mr. Goodman's repertory of jazz-based arrangements ranged from bewilderment to antipathy. ''I thought we'd finish the engagement in California and take the train back to New York and that would be it,'' he recalled many years later. ''I'd just be a clarinetist again.''</p>
+<p>He Might Fail, But on His Own Terms</p>
+<p>He had tried to adapt to what he had been told the audiences wanted - pop tunes and waltzes. But on this night at the Palomar, starting what he thought would be the band's last engagement, Mr. Goodman decided that if he were going to fail, he would fail on his own terms. He brought out some of his favorite arrangements - by Fletcher Henderson of ''Sugar Foot Stomp,'' ''Blue</p>
+<p>Skies,'' ''Sometimes I'm Happy'' and ''King Porter Stomp'' - which had been his reason for recruiting a band that included such jazz specialists as the trumpeter Bunny Berrigan, the pianist Jess Stacy and the drummer Gene Krupa.</p>
+<p>As he beat out the tempo for ''Sugar Foot Stomp,'' the band dug into the Henderson arrangement. Then Mr. Berrigan rose up in the trumpet section, playing a crackling solo. As the sound of his horn exploded across the ballroom, a responsive roar went up from the listeners and they surged around the bandstand, cheering.</p>
+<p>Mr. Goodman looked around in amazement. He was stunned by the sudden change but, he said later, that roar ''was one of the sweetest sounds I ever heard in my life.''</p>
+<p>This stunning reversal in audience acceptance in Hollywood has been attributed to two factors. Although the ''Let's Dance'' program was on the air for only three hours, the bands actually <strong>played</strong> for five hours because, in those pretape days, the program had to be <strong>played</strong> a second time for the West Coast. By the time young listeners in California heard the Goodman band, it was warmed up and bringing out its best arrangements.</p>
+<p>Calfiornia was also developing a new type of radio entertainer, the disk jockey. The first celebrity disk jockey was Al Jarvis in Los Angeles, who had a program of recordings called ''The Make</p>
+<p>Believe Ballroom'' (a title later used in New York by Martin Block). Mr. Jarvis had been plugging the Goodman band's records and, when the band reached the Palomar, the audience, thanks to Mr. Jarvis, knew and was anxious to hear his choice Henderson arrangements.</p>
+<p>The crowd's roar would follow him for years at precedent-setting events not only during the swing era, which lasted into the mid-1940's, but also decades later when, in the 60's, he toured the Soviet Union with his band. He heard that same sound at the ''Paramount riot,'' in March 1937, when he played at the Paramount Theater in New York for the first time.</p>
+<p>Teenagers, who had followed the band on radio and had bought its records but could not afford the prices of such places as the Manhattan Room of the Hotel Pennsylvania, where the band usually played, were lined up around the theater at 6 A.M. to get into the morning show for 35 cents. During that day, more than 21,000 people jammed into the theater to bounce deliriously in the seats or shag in the aisles and battle ushers as they made desperate lunges toward the stage.</p>
+<p>First Jazz Concert At Carnegie Hall</p>
+<p>Mr. Goodman heard it again in January 1938, when, looking stiff and uncomfortable in white tie and tails, he led his orchestra in the first jazz concert ever given in Carnegie Hall to an audience that showed its enthusiasm by beating out the band's rhythm with pounding feet that rocked the old hall's balconies.</p>
+<p>There had been <strong>big</strong> bands that played swinging dance music before Mr. Goodman organized his orchestra. Fletcher Henderson led a groundbreaking black jazz band in the mid-20's, and in his wake came</p>
+<p>Duke Ellington, Earl Hines and Jimmie Lunceford, all black. There had also been <strong>big</strong>, jazz-oriented white bands - Jean Goldkette's Orchestra, the Casa Loma Orchestra and the band in which Mr.</p>
+<p>Goodman began playing when he was 16 years old, Ben Pollack's Orchestra.</p>
+<p>But Mr. Goodman's band arrived at a moment when the public's ear had been attuned by these earlier bands. Mr. Goodman provided a blend of jazz and contemporary popular music that filled this demand so successfully that, for a brief period, jazz and popular music were one and the same. His band also represented a blend of the freedom of jazz improvisation and the discipline that Mr. Goodman demanded from his musicians and, even more, from himself. He practiced his clarinet, his trumpeter Harry James once said, ''15 times more than the whole band combined.'' ''All the time I was with Goodman, he was never satisfied,'' Jess Stacy, the pianist, once said. ''With him, perfection was just around the corner. I figure Benny will die in bed with that damn clarinet.''</p>
+<p>In rehearsal or performance, Mr. Goodman's musicians dreaded ''the ray'' - a long, accusatory, poker-faced glare over the top of his glasses at anyone who had committed a false <strong>musical</strong> move. ''If you're interested in music,'' Mr. Goodman once said, ''you can't slop around. I expected things and they had to be done.''</p>
+<p>This discipline and his feeling for tempo produced performances that audiences that had not been exposed to much jazz found more exciting than the looser, more deeply jazz-flavored playing of Mr. Henderson's band, in which many of Mr. Goodman's most popular arrangements originated. ''Benny was very conscious of tempos,'' Willard Alexander, a booking agent who was one of the band's earliest supporters, once said. ''His music had a kind of lilt, a feel. I remember one time we dropped into the Roosevelt</p>
+<p>Grill when Guy Lombardo was playing there. Benny said to me, 'You know, this Lombardo's got something.' I thought he was putting me on. But he wasn't. 'You know his secret,'</p>
+<p>Benny said. 'He never plays a song in the wrong tempo.' '' 'No Glamour, No Sex Appeal' ''Benny was a phenomenon,'' Mr. Alexander went on. ''He was not really the biggest band of the swing era. Glenn Miller was. But Benny was the biggest new thing in this type of presentation. He was even different physically, contrary to what everybody expected in a band leader. No glamour. No sex appeal. But a well-grounded musician. Once he hit, in came the others in the same pattern. Tommy Dorsey, Glenn Miller. Like Goodman, they were not the typical Hollywood glamour boys. They wore glasses. They had musical experience. They were not young or green. And they had a lot of background.''</p>
+<p>Mr. Goodman's background went back to Chicago, where he was born on May 30, 1909, the eighth of 12 children in the family of an immigrant tailor who rarely earned more than $20 a week. He was 10 when he got a clarinet on loan from a local synagogue that also provided music lessons. His brother, Harry, the biggest of the Goodman boys, was given a tuba. Freddy, the next largest, received a trumpet. In later years, Benny Goodman wondered what kind of career he might have had ''if I had been 20 pounds heavier and two inches taller.''</p>
+<p>When he was 12, the youth won $5 at a Chicago theater doing an imitation of Ted Lewis, and by the time he was 14 he was making $48 a week playing four nights in the neighborhood band. He also played in the band at Hull House, the celebrated Chicago settlement house, and studied for two years with Franz Shoepp, a clarinetist in the Chicago Symphony, a strict disciplinarian who, Mr. Goodman said, ''did more for me musically than anyone I ever knew.''</p>
+<p>Still wearing short pants, he <strong>became</strong> part of a clique of teenage jazz musicians that included the cornetist Jimmy McPartland, the saxophonist Bud Freedman and the drummer Dave Tough, who were fascinated by the jazz sounds that flowed through Chicago in the 20's. He absorbed in his own playing the beautiful tone and sparkling flow of Jimmie Noone, the clarinetist. 'Kid in Short Pants' Is Summoned</p>
+<p>Leon Rappolo, clarinetist in the New Orleans Rhythm Kings, who leaned so far back in his chair when he played that he seemed to be lying down, influenced both Mr. Goodman's style and his posture.</p>
+<p>When Ben Pollack, the drummer in the Rhythm Kings, formed a band in California, he sent back to Chicago for ''the kid in the short pants, the kid who played lying down, like Rappolo.''</p>
+<p>Mr. Goodman was 16 when he joined the Pollack band in Venice, Calif., in 1926. He remained in the band for four years, when Glenn Miller, Jack Teagarden, Bud Freeman, Jimmy McPartland and Mr. Goodman's brother, Harry, were in the band. For the last two years, the Pollack band was based in New York, playing at the Little Club and at the Park Central Hotel (now the Omni-Park Hotel) and doubling in the pit of a musical, ''Hello, Daddy.''</p>
+<p>In the fall of 1929, after some disagreements with Mr. Pollack, Mr. Goodman left the band and began to freelance on radio and records, making as much as $350 to $400 a week in the early days of the Depression.</p>
+<p>In 1933, he met a young jazz fan and jazz activist, John Hammond, whose enthusiasm, insight and energy were to have a profound effect on the careers of Mr. Goodman, Billie Holiday, Count Basie and</p>
+<p>Charlie Christian, the short-lived, precedent-setting electric guitarist who played in Mr. Goodman's band for two years before his death in 1941.</p>
+<p>Mr. Hammond, who had a commission to make some jazz records for release in England, asked Mr. Goodman to lead a band for this purpose. Mr. Goodman chose some of his freelance friends, a group that Mr.</p>
+<p>Hammond augmented by borrowing Gene Krupa and Jack Teagarden from Mal Hallett's orchestra in Boston.</p>
+<p>These records, released as by ''Benny Goodman and His Orchestra,'' planted a seed that took root in 1934, when, with his freelance income reduced to $40 a week, Mr. Goodman heard that Billy Rose was auditioning bands for a new club called the Music Hall. With the help of Mr. Hammond, he started putting a band together. ''There were practically no hot bands using white musicians at the time,'' Mr. Goodman later recalled, ''and there was a lot of talent around town, both in jobs and laying off, that hadn't gotten the breaks.''</p>
+<p>A Tight Group, Every Man a Soloist</p>
+<p>His concept was a jazz band made up of young musicians who read well and played in tune, a group with a tight, small-band quality in which every man could be a soloist. The band he and Mr. Hammond assembled included Claude Thornhill, the pianist, who soon returned to studio work, and three musicians who remained with Mr. Goodman through the band's early days of glory - Red Ballard, trombonist:</p>
+<p>Arthur Rollini (brother of Adrian), saxophonist, and Hymie Schertzer. Mr. Schertzer's alto saxophone later gave the Goodman saxophone section its sheen, but he was hired because Mr. Goodman had heard he would need a violin in his band to accompany the shows at the Music Hall and Mr. Schertzer could play violin as well as saxophone.</p>
+<p>Ironically, Mr. Goodman's band was not able to play the routine accompanying music for the Music Hall's vaudeville acts - tumblers, a fire eater, a dog act - to Billy Rose's satisfaction.</p>
+<p>They were on the verge of being released when a compromise was reached - a second band would play for the shows and Mr. Goodman's band would play for dancing.</p>
+<p>Three months later, when the Music Hall's management changed, the band was let go. But before that happened, the band auditioned for a prospective three-hour weekly radio program to be divided between</p>
+<p>Latin music, ''sweet'' music and ''hot'' music. Xavier Cugat had already been signed as the Latin band. Murray Kellner (as Kel Murray) led the ''sweet'' band. The sponsor, the National Biscuit Company, lined up several ''hot'' bands and had some of its employes vote on them. Benny Goodman won by one vote.</p>
+<p>During the 26 weeks that Mr. Goodman played on this ''Let's Dance'' program, he had a budget with which to buy eight arrangements a week at $37.50 each. Edgar Sampson's $37.50 arrangement of ''Stompin' at the Savoy,'' played on the first ''Let's Dance'' broadcast, became one of Mr. Goodman's classics.</p>
+<p>Another arranger, Gordon Jenkins, wrote ''Goodbye,'' which became Mr. Goodman's closing theme. He also got his opening signature, ''Let's Dance,'' from the show - a ''hot'' arrangement of Carl Maria Von Weber's ''Invitation to the Dance'' written by George Bassman, who also provided a Latin version for</p>
+<p>Mr. Cugat and a ''sweet'' version for Mr. Kellner.</p>
+<p>Paying $37.50 For 'Killer-Dillers'</p>
+<p>But the most important collection of arrangements that Mr. Goodman got for his $37.50 came from Fletcher Henderson who, in 1934, had given up the big band he had led for 11 years. Some of these arrangements had originally been played by the Henderson band. ''King Porter Stomp'' and ''Big John Special'' were the first two, providing Mr. Goodman with the basis for the library of what became known as ''killer-dillers.'' But, at Mr. Goodman's urging, Mr. Henderson also wrote arrangements of popular songs that established the melodic and swinging style of the Goodman band. ''Fletcher's ideas were far ahead of anybody else's at the time,'' Mr. Goodman said. ''Without Fletcher, I probably would have had a pretty good band, but it would have been something quite different from what it eventually turned out to be.''</p>
+<p>Mr. Henderson's insistently swinging scores typify the Goodman band's style. George Simon, in his book ''The Big Bands,'' described them as ''simple, swinging arrangements in which complete sections played with the feeling of a single jazz soloist.'' ''In addition,'' Mr. Simon wrote, ''Henderson would set off one section against another, rolling saxes vs. crisp brass, an approach quite different from the less rhythmic, more lethargic-sounding ensembles of most dance bands.''</p>
+<p>After the ''Let's Dance'' program went off the air, Mr. Goodman's band was, inexplicably, booked into the Roosevelt Grill as a summer replacement for Guy Lombardo's ''Sweetest Music This Side of Heaven.'' Mr. Goodman's musicians had scarcely let out their first ''hot'' blast on opening night at the Roosevelt when they were given their two weeks' notice. The trail of discouragement continued as the band headed west toward California and the sudden turnaround at the Palomar Ballroom.</p>
+<p>First Billing As a 'Swing' Band</p>
+<p>So, instead of taking the train back to New York, Mr. Goodman stayed at the Palomar for two months. Then the band went to Chicago, where, booked into the Joseph Urban Room of the Congress Hotel, it stayed for six months. In Chicago it was billed for the first time as a ''swing'' band, with the word in quotes - ''as if,'' Mr. Goodman remarked, ''it was something in a foreign language.''</p>
+<p>The word had been used for years by musicians - Duke Ellington wrote ''It Don't Mean a Thing if It Ain't Got That Swing'' in 1932. But the general public seized on ''swing'' as a trendy catchword. However, references to Mr. Goodman as ''the King of Swing'' made him nervous. ''I didn't know how long it was going to last,'' he explained, ''and I didn't want to be tied down to something people might say was old-fashioned just because they tired of the name in a year or so.''</p>
+<p>But swing fever was on the rise, and in December 1935, some of Mr. Goodman's fans organized what may have been the first jazz concert. It was advertised as a ''Tea Dance'' and it was held in the Joseph Urban Room. But it was a sit-down-and-listen affair and a few people who instinctively tried to dance were booed off the floor. The response was so enthusiastic that another concert was organized for Easter Sunday in 1936. This time Mr. Goodman flew Teddy Wilson, the pianist, out to Chicago from New York.</p>
+<p>Less than a year before, Mr. Goodman had jammed with Mr. Wilson at the home of Mildred Bailey, the singer, accompanied on drums by Miss Bailey's cousin, Carl Bellinger. This led to some recordings by a trio made up of Mr. Goodman, Mr. Wilson and Gene Krupa, the Goodman band's drummer, made just before Mr. Goodman's fateful trip to the West Coast. This Chicago concert was the first time the trio performed in public. The performance was so successful that Mr. Goodman decided to keep Mr. Wilson and the trio as a regular part of his troupe.</p>
+<p>A Breakthrough In the Color Barrier</p>
+<p>This created a precedent, quickly copied by other swing bands, of having a small group within the big band. And by making Mr. Wilson, a black, a part of his entourage, Mr. Goodman broke through the color barrier that, until then, had kept white bands white and black bands black. A few months later, while the band was in Hollywood making its first movie, ''The Big Broadcast of 1937,''</p>
+<p>Mr. Goodman heard Lionel Hampton leading a band at the Paradise Cafe and, after enjoying an after-hours jam session with him, persuaded Mr. Hampton to add his vibraphone to the trio, making it a quartet that was 50 percent black.</p>
+<p>For the next four years the Goodman band rode on the crest of the Swing Era popularity, despite a brief challenge from another clarinet-playing leader, Artie Shaw. The cheers and shouts of approval were seemingly endless. In 1938, when the band's second film, ''Hollywood Hotel,'' opened in New York, The New York Times film critic, Frank Nugent, reported: ''You couldn't hear anything but the audience except when the picture worked its volume to a storm-warning level. It would have taken more than that, though, to override their howling when Mr. Goodman's clarinet came into camera range.''</p>
+<p>Not long after appearing in the film, Mr. Goodman performed with other jazz musicians in the Broadway musical ''Swingin' the Dream,'' which opened in 1939.</p>
+<p>The eye of the Goodman whirwind was the Hotel Pennsylvania in New York, where the band spent several months each year. When Mr. Goodman's mother came to hear his band for the first time, she looked around in amazement. ''This is the way he makes a living?'' she asked.</p>
+<p>In the summer of 1940, despite a steady load of engagements, Mr. Goodman broke up his band to take three months off to undergo surgery for a painful case of sciatica. When he reorganized his band in</p>
+<p>October of that year, the bulk of the arranging was taken over by Eddie Sauter, a trumpet player who had played and arranged for Red Norvo and who, in the 1950's, would be co-leader of an adventurous band with Bill Finegan. Mr. Finegan was making his reputation as an arranger with Glenn Miller at the very time that Mr. Sauter began arranging for the new Goodman band.</p>
+<p>The New Band Of the 1940's</p>
+<p>For this 1940's band, Mr. Goodman lured away Duke Ellington's trumpet star, Cootie Williams. He had a brilliant 18-year-old pianist, Mel Powell, and such veterans as Charlie Christian, Dave</p>
+<p>Tough, Billy Butterfield, Lou McGarity and Georgie Auld. In the opinion of many Goodman fanciers, this band of the early 40's, less publicized than his band of the 30's but with Mr. Sauter's provocative arrangements, was the finest of the Benny Goodman bands.</p>
+<p>It was during the 40's also that Mr. Goodman appeared in another Brodway musical, this time with a small group. The show was ''Seven Lively Arts,'' which opened in December 1944.</p>
+<p>Mr. Goodman continued to lead a big band until 1950. After World War II, he tried, briefly, to adapt to the new jazz style - be-bop - but soon gave it up, to the relief of proponents of both be-bop and swing.</p>
+<p>Meanwhile, Mr. Goodman carried on a dalliance with classical music. In 1935 John Hammond, who, despite his devotion to jazz, expressed himself musically by playing viola in classical string quartets, enticed Mr. Goodman to join his quartet in playing the Mozart Clarinet Quintet. It was an intoxicating whiff for the clarinetist.</p>
+<p>He subsequently played, and recorded, with the Budapest Quartet, with Joseph Szigeti and with symphony orchestras. He commissioned works by Bela Bartok, Aaron Copland and Paul Hindemith. During the 1940's, he studied with Reginald Kell, a renowned classical clarinetist, learning a new embouchure that required the use of a new set of facial muscles and a change in fingering for which he had his finger callouses surgically removed.</p>
+<p>Goodman Sidemen Played in Film</p>
+<p>In 1955, ''The Benny Goodman Story,'' a biographical film, was made in which Steve Allen played Mr. Goodman, and the producer assembled a band studded with former Goodman sidemen to play the sound track. Through the 50's, 60's and 70's, he formed small groups and big bands sporadically for concerts and tours, concentrating on the hits he had established in the Swing Era.</p>
+<p>Mr. Goodman took his music around the world, playing duets with the King of Thailand, a fellow clarinetist. At the 1958 World's Fair in Brussels, his band was regarded as one of the best American exhibits. He took a band to the Soviet Union in 1962 as part of a cultural exchange arrangement, producing a mixture of adulation and controversy, including an impromptu debate on jazz with Premier</p>
+<p>Nikita S. Khrushchev.</p>
+<p>In 1941, Mr. Goodman married Alice Duckworth, the sister of his friend John Hammond. She died in 1979.</p>
+<p>Mr. Goodman is survived by two daughters, Rachel Edelson and Benjie Lasseau; four brothers, Harry, Freddy, Irving and Gene; two sisters, Ethel Goodman and Ida Winsberg, and three stepdaughters.</p>
+<p>The police said Mr. Goodman's body had been taken to the Metropolitan Funeral Home in Manhattan and was to be transferred to the Bouton &amp; Reynolds Funeral Home in Stamford, Conn. Funeral arrangements were incomplete last night.</p>
+<p>Some Rememberances ''Working with Benny Goodman wasn't a job, it was an experience. Benny meant a whole lot to me, not only as a teacher but as a friend. I loved the man.'' - Frank Sinatra. ''You think of clarinet and Benny</p>
+<p>Goodman simultaneously. He had an innate dignity about him, coupled with his integrity in music. He was a step in the refinement of jazz. He upheld standards that were never less than the Carnegie Hall type of thing. He taught me the value of rehearsing and discipline, and that's a great value in any craft.'' - Peggy Lee. ''The world's greatest artist on the classical clarinet, and his orchestra was one of the best of all time.'' - Steve Allen. ''He proved that good music could reach the general public.</p>
+<p>He was the most popular figure in the history of jazz to reach a non-jazz public. He was the Beatles of his day. And he did it with pure, uncompromising music. He never compromised.'' - George Wein.</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4569990336894989<br />
+<strong>Document</strong>: May 1, 1983</p>
+<p>OBITUARY</p>
+<p>Muddy Waters, Blues Performer, Dies</p>
+<p>By ROBERT PALMER</p>
+<p>Muddy Waters, who <strong>played</strong> a key role in the development of electric blues and rock-and- roll and was the greatest contemporary exponent of the influential Mississippi Delta blues style, died in his sleep early yesterday at his home near Chicago. The singer and guitarist was pronounced dead at Chicago's Good Samaritan Hospital, reportedly of a heart attack. He was 68 <strong>years</strong> old.</p>
+<p>Beginning in the early 1950's, Mr. Waters made a series of hit records for Chicago's Chess label that made him the undisputed king of Chicago blues singers. He was the first popular bandleader to assemble and lead a truly electric <strong>band</strong>, a <strong>band</strong> that used amplification to make the <strong>music</strong> more ferociously physical instead of simply making it a little louder.</p>
+<p>In 1958, he <strong>became</strong> the first artist to play electric blues in England, and while many British folk-blues fans recoiled in horror, his visit inspired young musicians like Mick Jagger, Keith Richards and</p>
+<p>Brian Jones, who later named their band the Rolling Stones after Mr. Waters's early hit &quot;Rollin' Stone.&quot; Bob Dylan's mid-1960's rock hit &quot;Like a Rolling Stone&quot; and the leading rock newspaper Rolling Stone were also named after Mr. Waters's original song.</p>
+<p>Played at Carnegie Hall</p>
+<p>Mr. Waters <strong>played</strong> his blues at Carnegie Hall in 1959, and in 1960 he made a triumphant appearance at the Newport Jazz Festival, where he introduced his blues hit &quot;Got My Mojo Working&quot; to white <strong>music</strong> fans. His music was widely imitated by a generation of young white musicians, and virtually all the leading rock guitarists who emerged in the 1960's, including Eric Clapton, Jeff Beck,</p>
+<p>Jimmy Page and Johnny Winter, named Muddy Waters as one of their earliest and most important influences.</p>
+<p>Mr. Clapton returned the favor by hiring Mr. Waters to open the concerts on one of his American tours of the 1970's, where hundreds of thousands of rock fans heard Mr. Waters. Mr. Waters made his final concert appearance last June when he performed his early hit &quot;Blow Wind Blow&quot; in an Eric Clapton show in Miami.</p>
+<p>But Muddy Waters was more than a major influence in the pop music world. He was a great singer of American vernacular music, a vocal artist of astonishing power, range, depth, and subtlety. Among musicians and singers, his remarkable sense of timing, his command of inflection and pitch shading, and his vocabulary of vocal sounds and effects, from the purest falsetto to grainy moaning rasps, were all frequent topics of conversation. And he was able to duplicate many of his singing techniques on electric guitar, using a metal slider to make the instrument &quot;speak&quot; in a quivering, voice-like manner.</p>
+<p>His blues sounded simple, but it was so deeply rooted in the traditions of the Mississippi Delta that other singers and guitarists found it almost impossible to imitate it convincingly. &quot;My blues looks so simple, so easy to do, but it's not,&quot;</p>
+<p>Mr. Waters said in a 1978 interview. &quot;They say my blues is the hardest blues in the world to play.&quot;</p>
+<p>Raised in Mississippi Delta</p>
+<p>McKinley (Muddy Waters) Morganfield was born April 4, 1915, in Rolling Fork, in the southern Mississippi Delta near Highway 61. His father, Ollie Morganfield, farmed and played blues guitar, but his parents separated when he was six months old and he went to live with his maternal grandmother on a plantation outside Clarksdale, Miss., a town in the central Delta where John Lee Hooker and other future blues and gospel stars grew up. His grandmother began calling him &quot;Muddy&quot; when he was a baby because he liked playing in the mud, and when he was a child on the plantation playmates added the surname &quot;Waters.&quot;</p>
+<p>Muddy Waters began making music when he was 3 or 4 <strong>years</strong> old. He began performing on harmonica at country picnics and fish fries when he was 12 or 13, and had plenty of opportunity to watch older blues singers and guitarists. Robert Johnson influenced him, and so did the impassioned singer-guitarist Son House. But he also listened to commercial blues recordings by Memphis Minnie, Lonnie Johnson, Tampa Red, and Blind Lemon Jefferson on a neighbor's phonograph.</p>
+<p>In 1941 and 1942, Alan Lomax and John Work recorded Mr. Waters in Mississippi for the Library of Congress. Hearing himself on records encouraged Mr. Waters to try to make commercial recordings, and in 1943 he moved to Chicago. The following year he acquired an electric guitar, and by 1948 his band, with Jimmy Rogers on second guitar, Little Walter on harmonica, and Baby Face Leroy on guitar and drums, was the most popular blues combo working on Chicago's black South Side. He recorded for Columbia records and for Aristocrat in 1948, and his recording career took off after Aristocrat, owned by Leonard and Phil Chess, <strong>became</strong> Chess Records, with Muddy Waters as its leading blues artist.</p>
+<p>In the early and middle 1950's, Muddy Waters and his band made a number of records popular with black record buyers, especially in the Deep South and in Middle Western cities with large populations of Southerners, like Chicago and Detroit.</p>
+<p>The songs Mr. Waters recorded and performed in the 1950's included &quot;Hoochie Coochie Man,&quot; &quot;Just Make Love To Me,&quot; &quot;She Moves Me,&quot; &quot;Mannish Boy,&quot; and &quot;Louisiana</p>
+<p>Blues.&quot; His songs, some of which were original while others came from the blues tradition or were written for him by Willie Dixon, are still in the repertories of countless blues and rhythm-and-blues bands in the United States and around the world.</p>
+<p>He received widespread recognition in the 1970's, including six Grammy awards and a dynamic featured performance in Martin Scorcese's 1978 film &quot;The Last Waltz.&quot;</p>
+<p>Mr. Waters never grew rich from his music, but he was able to work virtually as often as he wanted to, and in recent months he had been taking time off, &quot;enjoying the fruits of his labor,&quot; according to his manager, Scott Cameron. He lived comfortably in Westmont, Ill., a Chicago suburb. His most recent albums, recorded for the Columbia distributed Blue Sky label and produced by his longtime admirer, the rock guitarist Johnny Winter, sold better than all but a handful of his earlier recordings, and he was proud of them. &quot;This is the best point of my life that I'm living right now,&quot; he said in 1978. &quot;I'm glad it came before I died, I can tell you.&quot;</p>
+<p>He is survived by his wife, Marva; three daughters and one son; four grandchildren and several great-grandchildren.</p>
+<p>✨<br />
+<strong>Topic Probability</strong>: 0.4541119337081909<br />
+<strong>Document</strong>: September 29, 1991</p>
+<p>OBITUARY</p>
+<p>Miles Davis, Trumpeter, Dies; Jazz Genius, 65, Defined Cool</p>
+<p>By JON PARELES</p>
+<p>Miles Davis, the trumpeter and composer whose haunting tone and ever-changing style made him an elusive touchstone of <strong>jazz</strong> for four decades, died yesterday at St. John's Hospital and Health Center in Santa Monica, Calif. He was 65 <strong>years</strong> old.</p>
+<p>He died of pneumonia, respiratory failure and a stroke, his doctor, Jeff Harris, said in a statement released by the hospital.</p>
+<p>A spokeswoman for the hospital, Pat Kirk, said yesterday that Mr. Davis had been a patient there for several weeks.</p>
+<p>Mr. Davis's unmistakable, voicelike, nearly vibratoless tone -- at times distant and melancholy, at others assertive yet luminous -- has been imitated around the world.</p>
+<p>His solos, whether ruminating on a whispered ballad melody or jabbing against a beat, have been models for generations of <strong>jazz</strong> musicians. Other trumpeters play faster and higher, but more than in any technical feats Mr. Davis's influence lay in his phrasing and sense of space. &quot;I always listen to what I can leave out,&quot; he would say.</p>
+<p>Equally important, Mr. Davis never settled into one style; every few <strong>years</strong> he created a new lineup and format for his groups. Each phase brought denunciations from critics; each, except for the most recent one, has set off repercussions throughout modern jazz. &quot;I have to change,&quot; he once said. &quot;It's like a curse.&quot;</p>
+<p>Mr. Davis came of age in the be-bop era; many successive styles -- cool jazz, hard-bop, modal jazz, jazz-rock, jazz-funk -- were sparked or ratified by his example. Throughout his career he was grounded in the blues, but he also drew on pop, flamenco, classical <strong>music</strong>, rock, Arab <strong>music</strong> and Indian music. Musicians he discovered often moved on to innovations of their own.</p>
+<p>Mr. Davis was also known for a volatile personality and arrogant public pronouncements, and for a stage presence that could be charismatic or aloof. For a while, he turned his back on audiences as he <strong>played</strong> and walked offstage when he was not soloing. His public persona was flamboyant, uncompromising and fiercely independent; he drove Ferraris and Lamborghinis and did not mince words when he disliked something.</p>
+<p>Yet his music was deeply collaborative. He spurred his sidemen to find their own <strong>musical</strong> voices and was inspired by them in turn.</p>
+<p>Trumpet at 13</p>
+<p>Miles Dewey Davis 3d was born May 25, 1926, in Alton, Ill., the son of an affluent dental surgeon, and grew up in East St. Louis, Ill. On his 13th birthday, he was given a trumpet and lessons with a local jazz musician, Elwood Buchanan. He got his musicians' union card at 15 so he could perform around St. Louis with Eddie Randall's Blue Devils.</p>
+<p>Clark Terry, the trumpeter, one of his early idols, <strong>became</strong> Mr. Davis's mentor, and his local reputation grew quickly. Mr. Davis's parents made him turn down early offers to join <strong>big</strong> bands.</p>
+<p>But in 1944 the Billy Eckstine <strong>band</strong>, which then included two men who were beginning to create be-bop -- Charlie Parker on alto saxophone and Dizzy Gillespie on trumpet -- arrived in St. Louis with an ailing third trumpeter. Mr. Davis sat in for two weeks. The experience made him decide to move to New York, the center of the be-bop revolution.</p>
+<p>He enrolled in the Juilliard School of Music in September 1944, and for his first months in New York he studied classical music by day and jazz by night, in the clubs of 52d Street and Harlem. Mr. Parker, who roomed with Mr. Davis for a time, and Mr. Gillespie introduced him to the coterie of be-bop musicians. From them he learned the harmonic vocabulary of be-bop and began to forge a solo style.</p>
+<p>Mr. Davis made his first recording in May 1945 backing up a singer, Rubberlegs Williams. He also performed in the 52d Street clubs with the saxophonists Coleman Hawkins and Eddie (Lockjaw) Davis. In the fall of that year he joined Charlie Parker's quintet and dropped out of Juilliard. &quot;Up at Juilliard,&quot; Mr. Davis said later, &quot;I <strong>played</strong> in the symphony, two notes, 'bop-bop,' every 90 bars, so I said, 'Let me out of here,' and then I left.&quot;</p>
+<p>With Parker's quintet, Mr. Davis recorded one of the first be-bop sessions in November 1945. It yielded the singles &quot;Now's the Time&quot; and &quot;Koko.&quot; For the next few years he worked primarily with Parker, and his tentative, occasionally shaky playing evolved into a pared-down, middle-register style that created a contrast with Parker's aggressive forays. He made his first recording as a leader on Aug. 14, 1947, with a quintet that included Parker on tenor saxophone.</p>
+<p>But Mr. Davis was moving away from the extroversion of early be-bop, and in 1948 he began to experiment with a new, more elaborately orchestrated style that would become known as &quot;cool jazz.&quot;</p>
+<p>Working with the arrangers Gil Evans (a frequent collaborator throughout his career), John Lewis and Gerry Mulligan, Mr. Davis brought a nine-piece <strong>band</strong> to the Royal Roost in New York to play rich, ruminative ensemble pieces, with solos floating in diffuse clouds of harmony. Although the public showed little interest, Mr. Davis was able to record the music in 1949 and 1950, and it helped spawn a cerebral cool-jazz movement on the West Coast.</p>
+<p>Mr. Davis <strong>became</strong> a heroin addict in the early 1950's, performing infrequently and making erratic recordings. But in 1954 he overcame his addiction and began his first string of important small-group recordings. &quot;Walkin',&quot; a swaggering blues piece informed by the extended harmonies of be-bop, turned decisively away from cool jazz and announced the arrival of hard bop. During 1954 Mr. Davis recorded with such leading musicians as the saxophonist Sonny Rollins and the pianists Horace Silver and Thelonious Monk.</p>
+<p>Over the next year, he made a triumphant appearance at the Newport Jazz Festival and assembled his first important quintet, with John Coltrane on tenor saxophone, Red Garland on piano, Paul Chambers on bass and Philly Joe Jones on drums.</p>
+<p>Breakthrough to Popularity</p>
+<p>Like many of the Davis bands to follow, it seemed to be an incompatible grouping in prospect, mixing the suavity and harmonic nuances of Garland and Chambers with the forcefulness of Jones and the raw energy of Coltrane.</p>
+<p>But it achieved a remarkable balance of delicacy and drive, with a sense of space and dynamics influenced by the pianist Ahmad Jamal's trio, and it brought Mr. Davis his first general popularity.</p>
+<p>The quintet recorded six albums in 1955-56, four of them in marathon sessions to fulfill Mr. Davis's recording contract with the independent Prestige Records label so he could sign with Columbia, a major label.</p>
+<p>In 1957 Mr. Davis had a throat operation to remove nodes from his vocal cords. Two days later he began shouting at someone who, he once said, &quot;tried to convince me to go into a deal I didn't want.&quot; His voice was permanently damaged, reduced to a raspy whisper.</p>
+<p>During the late 1950's Mr. Davis alternated orchestral albums with Gil Evans arrangements -- &quot;Miles Ahead&quot; (1957), &quot;Porgy and Bess&quot; (1958) and &quot;Sketches of Spain&quot; (1960) -- with small-group sessions. He recorded the soundtrack for Louis Malle's film &quot;Ascenseur Pour l'Echafaud&quot; (&quot;Elevator to the Gallows&quot;) with French musicians, then reconvened his quintet and added Julian (Cannonball) Adderley on alto saxophone. The sound track and the sextet's first album, &quot;Milestones,&quot; signaled another metamorphosis, cutting back the harmonic motion of be-bop to make music with fewer chords and more ambiguous harmonies.</p>
+<p>Mood and Melodic Tension</p>
+<p>With &quot;Kind of Blue&quot; in 1959, that change was complete. Most of the pieces on &quot;Kind of Blue&quot; (composed by Mr. Davis or his new pianist, Bill Evans) were based on modal scales rather than chords. Mood and melodic tension became paramount, in music that was at times voluptuous and austere.</p>
+<p>From this point onward, Mr. Davis would return often to music based on static, stripped-down harmonies. John Coltrane, among others, was to make modal jazz one of the definitive styles of the 1960's.</p>
+<p>The Davis group's personnel fluctuated in the early 1960's until Mr. Davis settled on a new quintet in 1964, with Wayne Shorter (who became the group's main composer) on tenor saxophone,</p>
+<p>Herbie Hancock on piano, Ron Carter on bass and Tony Williams on drums. It was one of the most important ensembles in 1960's jazz, pushing tonal harmony to its limits and developing a dazzling rhythmic flexibility.</p>
+<p>On the albums &quot;E.S.P.,&quot; &quot;Miles Smiles,&quot; &quot;The Sorcerer&quot; and &quot;Nefertiti,&quot; the group could swing furiously, then open up unexpected spaces or dissolve the beat into abstract waves of sound. The quintet defined an exploratory alternative to 1960's free jazz. The four sidemen also recorded prolifically on their own, extending the quintet's influence.</p>
+<p>Branching Into Rock Rhythms</p>
+<p>Mr. Davis had touched on rock rhythms in one selection on &quot;E.S.P.,&quot; but with the 1968 albums &quot;Miles in the Sky&quot; and &quot;Filles de Kilimanjaro,&quot; he began to experiment more seriously with rock rhythms, repeating bass lines and electronic instruments. He also began to work with open-ended compositions, based on rhythmic feeling, fragments of melody or bass patterns and his own on-the-spot directives.</p>
+<p>Mr. Davis expanded the group on &quot;In a Silent Way&quot; (1969) with three electric keyboards and electric guitar. Using static harmonics and a rock undercurrent, the music was eerie and reflective, at once abstract and grounded by the beat. &quot;Bitches Brew&quot; (1969), recorded by a larger group -- trumpeter, soprano saxophonist, bass clarinetist, two bassists, two or three keyboardists, three drummers and a percussionist -- was an aggressive, spooky sequel, roiling and churning with improvisations in every register.</p>
+<p>The two albums, along with performances at the Fillmore East and Fillmore West rock auditoriums, brought Mr. Davis's music to the rock audience; &quot;Bitches Brew&quot; became a best-selling album.</p>
+<p>Musicians who had worked with Mr. Davis from 1968-70 went on to lead the pioneering jazz-rock groups -- the Mahavishnu Orchestra, Tony Williams Lifetime, Weather Report and Return to Forever.</p>
+<p>Reaching Young Blacks</p>
+<p>Mr. Davis, meanwhile, was turning from rock toward funk; in interviews at the time, he talked about reaching young black audiences. His bands in the 1970's were anchored by a bassist, Michael Henderson, who had worked with Stevie Wonder, and they moved percussion and syncopated bass lines into the foreground. Around them, keyboards, saxophone, guitars and Mr. Davis's trumpet (now electrified, and often played through a wah-wah pedal) supplied rhythmic and textural effects as well as solos. &quot;On the Corner&quot; (1972), which also used Indian tabla drums and sitar, marked the change, and a pair of live albums, &quot;Dark Magus&quot; and &quot;Pangaea,&quot; were even more jolting. Conventional melody and harmony had been virtually abandoned; the music was a thicket of rhythms and electronic textures. Critical reaction at the time was mixed, but those albums became an inspiration to the late-1970's &quot;no wave&quot; noise-rockers and a new generation of funk experimenters in the 1980's.</p>
+<p>By the end of 1975 mounting medical problems -- among them ulcers, throat nodes, hip surgery and bursitis -- forced Mr. Davis into a five-year retirement. In 1981 he returned with an album, &quot;The</p>
+<p>Man With the Horn,&quot; a Kool Jazz Festival concert in New York and a band featuring Robert Irving 3d as keyboardist and co-producer.</p>
+<p>Although Mr. Davis's technique was intact, the music seemed for the first time to involve commercial calculations and a look backward at Mr. Davis's previous styles; he even played pop songs.</p>
+<p>With &quot;You're Under Arrest&quot; (1985), &quot;Tutu&quot; (1986) and &quot;Music From Siesta&quot; (1988), he recorded the music layer by layer, like pop albums, instead of leading musicians in live interaction. But on stage and on record, especially on the blues-oriented &quot;Star People&quot; (1983), there were still moments of the fierce beauty that is Mr. Davis's lasting legacy to American music.</p>
+<p>His last New York performance was in June as part of a double bill with B. B. King in the JVC Jazz Festival. In a review in The New York Times, Peter Watrous called the performance &quot;a particularly bad night&quot; for Mr. Davis. &quot;The problem seemed simple,&quot; Mr. Watrous wrote. &quot;Mr. Davis was incapable of sustaining more than a few notes at a time; the spareness seemed less an editorial decision than a decision handed down by physical constraints.&quot;</p>
+<p>Mr. Davis was married three times, to the dancer Frances Taylor, singer Betty Mabry and the actress Cicely Tyson. All ended in divorce. Survivors include a daughter, Cheryl; three sons, Gregory, Miles</p>
+<p>IV and Erin, and several grandchildren.</p>
+<p>Memorial services are being planned in New York City and East St. Louis, said Ms. Kirk at the hospital.</p>
+</div>
+</div>
+</div>
+<div class="section" id="heatmap">
+<h2>Heatmap<a class="headerlink" href="#heatmap" title="Permalink to this headline">¶</a></h2>
+<p>Make a heatmap. This function is taken from Maria Antoniak’s <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper/blob/c89bfbeddb11ddc2a6874476985275a7b2a6c1fd/little_mallet_wrapper/little_mallet_wrapper.py#L171">Little Mallet Wrapper</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> 
+                                      <span class="n">topic_distributions</span><span class="p">,</span> 
+                                      <span class="n">topic_keys</span><span class="p">,</span> 
+                                      <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                      <span class="n">target_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                      <span class="n">color_map</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rocket_r</span><span class="p">,</span>
+                                      <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="c1"># Combine the labels and distributions into a list of dictionaries.</span>
+    <span class="n">dicts_to_plot</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_label</span><span class="p">,</span> <span class="n">_distribution</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">target_labels</span> <span class="ow">or</span> <span class="n">_label</span> <span class="ow">in</span> <span class="n">target_labels</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_topic_index</span><span class="p">,</span> <span class="n">_probability</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_distribution</span><span class="p">):</span>
+                <span class="n">dicts_to_plot</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Probability&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">_probability</span><span class="p">),</span>
+                                      <span class="s1">&#39;Category&#39;</span><span class="p">:</span> <span class="n">_label</span><span class="p">,</span>
+                                      <span class="s1">&#39;Topic&#39;</span><span class="p">:</span> <span class="s1">&#39;Topic &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_topic_index</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topic_keys</span><span class="p">[</span><span class="n">_topic_index</span><span class="p">][:</span><span class="mi">5</span><span class="p">])})</span>
+
+    <span class="c1"># Create a dataframe, format it for the heatmap function, and normalize the columns.</span>
+    <span class="n">df_to_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dicts_to_plot</span><span class="p">)</span>
+    <span class="n">df_wide</span> <span class="o">=</span> <span class="n">df_to_plot</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> 
+                                     <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Topic&#39;</span><span class="p">,</span> 
+                                     <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+    <span class="n">df_norm_col</span><span class="o">=</span><span class="p">(</span><span class="n">df_wide</span><span class="o">-</span><span class="n">df_wide</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">df_wide</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+        
+    <span class="c1"># Show the final plot.</span>
+    <span class="k">if</span> <span class="n">dim</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_norm_col</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">color_map</span><span class="p">)</span>    
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">output_path</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1852-Ada-Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;1885-Ulysses-Grant&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1900-Nietzsche&#39;</span><span class="p">,</span> <span class="s1">&#39;1931-Ida-B-Wells&#39;</span><span class="p">,</span> <span class="s1">&#39;1940-Marcus-Garvey&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1941-Virginia-Woolf&#39;</span><span class="p">,</span> <span class="s1">&#39;1954-Frida-Kahlo&#39;</span><span class="p">,</span> <span class="s1">&#39;1962-Marilyn-Monroe&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1963-John-F-Kennedy&#39;</span><span class="p">,</span> <span class="s1">&#39;1964-Nella-Larsen&#39;</span><span class="p">,</span> <span class="s1">&#39;1972-Jackie-Robinson&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1973-Pablo-Picasso&#39;</span><span class="p">,</span> <span class="s1">&#39;1984-Ray-A-Kroc&#39;</span><span class="p">,</span><span class="s1">&#39;1986-Jorge-Luis-Borges&#39;</span><span class="p">,</span> <span class="s1">&#39;1991-Miles-Davis&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1992-Marsha-P-Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;1993-Cesar-Chavez&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span>
+                                  <span class="n">topic_distributions</span><span class="p">,</span>
+                                  <span class="n">topic_individual_words</span><span class="p">,</span>
+                                  <span class="n">target_labels</span><span class="o">=</span><span class="n">target_labels</span><span class="p">,</span>
+                                  <span class="n">color_map</span> <span class="o">=</span> <span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
+                                 <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="c1"># For all possible color maps, see https://matplotlib.org/stable/tutorials/colors/colormaps.html#miscellaneous</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/09-Topic-Modeling-Without-Mallet_38_0.png" src="../_images/09-Topic-Modeling-Without-Mallet_38_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="output-a-csv-file">
+<h2>Output a CSV File<a class="headerlink" href="#output-a-csv-file" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">topic_results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">topic_distribution</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">):</span>
+    <span class="n">topic_results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;document&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;topic_distribution&#39;</span><span class="p">:</span> <span class="n">topic_distribution</span><span class="p">})</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">topic_results</span><span class="p">)</span>
+<span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Topic </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">topic</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">topic_individual_words</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">column_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;topic_distribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;topic_distribution&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Topic 1 music band jazz musical&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>document</th>
+      <th>Topic 0 justice mao people china</th>
+      <th>Topic 1 music band jazz musical</th>
+      <th>Topic 2 miss mrs new said</th>
+      <th>Topic 3 art paris work music</th>
+      <th>Topic 4 film said won theater</th>
+      <th>Topic 5 president general house roosevelt</th>
+      <th>Topic 6 university said books book</th>
+      <th>Topic 7 times new wrote years</th>
+      <th>Topic 8 united party political government</th>
+      <th>Topic 9 war france hitler french</th>
+      <th>Topic 10 new business york kennedy</th>
+      <th>Topic 11 many made great one</th>
+      <th>Topic 12 time one would could</th>
+      <th>Topic 13 king israel peace said</th>
+      <th>Topic 14 first world years two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>348</th>
+      <td>1983-Earl-Hines</td>
+      <td>0.007906</td>
+      <td>0.544610</td>
+      <td>0.038555</td>
+      <td>0.042519</td>
+      <td>0.025110</td>
+      <td>0.014217</td>
+      <td>0.041089</td>
+      <td>0.021447</td>
+      <td>0.005277</td>
+      <td>0.001382</td>
+      <td>0.011608</td>
+      <td>0.051767</td>
+      <td>0.097526</td>
+      <td>0.000686</td>
+      <td>0.096301</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>1993-Dizzy-Gillespie</td>
+      <td>0.024084</td>
+      <td>0.528393</td>
+      <td>0.031484</td>
+      <td>0.043529</td>
+      <td>0.055360</td>
+      <td>0.016352</td>
+      <td>0.010973</td>
+      <td>0.044180</td>
+      <td>0.011611</td>
+      <td>0.000369</td>
+      <td>0.003885</td>
+      <td>0.038152</td>
+      <td>0.093532</td>
+      <td>0.008031</td>
+      <td>0.090066</td>
+    </tr>
+    <tr>
+      <th>288</th>
+      <td>1986-Benny-Goodman</td>
+      <td>0.013676</td>
+      <td>0.474402</td>
+      <td>0.050973</td>
+      <td>0.026095</td>
+      <td>0.089995</td>
+      <td>0.021075</td>
+      <td>0.002150</td>
+      <td>0.066154</td>
+      <td>0.011995</td>
+      <td>0.000634</td>
+      <td>0.028028</td>
+      <td>0.049893</td>
+      <td>0.104082</td>
+      <td>0.000101</td>
+      <td>0.060748</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1983-Muddy-Waters</td>
+      <td>0.005809</td>
+      <td>0.456999</td>
+      <td>0.045837</td>
+      <td>0.025924</td>
+      <td>0.043357</td>
+      <td>0.023356</td>
+      <td>0.001547</td>
+      <td>0.039821</td>
+      <td>0.004401</td>
+      <td>0.005462</td>
+      <td>0.072327</td>
+      <td>0.074951</td>
+      <td>0.093166</td>
+      <td>0.000368</td>
+      <td>0.106676</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>1991-Miles-Davis</td>
+      <td>0.022562</td>
+      <td>0.454112</td>
+      <td>0.056319</td>
+      <td>0.053344</td>
+      <td>0.041184</td>
+      <td>0.001498</td>
+      <td>0.017097</td>
+      <td>0.021428</td>
+      <td>0.008796</td>
+      <td>0.000383</td>
+      <td>0.008107</td>
+      <td>0.051834</td>
+      <td>0.115040</td>
+      <td>0.005894</td>
+      <td>0.142403</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>1984-Count-Basie</td>
+      <td>0.010085</td>
+      <td>0.446898</td>
+      <td>0.079568</td>
+      <td>0.016267</td>
+      <td>0.062421</td>
+      <td>0.018945</td>
+      <td>0.001576</td>
+      <td>0.050305</td>
+      <td>0.003017</td>
+      <td>0.000374</td>
+      <td>0.051617</td>
+      <td>0.077578</td>
+      <td>0.104258</td>
+      <td>0.000186</td>
+      <td>0.076907</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Topic-Distributions.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Choose a topic from the results above and write down its corresponding topic number below.</p>
+<p><strong>Topic: <em>Your Number Choice Here</em></strong></p>
+<p><strong>1.</strong> Display the top 6 obituary titles for this topic.</p>
+<p><strong>2.</strong> Display the topic words in the context of the original obituary for these 6 top titles.</p>
+<p><strong>3.</strong> Come up with a label for your topic and write it below:</p>
+<p><strong>Reflection</strong></p>
+<p><strong>4.</strong> Why did you label your topic the way you did? What do you think this topic means in the context of all the <em>NYT</em> obituaries?</p>
+<p><strong>5.</strong> What’s another collection of texts that you think might be interesting to topic model? Why?</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Text-Analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="08-Topic-Modeling-Text-Files.html" title="previous page">Topic Modeling — Text Files</a>
+    <a class='right-next' id="next-link" href="10-Topic-Modeling-CSV.html" title="next page">Topic Modeling — CSV Files</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

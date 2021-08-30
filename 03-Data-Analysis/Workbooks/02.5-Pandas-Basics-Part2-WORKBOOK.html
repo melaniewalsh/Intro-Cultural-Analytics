@@ -1,0 +1,3858 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas Basics Part 2 — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/03-Data-Analysis/Workbooks/02.5-Pandas-Basics-Part2-WORKBOOK.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/10-Twitter.html">
+     Twitter Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/13-Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../05-Text-Analysis/00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../05-Text-Analysis/01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../05-Text-Analysis/01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05-Text-Analysis/04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../05-Text-Analysis/05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Text-Analysis/11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05-Text-Analysis/12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05-Text-Analysis/13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/03-Data-Analysis/Workbooks/02.5-Pandas-Basics-Part2-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F03-Data-Analysis/Workbooks/02.5-Pandas-Basics-Part2-WORKBOOK.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/03-Data-Analysis/Workbooks/02.5-Pandas-Basics-Part2-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-trans-atlantic-slave-trade-database">
+   The Trans-Atlantic Slave Trade Database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-pandas">
+   Import Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#change-display-settings">
+   Change Display Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-data">
+   Get Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#isna-notna">
+     .isna() / .notna()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sort-columns">
+   Sort Columns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#which-voyages-had-the-highest-percentage-of-women-on-board">
+     ❓ Which voyages had the highest percentage of women on board?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculate-columns">
+   Calculate Columns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-was-the-average-percentage-of-women-aboard-the-voyages">
+     ❓ What was the average percentage of women aboard the voyages?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-was-the-highest-percentage-of-women-aboard-the-voyages">
+     ❓ What was the highest percentage of women aboard the voyages?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-was-the-average-percentage-of-children-aboard-the-voyages">
+     ❓ What was the average percentage of children aboard the voyages?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-was-the-highest-percentage-of-children-aboard-the-voyages">
+     ❓ What was the highest percentage of children aboard the voyages?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rename-columns">
+   Rename Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-columns">
+   Groupby Columns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#which-nation-recorded-the-most-information-about-gender">
+     ❓ Which nation recorded the most information about gender?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-columns">
+   Add Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plots-and-data-visualizations">
+   Plots and Data Visualizations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas-basics-part-2-workbook">
+<h1>Pandas Basics Part 2 — Workbook<a class="headerlink" href="#pandas-basics-part-2-workbook" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we’re going to introduce some more fundamentals of <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Pandas</a>, a powerful Python library for working with tabular data like CSV files.</p>
+<hr class="docutils" />
+<div class="section" id="the-trans-atlantic-slave-trade-database">
+<h2>The Trans-Atlantic Slave Trade Database<a class="headerlink" href="#the-trans-atlantic-slave-trade-database" title="Permalink to this headline">¶</a></h2>
+<p>“[D]isplaying data alone could not and did not offer the atonement descendants of slaves
+sought or capture the inhumanity of this archive’s formation.”</p>
+<p>— Jessica Marie Johnson, <a href="https://read.dukeupress.edu/social-text/article/36/4%20(137)/57/137032/Markup-BodiesBlack-Life-Studies-and-Slavery-Death">“Markup Bodies”</a></p>
+<p>The dataset that we’re going to be working with in this lesson is taken from <a class="reference external" href="https://www.slavevoyages.org/voyage/database">The Trans-Atlantic Slave Trade Database</a>, part of the <a class="reference external" href="https://www.slavevoyages.org/"><em>Slave Voyages</em> project</a>. The larger database includes information about 35,000 slave-trading voyages from 1514-1866. The dataset we’re working with here was filtered to include the 20,000 voyages that landed in the Americas. The data was filtered to also include the percentage of enslaved men, women, and children on the voyages.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Avatar&#39;</span><span class="p">,</span> <span class="s1">&#39;Neytiri&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2800</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Avatar&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">2800</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;The Avengers&#39;</span><span class="p">,</span> <span class="s1">&#39;Loki&#39;</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1518</span><span class="p">],[</span><span class="s1">&#39;The Avengers&#39;</span><span class="p">,</span> <span class="s1">&#39;Thor&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1518</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;My College Short Film&#39;</span><span class="p">,</span> <span class="s1">&#39;Myself&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;My College Short Film&#39;</span><span class="p">,</span> <span class="s1">&#39;My Mom&#39;</span><span class="p">,</span> <span class="mi">900</span><span class="p">]]</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Film&#39;</span><span class="p">,</span> <span class="s1">&#39;Character&#39;</span><span class="p">,</span> <span class="s1">&#39;Words Spoken&#39;</span><span class="p">,</span><span class="s1">&#39;Box Office Gross (Millions)&#39;</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Film</th>
+      <th>Character</th>
+      <th>Words Spoken</th>
+      <th>Box Office Gross (Millions)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Avatar</td>
+      <td>Neytiri</td>
+      <td>2000</td>
+      <td>2800.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Avatar</td>
+      <td>Jake</td>
+      <td>500</td>
+      <td>2800.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>The Avengers</td>
+      <td>Loki</td>
+      <td>700</td>
+      <td>1518.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>The Avengers</td>
+      <td>Thor</td>
+      <td>800</td>
+      <td>1518.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>My College Short Film</td>
+      <td>Myself</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>My College Short Film</td>
+      <td>My Mom</td>
+      <td>900</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Film&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Words Spoken</th>
+      <th>Box Office Gross (Millions)</th>
+    </tr>
+    <tr>
+      <th>Film</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Avatar</th>
+      <td>2500</td>
+      <td>5600.0</td>
+    </tr>
+    <tr>
+      <th>My College Short Film</th>
+      <td>1000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>The Avengers</th>
+      <td>1500</td>
+      <td>3036.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Film&#39;</span><span class="p">)[</span><span class="s1">&#39;Words Spoken&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Film
+Avatar                   1250
+My College Short Film     500
+The Avengers              750
+Name: Words Spoken, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Film&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Character</th>
+      <th>Words Spoken</th>
+      <th>Box Office Gross (Millions)</th>
+    </tr>
+    <tr>
+      <th>Film</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Avatar</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>My College Short Film</th>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>The Avengers</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="import-pandas">
+<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Permalink to this headline">¶</a></h2>
+<p>To use the Pandas library, we first need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="change-display-settings">
+<h2>Change Display Settings<a class="headerlink" href="#change-display-settings" title="Permalink to this headline">¶</a></h2>
+<p>By default, Pandas will display 60 rows and 20 columns. I often change <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">Pandas’ default display settings</a> to show more rows or columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-data">
+<h2>Get Data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Trans-Atlantic-Slave-Trade_Americas.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+<p>This creates a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#DataFrame">DataFrame object</a> — often abbreviated as <em>df</em>, e.g., <em>slave_voyages_df</em>. A DataFrame looks and acts a lot like a spreadsheet. But it has special powers and functions that we will discuss in the next few lessons.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>To look at the first <em>n</em> rows in a DataFrame, we can use a method called <code class="docutils literal notranslate"><span class="pre">.head()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>San Domingo (a) Santo Domingo</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>Santa Maria de Guadalupe</td>
+      <td>Pabon, Francisco</td>
+      <td>42679</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1526</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Spanish Caribbean, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>46474</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1527</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Puerto Rico, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>325.0</td>
+      <td>260.0</td>
+      <td>NaN</td>
+      <td>Concepción</td>
+      <td>Díaz, Alonso</td>
+      <td>99027</td>
+      <td>[u'SuedBadillo,57,75,76&lt;&gt;&lt;p&gt;SuedBadillo, &lt;em&gt;x...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1532</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Spanish Caribbean, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Antônio</td>
+      <td>Afonso, Martim</td>
+      <td>11293</td>
+      <td>[u'Ryder,66&lt;&gt;Ryder, A. F. C., &lt;i&gt;Benin&lt;/i&gt;&lt;i&gt; ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1532</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>25.0</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>de Illanes, Manuel</td>
+      <td>28994</td>
+      <td>[u'Tanodi, 321-22&lt;&gt;Tanodi, Aurelio, &lt;i&gt;Documen...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Generate information about all the columns in the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 20741 entries, 0 to 20740
+Data columns (total 14 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   year_of_arrival    20741 non-null  int64  
+ 1   flag               19583 non-null  object 
+ 2   place_of_purchase  20663 non-null  object 
+ 3   place_of_landing   20741 non-null  object 
+ 4   percent_women      2894 non-null   float64
+ 5   percent_children   2927 non-null   float64
+ 6   percent_men        2894 non-null   float64
+ 7   total_embarked     20722 non-null  float64
+ 8   total_disembarked  20719 non-null  float64
+ 9   resistance_label   372 non-null    object 
+ 10  vessel_name        20741 non-null  object 
+ 11  captain&#39;s_name     19396 non-null  object 
+ 12  voyage_id          20741 non-null  int64  
+ 13  sources            20741 non-null  object 
+dtypes: float64(5), int64(2), object(7)
+memory usage: 2.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just like Python has different data types, Pandas has different data types, too. These data types are automatically assigned to columns when we read in a CSV file. We can check these Pandas data types with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> method</a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Pandas Data Type</strong></p></th>
+<th class="text-align:center head"><p><strong>Explanation</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td class="text-align:center"><p>string</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td class="text-align:center"><p>float</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+<td class="text-align:center"><p>integer</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">datetime64</span></code></p></td>
+<td class="text-align:center"><p>date time</p></td>
+</tr>
+</tbody>
+</table>
+<p>Make a histogram of the DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd3447d0&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd344350&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd837c10&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd8782d0&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd8ae950&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd8d8b10&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd91ca50&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd947b90&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffd95c090&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_30_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_30_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdb05910&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdb40a10&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdb7c150&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdccf690&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdd05d10&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdd48310&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffdd7ba10&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffddb1fd0&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fbffddbe090&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_31_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_31_1.png" />
+</div>
+</div>
+<p>Generate descriptive statistics for all the columns in the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>voyage_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>20741.000000</td>
+      <td>2894.000000</td>
+      <td>2927.000000</td>
+      <td>2894.000000</td>
+      <td>20722.000000</td>
+      <td>20719.000000</td>
+      <td>20741.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1752.014850</td>
+      <td>0.274198</td>
+      <td>0.231582</td>
+      <td>0.496648</td>
+      <td>295.050381</td>
+      <td>251.573966</td>
+      <td>42783.741671</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>59.702189</td>
+      <td>0.116513</td>
+      <td>0.149508</td>
+      <td>0.140324</td>
+      <td>147.997690</td>
+      <td>128.050439</td>
+      <td>32401.785320</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1520.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>112.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1724.000000</td>
+      <td>0.195265</td>
+      <td>0.115380</td>
+      <td>0.407460</td>
+      <td>194.000000</td>
+      <td>163.000000</td>
+      <td>17862.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1765.000000</td>
+      <td>0.264110</td>
+      <td>0.215100</td>
+      <td>0.497890</td>
+      <td>282.000000</td>
+      <td>241.000000</td>
+      <td>31916.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1792.000000</td>
+      <td>0.346150</td>
+      <td>0.321900</td>
+      <td>0.586765</td>
+      <td>368.000000</td>
+      <td>313.000000</td>
+      <td>78283.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1866.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2024.000000</td>
+      <td>1700.000000</td>
+      <td>900206.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>20741.000000</td>
+      <td>19583</td>
+      <td>20663</td>
+      <td>20741</td>
+      <td>2894.000000</td>
+      <td>2927.000000</td>
+      <td>2894.000000</td>
+      <td>20722.000000</td>
+      <td>20719.000000</td>
+      <td>372</td>
+      <td>20741</td>
+      <td>19396</td>
+      <td>20741.000000</td>
+      <td>20741</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>8</td>
+      <td>156</td>
+      <td>187</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>5849</td>
+      <td>12233</td>
+      <td>NaN</td>
+      <td>13754</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>Great Britain</td>
+      <td>Africa., port unspecified</td>
+      <td>Barbados, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Slave insurrection</td>
+      <td></td>
+      <td>Smith, John</td>
+      <td>NaN</td>
+      <td>[u'mettas,I&lt;&gt;Mettas, Jean,  &lt;i&gt;R\xe9pertoire d...</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>10536</td>
+      <td>5999</td>
+      <td>2038</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>330</td>
+      <td>712</td>
+      <td>36</td>
+      <td>NaN</td>
+      <td>1134</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1752.014850</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.274198</td>
+      <td>0.231582</td>
+      <td>0.496648</td>
+      <td>295.050381</td>
+      <td>251.573966</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>42783.741671</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>59.702189</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.116513</td>
+      <td>0.149508</td>
+      <td>0.140324</td>
+      <td>147.997690</td>
+      <td>128.050439</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>32401.785320</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1520.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>112.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1724.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.195265</td>
+      <td>0.115380</td>
+      <td>0.407460</td>
+      <td>194.000000</td>
+      <td>163.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17862.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1765.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.264110</td>
+      <td>0.215100</td>
+      <td>0.497890</td>
+      <td>282.000000</td>
+      <td>241.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>31916.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1792.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.346150</td>
+      <td>0.321900</td>
+      <td>0.586765</td>
+      <td>368.000000</td>
+      <td>313.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>78283.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1866.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2024.000000</td>
+      <td>1700.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900206.000000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="missing-data">
+<h2>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<p>“Black digital practice requires researchers to witness and remark on the marked and unmarked bodies, the ones that defy computation, and <strong>finds ways to hold the null vlaues up to the light.</strong>”<br />
+—Jessica Marie Johnson</p>
+<div class="section" id="isna-notna">
+<h3>.isna() / .notna()<a class="headerlink" href="#isna-notna" title="Permalink to this headline">¶</a></h3>
+<p>Pandas has special ways of dealing with missing data. As you may have already noticed, blank rows in a CSV file show up as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in a Pandas DataFrame.</p>
+<p>To filter and count the number of missing/not missing values in a dataset, we can use the special <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> and <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> methods on a DataFrame or Series object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        False
+1        False
+2        False
+3        False
+4        False
+         ...  
+20736    False
+20737    False
+20738    False
+20739    False
+20740    False
+Name: percent_women, Length: 20741, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">not_blank_women</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To explicitly count the number of blank rows, we can use the <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True     17847
+False     2894
+Name: percent_women, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>To quickly transform these numbers into percentages, we can set the <code class="docutils literal notranslate"><span class="pre">normalize=</span></code> parameter to True.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True     0.86047
+False    0.13953
+Name: percent_women, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">.count()</span></code> method always excludes NaN values, we can also count the number of values in each column and divide by the total number of rows in each column (<code class="docutils literal notranslate"><span class="pre">len()</span></code>) to find the percentage of not blank data in every column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">slave_voyages_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_of_arrival      1.000000
+flag                 0.944169
+place_of_purchase    0.996239
+place_of_landing     1.000000
+percent_women        0.139530
+percent_children     0.141121
+percent_men          0.139530
+total_embarked       0.999084
+total_disembarked    0.998939
+resistance_label     0.017935
+vessel_name          1.000000
+captain&#39;s_name       0.935153
+voyage_id            1.000000
+sources              1.000000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sort-columns">
+<h2>Sort Columns<a class="headerlink" href="#sort-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can sort a DataFrame with the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> method, inside of which we include the parameter <code class="docutils literal notranslate"><span class="pre">by=</span></code> and indicate the name of the column we want to sort by (written in quotation marks).</p>
+<div class="section" id="which-voyages-had-the-highest-percentage-of-women-on-board">
+<h3>❓ Which voyages had the highest percentage of women on board?<a class="headerlink" href="#which-voyages-had-the-highest-percentage-of-women-on-board" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-18-8bcdd0675cab&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">slave_voyages_df</span><span class="o">...</span>
+                      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-columns">
+<h2>Calculate Columns<a class="headerlink" href="#calculate-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can do different calculations on columns with built-in Pandas functions. These calculations will ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas calculations</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.count()</span></code></p></td>
+<td><p>Number of observations</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.sum()</span></code></p></td>
+<td><p>Sum of values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.mean()</span></code></p></td>
+<td><p>Mean of values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.median()</span></code></p></td>
+<td><p>Median of values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.min()</span></code></p></td>
+<td><p>Minimum</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.max()</span></code></p></td>
+<td><p>Maximum</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.mode()</span></code></p></td>
+<td><p>Mode</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.std()</span></code></p></td>
+<td><p>Unbiased standard deviation</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="what-was-the-average-percentage-of-women-aboard-the-voyages">
+<h3>❓ What was the average percentage of women aboard the voyages?<a class="headerlink" href="#what-was-the-average-percentage-of-women-aboard-the-voyages" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="what-was-the-highest-percentage-of-women-aboard-the-voyages">
+<h3>❓ What was the highest percentage of women aboard the voyages?<a class="headerlink" href="#what-was-the-highest-percentage-of-women-aboard-the-voyages" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="what-was-the-average-percentage-of-children-aboard-the-voyages">
+<h3>❓ What was the average percentage of children aboard the voyages?<a class="headerlink" href="#what-was-the-average-percentage-of-children-aboard-the-voyages" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="what-was-the-highest-percentage-of-children-aboard-the-voyages">
+<h3>❓ What was the highest percentage of children aboard the voyages?<a class="headerlink" href="#what-was-the-highest-percentage-of-children-aboard-the-voyages" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="rename-columns">
+<h2>Rename Columns<a class="headerlink" href="#rename-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can rename columns with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"><code class="docutils literal notranslate"><span class="pre">.rename()</span></code> method</a> and the <code class="docutils literal notranslate"><span class="pre">columns=</span></code> parameter. For example, we can rename the “flag” column “national_affiliation.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>national_affiliation</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1525</td>
+      <td>Portugal / Brazil</td>
+      <td>Sao Tome</td>
+      <td>Hispaniola, unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Maria de Bogoña</td>
+      <td>Monteiro, Pero</td>
+      <td>46473</td>
+      <td>[u'ANTT,CC,Parte II, maco 131, doc 54&lt;&gt;&lt;i&gt;Inst...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11297</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1526</td>
+      <td>Spain / Uruguay</td>
+      <td>Cape Verde Islands</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>Carega, Esteban (?)</td>
+      <td>11298</td>
+      <td>[u'Pike,60-1,172&lt;&gt;Pike, Ruth, &lt;i&gt;Enterprise&lt;/i...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1526</td>
+      <td>NaN</td>
+      <td>Cape Verde Islands</td>
+      <td>Caribbean (colony unspecified)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>359.0</td>
+      <td>287.0</td>
+      <td>NaN</td>
+      <td>S Anton</td>
+      <td>Leon, Juan de</td>
+      <td>42631</td>
+      <td>[u'Chaunus, 3: 162-63&lt;&gt;&lt;p&gt;Chaunus, &lt;em&gt;xxxxxx&lt;...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20736</th>
+      <td>1864</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>488.0</td>
+      <td>465.0</td>
+      <td>NaN</td>
+      <td>Polaca</td>
+      <td>NaN</td>
+      <td>46554</td>
+      <td>[u'AHNM, Ultramar, Leg. 3551, 6&lt;&gt;&lt;i&gt;Archivo Hi...</td>
+    </tr>
+    <tr>
+      <th>20737</th>
+      <td>1865</td>
+      <td>Spain / Uruguay</td>
+      <td>Africa., port unspecified</td>
+      <td>Isla de Pinas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>152.0</td>
+      <td>145.0</td>
+      <td>Slave insurrection</td>
+      <td>Gato</td>
+      <td>NaN</td>
+      <td>4394</td>
+      <td>[u'IUP,ST,50/B/137&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20738</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Mariel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>780.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4395</td>
+      <td>[u'IUP,ST,50/B/144&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+    <tr>
+      <th>20739</th>
+      <td>1865</td>
+      <td>NaN</td>
+      <td>Congo River</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1265.0</td>
+      <td>1004.0</td>
+      <td>NaN</td>
+      <td>Cicerón</td>
+      <td>Mesquita</td>
+      <td>5052</td>
+      <td>[u'IUP,ST,50/A/23-4&lt;&gt;Great Britain, &lt;i&gt;Irish U...</td>
+    </tr>
+    <tr>
+      <th>20740</th>
+      <td>1866</td>
+      <td>NaN</td>
+      <td>Africa., port unspecified</td>
+      <td>Cuba, port unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>851.0</td>
+      <td>700.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>4998</td>
+      <td>[u'IUP,ST,50/B/220&lt;&gt;Great Britain, &lt;i&gt;Irish Un...</td>
+    </tr>
+  </tbody>
+</table>
+<p>20741 rows × 14 columns</p>
+</div></div></div>
+</div>
+<p>Renaming the “flag” column as above will only momentarily change that column’s name, however. If we display our DataFrame, we will see that the column name has <em>not</em> changed permamently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>flag</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To save changes in the DataFrame, we need to reassign the DataFrame to the same variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;flag&#39;</span><span class="p">:</span> <span class="s1">&#39;national_affiliation&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>national_affiliation</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="groupby-columns">
+<h2>Groupby Columns<a class="headerlink" href="#groupby-columns" title="Permalink to this headline">¶</a></h2>
+<p>The Pandas function<code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> allows us to group data and perform calculations on the groups.</p>
+<p>For example, Jennifer Morgan writes about how some nations recorded more information about the gender of the enslaved people aboard their voyages than other nations did. To see the breakdown of gender information by nation, we can use a <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> function.</p>
+<div class="section" id="which-nation-recorded-the-most-information-about-gender">
+<h3>❓ Which nation recorded the most information about gender?<a class="headerlink" href="#which-nation-recorded-the-most-information-about-gender" title="Permalink to this headline">¶</a></h3>
+<p>To answer this question, you can use the <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> method and the <code class="docutils literal notranslate"><span class="pre">.count()</span></code> method, which will show you the number of non-blank values in each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-27-8bcdd0675cab&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">slave_voyages_df</span><span class="o">...</span>
+                      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>“For example, patterns emerge that suggest that English slave ship captains provided the most data related to the age or sex characteristics of the captives they transported and sold into slavery…The degree to which the practice of recording the sex of the passengers on board accords to national origin raises some interesting questions about the possible correlations between certain notational and national presumptions of accountability.”</p>
+<p>-Jennifer Morgan, <a class="reference external" href="https://read.dukeupress.edu/history-of-the-present/article-abstract/6/2/184/153282/Accounting-for-The-Most-Excruciating-Torment?redirectedFrom=PDF">“Accounting for ‘The Most Excruciating Torment’”</a></p>
+</div>
+</div>
+<div class="section" id="add-columns">
+<h2>Add Columns<a class="headerlink" href="#add-columns" title="Permalink to this headline">¶</a></h2>
+<p>To add a column, we simply put a new column name in square brackets and set it equal to whatever we want the new column to be.</p>
+<p>For example, if we wanted to create new columns for the total women and men aboard each voyage, we could set them equal to the product of the “total_disembarked” column * the “percent_women” / “percent_men” columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_men&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">slave_voyages_df</span><span class="p">[</span><span class="s1">&#39;percent_men&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we scroll all the way to the right side of the DataFrame, we can see that these columns have been added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_of_arrival</th>
+      <th>national_affiliation</th>
+      <th>place_of_purchase</th>
+      <th>place_of_landing</th>
+      <th>percent_women</th>
+      <th>percent_children</th>
+      <th>percent_men</th>
+      <th>total_embarked</th>
+      <th>total_disembarked</th>
+      <th>resistance_label</th>
+      <th>vessel_name</th>
+      <th>captain's_name</th>
+      <th>voyage_id</th>
+      <th>sources</th>
+      <th>total_women</th>
+      <th>total_men</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1520</td>
+      <td>NaN</td>
+      <td>Portuguese Guinea</td>
+      <td>San Juan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>324.0</td>
+      <td>259.0</td>
+      <td>NaN</td>
+      <td></td>
+      <td>NaN</td>
+      <td>42987</td>
+      <td>[u'AGI,Patronato 175, r.9&lt;&gt;&lt;p&gt;&lt;em&gt;AG!&lt;/em&gt; (Se...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="plots-and-data-visualizations">
+<h2>Plots and Data Visualizations<a class="headerlink" href="#plots-and-data-visualizations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>national_affiliation
+Denmark / Baltic      119
+France                708
+Great Britain        1123
+Netherlands           200
+Other                   0
+Portugal / Brazil      42
+Spain / Uruguay       468
+U.S.A.                223
+Name: percent_women, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nation_by_gender</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;national_affiliation&#39;</span><span class="p">)[</span><span class="s1">&#39;percent_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nation_by_gender</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Trans-Atlantic Slave Trade (Americas): </span><span class="se">\n</span><span class="s1"> Slave Voyages with Recorded Gender Information&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffde4c5d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_86_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_86_1.png" />
+</div>
+</div>
+<p>To make a time series, we would typically want to convert our date column into datetime values rather than integers. Since we’re only working with year information, however, we can make some simple time series plots just by grouping by the year column and performing calculations on those year groupings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_of_arrival
+1520    0.0
+1525    0.0
+1526    0.0
+1527    0.0
+1532    0.0
+       ... 
+1862    0.0
+1863    0.0
+1864    0.0
+1865    0.0
+1866    0.0
+Name: total_women, Length: 330, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_women_by_year</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_women&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffdff65d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_90_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_90_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffe1bd090&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_91_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_91_1.png" />
+</div>
+</div>
+<p>We can plot multiple columns at the same time by using two square brackets. For example, we can compare the total number of women and men aboard the voyages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_men_by_year</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_men&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="n">total_men_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffefacf10&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_94_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_94_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axis</span> <span class="o">=</span> <span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="n">total_men_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffdc14110&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_95_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_95_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axis</span> <span class="o">=</span> <span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Women&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="n">total_men_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Men&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbffebe7c90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_96_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_96_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_embarked_by_year</span> <span class="o">=</span> <span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_of_arrival&#39;</span><span class="p">)[</span><span class="s1">&#39;total_embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Women&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="n">total_men_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Men&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">total_embarked_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Embarked&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbfff31da10&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_98_1.png" src="../../_images/02.5-Pandas-Basics-Part2-WORKBOOK_98_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axis</span> <span class="o">=</span> <span class="n">total_women_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Women&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trans-Atlantic Slave Trade (Americas):</span><span class="se">\n</span><span class="s2">Total Number of Enslaved Women on Voyages&quot;</span><span class="p">)</span>
+<span class="n">total_men_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Men&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">total_embarked_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Embarked&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03-Data-Analysis/Workbooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

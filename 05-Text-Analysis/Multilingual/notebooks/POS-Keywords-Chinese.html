@@ -1,0 +1,1382 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Part-of-Speech Tagging for Chinese &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/MultiLingual/notebooks/POS-Keywords-Chinese.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Russian" href="../Russian.html" />
+    <link rel="prev" title="Named Entity Recognition for Chinese" href="Named-Entity-Recognition-Chinese.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/01-Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/04-Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/05-Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/06-String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/08-Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/09-Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/10-Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/11-Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/12-Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Data-Collection/Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../Data-Collection/Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../01-TF-IDF.html">
+     TF-IDF
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../02-TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../03-TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../06-Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../07-Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../08-Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../09-Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../../12-Languages-Beyond-English.html">
+     Working in Languages Beyond English
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../Chinese.html">
+       Chinese
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/05-Text-Analysis/MultiLingual/notebooks/POS-Keywords-Chinese.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/MultiLingual/notebooks/POS-Keywords-Chinese.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/MultiLingual/notebooks/POS-Keywords-Chinese.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Part-of-Speech Tagging for Chinese
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spacy-and-natural-language-processing-nlp">
+     spaCy and Natural Language Processing (NLP)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-spacy">
+     Install spaCy
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries">
+     Import Libraries
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-language-model">
+     Download Language Model
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-language-model">
+     Load Language Model
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-processed-spacy-document">
+     Create a Processed spaCy Document
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spacy-part-of-speech-tagging">
+     spaCy Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-part-of-speech-tags">
+     Get Part-Of-Speech Tags
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practicing-with-the-example-text">
+     Practicing with the example text
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-adjectives">
+     Get Adjectives
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nouns">
+     Get Nouns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-verbs">
+     Get Verbs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#keyword-extraction">
+   Keyword Extraction
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-sentences-with-keyword">
+     Get Sentences with Keyword
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-keyword-in-context">
+     Get Keyword in Context
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn">
+     Your Turn!
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="part-of-speech-tagging-for-chinese">
+<h1>Part-of-Speech Tagging for Chinese<a class="headerlink" href="#part-of-speech-tagging-for-chinese" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note" id="html-admonition">
+<p class="admonition-title">Note</p>
+<p>This section, “Working in Languages Beyond English,” is authored by <a href="https://dlcl.stanford.edu/people/quinn-dombrowski/">Quinn Dombrowski</a>, the Academic Technology Specialist at Stanford University and a leading voice in multilingual digital humanities. I’m grateful to Quinn for helping expand this textbook to serve languages beyond English.</p>
+</div>
+<p>In this lesson, we’re going to learn about the textual analysis methods <em>part-of-speech tagging</em> and <em>keyword extraction</em>. These methods will help us computationally parse sentences and better understand words in context.</p>
+<hr class="docutils" />
+<div class="section" id="spacy-and-natural-language-processing-nlp">
+<h2>spaCy and Natural Language Processing (NLP)<a class="headerlink" href="#spacy-and-natural-language-processing-nlp" title="Permalink to this headline">¶</a></h2>
+<p>To computationally identify parts of speech, we’re going to use the natural language processing library spaCy. For a more extensive introduction to NLP and spaCy, see the previous lesson.</p>
+<p>To parse sentences, spaCy relies on machine learning models that were trained on large amounts of labeled text data. If you’ve used the preprocessing or named entity recognition notebooks for this language, you can skip the steps for installing spaCy and downloading the language model.</p>
+</div>
+<div class="section" id="install-spacy">
+<h2>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this headline">¶</a></h2>
+<p>To use spaCy, we first need to install the library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U spacy
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Then we’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_colwidth&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also going to import the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module for counting nouns, verbs, adjectives, etc., and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for organizing and displaying data (we’re also changing the pandas default max row and column width display setting).</p>
+</div>
+<div class="section" id="download-language-model">
+<h2>Download Language Model<a class="headerlink" href="#download-language-model" title="Permalink to this headline">¶</a></h2>
+<p>Next we need to download the Chinese-language model (<code class="docutils literal notranslate"><span class="pre">zh_core_web_md</span></code>), which will be processing and making predictions about our texts. The Chinese model was trained on the <a class="reference external" href="https://catalog.ldc.upenn.edu/LDC2013T19">OntoNotes</a> annotated corpus. You can download the <code class="docutils literal notranslate"><span class="pre">zh_core_web_md</span></code> model by running the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download zh_core_web_md
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note: spaCy offers <a class="reference external" href="https://spacy.io/usage/models#languages">models for other languages</a> including German, French, Spanish, Portuguese, Italian, Dutch, Greek, Norwegian, and Lithuanian. Languages such as Russian, Ukrainian, Thai, Chinese, Japanese, Korean and Vietnamese don’t currently have their own NLP models. However, spaCy offers language and tokenization support for many of these language with external dependencies — such as <a class="reference external" href="https://github.com/konlpy/konlpy">PyviKonlpy</a> for Korean or <a class="reference external" href="https://github.com/fxsjy/jieba">Jieba</a> for Chinese.</em></p>
+</div>
+<div class="section" id="load-language-model">
+<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this headline">¶</a></h2>
+<p>Once the model is downloaded, we need to load it with <code class="docutils literal notranslate"><span class="pre">spacy.load()</span></code> and assign it to the variable <code class="docutils literal notranslate"><span class="pre">nlp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;zh_core_web_md&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-processed-spacy-document">
+<h2>Create a Processed spaCy Document<a class="headerlink" href="#create-a-processed-spacy-document" title="Permalink to this headline">¶</a></h2>
+<p>Whenever we use spaCy, our first step will be to create a processed spaCy <code class="docutils literal notranslate"><span class="pre">document</span></code> with the loaded NLP model <code class="docutils literal notranslate"><span class="pre">nlp()</span></code>. Most of the heavy NLP lifting is done in this line of code. After processing, the <code class="docutils literal notranslate"><span class="pre">document</span></code> object will contain tons of juicy language data — named entities, sentence boundaries, parts of speech — and the rest of our work will be devoted to accessing this information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;../texts/other-languages/zh.txt&#39;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spacy-part-of-speech-tagging">
+<h2>spaCy Part-of-Speech Tagging<a class="headerlink" href="#spacy-part-of-speech-tagging" title="Permalink to this headline">¶</a></h2>
+<p>The tags that spaCy uses for part-of-speech are based on work done by <a class="reference external" href="https://universaldependencies.org/">Universal Dependencies</a>, an effort to create a set of part-of-speech tags that work across many different languages. Texts from various languages are annotated using this common set of tags, and contributed to a common repository that can be used to train models like spaCy.</p>
+<p>The Universal Dependencies page has information about the annotated corpora available for each language; it’s worth looking into the corpora that were annotated for your language.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>POS</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+<th class="text-align:center head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>ADJ</p></td>
+<td class="text-align:center"><p>adjective</p></td>
+<td class="text-align:center"><p>big, old, green, incomprehensible, first</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ADP</p></td>
+<td class="text-align:center"><p>adposition</p></td>
+<td class="text-align:center"><p>in, to, during</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ADV</p></td>
+<td class="text-align:center"><p>adverb</p></td>
+<td class="text-align:center"><p>very, tomorrow, down, where, there</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>AUX</p></td>
+<td class="text-align:center"><p>auxiliary</p></td>
+<td class="text-align:center"><p>is, has (done), will (do), should (do)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>CONJ</p></td>
+<td class="text-align:center"><p>conjunction</p></td>
+<td class="text-align:center"><p>and, or, but</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CCONJ</p></td>
+<td class="text-align:center"><p>coordinating conjunction</p></td>
+<td class="text-align:center"><p>and, or, but</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DET</p></td>
+<td class="text-align:center"><p>determiner</p></td>
+<td class="text-align:center"><p>a, an, the</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>INTJ</p></td>
+<td class="text-align:center"><p>interjection</p></td>
+<td class="text-align:center"><p>psst, ouch, bravo, hello</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>NOUN</p></td>
+<td class="text-align:center"><p>noun</p></td>
+<td class="text-align:center"><p>girl, cat, tree, air, beauty</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>NUM</p></td>
+<td class="text-align:center"><p>numeral</p></td>
+<td class="text-align:center"><p>1, 2017, one, seventy-seven, IV, MMXIV</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PART</p></td>
+<td class="text-align:center"><p>particle</p></td>
+<td class="text-align:center"><p>’s, not,</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PRON</p></td>
+<td class="text-align:center"><p>pronoun</p></td>
+<td class="text-align:center"><p>I, you, he, she, myself, themselves, somebody</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PROPN</p></td>
+<td class="text-align:center"><p>proper noun</p></td>
+<td class="text-align:center"><p>Mary, John, London, NATO, HBO</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PUNCT</p></td>
+<td class="text-align:center"><p>punctuation</p></td>
+<td class="text-align:center"><p>., (, ), ?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SCONJ</p></td>
+<td class="text-align:center"><p>subordinating conjunction</p></td>
+<td class="text-align:center"><p>if, while, that</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SYM</p></td>
+<td class="text-align:center"><p>symbol</p></td>
+<td class="text-align:center"><p>$, %, §, ©, +, −, ×, ÷, =, :), 😝</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>VERB</p></td>
+<td class="text-align:center"><p>verb</p></td>
+<td class="text-align:center"><p>run, runs, running, eat, ate, eating</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>X</p></td>
+<td class="text-align:center"><p>other</p></td>
+<td class="text-align:center"><p>sfpksdpsxmsa</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SPACE</p></td>
+<td class="text-align:center"><p>space</p></td>
+<td class="text-align:center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Above is a POS chart taken from <a class="reference external" href="https://spacy.io/api/annotation#named-entities">spaCy’s website</a>, which shows the different parts of speech that spaCy can identify as well as their corresponding labels. To quickly see spaCy’s POS tagging in action, we can use the <a class="reference external" href="https://spacy.io/usage/visualizers#ent">spaCy module <code class="docutils literal notranslate"><span class="pre">displacy</span></code></a> on our sample <code class="docutils literal notranslate"><span class="pre">document</span></code> with the <code class="docutils literal notranslate"><span class="pre">style=</span></code> parameter set to “dep” (short for dependency parsing):</p>
+</div>
+<div class="section" id="get-part-of-speech-tags">
+<h2>Get Part-Of-Speech Tags<a class="headerlink" href="#get-part-of-speech-tags" title="Permalink to this headline">¶</a></h2>
+<p>To get part of speech tags for every word in a document, we have to iterate through all the tokens in the document and pull out the <code class="docutils literal notranslate"><span class="pre">.lemma_</span></code> attribute for each token, which gives us the un-inflected version of the word. We’ll also pull out the  <code class="docutils literal notranslate"><span class="pre">.pos_</span></code> attribute for each token. We can get even finer-grained dependency information with the attribute <code class="docutils literal notranslate"><span class="pre">.dep_</span></code>.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">dep_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="practicing-with-the-example-text">
+<h2>Practicing with the example text<a class="headerlink" href="#practicing-with-the-example-text" title="Permalink to this headline">¶</a></h2>
+<p>When working with languages that have inflection, we typically use <code class="docutils literal notranslate"><span class="pre">token.lemma_</span></code> instead of <code class="docutils literal notranslate"><span class="pre">token.text</span></code> like you’ll find in the English examples. This is important when we’re counting, so that differently-inflected forms of a word (e.g. masculine vs. feminine or singular vs. plural) aren’t counted as if they were different words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/other-languages/zh.txt&quot;</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-adjectives">
+<h2>Get Adjectives<a class="headerlink" href="#get-adjectives" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>POS</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+<th class="text-align:center head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>ADJ</p></td>
+<td class="text-align:center"><p>adjective</p></td>
+<td class="text-align:center"><p>big, old, green, incomprehensible, first</p></td>
+</tr>
+</tbody>
+</table>
+<p>To extract and count the adjectives in the example text, we will follow the same model as above, except we’ll add an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that will pull out words only if their POS label matches “ADJ.”</p>
+<div class="pythonreview admonition">
+<p class="admonition-title">Python Review!</p>
+<p>While we demonstrate how to extract parts of speech in the sections below, we’re also going to reinforce some integral Python skills. Notice how we use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and <code class="docutils literal notranslate"><span class="pre">if</span></code> statements to <code class="docutils literal notranslate"><span class="pre">.append()</span></code> specific words to a list. Then we count the words in the list and make a pandas dataframe from the list.</p>
+</div>
+<p>Here we make a list of the adjectives identified in the example text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;ADJ&#39;</span><span class="p">:</span>
+        <span class="n">adjs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we count the unique adjectives in this list with the <code class="docutils literal notranslate"><span class="pre">Counter()</span></code> module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">adjs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we make a dataframe from this list:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adjs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;adj&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-nouns">
+<h2>Get Nouns<a class="headerlink" href="#get-nouns" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>POS</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+<th class="text-align:center head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>NOUN</p></td>
+<td class="text-align:center"><p>noun</p></td>
+<td class="text-align:center"><p>girl, cat, tree, air, beauty</p></td>
+</tr>
+</tbody>
+</table>
+<p>To extract and count nouns, we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for POS labels that match “NOUN”.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;NOUN&#39;</span><span class="p">:</span>
+        <span class="n">nouns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="p">)</span>
+
+<span class="n">nouns_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">nouns</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nouns_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;noun&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-verbs">
+<h2>Get Verbs<a class="headerlink" href="#get-verbs" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>POS</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+<th class="text-align:center head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>VERB</p></td>
+<td class="text-align:center"><p>verb</p></td>
+<td class="text-align:center"><p>run, runs, running, eat, ate, eating</p></td>
+</tr>
+</tbody>
+</table>
+<p>To extract and count works of art, we can follow a similar-ish model to the examples above. This time, however, we’re going to make our code even more economical and efficient (while still changing our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to match the POS label “VERB”).</p>
+<div class="pythonreview admonition">
+<p class="admonition-title">Python Review!</p>
+<p>We can use a <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Python/More-Lists-Loops.html#List-Comprehensions"><em>list comprehension</em></a> to get our list of verbs in a single line of code! Closely examine the first line of code below:</p>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s1">&#39;VERB&#39;</span><span class="p">]</span>
+
+<span class="n">verbs_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">verbs</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">verbs_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;verb&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="keyword-extraction">
+<h1>Keyword Extraction<a class="headerlink" href="#keyword-extraction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-sentences-with-keyword">
+<h2>Get Sentences with Keyword<a class="headerlink" href="#get-sentences-with-keyword" title="Permalink to this headline">¶</a></h2>
+<p>spaCy can also identify sentences in a document. To access sentences, we can iterate through <code class="docutils literal notranslate"><span class="pre">document.sents</span></code> and pull out the <code class="docutils literal notranslate"><span class="pre">.text</span></code> of each sentence.</p>
+<p>We can use spaCy’s sentence-parsing capabilities to extract sentences that contain particular keywords, such as in the function below. Note that the function assumes that the keyword provided will be exactly the same as it appears in the text.</p>
+<p>With the function <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code>, we will iterate through <code class="docutils literal notranslate"><span class="pre">document.sents</span></code> and pull out any sentence that contains a particular “keyword.” Then we will display these sentence with the keywords bolded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">document</span><span class="p">):</span>
+    
+    <span class="c1">#Iterate through all the sentences in the document and pull out the text of each sentence</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
+        <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">text</span>
+        
+        <span class="c1">#Check to see if the keyword is in the sentence (and ignore capitalization by making both lowercase)</span>
+        <span class="k">if</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            
+            <span class="c1">#Use the regex library to replace linebreaks and to make the keyword bolded, again ignoring capitalization</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">)</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+            
+            <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;男人&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-keyword-in-context">
+<h2>Get Keyword in Context<a class="headerlink" href="#get-keyword-in-context" title="Permalink to this headline">¶</a></h2>
+<p>We can also find out about a keyword’s more immediate context — its neighboring words to the left and right — and we can fine-tune our search with POS tagging.</p>
+<p>To do so, we will first create a list of what’s called <em>ngrams</em>. “Ngrams” are any sequence of <em>n</em> tokens in a text. They’re an important concept in computational linguistics and NLP. (Have you ever played with <a class="reference external" href="https://books.google.com/ngrams">Google’s <em>Ngram</em> Viewer</a>?)</p>
+<p>Below we’re going to make a list of <em>bigrams</em>, that is, all the two-word combinations from the sample text. We’re going to use these bigrams to find the neighboring words that appear alongside particular keywords.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a list of tokens and POS labels from document if the token is a word </span>
+<span class="n">tokens_and_labels</span> <span class="o">=</span> <span class="p">[(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a function to get all two-word combinations</span>
+<span class="k">def</span> <span class="nf">get_bigrams</span><span class="p">(</span><span class="n">word_list</span><span class="p">,</span> <span class="n">number_consecutive_words</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    
+    <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">adj_length_of_word_list</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">number_consecutive_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1">#Loop through numbers from 0 to the (slightly adjusted) length of your word list</span>
+    <span class="k">for</span> <span class="n">word_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">adj_length_of_word_list</span><span class="p">):</span>
+        
+        <span class="c1">#Index the list at each number, grabbing the word at that number index as well as N number of words after it</span>
+        <span class="n">ngram</span> <span class="o">=</span> <span class="n">word_list</span><span class="p">[</span><span class="n">word_index</span> <span class="p">:</span> <span class="n">word_index</span> <span class="o">+</span> <span class="n">number_consecutive_words</span><span class="p">]</span>
+        
+        <span class="c1">#Append this word combo to the master list &quot;ngrams&quot;</span>
+        <span class="n">ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ngram</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">ngrams</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span> <span class="o">=</span> <span class="n">get_bigrams</span><span class="p">(</span><span class="n">tokens_and_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a peek at the bigrams:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigrams</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have our list of bigrams, we’re going to make a function <code class="docutils literal notranslate"><span class="pre">get_neighbor_words()</span></code>. This function will return the most frequent words that appear next to a particular keyword. The function can also be fine-tuned to return neighbor words that match a certain part of speech by changing the <code class="docutils literal notranslate"><span class="pre">pos_label</span></code> parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">neighbor_words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">keyword</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">bigram</span> <span class="ow">in</span> <span class="n">bigrams</span><span class="p">:</span>
+        
+        <span class="c1">#Extract just the lowercased words (not the labels) for each bigram</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">bigram</span><span class="p">]</span>        
+        
+        <span class="c1">#Check to see if keyword is in the bigram</span>
+        <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+            
+            <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">bigram</span><span class="p">:</span>
+                
+                <span class="c1">#Now focus on the neighbor word, not the keyword</span>
+                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="n">keyword</span><span class="p">:</span>
+                    <span class="c1">#If the neighbor word matches the right pos_label, append it to the master list</span>
+                    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="n">pos_label</span> <span class="ow">or</span> <span class="n">pos_label</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">neighbor_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    
+    <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span><span class="n">neighbor_words</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;男人&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="s2">&quot;男人&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;VERB&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Try out <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_neighbor_words</span></code> with your own keywords of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_sentences_with_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_neighbor_words</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;YOUR KEY WORD&quot;</span><span class="p">,</span> <span class="n">bigrams</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Text-Analysis/MultiLingual/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Named-Entity-Recognition-Chinese.html" title="previous page">Named Entity Recognition for Chinese</a>
+    <a class='right-next' id="next-link" href="../Russian.html" title="next page">Russian</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

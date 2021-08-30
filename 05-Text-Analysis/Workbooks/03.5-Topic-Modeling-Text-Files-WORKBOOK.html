@@ -1,0 +1,1426 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic Modeling — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/Workbooks/03.5-Topic-Modeling-Text-Files-WORKBOOK.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/10-Twitter.html">
+     Twitter Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/13-Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/05-Text-Analysis/Workbooks/03.5-Topic-Modeling-Text-Files-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/Workbooks/03.5-Topic-Modeling-Text-Files-WORKBOOK.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/Workbooks/03.5-Topic-Modeling-Text-Files-WORKBOOK.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-packages">
+   Install Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-training-data-from-text-files">
+   Get Training Data From Text Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-texts">
+   Process Texts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-training-data-stats">
+   Get Training Data Stats
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-the-topic-model">
+   Training the Topic Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-mallet-path">
+     Set MALLET Path
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-number-of-topics">
+     Set Number of Topics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-topic-model-output-files">
+     Set Topic Model Output Files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-topic-model">
+     Train Topic Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-topics-and-top-words">
+   Display Topics and Top Words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-topic-distributions">
+   Load Topic Distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explore-heatmap-of-topics-and-texts">
+   Explore Heatmap of Topics and Texts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-top-titles-per-topic">
+   Display Top Titles Per Topic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-topic-words-in-context">
+   Display Topic Words in Context
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn!
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="topic-modeling-workbook">
+<h1>Topic Modeling — Workbook<a class="headerlink" href="#topic-modeling-workbook" title="Permalink to this headline">¶</a></h1>
+<p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts.</p>
+<p>Note: If you don’t have the Java Development Kit and Mallet installed, you can run this <a class="reference external" href="https://mybinder.org/v2/gh/INFO1350/Intro-CA-SP21/master?urlpath=lab/tree/book/05-Text-Analysis/03.5-Topic-Modeling-Text-Files-WORKBOOK.ipynb">notebook in the cloud here</a>.</p>
+<hr class="docutils" />
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<p>In this particular lesson, we’re going to use <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">Little MALLET Wrapper</a>, a Python wrapper for <a class="reference external" href="http://mallet.cs.umass.edu/topics.php">MALLET</a>, to topic model 379 obituaries published by <em>The New York Times</em>. This dataset is based on data originally collected by Matt Lavin for his <em>Programming Historian</em> <a class="reference external" href="https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf#lesson-dataset">TF-IDF tutorial</a>. I have re-scraped the obituaries so that the subject’s name and death year is included in each text file name, and I have added 13 more <a class="reference external" href="https://www.nytimes.com/interactive/2018/obituaries/overlooked.html">“Overlooked”</a> obituaries, including <a class="reference external" href="https://www.nytimes.com/2019/01/02/obituaries/karen-sparck-jones-overlooked.html">Karen Spärck Jones</a>, the computer scientist who introduced TF-IDF.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-packages">
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
+<p>Do you have the Java Development Kit installed and configured properly? Test it out by running this command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>javac 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Usage: javac &lt;options&gt; &lt;source files&gt;
+where possible options include:
+  -g                         Generate all debugging info
+  -g:none                    Generate no debugging info
+  -g:{lines,vars,source}     Generate only some debugging info
+  -nowarn                    Generate no warnings
+  -verbose                   Output messages about what the compiler is doing
+  -deprecation               Output source locations where deprecated APIs are used
+  -classpath &lt;path&gt;          Specify where to find user class files and annotation processors
+  -cp &lt;path&gt;                 Specify where to find user class files and annotation processors
+  -sourcepath &lt;path&gt;         Specify where to find input source files
+  -bootclasspath &lt;path&gt;      Override location of bootstrap class files
+  -extdirs &lt;dirs&gt;            Override location of installed extensions
+  -endorseddirs &lt;dirs&gt;       Override location of endorsed standards path
+  -proc:{none,only}          Control whether annotation processing and/or compilation is done.
+  -processor &lt;class1&gt;[,&lt;class2&gt;,&lt;class3&gt;...] Names of the annotation processors to run; bypasses default discovery process
+  -processorpath &lt;path&gt;      Specify where to find annotation processors
+  -parameters                Generate metadata for reflection on method parameters
+  -d &lt;directory&gt;             Specify where to place generated class files
+  -s &lt;directory&gt;             Specify where to place generated source files
+  -h &lt;directory&gt;             Specify where to place generated native header files
+  -implicit:{none,class}     Specify whether or not to generate class files for implicitly referenced files
+  -encoding &lt;encoding&gt;       Specify character encoding used by source files
+  -source &lt;release&gt;          Provide source compatibility with specified release
+  -target &lt;release&gt;          Generate class files for specific VM version
+  -profile &lt;profile&gt;         Check that API used is available in the specified profile
+  -version                   Version information
+  -help                      Print a synopsis of standard options
+  -Akey[=value]              Options to pass to annotation processors
+  -X                         Print a synopsis of nonstandard options
+  -J&lt;flag&gt;                   Pass &lt;flag&gt; directly to the runtime system
+  -Werror                    Terminate compilation if warnings occur
+  @&lt;filename&gt;                Read options and filenames from file
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If you get the message, <code class="docutils literal notranslate"><span class="pre">Usage:</span> <span class="pre">javac</span> <span class="pre">&lt;options&gt;</span> <span class="pre">&lt;source</span> <span class="pre">files&gt;...</span></code>, then JDK is installed and set up!</p></li>
+<li><p>If you get some version of the message, <code class="docutils literal notranslate"><span class="pre">javac:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, then it is not installed or configured properly, and we recommend running this notebook in the cloud for today.</p></li>
+</ul>
+<p>Install <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install little_mallet_wrapper
+<span class="o">!</span>pip install seaborn
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#To install the most updated version of little_mallet_wrapper:</span>
+<span class="c1">#!!pip install git+https://github.com/maria-antoniak/little-mallet-wrapper.git</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">little_mallet_wrapper</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-training-data-from-text-files">
+<h2>Get Training Data From Text Files<a class="headerlink" href="#get-training-data-from-text-files" title="Permalink to this headline">¶</a></h2>
+<p>Before we topic model the <em>NYT</em> obituaries, we need to process the text files and prepare them for analysis.</p>
+<p>To get the necessary text files, we’re going to make a variable and assign it the file path for the directory that contains the text files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;../texts/history/NYT-Obituaries/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’re going to use the <code class="docutils literal notranslate"><span class="pre">glob.gob()</span></code> function to make a list of all (<code class="docutils literal notranslate"><span class="pre">*</span></code>) the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in that directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="process-texts">
+<h2>Process Texts<a class="headerlink" href="#process-texts" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A century before the dawn of the computer age, Ada Lovelace imagined</span>
+<span class="s2">                the modern-day, general-purpose computer. It could be programmed to </span>
+<span class="s2">                follow instructions, she wrote in 1843.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we process our texts with the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.process_string()</span></code>. This function will take every individual text file, transform all the text to lowercase as well as remove stopwords, punctuation, and numbers, and then add the processed text to our master list <code class="docutils literal notranslate"><span class="pre">training_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a list of all pre-processed NYT obituaries</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">processed_text</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+    <span class="n">training_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re also making a master list of the original text of the obituaries for future reference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make a list of all original NYT obituaries (not pre-processed)</span>
+<span class="n">original_texts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">original_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we extract the relevant part of each file name by using <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem"><code class="docutils literal notranslate"><span class="pre">Path().stem</span></code></a>, which conveniently extracts just the last part of the file path without the “.txt” file extension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-training-data-stats">
+<h2>Get Training Data Stats<a class="headerlink" href="#get-training-data-stats" title="Permalink to this headline">¶</a></h2>
+<p>We can get training data summary statistics by using the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.print_dataset_stats()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="training-the-topic-model">
+<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-mallet-path">
+<h3>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Permalink to this headline">¶</a></h3>
+<p>Since Little MALLET Wrapper is a Python package built around MALLET, we first need to tell it where the bigger, Java-based MALLET lives.</p>
+<p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_mallet</span> <span class="o">=</span> <span class="s1">&#39;mallet-2.0.8/bin/mallet&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To test out if you filepath to Mallet is correct, you can put the filepath in the code below and see if it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mallet-2.0.8/bin/mallet import-file
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A tool for creating instance lists of feature vectors from comma-separated-values
+--help TRUE|FALSE
+  Print this command line option usage information.  Give argument of TRUE for longer documentation
+  Default is false
+--prefix-code &#39;JAVA CODE&#39;
+  Java code you want run before any other interpreted code.  Note that the text is interpreted without modification, so unlike some other Java code options, you need to include any necessary &#39;new&#39;s when creating objects.
+  Default is null
+--config FILE
+  Read command option values from a file
+  Default is null
+--input FILE
+  The file containing data to be classified, one instance per line
+  Default is null
+--output FILE
+  Write the instance list to this file; Using - indicates stdout.
+  Default is text.vectors
+--line-regex REGEX
+  Regular expression containing regex-groups for label, name and data.
+  Default is ^(\S*)[\s,]*(\S*)[\s,]*(.*)$
+--label INTEGER
+  The index of the group containing the label string.
+   Use 0 to indicate that the label field is not used.
+  Default is 2
+--name INTEGER
+  The index of the group containing the instance name.
+   Use 0 to indicate that the name field is not used.
+  Default is 1
+--data INTEGER
+  The index of the group containing the data.
+  Default is 3
+--use-pipe-from FILE
+  Use the pipe and alphabets from a previously created vectors file.
+   Allows the creation, for example, of a test set of vectors that are
+   compatible with a previously created set of training vectors
+  Default is text.vectors
+--keep-sequence [TRUE|FALSE]
+  If true, final data will be a FeatureSequence rather than a FeatureVector.
+  Default is false
+--keep-sequence-bigrams [TRUE|FALSE]
+  If true, final data will be a FeatureSequenceWithBigrams rather than a FeatureVector.
+  Default is false
+--label-as-features [TRUE|FALSE]
+  If true, parse the &#39;label&#39; field as space-delimited features.
+     Use feature=[number] to specify values for non-binary features.
+  Default is false
+--remove-stopwords [TRUE|FALSE]
+  If true, remove a default list of common English &quot;stop words&quot; from the text.
+  Default is false
+--replacement-files FILE [FILE ...]
+  files containing string replacements, one per line:
+    &#39;A B [tab] C&#39; replaces A B with C,
+    &#39;A B&#39; replaces A B with A_B
+  Default is (null)
+--deletion-files FILE [FILE ...]
+  files containing strings to delete after replacements but before tokenization (ie multiword stop terms)
+  Default is (null)
+--stoplist-file FILE
+  Instead of the default list, read stop words from a file, one per line. Implies --remove-stopwords
+  Default is null
+--extra-stopwords FILE
+  Read whitespace-separated words from this file, and add them to either 
+   the default English stoplist or the list specified by --stoplist-file.
+  Default is null
+--stop-pattern-file FILE
+  Read regular expressions from a file, one per line. Tokens matching these regexps will be removed.
+  Default is null
+--preserve-case [TRUE|FALSE]
+  If true, do not force all strings to lowercase.
+  Default is false
+--encoding STRING
+  Character encoding for input file
+  Default is UTF-8
+--token-regex REGEX
+  Regular expression used for tokenization.
+   Example: &quot;[\p{L}\p{N}_]+|[\p{P}]+&quot; (unicode letters, numbers and underscore OR all punctuation) 
+  Default is \p{L}[\p{L}\p{P}]+\p{L}
+--print-output [TRUE|FALSE]
+  If true, print a representation of the processed data
+   to standard output. This option is intended for debugging.
+  Default is false
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>Incorrect-Folder/mallet-2.0.8/bin/mallet import-file
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/sh: Incorrect-Folder/mallet-2.0.8/bin/mallet: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>If MALLET is located in another directory or not set up properly, you will get a message “No such file or directory.”</p>
+</div>
+<div class="section" id="set-number-of-topics">
+<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Permalink to this headline">¶</a></h3>
+<p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_topics</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-topic-model-output-files">
+<h3>Set Topic Model Output Files<a class="headerlink" href="#set-topic-model-output-files" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we need to tell Little MALLET Wrapper where to find and output all of our topic modeling results. The code below will set Little MALLET Wrapper up to output your results inside a directory called “topic-model-output” and a subdirectory called “NYT-Obits”, all of which will be inside your current directory.</p>
+<p>If you’d like to change this output location, simply change <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set training data (our pre-processed text files)</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">training_data</span>
+
+<span class="c1">#Change to your desired output directory</span>
+<span class="n">output_directory_path</span> <span class="o">=</span> <span class="s1">&#39;topic-model-output/NYT-Obits-Workbook&#39;</span>
+
+<span class="c1">#No need to change anything below here</span>
+<span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">path_to_training_data</span>           <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/training.txt&quot;</span>
+<span class="n">path_to_formatted_training_data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.training&quot;</span>
+<span class="n">path_to_model</span>                   <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.model.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">path_to_topic_keys</span>              <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.topic_keys.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">path_to_topic_distributions</span>     <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_directory_path</span><span class="si">}</span><span class="s2">/mallet.topic_distributions.</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">num_topics</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-topic-model">
+<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this headline">¶</a></h3>
+<p>Now we import our training data with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.quick_train_topic_model()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">quick_train_topic_model</span><span class="p">(</span><span class="n">path_to_mallet</span><span class="p">,</span>
+                                              <span class="n">output_directory_path</span><span class="p">,</span>
+                                              <span class="n">num_topics</span><span class="p">,</span>
+                                              <span class="n">training_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="display-topics-and-top-words">
+<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this headline">¶</a></h2>
+<p>To examine the 15 topics that the topic model extracted from the <em>NYT</em> obituaries, run the cell below. This code uses the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_keys()</span></code> function to read and process the MALLET topic model output from your computer, specifically the file “mallet.topic_keys.15”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">topics</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-topic-distributions">
+<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this headline">¶</a></h2>
+<p>MALLET also calculates the likely mixture of these topics for every single obituary in the corpus. This mixture is called a probability distribution.</p>
+<p>To get the topic distributions, we’re going to use the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_distributions()</span></code> function, which will read and process the MALLET topic model output, specifically the file “mallet.topic_distributions.15”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we look at the 32nd topic distribution in this list of <code class="docutils literal notranslate"><span class="pre">topic_distributions</span></code>, which corresponds to Marilyn Monroe’s obituary, we will see a list of 15 probabilities. This  list corresponds to the likelihood that each of the 15 topics exists in Marilyn Monroe’s obituary.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s a bit easier to understand if we pair these probabilities with the topics themselves. As you can see below, Topic 0 “miss film theater movie broadway films” has a relatively high probability of existing in Marilyn Monroe’s obituary <code class="docutils literal notranslate"><span class="pre">.202</span></code> while Topic 5 “soviet hitler german germany stalin union” has a relatively low probability <code class="docutils literal notranslate"><span class="pre">.002</span></code>. This seems to comport with what we know about Marilyn Monroe.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obituary_to_check</span> <span class="o">=</span> <span class="s2">&quot;1962-Marilyn-Monroe&quot;</span>
+
+<span class="n">obit_number</span> <span class="o">=</span> <span class="n">obit_titles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obituary_to_check</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topic Distributions for </span><span class="si">{</span><span class="n">obit_titles</span><span class="p">[</span><span class="n">obit_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">topic_number</span><span class="p">,</span> <span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">topic_distribution</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">[</span><span class="n">obit_number</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">topic</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2"> ✨</span><span class="se">\n</span><span class="s2">Probability: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">topic_distribution</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="explore-heatmap-of-topics-and-texts">
+<h2>Explore Heatmap of Topics and Texts<a class="headerlink" href="#explore-heatmap-of-topics-and-texts" title="Permalink to this headline">¶</a></h2>
+<p>We can visualize and compare these topic probability distributions with a heatmap by using the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.plot_categories_by_topics_heatmap()</span></code> function.</p>
+<p>We have everything we need for the heatmap except for our list of target_labels, the sample of texts that we’d like to visualize and compare with the heatmap. Below we make our list of desired target labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1852-Ada-Lovelace&#39;</span><span class="p">,</span> <span class="s1">&#39;1885-Ulysses-Grant&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1900-Nietzsche&#39;</span><span class="p">,</span> <span class="s1">&#39;1931-Ida-B-Wells&#39;</span><span class="p">,</span> <span class="s1">&#39;1940-Marcus-Garvey&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1941-Virginia-Woolf&#39;</span><span class="p">,</span> <span class="s1">&#39;1954-Frida-Kahlo&#39;</span><span class="p">,</span> <span class="s1">&#39;1962-Marilyn-Monroe&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1963-John-F-Kennedy&#39;</span><span class="p">,</span> <span class="s1">&#39;1964-Nella-Larsen&#39;</span><span class="p">,</span> <span class="s1">&#39;1972-Jackie-Robinson&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1973-Pablo-Picasso&#39;</span><span class="p">,</span> <span class="s1">&#39;1984-Ray-A-Kroc&#39;</span><span class="p">,</span><span class="s1">&#39;1986-Jorge-Luis-Borges&#39;</span><span class="p">,</span> <span class="s1">&#39;1991-Miles-Davis&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;1992-Marsha-P-Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;1993-Cesar-Chavez&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’d like to make a random list of target labels, you can uncomment and run the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import random</span>
+<span class="c1">#target_labels = random.sample(obit_titles, 10)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">plot_categories_by_topics_heatmap</span><span class="p">(</span><span class="n">obit_titles</span><span class="p">,</span>
+                                      <span class="n">topic_distributions</span><span class="p">,</span>
+                                      <span class="n">topics</span><span class="p">,</span> 
+                                      <span class="n">output_directory_path</span> <span class="o">+</span> <span class="s1">&#39;/categories_by_topics.pdf&#39;</span><span class="p">,</span>
+                                      <span class="n">target_labels</span><span class="o">=</span><span class="n">target_labels</span><span class="p">,</span>
+                                      <span class="n">dim</span><span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+                                     <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="display-top-titles-per-topic">
+<h2>Display Top Titles Per Topic<a class="headerlink" href="#display-top-titles-per-topic" title="Permalink to this headline">¶</a></h2>
+<p>We can also display the obituaries that have the highest probability for every topic with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.get_top_docs()</span></code> function.</p>
+<p>Here we <code class="docutils literal notranslate"><span class="pre">zip</span></code> together the training data (pre-processed docs) and list of titles, as well as the training data and list of original texts. Then we turn them into dictionaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data_obit_titles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">obit_titles</span><span class="p">))</span>
+<span class="n">training_data_original_text</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">original_texts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’ll make our own function <code class="docutils literal notranslate"><span class="pre">display_top_titles_per_topic()</span></code> that will display the top text titles for every topic. This function accepts a given <code class="docutils literal notranslate"><span class="pre">topic_number</span></code> as well as a desired <code class="docutils literal notranslate"><span class="pre">number_of_documents</span></code> to display.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">probability</span><span class="p">,</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">number_of_documents</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">probability</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">training_data_obit_titles</span><span class="p">[</span><span class="n">document</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 0</strong></p>
+<p>To display the top 5 obituary titles with the highest probability of containing Topic 0, we will run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="display-topic-words-in-context">
+<h2>Display Topic Words in Context<a class="headerlink" href="#display-topic-words-in-context" title="Permalink to this headline">¶</a></h2>
+<p>To display the original obituary texts that rank highly for a given topic, with the relevant topic words <strong>bolded</strong> for emphasis, we are going to make the function <code class="docutils literal notranslate"><span class="pre">display_bolded_topic_words_in_context()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">custom_words</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">probability</span><span class="p">,</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">get_top_docs</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">topic_distributions</span><span class="p">,</span> <span class="n">topic_number</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">number_of_documents</span><span class="p">):</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✨Topic </span><span class="si">{</span><span class="n">topic_number</span><span class="si">}</span><span class="s2">✨</span><span class="se">\n\n</span><span class="si">{</span><span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">probability</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;✨✨✨</span><span class="se">\n\n</span><span class="s2">**</span><span class="si">{</span><span class="n">probability</span><span class="si">}</span><span class="s2">**&quot;</span>
+        <span class="n">obit_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">training_data_obit_titles</span><span class="p">[</span><span class="n">document</span><span class="p">]</span><span class="si">}</span><span class="s2">**&quot;</span>
+        <span class="n">original_text</span> <span class="o">=</span> <span class="n">training_data_original_text</span><span class="p">[</span><span class="n">document</span><span class="p">]</span>
+        <span class="n">topic_words</span> <span class="o">=</span> <span class="n">topics</span><span class="p">[</span><span class="n">topic_number</span><span class="p">]</span>
+        <span class="n">topic_words</span> <span class="o">=</span> <span class="n">custom_words</span> <span class="k">if</span> <span class="n">custom_words</span> <span class="o">!=</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">topic_words</span>
+
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">topic_words</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">original_text</span><span class="p">:</span>
+                <span class="n">original_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">b</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="se">\\</span><span class="s2">b&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">,</span> <span class="n">original_text</span><span class="p">)</span>
+
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">probability</span><span class="p">)),</span> <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">obit_title</span><span class="p">)),</span> <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">original_text</span><span class="p">))</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic 3</strong></p>
+<p>To display the top 3 original obituaries with the highest probability of containing Topic 0 and with relevant topic words bolded, we will run:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Come up with a label for one of the topics. To do so, examine the top obituaries for that topic as well as the words in context.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_top_titles_per_topic</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="n">PICK</span><span class="o">-</span><span class="n">A</span><span class="o">-</span><span class="n">NUMBER</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_bolded_topic_words_in_context</span><span class="p">(</span><span class="n">topic_number</span><span class="o">=</span><span class="n">PICK</span><span class="o">-</span><span class="n">A</span><span class="o">-</span><span class="n">NUMBER</span><span class="p">,</span> <span class="n">number_of_documents</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic Label: <em>Your Label Here</em></strong></p>
+<p><strong>Reflection</strong></p>
+<p>Why did you label your topic the way you did? What else could you or someone else have labeled it?</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Text-Analysis/Workbooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

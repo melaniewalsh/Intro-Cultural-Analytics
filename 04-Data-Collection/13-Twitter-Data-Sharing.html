@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Data Sharing &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/13-Twitter-Data-Sharing.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reddit Data Collection and Analysis with PSAW" href="14-Reddit-Data.html" />
+    <link rel="prev" title="Twitter Data Collection &amp; Analysis" href="12-Twitter-Data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs, Social Media)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="10-Twitter.html">
+     Twitter Data
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-Text-Analysis/00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Text-Analysis/05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05-Text-Analysis/11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-Text-Analysis/13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04-Data-Collection/13-Twitter-Data-Sharing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F04-Data-Collection/13-Twitter-Data-Sharing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/04-Data-Collection/13-Twitter-Data-Sharing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tweet-ids">
+   Tweet IDs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dehydrate-tweets">
+   Dehydrate Tweets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrate-tweets">
+   Hydrate Tweets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deleted-tweets-the-right-to-be-forgotten">
+   Deleted Tweets &amp; The Right To Be Forgotten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-find-tweet-ids">
+   Where to Find Tweet IDs
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="twitter-data-sharing">
+<h1>Twitter Data Sharing<a class="headerlink" href="#twitter-data-sharing" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we’re going to learn how to share Twitter data and access data shared by others with the Python/command line tool <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/">twarc</a>. We’re specifically going to work with <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/">twarc2</a>, which is designed for version 2 of the Twitter API (released in 2020) and the Academic Research track of the Twitter API (released in 2021).</p>
+<p>Twarc was developed by a project called <a class="reference external" href="https://www.docnow.io/">Documenting the Now</a>. The DocNow team develops tools and ethical frameworks for social media research.</p>
+<p><em>This lesson presumes that you’ve already installed and configured twarc, which was covered in <span class="xref myst">a previous lesson</span>.</em></p>
+<div class="section" id="tweet-ids">
+<h2>Tweet IDs<a class="headerlink" href="#tweet-ids" title="Permalink to this headline">¶</a></h2>
+<p>Twitter discourages developers and researchers from sharing full Twitter data openly on the web. They instead encourage developers and researchers to share <em>tweet IDs</em>:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.twitter.com/en/developer-terms/policy#4-e">If you provide Twitter Content to third parties, including downloadable datasets or via an API, you may only distribute <strong>Tweet IDs</strong>, Direct Message IDs, and/or User IDs.</a></p>
+</div></blockquote>
+<p>Tweet IDs are unique identifiers assigned to every tweet. They look like a random string of numbers: 1189206626135355397. Each tweet ID can be used to download the full data associated with that tweet (if the tweet still exists). This is a process called “hydration.”</p>
+<a class="reference internal image-reference" href="https://cdn.pixabay.com/photo/2013/07/12/19/24/sapling-154734_960_720.png"><img alt="https://cdn.pixabay.com/photo/2013/07/12/19/24/sapling-154734_960_720.png" src="https://cdn.pixabay.com/photo/2013/07/12/19/24/sapling-154734_960_720.png" style="width: 100%;" /></a>
+<p><strong>Hydration: a young tweet ID sprouts into a full tweet (to be read in David Attenborough’s voice)</strong></p>
+<p>There are actually two reasons that you might want to dehydrate tweets and/or hydrate tweet IDs: first, to responsibly share Twitter data with others and/or access Twitter data shared by others; second, to get more information about the Twitter data that you yourself collected.</p>
+<p>If you collected tweets in real time, for example, you collected those tweets immediately after they were published, which means that they will not contain any retweet or favorite count information. Nobody’s had time to retweet them yet! So if you’d like to retroactively get retweet and favorite count information about your tweets, then you would want to dehydrate and rehydrate them.</p>
+</div>
+<div class="section" id="dehydrate-tweets">
+<h2>Dehydrate Tweets<a class="headerlink" href="#dehydrate-tweets" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">dehydrate</span> <span class="pre">tweets.jsonl</span> <span class="pre">&gt;</span> <span class="pre">tweet_ids.txt</span></code></p>
+<p>To transform your Twitter data into a list of tweet IDs (so that you can share your data openly on the web), you can run the twarc command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">dehydrate</span></code> with the name of your JSONL file followed by the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and the desired name of your tweet ID text file.</p>
+<blockquote>
+<div><p>tweet ID —&gt; tweet = hydration <br>
+tweet ID &lt;— tweet = dehydration</p>
+</div></blockquote>
+<p>Let’s dehydrate the Twitter data that we collected about “Infinite Jest” from only verified Twitter accounts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 dehydrate twitter-data/dfw_bro.jsonl &gt; twitter-data/dfw_bro.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">.read()</span></code> the tweet IDs file that we just created, it looks something like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_ids</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twitter-data/dfw_bro.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tweet_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1412360883582418945
+1408833479304003589
+1313590839977947136
+1313523086424186881
+1298060678432010240
+1297973554986639360
+1296466668898717696
+1259920233600479233
+1075778924280471553
+995487617549512704
+898246334804787202
+844552567522820096
+760889024403873792
+733665498148294657
+694224894805032964
+686753187727044609
+644308060937265152
+644307992901517312
+644307901830561793
+632152536636608512
+631931489769390080
+631828145105162240
+631825643441901568
+631825543202213889
+631820349290774528
+545020559248343040
+270661455727165442
+146330510422048768
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hydrate-tweets">
+<h2>Hydrate Tweets<a class="headerlink" href="#hydrate-tweets" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hydrate</span> <span class="pre">tweet_ids.txt</span> <span class="pre">&gt;</span> <span class="pre">tweets.jsonl</span></code></p>
+<p>To transform a list of tweet IDs into full Twitter data, you can run the twarc command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hydrate</span></code> with the name of your tweet IDs text file followed by the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and the desired name of your JSONL file.</p>
+<blockquote>
+<div><p>tweet ID —&gt; tweet = hydration <br>
+tweet ID &lt;— tweet = dehydration</p>
+</div></blockquote>
+<p>Now let’s re-hydrate the Twitter data that we collected a few weeks ago based on the tweet IDs that we just dehydrated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 hydrate twitter-data/dfw_bro.txt &gt; twitter-data/dfw_bro_REHYDRATED.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_json</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twitter-data/dfw_bro_REHYDRATED.jsonl&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tweet_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;data&quot;: [{&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;46&quot;, &quot;name&quot;: &quot;Brand Category&quot;, &quot;description&quot;: &quot;Categories within Brand Verticals that narrow down the scope of Brands&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;781974596752842752&quot;, &quot;name&quot;: &quot;Services&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;47&quot;, &quot;name&quot;: &quot;Brand&quot;, &quot;description&quot;: &quot;Brands and Companies&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;10045225402&quot;, &quot;name&quot;: &quot;Twitter&quot;}}], &quot;id&quot;: &quot;1412360883582418945&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 90, &quot;end&quot;: 109, &quot;probability&quot;: 0.89, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 10, &quot;username&quot;: &quot;TomKealy2&quot;, &quot;id&quot;: &quot;82979289&quot;}, {&quot;start&quot;: 11, &quot;end&quot;: 19, &quot;username&quot;: &quot;aveek18&quot;, &quot;id&quot;: &quot;525812389&quot;}, {&quot;start&quot;: 20, &quot;end&quot;: 32, &quot;username&quot;: &quot;maybeavalon&quot;, &quot;id&quot;: &quot;108463534&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;1412360683237355524&quot;}], &quot;author_id&quot;: &quot;342644076&quot;, &quot;text&quot;: &quot;@TomKealy2 @aveek18 @maybeavalon Imo the great twitter literature injustice is that it is david foster wallace and not him that is smeared as the dumb bro contemporary author&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1412043478301880331&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;in_reply_to_user_id&quot;: &quot;82979289&quot;, &quot;created_at&quot;: &quot;2021-07-06T10:40:49.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 2, &quot;quote_count&quot;: 0}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1053753085489606656&quot;, &quot;name&quot;: &quot;Laura Ingraham&quot;, &quot;description&quot;: &quot;Laura Ingraham&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070711281076715520&quot;, &quot;name&quot;: &quot;Virginia Heffernan&quot;, &quot;description&quot;: &quot;American journalist&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;94&quot;, &quot;name&quot;: &quot;Journalist&quot;, &quot;description&quot;: &quot;A journalist like &#39;Anderson Cooper&#39;&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1053753085489606656&quot;, &quot;name&quot;: &quot;Laura Ingraham&quot;, &quot;description&quot;: &quot;Laura Ingraham&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;94&quot;, &quot;name&quot;: &quot;Journalist&quot;, &quot;description&quot;: &quot;A journalist like &#39;Anderson Cooper&#39;&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070711281076715520&quot;, &quot;name&quot;: &quot;Virginia Heffernan&quot;, &quot;description&quot;: &quot;American journalist&quot;}}], &quot;id&quot;: &quot;1408833479304003589&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 89, &quot;end&quot;: 108, &quot;probability&quot;: 0.9731, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 158, &quot;end&quot;: 160, &quot;probability&quot;: 0.5814, &quot;type&quot;: &quot;Place&quot;, &quot;normalized_text&quot;: &quot;DFW&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 7, &quot;username&quot;: &quot;page88&quot;, &quot;id&quot;: &quot;4282171&quot;}, {&quot;start&quot;: 8, &quot;end&quot;: 22, &quot;username&quot;: &quot;IngrahamAngle&quot;, &quot;id&quot;: &quot;50769180&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;1408819214744489985&quot;}], &quot;author_id&quot;: &quot;15639774&quot;, &quot;text&quot;: &quot;@page88 @IngrahamAngle I heard a tech bro quote a line about cruise ship wait staff from David Foster Wallace&#39;s A Supposedly Fun Thing and said it showed how DFW really believed in great customer service.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1408773437431091202&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;in_reply_to_user_id&quot;: &quot;4282171&quot;, &quot;created_at&quot;: &quot;2021-06-26T17:04:10.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 11, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;1313590839977947136&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;1313523086424186881&quot;}], &quot;entities&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 13, &quot;username&quot;: &quot;ben_geier&quot;, &quot;id&quot;: &quot;602060212&quot;}]}, &quot;author_id&quot;: &quot;602060212&quot;, &quot;text&quot;: &quot;RT @ben_geier: the guy who publicly makes a display of how much feminist literature he reads and waxes on how important bookshelf represent\u2026&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1313590839977947136&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-10-06T21:23:56.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 13, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;1313523086424186881&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 216, &quot;end&quot;: 235, &quot;probability&quot;: 0.9361, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}, {&quot;start&quot;: 241, &quot;end&quot;: 249, &quot;probability&quot;: 0.6625, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;hemingway&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 269, &quot;end&quot;: 292, &quot;url&quot;: &quot;https://t.co/QsvsVxBY15&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/ebruenig/status/1313522459899985922&quot;, &quot;display_url&quot;: &quot;twitter.com/ebruenig/statu\u2026&quot;}]}, &quot;author_id&quot;: &quot;602060212&quot;, &quot;text&quot;: &quot;the guy who publicly makes a display of how much feminist literature he reads and waxes on how important bookshelf representation is at least 50% more likely to be a sexpest than the bro who just likes to vibe about david foster wallace and hemingway. this is science. https://t.co/QsvsVxBY15&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1313523086424186881&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-10-06T16:54:42.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 13, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 97, &quot;quote_count&quot;: 1}}, {&quot;id&quot;: &quot;1298060678432010240&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 20, &quot;end&quot;: 39, &quot;probability&quot;: 0.7433, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 18, &quot;username&quot;: &quot;davidgross_man&quot;, &quot;id&quot;: &quot;236999725&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;1297936487909130240&quot;}], &quot;author_id&quot;: &quot;23314192&quot;, &quot;text&quot;: &quot;RT @davidgross_man: david foster wallace bro conversation again? i feel like by this point in the discourse i need footnotes! (just a littl\u2026&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1298060678432010240&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-08-25T00:52:37.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 23, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070723963087540224&quot;, &quot;name&quot;: &quot;Mara Wilson&quot;, &quot;description&quot;: &quot;American playwright, singer, blogger, writer and actress&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;56&quot;, &quot;name&quot;: &quot;Actor&quot;, &quot;description&quot;: &quot;An actor or actress in the world, like Kate Winslet or Leonardo DiCaprio&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070723963087540224&quot;, &quot;name&quot;: &quot;Mara Wilson&quot;, &quot;description&quot;: &quot;American playwright, singer, blogger, writer and actress&quot;}}], &quot;id&quot;: &quot;1297973554986639360&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 20, &quot;end&quot;: 39, &quot;probability&quot;: 0.7433, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 18, &quot;username&quot;: &quot;davidgross_man&quot;, &quot;id&quot;: &quot;236999725&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;1297936487909130240&quot;}], &quot;author_id&quot;: &quot;386056280&quot;, &quot;text&quot;: &quot;RT @davidgross_man: david foster wallace bro conversation again? i feel like by this point in the discourse i need footnotes! (just a littl\u2026&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1297973554986639360&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2020-08-24T19:06:25.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 23, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;1296466668898717696&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 60, &quot;end&quot;: 79, &quot;probability&quot;: 0.8772, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 227, &quot;end&quot;: 239, &quot;probability&quot;: 0.4009, &quot;type&quot;: &quot;Product&quot;, &quot;normalized_text&quot;: &quot;INFINITE JEST&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;1296458752657326081&quot;}], &quot;author_id&quot;: &quot;365438535&quot;, &quot;text&quot;: &quot;(Gonna out myself as an insufferable millennial bro and say David Foster Wallace\u2014his maximalism expands my sense of what&#39;s possible on the page, as does his notorious blend of academic and colloquial prose. I swear the copy of INFINITE JEST on my shelf is not a display piece.)&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1296458752657326081&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;in_reply_to_user_id&quot;: &quot;365438535&quot;, &quot;created_at&quot;: &quot;2020-08-20T15:18:35.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 14, &quot;quote_count&quot;: 0}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;85&quot;, &quot;name&quot;: &quot;Book Genre&quot;, &quot;description&quot;: &quot;A genre for books, like Fiction&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;859531094730825728&quot;, &quot;name&quot;: &quot;Biographies and memoirs&quot;, &quot;description&quot;: &quot;Biographies and memoirs&quot;}}], &quot;id&quot;: &quot;1259920233600479233&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 18, &quot;end&quot;: 36, &quot;probability&quot;: 0.4401, &quot;type&quot;: &quot;Other&quot;, &quot;normalized_text&quot;: &quot;MEL Review of Books&quot;}, {&quot;start&quot;: 174, &quot;end&quot;: 180, &quot;probability&quot;: 0.9168, &quot;type&quot;: &quot;Organization&quot;, &quot;normalized_text&quot;: &quot;Esquire&quot;}, {&quot;start&quot;: 212, &quot;end&quot;: 231, &quot;probability&quot;: 0.9804, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 46, &quot;end&quot;: 57, &quot;username&quot;: &quot;leahrosenz&quot;, &quot;id&quot;: &quot;734174508&quot;}, {&quot;start&quot;: 66, &quot;end&quot;: 81, &quot;username&quot;: &quot;adriennemiller&quot;, &quot;id&quot;: &quot;1182311889277206529&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 239, &quot;end&quot;: 262, &quot;url&quot;: &quot;https://t.co/26WQYMgakO&quot;, &quot;expanded_url&quot;: &quot;https://melmagazine.com/en-us/story/how-adrienne-miller-made-it-in-the-1990s-heyday-of-the-postmodern-lit-bro&quot;, &quot;display_url&quot;: &quot;melmagazine.com/en-us/story/ho\u2026&quot;}]}, &quot;author_id&quot;: &quot;460444548&quot;, &quot;text&quot;: &quot;This week for the MEL Review of Books, we had @leahrosenz talk to @adriennemiller about IN THE LAND OF MEN, a memoir of the dude snobbery she faced as the literary editor at Esquire while publishing the likes of David Foster Wallace:     \nhttps://t.co/26WQYMgakO&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1259920233600479233&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-05-11T18:56:06.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 9, &quot;quote_count&quot;: 0}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1011963575089262593&quot;, &quot;name&quot;: &quot;Alexandria Ocasio-Cortez&quot;, &quot;description&quot;: &quot;US Representative from New York Alexandria Ocasio-Cortez&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;35&quot;, &quot;name&quot;: &quot;Politician&quot;, &quot;description&quot;: &quot;Politicians in the world, like Joe Biden&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1011963575089262593&quot;, &quot;name&quot;: &quot;Alexandria Ocasio-Cortez&quot;, &quot;description&quot;: &quot;US Representative from New York Alexandria Ocasio-Cortez&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;65&quot;, &quot;name&quot;: &quot;Interests and Hobbies Vertical&quot;, &quot;description&quot;: &quot;Top level interests and hobbies groupings, like Food or Travel&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;825047692124442624&quot;, &quot;name&quot;: &quot;Food&quot;, &quot;description&quot;: &quot;Food&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;30&quot;, &quot;name&quot;: &quot;Entities [Entity Service]&quot;, &quot;description&quot;: &quot;Entity Service top level domain, every item that is in Entity Service should be in this domain&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;824777229892661248&quot;, &quot;name&quot;: &quot;Generic Food&quot;, &quot;description&quot;: &quot;Generic Food&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;30&quot;, &quot;name&quot;: &quot;Entities [Entity Service]&quot;, &quot;description&quot;: &quot;Entity Service top level domain, every item that is in Entity Service should be in this domain&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;825065539378688000&quot;, &quot;name&quot;: &quot;Seafood&quot;, &quot;description&quot;: &quot;Seafood&quot;}}], &quot;id&quot;: &quot;1075778924280471553&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 6, &quot;end&quot;: 22, &quot;probability&quot;: 0.9307, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Alexandria Ocasio&quot;}, {&quot;start&quot;: 24, &quot;end&quot;: 29, &quot;probability&quot;: 0.5206, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Cortez&quot;}, {&quot;start&quot;: 33, &quot;end&quot;: 52, &quot;probability&quot;: 0.8046, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 59, &quot;end&quot;: 82, &quot;url&quot;: &quot;https://t.co/OcwGRUdWMV&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/AOC/status/1075614808853110785&quot;, &quot;display_url&quot;: &quot;twitter.com/AOC/status/107\u2026&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;quoted&quot;, &quot;id&quot;: &quot;1075614808853110785&quot;}], &quot;author_id&quot;: &quot;398088661&quot;, &quot;text&quot;: &quot;Is\u2014is Alexandria Ocasio-Cortez a David Foster Wallace bro? https://t.co/OcwGRUdWMV&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1075778924280471553&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2018-12-20T15:44:17.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 4, &quot;reply_count&quot;: 3, &quot;like_count&quot;: 54, &quot;quote_count&quot;: 3}}, {&quot;id&quot;: &quot;995487617549512704&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 20, &quot;end&quot;: 26, &quot;probability&quot;: 0.6016, &quot;type&quot;: &quot;Organization&quot;, &quot;normalized_text&quot;: &quot;KGB Bar&quot;}, {&quot;start&quot;: 71, &quot;end&quot;: 90, &quot;probability&quot;: 0.9265, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 116, &quot;end&quot;: 129, &quot;probability&quot;: 0.9987, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Thomas Pynchon&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 132, &quot;end&quot;: 155, &quot;url&quot;: &quot;https://t.co/iQLxduLtEN&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/bkerogers/status/994737256211648512&quot;, &quot;display_url&quot;: &quot;twitter.com/bkerogers/stat\u2026&quot;}]}, &quot;author_id&quot;: &quot;1000899020&quot;, &quot;text&quot;: &quot;I got kicked out of KGB Bar in the LES for arguing with a lit bro that David Foster Wallace is a better writer than Thomas Pynchon. https://t.co/iQLxduLtEN&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;995487617549512704&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2018-05-13T02:15:17.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 12, &quot;like_count&quot;: 47, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;898246334804787202&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 49, &quot;end&quot;: 68, &quot;probability&quot;: 0.9503, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 16, &quot;username&quot;: &quot;TaylorOSoule&quot;, &quot;id&quot;: &quot;275829938&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;898243199722016768&quot;}], &quot;author_id&quot;: &quot;19608605&quot;, &quot;text&quot;: &quot;RT @TaylorOSoule: UPDATE: I met a \&quot;Have you read David Foster Wallace?\&quot; bro at law school. It only took four days, fam. FOUR.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;898246334804787202&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2017-08-17T18:13:09.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;844552567522820096&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 1, &quot;end&quot;: 20, &quot;probability&quot;: 0.9252, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 73, &quot;end&quot;: 96, &quot;url&quot;: &quot;https://t.co/GPCbgdBL3e&quot;, &quot;expanded_url&quot;: &quot;https://newrepublic.com/minutes/141498/neil-gorsuch-will-first-lit-bro-supreme-court-justice&quot;, &quot;display_url&quot;: &quot;newrepublic.com/minutes/141498\u2026&quot;}]}, &quot;author_id&quot;: &quot;15649438&quot;, &quot;text&quot;: &quot;\&quot;David Foster Wallace is essentially the same as skiing and cigars now.\u201d https://t.co/GPCbgdBL3e&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;844552567522820096&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2017-03-22T14:13:17.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 4, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 14, &quot;quote_count&quot;: 3}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;35&quot;, &quot;name&quot;: &quot;Politician&quot;, &quot;description&quot;: &quot;Politicians in the world, like Joe Biden&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;10037721459&quot;, &quot;name&quot;: &quot;Bernie Sanders&quot;, &quot;description&quot;: &quot;US Senator Bernie Sanders (VT)\n&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;38&quot;, &quot;name&quot;: &quot;Political Race&quot;, &quot;description&quot;: &quot;&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;10037066629&quot;, &quot;name&quot;: &quot;2016 US Elections&quot;, &quot;description&quot;: &quot;2016 US Elections&quot;}}], &quot;id&quot;: &quot;760889024403873792&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 12, &quot;end&quot;: 17, &quot;probability&quot;: 0.8566, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Bernie&quot;}, {&quot;start&quot;: 63, &quot;end&quot;: 82, &quot;probability&quot;: 0.958, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;author_id&quot;: &quot;193477066&quot;, &quot;text&quot;: &quot;New theory: Bernie Bro holdouts are exactly the same people as David Foster Wallace fanatics. Yes?&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;760889024403873792&quot;, &quot;source&quot;: &quot;Twitter Web Client&quot;, &quot;created_at&quot;: &quot;2016-08-03T17:24:14.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 14, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;733665498148294657&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 7, &quot;end&quot;: 26, &quot;probability&quot;: 0.9195, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 50, &quot;end&quot;: 69, &quot;probability&quot;: 0.9235, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;733665146216779776&quot;}], &quot;author_id&quot;: &quot;398088661&quot;, &quot;text&quot;: &quot;Am I a David Foster Wallace bro? Very well, I&#39;m a David Foster Wallace bro.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;733665146216779776&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;in_reply_to_user_id&quot;: &quot;398088661&quot;, &quot;created_at&quot;: &quot;2016-05-20T14:27:40.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 2, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;694224894805032964&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 19, &quot;probability&quot;: 0.9365, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 80, &quot;end&quot;: 89, &quot;username&quot;: &quot;Bro_Pair&quot;, &quot;id&quot;: &quot;56309136&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 90, &quot;end&quot;: 113, &quot;url&quot;: &quot;https://t.co/hxGFGY6D3Z&quot;, &quot;expanded_url&quot;: &quot;http://www.cosmoetica.com/b326-des266.htm&quot;, &quot;display_url&quot;: &quot;cosmoetica.com/b326-des266.htm&quot;}]}, &quot;author_id&quot;: &quot;605556917&quot;, &quot;text&quot;: &quot;David Foster Wallace sucks and this is a great review of interminable jest, via @Bro_Pair https://t.co/hxGFGY6D3Z&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;694224894805032964&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2016-02-01T18:24:47.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 6, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;686753187727044609&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 23, &quot;end&quot;: 42, &quot;probability&quot;: 0.9363, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;author_id&quot;: &quot;56993835&quot;, &quot;text&quot;: &quot;\&quot;Bro stop being such a David Foster Wallace footnote\&quot;&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;686753187727044609&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2016-01-12T03:34:53.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 2, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;644308060937265152&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 19, &quot;end&quot;: 31, &quot;probability&quot;: 0.9963, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 45, &quot;end&quot;: 64, &quot;probability&quot;: 0.9365, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 81, &quot;end&quot;: 93, &quot;probability&quot;: 0.9944, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 97, &quot;end&quot;: 116, &quot;probability&quot;: 0.915, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 13, &quot;username&quot;: &quot;MEPFuller&quot;, &quot;id&quot;: &quot;398088661&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;644307901830561793&quot;}], &quot;author_id&quot;: &quot;61734492&quot;, &quot;text&quot;: &quot;RT @MEPFuller: Did Carly Fiorina just make a David Foster Wallace reference?\n\nIs Carly Fiorina a David Foster Wallace bro??&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;644308060937265152&quot;, &quot;source&quot;: &quot;Twitter Web Client&quot;, &quot;created_at&quot;: &quot;2015-09-17T00:33:07.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 5, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;644307992901517312&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 19, &quot;end&quot;: 31, &quot;probability&quot;: 0.9963, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 45, &quot;end&quot;: 64, &quot;probability&quot;: 0.9365, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 81, &quot;end&quot;: 93, &quot;probability&quot;: 0.9944, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 97, &quot;end&quot;: 116, &quot;probability&quot;: 0.915, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 13, &quot;username&quot;: &quot;MEPFuller&quot;, &quot;id&quot;: &quot;398088661&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;644307901830561793&quot;}], &quot;author_id&quot;: &quot;22330423&quot;, &quot;text&quot;: &quot;RT @MEPFuller: Did Carly Fiorina just make a David Foster Wallace reference?\n\nIs Carly Fiorina a David Foster Wallace bro??&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;644307992901517312&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2015-09-17T00:32:50.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 5, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;644307901830561793&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 4, &quot;end&quot;: 16, &quot;probability&quot;: 0.9955, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 30, &quot;end&quot;: 49, &quot;probability&quot;: 0.9285, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 66, &quot;end&quot;: 78, &quot;probability&quot;: 0.9941, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 82, &quot;end&quot;: 101, &quot;probability&quot;: 0.9103, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;author_id&quot;: &quot;398088661&quot;, &quot;text&quot;: &quot;Did Carly Fiorina just make a David Foster Wallace reference?\n\nIs Carly Fiorina a David Foster Wallace bro??&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;644307901830561793&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2015-09-17T00:32:29.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 5, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 11, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;632152536636608512&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 1, &quot;end&quot;: 20, &quot;probability&quot;: 0.9133, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 105, &quot;end&quot;: 127, &quot;url&quot;: &quot;http://t.co/t4FqgmoyVz&quot;, &quot;expanded_url&quot;: &quot;http://pwne.ws/1fbCjQB&quot;, &quot;display_url&quot;: &quot;pwne.ws/1fbCjQB&quot;}]}, &quot;author_id&quot;: &quot;19816859&quot;, &quot;text&quot;: &quot;\&quot;David Foster Wallace was not a bro: Let\u2019s not paint the writer with the same brush as his fans\&quot; | Salon http://t.co/t4FqgmoyVz&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;632152536636608512&quot;, &quot;source&quot;: &quot;Hootsuite&quot;, &quot;created_at&quot;: &quot;2015-08-14T11:31:24.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 10, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 19, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;631931489769390080&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 19, &quot;probability&quot;: 0.9181, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 93, &quot;end&quot;: 115, &quot;url&quot;: &quot;http://t.co/vZvwEien22&quot;, &quot;expanded_url&quot;: &quot;http://slnm.us/QwmAbPX&quot;, &quot;display_url&quot;: &quot;slnm.us/QwmAbPX&quot;}]}, &quot;author_id&quot;: &quot;16955991&quot;, &quot;text&quot;: &quot;David Foster Wallace was *not* a bro: Don&#39;t paint the writer with the same brush as his fans http://t.co/vZvwEien22&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631931489769390080&quot;, &quot;source&quot;: &quot;SocialFlow&quot;, &quot;created_at&quot;: &quot;2015-08-13T20:53:02.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 10, &quot;reply_count&quot;: 3, &quot;like_count&quot;: 15, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631825542652784640&quot;]}, &quot;id&quot;: &quot;631828145105162240&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 54, &quot;end&quot;: 73, &quot;probability&quot;: 0.9324, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 10, &quot;username&quot;: &quot;TheCut&quot;, &quot;id&quot;: &quot;19923638&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 76, &quot;end&quot;: 98, &quot;url&quot;: &quot;http://t.co/3KfOlw2UR6&quot;, &quot;expanded_url&quot;: &quot;http://thecut.io/1Plvg4X&quot;, &quot;display_url&quot;: &quot;thecut.io/1Plvg4X&quot;}, {&quot;start&quot;: 99, &quot;end&quot;: 121, &quot;url&quot;: &quot;http://t.co/xNI9tbF02p&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/TheCut/status/631825543202213889/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/xNI9tbF02p&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;631825543202213889&quot;}], &quot;author_id&quot;: &quot;89805327&quot;, &quot;text&quot;: &quot;RT @TheCut: You probably know a bro who says he loves David Foster Wallace: http://t.co/3KfOlw2UR6 http://t.co/xNI9tbF02p&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631828145105162240&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2015-08-13T14:02:23.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 7, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631825542652784640&quot;]}, &quot;id&quot;: &quot;631825643441901568&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 54, &quot;end&quot;: 73, &quot;probability&quot;: 0.9324, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 10, &quot;username&quot;: &quot;TheCut&quot;, &quot;id&quot;: &quot;19923638&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 76, &quot;end&quot;: 98, &quot;url&quot;: &quot;http://t.co/3KfOlw2UR6&quot;, &quot;expanded_url&quot;: &quot;http://thecut.io/1Plvg4X&quot;, &quot;display_url&quot;: &quot;thecut.io/1Plvg4X&quot;}, {&quot;start&quot;: 99, &quot;end&quot;: 121, &quot;url&quot;: &quot;http://t.co/xNI9tbF02p&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/TheCut/status/631825543202213889/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/xNI9tbF02p&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;631825543202213889&quot;}], &quot;author_id&quot;: &quot;1101966512&quot;, &quot;text&quot;: &quot;RT @TheCut: You probably know a bro who says he loves David Foster Wallace: http://t.co/3KfOlw2UR6 http://t.co/xNI9tbF02p&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631825643441901568&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2015-08-13T13:52:26.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 7, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631825542652784640&quot;]}, &quot;id&quot;: &quot;631825543202213889&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 42, &quot;end&quot;: 61, &quot;probability&quot;: 0.9218, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 64, &quot;end&quot;: 86, &quot;url&quot;: &quot;http://t.co/3KfOlw2UR6&quot;, &quot;expanded_url&quot;: &quot;http://thecut.io/1Plvg4X&quot;, &quot;display_url&quot;: &quot;thecut.io/1Plvg4X&quot;}, {&quot;start&quot;: 87, &quot;end&quot;: 109, &quot;url&quot;: &quot;http://t.co/xNI9tbF02p&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/TheCut/status/631825543202213889/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/xNI9tbF02p&quot;}]}, &quot;author_id&quot;: &quot;19923638&quot;, &quot;text&quot;: &quot;You probably know a bro who says he loves David Foster Wallace: http://t.co/3KfOlw2UR6 http://t.co/xNI9tbF02p&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631825543202213889&quot;, &quot;source&quot;: &quot;SocialFlow&quot;, &quot;created_at&quot;: &quot;2015-08-13T13:52:02.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 7, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 5, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631820273633918976&quot;]}, &quot;id&quot;: &quot;631820349290774528&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 33, &quot;end&quot;: 52, &quot;probability&quot;: 0.9404, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 3, &quot;end&quot;: 7, &quot;username&quot;: &quot;Awl&quot;, &quot;id&quot;: &quot;13566872&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 82, &quot;end&quot;: 104, &quot;url&quot;: &quot;http://t.co/w5KOvJBcui&quot;, &quot;expanded_url&quot;: &quot;http://www.theawl.com/2015/08/the-bro-of-the-system&quot;, &quot;display_url&quot;: &quot;theawl.com/2015/08/the-br\u2026&quot;}, {&quot;start&quot;: 105, &quot;end&quot;: 127, &quot;url&quot;: &quot;http://t.co/yBhOr3aPjy&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/Awl/status/631820274330136576/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/yBhOr3aPjy&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;retweeted&quot;, &quot;id&quot;: &quot;631820274330136576&quot;}], &quot;author_id&quot;: &quot;24512235&quot;, &quot;text&quot;: &quot;RT @Awl: All men are bad but are David Foster Wallace fans a special kind of bad? http://t.co/w5KOvJBcui http://t.co/yBhOr3aPjy&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631820349290774528&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2015-08-13T13:31:24.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 8, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;545020559248343040&quot;, &quot;entities&quot;: {&quot;hashtags&quot;: [{&quot;start&quot;: 104, &quot;end&quot;: 117, &quot;tag&quot;: &quot;BillandDaves&quot;}], &quot;annotations&quot;: [{&quot;start&quot;: 12, &quot;end&quot;: 16, &quot;probability&quot;: 0.9019, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David&quot;}, {&quot;start&quot;: 47, &quot;end&quot;: 66, &quot;probability&quot;: 0.9475, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 118, &quot;end&quot;: 140, &quot;url&quot;: &quot;http://t.co/gU84ybdk2C&quot;, &quot;expanded_url&quot;: &quot;http://billanddavescocktailhour.com/a-few-footnotes-on-david-foster-wallace-putting-me-on-his-syllabus/&quot;, &quot;display_url&quot;: &quot;billanddavescocktailhour.com/a-few-footnote\u2026&quot;}]}, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;author_id&quot;: &quot;415297424&quot;, &quot;text&quot;: &quot;My blog bro David (@BDsCocktailHour) reacts to David Foster Wallace&#39;s teaching Gessner. With footnotes. #BillandDaves http://t.co/gU84ybdk2C&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;545020559248343040&quot;, &quot;source&quot;: &quot;Twitter Web Client&quot;, &quot;created_at&quot;: &quot;2014-12-17T01:00:01.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;270661455727165442&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 7, &quot;probability&quot;: 0.6927, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Ayn Rand&quot;}, {&quot;start&quot;: 48, &quot;end&quot;: 67, &quot;probability&quot;: 0.7967, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 21, &quot;end&quot;: 28, &quot;username&quot;: &quot;supsla&quot;, &quot;id&quot;: &quot;42003947&quot;}]}, &quot;author_id&quot;: &quot;15022464&quot;, &quot;text&quot;: &quot;Ayn Rand too, bro RT @SUPSLA: of couuuuuuuuurse david foster wallace is quoted.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;270661455727165442&quot;, &quot;source&quot;: &quot;TweetDeck&quot;, &quot;created_at&quot;: &quot;2012-11-19T22:54:54.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;146330510422048768&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;146329543211368449&quot;}], &quot;entities&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 15, &quot;username&quot;: &quot;MelodicRecords&quot;, &quot;id&quot;: &quot;85877346&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 113, &quot;end&quot;: 133, &quot;url&quot;: &quot;http://t.co/q0RUmv12&quot;, &quot;expanded_url&quot;: &quot;http://www.nytimes.com/2011/08/21/magazine/another-thing-to-sort-of-pin-on-david-foster-wallace.html?pagewanted=all&quot;, &quot;display_url&quot;: &quot;nytimes.com/2011/08/21/mag\u2026&quot;}]}, &quot;author_id&quot;: &quot;15644695&quot;, &quot;text&quot;: &quot;@MelodicRecords chillax brother, we all gud. Put another blunt on the barbie &#39;n&#39; go wid th&#39; flo bro. Dude man... http://t.co/q0RUmv12&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;146329543211368449&quot;, &quot;source&quot;: &quot;Twitter Web Client&quot;, &quot;in_reply_to_user_id&quot;: &quot;85877346&quot;, &quot;created_at&quot;: &quot;2011-12-12T20:48:07.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}], &quot;includes&quot;: {&quot;users&quot;: [{&quot;name&quot;: &quot;Josh Lowe&quot;, &quot;pinned_tweet_id&quot;: &quot;1408347187415769088&quot;, &quot;username&quot;: &quot;JeyyLowe&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 6037, &quot;following_count&quot;: 3689, &quot;tweet_count&quot;: 64279, &quot;listed_count&quot;: 129}, &quot;url&quot;: &quot;https://t.co/jbBZxEX5yD&quot;, &quot;description&quot;: &quot;Policy-focused content person. (Mostly) ex-journalist. Working on a thing launching soon. Prev: @Apoliticalco, @Newsweek, @Prospect_UK.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-07-26T10:41:54.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/jbBZxEX5yD&quot;, &quot;expanded_url&quot;: &quot;http://Joshlowe.co&quot;, &quot;display_url&quot;: &quot;Joshlowe.co&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 96, &quot;end&quot;: 109, &quot;username&quot;: &quot;Apoliticalco&quot;}, {&quot;start&quot;: 111, &quot;end&quot;: 120, &quot;username&quot;: &quot;Newsweek&quot;}, {&quot;start&quot;: 122, &quot;end&quot;: 134, &quot;username&quot;: &quot;Prospect_UK&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1295743634021781504/eijsM23R_normal.jpg&quot;, &quot;location&quot;: &quot;London, England&quot;, &quot;id&quot;: &quot;342644076&quot;}, {&quot;name&quot;: &quot;TomKealy 1\ufe0f\u20e32\ufe0f\u20e34\ufe0f\u20e3\ud83d\udea2&quot;, &quot;pinned_tweet_id&quot;: &quot;1376481900454363136&quot;, &quot;username&quot;: &quot;TomKealy2&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 1444, &quot;following_count&quot;: 1237, &quot;tweet_count&quot;: 62751, &quot;listed_count&quot;: 18}, &quot;url&quot;: &quot;https://t.co/cDm2jXtQxy&quot;, &quot;description&quot;: &quot;Digital Writer. In Berlin. I write every day about culture, statistics, and how to live.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-10-16T21:36:07.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/cDm2jXtQxy&quot;, &quot;expanded_url&quot;: &quot;https://www.thomaskealy.com/&quot;, &quot;display_url&quot;: &quot;thomaskealy.com&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1364311191141629956/E4EqPFt8_normal.jpg&quot;, &quot;location&quot;: &quot;Berlin, Germany&quot;, &quot;id&quot;: &quot;82979289&quot;}, {&quot;name&quot;: &quot;Aveek Bhattacharya&quot;, &quot;pinned_tweet_id&quot;: &quot;1415593120511795201&quot;, &quot;username&quot;: &quot;aveek18&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 1402, &quot;following_count&quot;: 2643, &quot;tweet_count&quot;: 9639, &quot;listed_count&quot;: 23}, &quot;url&quot;: &quot;https://t.co/RqcOqTeEFf&quot;, &quot;description&quot;: &quot;Chief Economist @SMFthinktank. Views are my own.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-03-15T22:35:15.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/RqcOqTeEFf&quot;, &quot;expanded_url&quot;: &quot;http://socialproblemsarelikemaths.wordpress.com/&quot;, &quot;display_url&quot;: &quot;\u2026ialproblemsarelikemaths.wordpress.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 16, &quot;end&quot;: 29, &quot;username&quot;: &quot;SMFthinktank&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/877636655976468482/o8tMtmYt_normal.jpg&quot;, &quot;id&quot;: &quot;525812389&quot;}, {&quot;name&quot;: &quot;Michael Docherty&quot;, &quot;pinned_tweet_id&quot;: &quot;1430276131647787012&quot;, &quot;username&quot;: &quot;maybeavalon&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 1697, &quot;following_count&quot;: 1985, &quot;tweet_count&quot;: 18937, &quot;listed_count&quot;: 8}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;I write about and teach American literature and culture || incoming postdoc @uniinnsbruck || incoming co-editor @AtPost45 || rep @georginacapel&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2010-01-26T01:13:55.000Z&quot;, &quot;entities&quot;: {&quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 76, &quot;end&quot;: 89, &quot;username&quot;: &quot;uniinnsbruck&quot;}, {&quot;start&quot;: 112, &quot;end&quot;: 121, &quot;username&quot;: &quot;AtPost45&quot;}, {&quot;start&quot;: 129, &quot;end&quot;: 143, &quot;username&quot;: &quot;georginacapel&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1382733333927489536/lP42Z_Yo_normal.jpg&quot;, &quot;id&quot;: &quot;108463534&quot;}, {&quot;name&quot;: &quot;Adam Davidson&quot;, &quot;username&quot;: &quot;adamdavidson&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 118261, &quot;following_count&quot;: 2061, &quot;tweet_count&quot;: 8311, &quot;listed_count&quot;: 2145}, &quot;url&quot;: &quot;https://t.co/B9rGp1ojyP&quot;, &quot;description&quot;: &quot;Author of The Passion Economy, buy: https://t.co/PJAC2bt7S3\n\nBuilding a course on how to thrive in The Passion Economy.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-07-29T00:34:43.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/B9rGp1ojyP&quot;, &quot;expanded_url&quot;: &quot;https://a73clj9rsp2.typeform.com/to/LV4xLdDq&quot;, &quot;display_url&quot;: &quot;a73clj9rsp2.typeform.com/to/LV4xLdDq&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 36, &quot;end&quot;: 59, &quot;url&quot;: &quot;https://t.co/PJAC2bt7S3&quot;, &quot;expanded_url&quot;: &quot;http://passioneconomy.com&quot;, &quot;display_url&quot;: &quot;passioneconomy.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/793622420364165120/em1s6fZT_normal.jpg&quot;, &quot;location&quot;: &quot;Charlotte, VT&quot;, &quot;id&quot;: &quot;15639774&quot;}, {&quot;name&quot;: &quot;Virginia Heffernan&quot;, &quot;pinned_tweet_id&quot;: &quot;1430623377908174853&quot;, &quot;username&quot;: &quot;page88&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 150635, &quot;following_count&quot;: 4020, &quot;tweet_count&quot;: 51730, &quot;listed_count&quot;: 2443}, &quot;url&quot;: &quot;https://t.co/zjDZ9hwkgx&quot;, &quot;description&quot;: &quot;Opinion @latimesopinion / Columnist @WIRED, @1843mag / upcoming far-out culture podcast THIS IS CRITICAL @Stitcher&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2007-04-12T02:18:44.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/zjDZ9hwkgx&quot;, &quot;expanded_url&quot;: &quot;http://virginiaheffernan.substack.com&quot;, &quot;display_url&quot;: &quot;virginiaheffernan.substack.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 8, &quot;end&quot;: 23, &quot;username&quot;: &quot;latimesopinion&quot;}, {&quot;start&quot;: 36, &quot;end&quot;: 42, &quot;username&quot;: &quot;WIRED&quot;}, {&quot;start&quot;: 44, &quot;end&quot;: 52, &quot;username&quot;: &quot;1843mag&quot;}, {&quot;start&quot;: 105, &quot;end&quot;: 114, &quot;username&quot;: &quot;Stitcher&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1353194645342330880/lHmxvHlP_normal.jpg&quot;, &quot;location&quot;: &quot;Bad Wildbad, Deutschland&quot;, &quot;id&quot;: &quot;4282171&quot;}, {&quot;name&quot;: &quot;Laura Ingraham&quot;, &quot;pinned_tweet_id&quot;: &quot;918263404586045441&quot;, &quot;username&quot;: &quot;IngrahamAngle&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 3774020, &quot;following_count&quot;: 394, &quot;tweet_count&quot;: 49041, &quot;listed_count&quot;: 13495}, &quot;url&quot;: &quot;https://t.co/TTlV8zViMs&quot;, &quot;description&quot;: &quot;Mom, author, host, The Ingraham Angle, 10p ET @FoxNews. Retweets do not = Endorsements&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-06-25T21:03:25.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/TTlV8zViMs&quot;, &quot;expanded_url&quot;: &quot;http://www.lauraingraham.com&quot;, &quot;display_url&quot;: &quot;lauraingraham.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 46, &quot;end&quot;: 54, &quot;username&quot;: &quot;FoxNews&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1431935079224274948/ljL68_Tk_normal.jpg&quot;, &quot;location&quot;: &quot;DC&quot;, &quot;id&quot;: &quot;50769180&quot;}, {&quot;name&quot;: &quot;Goy Division/Jew Order&quot;, &quot;pinned_tweet_id&quot;: &quot;723318515613220864&quot;, &quot;username&quot;: &quot;ben_geier&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 12884, &quot;following_count&quot;: 2999, &quot;tweet_count&quot;: 47906, &quot;listed_count&quot;: 129}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;Journalist, writer, Brooklyn trash. We\u2019re all hypocrites, but you\u2019re a patriot. Married to my wife, dad to a baby.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-06-07T17:38:18.000Z&quot;, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1182430150920691712/Yt8LKrXl_normal.jpg&quot;, &quot;location&quot;: &quot;Brooklyn, NY&quot;, &quot;id&quot;: &quot;602060212&quot;}, {&quot;name&quot;: &quot;Chris DeVille&quot;, &quot;username&quot;: &quot;chrisdeville&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 13396, &quot;following_count&quot;: 986, &quot;tweet_count&quot;: 23053, &quot;listed_count&quot;: 263}, &quot;url&quot;: &quot;https://t.co/3jEZqP2it0&quot;, &quot;description&quot;: &quot;Senior Editor, Stereogum // chris at stereogum dot com&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-03-08T14:49:07.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/3jEZqP2it0&quot;, &quot;expanded_url&quot;: &quot;http://www.stereogum.com&quot;, &quot;display_url&quot;: &quot;stereogum.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/378800000054104895/202f3a3d00921313b1da14a88b0733c9_normal.jpeg&quot;, &quot;location&quot;: &quot;Columbus&quot;, &quot;id&quot;: &quot;23314192&quot;}, {&quot;name&quot;: &quot;David Grossman&quot;, &quot;username&quot;: &quot;davidgross_man&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 13355, &quot;following_count&quot;: 5272, &quot;tweet_count&quot;: 76267, &quot;listed_count&quot;: 106}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;journalist (true things)\nfiction writer (emotionally true things)&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-01-11T21:14:37.000Z&quot;, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1370596146/ash-28_normal.jpg&quot;, &quot;location&quot;: &quot;Brooklyn, NY&quot;, &quot;id&quot;: &quot;236999725&quot;}, {&quot;name&quot;: &quot;Mara \u201cGet Rid of the Nazis\u201d Wilson&quot;, &quot;pinned_tweet_id&quot;: &quot;1346261311416532993&quot;, &quot;username&quot;: &quot;MaraWilson&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 613187, &quot;following_count&quot;: 6413, &quot;tweet_count&quot;: 173932, &quot;listed_count&quot;: 2795}, &quot;url&quot;: &quot;https://t.co/56W7HESHy8&quot;, &quot;description&quot;: &quot;On Instagram and Cameo more these days. For info or press please contact Heidi@positivejampr.com. Buy my book WHERE AM I NOW? https://t.co/olmpPDMQk3&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-10-06T16:00:46.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/56W7HESHy8&quot;, &quot;expanded_url&quot;: &quot;http://mara.substack.com&quot;, &quot;display_url&quot;: &quot;mara.substack.com&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 126, &quot;end&quot;: 149, &quot;url&quot;: &quot;https://t.co/olmpPDMQk3&quot;, &quot;expanded_url&quot;: &quot;http://bit.ly/1UhjbDf&quot;, &quot;display_url&quot;: &quot;bit.ly/1UhjbDf&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/3379635204/9ac0e9d772744fe2fe68e852ada4fb57_normal.jpeg&quot;, &quot;location&quot;: &quot;L.A., mostly&quot;, &quot;id&quot;: &quot;386056280&quot;}, {&quot;name&quot;: &quot;Ben Goldfarb&quot;, &quot;pinned_tweet_id&quot;: &quot;1336347212205285380&quot;, &quot;username&quot;: &quot;ben_a_goldfarb&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 8680, &quot;following_count&quot;: 1968, &quot;tweet_count&quot;: 12565, &quot;listed_count&quot;: 248}, &quot;url&quot;: &quot;https://t.co/nbpqLWoe9a&quot;, &quot;description&quot;: &quot;Independent journalist on the #roadecology beat. Author of EAGER, an award-winning book about beaver belief: https://t.co/VDonQYzgnA&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-08-31T12:57:37.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/nbpqLWoe9a&quot;, &quot;expanded_url&quot;: &quot;http://bengoldfarb.com/&quot;, &quot;display_url&quot;: &quot;bengoldfarb.com&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 109, &quot;end&quot;: 132, &quot;url&quot;: &quot;https://t.co/VDonQYzgnA&quot;, &quot;expanded_url&quot;: &quot;http://goo.gl/DQA1Qn&quot;, &quot;display_url&quot;: &quot;goo.gl/DQA1Qn&quot;}], &quot;hashtags&quot;: [{&quot;start&quot;: 30, &quot;end&quot;: 42, &quot;tag&quot;: &quot;roadecology&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1339242927663370240/VoFRzC_X_normal.jpg&quot;, &quot;location&quot;: &quot;Spokane, WA&quot;, &quot;id&quot;: &quot;365438535&quot;}, {&quot;name&quot;: &quot;3-hour Bond film anticipator&quot;, &quot;pinned_tweet_id&quot;: &quot;1387991000103092224&quot;, &quot;username&quot;: &quot;MilesKlee&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 24726, &quot;following_count&quot;: 4710, &quot;tweet_count&quot;: 51294, &quot;listed_count&quot;: 193}, &quot;url&quot;: &quot;https://t.co/cHBRAqU8ZO&quot;, &quot;description&quot;: &quot;my followers are of the highest quality&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-01-10T19:27:50.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/cHBRAqU8ZO&quot;, &quot;expanded_url&quot;: &quot;https://melmagazine.com/en-us/story/author/miles-klee&quot;, &quot;display_url&quot;: &quot;melmagazine.com/en-us/story/au\u2026&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1431438934702116866/pnVXlmJ8_normal.jpg&quot;, &quot;location&quot;: &quot;LA&quot;, &quot;id&quot;: &quot;460444548&quot;}, {&quot;name&quot;: &quot;Leah Rosenzweig&quot;, &quot;pinned_tweet_id&quot;: &quot;1387081234153709568&quot;, &quot;username&quot;: &quot;leahrosenz&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 520, &quot;following_count&quot;: 1236, &quot;tweet_count&quot;: 3669, &quot;listed_count&quot;: 9}, &quot;url&quot;: &quot;https://t.co/BXsT1p1vdy&quot;, &quot;description&quot;: &quot;writer, reporter, make believe historian \u2022 words in @slate  @genmag  @eater  @lithub  @catapult. extremely freckled lady \u2022 rosenzweig dot leah@gmail&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-08-03T04:40:47.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/BXsT1p1vdy&quot;, &quot;expanded_url&quot;: &quot;http://leahrosenzweig.com&quot;, &quot;display_url&quot;: &quot;leahrosenzweig.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 52, &quot;end&quot;: 58, &quot;username&quot;: &quot;slate&quot;}, {&quot;start&quot;: 60, &quot;end&quot;: 67, &quot;username&quot;: &quot;genmag&quot;}, {&quot;start&quot;: 69, &quot;end&quot;: 75, &quot;username&quot;: &quot;eater&quot;}, {&quot;start&quot;: 77, &quot;end&quot;: 84, &quot;username&quot;: &quot;lithub&quot;}, {&quot;start&quot;: 86, &quot;end&quot;: 95, &quot;username&quot;: &quot;catapult&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1249778380054188044/uExVeBXI_normal.jpg&quot;, &quot;location&quot;: &quot;Brooklyn&quot;, &quot;id&quot;: &quot;734174508&quot;}, {&quot;name&quot;: &quot;Adrienne Miller&quot;, &quot;username&quot;: &quot;adriennemiller&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 207, &quot;following_count&quot;: 95, &quot;tweet_count&quot;: 30, &quot;listed_count&quot;: 2}, &quot;url&quot;: &quot;https://t.co/yeOyRvn8Hl&quot;, &quot;description&quot;: &quot;Aesthetic despot. Constantinople suited me better.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2019-10-10T15:08:24.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/yeOyRvn8Hl&quot;, &quot;expanded_url&quot;: &quot;https://www.adriennemiller.com/&quot;, &quot;display_url&quot;: &quot;adriennemiller.com&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1192441640708911104/t0KJSpp0_normal.jpg&quot;, &quot;location&quot;: &quot;Manhattan, NY&quot;, &quot;id&quot;: &quot;1182311889277206529&quot;}, {&quot;name&quot;: &quot;Matt Fuller&quot;, &quot;username&quot;: &quot;MEPFuller&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 245890, &quot;following_count&quot;: 4223, &quot;tweet_count&quot;: 67299, &quot;listed_count&quot;: 3466}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;Politics stuff at The Daily Beast. Take these tweets seriously but not literally.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-10-25T15:20:25.000Z&quot;, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1372212210521542658/g83KiBSY_normal.jpg&quot;, &quot;location&quot;: &quot;Washington, D.C.&quot;, &quot;id&quot;: &quot;398088661&quot;}, {&quot;name&quot;: &quot;Alexandria Ocasio-Cortez&quot;, &quot;pinned_tweet_id&quot;: &quot;1337406134089605123&quot;, &quot;username&quot;: &quot;AOC&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 12767418, &quot;following_count&quot;: 3378, &quot;tweet_count&quot;: 12843, &quot;listed_count&quot;: 24447}, &quot;url&quot;: &quot;https://t.co/1gpC8bdz39&quot;, &quot;description&quot;: &quot;US Representative,NY-14 (BX &amp; Queens). In a modern, moral, &amp; wealthy society, no American should be too poor to live. \ud83d\udcaf% People-Funded, no lobbyist\ud83d\udcb0. She/her.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2010-04-28T22:38:40.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/1gpC8bdz39&quot;, &quot;expanded_url&quot;: &quot;http://www.ocasiocortez.com&quot;, &quot;display_url&quot;: &quot;ocasiocortez.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/923274881197895680/AbHcStkl_normal.jpg&quot;, &quot;location&quot;: &quot;Bronx + Queens, NYC&quot;, &quot;id&quot;: &quot;138203134&quot;}, {&quot;name&quot;: &quot;Nandini B.&quot;, &quot;pinned_tweet_id&quot;: &quot;596888917808316416&quot;, &quot;username&quot;: &quot;nandelabra&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 7137, &quot;following_count&quot;: 1033, &quot;tweet_count&quot;: 298752, &quot;listed_count&quot;: 108}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;writer for hire | bylines: Wired, TX Observer, Pacific Standard, Slate, The Week, Ebert Voices, Lit Hub, TNR, LARB et al. | she/her | PayPal: nganguli@gmail&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-12-10T04:28:43.000Z&quot;, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1300802944443576322/rq62G8QT_normal.jpg&quot;, &quot;location&quot;: &quot;Shithole known as TX&quot;, &quot;id&quot;: &quot;1000899020&quot;}, {&quot;name&quot;: &quot;sarah kelly&quot;, &quot;pinned_tweet_id&quot;: &quot;1428434938353754113&quot;, &quot;username&quot;: &quot;thesarahkelly&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 11772, &quot;following_count&quot;: 2902, &quot;tweet_count&quot;: 259994, &quot;listed_count&quot;: 153}, &quot;url&quot;: &quot;https://t.co/mJv97A4ukN&quot;, &quot;description&quot;: &quot;Editor, mostly copy, @sinow. Diversity fellow, @APSE_sportmedia. Previously: @WaPoExpress, @SBNation, @theeagle, @KansanNews. Relax, I\u2019m from Lawrence.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-01-27T19:01:11.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/mJv97A4ukN&quot;, &quot;expanded_url&quot;: &quot;http://pubtbnl.com&quot;, &quot;display_url&quot;: &quot;pubtbnl.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 21, &quot;end&quot;: 27, &quot;username&quot;: &quot;sinow&quot;}, {&quot;start&quot;: 47, &quot;end&quot;: 63, &quot;username&quot;: &quot;APSE_sportmedia&quot;}, {&quot;start&quot;: 77, &quot;end&quot;: 89, &quot;username&quot;: &quot;WaPoExpress&quot;}, {&quot;start&quot;: 91, &quot;end&quot;: 100, &quot;username&quot;: &quot;SBNation&quot;}, {&quot;start&quot;: 102, &quot;end&quot;: 111, &quot;username&quot;: &quot;theeagle&quot;}, {&quot;start&quot;: 113, &quot;end&quot;: 124, &quot;username&quot;: &quot;KansanNews&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1390325632169558022/oAt5qAvA_normal.jpg&quot;, &quot;location&quot;: &quot;District of Columbia&quot;, &quot;id&quot;: &quot;19608605&quot;}, {&quot;name&quot;: &quot;Taylor Soule&quot;, &quot;pinned_tweet_id&quot;: &quot;1338168581792686080&quot;, &quot;username&quot;: &quot;TaylorOSoule&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 5335, &quot;following_count&quot;: 2959, &quot;tweet_count&quot;: 63838, &quot;listed_count&quot;: 80}, &quot;url&quot;: &quot;https://t.co/u9OLIHGeJg&quot;, &quot;description&quot;: &quot;Public Defender @WisconsinSPD. She/her. @IowaLawSchool and @DrakeUniversity alumna. MN-born/IA-grown. Formerly @ACLUKansas and @SCIOWA. Opinions are my own.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-04-02T02:54:27.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/u9OLIHGeJg&quot;, &quot;expanded_url&quot;: &quot;http://taylorsoule.com/&quot;, &quot;display_url&quot;: &quot;taylorsoule.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 16, &quot;end&quot;: 29, &quot;username&quot;: &quot;WisconsinSPD&quot;}, {&quot;start&quot;: 40, &quot;end&quot;: 54, &quot;username&quot;: &quot;IowaLawSchool&quot;}, {&quot;start&quot;: 59, &quot;end&quot;: 75, &quot;username&quot;: &quot;DrakeUniversity&quot;}, {&quot;start&quot;: 111, &quot;end&quot;: 122, &quot;username&quot;: &quot;ACLUKansas&quot;}, {&quot;start&quot;: 127, &quot;end&quot;: 134, &quot;username&quot;: &quot;SCIOWA&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1383231682333921280/cUZmINkZ_normal.jpg&quot;, &quot;location&quot;: &quot;Stevens Point, WI&quot;, &quot;id&quot;: &quot;275829938&quot;}, {&quot;name&quot;: &quot;Saeed Jones&quot;, &quot;pinned_tweet_id&quot;: &quot;1427662514884644865&quot;, &quot;username&quot;: &quot;theferocity&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 210907, &quot;following_count&quot;: 868, &quot;tweet_count&quot;: 222946, &quot;listed_count&quot;: 1715}, &quot;url&quot;: &quot;https://t.co/qQcy4QMpnY&quot;, &quot;description&quot;: &quot;I\u2019m chaotic and always right. \u2728Next book: ALIVE AT THE END OF THE WORLD, Fall 2022. \u2728Previously: HOW WE FIGHT FOR OUR LIVES. Reps: @TuesdayAgency &amp; @SheedyLit.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-07-29T18:39:26.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/qQcy4QMpnY&quot;, &quot;expanded_url&quot;: &quot;http://readsaeedjones.com&quot;, &quot;display_url&quot;: &quot;readsaeedjones.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 131, &quot;end&quot;: 145, &quot;username&quot;: &quot;TuesdayAgency&quot;}, {&quot;start&quot;: 148, &quot;end&quot;: 158, &quot;username&quot;: &quot;SheedyLit&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1431728776916787203/UYJlS-Lp_normal.jpg&quot;, &quot;location&quot;: &quot;Columbus, OH&quot;, &quot;id&quot;: &quot;15649438&quot;}, {&quot;name&quot;: &quot;Rebecca Makkai&quot;, &quot;pinned_tweet_id&quot;: &quot;1427989776850894853&quot;, &quot;username&quot;: &quot;rebeccamakkai&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 35264, &quot;following_count&quot;: 2968, &quot;tweet_count&quot;: 24600, &quot;listed_count&quot;: 398}, &quot;url&quot;: &quot;https://t.co/KuRhUDS3Ej&quot;, &quot;description&quot;: &quot;Pulitzer &amp; Nat&#39;l Book Award finalist, winner of ALA Carnegie Medal for THE GREAT BELIEVERS. Artistic Director at @storystudio. She/her. Daughter of a refugee.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2010-09-21T22:36:55.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/KuRhUDS3Ej&quot;, &quot;expanded_url&quot;: &quot;http://www.rebeccamakkai.com&quot;, &quot;display_url&quot;: &quot;rebeccamakkai.com&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 113, &quot;end&quot;: 125, &quot;username&quot;: &quot;storystudio&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1200639503112769536/4E9lQ4o6_normal.jpg&quot;, &quot;location&quot;: &quot;Chicago &quot;, &quot;id&quot;: &quot;193477066&quot;}, {&quot;name&quot;: &quot;Brendan james&quot;, &quot;pinned_tweet_id&quot;: &quot;1410031724613013505&quot;, &quot;username&quot;: &quot;deep_beige&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 72119, &quot;following_count&quot;: 2387, &quot;tweet_count&quot;: 52069, &quot;listed_count&quot;: 627}, &quot;url&quot;: &quot;https://t.co/43nJI3NwmR&quot;, &quot;description&quot;: &quot;Co-host and producer @Blowbackpod Soundtrack by The Great Vorelli, out now. bjames0928@gmail.com&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2012-06-11T16:37:29.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/43nJI3NwmR&quot;, &quot;expanded_url&quot;: &quot;https://open.spotify.com/artist/6T2Z3aTfHhGUSVV98su64B?si=65t1FbjRSzmpQDSIgJm5Vw&amp;dl_branch=1&quot;, &quot;display_url&quot;: &quot;open.spotify.com/artist/6T2Z3aT\u2026&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 21, &quot;end&quot;: 33, &quot;username&quot;: &quot;Blowbackpod&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1407064938686861327/IwJ72NiG_normal.jpg&quot;, &quot;location&quot;: &quot;Joe Don Baker Museum&quot;, &quot;id&quot;: &quot;605556917&quot;}, {&quot;name&quot;: &quot;Dan O&#39;Sullivan (\ud83d\udc7b NOW *LIVE* ON GHOST \ud83d\udc7b )&quot;, &quot;pinned_tweet_id&quot;: &quot;1382405875357261828&quot;, &quot;username&quot;: &quot;Bro_Pair&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 53694, &quot;following_count&quot;: 1867, &quot;tweet_count&quot;: 3581, &quot;listed_count&quot;: 854}, &quot;url&quot;: &quot;https://t.co/LCpcz4m9gb&quot;, &quot;description&quot;: &quot;\&quot;...All cats are wicked, though often useful. Who has not seen Satan in their sly faces?\&quot;\n\nSUBSCRIBE TO MY @GHOST NEWSLETTER! https://t.co/aBXZ1krlUh&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-07-13T06:45:31.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/LCpcz4m9gb&quot;, &quot;expanded_url&quot;: &quot;https://www.sullyville.io/&quot;, &quot;display_url&quot;: &quot;sullyville.io&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 126, &quot;end&quot;: 149, &quot;url&quot;: &quot;https://t.co/aBXZ1krlUh&quot;, &quot;expanded_url&quot;: &quot;https://tinyurl.com/b76bkcuk&quot;, &quot;display_url&quot;: &quot;tinyurl.com/b76bkcuk&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 107, &quot;end&quot;: 113, &quot;username&quot;: &quot;GHOST&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1016788665027125248/7pVvkIYW_normal.jpg&quot;, &quot;location&quot;: &quot;d.q.osullivan@gmail.com&quot;, &quot;id&quot;: &quot;56309136&quot;}, {&quot;name&quot;: &quot;Mary Dooe&quot;, &quot;pinned_tweet_id&quot;: &quot;613546634006368256&quot;, &quot;username&quot;: &quot;Dooezer&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 4397, &quot;following_count&quot;: 1063, &quot;tweet_count&quot;: 45850, &quot;listed_count&quot;: 148}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;podcast creator. MBA. quite contrary. founder of Dooe Diligence Media. past work @marketplace @wbur @nprwest @wgbh @harvardbiz @iheartradio. https://t.co/514RH9nvyk&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-07-15T11:42:30.000Z&quot;, &quot;entities&quot;: {&quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 141, &quot;end&quot;: 164, &quot;url&quot;: &quot;https://t.co/514RH9nvyk&quot;, &quot;expanded_url&quot;: &quot;http://marydooe.com&quot;, &quot;display_url&quot;: &quot;marydooe.com&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 81, &quot;end&quot;: 93, &quot;username&quot;: &quot;marketplace&quot;}, {&quot;start&quot;: 94, &quot;end&quot;: 99, &quot;username&quot;: &quot;wbur&quot;}, {&quot;start&quot;: 100, &quot;end&quot;: 108, &quot;username&quot;: &quot;nprwest&quot;}, {&quot;start&quot;: 109, &quot;end&quot;: 114, &quot;username&quot;: &quot;wgbh&quot;}, {&quot;start&quot;: 115, &quot;end&quot;: 126, &quot;username&quot;: &quot;harvardbiz&quot;}, {&quot;start&quot;: 127, &quot;end&quot;: 139, &quot;username&quot;: &quot;iheartradio&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1335449532084137986/SbMbv2ZT_normal.jpg&quot;, &quot;location&quot;: &quot;East Coast&quot;, &quot;id&quot;: &quot;56993835&quot;}, {&quot;name&quot;: &quot;David Fahrenthold&quot;, &quot;username&quot;: &quot;Fahrenthold&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 839253, &quot;following_count&quot;: 5572, &quot;tweet_count&quot;: 52632, &quot;listed_count&quot;: 9472}, &quot;url&quot;: &quot;https://t.co/fJMCeIYylK&quot;, &quot;description&quot;: &quot;Washington Post reporter, covering former President Trump&#39;s businesses. MSNBC contributor. If you don&#39;t want it printed, don&#39;t let it happen.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-07-31T09:29:37.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/fJMCeIYylK&quot;, &quot;expanded_url&quot;: &quot;http://www.washingtonpost.com&quot;, &quot;display_url&quot;: &quot;washingtonpost.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1021824606087331841/_gPQBRax_normal.jpg&quot;, &quot;location&quot;: &quot;Washington, DC&quot;, &quot;id&quot;: &quot;61734492&quot;}, {&quot;name&quot;: &quot;Colin Curtis&quot;, &quot;username&quot;: &quot;ColinACurtis&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 7441, &quot;following_count&quot;: 861, &quot;tweet_count&quot;: 67626, &quot;listed_count&quot;: 220}, &quot;url&quot;: &quot;https://t.co/q8x9QutSUm&quot;, &quot;description&quot;: &quot;Dem campaigner | @TrainDems trainer | Dotte / Kansan | BBQ enthusiast | Royals &amp; Chiefs fan | Mostly tweeting about politics &amp; video games.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-03-01T04:12:01.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/q8x9QutSUm&quot;, &quot;expanded_url&quot;: &quot;https://www.twitch.tv/adg913&quot;, &quot;display_url&quot;: &quot;twitch.tv/adg913&quot;}]}, &quot;description&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 17, &quot;end&quot;: 27, &quot;username&quot;: &quot;TrainDems&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1361029372405313541/SyYrPJzP_normal.jpg&quot;, &quot;location&quot;: &quot;Washington, DC&quot;, &quot;id&quot;: &quot;22330423&quot;}, {&quot;name&quot;: &quot;Publishers Weekly&quot;, &quot;username&quot;: &quot;PublishersWkly&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 801109, &quot;following_count&quot;: 604, &quot;tweet_count&quot;: 79258, &quot;listed_count&quot;: 11663}, &quot;url&quot;: &quot;http://t.co/qODygkG2sd&quot;, &quot;description&quot;: &quot;The international source for book publishing and bookselling news, reviews, and information.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-01-31T14:38:55.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 22, &quot;url&quot;: &quot;http://t.co/qODygkG2sd&quot;, &quot;expanded_url&quot;: &quot;http://www.publishersweekly.com/&quot;, &quot;display_url&quot;: &quot;publishersweekly.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/472046796202459136/7aCV2gq3_normal.jpeg&quot;, &quot;location&quot;: &quot;New York City&quot;, &quot;id&quot;: &quot;19816859&quot;}, {&quot;name&quot;: &quot;Salon&quot;, &quot;pinned_tweet_id&quot;: &quot;1430902855540617216&quot;, &quot;username&quot;: &quot;Salon&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 966367, &quot;following_count&quot;: 5864, &quot;tweet_count&quot;: 235971, &quot;listed_count&quot;: 14717}, &quot;url&quot;: &quot;https://t.co/Ki3WQi67fP&quot;, &quot;description&quot;: &quot;The original online source for news, politics and entertainment. \nFind us on Instagram &amp; TikTok: salonofficial&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-10-24T20:13:31.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/Ki3WQi67fP&quot;, &quot;expanded_url&quot;: &quot;https://www.salon.com/about/ways_to_get_salon&quot;, &quot;display_url&quot;: &quot;salon.com/about/ways_to_\u2026&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/793144947444707328/obBB1x2a_normal.jpg&quot;, &quot;id&quot;: &quot;16955991&quot;}, {&quot;name&quot;: &quot;Gwen Flamberg&quot;, &quot;username&quot;: &quot;Gwen_UsBeauty&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 36131, &quot;following_count&quot;: 2137, &quot;tweet_count&quot;: 71787, &quot;listed_count&quot;: 474}, &quot;url&quot;: &quot;https://t.co/Zz45dZzxqJ&quot;, &quot;description&quot;: &quot;Beauty, style and lifestyle influencer. Red Carpet beauty and style expert and makeup addict. Tweets are my own.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-11-13T22:07:38.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/Zz45dZzxqJ&quot;, &quot;expanded_url&quot;: &quot;http://www.usmagazine.com/stylebeauty/beauty-trendwatch&quot;, &quot;display_url&quot;: &quot;usmagazine.com/stylebeauty/be\u2026&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/525378071/gwen_normal.jpg&quot;, &quot;location&quot;: &quot;Everywhere it&#39;s beautiful&quot;, &quot;id&quot;: &quot;89805327&quot;}, {&quot;name&quot;: &quot;The Cut&quot;, &quot;pinned_tweet_id&quot;: &quot;1432312348791001103&quot;, &quot;username&quot;: &quot;TheCut&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 1415462, &quot;following_count&quot;: 4314, &quot;tweet_count&quot;: 211396, &quot;listed_count&quot;: 10243}, &quot;url&quot;: &quot;https://t.co/LXYpRGXBZm&quot;, &quot;description&quot;: &quot;Style. Self. Culture. Power.\nFind us on Instagram: @TheCut\nSubscribe to New York for more: https://t.co/1OtjTJftYM&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-02-02T19:13:01.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/LXYpRGXBZm&quot;, &quot;expanded_url&quot;: &quot;https://thecut.com&quot;, &quot;display_url&quot;: &quot;thecut.com&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 91, &quot;end&quot;: 114, &quot;url&quot;: &quot;https://t.co/1OtjTJftYM&quot;, &quot;expanded_url&quot;: &quot;http://nymag.com/subscribe&quot;, &quot;display_url&quot;: &quot;nymag.com/subscribe&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 51, &quot;end&quot;: 58, &quot;username&quot;: &quot;TheCut&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/899259308445020161/OL2Y5xmv_normal.jpg&quot;, &quot;location&quot;: &quot;New York, NY&quot;, &quot;id&quot;: &quot;19923638&quot;}, {&quot;name&quot;: &quot;Ian Harrison&quot;, &quot;username&quot;: &quot;Blumsteinboy&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 1636, &quot;following_count&quot;: 1387, &quot;tweet_count&quot;: 15998, &quot;listed_count&quot;: 52}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;Writer and editor, Concordia University. Formerly Eater Montreal. Decolonize it all. \ud83c\uddec\ud83c\uddfe&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2013-01-18T20:40:41.000Z&quot;, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/934550443723771904/3rjskH7W_normal.jpg&quot;, &quot;location&quot;: &quot;Tiohti\u00e0:ke/Montr\u00e9al&quot;, &quot;id&quot;: &quot;1101966512&quot;}, {&quot;name&quot;: &quot;Sam Schlinkert&quot;, &quot;username&quot;: &quot;sts10&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 4103, &quot;following_count&quot;: 1223, &quot;tweet_count&quot;: 24551, &quot;listed_count&quot;: 146}, &quot;url&quot;: &quot;https://t.co/HhncL5V75m&quot;, &quot;description&quot;: &quot;Social producer at @CNN. Sometimes programmer. Contact: https://t.co/ZYtr5TIeYE&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-03-15T11:34:04.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/HhncL5V75m&quot;, &quot;expanded_url&quot;: &quot;https://www.samschlinkert.com&quot;, &quot;display_url&quot;: &quot;samschlinkert.com&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 56, &quot;end&quot;: 79, &quot;url&quot;: &quot;https://t.co/ZYtr5TIeYE&quot;, &quot;expanded_url&quot;: &quot;https://gist.github.com/sts10/4a4e01021b3a5ad42e9b73e0abd7b7e3&quot;, &quot;display_url&quot;: &quot;gist.github.com/sts10/4a4e0102\u2026&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 19, &quot;end&quot;: 23, &quot;username&quot;: &quot;CNN&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/698574801842126849/Zm-Vsr3u_normal.png&quot;, &quot;location&quot;: &quot;New York, NY&quot;, &quot;id&quot;: &quot;24512235&quot;}, {&quot;name&quot;: &quot;The Awl&quot;, &quot;username&quot;: &quot;Awl&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 56824, &quot;following_count&quot;: 1944, &quot;tweet_count&quot;: 45794, &quot;listed_count&quot;: 1954}, &quot;url&quot;: &quot;http://t.co/5bh7hNB2ag&quot;, &quot;description&quot;: &quot;Be less stupid.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-02-16T22:47:05.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 22, &quot;url&quot;: &quot;http://t.co/5bh7hNB2ag&quot;, &quot;expanded_url&quot;: &quot;http://www.TheAwl.com&quot;, &quot;display_url&quot;: &quot;TheAwl.com&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/590954473008148480/pJH9BapJ_normal.png&quot;, &quot;location&quot;: &quot;New York City&quot;, &quot;id&quot;: &quot;13566872&quot;}, {&quot;name&quot;: &quot;Bill Roorbach&quot;, &quot;pinned_tweet_id&quot;: &quot;1224330489793863687&quot;, &quot;username&quot;: &quot;billroorbach&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 3094, &quot;following_count&quot;: 1234, &quot;tweet_count&quot;: 11198, &quot;listed_count&quot;: 78}, &quot;url&quot;: &quot;https://t.co/Rchi3d2r2h&quot;, &quot;description&quot;: &quot;I&#39;m a good writer with bad habits. Next novel is LUCKY TURTLE. Last three were THE GIRL OF THE LAKE,THE REMEDY FOR LOVE and LIFE AMONG GIANTS, all Algonquin Bks&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2011-11-18T04:44:11.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/Rchi3d2r2h&quot;, &quot;expanded_url&quot;: &quot;http://billanddavescocktailhour.com/&quot;, &quot;display_url&quot;: &quot;billanddavescocktailhour.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/2507562193/9g6zj946bsc6xkeeon1m_normal.jpeg&quot;, &quot;location&quot;: &quot;Western Maine, USA&quot;, &quot;id&quot;: &quot;415297424&quot;}, {&quot;name&quot;: &quot;Stephanie M. Lee&quot;, &quot;pinned_tweet_id&quot;: &quot;1428790134577647618&quot;, &quot;username&quot;: &quot;stephaniemlee&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 21503, &quot;following_count&quot;: 1931, &quot;tweet_count&quot;: 18099, &quot;listed_count&quot;: 901}, &quot;url&quot;: &quot;https://t.co/G5wTIiUozJ&quot;, &quot;description&quot;: &quot;Science reporter, BuzzFeed News / stephanie.lee@buzzfeed.com / open DMs and on Signal (ask)&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-06-05T19:46:53.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/G5wTIiUozJ&quot;, &quot;expanded_url&quot;: &quot;http://stephaniemlee.com&quot;, &quot;display_url&quot;: &quot;stephaniemlee.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1386501307851173888/Z_2TSxCS_normal.jpg&quot;, &quot;location&quot;: &quot;San Francisco&quot;, &quot;id&quot;: &quot;15022464&quot;}, {&quot;name&quot;: &quot;in these unprecedented times&quot;, &quot;username&quot;: &quot;supsla&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 255, &quot;following_count&quot;: 280, &quot;tweet_count&quot;: 8277, &quot;listed_count&quot;: 10}, &quot;url&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-05-23T09:46:59.000Z&quot;, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1247229770938507264/Fbewmhbn_normal.jpg&quot;, &quot;id&quot;: &quot;42003947&quot;}, {&quot;name&quot;: &quot;Drowned in Sound \u2693\ufe0f&quot;, &quot;pinned_tweet_id&quot;: &quot;1343288861246558208&quot;, &quot;username&quot;: &quot;DrownedinSound&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 101066, &quot;following_count&quot;: 1832, &quot;tweet_count&quot;: 35292, &quot;listed_count&quot;: 2723}, &quot;url&quot;: &quot;https://t.co/JzYUcrN524&quot;, &quot;description&quot;: &quot;Opinions On Music Since October 2000. An online community&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2008-07-29T11:04:18.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/JzYUcrN524&quot;, &quot;expanded_url&quot;: &quot;http://drownedinsound.com&quot;, &quot;display_url&quot;: &quot;drownedinsound.com&quot;}]}}, &quot;verified&quot;: true, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/826686320881840128/Pgs_4vPo_normal.jpg&quot;, &quot;location&quot;: &quot;London&quot;, &quot;id&quot;: &quot;15644695&quot;}, {&quot;name&quot;: &quot;Melodic Records&quot;, &quot;pinned_tweet_id&quot;: &quot;1402551531593949184&quot;, &quot;username&quot;: &quot;MelodicRecords&quot;, &quot;public_metrics&quot;: {&quot;followers_count&quot;: 3606, &quot;following_count&quot;: 2937, &quot;tweet_count&quot;: 8044, &quot;listed_count&quot;: 100}, &quot;url&quot;: &quot;https://t.co/SYPGAgoTCz&quot;, &quot;description&quot;: &quot;Independent Record Label - https://t.co/FxPLZYOQkn\nCheck out @MelodicEULabels for European Distribution, Press and Label Services.&quot;, &quot;protected&quot;: false, &quot;created_at&quot;: &quot;2009-10-28T18:23:46.000Z&quot;, &quot;entities&quot;: {&quot;url&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 23, &quot;url&quot;: &quot;https://t.co/SYPGAgoTCz&quot;, &quot;expanded_url&quot;: &quot;http://www.melodic.co.uk&quot;, &quot;display_url&quot;: &quot;melodic.co.uk&quot;}]}, &quot;description&quot;: {&quot;urls&quot;: [{&quot;start&quot;: 27, &quot;end&quot;: 50, &quot;url&quot;: &quot;https://t.co/FxPLZYOQkn&quot;, &quot;expanded_url&quot;: &quot;http://melodic.co.uk&quot;, &quot;display_url&quot;: &quot;melodic.co.uk&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 61, &quot;end&quot;: 77, &quot;username&quot;: &quot;MelodicEULabels&quot;}]}}, &quot;verified&quot;: false, &quot;profile_image_url&quot;: &quot;https://pbs.twimg.com/profile_images/1771025053/melologosmall_copy_normal.jpg&quot;, &quot;location&quot;: &quot;Manchester UK&quot;, &quot;id&quot;: &quot;85877346&quot;}], &quot;tweets&quot;: [{&quot;id&quot;: &quot;1412360683237355524&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;1412356440824729601&quot;}], &quot;entities&quot;: {&quot;mentions&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 9, &quot;username&quot;: &quot;JeyyLowe&quot;, &quot;id&quot;: &quot;342644076&quot;}, {&quot;start&quot;: 10, &quot;end&quot;: 18, &quot;username&quot;: &quot;aveek18&quot;, &quot;id&quot;: &quot;525812389&quot;}, {&quot;start&quot;: 19, &quot;end&quot;: 31, &quot;username&quot;: &quot;maybeavalon&quot;, &quot;id&quot;: &quot;108463534&quot;}]}, &quot;author_id&quot;: &quot;82979289&quot;, &quot;text&quot;: &quot;@JeyyLowe @aveek18 @maybeavalon Oh I find his books terrible: good sentences, but bad paragraphs, thin characters, no story.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1412043478301880331&quot;, &quot;source&quot;: &quot;Twitter for Android&quot;, &quot;in_reply_to_user_id&quot;: &quot;342644076&quot;, &quot;created_at&quot;: &quot;2021-07-06T10:40:01.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 1, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1053753085489606656&quot;, &quot;name&quot;: &quot;Laura Ingraham&quot;, &quot;description&quot;: &quot;Laura Ingraham&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070711281076715520&quot;, &quot;name&quot;: &quot;Virginia Heffernan&quot;, &quot;description&quot;: &quot;American journalist&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;46&quot;, &quot;name&quot;: &quot;Brand Category&quot;, &quot;description&quot;: &quot;Categories within Brand Verticals that narrow down the scope of Brands&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;781974596752842752&quot;, &quot;name&quot;: &quot;Services&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;47&quot;, &quot;name&quot;: &quot;Brand&quot;, &quot;description&quot;: &quot;Brands and Companies&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;10045225402&quot;, &quot;name&quot;: &quot;Twitter&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;71&quot;, &quot;name&quot;: &quot;Video Game&quot;, &quot;description&quot;: &quot;A video game like Overwatch&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;988835124224536576&quot;, &quot;name&quot;: &quot;The Elder Scrolls&quot;, &quot;description&quot;: &quot;This entity includes all conversation about the franchise, as well as any individual installments in the series, if applicable.\t\t\t&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;94&quot;, &quot;name&quot;: &quot;Journalist&quot;, &quot;description&quot;: &quot;A journalist like &#39;Anderson Cooper&#39;&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1053753085489606656&quot;, &quot;name&quot;: &quot;Laura Ingraham&quot;, &quot;description&quot;: &quot;Laura Ingraham&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;94&quot;, &quot;name&quot;: &quot;Journalist&quot;, &quot;description&quot;: &quot;A journalist like &#39;Anderson Cooper&#39;&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1070711281076715520&quot;, &quot;name&quot;: &quot;Virginia Heffernan&quot;, &quot;description&quot;: &quot;American journalist&quot;}}], &quot;id&quot;: &quot;1408819214744489985&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 117, &quot;end&quot;: 123, &quot;probability&quot;: 0.4819, &quot;type&quot;: &quot;Product&quot;, &quot;normalized_text&quot;: &quot;Twitter&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 13, &quot;username&quot;: &quot;adamdavidson&quot;, &quot;id&quot;: &quot;15639774&quot;}, {&quot;start&quot;: 19, &quot;end&quot;: 33, &quot;username&quot;: &quot;IngrahamAngle&quot;, &quot;id&quot;: &quot;50769180&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;replied_to&quot;, &quot;id&quot;: &quot;1408817664584208387&quot;}], &quot;author_id&quot;: &quot;4282171&quot;, &quot;text&quot;: &quot;@adamdavidson IIRC @IngrahamAngle did this with \u201cgood fences make good neighbors\u201d to defend The Wall and as pedantic Twitter would have it was shamed briefly into oblivion&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1408773437431091202&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;in_reply_to_user_id&quot;: &quot;4282171&quot;, &quot;created_at&quot;: &quot;2021-06-26T16:07:30.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 0, &quot;reply_count&quot;: 3, &quot;like_count&quot;: 7, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;1313523086424186881&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 216, &quot;end&quot;: 235, &quot;probability&quot;: 0.9361, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}, {&quot;start&quot;: 241, &quot;end&quot;: 249, &quot;probability&quot;: 0.6625, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;hemingway&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 269, &quot;end&quot;: 292, &quot;url&quot;: &quot;https://t.co/QsvsVxBY15&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/ebruenig/status/1313522459899985922&quot;, &quot;display_url&quot;: &quot;twitter.com/ebruenig/statu\u2026&quot;}]}, &quot;author_id&quot;: &quot;602060212&quot;, &quot;text&quot;: &quot;the guy who publicly makes a display of how much feminist literature he reads and waxes on how important bookshelf representation is at least 50% more likely to be a sexpest than the bro who just likes to vibe about david foster wallace and hemingway. this is science. https://t.co/QsvsVxBY15&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1313523086424186881&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-10-06T16:54:42.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 13, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 97, &quot;quote_count&quot;: 1}}, {&quot;id&quot;: &quot;1297936487909130240&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 0, &quot;end&quot;: 19, &quot;probability&quot;: 0.7756, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;david foster wallace&quot;}]}, &quot;author_id&quot;: &quot;236999725&quot;, &quot;text&quot;: &quot;david foster wallace bro conversation again? i feel like by this point in the discourse i need footnotes! (just a little \&quot;insider\&quot; dfw humor for ya)&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1297936487909130240&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-08-24T16:39:07.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 23, &quot;reply_count&quot;: 4, &quot;like_count&quot;: 409, &quot;quote_count&quot;: 1}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;65&quot;, &quot;name&quot;: &quot;Interests and Hobbies Vertical&quot;, &quot;description&quot;: &quot;Top level interests and hobbies groupings, like Food or Travel&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;834828264786898945&quot;, &quot;name&quot;: &quot;Drinks&quot;, &quot;description&quot;: &quot;Drinks&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;66&quot;, &quot;name&quot;: &quot;Interests and Hobbies Category&quot;, &quot;description&quot;: &quot;A grouping of interests and hobbies entities, like Novelty Food or Destinations&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;834828445238431744&quot;, &quot;name&quot;: &quot;Generic Drinks&quot;, &quot;description&quot;: &quot;Generic Drinks&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;67&quot;, &quot;name&quot;: &quot;Interests and Hobbies&quot;, &quot;description&quot;: &quot;Interests, opinions, and behaviors of individuals, groups, or cultures; like Speciality Cooking or Theme Parks&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;850401418141761536&quot;, &quot;name&quot;: &quot;Whiskey&quot;, &quot;description&quot;: &quot;Whiskey&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;85&quot;, &quot;name&quot;: &quot;Book Genre&quot;, &quot;description&quot;: &quot;A genre for books, like Fiction&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;874731263185141761&quot;, &quot;name&quot;: &quot;Non-fiction&quot;, &quot;description&quot;: &quot;Non-Fiction&quot;}}], &quot;id&quot;: &quot;1296458752657326081&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 213, &quot;end&quot;: 220, &quot;probability&quot;: 0.8283, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Faulkner&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 228, &quot;end&quot;: 251, &quot;url&quot;: &quot;https://t.co/KTYy7PpHGg&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/DavidQuammen/status/1295876938246926336&quot;, &quot;display_url&quot;: &quot;twitter.com/DavidQuammen/s\u2026&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;quoted&quot;, &quot;id&quot;: &quot;1295876938246926336&quot;}], &quot;author_id&quot;: &quot;365438535&quot;, &quot;text&quot;: &quot;Would be interested to hear other writers of primarily nonfiction weigh in on this question: What novelists do you not only admire, but *consciously derive inspiration from*, structural or otherwise? Quammen says Faulkner. You? https://t.co/KTYy7PpHGg&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1296458752657326081&quot;, &quot;source&quot;: &quot;Twitter Web App&quot;, &quot;created_at&quot;: &quot;2020-08-20T14:47:08.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 19, &quot;like_count&quot;: 28, &quot;quote_count&quot;: 1}}, {&quot;context_annotations&quot;: [{&quot;domain&quot;: {&quot;id&quot;: &quot;10&quot;, &quot;name&quot;: &quot;Person&quot;, &quot;description&quot;: &quot;Named people in the world like Nelson Mandela&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1011963575089262593&quot;, &quot;name&quot;: &quot;Alexandria Ocasio-Cortez&quot;, &quot;description&quot;: &quot;US Representative from New York Alexandria Ocasio-Cortez&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;35&quot;, &quot;name&quot;: &quot;Politician&quot;, &quot;description&quot;: &quot;Politicians in the world, like Joe Biden&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;1011963575089262593&quot;, &quot;name&quot;: &quot;Alexandria Ocasio-Cortez&quot;, &quot;description&quot;: &quot;US Representative from New York Alexandria Ocasio-Cortez&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;65&quot;, &quot;name&quot;: &quot;Interests and Hobbies Vertical&quot;, &quot;description&quot;: &quot;Top level interests and hobbies groupings, like Food or Travel&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;825047692124442624&quot;, &quot;name&quot;: &quot;Food&quot;, &quot;description&quot;: &quot;Food&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;30&quot;, &quot;name&quot;: &quot;Entities [Entity Service]&quot;, &quot;description&quot;: &quot;Entity Service top level domain, every item that is in Entity Service should be in this domain&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;824777229892661248&quot;, &quot;name&quot;: &quot;Generic Food&quot;, &quot;description&quot;: &quot;Generic Food&quot;}}, {&quot;domain&quot;: {&quot;id&quot;: &quot;30&quot;, &quot;name&quot;: &quot;Entities [Entity Service]&quot;, &quot;description&quot;: &quot;Entity Service top level domain, every item that is in Entity Service should be in this domain&quot;}, &quot;entity&quot;: {&quot;id&quot;: &quot;825065539378688000&quot;, &quot;name&quot;: &quot;Seafood&quot;, &quot;description&quot;: &quot;Seafood&quot;}}], &quot;id&quot;: &quot;1075614808853110785&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 18, &quot;end&quot;: 33, &quot;probability&quot;: 0.5642, &quot;type&quot;: &quot;Other&quot;, &quot;normalized_text&quot;: &quot;Hope in the Dark&quot;}, {&quot;start&quot;: 36, &quot;end&quot;: 42, &quot;probability&quot;: 0.5373, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Solnit&quot;}, {&quot;start&quot;: 100, &quot;end&quot;: 107, &quot;probability&quot;: 0.7767, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Thurman&quot;}, {&quot;start&quot;: 146, &quot;end&quot;: 156, &quot;probability&quot;: 0.6957, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Audre Lorde&quot;}, {&quot;start&quot;: 218, &quot;end&quot;: 232, &quot;probability&quot;: 0.3879, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Garc\u00eda M\u00e1rquez&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 281, &quot;end&quot;: 304, &quot;url&quot;: &quot;https://t.co/NS3C4X5dgB&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/OneGrandBooks/status/1075124997432270848&quot;, &quot;display_url&quot;: &quot;twitter.com/OneGrandBooks/\u2026&quot;}]}, &quot;referenced_tweets&quot;: [{&quot;type&quot;: &quot;quoted&quot;, &quot;id&quot;: &quot;1075124997432270848&quot;}], &quot;author_id&quot;: &quot;138203134&quot;, &quot;text&quot;: &quot;A few classics:\n- Hope in the Dark, Solnit\n- Why We Can\u2019t Wait, MLK\n- The Search for Common Ground, Thurman\n- Team of Rivals, Goodwin\n- Col Poems,Audre Lorde\n- Bhagavad Gita\n- Capital, Piketty\n- 100 Years of Solitude, Garc\u00eda M\u00e1rquez\n- Infinite Jest / Consider the Lobster, Wallace https://t.co/NS3C4X5dgB&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;1075614808853110785&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2018-12-20T04:52:09.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1613, &quot;reply_count&quot;: 741, &quot;like_count&quot;: 14020, &quot;quote_count&quot;: 369}}, {&quot;id&quot;: &quot;898243199722016768&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 31, &quot;end&quot;: 50, &quot;probability&quot;: 0.9482, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;author_id&quot;: &quot;275829938&quot;, &quot;text&quot;: &quot;UPDATE: I met a \&quot;Have you read David Foster Wallace?\&quot; bro at law school. It only took four days, fam. FOUR.&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;898243199722016768&quot;, &quot;source&quot;: &quot;Twitter Web Client&quot;, &quot;created_at&quot;: &quot;2017-08-17T18:00:42.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 1, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 12, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;733665146216779776&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 56, &quot;end&quot;: 75, &quot;probability&quot;: 0.9568, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 80, &quot;end&quot;: 92, &quot;probability&quot;: 0.7492, &quot;type&quot;: &quot;Other&quot;, &quot;normalized_text&quot;: &quot;This is Water&quot;}], &quot;mentions&quot;: [{&quot;start&quot;: 27, &quot;end&quot;: 31, &quot;username&quot;: &quot;srl&quot;, &quot;id&quot;: &quot;764476890&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 117, &quot;end&quot;: 140, &quot;url&quot;: &quot;https://t.co/oQBSGEWsG9&quot;, &quot;expanded_url&quot;: &quot;http://m.huffpost.com/us/entry/david-foster-wallace-this-is-water_us_573e1182e4b0aee7b8e962d0&quot;, &quot;display_url&quot;: &quot;m.huffpost.com/us/entry/david\u2026&quot;}]}, &quot;author_id&quot;: &quot;398088661&quot;, &quot;text&quot;: &quot;Been waiting to tweet this @srl story for 16 hours. How David Foster Wallace&#39;s \&quot;This is Water\&quot; almost didn&#39;t happen. https://t.co/oQBSGEWsG9&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;733665146216779776&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2016-05-20T14:26:16.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 2, &quot;reply_count&quot;: 2, &quot;like_count&quot;: 13, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;644307901830561793&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 4, &quot;end&quot;: 16, &quot;probability&quot;: 0.9955, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 30, &quot;end&quot;: 49, &quot;probability&quot;: 0.9285, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}, {&quot;start&quot;: 66, &quot;end&quot;: 78, &quot;probability&quot;: 0.9941, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;Carly Fiorina&quot;}, {&quot;start&quot;: 82, &quot;end&quot;: 101, &quot;probability&quot;: 0.9103, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}]}, &quot;author_id&quot;: &quot;398088661&quot;, &quot;text&quot;: &quot;Did Carly Fiorina just make a David Foster Wallace reference?\n\nIs Carly Fiorina a David Foster Wallace bro??&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;644307901830561793&quot;, &quot;source&quot;: &quot;Twitter for iPhone&quot;, &quot;created_at&quot;: &quot;2015-09-17T00:32:29.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 5, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 11, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631825542652784640&quot;]}, &quot;id&quot;: &quot;631825543202213889&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 42, &quot;end&quot;: 61, &quot;probability&quot;: 0.9218, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 64, &quot;end&quot;: 86, &quot;url&quot;: &quot;http://t.co/3KfOlw2UR6&quot;, &quot;expanded_url&quot;: &quot;http://thecut.io/1Plvg4X&quot;, &quot;display_url&quot;: &quot;thecut.io/1Plvg4X&quot;}, {&quot;start&quot;: 87, &quot;end&quot;: 109, &quot;url&quot;: &quot;http://t.co/xNI9tbF02p&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/TheCut/status/631825543202213889/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/xNI9tbF02p&quot;}]}, &quot;author_id&quot;: &quot;19923638&quot;, &quot;text&quot;: &quot;You probably know a bro who says he loves David Foster Wallace: http://t.co/3KfOlw2UR6 http://t.co/xNI9tbF02p&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631825543202213889&quot;, &quot;source&quot;: &quot;SocialFlow&quot;, &quot;created_at&quot;: &quot;2015-08-13T13:52:02.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 7, &quot;reply_count&quot;: 0, &quot;like_count&quot;: 5, &quot;quote_count&quot;: 0}}, {&quot;attachments&quot;: {&quot;media_keys&quot;: [&quot;3_631820273633918976&quot;]}, &quot;id&quot;: &quot;631820274330136576&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;entities&quot;: {&quot;annotations&quot;: [{&quot;start&quot;: 24, &quot;end&quot;: 43, &quot;probability&quot;: 0.931, &quot;type&quot;: &quot;Person&quot;, &quot;normalized_text&quot;: &quot;David Foster Wallace&quot;}], &quot;urls&quot;: [{&quot;start&quot;: 73, &quot;end&quot;: 95, &quot;url&quot;: &quot;http://t.co/w5KOvJBcui&quot;, &quot;expanded_url&quot;: &quot;http://www.theawl.com/2015/08/the-bro-of-the-system&quot;, &quot;display_url&quot;: &quot;theawl.com/2015/08/the-br\u2026&quot;}, {&quot;start&quot;: 96, &quot;end&quot;: 118, &quot;url&quot;: &quot;http://t.co/yBhOr3aPjy&quot;, &quot;expanded_url&quot;: &quot;https://twitter.com/Awl/status/631820274330136576/photo/1&quot;, &quot;display_url&quot;: &quot;pic.twitter.com/yBhOr3aPjy&quot;}]}, &quot;author_id&quot;: &quot;13566872&quot;, &quot;text&quot;: &quot;All men are bad but are David Foster Wallace fans a special kind of bad? http://t.co/w5KOvJBcui http://t.co/yBhOr3aPjy&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;631820274330136576&quot;, &quot;source&quot;: &quot;CoSchedule&quot;, &quot;created_at&quot;: &quot;2015-08-13T13:31:06.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 8, &quot;reply_count&quot;: 3, &quot;like_count&quot;: 27, &quot;quote_count&quot;: 0}}, {&quot;id&quot;: &quot;146329543211368449&quot;, &quot;reply_settings&quot;: &quot;everyone&quot;, &quot;author_id&quot;: &quot;85877346&quot;, &quot;text&quot;: &quot;British bloggers should stop using usa style descriptive words like &#39;stoked&#39; and &#39;dope&#39; and use &#39;delightful&#39; and&#39; spiffing instead?Discuss?&#39;&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;possibly_sensitive&quot;: false, &quot;conversation_id&quot;: &quot;146329543211368449&quot;, &quot;source&quot;: &quot;Twitter for BlackBerry\u00ae&quot;, &quot;created_at&quot;: &quot;2011-12-12T20:44:16.000Z&quot;, &quot;public_metrics&quot;: {&quot;retweet_count&quot;: 2, &quot;reply_count&quot;: 4, &quot;like_count&quot;: 0, &quot;quote_count&quot;: 0}}], &quot;media&quot;: [{&quot;media_key&quot;: &quot;3_631825542652784640&quot;, &quot;width&quot;: 600, &quot;type&quot;: &quot;photo&quot;, &quot;height&quot;: 400, &quot;url&quot;: &quot;https://pbs.twimg.com/media/CMSx-8XWcAAnkK-.jpg&quot;}, {&quot;media_key&quot;: &quot;3_631820273633918976&quot;, &quot;width&quot;: 278, &quot;type&quot;: &quot;photo&quot;, &quot;height&quot;: 235, &quot;url&quot;: &quot;https://pbs.twimg.com/media/CMStMPvXAAA5a1J.jpg&quot;}]}, &quot;__twarc&quot;: {&quot;url&quot;: &quot;https://api.twitter.com/2/tweets?expansions=author_id%2Cin_reply_to_user_id%2Creferenced_tweets.id%2Creferenced_tweets.id.author_id%2Centities.mentions.username%2Cattachments.poll_ids%2Cattachments.media_keys%2Cgeo.place_id&amp;user.fields=created_at%2Cdescription%2Centities%2Cid%2Clocation%2Cname%2Cpinned_tweet_id%2Cprofile_image_url%2Cprotected%2Cpublic_metrics%2Curl%2Cusername%2Cverified%2Cwithheld&amp;tweet.fields=attachments%2Cauthor_id%2Ccontext_annotations%2Cconversation_id%2Ccreated_at%2Centities%2Cgeo%2Cid%2Cin_reply_to_user_id%2Clang%2Cpublic_metrics%2Ctext%2Cpossibly_sensitive%2Creferenced_tweets%2Creply_settings%2Csource%2Cwithheld&amp;media.fields=alt_text%2Cduration_ms%2Cheight%2Cmedia_key%2Cpreview_image_url%2Ctype%2Curl%2Cwidth%2Cpublic_metrics&amp;poll.fields=duration_minutes%2Cend_datetime%2Cid%2Coptions%2Cvoting_status&amp;place.fields=contained_within%2Ccountry%2Ccountry_code%2Cfull_name%2Cgeo%2Cid%2Cname%2Cplace_type&amp;ids=1412360883582418945%2C1408833479304003589%2C1313590839977947136%2C1313523086424186881%2C1298060678432010240%2C1297973554986639360%2C1296466668898717696%2C1259920233600479233%2C1075778924280471553%2C995487617549512704%2C898246334804787202%2C844552567522820096%2C760889024403873792%2C733665498148294657%2C694224894805032964%2C686753187727044609%2C644308060937265152%2C644307992901517312%2C644307901830561793%2C632152536636608512%2C631931489769390080%2C631828145105162240%2C631825643441901568%2C631825543202213889%2C631820349290774528%2C545020559248343040%2C270661455727165442%2C146330510422048768&quot;, &quot;version&quot;: &quot;2.4.3&quot;, &quot;retrieved_at&quot;: &quot;2021-08-30T21:22:13+00:00&quot;}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="deleted-tweets-the-right-to-be-forgotten">
+<h2>Deleted Tweets &amp; The Right To Be Forgotten<a class="headerlink" href="#deleted-tweets-the-right-to-be-forgotten" title="Permalink to this headline">¶</a></h2>
+<p>What happens if someone decides to delete their tweet between the time when the tweet is first collected and the time when the tweet is “hydrated”? The deleted tweet will <strong>not</strong> be hydrated. The deleted tweet is no longer be accessible.</p>
+</div>
+<div class="section" id="where-to-find-tweet-ids">
+<h2>Where to Find Tweet IDs<a class="headerlink" href="#where-to-find-tweet-ids" title="Permalink to this headline">¶</a></h2>
+<p>You can find repositories of tweet IDs that have been shared by other researchers in the following places:</p>
+<ul class="simple">
+<li><p>DocNow Catalog: https://catalog.docnow.io/</p></li>
+<li><p>George Washington University Tweet IDs: https://dataverse.harvard.edu/dataverse/gwu-libraries</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./04-Data-Collection"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="12-Twitter-Data.html" title="previous page">Twitter Data Collection &amp; Analysis</a>
+    <a class='right-next' id="next-link" href="14-Reddit-Data.html" title="next page">Reddit Data Collection and Analysis with PSAW</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

@@ -1,0 +1,10477 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Russian pre-processing &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/MultiLingual/notebooks/Preprocessing Russian.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/01-Installation.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/04-Variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/05-Data-Types.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/06-String-Methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/08-Comparisons-Conditionals.html">
+     Comparisons &amp; Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/09-Lists-Loops-Part1.html">
+     Lists &amp; Loops — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/10-Lists-Loops-Part2.html">
+     Lists &amp; Loops — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/11-Dictionaries.html">
+     Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/12-Functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Data-Collection/Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/User-Ethics-Legal-Concerns.html">
+     User Ethics &amp; Legal Concerns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/APIs.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../Data-Collection/Song-Genius-Data-Collection.html">
+     Song Genius Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/LyricsGenius.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Song-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Collection-Home.html">
+     Twitter Data Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Collection.html">
+       Twitter Data Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Analysis.html">
+       Twitter Data Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../Data-Collection/Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Data-Collection/Reddit-Data-Collection-With-PSAW.html">
+     Reddit Data Collection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../01-TF-IDF.html">
+     TF-IDF
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../02-TF-IDF-HathiTrust.html">
+       TF-IDF with HathiTrust Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../03-TF-IDF-Scikit-Learn.html">
+       TF-IDF with Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../05-Topic-Modeling-Overview.html">
+       Topic Modeling — Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../06-Topic-Modeling-Set-Up.html">
+       Topic Modeling — Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../07-Topic-Modeling-Text-Files.html">
+       Topic Modeling — Text Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../08-Topic-Modeling-CSV.html">
+       Topic Modeling — CSV Files
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../09-Topic-Modeling-Time-Series.html">
+       Topic Modeling — Time Series
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../12-Languages-Beyond-English.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Danish.html">
+         Danish pre-processing
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition: Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Spanish.html">
+         Spanish pre-processing
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition: Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Preprocessing-Chinese.html">
+         Chinese pre-processing
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition: Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition: Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Network-Analysis/Network-Analysis-Home.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Network-Analysis/Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../Mapping/Mapping-Home.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../Mapping/Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Datasets/Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/05-Text-Analysis/MultiLingual/notebooks/Preprocessing Russian.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/MultiLingual/notebooks/Preprocessing Russian.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/MultiLingual/notebooks/Preprocessing Russian.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-spacy">
+   Install spaCy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-language-model">
+   Download Language Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-language-model">
+   Load Language Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-document">
+   Process Document
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-differences">
+   Examine Differences
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="russian-pre-processing">
+<h1>Russian pre-processing<a class="headerlink" href="#russian-pre-processing" title="Permalink to this headline">¶</a></h1>
+<p>This notebook is for anyone who wants to try the TF-IDF or Topic Modeling lessons on Russian text. Before continuing with those lessons, you need to create a <em>lemmatized derivative</em> of your original Russian text, which replaces all the words with their dictionary form, which will work much better with the word-count based methods.</p>
+<div class="section" id="install-spacy">
+<h2>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this headline">¶</a></h2>
+<p>Russian models are only available starting in spaCy 3.0.</p>
+<p>If you run into errors because spaCy 2.x is installed, you can run <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">uninstall</span> <span class="pre">spacy</span> <span class="pre">-y</span></code> first, then run the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U spacy&gt;<span class="o">=</span><span class="m">3</span>.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">zh-core-web-md 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">pt-core-news-sm 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">pt-core-news-md 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">prodigy 1.10.7 requires catalogue&lt;1.1.0,&gt;=0.0.8, but you have catalogue 2.0.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">prodigy 1.10.7 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">prodigy 1.10.7 requires srsly&lt;1.1.0,&gt;=0.0.6, but you have srsly 2.4.0 which is incompatible.</span>
+<span class=" -Color -Color-Red">kindred 2.7.2 requires sphinx==1.5.5, but you have sphinx 3.4.3 which is incompatible.</span>
+<span class=" -Color -Color-Red">it-core-news-sm 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">es-core-news-sm 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">es-core-news-md 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">es-core-news-lg 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">en-vectors-web-lg 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">en-core-web-sm 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">en-core-web-md 2.3.1 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">de-core-news-sm 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+<span class=" -Color -Color-Red">da-core-news-lg 2.3.0 requires spacy&lt;2.4.0,&gt;=2.3.0, but you have spacy 3.0.5 which is incompatible.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-language-model">
+<h2>Download Language Model<a class="headerlink" href="#download-language-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m spacy download ru_core_news_md
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint8 = np.dtype([(&quot;qint8&quot;, np.int8, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint8 = np.dtype([(&quot;quint8&quot;, np.uint8, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint16 = np.dtype([(&quot;qint16&quot;, np.int16, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint16 = np.dtype([(&quot;quint16&quot;, np.uint16, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint32 = np.dtype([(&quot;qint32&quot;, np.int32, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  np_resource = np.dtype([(&quot;resource&quot;, np.ubyte, 1)])
+&lt;frozen importlib._bootstrap&gt;:219: RuntimeWarning: compiletime version 3.6 of module &#39;tensorflow.python.framework.fast_tensor_util&#39; does not match runtime version 3.8
+&lt;frozen importlib._bootstrap&gt;:219: RuntimeWarning: builtins.type size changed, may indicate binary incompatibility. Expected 880, got 864
+Collecting ru-core-news-md==3.0.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/ru_core_news_md-3.0.0/ru_core_news_md-3.0.0-py3-none-any.whl (43.9 MB)
+     |████████████████████████████████| 43.9 MB 1.6 MB/s eta 0:00:01
+?25hRequirement already satisfied: pymorphy2&gt;=0.9 in /opt/anaconda3/lib/python3.8/site-packages (from ru-core-news-md==3.0.0) (0.9.1)
+Requirement already satisfied: spacy&lt;3.1.0,&gt;=3.0.0 in /opt/anaconda3/lib/python3.8/site-packages (from ru-core-news-md==3.0.0) (3.0.5)
+Requirement already satisfied: dawg-python&gt;=0.7.1 in /opt/anaconda3/lib/python3.8/site-packages (from pymorphy2&gt;=0.9-&gt;ru-core-news-md==3.0.0) (0.7.2)
+Requirement already satisfied: pymorphy2-dicts-ru&lt;3.0,&gt;=2.4 in /opt/anaconda3/lib/python3.8/site-packages (from pymorphy2&gt;=0.9-&gt;ru-core-news-md==3.0.0) (2.4.417127.4579844)
+Requirement already satisfied: docopt&gt;=0.6 in /opt/anaconda3/lib/python3.8/site-packages (from pymorphy2&gt;=0.9-&gt;ru-core-news-md==3.0.0) (0.6.2)
+Requirement already satisfied: setuptools in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (49.2.0.post20200714)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (3.0.2)
+Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (3.0.1)
+Requirement already satisfied: wasabi&lt;1.1.0,&gt;=0.8.1 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (0.8.2)
+Requirement already satisfied: typer&lt;0.4.0,&gt;=0.3.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (0.3.2)
+Requirement already satisfied: numpy&gt;=1.15.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.18.0)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.0.2)
+Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.4.0)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.18.3)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (4.56.0)
+Requirement already satisfied: jinja2 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.11.2)
+Requirement already satisfied: pathy&gt;=0.3.5 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (0.3.5)
+Requirement already satisfied: pydantic&lt;1.8.0,&gt;=1.7.1 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.7.3)
+Requirement already satisfied: blis&lt;0.8.0,&gt;=0.4.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (0.4.1)
+Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.1 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.0.1)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (20.4)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.0.3)
+Requirement already satisfied: thinc&lt;8.1.0,&gt;=8.0.2 in /opt/anaconda3/lib/python3.8/site-packages (from spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (8.0.2)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.4.7)
+Requirement already satisfied: six in /opt/anaconda3/lib/python3.8/site-packages (from packaging&gt;=20.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.15.0)
+Requirement already satisfied: smart-open&lt;4.0.0,&gt;=2.2.0 in /opt/anaconda3/lib/python3.8/site-packages (from pathy&gt;=0.3.5-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (3.0.0)
+Requirement already satisfied: idna&lt;2.6,&gt;=2.5 in /opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2.5)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (2020.6.20)
+Requirement already satisfied: chardet&lt;3.1.0,&gt;=3.0.2 in /opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (3.0.4)
+Requirement already satisfied: urllib3&lt;1.23,&gt;=1.21.1 in /opt/anaconda3/lib/python3.8/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.22)
+Requirement already satisfied: click&lt;7.2.0,&gt;=7.1.1 in /opt/anaconda3/lib/python3.8/site-packages (from typer&lt;0.4.0,&gt;=0.3.0-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (7.1.2)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /opt/anaconda3/lib/python3.8/site-packages (from jinja2-&gt;spacy&lt;3.1.0,&gt;=3.0.0-&gt;ru-core-news-md==3.0.0) (1.1.1)
+Installing collected packages: ru-core-news-md
+Successfully installed ru-core-news-md-3.0.0
+<span class=" -Color -Color-C2">✔ Download and installation successful</span>
+You can now load the package via spacy.load(&#39;ru_core_news_md&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint8 = np.dtype([(&quot;qint8&quot;, np.int8, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint8 = np.dtype([(&quot;quint8&quot;, np.uint8, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint16 = np.dtype([(&quot;qint16&quot;, np.int16, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint16 = np.dtype([(&quot;quint16&quot;, np.uint16, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint32 = np.dtype([(&quot;qint32&quot;, np.int32, 1)])
+/opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  np_resource = np.dtype([(&quot;resource&quot;, np.ubyte, 1)])
+&lt;frozen importlib._bootstrap&gt;:219: RuntimeWarning: compiletime version 3.6 of module &#39;tensorflow.python.framework.fast_tensor_util&#39; does not match runtime version 3.8
+&lt;frozen importlib._bootstrap&gt;:219: RuntimeWarning: builtins.type size changed, may indicate binary incompatibility. Expected 880, got 864
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-language-model">
+<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this headline">¶</a></h2>
+<p>Once the model is downloaded, we need to load it. There are two ways to load a spaCy language model.</p>
+<ol class="simple">
+<li><p>We can import the model as a module and then load it from the module.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ru_core_news_md</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">ru_core_news_md</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>We can load the model by name.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nlp = spacy.load(&#39;ru_core_news_md&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you just downloaded the model for the first time, it’s advisable to use Option 1. Then you can use the model immediately. Otherwise, you’ll likely need to restart your Jupyter kernel (which you can do by clicking Kernel -&gt; Restart Kernel… in the Jupyter Lab menu).</p>
+</div>
+<div class="section" id="process-document">
+<h2>Process Document<a class="headerlink" href="#process-document" title="Permalink to this headline">¶</a></h2>
+<p>To create a derivative text file that we can use with TF-IDF, topic modeling, or other word-count based methods, we need to use spaCy to <em>lemmatize</em> the text, replacing each word with its dictionary form. The result will be an ungrammatical text that will produce better results than the original version when used with word-count methods.</p>
+<p>The example text for Russian is <em>Яблони цветут</em> from <em>Новые люди</em> by Зинаида Николаевна Гиппиус <a class="reference external" href="https://ruslit.traumlibrary.net/book/gippius-ss15-01/gippius-ss15-01.html">from Библиотека русской и советской классики</a>. (Thanks to Katherine Bowers for the text referral.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;../texts/other-languages/ru.txt&#39;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outname</span> <span class="o">=</span> <span class="n">filepath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;-lemmatized.txt&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-differences">
+<h2>Examine Differences<a class="headerlink" href="#examine-differences" title="Permalink to this headline">¶</a></h2>
+<p>The code cell below prints the original word in the text, a dash, then the lemmatized form that was written to the derivative text document that you’ll use for TF-IDF and topic modeling. It’s a good idea to take a look at this so you can see if there are places where the model consistently makes mistakes, and also to understand what lemmatization is doing.</p>
+<p>For instance, an earlier version of spaCy often associated the Spanish preposition <code class="docutils literal notranslate"><span class="pre">para</span></code> ‘for’ with the verb <code class="docutils literal notranslate"><span class="pre">parar</span></code> ‘to stop’. If you just took that derivative file and used it for TF-IDF or topic modeling without realizing what was happening, you might reach the surprising conclusion that “stop” is a very frequent word in your text, when actually it’s lemmatization problem.</p>
+<p>Also, keep in mind that lemmatization removes both case and and gender (from adjectives and verbs). So if you want to look at how often a particular adjective or past-tense verb is applied to masculine things or characters vs. feminine,  you’ll need to prepare your text another way. (Be careful using the unlemmatized version, though: if you do, be sure to account for – and count – all of the adjectival declensions for each gender.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39; - &#39;</span> <span class="o">+</span> <span class="n">token</span><span class="o">.</span><span class="n">lemma_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Яблони - яблони
+цветут - цвести
+* - *
+
+
+ - 
+
+
+I - i
+
+ - 
+
+Зачем - зачем
+она - она
+так - так
+сделала - сделать
+, - ,
+что - что
+я - я
+не - не
+умею - уметь
+жить - жить
+без - без
+нее - нее
+? - ?
+Это - это
+она - она
+сделала - сделать
+, - ,
+я - я
+не - не
+виноват - виноватый
+… - …
+
+
+ - 
+
+
+Я - я
+написал - написать
+это - это
+– - –
+и - и
+мне - мне
+стало - стать
+странно - странный
+. - .
+Говорю - говорить
+точно - точно
+о - о
+возлюбленной - возлюбленной
+. - .
+Но - но
+возлюбленной - возлюбленной
+у - у
+меня - меня
+нет - нет
+. - .
+Это - это
+моя - мой
+мать - мать
+сделала - сделать
+так - так
+, - ,
+что - что
+я - я
+умираю - умирать
+без - без
+нее - нее
+. - .
+Если - если
+человека - человек
+держать - держать
+в - в
+тепле - тепло
+всю - весь
+жизнь - жизнь
+, - ,
+а - а
+потом - потом
+неодетого - неодетый
+выгнать - выгнать
+на - на
+двадцатиградусный - двадцатиградусный
+мороз - мороз
+, - ,
+он - он
+непременно - непременно
+умрет - умереть
+. - .
+И - и
+я - я
+умру - умереть
+. - .
+Умру - умру
+из - из
+- - -
+за - за
+нее - нее
+. - .
+
+
+ - 
+
+
+Давно - давно
+уж - уж
+мне - мне
+хочется - хотеться
+рассказать - рассказать
+кому - кто
+- - -
+нибудь - нибудь
+все - все
+, - ,
+о - о
+чем - что
+я - я
+думаю - думать
+, - ,
+или - или
+хоть - хоть
+написать - написать
+. - .
+Рассказать - рассказать
+некому - некому
+, - ,
+никто - никто
+не - не
+хочет - хотеть
+, - ,
+чтобы - чтобы
+я - я
+рассказывал - рассказывать
+, - ,
+так - так
+уж - уж
+лучше - хороший
+я - я
+напишу - написать
+. - .
+Все - все
+- - -
+таки - таки
+легче - лёгкий
+. - .
+
+
+ - 
+
+
+Мне - мне
+кажется - казаться
+, - ,
+что - что
+эти - этот
+последние - последний
+дни - день
+– - –
+важные - важный
+и - и
+значительные - значительный
+дни - день
+для - для
+меня - меня
+. - .
+Я - я
+до - до
+чего - что
+- - -
+то - то
+дошел - дойти
+, - ,
+кончил - кончить
+половину - половина
+моей - мой
+жизни - жизнь
+, - ,
+а - а
+дальше - дальше
+дорога - дорога
+прямая - прямой
+, - ,
+унылая - унылый
+, - ,
+быстрая - быстрый
+и - и
+такая - такой
+однообразная - однообразный
+, - ,
+что - что
+уже - уже
+нельзя - нельзя
+будет - будет
+заметить - заметить
+, - ,
+идешь - идти
+ли - ли
+вперед - вперед
+или - или
+назад - назад
+, - ,
+вверх - вверх
+или - или
+вниз - вниз
+. - .
+И - и
+не - не
+знаю - знать
+, - ,
+нужно - нужный
+ли - ли
+покориться - покориться
+, - ,
+как - как
+всегда - всегда
+, - ,
+и - и
+идти - идти
+по - по
+ней - ней
+. - .
+
+
+ - 
+
+
+Мне - мне
+теперь - теперь
+двадцать - двадцать
+восемь - восемь
+лет - год
+, - ,
+но - но
+никто - никто
+этому - это
+не - не
+верит - верить
+, - ,
+таким - такой
+старым - старый
+я - я
+кажусь - казаться
+. - .
+Я - я
+сам - сам
+знаю - знать
+, - ,
+что - что
+я - я
+старик - старик
+. - .
+У - у
+меня - меня
+было - быть
+прежде - прежде
+красивое - красивый
+и - и
+нежное - нежный
+лицо - лицо
+, - ,
+как - как
+у - у
+мамы - мама
+, - ,
+мы - мы
+с - с
+ней - ней
+часто - часто
+вместе - вместе
+смотрелись - смотрелись
+в - в
+зеркало - зеркало
+, - ,
+и - и
+нам - нам
+казалось - казаться
+, - ,
+что - что
+мы - мы
+удивительно - удивительно
+похожи - похожий
+друг - друг
+на - на
+друга - друга
+. - .
+
+
+ - 
+
+
+Теперь - теперь
+она - она
+не - не
+узнала - узнать
+бы - бы
+меня - меня
+. - .
+Я - я
+согнулся - согнуться
+, - ,
+глаза - глаз
+потускли - потускнуть
+, - ,
+борода - борода
+выросла - вырасти
+большая - больший
+, - ,
+лицо - лицо
+стало - стать
+желтое - жёлтый
+, - ,
+темное - тёмный
+. - .
+Я - я
+думаю - думать
+, - ,
+что - что
+я - я
+скоро - скоро
+умру - умереть
+. - .
+У - у
+меня - меня
+нет - нет
+, - ,
+кажется - казаться
+, - ,
+никакой - никакой
+болезни - болезнь
+, - ,
+но - но
+я - я
+должен - должный
+умереть - умереть
+, - ,
+потому - потому
+что - что
+живет - жить
+тот - тот
+, - ,
+кто - кто
+хочет - хотеть
+, - ,
+кто - кто
+имеет - иметь
+волю - воля
+жить - жить
+, - ,
+а - а
+у - у
+меня - меня
+нет - нет
+воли - воля
+. - .
+В - в
+последние - последний
+дни - день
+, - ,
+когда - когда
+я - я
+это - это
+сознал - сознал
+и - и
+увидел - увидеть
+, - ,
+что - что
+мне - мне
+больше - больше
+и - и
+ждать - ждать
+нечего - нечего
+– - –
+я - я
+даже - даже
+думал - думать
+о - о
+самоубийстве - самоубийство
+. - .
+Но - но
+я - я
+не - не
+могу - мочь
+. - .
+Я - я
+боюсь - бояться
+. - .
+Я - я
+знаю - знать
+, - ,
+что - что
+у - у
+меня - меня
+пошлое - пошлый
+и - и
+трусливое - трусливый
+сердце - сердце
+. - .
+Я - я
+боюсь - бояться
+. - .
+
+
+ - 
+
+
+Все - весь
+это - это
+она - она
+сделала - сделать
+. - .
+Правда - правда
+, - ,
+я - я
+думаю - думать
+– - –
+что - что
+от - от
+нее - нее
+же - же
+у - у
+меня - меня
+то - тот
+чувство - чувство
+, - ,
+которое - которое
+совсем - совсем
+не - не
+пошло - пойти
+, - ,
+и - и
+одно - одно
+давало - давать
+мне - мне
+счастие - счастие
+жизни - жизнь
+– - –
+сентиментальность - сентиментальность
+. - .
+Я - я
+не - не
+стыжусь - стыжусь
+этого - этот
+слова - слово
+, - ,
+как - как
+все - все
+стыдятся - стыдиться
+. - .
+Да - да
+, - ,
+все - все
+стыдятся - стыдиться
+, - ,
+потому - потому
+что - что
+у - у
+всех - всех
+оно - оно
+есть - быть
+… - …
+
+
+ - 
+
+
+Я - я
+музыкант - музыкант
+и - и
+если - если
+не - не
+хороший - хороший
+, - ,
+то - то
+порядочный - порядочный
+, - ,
+как - как
+говорят - говорить
+. - .
+Думаю - думать
+, - ,
+хорошим - хороший
+я - я
+и - и
+не - не
+могу - мочь
+быть - быть
+, - ,
+потому - потому
+что - что
+, - ,
+когда - когда
+играю - играть
+длинные - длинный
+, - ,
+трудные - трудный
+рапсодии - рапсодия
+и - и
+фуги - фуга
+, - ,
+даже - даже
+сонаты - сонаты
+, - ,
+я - я
+совершенно - совершенно
+холоден - холодный
+, - ,
+и - и
+мысли - мысль
+у - у
+меня - меня
+самые - самые
+обыденные - обыденный
+, - ,
+скучные - скучный
+. - .
+Чувство - чувство
+прекрасного - прекрасный
+редко - редко
+бывало - бывать
+у - у
+меня - меня
+; - ;
+это - это
+– - –
+совсем - совсем
+не - не
+сентиментальное - сентиментальный
+чувство - чувство
+, - ,
+оно - оно
+захватывает - захватывать
+и - и
+зовет - звать
+вперед - вперед
+, - ,
+а - а
+мне - мне
+это - это
+трудно - трудный
+; - ;
+я - я
+люблю - любить
+тихое - тихий
+умиление - умиление
+, - ,
+воспоминания - воспоминание
+, - ,
+когда - когда
+так - так
+сладко - сладко
+болит - болеть
+сердце - сердце
+, - ,
+и - и
+в - в
+душе - душа
+глубокая - глубокий
+тишина - тишина
+. - .
+
+
+ - 
+
+
+Бывало - бывать
+, - ,
+играя - играть
+блестящую - блестеть
+прелюдию - прелюдия
+в - в
+концерте - концерт
+( - (
+теперь - теперь
+уж - уж
+давно - давно
+я - я
+не - не
+выходил - выходить
+на - на
+эстраду - эстрада
+) - )
+, - ,
+я - я
+взглядываю - взглядывать
+на - на
+какого - какой
+- - -
+нибудь - нибудь
+пожилого - пожилой
+господина - господин
+в - в
+первом - первый
+ряду - ряд
+и - и
+думаю - думать
+: - :
+« - &quot;
+Вот - вот
+ты - ты
+смотришь - смотреть
+на - на
+меня - меня
+, - ,
+слушаешь - слушать
+внимательно - внимательно
+и - и
+знаешь - знать
+, - ,
+что - что
+я - я
+играю - играть
+, - ,
+потом - потом
+будешь - будешь
+делать - делать
+толковые - толковый
+замечания - замечание
+о - о
+моей - мой
+„ - „
+технике - техника
+“ - “
+и - и
+„ - „
+экспрессии - экспрессия
+… - …
+“ - “
+А - а
+если - если
+бы - бы
+я - я
+бросил - бросить
+теперь - теперь
+эту - этот
+прелюдию - прелюдия
+и - и
+сыграл - сыграть
+маленькую - маленький
+, - ,
+простую - простой
+малороссийскую - малороссийский
+песенку - песенка
+, - ,
+которая - которая
+напомнила - напомнить
+бы - бы
+тебе - тебе
+далекие - далёкий
+годы - год
+, - ,
+темный - тёмный
+, - ,
+теплый - тёплый
+сад - сад
+и - и
+, - ,
+может - мочь
+быть - быть
+, - ,
+чьи - чей
+- - -
+нибудь - нибудь
+милые - милый
+, - ,
+забытые - забыть
+глаза - глаз
+– - –
+ты - ты
+встал - встать
+бы - бы
+и - и
+ушел - уйти
+, - ,
+чтобы - чтобы
+скрыть - скрыть
+невольные - невольный
+слезы - слеза
+, - ,
+радостную - радостный
+грусть - грусть
+и - и
+счастье - счастие
+, - ,
+которого - которого
+не - не
+дает - давать
+тебе - тебе
+блестящая - блестеть
+прелюдия - прелюдия
+. - .
+И - и
+непременно - непременно
+ты - ты
+хотел - хотеть
+бы - бы
+скрыть - скрыть
+это - этот
+счастие - счастие
+, - ,
+потому - потому
+что - что
+тебе - тебе
+стыдно - стыдно
+и - и
+кажется - казаться
+, - ,
+что - что
+ты - ты
+один - один
+так - так
+чувствуешь - чувствовать
+и - и
+другие - другие
+не - не
+поймут - понять
+, - ,
+а - а
+между - между
+тем - тем
+все - все
+так - так
+же - же
+чувствуют - чувствовать
+– - –
+и - и
+каждый - каждый
+стыдится - стыдиться
+, - ,
+думая - думать
+, - ,
+что - что
+он - он
+один - один
+. - .
+У - у
+каждого - каждый
+есть - быть
+светлое - светлый
+облако - облако
+в - в
+прошлом - прошлое
+. - .
+
+
+ - 
+
+
+И - и
+у - у
+меня - меня
+оно - оно
+есть - быть
+, - ,
+как - как
+у - у
+всех - всех
+» - &quot;
+. - .
+
+
+ - 
+
+
+II - ii
+
+ - 
+
+Скучно - скучный
+рассказывать - рассказывать
+с - с
+самого - самого
+начала - начало
+, - ,
+с - с
+тех - тот
+пор - пора
+, - ,
+как - как
+я - я
+был - был
+ребенком - ребёнок
+. - .
+Да - да
+и - и
+в - в
+двадцать - двадцать
+лет - год
+я - я
+жил - жить
+так - так
+же - же
+, - ,
+как - как
+в - в
+десять - десять
+. - .
+Только - только
+в - в
+двадцать - двадцать
+я - я
+был - был
+счастливее - счастливый
+, - ,
+потому - потому
+что - что
+перерос - перерасти
+маму - мама
+и - и
+мог - мочь
+гулять - гулять
+с - с
+ней - ней
+под - под
+руку - рука
+. - .
+Отношения - отношение
+же - же
+наши - наш
+не - не
+изменялись - изменяться
+. - .
+Бывало - бывать
+, - ,
+мальчиком - мальчик
+я - я
+часто - часто
+делал - делать
+ей - ей
+сцены - сцена
+, - ,
+когда - когда
+она - она
+уезжала - уезжать
+в - в
+театр - театр
+без - без
+меня - меня
+, - ,
+говорил - говорить
+, - ,
+что - что
+она - она
+не - не
+имеет - иметь
+права - право
+веселиться - веселиться
+, - ,
+когда - когда
+я - я
+должен - должный
+учить - учить
+уроки - урок
+. - .
+Она - она
+серьезно - серьезно
+умоляла - умоляла
+простить - простить
+ее - ее
+, - ,
+даже - даже
+делалась - делаться
+печальна - печальный
+, - ,
+если - если
+я - я
+дулся - дулся
+. - .
+Нам - нам
+нельзя - нельзя
+было - было
+ссориться - ссориться
+. - .
+У - у
+нее - нее
+не - не
+было - быть
+никого - никто
+, - ,
+кроме - кроме
+меня - меня
+. - .
+И - и
+у - у
+меня - меня
+была - быть
+она - она
+одна - один
+. - .
+
+
+ - 
+
+
+С - с
+отцом - отец
+я - я
+даже - даже
+не - не
+разговаривал - разговаривать
+никогда - никогда
+. - .
+Пожилой - пожилой
+господин - господин
+, - ,
+вечно - вечно
+занятый - занять
+какими - какой
+- - -
+то - то
+постройками - постройка
+, - ,
+живший - жить
+в - в
+другой - другой
+половине - половина
+дома - дом
+, - ,
+он - он
+совсем - совсем
+не - не
+интересовал - интересовать
+меня - меня
+. - .
+А - а
+мама - мама
+была - была
+такая - такой
+молодая - молодой
+, - ,
+тоненькая - тоненький
+, - ,
+как - как
+девочка - девочка
+, - ,
+с - с
+большими - больший
+черными - чёрный
+глазами - глаз
+, - ,
+свежая - свежий
+, - ,
+блестящая - блестящий
+; - ;
+платье - платье
+ее - ее
+шумело - шуметь
+при - при
+быстрых - быстрый
+движениях - движение
+, - ,
+и - и
+веяло - веять
+от - от
+нее - нее
+какими - какой
+- - -
+то - то
+странными - странный
+духами - духами
+, - ,
+– - –
+я - я
+так - так
+и - и
+не - не
+узнал - узнать
+, - ,
+как - как
+они - они
+называются - называться
+. - .
+Запах - запах
+их - их
+напоминал - напоминать
+самую - самую
+раннюю - ранний
+весну - весна
+. - .
+
+
+ - 
+
+
+Конечно - конечно
+, - ,
+мы - мы
+жили - жить
+в - в
+Петербурге - петербург
+. - .
+Я - я
+говорил - говорить
+, - ,
+что - что
+у - у
+всех - всех
+есть - быть
+что - что
+- - -
+то - то
+необычное - необычный
+, - ,
+светлое - светлый
+в - в
+прошлом - прошлое
+. - .
+Но - но
+я - я
+не - не
+знаю - знать
+и - и
+сомневаюсь - сомневаться
+, - ,
+что - что
+может - мочь
+быть - быть
+у - у
+людей - человек
+, - ,
+которые - которые
+родились - родиться
+в - в
+Петербурге - петербург
+и - и
+не - не
+видали - видали
+другого - другого
+солнца - солнце
+. - .
+Хорошо - хороший
+, - ,
+если - если
+я - я
+ошибаюсь - ошибаться
+и - и
+сужу - сужу
+по - по
+себе - себя
+. - .
+Но - но
+я - я
+никогда - никогда
+не - не
+примирюсь - примирюсь
+с - с
+этим - этот
+низким - низкий
+небом - нёбо
+и - и
+темным - тёмный
+воздухом - воздух
+, - ,
+с - с
+этой - этот
+квартирой - квартира
+, - ,
+где - где
+я - я
+один - один
+. - .
+Впрочем - впрочем
+, - ,
+об - об
+этом - это
+впереди - впереди
+. - .
+И - и
+все - все
+равно - равный
+, - ,
+я - я
+один - один
+в - в
+целом - целое
+свете - свет
+, - ,
+как - как
+же - же
+мне - мне
+не - не
+быть - быть
+одному - одному
+в - в
+этой - этот
+квартире - квартира
+? - ?
+
+
+ - 
+
+
+Мы - мы
+жили - жить
+в - в
+большом - большой
+городе - город
+на - на
+юге - юг
+, - ,
+в - в
+своем - свой
+доме - дом
+. - .
+Дом - дом
+был - был
+новый - новый
+, - ,
+выстроенный - выстроить
+отцом - отец
+, - ,
+неудобный - неудобный
+и - и
+холодный - холодный
+. - .
+Во - во
+дворе - двор
+был - был
+небольшой - небольшой
+, - ,
+но - но
+чистый - чистый
+сад - сад
+, - ,
+к - к
+которому - которому
+со - со
+всех - весь
+сторон - сторона
+примыкали - примыкать
+чужие - чужой
+сады - сад
+, - ,
+а - а
+потому - потому
+он - он
+казался - казаться
+мне - мне
+бесконечным - бесконечный
+. - .
+Отец - отец
+все - все
+хотел - хотеть
+его - его
+вырубить - вырубить
+и - и
+построить - построить
+два - два
+флигеля - флигель
+и - и
+сарай - сарай
+, - ,
+но - но
+так - так
+и - и
+не - не
+собрался - собраться
+. - .
+Не - не
+знаю - знать
+, - ,
+впрочем - впрочем
+, - ,
+может - мочь
+быть - быть
+, - ,
+теперь - теперь
+уж - уж
+и - и
+нет - нет
+нашего - наш
+сада - сад
+. - .
+Не - не
+знаю - знать
+, - ,
+да - да
+и - и
+знать - знать
+не - не
+хочу - хотеть
+. - .
+
+
+ - 
+
+
+Я - я
+никогда - никогда
+не - не
+был - был
+в - в
+гимназии - гимназия
+. - .
+В - в
+самом - самом
+деле - дело
+, - ,
+с - с
+кем - кто
+бы - бы
+мама - мама
+оставалась - оставаться
+? - ?
+У - у
+нее - нее
+было - быть
+много - много
+знакомых - знакомых
+, - ,
+но - но
+никто - никто
+никогда - никогда
+за - за
+ней - ней
+не - не
+ухаживал - ухаживать
+серьезно - серьезно
+, - ,
+хотя - хотя
+и - и
+знали - знать
+ее - её
+отношения - отношение
+к - к
+отцу - отец
+. - .
+Я - я
+думаю - думать
+, - ,
+она - она
+сама - сама
+не - не
+хотела - хотеть
+. - .
+
+
+ - 
+
+
+У - у
+меня - меня
+были - быть
+лучшие - хороший
+гимназические - гимназический
+учителя - учитель
+, - ,
+и - и
+я - я
+учился - учиться
+недурно - недурно
+. - .
+Мама - мама
+, - ,
+конечно - конечно
+, - ,
+училась - учиться
+со - со
+мною - мною
+, - ,
+но - но
+ей - ей
+часто - часто
+надоедало - надоедать
+, - ,
+и - и
+она - она
+говорила - говорить
+: - :
+
+
+ - 
+
+
+– - –
+Володя - володя
+, - ,
+бросим - бросим
+книги - книга
+, - ,
+пойдем - пойти
+гулять - гулять
+, - ,
+а - а
+? - ?
+
+
+ - 
+
+
+И - и
+мы - мы
+шли - идти
+, - ,
+– - –
+она - она
+нарядная - нарядный
+, - ,
+веселая - весёлый
+, - ,
+а - а
+я - я
+счастливый - счастливый
+, - ,
+что - что
+у - у
+меня - меня
+такая - такой
+хорошенькая - хорошенький
+мама - мама
+, - ,
+и - и
+я - я
+так - так
+на - на
+нее - нее
+похож - похожий
+. - .
+
+
+ - 
+
+
+Она - она
+совсем - совсем
+не - не
+изменялась - изменяться
+, - ,
+не - не
+старела - стареть
+, - ,
+и - и
+скоро - скоро
+нас - нас
+стали - стать
+принимать - принимать
+за - за
+брата - брат
+и - и
+сестру - сестра
+, - ,
+особенно - особенно
+когда - когда
+у - у
+меня - меня
+выросли - вырасти
+усы - ус
+и - и
+маленькая - маленький
+борода - борода
+. - .
+Мне - мне
+казалось - казаться
+, - ,
+что - что
+и - и
+я - я
+не - не
+изменился - измениться
+внутренне - внутренне
+. - .
+Только - только
+к - к
+двадцати - двадцать
+годам - год
+я - я
+серьезно - серьезно
+стал - стать
+заниматься - заниматься
+музыкой - музыка
+и - и
+мечтал - мечтать
+о - о
+консерватории - консерватория
+. - .
+Гимназический - гимназический
+экзамен - экзамен
+я - я
+сдал - сдать
+хорошо - хорошо
+, - ,
+и - и
+надо - надо
+было - было
+на - на
+что - что
+- - -
+нибудь - нибудь
+решаться - решаться
+. - .
+
+
+ - 
+
+
+– - –
+Ты - ты
+поедешь - поехать
+в - в
+консерваторию - консерватория
+, - ,
+в - в
+Москву - москва
+, - ,
+непременно - непременно
+, - ,
+– - –
+говорила - говорить
+мама - мама
+. - .
+– - –
+Надо - надо
+скорее - скорее
+, - ,
+тебе - тебе
+уже - уже
+двадцать - двадцать
+лет - год
+. - .
+Ты - ты
+будешь - будешь
+знаменитым - знаменитый
+, - ,
+вот - вот
+увидишь - увидеть
+. - .
+
+
+ - 
+
+
+– - –
+А - а
+когда - когда
+же - же
+мы - мы
+поедем - поехать
+? - ?
+
+
+ - 
+
+
+– - –
+Осенью - осень
+, - ,
+я - я
+думаю - думать
+. - .
+Хорошо - хороший
+? - ?
+
+
+ - 
+
+
+Не - не
+было - быть
+и - и
+речи - речь
+о - о
+том - том
+, - ,
+чтобы - чтобы
+мне - мне
+ехать - ехать
+без - без
+мамы - мама
+. - .
+С - с
+кем - кто
+бы - бы
+я - я
+стал - стать
+говорить - говорить
+? - ?
+Кто - кто
+бы - бы
+ласкал - ласкать
+меня - меня
+и - и
+ходил - ходить
+со - со
+мною - мною
+гулять - гулять
+? - ?
+А - а
+кто - кто
+бы - бы
+ухаживал - ухаживать
+за - за
+мною - мною
+, - ,
+когда - когда
+я - я
+заболею - заболею
+? - ?
+Да - да
+разве - разве
+возможно - возможный
+ей - ей
+оставаться - оставаться
+без - без
+меня - меня
+, - ,
+когда - когда
+мы - мы
+ни - ни
+на - на
+один - один
+день - день
+не - не
+расставались - расставаться
+, - ,
+все - все
+делали - делать
+и - и
+обсуждали - обсуждать
+сообща - сообща
+? - ?
+Я - я
+и - и
+заниматься - заниматься
+не - не
+стал - стать
+бы - бы
+без - без
+нее - нее
+. - .
+
+
+ - 
+
+
+Так - так
+же - же
+, - ,
+как - как
+бывало - бывать
+ребенком - ребёнок
+, - ,
+– - –
+я - я
+садился - садиться
+по - по
+вечерам - вечер
+у - у
+огня - огонь
+в - в
+ее - её
+комнате - комната
+, - ,
+на - на
+полу - пол
+, - ,
+около - около
+ее - её
+ног - нога
+, - ,
+и - и
+рассказывал - рассказывать
+ей - ей
+, - ,
+как - как
+та - тот
+и - и
+та - тот
+барышня - барышня
+в - в
+меня - меня
+влюблены - влюблены
+, - ,
+как - как
+я - я
+за - за
+ними - ними
+ухаживаю - ухаживать
+, - ,
+и - и
+какая - какой
+мне - мне
+больше - больше
+нравится - нравиться
+. - .
+Мне - мне
+в - в
+это - этот
+время - время
+казалось - казаться
+, - ,
+что - что
+все - весь
+барышни - барышня
+должны - должный
+быть - быть
+в - в
+меня - меня
+влюблены - влюблены
+, - ,
+потому - потому
+что - что
+я - я
+такой - такой
+красивый - красивый
+и - и
+так - так
+хорошо - хорошо
+играю - играть
+на - на
+фортепиано - фортепиано
+. - .
+
+
+ - 
+
+
+– - –
+Знаешь - знать
+, - ,
+Володя - володя
+, - ,
+– - –
+сказала - сказать
+мне - мне
+раз - раз
+мама - мама
+, - ,
+– - –
+ведь - ведь
+ты - ты
+совсем - совсем
+не - не
+похож - похожий
+на - на
+мужчину - мужчина
+, - ,
+ты - ты
+совершенно - совершенно
+женщина - женщина
+, - ,
+оттого - оттого
+, - ,
+должно - должный
+быть - быть
+, - ,
+мы - мы
+с - с
+тобой - тобой
+так - так
+и - и
+сошлись - сойтись
+… - …
+Или - или
+это - это
+я - я
+сама - сама
+так - так
+сделала - сделать
+, - ,
+– - –
+прибавила - прибавить
+она - она
+подумав - подумать
+. - .
+– - –
+Ты - ты
+, - ,
+например - например
+, - ,
+в - в
+мужском - мужской
+обществе - общество
+и - и
+не - не
+бываешь - бывать
+никогда - никогда
+; - ;
+а - а
+среди - среди
+женщин - женщина
+я - я
+тебя - тебя
+видела - видеть
+– - –
+там - там
+ты - ты
+тоже - тоже
+как - как
+- - -
+то - то
+не - не
+ухаживаешь - ухаживать
+, - ,
+а - а
+кокетничаешь - кокетничать
+. - .
+Не - не
+знаю - знать
+… - …
+но - но
+мне - мне
+кажется - казаться
+, - ,
+будь - будь
+ты - ты
+мне - мне
+чужой - чужой
+– - –
+ты - ты
+мне - мне
+не - не
+понравился - понравиться
+бы - бы
+. - .
+
+
+ - 
+
+
+Я - я
+страшно - страшно
+обиделся - обидеться
+и - и
+надулся - надуться
+. - .
+Как - как
+! - !
+Сама - сама
+же - же
+она - она
+говорила - говорить
+, - ,
+что - что
+я - я
+похож - похожий
+на - на
+нее - нее
+, - ,
+а - а
+теперь - теперь
+я - я
+ей - ей
+не - не
+нравлюсь - нравиться
+! - !
+Если - если
+это - это
+и - и
+не - не
+хорошо - хороший
+, - ,
+что - что
+я - я
+похож - похожий
+на - на
+женщину - женщина
+, - ,
+то - то
+ведь - ведь
+она - она
+же - же
+сама - сама
+прежде - прежде
+этого - это
+не - не
+боялась - бояться
+? - ?
+
+
+ - 
+
+
+Да - да
+и - и
+что - что
+тут - тут
+нехорошего - нехороший
+? - ?
+Пусть - пусть
+я - я
+похож - похожий
+на - на
+женщину - женщина
+! - !
+Я - я
+люблю - любить
+прежде - прежде
+всего - всего
+все - весь
+красивое - красивый
+– - –
+но - но
+без - без
+суровости - суровость
+, - ,
+без - без
+силы - сила
+, - ,
+а - а
+нежное - нежный
+и - и
+простое - простой
+. - .
+Я - я
+не - не
+виноват - виноватый
+, - ,
+что - что
+я - я
+такой - такой
+… - …
+
+
+ - 
+
+
+Мама - мама
+долго - долго
+просила - просить
+у - у
+меня - меня
+прощения - прощение
+, - ,
+и - и
+мы - мы
+помирились - помириться
+. - .
+Но - но
+я - я
+не - не
+забыл - забыть
+ее - её
+слов - слово
+и - и
+часто - часто
+потом - потом
+говорил - говорить
+ей - ей
+: - :
+
+
+ - 
+
+
+– - –
+Вот - вот
+Сыромятников - сыромятников
+, - ,
+или - или
+Маремьянов - маремьянов
+, - ,
+правда - правда
+, - ,
+какие - какой
+мужественные - мужественный
+? - ?
+Правда - правда
+, - ,
+они - они
+должны - должный
+нравиться - нравиться
+женщинам - женщина
+? - ?
+
+
+ - 
+
+
+Мама - мама
+улыбалась - улыбаться
+и - и
+зажимала - зажимала
+мне - мне
+рот - рот
+своей - свой
+большой - большой
+, - ,
+но - но
+красивой - красивый
+рукой - рука
+с - с
+бесчисленными - бесчисленный
+звенящими - звенящий
+браслетами - браслет
+. - .
+
+
+ - 
+
+
+Я - я
+знал - знать
+, - ,
+что - что
+делался - делаться
+фатом - фат
+, - ,
+потому - потому
+что - что
+я - я
+все - все
+- - -
+таки - таки
+очень - очень
+нравился - нравиться
+тамошним - тамошний
+барышням - барышня
+, - ,
+знал - знать
+– - –
+жизнь - жизнь
+проходила - проходить
+пусто - пусто
+, - ,
+и - и
+сердце - сердце
+делалось - делаться
+пошлым - пошлый
+от - от
+этой - этот
+вечной - вечный
+рисовки - рисовка
+и - и
+бесцельного - бесцельный
+желания - желание
+нравиться - нравиться
+. - .
+Сам - сам
+я - я
+ни - ни
+разу - разу
+не - не
+влюблялся - влюбляться
+. - .
+Нравились - нравиться
+многие - многие
+, - ,
+но - но
+не - не
+сильно - сильно
+. - .
+В - в
+сущности - сущность
+, - ,
+я - я
+был - был
+очень - очень
+чистым - чистый
+в - в
+то - тот
+время - время
+, - ,
+как - как
+редкие - редкий
+, - ,
+но - но
+мысленно - мысленно
+я - я
+оказывался - оказываться
+не - не
+лучше - хороший
+других - других
+. - .
+Говорят - говорить
+, - ,
+что - что
+всегда - всегда
+чистые - чистый
+люди - человек
+– - –
+не - не
+чисты - чистый
+в - в
+мыслях - мысль
+; - ;
+но - но
+мне - мне
+кажется - казаться
+, - ,
+что - что
+это - это
+неправда - неправда
+. - .
+И - и
+у - у
+меня - меня
+это - это
+было - было
+временно - временно
+и - и
+, - ,
+я - я
+думаю - думать
+, - ,
+от - от
+робости - робость
+, - ,
+от - от
+пошлой - пошлый
+и - и
+праздной - праздный
+жизни - жизнь
+, - ,
+и - и
+оттого - оттого
+, - ,
+что - что
+меня - меня
+портили - портить
+и - и
+баловали - баловать
+. - .
+
+
+ - 
+
+
+III - iii
+
+ - 
+
+Удивительно - удивительный
+, - ,
+как - как
+мало - мало
+меня - меня
+интересовали - интересовать
+книги - книга
+. - .
+Я - я
+их - их
+читал - читать
+, - ,
+пока - пока
+не - не
+сдал - сдать
+экзамена - экзамен
+. - .
+А - а
+с - с
+тех - тот
+пор - пора
+я - я
+занимался - заниматься
+только - только
+музыкой - музыка
+. - .
+Она - она
+одна - один
+меня - меня
+волновала - волновать
+и - и
+заставляла - заставлять
+вспоминать - вспоминать
+то - то
+, - ,
+чего - что
+не - не
+было - быть
+. - .
+Для - для
+музыки - музыка
+я - я
+мог - мочь
+забыть - забыть
+многое - многое
+. - .
+
+
+ - 
+
+
+Наконец - наконец
+, - ,
+мы - мы
+поехали - поехать
+в - в
+Москву - москва
+. - .
+И - и
+я - я
+был - был
+рад - рад
+. - .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Я - я
+инстинктивно - инстинктивно
+чувствовал - чувствовать
+, - ,
+что - что
+надо - надо
+все - все
+переменить - переменить
+. - .
+
+
+ - 
+
+
+С - с
+нами - нами
+поехала - поехать
+наша - наш
+старая - старый
+экономка - экономка
+, - ,
+без - без
+нее - нее
+мы - мы
+совсем - совсем
+пропали - пропасть
+бы - бы
+. - .
+Я - я
+в - в
+Москве - москва
+никогда - никогда
+не - не
+был - быть
+, - ,
+а - а
+мама - мама
+хотя - хотя
+и - и
+жила - жить
+там - там
+прежде - прежде
+, - ,
+однако - однако
+ничего - ничто
+не - не
+знала - знать
+и - и
+не - не
+умела - уметь
+. - .
+Может - мочь
+быть - быть
+, - ,
+и - и
+сумела - суметь
+бы - бы
+, - ,
+но - но
+ей - ей
+было - было
+скучно - скучный
+заботиться - заботиться
+и - и
+суетиться - суетиться
+, - ,
+и - и
+я - я
+это - это
+отлично - отлично
+понимал - понимать
+. - .
+
+
+ - 
+
+
+Мы - мы
+наняли - нанять
+хорошенькую - хорошенький
+квартирку - квартирка
+на - на
+Малой - малый
+Никитской - никитский
+и - и
+зажили - зажить
+припеваючи - припеваючи
+, - ,
+по - по
+- - -
+товарищески - товарищески
+. - .
+Ездили - ездить
+в - в
+театр - театр
+, - ,
+кататься - кататься
+. - .
+Скоро - скоро
+явились - явиться
+знакомые - знакомые
+, - ,
+нашлись - найтись
+родственники - родственник
+. - .
+Но - но
+я - я
+стал - стать
+заниматься - заниматься
+ревностно - ревностно
+и - и
+даже - даже
+редко - редко
+выходил - выходить
+, - ,
+когда - когда
+у - у
+мамы - мама
+были - быть
+гости - гость
+. - .
+
+
+ - 
+
+
+В - в
+консерватории - консерватория
+я - я
+ни - ни
+с - с
+кем - кто
+не - не
+сошелся - сошелся
+, - ,
+кроме - кроме
+своего - свой
+профессора - профессор
+, - ,
+еще - еще
+молодого - молодой
+человека - человек
+. - .
+
+
+ - 
+
+
+Я - я
+ему - ему
+казался - казаться
+странным - странный
+, - ,
+хотя - хотя
+, - ,
+как - как
+он - он
+говорил - говорить
+, - ,
+очень - очень
+талантливым - талантливый
+. - .
+Он - он
+, - ,
+однако - однако
+, - ,
+угадал - угадать
+меня - меня
+только - только
+после - после
+того - того
+, - ,
+как - как
+я - я
+его - его
+ввел - ввести
+к - к
+нам - нам
+, - ,
+и - и
+он - он
+увидал - увидать
+мою - мой
+маму - мама
+. - .
+Нас - нас
+друг - друг
+без - без
+друга - друга
+понять - понять
+было - было
+нельзя - нельзя
+, - ,
+а - а
+вместе - вместе
+, - ,
+как - как
+говорили - говорить
+, - ,
+мы - мы
+составляли - составлять
+одно - одно
+целое - целое
+. - .
+
+
+ - 
+
+
+– - –
+Смотрите - смотреть
+, - ,
+молодой - молодой
+человек - человек
+, - ,
+– - –
+сказал - сказать
+мне - мне
+раз - раз
+профессор - профессор
+, - ,
+– - –
+занимайтесь - заниматься
+хорошенько - хорошенько
+. - .
+Из - из
+вас - вас
+должно - должный
+выйти - выйти
+что - что
+- - -
+нибудь - нибудь
+, - ,
+или - или
+вы - вы
+совсем - совсем
+пропадете - пропасть
+. - .
+
+
+ - 
+
+
+И - и
+я - я
+занимался - заниматься
+. - .
+Даже - даже
+лень - лень
+свою - свой
+забыл - забыть
+, - ,
+не - не
+заботился - заботиться
+о - о
+волосах - волос
+и - и
+об - об
+одежде - одежда
+, - ,
+редко - редко
+выезжал - выезжать
+и - и
+все - все
+играл - играть
+свои - свой
+гаммы - гамма
+. - .
+Я - я
+их - их
+не - не
+любил - любить
+и - и
+терпел - терпеть
+только - только
+, - ,
+как - как
+трудную - трудный
+лестницу - лестница
+, - ,
+по - по
+которой - которой
+нужно - нужный
+взбираться - взбираться
+наверх - наверх
+. - .
+Как - как
+я - я
+тосковал - тосковать
+о - о
+синем - синий
+небе - нёбо
+, - ,
+о - о
+земле - земля
+, - ,
+о - о
+цветах - цвет
+! - !
+Я - я
+ни - ни
+о - о
+чем - что
+так - так
+не - не
+тосковал - тосковать
+, - ,
+я - я
+не - не
+думал - думать
+, - ,
+что - что
+будет - будет
+тоска - тоска
+. - .
+Мама - мама
+утешала - утешала
+меня - меня
+, - ,
+но - но
+… - …
+это - это
+было - было
+мое - мой
+больное - больной
+место - место
+. - .
+Я - я
+знал - знать
+, - ,
+что - что
+тут - тут
+мы - мы
+не - не
+понимаем - понимать
+друг - друг
+друга - друга
+, - ,
+только - только
+тут - тут
+. - .
+Она - она
+даже - даже
+сада - сад
+нашего - наш
+не - не
+любила - любить
+, - ,
+– - –
+гулять - гулять
+ходила - ходить
+по - по
+улицам - улица
+, - ,
+говорила - говорить
+, - ,
+что - что
+солнечный - солнечный
+свет - свет
+гораздо - гораздо
+беспокойнее - беспокойный
+полутьмы - полутьма
+гостиной - гостиная
+, - ,
+а - а
+ее - её
+духи - дух
+лучше - хороший
+запаха - запах
+настоящей - настоящий
+весны - весна
+. - .
+
+
+ - 
+
+
+Когда - когда
+я - я
+об - об
+этом - это
+думал - думать
+, - ,
+приходило - приходило
+невольное - невольный
+чувство - чувство
+на - на
+минуту - минута
+, - ,
+что - что
+она - она
+не - не
+молода - молодой
+, - ,
+что - что
+она - она
+не - не
+может - мочь
+быть - быть
+вполне - вполне
+моим - мой
+товарищем - товарищ
+, - ,
+что - что
+в - в
+глубине - глубина
+души - душа
+– - –
+между - между
+нами - нами
+преграда - преграда
+. - .
+
+
+ - 
+
+
+Но - но
+это - это
+были - были
+только - только
+минуты - минута
+… - …
+
+
+ - 
+
+
+Я - я
+говорил - говорить
+, - ,
+что - что
+не - не
+сошелся - сойтись
+ни - ни
+с - с
+кем - кто
+. - .
+Близко - близко
+не - не
+сходился - сходился
+, - ,
+но - но
+знакомился - знакомиться
+и - и
+несколько - несколько
+раз - раз
+попадал - попадать
+на - на
+кутежи - кутёж
+, - ,
+не - не
+ночевал - ночевать
+дома - дома
+… - …
+
+
+ - 
+
+
+Мама - мама
+расспрашивала - расспрашивала
+меня - меня
+с - с
+любопытством - любопытство
+и - и
+без - без
+всяких - всякий
+упреков - упрёк
+, - ,
+но - но
+я - я
+был - был
+как - как
+- - -
+то - то
+недоволен - недовольный
+и - и
+рассказывал - рассказывать
+подробно - подробно
+с - с
+омерзением - омерзение
+, - ,
+хотя - хотя
+не - не
+без - без
+гордости - гордость
+. - .
+
+
+ - 
+
+
+– - –
+Это - это
+неважно - неважный
+, - ,
+Володя - володя
+, - ,
+– - –
+говорили - говорить
+мама - мама
+. - .
+– - –
+Это - это
+я - я
+все - все
+так - так
+и - и
+думала - думать
+. - .
+Ты - ты
+только - только
+меня - меня
+не - не
+должен - должный
+забывать - забывать
+. - .
+Понимаешь - понимать
+, - ,
+чтобы - чтобы
+я - я
+была - была
+у - у
+тебя - тебя
+первой - первый
+, - ,
+и - и
+всегда - всегда
+, - ,
+как - как
+ты - ты
+у - у
+меня - меня
+. - .
+Понимаешь - понимать
+? - ?
+Иначе - иначе
+жить - жить
+нельзя - нельзя
+. - .
+Понимаешь - понимать
+? - ?
+
+
+ - 
+
+
+Я - я
+только - только
+улыбался - улыбаться
+и - и
+обнимал - обнимал
+ее - ее
+. - .
+Как - как
+же - же
+она - она
+может - мочь
+быть - быть
+не - не
+первой - первый
+? - ?
+Кто - кто
+же - же
+тогда - тогда
+? - ?
+
+
+ - 
+
+
+IV - iv
+
+ - 
+
+Прошло - пройти
+несколько - несколько
+лет - год
+. - .
+Я - я
+кончал - кончать
+консерваторию - консерватория
+, - ,
+выступал - выступать
+в - в
+концертах - концерт
+– - –
+и - и
+с - с
+успехом - успех
+. - .
+Но - но
+я - я
+сам - сам
+был - был
+не - не
+совсем - совсем
+доволен - довольный
+. - .
+Что - что
+мне - мне
+в - в
+этих - этот
+трескучих - трескучий
+пьесах - пьесах
+, - ,
+где - где
+я - я
+так - так
+быстро - быстро
+перебираю - перебирать
+пальцами - палец
+, - ,
+и - и
+все - все
+удивляются - удивляться
+и - и
+хвалят - хвалить
+меня - меня
+? - ?
+Когда - когда
+же - же
+я - я
+смогу - смочь
+сыграть - сыграть
+то - то
+, - ,
+что - что
+слышу - слышать
+часто - часто
+– - –
+но - но
+что - что
+ускользает - ускользать
+от - от
+меня - меня
+? - ?
+Если - если
+сумею - суметь
+, - ,
+если - если
+найду - найду
+– - –
+то - то
+все - все
+сразу - сразу
+изменится - измениться
+, - ,
+и - и
+я - я
+буду - буду
+одно - одно
+чувствовать - чувствовать
+с - с
+теми - тот
+, - ,
+кто - кто
+слушает - слушать
+. - .
+Мы - мы
+вместе - вместе
+будем - будем
+плакать - плакать
+, - ,
+потому - потому
+что - что
+оно - оно
+пройдет - пройти
+не - не
+мимо - мимо
+, - ,
+а - а
+заденет - задеть
+, - ,
+зацепит - зацепить
+самое - самое
+тайное - тайный
+, - ,
+самое - самое
+тайное - тайный
+, - ,
+самое - самое
+глубокое - глубокий
+, - ,
+одно - одно
+для - для
+всех - всех
+… - …
+Да - да
+, - ,
+мы - мы
+будем - будем
+плакать - плакать
+; - ;
+потом - потом
+… - …
+потом - потом
+все - все
+равно - равный
+, - ,
+ну - ну
+– - –
+умрем - умереть
+. - .
+Все - все
+равно - равный
+… - …
+Я - я
+знал - знать
+, - ,
+что - что
+, - ,
+пока - пока
+я - я
+сам - сам
+не - не
+чувствую - чувствовать
+– - –
+ничего - ничто
+не - не
+будет - будет
+; - ;
+и - и
+верил - верить
+без - без
+сомнений - сомнение
+, - ,
+что - что
+если - если
+придет - прийти
+ко - ко
+мне - мне
+– - –
+то - то
+и - и
+ко - ко
+всем - всем
+придет - прийти
+, - ,
+кому - кто
+я - я
+буду - буду
+« - &quot;
+говорить - говорить
+» - &quot;
+. - .
+Я - я
+всегда - всегда
+мысленно - мысленно
+вместо - вместо
+« - &quot;
+играть - играть
+» - &quot;
+употреблял - употреблять
+выражение - выражение
+« - &quot;
+говорить - говорить
+с - с
+людьми - человек
+» - &quot;
+. - .
+
+
+ - 
+
+
+Может - мочь
+быть - быть
+, - ,
+все - весь
+это - это
+было - было
+не - не
+умно - умный
+. - .
+Но - но
+я - я
+никогда - никогда
+не - не
+считал - считать
+себя - себя
+умным - умный
+человеком - человек
+. - .
+У - у
+меня - меня
+и - и
+самолюбия - самолюбия
+тут - тут
+не - не
+было - быть
+. - .
+Я - я
+знал - знать
+, - ,
+что - что
+я - я
+не - не
+развит - развить
+и - и
+мало - мало
+образован - образовать
+. - .
+Да - да
+и - и
+пусть - пусть
+. - .
+Я - я
+не - не
+к - к
+этому - это
+шел - идти
+, - ,
+у - у
+меня - меня
+другое - другое
+счастье - счастие
+, - ,
+другая - другая
+дорога - дорога
+меня - меня
+поведет - повести
+наверх - наверх
+. - .
+
+
+ - 
+
+
+Мама - мама
+раза - раз
+два - два
+меня - меня
+оставляла - оставлять
+одного - одного
+на - на
+несколько - несколько
+недель - неделя
+, - ,
+ей - ей
+необходимо - необходимый
+было - было
+уехать - уехать
+домой - домой
+. - .
+И - и
+каждый - каждый
+раз - раз
+я - я
+умирал - умирать
+, - ,
+бросал - бросать
+заниматься - заниматься
+, - ,
+почти - почти
+не - не
+ел - есть
+. - .
+У - у
+меня - меня
+являлся - являться
+какой - какой
+- - -
+то - то
+нервный - нервный
+ужас - ужас
+, - ,
+мне - мне
+казалось - казаться
+, - ,
+что - что
+я - я
+один - один
+на - на
+свете - свет
+, - ,
+ее - ее
+нет - нет
+и - и
+не - не
+было - быть
+. - .
+Главное - главный
+– - –
+не - не
+было - быть
+! - !
+А - а
+если - если
+не - не
+было - быть
+, - ,
+– - –
+значит - значить
+, - ,
+и - и
+не - не
+будет - будет
+… - …
+
+
+ - 
+
+
+Зачем - зачем
+она - она
+так - так
+связала - связать
+меня - меня
+с - с
+собою - собою
+, - ,
+что - что
+жизнь - жизнь
+без - без
+нее - нее
+не - не
+могла - мочь
+длиться - длиться
+? - ?
+Если - если
+я - я
+скажу - сказать
+, - ,
+что - что
+любил - любить
+ее - ее
+– - –
+это - это
+будет - будет
+не - не
+то - тот
+слово - слово
+: - :
+не - не
+люблю - любить
+я - я
+воздух - воздух
+, - ,
+пищу - пища
+, - ,
+– - –
+а - а
+жить - жить
+без - без
+них - них
+не - не
+могу - мочь
+. - .
+Я - я
+знаю - знать
+, - ,
+что - что
+я - я
+слабый - слабый
+, - ,
+слабый - слабый
+человек - человек
+. - .
+У - у
+меня - меня
+нет - нет
+силы - сила
+сделать - сделать
+против - против
+себя - себя
+, - ,
+не - не
+страдать - страдать
+, - ,
+когда - когда
+я - я
+страдаю - страдать
+… - …
+
+
+ - 
+
+
+Я - я
+был - был
+последний - последний
+год - год
+в - в
+Москве - москва
+, - ,
+когда - когда
+заболел - заболеть
+отец - отец
+, - ,
+и - и
+мама - мама
+уехала - уехать
+перед - перед
+Рождеством - рождество
+. - .
+А - а
+в - в
+конце - конец
+января - январь
+я - я
+заболел - заболеть
+сам - сам
+, - ,
+бросил - бросить
+все - все
+и - и
+приехал - приехать
+домой - домой
+. - .
+Что - что
+ж - ж
+, - ,
+лишний - лишний
+год - год
+– - –
+так - так
+лишний - лишний
+год - год
+, - ,
+а - а
+заниматься - заниматься
+без - без
+нее - нее
+я - я
+все - все
+равно - равный
+не - не
+могу - мочь
+. - .
+Я - я
+приехал - приехать
+, - ,
+и - и
+мы - мы
+целый - целый
+вечер - вечер
+просидели - просидеть
+вместе - вместе
+на - на
+диванчике - диванчик
+в - в
+ее - её
+комнате - комната
+и - и
+молчали - молчать
+… - …
+Но - но
+я - я
+знал - знать
+, - ,
+что - что
+она - она
+довольна - довольный
+. - .
+Она - она
+так - так
+же - же
+не - не
+могла - мочь
+жить - жить
+без - без
+меня - меня
+, - ,
+как - как
+я - я
+без - без
+нее - нее
+… - …
+
+
+ - 
+
+
+V - v
+
+ - 
+
+Я - я
+проводил - проводить
+дни - день
+дома - дом
+и - и
+много - много
+играл - играть
+. - .
+У - у
+меня - меня
+была - быть
+небольшая - небольшой
+комната - комната
+в - в
+одно - одно
+окно - окно
+, - ,
+и - и
+окно - окно
+это - это
+выходило - выходить
+на - на
+двор - двор
+, - ,
+к - к
+саду - сад
+. - .
+Я - я
+поставил - поставить
+свой - свой
+рояль - рояль
+к - к
+окну - окно
+и - и
+смотрел - смотреть
+на - на
+небо - нёбо
+и - и
+на - на
+деревья - дерево
+, - ,
+когда - когда
+играл - играть
+. - .
+
+
+ - 
+
+
+В - в
+середине - середина
+февраля - февраль
+стало - стать
+совсем - совсем
+уж - уж
+тепло - тепло
+. - .
+Я - я
+ходил - ходить
+в - в
+сад - сад
+и - и
+смотрел - смотреть
+на - на
+голубое - голубой
+небо - нёбо
+между - между
+голыми - голый
+ветвями - ветвями
+черешен - черешен
+и - и
+яблонь - яблоня
+. - .
+Какое - какой
+оно - оно
+было - было
+веселое - весёлый
+, - ,
+золотое - золотое
+между - между
+черными - чёрный
+сучьями - сучьями
+! - !
+А - а
+на - на
+дальних - дальний
+горах - гора
+чуть - чуть
+желтела - желтеть
+, - ,
+даже - даже
+еще - еще
+не - не
+зеленела - зеленеть
+, - ,
+а - а
+желтела - желтеть
+первая - первый
+травка - травка
+. - .
+Она - она
+всегда - всегда
+из - из
+земли - земля
+выходит - выходить
+такая - такой
+светлая - светлый
+и - и
+молодая - молодой
+, - ,
+что - что
+кажется - казаться
+желтой - жёлтый
+. - .
+Люблю - любить
+я - я
+эти - этот
+крошечные - крошечный
+травинки - травинка
+, - ,
+первые - первый
+; - ;
+они - они
+– - –
+точно - точно
+дети - ребёнок
+, - ,
+любопытные - любопытный
+и - и
+неловкие - неловкий
+, - ,
+подымают - подымать
+серый - серый
+комок - комок
+земли - земля
+и - и
+глядят - глядеть
+на - на
+солнце - солнце
+. - .
+Ах - ах
+, - ,
+мама - мама
+… - …
+Зачем - зачем
+она - она
+не - не
+ходила - ходить
+со - со
+мной - мной
+в - в
+сад - сад
+и - и
+не - не
+любила - любить
+того - того
+, - ,
+что - что
+я - я
+любил - любить
+? - ?
+И - и
+опять - опять
+холодная - холодный
+струя - струя
+пробиралась - пробиралась
+в - в
+мое - мой
+сердце - сердце
+, - ,
+опять - опять
+отчужденность - отчуждённость
+… - …
+
+
+ - 
+
+
+Как - как
+это - это
+странно - странный
+! - !
+И - и
+как - как
+больно - больно
+… - …
+
+
+ - 
+
+
+Чем - что
+дальше - дальше
+шла - идти
+весна - весна
+, - ,
+тем - тем
+больше - больше
+я - я
+сидел - сидеть
+в - в
+саду - сад
+, - ,
+и - и
+тем - тем
+радостнее - радостнее
+мне - мне
+становилось - становиться
+. - .
+Точно - точно
+я - я
+сам - сам
+рос - расти
+вместе - вместе
+с - с
+желтыми - жёлтый
+цветами - цвет
+. - .
+Свои - свой
+фуги - фуга
+я - я
+забросил - забросить
+; - ;
+опять - опять
+я - я
+слышал - слышать
+в - в
+душе - душа
+что - что
+- - -
+то - то
+такое - такой
+, - ,
+что - что
+светлее - светлый
+всяких - всякий
+фуг - фуга
+, - ,
+опять - опять
+я - я
+искал - искать
+– - –
+и - и
+не - не
+мог - мочь
+найти - найти
+. - .
+Оно - оно
+было - было
+тут - тут
+, - ,
+близко - близко
+, - ,
+в - в
+весеннем - весенний
+шуме - шум
+, - ,
+в - в
+весеннем - весенний
+запахе - запах
+… - …
+И - и
+как - как
+оно - оно
+далеко - далеко
+от - от
+меня - меня
+теперь - теперь
+! - !
+.. - ..
+
+
+ - 
+
+
+Листьев - листьев
+не - не
+было - было
+видно - видно
+, - ,
+но - но
+на - на
+яблонях - яблоня
+и - и
+черешнях - черешня
+розовели - розовели
+круглые - круглый
+, - ,
+крепкие - крепкий
+почки - почка
+, - ,
+совсем - совсем
+еще - еще
+закрытые - закрыть
+, - ,
+точно - точно
+спящие - спать
+. - .
+Мне - мне
+один - один
+раз - раз
+пришло - прийти
+в - в
+голову - голов
+: - :
+откуда - откуда
+они - они
+, - ,
+эти - этот
+почки - почка
+, - ,
+зачем - зачем
+они - они
+? - ?
+Зачем - зачем
+это - этот
+небо - нёбо
+, - ,
+эта - этот
+весна - весна
+? - ?
+Отчего - отчего
+я - я
+ничего - ничто
+не - не
+знаю - знать
+? - ?
+Но - но
+я - я
+испугался - испугаться
+. - .
+Не - не
+надо - надо
+, - ,
+не - не
+надо - надо
+вопросов - вопрос
+, - ,
+не - не
+нужно - нужный
+думать - думать
+, - ,
+нужно - нужный
+покориться - покориться
+и - и
+отдаться - отдаться
+всему - всему
+, - ,
+и - и
+тогда - тогда
+будет - будет
+не - не
+страшно - страшный
+и - и
+просто - просто
+… - …
+
+
+ - 
+
+
+Я - я
+сидел - сидеть
+в - в
+конце - конец
+узенькой - узенький
+, - ,
+сырой - сырой
+дорожки - дорожка
+, - ,
+на - на
+низкой - низкий
+скамеечке - скамеечка
+у - у
+самого - самого
+дальнего - дальний
+забора - забор
+моего - мой
+сада - сад
+. - .
+Это - это
+был - был
+не - не
+забор - забор
+, - ,
+а - а
+живая - живой
+изгородь - изгородь
+, - ,
+пока - пока
+еще - еще
+черная - чёрный
+. - .
+Я - я
+никогда - никогда
+не - не
+горевал - горевать
+, - ,
+что - что
+мой - мой
+сад - сад
+не - не
+тянулся - тянуться
+далеко - далеко
+, - ,
+а - а
+кончался - кончался
+здесь - здесь
+, - ,
+у - у
+этой - этот
+изгороди - изгородь
+. - .
+Всюду - всюду
+, - ,
+куда - куда
+я - я
+ни - ни
+смотрел - смотреть
+– - –
+были - быть
+деревья - дерево
+, - ,
+трава - трава
+и - и
+земля - земля
+, - ,
+а - а
+над - над
+ними - ними
+небо - нёбо
+. - .
+Какое - какой
+мне - мне
+дело - дело
+до - до
+того - того
+, - ,
+что - что
+это - это
+деревья - дерево
+чужих - чужой
+садов - сад
+, - ,
+когда - когда
+они - они
+такие - такой
+же - же
+, - ,
+как - как
+и - и
+мои - мой
+? - ?
+Все - все
+мое - мой
+, - ,
+на - на
+что - что
+я - я
+смотрю - смотреть
+и - и
+что - что
+меня - меня
+радует - радовать
+. - .
+И - и
+те - тот
+обрывистые - обрывистый
+горы - гора
+с - с
+глубокими - глубокий
+, - ,
+сизыми - сизый
+тенями - тень
+– - –
+далеко - далёкий
+на - на
+небе - нёбо
+– - –
+они - они
+тоже - тоже
+мои - мой
+. - .
+Солнце - солнце
+шло - идти
+к - к
+западу - запад
+, - ,
+и - и
+лучи - луч
+его - его
+делались - делаться
+холоднее - холоднее
+. - .
+Я - я
+знал - знать
+, - ,
+что - что
+мне - мне
+пора - пора
+идти - идти
+домой - домой
+, - ,
+но - но
+не - не
+мог - мочь
+расстаться - расстаться
+со - со
+своей - свой
+скамейкой - скамейка
+. - .
+Вдруг - вдруг
+позади - позади
+меня - меня
+кто - кто
+- - -
+то - то
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>прошел - пройти
+, - ,
+тихо - тихо
+так - так
+, - ,
+что - что
+я - я
+едва - едва
+услышал - услышать
+. - .
+Я - я
+обернулся - обернуться
+: - :
+шаги - шаг
+слышались - слышаться
+за - за
+изгородью - изгородь
+, - ,
+в - в
+чужом - чужой
+саду - сад
+. - .
+Это - это
+были - были
+даже - даже
+не - не
+шаги - шаг
+, - ,
+а - а
+какой - какой
+- - -
+то - то
+связный - связный
+шорох - шорох
+, - ,
+точно - точно
+что - что
+- - -
+то - то
+проволоклось - проволочься
+по - по
+земле - земля
+– - –
+и - и
+затихло - затихнуть
+. - .
+Я - я
+мог - мочь
+бы - бы
+встать - встать
+и - и
+посмотреть - посмотреть
+, - ,
+что - что
+это - это
+такое - такой
+, - ,
+– - –
+изгородь - изгородь
+приходилась - приходиться
+мне - мне
+в - в
+одном - одном
+месте - место
+чуть - чуть
+выше - высоко
+пояса - пояс
+, - ,
+– - –
+но - но
+я - я
+подумал - подумать
+: - :
+« - &quot;
+Ну - ну
+, - ,
+все - все
+равно - равный
+, - ,
+не - не
+стоит - стоить
+» - &quot;
+. - .
+Весенний - весенний
+воздух - воздух
+утомил - утомить
+меня - меня
+, - ,
+мне - мне
+хотелось - хотеться
+быть - быть
+спокойным - спокойный
+и - и
+дремать - дремать
+. - .
+
+
+ - 
+
+
+Но - но
+опять - опять
+повторился - повториться
+шорох - шорох
+и - и
+умолк - умолкнуть
+сразу - сразу
+. - .
+Я - я
+поднял - поднять
+глаза - глаз
+и - и
+встретился - встретиться
+с - с
+чужими - чужой
+глазами - глаз
+, - ,
+которые - которые
+пристально - пристально
+и - и
+зло - зло
+смотрели - смотреть
+на - на
+меня - меня
+. - .
+Я - я
+почувствовал - почувствовать
+, - ,
+что - что
+они - они
+смотрели - смотреть
+зло - зло
+, - ,
+потому - потому
+что - что
+мне - мне
+стало - стать
+беспокойно - беспокойно
+. - .
+Потом - потом
+сразу - сразу
+выражение - выражение
+глаз - глаз
+изменилось - измениться
+и - и
+стало - стать
+равнодушным - равнодушный
+. - .
+За - за
+изгородью - изгородь
+стояла - стоять
+незнакомая - незнакомый
+мне - мне
+девушка - девушка
+. - .
+Несколько - несколько
+времени - время
+мы - мы
+молчали - молчать
+и - и
+смотрели - смотреть
+друг - друг
+на - на
+друга - друга
+. - .
+Я - я
+думал - думать
+, - ,
+что - что
+она - она
+уйдет - уйти
+. - .
+Но - но
+она - она
+заговорила - заговорить
+. - .
+
+
+ - 
+
+
+– - –
+Здравствуйте - здравствовать
+, - ,
+– - –
+сказала - сказать
+она - она
+неприветливо - неприветливо
+. - .
+– - –
+Я - я
+вас - вас
+давно - давно
+вижу - видеть
+. - .
+Зачем - зачем
+вы - вы
+вечно - вечно
+здесь - здесь
+сидите - сидеть
+? - ?
+
+
+ - 
+
+
+– - –
+Тут - тут
+хорошо - хорошо
+, - ,
+– - –
+отвечал - отвечать
+я - я
+как - как
+- - -
+то - то
+робко - робко
+, - ,
+точно - точно
+извиняясь - извиняться
+. - .
+– - –
+А - а
+я - я
+вас - вас
+никогда - никогда
+не - не
+видел - видеть
+. - .
+
+
+ - 
+
+
+– - –
+Я - я
+смотрела - смотреть
+издали - издать
+. - .
+Я - я
+живу - жить
+вон - вон
+там - там
+, - ,
+– - –
+и - и
+она - она
+указала - указать
+на - на
+чуть - чуть
+видный - видный
+за - за
+деревьями - дерево
+дом - дом
+, - ,
+далеко - далеко
+от - от
+изгороди - изгородь
+. - .
+
+
+ - 
+
+
+Когда - когда
+она - она
+сделала - сделать
+движение - движение
+рукой - рука
+, - ,
+я - я
+в - в
+первый - первый
+раз - раз
+заметил - заметить
+, - ,
+что - что
+одежда - одежда
+ее - ее
+была - была
+странная - странный
+, - ,
+непохожая - непохожая
+на - на
+обыкновенные - обыкновенный
+платья - платье
+барышень - барышня
+. - .
+То - то
+она - она
+мне - мне
+казалась - казаться
+маскарадной - маскарадный
+, - ,
+то - то
+совсем - совсем
+простой - простой
+и - и
+даже - даже
+единственно - единственно
+возможной - возможный
+. - .
+Это - это
+было - было
+широкое - широкий
+платье - платье
+из - из
+мягкой - мягкий
+белой - белый
+материи - материя
+, - ,
+но - но
+одинаково - одинаково
+широкое - широкий
+вверху - вверху
+и - и
+в - в
+подоле - подол
+( - (
+я - я
+видел - видеть
+теперь - теперь
+ее - ее
+всю - весь
+, - ,
+потому - потому
+что - что
+стоял - стоять
+у - у
+изгородим - изгородим
+с - с
+другой - другой
+стороны - сторона
+) - )
+, - ,
+с - с
+узким - узкий
+темно - темно
+- - -
+красным - красный
+поясом - пояс
+. - .
+Я - я
+понял - понять
+, - ,
+почему - почему
+был - быть
+такой - такой
+странный - странный
+шорох - шорох
+, - ,
+когда - когда
+она - она
+шла - идти
+: - :
+платье - платье
+кончалось - кончаться
+длинным - длинный
+шлейфом - шлейф
+, - ,
+и - и
+даже - даже
+не - не
+шлейфом - шлейф
+, - ,
+а - а
+просто - просто
+падающим - падать
+сзади - сзади
+куском - кусок
+материи - материя
+, - ,
+небрежным - небрежный
+и - и
+красивым - красивый
+. - .
+Рукава - рукав
+были - были
+узкие - узкий
+и - и
+длинные - длинный
+, - ,
+почти - почти
+до - до
+пальцев - палец
+. - .
+
+
+ - 
+
+
+Я - я
+, - ,
+хорошо - хорошо
+воспитанный - воспитанный
+молодой - молодой
+человек - человек
+, - ,
+умел - уметь
+держать - держать
+себя - себя
+с - с
+барышнями - барышня
+. - .
+Но - но
+тут - тут
+ни - ни
+на - на
+одну - одну
+минуту - минута
+я - я
+не - не
+подумал - подумать
+, - ,
+что - что
+это - это
+барышня - барышня
+и - и
+с - с
+ней - ней
+надо - надо
+вести - вести
+себя - себя
+, - ,
+как - как
+с - с
+другими - другими
+. - .
+Я - я
+спросил - спросить
+ее - ее
+: - :
+
+
+ - 
+
+
+– - –
+Отчего - отчего
+это - это
+на - на
+вас - вас
+такое - такой
+странное - странный
+платье - платье
+? - ?
+Она - она
+не - не
+удивилась - удивиться
+. - .
+
+
+ - 
+
+
+– - –
+Оно - оно
+красивее - красивый
+. - .
+Меня - меня
+никто - никто
+не - не
+видит - видеть
+, - ,
+и - и
+потому - потому
+я - я
+забочусь - забочусь
+, - ,
+чтобы - чтобы
+я - я
+сама - сама
+себе - себя
+нравилась - нравиться
+. - .
+
+
+ - 
+
+
+– - –
+И - и
+мне - мне
+нравится - нравиться
+, - ,
+– - –
+сказал - сказать
+я - я
+. - .
+– - –
+А - а
+как - как
+вас - вас
+зовут - звать
+? - ?
+
+
+ - 
+
+
+– - –
+Марта - марта
+. - .
+
+
+ - 
+
+
+– - –
+Марта - марта
+? - ?
+Разве - разве
+вы - вы
+не - не
+русская - русский
+? - ?
+
+
+ - 
+
+
+– - –
+Нет - нет
+, - ,
+русская - русский
+. - .
+Моя - мой
+фамилия - фамилия
+Коренева - коренев
+, - ,
+я - я
+живу - жить
+здесь - здесь
+с - с
+матерью - мать
+. - .
+Разве - разве
+вы - вы
+не - не
+слышали - слышать
+? - ?
+Слепая - слепая
+Коренева - коренев
+? - ?
+Богачка - богачка
+? - ?
+
+
+ - 
+
+
+Я - я
+вспомнил - вспомнить
+, - ,
+что - что
+точно - точно
+слышал - слышать
+что - что
+- - -
+то - то
+о - о
+слепой - слепой
+старухе - старухе
+Кореневой - коренев
+, - ,
+очень - очень
+богатой - богатый
+, - ,
+и - и
+о - о
+ее - её
+молоденькой - молоденький
+дочери - дочь
+, - ,
+которая - которая
+много - много
+учится - учиться
+и - и
+нигде - нигде
+не - не
+бывает - бывать
+. - .
+
+
+ - 
+
+
+– - –
+Да - да
+, - ,
+я - я
+слышал - слышать
+, - ,
+– - –
+медленно - медленно
+проговорил - проговорить
+я - я
+. - .
+– - –
+Как - как
+странно - странный
+, - ,
+мы - мы
+соседи - сосед
+, - ,
+а - а
+я - я
+только - только
+теперь - теперь
+вас - вас
+вижу - видеть
+… - …
+
+
+ - 
+
+
+– - –
+Я - я
+не - не
+люблю - любить
+выходить - выходить
+, - ,
+– - –
+поспешно - поспешно
+сказала - сказать
+она - она
+. - .
+– - –
+Да - да
+, - ,
+так - так
+вы - вы
+удивились - удивиться
+, - ,
+что - что
+я - я
+Марта - марта
+. - .
+Я - я
+– - –
+Марфа - марфа
+, - ,
+но - но
+Марта - марта
+красивее - красивый
+, - ,
+и - и
+потому - потому
+меня - меня
+так - так
+называют - называть
+. - .
+
+
+ - 
+
+
+– - –
+Да - да
+… - …
+Вы - вы
+вообще - вообще
+красивы - красивый
+, - ,
+– - –
+сказал - сказать
+я - я
+в - в
+раздумьи - раздумьи
+, - ,
+почти - почти
+про - про
+себя - себя
+. - .
+
+
+ - 
+
+
+– - –
+Правда - правда
+? - ?
+– - –
+просто - просто
+ответила - ответить
+она - она
+. - .
+– - –
+Вот - вот
+я - я
+тоже - тоже
+нахожу - находить
+, - ,
+что - что
+я - я
+красива - красивый
+. - .
+А - а
+многие - многие
+говорят - говорить
+, - ,
+что - что
+нет - нет
+. - .
+Я - я
+думаю - думать
+, - ,
+что - что
+они - они
+не - не
+понимают - понимать
+. - .
+
+
+ - 
+
+
+Меня - меня
+не - не
+удивлял - удивлять
+наш - наш
+разговор - разговор
+. - .
+Я - я
+не - не
+мог - мочь
+убедить - убедить
+себя - себя
+, - ,
+что - что
+Марта - марта
+– - –
+барышня - барышня
+, - ,
+а - а
+я - я
+ей - ей
+говорю - говорить
+комплименты - комплимент
+. - .
+Она - она
+казалась - казаться
+мне - мне
+красивой - красивый
+, - ,
+как - как
+небо - нёбо
+сквозь - сквозь
+деревья - дерево
+, - ,
+как - как
+нежный - нежный
+, - ,
+душистый - душистый
+воздух - воздух
+, - ,
+как - как
+розовые - розовый
+облака - облако
+около - около
+уходящего - уходить
+солнца - солнце
+. - .
+Она - она
+так - так
+подходила - подходить
+ко - ко
+всему - всему
+, - ,
+даже - даже
+к - к
+этому - этот
+предвечернему - предвечерний
+часу - час
+, - ,
+что - что
+мне - мне
+не - не
+хотелось - хотеться
+ни - ни
+разговаривать - разговаривать
+, - ,
+ни - ни
+удивляться - удивляться
+, - ,
+а - а
+просто - просто
+радоваться - радоваться
+всему - всему
+вместе - вместе
+. - .
+
+
+ - 
+
+
+И - и
+она - она
+замолчала - замолчать
+. - .
+
+
+ - 
+
+
+– - –
+Ну - ну
+, - ,
+теперь - теперь
+прощайте - прощать
+, - ,
+– - –
+сказала - сказать
+она - она
+наконец - наконец
+. - .
+– - –
+Вы - вы
+можете - мочь
+приходить - приходить
+сюда - сюда
+, - ,
+– - –
+прибавила - прибавить
+она - она
+чуть - чуть
+- - -
+чуть - чуть
+высокомерно - высокомерный
+, - ,
+но - но
+снисходительно - снисходительно
+. - .
+– - –
+Вы - вы
+не - не
+портите - портите
+сада - сад
+. - .
+
+
+ - 
+
+
+И - и
+опять - опять
+я - я
+услышал - услышать
+связный - связный
+шорох - шорох
+ее - её
+платья - платье
+, - ,
+она - она
+ушла - уйти
+. - .
+Я - я
+не - не
+удивился - удивиться
+и - и
+ее - её
+последним - последний
+словам - слово
+: - :
+она - она
+думала - думать
+почти - почти
+о - о
+том - том
+же - же
+, - ,
+о - о
+чем - что
+я - я
+. - .
+Удивляешься - удивляешься
+тому - тому
+, - ,
+что - что
+еще - еще
+чуждо - чуждо
+, - ,
+что - что
+вне - вне
+тебя - тебя
+, - ,
+а - а
+не - не
+в - в
+тебе - тебе
+… - …
+
+
+ - 
+
+
+Я - я
+был - был
+странным - странный
+весь - весь
+вечер - вечер
+. - .
+Я - я
+пробовал - пробовать
+играть - играть
+, - ,
+но - но
+звук - звук
+рояля - рояль
+мне - мне
+показался - показаться
+противным - противный
+, - ,
+резким - резкий
+и - и
+слишком - слишком
+определенным - определённый
+. - .
+Я - я
+пришел - прийти
+проститься - проститься
+к - к
+маме - мама
+, - ,
+но - но
+не - не
+сказал - сказать
+ей - ей
+ни - ни
+слова - слово
+. - .
+И - и
+в - в
+первый - первый
+раз - раз
+в - в
+жизни - жизнь
+мне - мне
+показалось - показаться
+, - ,
+что - что
+ее - её
+духи - дух
+пахнут - пахнуть
+не - не
+настоящей - настоящий
+весной - весна
+… - …
+
+
+ - 
+
+
+VI - vi
+
+ - 
+
+Два - два
+дня - день
+я - я
+не - не
+был - был
+в - в
+саду - сад
+. - .
+
+
+ - 
+
+
+Я - я
+сам - сам
+не - не
+знаю - знать
+, - ,
+чего - что
+я - я
+боялся - бояться
+. - .
+Должно - должный
+быть - быть
+, - ,
+того - того
+, - ,
+что - что
+так - так
+хорошо - хорошо
+уж - уж
+не - не
+будет - будет
+, - ,
+а - а
+воспоминание - воспоминание
+я - я
+испорчу - испортить
+. - .
+Мама - мама
+несколько - несколько
+раз - раз
+замечала - замечать
+, - ,
+что - что
+я - я
+бледен - бледный
+и - и
+мало - мало
+играю - играть
+. - .
+Отец - отец
+все - все
+еще - еще
+лежал - лежать
+, - ,
+и - и
+мама - мама
+большую - больший
+часть - часть
+дня - день
+была - была
+занята - занять
+. - .
+
+
+ - 
+
+
+– - –
+Что - что
+ты - ты
+, - ,
+Володя - володя
+? - ?
+Хочешь - хотеть
+, - ,
+вечером - вечер
+пойдем - пойти
+гулять - гулять
+? - ?
+
+
+ - 
+
+
+Я - я
+отвечал - отвечать
+вяло - вяло
+и - и
+апатично - апатично
+. - .
+Гулять - гулять
+по - по
+улицам - улица
+мне - мне
+не - не
+хотелось - хотеться
+. - .
+
+
+ - 
+
+
+Наконец - наконец
+, - ,
+на - на
+третий - третий
+день - день
+я - я
+решился - решиться
+вдруг - вдруг
+, - ,
+как - как
+решаются - решаться
+слабые - слабый
+люди - человек
+, - ,
+быстро - быстро
+взял - взять
+шляпу - шляпа
+и - и
+твердыми - твёрдый
+шагами - шаг
+отправился - отправиться
+в - в
+сад - сад
+. - .
+
+
+ - 
+
+
+Там - там
+многое - многое
+изменилось - измениться
+. - .
+Дорожки - дорожка
+стали - стать
+суше - суше
+, - ,
+желтые - жёлтый
+анемоны - анемон
+ползли - ползти
+около - около
+цистерны - цистерна
+; - ;
+а - а
+на - на
+яблонях - яблоня
+почки - почка
+побелели - побелели
+и - и
+расширились - расшириться
+. - .
+Даже - даже
+на - на
+изгороди - изгороди
+кое - кое
+- - -
+где - где
+появились - появиться
+крошечные - крошечный
+зеленые - зелёный
+листики - листик
+. - .
+Не - не
+успел - успеть
+я - я
+сесть - сесть
+на - на
+свою - свой
+скамейку - скамейка
+и - и
+опомниться - опомниться
+, - ,
+как - как
+сейчас - сейчас
+же - же
+, - ,
+сию - сию
+минуту - минута
+я - я
+услышал - услышать
+знакомый - знакомый
+шорох - шорох
+, - ,
+Марта - марта
+подошла - подойти
+к - к
+изгороди - изгородь
+и - и
+сказала - сказать
+: - :
+
+
+ - 
+
+
+– - –
+Здравствуйте - здравствовать
+. - .
+
+
+ - 
+
+
+Я - я
+встал - встать
+и - и
+приблизился - приблизиться
+к - к
+ней - ней
+. - .
+Она - она
+была - была
+в - в
+том - тот
+же - же
+или - или
+в - в
+таком - такой
+же - же
+платье - платье
+, - ,
+только - только
+пояс - пояс
+был - был
+не - не
+красный - красный
+, - ,
+а - а
+золотой - золотой
+. - .
+
+
+ - 
+
+
+– - –
+Отчего - отчего
+вы - вы
+не - не
+приходили - приходить
+? - ?
+– - –
+спросила - спросить
+она - она
+. - .
+– - –
+Ведь - ведь
+я - я
+вам - вам
+сказала - сказать
+, - ,
+что - что
+вы - вы
+можете - мочь
+приходить - приходить
+. - .
+Впрочем - впрочем
+, - ,
+я - я
+знаю - знать
+, - ,
+почему - почему
+вы - вы
+не - не
+приходили - приходить
+. - .
+
+
+ - 
+
+
+– - –
+Почему - почему
+? - ?
+
+
+ - 
+
+
+– - –
+Все - все
+равно - равный
+… - …
+Я - я
+знаю - знать
+. - .
+
+
+ - 
+
+
+Может - мочь
+быть - быть
+, - ,
+солнце - солнце
+бросало - бросать
+на - на
+нее - нее
+свои - свой
+лучи - луч
+особенно - особенно
+; - ;
+может - мочь
+быть - быть
+, - ,
+это - это
+было - было
+мое - мой
+воображение - воображение
+, - ,
+но - но
+мне - мне
+казалось - казаться
+, - ,
+что - что
+сегодня - сегодня
+одежда - одежда
+ее - её
+чуть - чуть
+- - -
+чуть - чуть
+отливала - отливать
+розовым - розовый
+, - ,
+как - как
+цветы - цветок
+яблони - яблони
+. - .
+
+
+ - 
+
+
+Странное - странный
+лицо - лицо
+было - было
+у - у
+Марты - марта
+, - ,
+я - я
+его - его
+не - не
+могу - мочь
+вспомнить - вспомнить
+; - ;
+знаю - знать
+только - только
+, - ,
+что - что
+в - в
+ней - ней
+во - во
+всей - весь
+ничего - ничто
+не - не
+было - быть
+темного - тёмный
+или - или
+яркого - яркий
+. - .
+Волосы - волос
+, - ,
+завязанные - завязать
+сзади - сзади
+в - в
+простой - простой
+узел - узел
+, - ,
+почти - почти
+небрежный - небрежный
+, - ,
+серели - серели
+и - и
+сливались - сливаться
+с - с
+окружающим - окружать
+воздухом - воздух
+; - ;
+лицо - лицо
+бледное - бледный
+, - ,
+тонкое - тонкий
+, - ,
+продолговатое - продолговатый
+; - ;
+глаза - глаз
+тоже - тоже
+бледные - бледный
+, - ,
+но - но
+прозрачные - прозрачный
+, - ,
+как - как
+чистая - чистый
+вода - вода
+. - .
+Я - я
+не - не
+знаю - знать
+, - ,
+какого - какой
+цвета - цвет
+были - были
+эти - этот
+глаза - глаз
+. - .
+Я - я
+думаю - думать
+, - ,
+в - в
+полдень - полдень
+, - ,
+когда - когда
+небо - нёбо
+очень - очень
+синее - синий
+, - ,
+они - они
+темнели - темнеть
+. - .
+
+
+ - 
+
+
+Так - так
+– - –
+я - я
+помню - помнить
+все - весь
+черты - черта
+, - ,
+помню - помнить
+тоненькие - тоненький
+, - ,
+прямые - прямой
+полоски - полоска
+бровей - бровь
+, - ,
+светло - светло
+- - -
+розовые - розовый
+, - ,
+сжатые - сжать
+губы - губа
+, - ,
+а - а
+все - весь
+лицо - лицо
+ускользает - ускользать
+от - от
+меня - меня
+. - .
+И - и
+я - я
+почти - почти
+рад - рад
+этому - это
+. - .
+Чем - чем
+неуловимее - неуловимее
+воспоминание - воспоминание
+, - ,
+тем - тем
+оно - оно
+полнее - полный
+. - .
+
+
+ - 
+
+
+– - –
+А - а
+я - я
+знаю - знать
+, - ,
+где - где
+сегодня - сегодня
+спрячется - спрятаться
+солнце - солнце
+, - ,
+– - –
+сказала - сказать
+Марта - марта
+. - .
+– - –
+Вон - вон
+там - там
+, - ,
+за - за
+этим - этот
+уступом - уступ
+. - .
+А - а
+вчера - вчера
+оно - оно
+зашло - зайти
+левее - левее
+, - ,
+гораздо - гораздо
+левее - левый
+. - .
+Я - я
+каждый - каждый
+день - день
+знаю - знать
+, - ,
+куда - куда
+садится - садиться
+солнце - солнце
+. - .
+Ведь - ведь
+это - это
+мои - мой
+дни - день
+, - ,
+мои - мой
+! - !
+– - –
+произнесла - произнести
+она - она
+с - с
+торжеством - торжество
+. - .
+– - –
+Хотите - хотите
+знать - знать
+, - ,
+что - что
+будет - будет
+в - в
+саду - сад
+завтра - завтра
+? - ?
+Хотите - хотеть
+я - я
+вам - вам
+скажу - сказать
+, - ,
+в - в
+какую - какой
+ночь - ночь
+распустятся - распустятся
+яблони - яблони
+? - ?
+
+
+ - 
+
+
+– - –
+Как - как
+вы - вы
+знаете - знать
+? - ?
+– - –
+спросил - спросить
+я - я
+тихо - тихо
+. - .
+
+
+ - 
+
+
+– - –
+Я - я
+знаю - знать
+и - и
+сад - сад
+, - ,
+и - и
+весну - весна
+, - ,
+и - и
+солнце - солнце
+, - ,
+и - и
+цветы - цветок
+, - ,
+потому - потому
+что - что
+я - я
+их - их
+люблю - любить
+… - …
+
+
+ - 
+
+
+И - и
+я - я
+поверил - поверить
+вдруг - вдруг
+, - ,
+что - что
+она - она
+точно - точно
+все - все
+знает - знать
+. - .
+
+
+ - 
+
+
+– - –
+Вы - вы
+думаете - думать
+, - ,
+что - что
+чувствует - чувствовать
+вон - вон
+та - тот
+акация - акация
+? - ?
+– - –
+спросила - спросить
+она - она
+. - .
+
+
+ - 
+
+
+– - –
+Я - я
+думаю - думать
+– - –
+радость - радость
+… - …
+
+
+ - 
+
+
+– - –
+А - а
+какую - какой
+? - ?
+
+
+ - 
+
+
+– - –
+Как - как
+вы - вы
+и - и
+я - я
+… - …
+Вот - вот
+такую - такой
+же - же
+… - …
+Радость - радость
+от - от
+солнца - солнце
+. - .
+
+
+ - 
+
+
+– - –
+Да - да
+. - .
+Мы - мы
+все - весь
+вместе - вместе
+радуемся - радоваться
+, - ,
+все - все
+вместе - вместе
+… - …
+
+
+ - 
+
+
+– - –
+А - а
+я - я
+слышу - слышать
+иногда - иногда
+, - ,
+– - –
+прибавила - прибавить
+она - она
+, - ,
+помолчав - помолчать
+, - ,
+– - –
+как - как
+вы - вы
+играете - играть
+. - .
+Отсюда - отсюда
+хорошо - хорошо
+, - ,
+не - не
+резко - резко
+. - .
+Я - я
+люблю - любить
+… - …
+
+
+ - 
+
+
+Я - я
+вспомнил - вспомнить
+, - ,
+как - как
+и - и
+мне - мне
+в - в
+эти - этот
+дни - день
+звук - звук
+рояля - рояль
+казался - казаться
+резким - резкий
+. - .
+
+
+ - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>– - –
+Только - только
+… - …
+– - –
+продолжала - продолжать
+Марта - марта
+, - ,
+– - –
+вы - вы
+не - не
+сердитесь - сердитесь
+, - ,
+но - но
+часто - часто
+вы - вы
+играете - играть
+такое - такой
+составное - составной
+, - ,
+из - из
+многих - многих
+разных - разный
+нот - нота
+, - ,
+а - а
+всего - всего
+- - -
+то - то
+нет - нет
+. - .
+Знаете - знать
+, - ,
+надо - надо
+удаляться - удаляться
+от - от
+того - того
+, - ,
+что - что
+люди - человек
+придумали - придумать
+, - ,
+а - а
+надо - надо
+слушать - слушать
+здесь - здесь
+, - ,
+– - –
+она - она
+провела - провести
+рукой - рука
+по - по
+воздуху - воздух
+, - ,
+– - –
+и - и
+стараться - стараться
+согласно - согласно
+, - ,
+чтоб - чтоб
+все - все
+вместе - вместе
+шло - идти
+к - к
+одному - одному
+… - …
+
+
+ - 
+
+
+Она - она
+остановилась - остановиться
+, - ,
+видимо - видимо
+затрудняясь - затрудняться
+объяснить - объяснить
+свою - свой
+мысль - мысль
+, - ,
+но - но
+, - ,
+конечно - конечно
+, - ,
+я - я
+ее - ее
+понял - понять
+. - .
+
+
+ - 
+
+
+– - –
+Я - я
+всегда - всегда
+так - так
+и - и
+думал - думать
+, - ,
+– - –
+сказал - сказать
+я - я
+. - .
+– - –
+Хорошо - хороший
+, - ,
+что - что
+и - и
+вы - вы
+тоже - тоже
+. - .
+Значит - значить
+, - ,
+это - это
+верно - верный
+. - .
+
+
+ - 
+
+
+– - –
+А - а
+вы - вы
+не - не
+умеете - уметь
+играть - играть
+чего - что
+- - -
+нибудь - нибудь
+простого - простой
+, - ,
+такого - такой
+нескорого - нескорый
+? - ?
+Вот - вот
+я - я
+один - один
+раз - раз
+слышала - слышать
+песню - песня
+. - .
+Ее - ее
+и - и
+в - в
+концертах - концерт
+поют - петь
+и - и
+играют - играть
+, - ,
+но - но
+не - не
+так - так
+. - .
+Знаете - знать
+: - :
+« - &quot;
+Ни - ни
+слова - слово
+, - ,
+о - о
+друг - друг
+мой - мой
+, - ,
+ни - ни
+вздоха - вздох
+… - …
+» - &quot;
+У - у
+меня - меня
+нет - нет
+голоса - голос
+, - ,
+я - я
+не - не
+могу - мочь
+петь - петь
+, - ,
+но - но
+я - я
+вам - вам
+спою - спою
+, - ,
+чтобы - чтобы
+вы - вы
+знали - знать
+мотив - мотив
+. - .
+
+
+ - 
+
+
+И - и
+она - она
+запела - запеть
+тихо - тихо
+, - ,
+почти - почти
+говоря - говорить
+. - .
+Я - я
+прислушался - прислушаться
+к - к
+мотиву - мотив
+и - и
+попросил - попросить
+повторить - повторить
+. - .
+
+
+ - 
+
+
+– - –
+И - и
+слова - слово
+какие - какой
+хорошие - хороший
+, - ,
+– - –
+сказала - сказать
+она - она
+. - .
+– - –
+Только - только
+теперь - теперь
+для - для
+меня - меня
+непонятные - непонятный
+. - .
+Теперь - теперь
+мои - мой
+дни - день
+, - ,
+– - –
+повторила - повторить
+она - она
+опять - опять
+. - .
+– - –
+А - а
+вот - вот
+кончится - кончиться
+весна - весна
+… - …
+
+
+ - 
+
+
+Голос - голос
+ее - ее
+упал - упасть
+. - .
+Я - я
+вдруг - вдруг
+вспомнил - вспомнить
+, - ,
+что - что
+не - не
+видал - видал
+ее - её
+улыбки - улыбка
+. - .
+
+
+ - 
+
+
+– - –
+Вы - вы
+никогда - никогда
+не - не
+смеетесь - смеетесь
+, - ,
+Марта - марта
+? - ?
+– - –
+спросил - спросить
+я - я
+. - .
+
+
+ - 
+
+
+– - –
+Солнце - солнце
+заходит - заходить
+, - ,
+– - –
+серьезно - серьезно
+ответила - ответить
+она - она
+. - .
+– - –
+Утром - утро
+я - я
+смеюсь - смеяться
+. - .
+
+
+ - 
+
+
+Теперь - теперь
+, - ,
+когда - когда
+я - я
+сижу - сидеть
+в - в
+своей - свой
+петербургской - петербургской
+квартире - квартира
+с - с
+темными - тёмный
+окнами - окно
+без - без
+занавесок - занавеска
+, - ,
+с - с
+черно - черно
+- - -
+серым - серый
+потолком - потолок
+, - ,
+немного - немного
+нависшим - нависнуть
+в - в
+середине - середина
+, - ,
+где - где
+торчит - торчать
+большой - большой
+угрюмый - угрюмый
+крюк - крюк
+, - ,
+– - –
+теперь - теперь
+мне - мне
+кажется - казаться
+, - ,
+что - что
+ничего - ничто
+этого - это
+не - не
+было - быть
+и - и
+не - не
+могло - мочь
+быть - быть
+. - .
+Или - или
+все - весь
+это - это
+я - я
+видел - видеть
+во - во
+сне - сон
+? - ?
+Но - но
+то - то
+, - ,
+что - что
+случилось - случиться
+потом - потом
+, - ,
+ужасное - ужасный
+, - ,
+гадкое - гадкий
+, - ,
+невозможное - невозможный
+, - ,
+из - из
+- - -
+за - за
+чего - что
+я - я
+умираю - умирать
+, - ,
+то - то
+ведь - ведь
+не - не
+сон - сон
+. - .
+И - и
+между - между
+тем - тем
+одно - одно
+зависело - зависеть
+от - от
+другого - другого
+. - .
+
+
+ - 
+
+
+Было - было
+ли - ли
+все - все
+случайно - случайно
+? - ?
+Или - или
+, - ,
+напротив - напротив
+, - ,
+нет - нет
+и - и
+не - не
+может - мочь
+быть - быть
+ничего - ничто
+случайного - случайный
+? - ?
+Не - не
+знаю - знать
+. - .
+Мне - мне
+трудно - трудный
+думать - думать
+об - об
+этом - это
+. - .
+Пусть - пусть
+решают - решать
+другие - другие
+. - .
+
+
+ - 
+
+
+В - в
+тот - тот
+же - же
+вечер - вечер
+, - ,
+после - после
+второго - второй
+свидания - свидание
+с - с
+Мартой - марта
+, - ,
+я - я
+потушил - потушить
+свечи - свеча
+в - в
+своей - свой
+комнате - комната
+, - ,
+отворил - отворить
+окно - окно
+и - и
+сел - сесть
+играть - играть
+. - .
+Я - я
+старался - стараться
+вспомнить - вспомнить
+мотив - мотив
+, - ,
+который - который
+она - она
+мне - мне
+дала - дать
+. - .
+Это - это
+был - был
+тихий - тихий
+простой - простой
+мотив - мотив
+из - из
+несложных - несложный
+нот - нота
+. - .
+Я - я
+не - не
+прибавил - прибавить
+к - к
+нему - нему
+ни - ни
+одного - одного
+лишнего - лишний
+аккорда - аккорд
+, - ,
+ни - ни
+одной - одной
+гаммы - гамма
+. - .
+Я - я
+повторял - повторять
+все - весь
+одно - один
+и - и
+то - то
+же - же
+, - ,
+и - и
+опять - опять
+сначала - сначала
+, - ,
+и - и
+каждый - каждый
+раз - раз
+, - ,
+мне - мне
+казалось - казаться
+, - ,
+выходило - выходить
+иначе - иначе
+, - ,
+лучше - хороший
+, - ,
+больше - больше
+напоминало - напоминать
+весенний - весенний
+шум - шум
+и - и
+желтые - жёлтый
+лучи - луч
+вечерней - вечерний
+зари - заря
+. - .
+
+
+ - 
+
+
+Я - я
+сам - сам
+не - не
+знаю - знать
+, - ,
+что - что
+было - было
+со - со
+мною - мною
+. - .
+Но - но
+было - было
+что - что
+- - -
+то - то
+хорошее - хороший
+. - .
+Я - я
+подошел - подойти
+к - к
+окну - окно
+и - и
+поглядел - поглядеть
+вниз - вниз
+, - ,
+не - не
+думая - думать
+. - .
+Потом - потом
+отворил - отворить
+дверь - дверь
+, - ,
+спустился - спуститься
+по - по
+темной - тёмный
+лестнице - лестница
+на - на
+двор - двор
+и - и
+пошел - пойти
+в - в
+сад - сад
+. - .
+
+
+ - 
+
+
+Там - там
+было - было
+светлее - светлый
+, - ,
+чем - чем
+в - в
+комнатах - комната
+; - ;
+стоял - стоять
+какой - какой
+- - -
+то - то
+неясный - неясный
+, - ,
+мерцающий - мерцать
+полумрак - полумрак
+. - .
+Молодой - молодой
+месяц - месяц
+закатился - закатиться
+, - ,
+светили - светили
+только - только
+звезды - звезда
+. - .
+
+
+ - 
+
+
+В - в
+конце - конец
+дорожки - дорожка
+тускло - тускло
+белело - белеть
+платье - платье
+Марты - марта
+. - .
+Я - я
+так - так
+и - и
+знал - знать
+, - ,
+что - что
+она - она
+тут - тут
+и - и
+слушала - слушать
+. - .
+Она - она
+должна - должный
+была - была
+слушать - слушать
+… - …
+
+
+ - 
+
+
+– - –
+Хорошо - хороший
+, - ,
+– - –
+сказала - сказать
+она - она
+шепотом - шёпот
+, - ,
+когда - когда
+я - я
+был - был
+близко - близко
+. - .
+– - –
+Не - не
+говорите - говорить
+громко - громко
+. - .
+Я - я
+вас - вас
+ждала - ждать
+, - ,
+мне - мне
+надо - надо
+сказать - сказать
+вас - вас
+два - два
+слова - слово
+. - .
+Завтра - завтра
+в - в
+сад - сад
+не - не
+ходите - ходить
+. - .
+А - а
+послезавтра - послезавтра
+, - ,
+да - да
+, - ,
+послезавтра - послезавтра
+приходите - приходить
+с - с
+закатом - закат
+, - ,
+надолго - надолго
+. - .
+В - в
+тот - тот
+вечер - вечер
+яблони - яблони
+станут - стать
+распускаться - распускаться
+. - .
+Мы - мы
+можем - мочь
+увидать - увидать
+первый - первый
+цветок - цветок
+. - .
+Первые - первый
+цветы - цветок
+… - …
+Хотите - хотеть
+? - ?
+Придете - придете
+? - ?
+
+
+ - 
+
+
+– - –
+Да - да
+, - ,
+приду - прийти
+, - ,
+– - –
+сказал - сказать
+я - я
+тоже - тоже
+шепотом - шёпот
+. - .
+
+
+ - 
+
+
+Она - она
+кивнула - кивнуть
+головой - голов
+, - ,
+отделилась - отделиться
+от - от
+изгороди - изгородь
+и - и
+ушла - уйти
+. - .
+Я - я
+остался - остаться
+один - один
+. - .
+
+
+ - 
+
+
+VII - vii
+
+ - 
+
+Я - я
+встал - встать
+поздно - поздно
+. - .
+Лениво - лениво
+прошел - пройти
+в - в
+столовую - столовая
+, - ,
+лениво - лениво
+не - не
+допил - допить
+своего - свой
+кофе - кофе
+и - и
+, - ,
+помня - помнить
+приказание - приказание
+, - ,
+в - в
+сад - сад
+не - не
+пошел - пойти
+, - ,
+а - а
+вяло - вяло
+слонялся - слонялся
+по - по
+комнатам - комната
+. - .
+Приняться - приняться
+за - за
+что - что
+- - -
+нибудь - нибудь
+не - не
+было - быть
+силы - сила
+. - .
+
+
+ - 
+
+
+Я - я
+хотел - хотеть
+пойти - пойти
+к - к
+маме - мама
+, - ,
+сесть - сесть
+с - с
+нею - нею
+рядом - рядом
+, - ,
+помолчать - помолчать
+; - ;
+несмотря - несмотря
+на - на
+туман - туман
+, - ,
+в - в
+котором - котором
+я - я
+жил - жить
+последние - последний
+дни - день
+, - ,
+я - я
+беспокоился - беспокоиться
+, - ,
+мне - мне
+недоставало - недоставать
+чего - что
+- - -
+то - то
+– - –
+я - я
+редко - редко
+видел - видеть
+маму - мама
+. - .
+Я - я
+ей - ей
+не - не
+хотел - хотеть
+ничего - ничто
+рассказывать - рассказывать
+– - –
+ведь - ведь
+она - она
+не - не
+любит - любить
+сада - сад
+, - ,
+а - а
+это - это
+только - только
+о - о
+саде - сад
+. - .
+Но - но
+мама - мама
+была - была
+мне - мне
+нужна - нужный
+, - ,
+как - как
+я - я
+сам - сам
+. - .
+Я - я
+теперь - теперь
+только - только
+понял - понять
+, - ,
+что - что
+она - она
+чувствовала - чувствовать
+не - не
+то - то
+, - ,
+что - что
+я - я
+, - ,
+и - и
+не - не
+так - так
+, - ,
+как - как
+я - я
+. - .
+Но - но
+зачем - зачем
+она - она
+обманывала - обманывать
+меня - меня
+столько - столько
+времени - время
+? - ?
+Зачем - зачем
+все - все
+сделала - сделать
+, - ,
+чтобы - чтобы
+я - я
+не - не
+смог - смочь
+без - без
+нее - нее
+жить - жить
+? - ?
+
+
+ - 
+
+
+Я - я
+сидел - сидеть
+за - за
+обедом - обед
+– - –
+вялый - вялый
+и - и
+бледный - бледный
+, - ,
+ничего - ничто
+не - не
+ел - есть
+. - .
+Вдруг - вдруг
+я - я
+почувствовал - почувствовать
+чей - чей
+- - -
+то - то
+взгляд - взгляд
+на - на
+себе - себя
+и - и
+обернулся - обернуться
+. - .
+Мама - мама
+смотрела - смотреть
+на - на
+меня - меня
+в - в
+упор - упор
+потемневшими - потемневшими
+глазами - глаз
+, - ,
+и - и
+столько - столько
+в - в
+них - них
+было - было
+неожиданной - неожиданный
+злобы - злоба
+и - и
+ненависти - ненависть
+, - ,
+что - что
+я - я
+вздрогнул - вздрогнуть
+, - ,
+и - и
+сердце - сердце
+у - у
+меня - меня
+похолодело - похолодеть
+, - ,
+хотя - хотя
+я - я
+еще - еще
+ничего - ничто
+не - не
+успел - успеть
+подумать - подумать
+и - и
+сообразить - сообразить
+. - .
+
+
+ - 
+
+
+– - –
+Да - да
+нет - нет
+, - ,
+я - я
+брежу - бредить
+, - ,
+это - это
+мне - мне
+показалось - показаться
+, - ,
+этого - это
+не - не
+может - мочь
+быть - быть
+, - ,
+– - –
+мелькнуло - мелькнуть
+у - у
+меня - меня
+в - в
+голове - голова
+в - в
+следующую - следующий
+минуту - минута
+. - .
+Но - но
+точно - точно
+большая - больший
+тяжесть - тяжесть
+придавила - придавить
+меня - меня
+, - ,
+и - и
+я - я
+сразу - сразу
+уменьшился - уменьшиться
+и - и
+съежился - съёжиться
+и - и
+стал - стать
+чувствовать - чувствовать
+свое - свой
+собственное - собственный
+тело - тело
+, - ,
+и - и
+мои - мой
+члены - член
+стали - стать
+мне - мне
+мешать - мешать
+. - .
+
+
+ - 
+
+
+Прямо - прямо
+из - из
+- - -
+за - за
+стола - стол
+я - я
+пошел - пойти
+в - в
+мамину - мамину
+уборную - уборная
+. - .
+Мамы - мама
+там - там
+еще - еще
+не - не
+было - быть
+, - ,
+но - но
+я - я
+стал - стать
+ждать - ждать
+. - .
+Она - она
+придет - прийти
+. - .
+
+
+ - 
+
+
+Она - она
+, - ,
+действительно - действительно
+, - ,
+пришла - прийти
+, - ,
+– - –
+не - не
+взглянув - взглянуть
+на - на
+меня - меня
+, - ,
+села - сесть
+в - в
+большое - большой
+кресло - кресло
+и - и
+молчала - молчать
+. - .
+Я - я
+тоже - тоже
+молчал - молчать
+и - и
+страдал - страдать
+невыразимо - невыразимо
+, - ,
+потому - потому
+что - что
+эти - этот
+страдания - страдание
+были - были
+какие - какой
+- - -
+то - то
+неожиданные - неожиданный
+, - ,
+бессмысленные - бессмысленный
+и - и
+безнадежные - безнадёжный
+. - .
+
+
+ - 
+
+
+– - –
+Я - я
+все - все
+знаю - знать
+, - ,
+Володя - володя
+, - ,
+– - –
+сказала - сказать
+она - она
+, - ,
+наконец - наконец
+. - .
+
+
+ - 
+
+
+При - при
+первых - первый
+звуках - звук
+ее - её
+голоса - голос
+мне - мне
+стало - стать
+легче - лёгкий
+. - .
+Но - но
+слов - слово
+ее - ее
+я - я
+не - не
+понял - понять
+. - .
+
+
+ - 
+
+
+– - –
+Ты - ты
+о - о
+чем - что
+? - ?
+– - –
+спросил - спросить
+я - я
+с - с
+усилием - усилие
+. - .
+
+
+ - 
+
+
+– - –
+Говорю - говорю
+тебе - тебе
+– - –
+я - я
+все - все
+знаю - знать
+и - и
+все - все
+поняла - понять
+. - .
+Ты - ты
+влюблен - влюблен
+. - .
+Ага - ага
+! - !
+это - это
+должно - должный
+было - было
+прийти - прийти
+, - ,
+говорят - говорить
+. - .
+Но - но
+я - я
+говорю - говорить
+– - –
+нет - нет
+, - ,
+не - не
+должно - должный
+. - .
+Нет - нет
+, - ,
+не - не
+может - мочь
+! - !
+Я - я
+в - в
+это - это
+силы - сила
+свои - свой
+положила - положить
+, - ,
+и - и
+ты - ты
+не - не
+уйдешь - уйти
+! - !
+
+
+ - 
+
+
+Я - я
+с - с
+отчаянием - отчаяние
+и - и
+тупостью - тупость
+смотрел - смотреть
+на - на
+ее - её
+безумие - безумие
+. - .
+Я - я
+испугался - испугаться
+ее - её
+злобы - злоба
+, - ,
+но - но
+не - не
+жалел - жалеть
+ее - ее
+. - .
+
+
+ - 
+
+
+– - –
+Да - да
+о - о
+чем - что
+ты - ты
+, - ,
+скажи - сказать
+хоть - хоть
+слово - слово
+! - !
+Я - я
+не - не
+могу - мочь
+понять - понять
+. - .
+Она - она
+успокоилась - успокоиться
+немного - немного
+и - и
+продолжала - продолжать
+тише - тише
+: - :
+
+
+ - 
+
+
+– - –
+Ты - ты
+любишь - любить
+Марфу - марфу
+Кореневу - коренев
+. - .
+Я - я
+знаю - знать
+, - ,
+что - что
+вы - вы
+видитесь - видеться
+в - в
+саду - сад
+. - .
+Ты - ты
+ходишь - ходить
+, - ,
+как - как
+безумный - безумный
+. - .
+Не - не
+желаешь - желать
+ли - ли
+жениться - жениться
+на - на
+ней - ней
+? - ?
+К - к
+сожалению - сожаление
+, - ,
+не - не
+могу - мочь
+от - от
+тебя - тебя
+скрыть - скрыть
+, - ,
+твоя - твой
+возлюбленная - возлюбленная
+со - со
+странностями - странность
+. - .
+Распущена - распустить
+с - с
+детства - детство
+и - и
+чудит - чудить
+. - .
+Или - или
+дурочка - дурочка
+, - ,
+или - или
+уж - уж
+чересчур - чересчур
+умна - умный
+. - .
+Берегись - берегись
+! - !
+И - и
+напрасно - напрасно
+ты - ты
+молчал - молчать
+. - .
+Я - я
+ведь - ведь
+все - все
+знаю - знать
+. - .
+
+
+ - 
+
+
+Мысли - мысль
+перепутались - перепутаться
+у - у
+меня - меня
+в - в
+голове - голова
+, - ,
+язык - язык
+не - не
+повиновался - повиноваться
+. - .
+Я - я
+люблю - любить
+Марту - марту
+? - ?
+Да - да
+быть - быть
+же - же
+не - не
+может - мочь
+! - !
+Я - я
+хочу - хотеть
+на - на
+ней - ней
+жениться - жениться
+? - ?
+Я - я
+– - –
+жениться - жениться
+? - ?
+Нет - нет
+, - ,
+или - или
+кто - кто
+- - -
+нибудь - нибудь
+из - из
+нас - нас
+сумасшедший - сумасшедший
+, - ,
+или - или
+все - весь
+сумасшедшие - сумасшедшие
+. - .
+Я - я
+стал - стать
+говорить - говорить
+, - ,
+запинаясь - запинаться
+, - ,
+путаясь - путаться
+, - ,
+сам - сам
+себя - себя
+не - не
+понимая - понимать
+. - .
+Говорил - говорить
+о - о
+саде - сад
+, - ,
+о - о
+весне - весна
+, - ,
+о - о
+яблонях - яблоня
+, - ,
+о - о
+Марте - март
+, - ,
+и - и
+что - что
+Марта - марта
+для - для
+меня - меня
+– - –
+оживший - ожить
+сад - сад
+, - ,
+то - то
+же - же
+, - ,
+что - что
+небо - нёбо
+и - и
+ветер - ветер
+… - …
+Но - но
+сейчас - сейчас
+же - же
+вспоминал - вспоминать
+, - ,
+как - как
+- - -
+то - то
+безнадежно - безнадёжный
+, - ,
+что - что
+нельзя - нельзя
+этого - это
+понять - понять
+, - ,
+если - если
+не - не
+чувствовать - чувствовать
+… - …
+
+
+ - 
+
+
+В - в
+душе - душа
+у - у
+меня - меня
+был - быть
+только - только
+инстинктивный - инстинктивный
+, - ,
+режущий - резать
+страх - страх
+, - ,
+что - что
+я - я
+один - один
+, - ,
+что - что
+она - она
+уходит - уходить
+и - и
+ненавидит - ненавидеть
+меня - меня
+, - ,
+а - а
+я - я
+не - не
+могу - мочь
+остаться - остаться
+один - один
+. - .
+Я - я
+готов - готовый
+был - был
+солгать - солгать
+в - в
+эту - этот
+минуту - минута
+, - ,
+если - если
+б - б
+это - это
+чему - что
+- - -
+нибудь - нибудь
+помогло - помочь
+, - ,
+а - а
+я - я
+еще - еще
+никогда - никогда
+не - не
+лгал - лгать
+. - .
+Я - я
+думаю - думать
+, - ,
+она - она
+увидала - увидала
+, - ,
+что - что
+мне - мне
+тяжело - тяжёлый
+. - .
+
+
+ - 
+
+
+– - –
+Ну - ну
+, - ,
+хорошо - хороший
+, - ,
+– - –
+перебила - перебить
+она - она
+, - ,
+– - –
+ты - ты
+и - и
+сам - сам
+, - ,
+кажется - казаться
+, - ,
+не - не
+подозревал - подозревать
+, - ,
+что - что
+это - это
+так - так
+случится - случиться
+. - .
+Но - но
+помни - помни
+, - ,
+Володя - володя
+. - .
+Наши - наш
+отношения - отношение
+не - не
+таковы - таковы
+. - .
+Я - я
+не - не
+могла - мочь
+никогда - никогда
+и - и
+не - не
+могу - мочь
+быть - быть
+пассивно - пассивно
+- - -
+нежной - нежный
+матерью - мать
+. - .
+Я - я
+тебе - тебе
+жизнь - жизнь
+отдала - отдать
+до - до
+последней - последний
+капли - капля
+– - –
+и - и
+ты - ты
+мне - мне
+всю - весь
+свою - свой
+отдай - отдай
+, - ,
+всю - весь
+, - ,
+я - я
+к - к
+этому - это
+шла - идти
+и - и
+не - не
+разлучалась - разлучалась
+с - с
+тобой - тобой
+, - ,
+и - и
+сделала - сделать
+тебя - тебя
+сама - сама
+– - –
+для - для
+себя - себя
+. - .
+Может - мочь
+быть - быть
+, - ,
+это - это
+дурно - дурной
+, - ,
+мне - мне
+все - все
+равно - равный
+. - .
+Это - это
+справедливо - справедливый
+. - .
+Я - я
+на - на
+самопожертвования - самопожертвование
+не - не
+способна - способный
+. - .
+Да - да
+и - и
+поздно - поздно
+теперь - теперь
+. - .
+Теперь - теперь
+– - –
+как - как
+бы - бы
+ты - ты
+ни - ни
+любил - любить
+жену - жена
+, - ,
+возлюбленную - возлюбленную
+, - ,
+как - как
+бы - бы
+она - она
+тебя - тебя
+ни - ни
+любила - любить
+– - –
+ты - ты
+без - без
+меня - меня
+не - не
+проживешь - проживешь
+! - !
+
+
+ - 
+
+
+Она - она
+сказала - сказать
+это - это
+злорадно - злорадно
+и - и
+встала - встать
+. - .
+Я - я
+подошел - подойти
+к - к
+ней - ней
+, - ,
+обнял - обнять
+и - и
+заглянул - заглянуть
+в - в
+глаза - глаз
+. - .
+
+
+ - 
+
+
+– - –
+Не - не
+мучай - мучить
+меня - меня
+, - ,
+– - –
+проговорил - проговорить
+я - я
+. - .
+– - –
+Ну - ну
+да - да
+, - ,
+я - я
+твой - твой
+, - ,
+не - не
+могу - мочь
+без - без
+тебя - тебя
+. - .
+Я - я
+никаких - никакой
+жен - жена
+не - не
+хочу - хотеть
+. - .
+Я - я
+никого - никто
+не - не
+люблю - любить
+. - .
+Мне - мне
+странно - странный
+, - ,
+зачем - зачем
+ты - ты
+… - …
+Я - я
+сад - сад
+люблю - любить
+, - ,
+я - я
+цветы - цветок
+люблю - любить
+и - и
+музыку - музыка
+… - …
+Прости - простить
+мне - мне
+. - .
+
+
+ - 
+
+
+Она - она
+обняла - обнять
+меня - меня
+крепко - крепко
+и - и
+сказала - сказать
+: - :
+
+
+ - 
+
+
+– - –
+Ты - ты
+должен - должный
+обещать - обещать
+, - ,
+что - что
+не - не
+пойдешь - пойти
+в - в
+сад - сад
+и - и
+не - не
+увидишь - увидишь
+Марту - март
+. - .
+Ты - ты
+еще - еще
+не - не
+любишь - любить
+ее - ее
+, - ,
+но - но
+я - я
+чувствую - чувствовать
+, - ,
+не - не
+говори - говорить
+, - ,
+я - я
+чувствую - чувствовать
+, - ,
+что - что
+нельзя - нельзя
+… - …
+Я - я
+знаю - знать
+, - ,
+ты - ты
+можешь - мочь
+изменить - изменить
+своему - свой
+обещанию - обещание
+, - ,
+мой - мой
+слабенький - слабенький
+мальчик - мальчик
+… - …
+Завтра - завтра
+только - только
+потерпи - потерпи
+… - …
+Послезавтра - послезавтра
+утром - утро
+мы - мы
+уедем - уехать
+. - .
+Хорошо - хороший
+? - ?
+Завтра - завтра
+! - !
+Ведь - ведь
+в - в
+этот - этот
+вечер - вечер
+должны - должный
+только - только
+распуститься - распуститься
+яблони - яблони
+. - .
+
+
+ - 
+
+
+– - –
+Ты - ты
+молчишь - молчать
+? - ?
+Тебе - тебе
+не - не
+хочется - хотеться
+? - ?
+Она - она
+опять - опять
+сдвинула - сдвинуть
+брови - бровь
+. - .
+
+
+ - 
+
+
+Я - я
+обещал - обещать
+. - .
+Мне - мне
+было - было
+тяжело - тяжёлый
+, - ,
+я - я
+плакал - плакать
+. - .
+Я - я
+так - так
+любил - любить
+цветы - цветок
+… - …
+Но - но
+я - я
+знал - знать
+, - ,
+что - что
+смогу - смочь
+для - для
+нее - нее
+. - .
+Я - я
+верил - верить
+, - ,
+хотя - хотя
+не - не
+понимал - понимать
+, - ,
+что - что
+нельзя - нельзя
+идти - идти
+… - …
+
+
+ - 
+
+
+VIII - viii
+
+ - 
+
+С - с
+утра - утро
+начались - начаться
+приготовления - приготовление
+к - к
+отъезду - отъезд
+. - .
+Экономка - экономка
+не - не
+могла - мочь
+ехать - ехать
+с - с
+нами - нами
+, - ,
+потому - потому
+что - что
+отец - отец
+еще - еще
+был - был
+болен - больной
+. - .
+Мама - мама
+энергично - энергично
+принялась - приняться
+за - за
+все - все
+сама - сама
+. - .
+Никто - никто
+не - не
+понимал - понимать
+, - ,
+зачем - зачем
+мы - мы
+едем - ехать
+и - и
+почему - почему
+так - так
+скоро - скоро
+. - .
+Я - я
+сидел - сидеть
+, - ,
+как - как
+мертвый - мёртвый
+, - ,
+с - с
+полузакрытыми - полузакрытыми
+глазами - глаз
+. - .
+Солнце - солнце
+подошло - подойти
+к - к
+окну - окно
+, - ,
+и - и
+лучи - луч
+упали - упасть
+на - на
+меня - меня
+. - .
+Я - я
+словно - словно
+испугался - испугаться
+, - ,
+встал - встать
+и - и
+спустил - спустить
+занавеску - занавеска
+. - .
+Солнце - солнце
+было - было
+не - не
+мое - мой
+. - .
+
+
+ - 
+
+
+Часы - час
+проходили - проходить
+, - ,
+сердце - сердце
+во - во
+мне - мне
+как - как
+- - -
+то - то
+тупо - тупо
+ныло - ныло
+, - ,
+тупо - тупо
+и - и
+беспрерывно - беспрерывно
+. - .
+Я - я
+страдал - страдать
+с - с
+недоумением - недоумение
+, - ,
+но - но
+покоряясь - покоряться
+и - и
+не - не
+рассуждая - рассуждать
+, - ,
+не - не
+имея - иметь
+силы - сила
+ни - ни
+выбирать - выбирать
+, - ,
+ни - ни
+решать - решать
+. - .
+Все - все
+равно - равный
+, - ,
+будь - будь
+что - что
+будет - будет
+. - .
+
+
+ - 
+
+
+Но - но
+в - в
+час - час
+заката - закат
+я - я
+хотел - хотеть
+пойти - пойти
+к - к
+маме - мама
+, - ,
+прижаться - прижаться
+к - к
+ней - ней
+, - ,
+закрыть - закрыть
+глаза - глаз
+и - и
+просидеть - просидеть
+так - так
+долго - долго
+без - без
+времени - время
+. - .
+
+
+ - 
+
+
+Я - я
+вышел - выйти
+в - в
+гостиную - гостиная
+, - ,
+взглянул - взглянуть
+в - в
+окошко - окошко
+. - .
+Солнце - солнце
+было - было
+уже - уже
+круглое - круглый
+и - и
+большое - большой
+и - и
+касалось - касаться
+одним - одним
+краем - край
+серой - серый
+горы - гора
+. - .
+
+
+ - 
+
+
+Я - я
+пошел - пойти
+, - ,
+почти - почти
+побежал - побежать
+в - в
+мамину - мамину
+комнату - комната
+. - .
+Там - там
+никого - никто
+не - не
+было - быть
+. - .
+Я - я
+миновал - миновать
+угловую - угловой
+, - ,
+– - –
+никого - никто
+. - .
+В - в
+коридоре - коридор
+я - я
+встретил - встретить
+горничную - горничная
+. - .
+
+
+ - 
+
+
+– - –
+Где - где
+барыня - барыня
+? - ?
+– - –
+спросил - спросить
+я - я
+, - ,
+спеша - спеша
+. - .
+
+
+ - 
+
+
+– - –
+Уехали - уехали
+- - -
+с - с
+, - ,
+только - только
+сейчас - сейчас
+, - ,
+насчет - насчет
+коляски - коляска
+– - –
+завтра - завтра
+утром - утро
+, - ,
+а - а
+оттуда - оттуда
+, - ,
+велели - велеть
+сказать - сказать
+, - ,
+что - что
+к - к
+Полоцким - полоцкий
+поедут - поехать
+, - ,
+вернутся - вернуться
+поздно - поздно
+; - ;
+что - что
+коли - коли
+угодно - угодно
+– - –
+так - так
+, - ,
+чтобы - чтобы
+и - и
+вы - вы
+к - к
+Полоцким - полоцким
+часов - час
+в - в
+9 - 9
+пожаловали - пожаловать
+, - ,
+а - а
+коли - коли
+не - не
+так - так
+здоровы - здоровый
+, - ,
+то - то
+чтобы - чтобы
+лечь - лечь
+изволили - изволить
+пораньше - пораньше
+… - …
+
+
+ - 
+
+
+Я - я
+не - не
+дослушал - дослушать
+горничную - горничная
+. - .
+Это - это
+было - было
+жестоко - жестокий
+. - .
+Это - это
+было - было
+не - не
+по - по
+силам - сила
+мне - мне
+. - .
+Я - я
+– - –
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>один - один
+, - ,
+теперь - теперь
+, - ,
+в - в
+эту - этот
+минуту - минута
+, - ,
+один - один
+со - со
+своим - свой
+обещанием - обещание
+и - и
+таким - такой
+большим - больший
+желанием - желание
+еще - еще
+раз - раз
+увидеть - увидеть
+сад - сад
+, - ,
+весну - весна
+, - ,
+послушать - послушать
+, - ,
+что - что
+будут - будут
+говорить - говорить
+яблони - яблоня
+… - …
+Как - как
+всему - всему
+я - я
+покоряюсь - покоряться
+без - без
+борьбы - борьба
+, - ,
+всему - всему
+, - ,
+что - что
+сильнее - сильный
+меня - меня
+– - –
+я - я
+покорился - покориться
+и - и
+тут - тут
+неизбежному - неизбежный
+. - .
+Я - я
+еще - еще
+раз - раз
+посмотрел - посмотреть
+на - на
+солнце - солнце
+, - ,
+слабо - слабо
+улыбнулся - улыбнуться
+и - и
+, - ,
+не - не
+оглядываясь - оглядываться
+, - ,
+не - не
+останавливаясь - останавливаться
+, - ,
+пошел - пойти
+в - в
+сад - сад
+. - .
+
+
+ - 
+
+
+IX - ix
+
+ - 
+
+Когда - когда
+я - я
+захлопнул - захлопнуть
+за - за
+собой - себя
+калитку - калитка
+и - и
+сделал - сделать
+несколько - несколько
+шагов - шаг
+вглубь - вглубь
+– - –
+я - я
+вдруг - вдруг
+ожил - ожить
+. - .
+Ожил - ожить
+и - и
+все - все
+забыл - забыть
+. - .
+С - с
+каждой - каждый
+секундой - секунда
+мне - мне
+делалось - делаться
+легче - лёгкий
+и - и
+радостнее - радостный
+. - .
+Ароматы - аромат
+смешанные - смешанный
+, - ,
+разнородные - разнородный
+, - ,
+разнотонные - разнотонные
+охватили - охватить
+меня - меня
+. - .
+Я - я
+вернулся - вернуться
+к - к
+друзьям - друг
+, - ,
+и - и
+мне - мне
+было - было
+стыдно - стыдный
+, - ,
+что - что
+я - я
+у - у
+них - них
+давно - давно
+не - не
+был - был
+. - .
+Незаметно - незаметно
+я - я
+дошел - дойти
+до - до
+конца - конец
+дорожки - дорожка
+. - .
+
+
+ - 
+
+
+Марта - марта
+была - была
+тут - тут
+, - ,
+уже - уже
+не - не
+за - за
+изгородью - изгородь
+, - ,
+а - а
+на - на
+моей - мой
+скамейке - скамейка
+; - ;
+она - она
+сидела - сидеть
+со - со
+сложенными - сложить
+на - на
+коленях - колено
+руками - рука
+и - и
+смотрела - смотреть
+на - на
+меня - меня
+строго - строго
+. - .
+
+
+ - 
+
+
+– - –
+Простите - простить
+, - ,
+Марта - марта
+, - ,
+– - –
+сказал - сказать
+я - я
+. - .
+– - –
+Солнце - солнце
+закатилось - закатилось
+. - .
+
+
+ - 
+
+
+– - –
+Нет - нет
+. - .
+Оно - оно
+еще - еще
+не - не
+за - за
+горизонтом - горизонт
+. - .
+Оно - оно
+только - только
+за - за
+горой - гора
+. - .
+Ничего - ничто
+. - .
+
+
+ - 
+
+
+Я - я
+сел - сесть
+с - с
+ней - ней
+рядом - рядом
+. - .
+Она - она
+показалась - показаться
+мне - мне
+бледнее - бледнее
+, - ,
+чем - чем
+была - быть
+. - .
+Но - но
+платье - платье
+, - ,
+теперь - теперь
+я - я
+уже - уже
+не - не
+мог - мочь
+сомневаться - сомневаться
+, - ,
+было - было
+не - не
+белое - белый
+, - ,
+а - а
+чуть - чуть
+- - -
+чуть - чуть
+розовое - розовый
+. - .
+
+
+ - 
+
+
+– - –
+Мы - мы
+будем - будем
+ждать - ждать
+, - ,
+– - –
+сказала - сказать
+Марта - марта
+. - .
+– - –
+Они - они
+должны - должный
+сегодня - сегодня
+распуститься - распуститься
+. - .
+Видите - видеть
+месяц - месяц
+на - на
+небе - нёбо
+? - ?
+Видите - видеть
+, - ,
+– - –
+белый - белый
+, - ,
+как - как
+маленькое - маленький
+облачко - облачко
+? - ?
+Когда - когда
+он - он
+станет - стать
+светлеть - светлеть
+, - ,
+а - а
+небо - нёбо
+станет - стать
+выше - высоко
+– - –
+тогда - тогда
+они - они
+распустятся - распустятся
+. - .
+
+
+ - 
+
+
+– - –
+Отчего - отчего
+вы - вы
+такая - такой
+, - ,
+Марта - марта
+? - ?
+– - –
+спросил - спросить
+я - я
+. - .
+– - –
+Вы - вы
+точно - точно
+сами - сами
+с - с
+ними - ними
+. - .
+
+
+ - 
+
+
+– - –
+А - а
+вы - вы
+разве - разве
+не - не
+такой - такой
+? - ?
+И - и
+вы - вы
+такой - такой
+, - ,
+и - и
+вы - вы
+также - также
+любите - любить
+, - ,
+оттого - оттого
+я - я
+и - и
+рада - рад
+, - ,
+что - что
+вы - вы
+со - со
+мной - мной
+, - ,
+и - и
+люблю - любить
+вас - вас
+. - .
+
+
+ - 
+
+
+– - –
+И - и
+я - я
+люблю - любить
+вас - вас
+, - ,
+Марта - марта
+, - ,
+– - –
+сказал - сказать
+я - я
+. - .
+– - –
+Как - как
+сад - сад
+, - ,
+как - как
+все - все
+. - .
+
+
+ - 
+
+
+Она - она
+повторила - повторить
+: - :
+« - &quot;
+как - как
+все - все
+» - &quot;
+… - …
+и - и
+задумалась - задуматься
+. - .
+
+
+ - 
+
+
+Короткие - короткий
+сумерки - сумерки
+пролетели - пролететь
+. - .
+Месяц - месяц
+сверкнул - сверкнуть
+и - и
+бросил - бросить
+робкий - робкий
+, - ,
+неумелый - неумелый
+и - и
+неясный - неясный
+свет - свет
+на - на
+дорожку - дорожка
+. - .
+Сильнее - сильнее
+запахло - запахнуть
+землей - земля
+и - и
+анемонами - анемон
+. - .
+Крепкие - крепкий
+ветки - ветка
+яблони - яблони
+кинули - кинуть
+тень - тень
+. - .
+И - и
+точно - точно
+все - все
+, - ,
+до - до
+тех - тот
+пор - пора
+безмолвное - безмолвный
+и - и
+неподвижное - неподвижный
+, - ,
+зашепталось - зашептаться
+и - и
+зашевелилось - зашевелиться
+. - .
+Чуть - чуть
+видный - видный
+, - ,
+почти - почти
+невидный - невидный
+, - ,
+пар - пар
+, - ,
+или - или
+дым - дым
+, - ,
+скользил - скользить
+по - по
+лунному - лунный
+свету - свет
+. - .
+Тени - тень
+набегали - набегать
+и - и
+сбегали - сбегать
+с - с
+цветов - цвет
+. - .
+Небо - небо
+вместе - вместе
+с - с
+месяцем - месяц
+становились - становиться
+все - все
+выше - высоко
+, - ,
+все - все
+дальше - дальше
+и - и
+холоднее - холодный
+. - .
+
+
+ - 
+
+
+Мне - мне
+было - было
+страшно - страшный
+и - и
+жутко - жуткий
+. - .
+Я - я
+ждал - ждать
+чего - что
+- - -
+то - то
+, - ,
+весь - весь
+ушел - уйти
+в - в
+это - этот
+ожидание - ожидание
+. - .
+Марта - марта
+не - не
+смотрела - смотреть
+на - на
+меня - меня
+. - .
+Ей - ей
+было - было
+холодно - холодный
+. - .
+Она - она
+подвинулась - подвинуться
+ко - ко
+мне - мне
+, - ,
+я - я
+бессознательно - бессознательно
+обнял - обнять
+ее - ее
+, - ,
+просто - просто
+, - ,
+чтоб - чтоб
+быть - быть
+ближе - близкий
+и - и
+вместе - вместе
+ждать - ждать
+. - .
+
+
+ - 
+
+
+– - –
+Надо - надо
+спокойнее - спокойный
+, - ,
+спокойнее - спокойный
+, - ,
+– - –
+проговорила - проговорить
+Марта - марта
+, - ,
+положив - положить
+бледную - бледный
+руку - рука
+на - на
+мою - мой
+. - .
+– - –
+Мы - мы
+не - не
+должны - должный
+волноваться - волноваться
+. - .
+Мы - мы
+должны - должный
+так - так
+тихо - тихо
+, - ,
+совсем - совсем
+тихо - тихо
+ждать - ждать
+. - .
+Без - без
+тишины - тишина
+в - в
+душе - душа
+нельзя - нельзя
+быть - быть
+близкими - близкий
+ей - ей
+. - .
+
+
+ - 
+
+
+Я - я
+понял - понять
+, - ,
+что - что
+она - она
+хотела - хотеть
+сказать - сказать
+– - –
+« - &quot;
+природе - природа
+» - &quot;
+. - .
+
+
+ - 
+
+
+– - –
+А - а
+мы - мы
+будем - будем
+близки - близкий
+, - ,
+правда - правда
+, - ,
+мы - мы
+будем - будем
+? - ?
+– - –
+продолжала - продолжать
+она - она
+торопливо - торопливо
+, - ,
+заглядывая - заглядывать
+мне - мне
+в - в
+глаза - глаз
+. - .
+– - –
+И - и
+я - я
+, - ,
+и - и
+ты - ты
+, - ,
+мы - мы
+оба - оба
+– - –
+с - с
+ней - ней
+вместе - вместе
+… - …
+
+
+ - 
+
+
+Никогда - никогда
+больше - больше
+, - ,
+никогда - никогда
+сильнее - сильнее
+я - я
+не - не
+чувствовал - чувствовать
+, - ,
+что - что
+я - я
+– - –
+« - &quot;
+с - с
+ней - ней
+вместе - вместе
+» - &quot;
+, - ,
+и - и
+что - что
+в - в
+этом - этот
+счастье - счастие
+, - ,
+если - если
+это - это
+может - мочь
+длиться - длиться
+. - .
+
+
+ - 
+
+
+Какой - какой
+- - -
+то - то
+новый - новый
+, - ,
+неясный - неясный
+запах - запах
+дошел - дойти
+до - до
+нас - нас
+. - .
+Мы - мы
+оба - оба
+сразу - сразу
+его - его
+услышали - услышать
+и - и
+оба - оба
+вместе - вместе
+поняли - понять
+через - через
+минуту - минута
+, - ,
+откуда - откуда
+он - он
+. - .
+
+
+ - 
+
+
+– - –
+Первый - первый
+цветок - цветок
+распустился - распустился
+, - ,
+– - –
+сказала - сказать
+Марта - марта
+. - .
+– - –
+Оставь - оставь
+, - ,
+не - не
+смотри - смотреть
+на - на
+него - него
+. - .
+Погоди - погоди
+, - ,
+сейчас - сейчас
+другие - другие
+… - …
+
+
+ - 
+
+
+Она - она
+говорила - говорить
+шепотом - шёпот
+, - ,
+но - но
+торжественно - торжественно
+и - и
+серьезно - серьезно
+, - ,
+и - и
+крепче - крепче
+прижималась - прижималась
+ко - ко
+мне - мне
+. - .
+Я - я
+хотел - хотеть
+что - что
+- - -
+то - то
+сказать - сказать
+, - ,
+но - но
+она - она
+шепнула - шепнуть
+: - :
+« - &quot;
+ни - ни
+слова - слово
+» - &quot;
+… - …
+– - –
+и - и
+посмотрела - посмотреть
+умоляюще - умоляюще
+. - .
+Я - я
+замолчал - замолчать
+– - –
+и - и
+рад - рад
+был - был
+молчать - молчать
+. - .
+Мне - мне
+больше - больше
+ничего - ничто
+не - не
+хотелось - хотеться
+, - ,
+кроме - кроме
+того - того
+, - ,
+что - что
+было - быть
+. - .
+Я - я
+думаю - думать
+, - ,
+это - это
+и - и
+есть - есть
+счастье - счастие
+. - .
+Весь - весь
+сад - сад
+наполнялся - наполнялся
+новым - новый
+, - ,
+сильным - сильный
+ароматом - аромат
+. - .
+Месяц - месяц
+никнул - никнул
+и - и
+уходил - уходить
+с - с
+неба - нёбо
+, - ,
+но - но
+яблони - яблони
+не - не
+темнели - темнеть
+. - .
+Они - они
+были - были
+белые - белый
+не - не
+от - от
+лунного - лунный
+света - свет
+. - .
+
+
+ - 
+
+
+Когда - когда
+прошло - пройти
+время - время
+, - ,
+и - и
+все - весь
+кругом - круг
+нас - нас
+стало - стать
+яснее - ясный
+и - и
+холоднее - холодный
+, - ,
+небо - нёбо
+позеленело - позеленело
+, - ,
+и - и
+утренние - утренний
+сумерки - сумерки
+спустились - спуститься
+, - ,
+– - –
+я - я
+взглянул - взглянуть
+близко - близко
+в - в
+лицо - лицо
+Марты - марта
+, - ,
+Марта - марта
+сидела - сидеть
+все - все
+в - в
+том - тот
+же - же
+положении - положение
+, - ,
+прижавшись - прижаться
+ко - ко
+мне - мне
+. - .
+Она - она
+подняла - поднять
+глаза - глаз
+и - и
+улыбнулась - улыбнуться
+. - .
+
+
+ - 
+
+
+– - –
+Пора - пора
+, - ,
+– - –
+сказала - сказать
+она - она
+. - .
+– - –
+Сейчас - сейчас
+будет - будет
+солнце - солнце
+. - .
+Яблони - яблони
+цветут - цвести
+. - .
+
+
+ - 
+
+
+Что - что
+- - -
+то - то
+ударило - ударить
+меня - меня
+в - в
+сердце - сердце
+. - .
+Я - я
+вспомнил - вспомнить
+. - .
+Я - я
+побледнел - побледнеть
+, - ,
+в - в
+груди - грудь
+стало - стать
+тяжело - тяжёлый
+и - и
+холодно - холодный
+. - .
+Марта - марта
+тревожно - тревожно
+взглянула - взглянуть
+. - .
+
+
+ - 
+
+
+– - –
+Что - что
+с - с
+тобой - тобой
+? - ?
+
+
+ - 
+
+
+– - –
+Марта - марта
+. - .
+Я - я
+стал - стать
+несчастен - несчастный
+… - …
+Пожалей - пожалей
+меня - меня
+… - …
+Я - я
+уезжаю - уезжать
+… - …
+
+
+ - 
+
+
+– - –
+Уезжаешь - уезжать
+? - ?
+– - –
+проговорила - проговорить
+она - она
+медленно - медленно
+, - ,
+без - без
+удивленья - удивление
+. - .
+– - –
+Так - так
+рано - рано
+? - ?
+Подожди - подождать
+. - .
+Еще - еще
+есть - быть
+время - время
+. - .
+Подожди - подождать
+, - ,
+пока - пока
+они - они
+начнут - начать
+осыпаться - осыпаться
+. - .
+
+
+ - 
+
+
+– - –
+Не - не
+могу - мочь
+, - ,
+не - не
+могу - мочь
+… - …
+Я - я
+не - не
+сам - сам
+… - …
+меня - меня
+… - …
+
+
+ - 
+
+
+– - –
+Ах - ах
+, - ,
+другие - другие
+, - ,
+– - –
+сказала - сказать
+она - она
+спокойно - спокойно
+. - .
+– - –
+Они - они
+всегда - всегда
+мешают - мешать
+, - ,
+всегда - всегда
+, - ,
+во - во
+всем - всем
+. - .
+Ступай - ступай
+, - ,
+не - не
+будь - будь
+несчастен - несчастный
+. - .
+Только - только
+я - я
+не - не
+хотела - хотеть
+так - так
+рано - рано
+… - …
+
+
+ - 
+
+
+Я - я
+с - с
+тоской - тоска
+взглянул - взглянуть
+в - в
+ее - её
+глаза - глаз
+. - .
+Они - они
+были - были
+широко - широко
+раскрыты - раскрыть
+и - и
+покойны - покойный
+, - ,
+только - только
+совсем - совсем
+, - ,
+до - до
+краев - край
+, - ,
+полны - полный
+слезами - слеза
+. - .
+Казалось - казаться
+, - ,
+если - если
+она - она
+чуть - чуть
+пошевельнет - пошевельнуть
+ресницами - ресница
+или - или
+переведет - перевести
+взгляд - взгляд
+, - ,
+слезы - слеза
+прольются - прольются
+. - .
+
+
+ - 
+
+
+Я - я
+встал - встать
+. - .
+Она - она
+осталась - остаться
+на - на
+скамейке - скамейка
+и - и
+не - не
+смотрела - смотреть
+на - на
+меня - меня
+. - .
+
+
+ - 
+
+
+– - –
+Прощай - прощать
+, - ,
+Марта - марта
+, - ,
+– - –
+сказал - сказать
+я - я
+. - .
+
+
+ - 
+
+
+– - –
+Прощай - прощать
+. - .
+Ты - ты
+не - не
+забудь - забудь
+… - …
+
+
+ - 
+
+
+– - –
+Чего - что
+? - ?
+
+
+ - 
+
+
+– - –
+Всего - всего
+. - .
+Я - я
+не - не
+забуду - забыть
+. - .
+Мы - мы
+оба - оба
+теперь - теперь
+знаем - знать
+, - ,
+как - как
+нужно - нужный
+жить - жить
+. - .
+
+
+ - 
+
+
+– - –
+Марта - марта
+! - !
+Но - но
+ведь - ведь
+другие - другие
+… - …
+
+
+ - 
+
+
+– - –
+Да - да
+, - ,
+другие - другие
+! - !
+А - а
+ты - ты
+не - не
+можешь - мочь
+, - ,
+ты - ты
+не - не
+сумеешь - суметь
+… - …
+Все - все
+- - -
+таки - таки
+не - не
+забудь - забудь
+. - .
+
+
+ - 
+
+
+Я - я
+взглянул - взглянуть
+на - на
+нее - нее
+, - ,
+на - на
+зеленое - зелёный
+, - ,
+совсем - совсем
+светлое - светлый
+, - ,
+небо - нёбо
+, - ,
+яблони - яблони
+, - ,
+точно - точно
+осыпанные - осыпать
+снегом - снег
+, - ,
+и - и
+сказал - сказать
+: - :
+
+
+ - 
+
+
+– - –
+Не - не
+забуду - забыть
+. - .
+Прощай - прощать
+. - .
+
+
+ - 
+
+
+Она - она
+кивнула - кивнуть
+мне - мне
+головой - голов
+. - .
+Я - я
+ушел - уйти
+. - .
+
+
+ - 
+
+
+X - x
+
+ - 
+
+Что - что
+случилось - случиться
+дальше - дальше
+– - –
+я - я
+расскажу - рассказать
+коротко - коротко
+и - и
+скоро - скоро
+, - ,
+мне - мне
+слишком - слишком
+тяжело - тяжёлый
+. - .
+Она - она
+, - ,
+мама - мама
+, - ,
+сделала - сделать
+все - все
+нарочно - нарочно
+, - ,
+чтобы - чтобы
+отомстить - отомстить
+мне - мне
+, - ,
+я - я
+знаю - знать
+. - .
+Правда - правда
+, - ,
+она - она
+сама - сама
+в - в
+эту - этот
+ночь - ночь
+похудела - похудеть
+и - и
+осунулась - осунуться
+, - ,
+но - но
+я - я
+думаю - думать
+, - ,
+от - от
+сильной - сильный
+ненависти - ненависть
+ко - ко
+мне - мне
+. - .
+Все - все
+тут - тут
+сошлось - сойтись
+. - .
+Да - да
+я - я
+и - и
+знал - знать
+, - ,
+что - что
+она - она
+не - не
+простит - простить
+. - .
+Она - она
+не - не
+могла - мочь
+простить - простить
+. - .
+Я - я
+и - и
+не - не
+говорил - говорить
+ей - ей
+ничего - ничто
+. - .
+Я - я
+был - был
+, - ,
+как - как
+мертвый - мёртвый
+. - .
+Если - если
+б - б
+она - она
+велела - велеть
+мне - мне
+взять - взять
+револьвер - револьвер
+и - и
+застрелиться - застрелиться
+– - –
+я - я
+бы - бы
+, - ,
+молча - молча
+, - ,
+взял - взять
+револьвер - револьвер
+и - и
+застрелился - застрелиться
+. - .
+Она - она
+велела - велеть
+мне - мне
+уехать - уехать
+одному - одному
+, - ,
+сказала - сказать
+, - ,
+что - что
+никогда - никогда
+не - не
+увидит - увидеть
+меня - меня
+и - и
+не - не
+простит - простить
+. - .
+Но - но
+я - я
+думаю - думать
+, - ,
+она - она
+чувствовала - чувствовать
+, - ,
+что - что
+не - не
+выдержит - выдержать
+и - и
+простит - простить
+, - ,
+когда - когда
+увидит - увидеть
+, - ,
+что - что
+я - я
+не - не
+могу - мочь
+жить - жить
+; - ;
+поэтому - поэтому
+, - ,
+чтобы - чтобы
+не - не
+изменить - изменить
+себе - себя
+, - ,
+она - она
+умерла - умереть
+нарочно - нарочно
+. - .
+Да - да
+, - ,
+да - да
+, - ,
+я - я
+не - не
+сомневаюсь - сомневаться
+, - ,
+что - что
+она - она
+это - это
+сделала - сделать
+нарочно - нарочно
+. - .
+Доктора - доктор
+говорят - говорить
+, - ,
+что - что
+у - у
+нее - нее
+был - быть
+дифтерит - дифтерит
+, - ,
+но - но
+что - что
+ж - ж
+из - из
+этого - это
+? - ?
+Дифтерит - дифтерит
+мог - мочь
+быть - быть
+, - ,
+а - а
+все - все
+- - -
+таки - таки
+она - она
+бы - бы
+верно - верно
+не - не
+умерла - умереть
+, - ,
+если - если
+б - б
+сильно - сильно
+хотела - хотеть
+не - не
+умереть - умереть
+. - .
+Я - я
+приехал - приехать
+из - из
+Москвы - москва
+на - на
+третий - третий
+день - день
+после - после
+смерти - смерть
+. - .
+Она - она
+уже - уже
+стала - стать
+разлагаться - разлагаться
+. - .
+Такой - такой
+уксусный - уксусный
+и - и
+страшный - страшный
+запах - запах
+шел - идти
+от - от
+нее - нее
+. - .
+Я - я
+посмотрел - посмотреть
+ей - ей
+в - в
+лицо - лицо
+и - и
+ничего - ничто
+не - не
+сказал - сказать
+. - .
+
+
+ - 
+
+
+Какой - какой
+- - -
+то - то
+господин - господин
+подошел - подойти
+ко - ко
+мне - мне
+, - ,
+долго - долго
+жал - жать
+руку - рука
+, - ,
+просил - просить
+подкрепиться - подкрепиться
+и - и
+сказал - сказать
+: - :
+
+
+ - 
+
+
+– - –
+Да - да
+, - ,
+ваша - ваш
+матушка - матушка
+была - была
+удивительная - удивительный
+женщина - женщина
+. - .
+Как - как
+вы - вы
+должны - должный
+быть - быть
+потрясены - потрясти
+! - !
+У - у
+вас - вас
+были - были
+с - с
+нею - нею
+удивительные - удивительный
+отношения - отношение
+… - …
+
+
+ - 
+
+
+Я - я
+неестественно - неестественно
+рассмеялся - рассмеяться
+и - и
+сказал - сказать
+: - :
+
+
+ - 
+
+
+– - –
+Да - да
+, - ,
+да - да
+, - ,
+вы - вы
+правы - правый
+… - …
+
+
+ - 
+
+
+И - и
+сам - сам
+пожал - пожать
+руку - рука
+господину - господин
+. - .
+
+
+ - 
+
+
+Потом - потом
+ее - ее
+похоронили - похоронить
+, - ,
+и - и
+я - я
+уехал - уехать
+. - .
+Зачем - зачем
+бы - бы
+я - я
+там - там
+остался - остаться
+? - ?
+О - о
+Марте - март
+я - я
+не - не
+спросил - спросить
+, - ,
+в - в
+сад - сад
+не - не
+заходил - заходить
+… - …
+
+
+ - 
+
+
+И - и
+прошло - пройти
+сколько - сколько
+- - -
+то - то
+лет - год
+. - .
+Я - я
+не - не
+помню - помнить
+теперь - теперь
+хорошо - хороший
+– - –
+сколько - сколько
+. - .
+Я - я
+не - не
+помню - помнить
+, - ,
+как - как
+я - я
+жил - жить
+. - .
+Я - я
+все - все
+стал - стать
+забывать - забывать
+. - .
+Порой - порой
+, - ,
+впрочем - впрочем
+, - ,
+я - я
+вспоминаю - вспоминать
+ту - тот
+ночь - ночь
+, - ,
+когда - когда
+распускались - распускались
+яблони - яблони
+. - .
+Сажусь - сажусь
+за - за
+рояль - рояль
+и - и
+играю - играть
+маленькую - маленький
+песенку - песенка
+: - :
+« - &quot;
+ни - ни
+слова - слово
+, - ,
+о - о
+друг - друг
+мой - мой
+» - &quot;
+… - …
+Мне - мне
+делается - делаться
+светлее - светлее
+. - .
+
+
+ - 
+
+
+Но - но
+это - это
+редко - редко
+; - ;
+я - я
+редко - редко
+могу - мочь
+вспоминать - вспоминать
+… - …
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>И - и
+с - с
+каждым - каждый
+часом - час
+прибавляется - прибавляться
+тяжесть - тяжесть
+жизни - жизнь
+. - .
+Я - я
+живу - жить
+, - ,
+потому - потому
+что - что
+не - не
+имею - иметь
+силы - сила
+даже - даже
+умереть - умереть
+. - .
+Живу - жить
+в - в
+Петербурге - петербург
+, - ,
+один - один
+, - ,
+в - в
+темной - тёмный
+и - и
+пропахшей - пропахшей
+кухней - кухня
+квартире - квартира
+, - ,
+даю - давать
+свои - свой
+ненужные - ненужный
+уроки - урок
+музыки - музыка
+и - и
+ненужно - ненужно
+возвращаюсь - возвращаться
+домой - домой
+. - .
+Сколько - сколько
+времени - время
+это - это
+еще - еще
+будет - будет
+продолжаться - продолжаться
+? - ?
+
+
+ - 
+
+
+Посредине - посредине
+потолка - потолок
+, - ,
+в - в
+большой - большой
+комнате - комната
+, - ,
+есть - быть
+крюк - крюк
+… - …
+Я - я
+уж - уж
+говорил - говорить
+о - о
+нем - нем
+. - .
+Так - так
+вот - вот
+мне - мне
+приходит - приходить
+мысль - мысль
+: - :
+что - что
+, - ,
+если - если
+я - я
+принесу - принесу
+из - из
+передней - передний
+веревку - верёвка
+от - от
+чемодана - чемодан
+и - и
+закину - закину
+ее - ее
+на - на
+крюк - крюк
+? - ?
+Ведь - ведь
+никто - никто
+даже - даже
+и - и
+не - не
+узнает - узнавать
+, - ,
+особенно - особенно
+теперь - теперь
+, - ,
+ночью - ночь
+… - …
+Старуха - старуха
+, - ,
+моя - мой
+кухарка - кухарка
+, - ,
+спит - спать
+. - .
+И - и
+главное - главный
+, - ,
+ничего - ничто
+не - не
+сделается - сделаться
+от - от
+того - того
+, - ,
+что - что
+я - я
+закину - закинуть
+веревку - верёвка
+на - на
+крюк - крюк
+. - .
+Ее - ее
+можно - можно
+снять - снять
+и - и
+снести - снести
+обратно - обратно
+в - в
+переднюю - передний
+. - .
+Даже - даже
+если - если
+я - я
+петлю - петлю
+сделаю - сделать
+– - –
+и - и
+то - то
+ничего - ничто
+ровно - ровно
+не - не
+случится - случиться
+, - ,
+ведь - ведь
+не - не
+повешусь - повеситься
+же - же
+, - ,
+ведь - ведь
+не - не
+должен - должный
+же - же
+я - я
+, - ,
+оттого - оттого
+что - что
+сделаю - сделать
+петлю - петля
+, - ,
+непременно - непременно
+повеситься - повеситься
+? - ?
+Это - это
+так - так
+ужасно - ужасный
+, - ,
+так - так
+некрасиво - некрасивый
+… - …
+Как - как
+я - я
+далеко - далеко
+от - от
+Марты - марта
+! - !
+.. - ..
+Но - но
+разве - разве
+я - я
+в - в
+самом - самом
+деле - дело
+? - ?
+.. - ..
+Нет - нет
+, - ,
+нет - нет
+, - ,
+я - я
+только - только
+попробую - попробую
+, - ,
+никто - никто
+не - не
+узнает - узнавать
+, - ,
+а - а
+я - я
+попробую - попробовать
+… - …
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Text-Analysis/MultiLingual/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

@@ -1,0 +1,2203 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Named Entity Recognition — Workbook Solutions &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/Workbook-Solutions/05.5-Named-Entity-Recognition-WORKBOOK-SOLUTIONS.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../How-To-Interact-With-This-Book.html">
+   Interact With This Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Course
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../course-schedule-2021.html">
+   Course Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The Book
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../01-Command-Line/01-The-Command-Line.html">
+   1. The Command Line
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../02-Python/00-Python.html">
+   2. Python Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
+     How to Use Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/03-Anatomy-Python-Script.html">
+     Anatomy of a Python Script
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/04-Variables.html">
+     Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/05-Data-Types.html">
+     Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/06-String-Methods.html">
+     Python String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/07-Files-Character-Encoding.html">
+     Files and Character Encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/11-Dictionaries.html">
+     Python Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/12-Functions.html">
+     Python Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/13-Common-Python-Errors.html">
+     Common Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02-Python/14-What-Were-Not-Covering.html">
+     What We’re Not Covering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../03-Data-Analysis/00-Data-Analysis.html">
+   3. Data Analysis (Pandas)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/01-Pandas-Basics-Part1.html">
+     Pandas Basics — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/02-Pandas-Basics-Part2.html">
+     Pandas Basics — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/03-Pandas-Basics-Part3.html">
+     Pandas Basics — Part 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
+     Pandas — Merge Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/02-Web-Scraping-Part1.html">
+     Web Scraping — Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/03-Web-Scraping-Part2.html">
+     Web Scraping — Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/04-Git-GitHub.html">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/05-What-Is-API.html">
+     Application Programming Interfaces (APIs)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/07-Genius-API.html">
+       Song Genius API
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/08-Collect-Genius-Lyrics.html">
+       Song Lyrics Collection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/09-Lyrics-Analysis.html">
+       Song Lyrics Analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../04-Data-Collection/10-Twitter.html">
+     Twitter Data
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/11-Twitter-API-Setup.html">
+       Twitter API Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04-Data-Collection/13-Twitter-Data-Sharing.html">
+       Twitter Data Sharing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Text-Analysis.html">
+   5. Text Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Chinese/00-Chinese.html">
+       Chinese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Danish/00-Danish.html">
+       Danish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02-TF-IDF-HathiTrust.html">
+       With HathiTrust
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12-Named-Entity-Recognition.html">
+     Named Entity Recognition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13-POS-Keywords.html">
+     Part-of-Speech Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../06-Network-Analysis/00-Network-Analysis.html">
+   6. Network Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/01-Network-Analysis.html">
+     Network Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
+     Make an Interactive Network Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../07-Mapping/00-Mapping.html">
+   7. Mapping
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/01-Mapping.html">
+     Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/02-Custom-Maps.html">
+     Custom Map Backgrounds
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07-Mapping/03-Publish-Your-Map.html">
+     Publish Your Map on the Web
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Datasets/00-Datasets.html">
+   Datasets
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/05-Text-Analysis/Workbook-Solutions/05.5-Named-Entity-Recognition-WORKBOOK-SOLUTIONS.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/Workbook-Solutions/05.5-Named-Entity-Recognition-WORKBOOK-SOLUTIONS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/Workbook-Solutions/05.5-Named-Entity-Recognition-WORKBOOK-SOLUTIONS.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-spacy-and-download-language-model">
+   Install spaCy and Download Language Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-language-model">
+   Load Language Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-document">
+   Process Document
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spacy-named-entities">
+   spaCy Named Entities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-named-entities">
+   Get Named Entities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ner-with-the-house-on-mango-street">
+   NER with The House on Mango Street
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-people">
+   Get People
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-places">
+   Get Places
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-languages">
+   Get Languages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-another-entity">
+   Get Another Entity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="named-entity-recognition-workbook-solutions">
+<h1>Named Entity Recognition — Workbook Solutions<a class="headerlink" href="#named-entity-recognition-workbook-solutions" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we’re going to learn about a text analysis method called <em>Named Entity Recognition</em> (NER). This method will help us computationally identify people, places, and things (of various kinds) in a text or collection of texts.</p>
+<p><em>Note: You can explore this <a class="reference external" href="https://mybinder.org/v2/gh/INFO1350/Intro-CA-SP21/master?urlpath=lab/tree/book/05-Text-Analysis/05.5-Named-Entity-Recognition-WORKBOOK.ipynb">workbook</a> in the cloud via Binder.</em></p>
+<hr class="docutils" />
+<div class="section" id="install-spacy-and-download-language-model">
+<h2>Install spaCy and Download Language Model<a class="headerlink" href="#install-spacy-and-download-language-model" title="Permalink to this headline">¶</a></h2>
+<p>We need to install spaCy and the English-language model (<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>). This is the model that was trained on the annotated “OntoNotes” corpus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U spacy
+<span class="o">!</span>python -m spacy download en_core_web_sm
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note: spaCy offers <a class="reference external" href="https://spacy.io/usage/models#languages">models for other languages</a> including German, French, Spanish, Portuguese, Italian, Dutch, Greek, Norwegian, and Lithuanian. Languages such as Russian, Ukrainian, Thai, Chinese, Japanese, Korean and Vietnamese don’t currently have their own NLP models. However, spaCy offers language and tokenization support for many of these language with external dependencies — such as <a class="reference external" href="https://github.com/konlpy/konlpy">PyviKonlpy</a> for Korean or <a class="reference external" href="https://github.com/fxsjy/jieba">Jieba</a> for Chinese.</em></p>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
+<p>We’re also going to import the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module for counting people, places, and things, and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for organizing and displaying data (we’re also changing the pandas default max row and column width display setting).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<span class="kn">import</span> <span class="nn">en_core_web_sm</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">600</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-language-model">
+<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this headline">¶</a></h2>
+<p>We need to load the language model and save it as the variable <code class="docutils literal notranslate"><span class="pre">nlp</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">en_core_web_sm</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="process-document">
+<h2>Process Document<a class="headerlink" href="#process-document" title="Permalink to this headline">¶</a></h2>
+<p>In the cell below, we open and read a text file. Then we run <code class="docutils literal notranslate"><span class="pre">nlp()</span></code> on the text to create our processed spaCy document.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/House-on-Mango-Street/04-My-Name.txt&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spacy-named-entities">
+<h2>spaCy Named Entities<a class="headerlink" href="#spacy-named-entities" title="Permalink to this headline">¶</a></h2>
+<p>Below is a Named Entities chart taken from <a class="reference external" href="https://spacy.io/api/annotation#named-entities">spaCy’s website</a>, which shows the different named entities that spaCy can identify as well as their corresponding type labels.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Type Label</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>PERSON</p></td>
+<td class="text-align:center"><p>People, including fictional.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>NORP</p></td>
+<td class="text-align:center"><p>Nationalities or religious or political groups.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>FAC</p></td>
+<td class="text-align:center"><p>Buildings, airports, highways, bridges, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ORG</p></td>
+<td class="text-align:center"><p>Companies, agencies, institutions, etc.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>GPE</p></td>
+<td class="text-align:center"><p>Countries, cities, states.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LOC</p></td>
+<td class="text-align:center"><p>Non-GPE locations, mountain ranges, bodies of water.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PRODUCT</p></td>
+<td class="text-align:center"><p>Objects, vehicles, foods, etc. (Not services.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>EVENT</p></td>
+<td class="text-align:center"><p>Named hurricanes, battles, wars, sports events, etc.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>WORK_OF_ART</p></td>
+<td class="text-align:center"><p>Titles of books, songs, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LAW</p></td>
+<td class="text-align:center"><p>Named documents made into laws.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LANGUAGE</p></td>
+<td class="text-align:center"><p>Any named language.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DATE</p></td>
+<td class="text-align:center"><p>Absolute or relative dates or periods.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>TIME</p></td>
+<td class="text-align:center"><p>Times smaller than a day.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PERCENT</p></td>
+<td class="text-align:center"><p>Percentage, including ”%“.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MONEY</p></td>
+<td class="text-align:center"><p>Monetary values, including unit.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>QUANTITY</p></td>
+<td class="text-align:center"><p>Measurements, as of weight or distance.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ORDINAL</p></td>
+<td class="text-align:center"><p>“first”, “second”, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CARDINAL</p></td>
+<td class="text-align:center"><p>Numerals that do not fall under another type.</p></td>
+</tr>
+</tbody>
+</table>
+<p>To quickly see spaCy’s NER in action, we can use the <a class="reference external" href="https://spacy.io/usage/visualizers#ent">spaCy module <code class="docutils literal notranslate"><span class="pre">displacy</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">style=</span></code> parameter set to “ent”  (short for entities):</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">My Name</br></br></br>In 
+<mark class="entity" style="background: #ff8197; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    English
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">LANGUAGE</span>
+</mark>
+ my name means hope. In 
+<mark class="entity" style="background: #c887fb; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Spanish
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">NORP</span>
+</mark>
+ it means too many letters. It means sadness, it means waiting. It is like the number 
+<mark class="entity" style="background: #e4e7d2; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    nine
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">CARDINAL</span>
+</mark>
+. A muddy color. It is the 
+<mark class="entity" style="background: #c887fb; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Mexican
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">NORP</span>
+</mark>
+ records my father plays on 
+<mark class="entity" style="background: #bfe1d9; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Sunday
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">DATE</span>
+</mark>
+
+<mark class="entity" style="background: #bfe1d9; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    mornings
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">TIME</span>
+</mark>
+ when he is shaving, songs like sobbing.</br></br>It was my great-grandmother’s name and now it is mine. She was a horse woman too, born like me in 
+<mark class="entity" style="background: #bfe1d9; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    the Chinese year
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">DATE</span>
+</mark>
+ of the horse—which is supposed to be bad luck if you’re born female—but I think this is a 
+<mark class="entity" style="background: #c887fb; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Chinese
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">NORP</span>
+</mark>
+ lie because the 
+<mark class="entity" style="background: #c887fb; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Chinese
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">NORP</span>
+</mark>
+, like the 
+<mark class="entity" style="background: #c887fb; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Mexicans
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">NORP</span>
+</mark>
+, don’t like their women strong.</br></br>My great-grandmother. I would’ve liked to have known her, a wild horse of a woman, so wild she wouldn’t marry. Until my great-grandfather threw a sack over her head and carried her off. Just like that, as if she were a fancy chandelier. That’s the way he did it.</br></br>And the story goes she never forgave him. She looked out the window her whole life, the way so many women sit their sadness on an elbow. I wonder if she made the best with what she got or was she sorry because she couldn’t be all the things she wanted to be. Esperanza. I have inherited her name, but I don’t want to inherit her place by the window.</br></br>At school they say my name funny as if the syllables were made out of tin and hurt the roof of your mouth. But in 
+<mark class="entity" style="background: #ff8197; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Spanish
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">LANGUAGE</span>
+</mark>
+ my name is made out of a softer something, like silver, not quite as thick as sister’s name—
+<mark class="entity" style="background: #aa9cfc; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Magdalena
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PERSON</span>
+</mark>
+—which is uglier than mine. 
+<mark class="entity" style="background: #aa9cfc; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Magdalena
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PERSON</span>
+</mark>
+ who at least can come home and become 
+<mark class="entity" style="background: #aa9cfc; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Nenny
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PERSON</span>
+</mark>
+. But I am always 
+<mark class="entity" style="background: #aa9cfc; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Esperanza
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PERSON</span>
+</mark>
+.</br></br>I would like to baptize myself under a new name, a name more like the real me, the one nobody sees. Esperanza as Lisandra or Maritza or Zeze the X. Yes. Something like Zeze the X will do.</div></span></div></div>
+</div>
+</div>
+<div class="section" id="get-named-entities">
+<h2>Get Named Entities<a class="headerlink" href="#get-named-entities" title="Permalink to this headline">¶</a></h2>
+<p>All the named entities in our <code class="docutils literal notranslate"><span class="pre">document</span></code> can be found in the <code class="docutils literal notranslate"><span class="pre">document.ents</span></code> property.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">ents</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(English,
+ Spanish,
+ nine,
+ Mexican,
+ Sunday,
+ mornings,
+ the Chinese year,
+ Chinese,
+ Chinese,
+ Mexicans,
+ Spanish,
+ Magdalena,
+ Magdalena,
+ Nenny,
+ Esperanza)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of the named entities in <code class="docutils literal notranslate"><span class="pre">document.ents</span></code> contains <a class="reference external" href="https://spacy.io/usage/linguistic-features#accessing">more information about itself</a>. To get the entity label, we can use the <code class="docutils literal notranslate"><span class="pre">.label_</span></code> attribute.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">named_entity</span><span class="p">,</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>English LANGUAGE
+Spanish NORP
+nine CARDINAL
+Mexican NORP
+Sunday DATE
+mornings TIME
+the Chinese year DATE
+Chinese NORP
+Chinese NORP
+Mexicans NORP
+Spanish LANGUAGE
+Magdalena PERSON
+Magdalena PERSON
+Nenny PERSON
+Esperanza PERSON
+</pre></div>
+</div>
+</div>
+</div>
+<p>To extract just the named entities that have been identified as <code class="docutils literal notranslate"><span class="pre">PERSON</span></code>, we can add a simple <code class="docutils literal notranslate"><span class="pre">if</span></code> statement into the mix:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;PERSON&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">named_entity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magdalena
+Magdalena
+Nenny
+Esperanza
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ner-with-the-house-on-mango-street">
+<h2>NER with The House on Mango Street<a class="headerlink" href="#ner-with-the-house-on-mango-street" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../texts/literature/The-House-on-Mango-Street-Sandra-Cisneros.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-people">
+<h2>Get People<a class="headerlink" href="#get-people" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Type Label</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>PERSON</p></td>
+<td class="text-align:center"><p>People, including fictional.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The code below will extract named entitities from <em>The House on Mango Street</em>, count them up with <code class="docutils literal notranslate"><span class="pre">Counter()</span></code>, and then create a DataFrame of the results.</p>
+<p>Your job is to make sure that we only get named entities that are <strong>people</strong>. Insert the approriate Python code below.</p>
+<p><em>Hint: Look at the examples above for guidance.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;PERSON&quot;</span><span class="p">:</span>
+        <span class="n">people</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">named_entity</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">people_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">people_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;character&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>character</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nenny</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sally</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lucy</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Rachel</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Ruthie</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Benny</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Cathy</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Earl</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Esperanza</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Geraldo</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tito</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Keeler</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Meme</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Uncle Nacho</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Alicia</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Minerva</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Mama</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Papa</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Magdalena</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Joe</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Carlos</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Meme Ortiz</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Avon</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Angel Vargas</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Uncle</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Joan Crawford</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Frank</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Ernie</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Kool-Aid</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Bugs Bunny</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Ma</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Lois</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Push</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Speak English</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Bums</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Mango</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Temporary</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Carlos’</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Kiki</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Cassandra</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Lucy’s</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Laundromat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Maris</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Marin</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Eddie V.</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Rosa Vargas</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Efren</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Joey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Marco</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Sue</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Phyllis</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Rickey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Reynaldo</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Angelo</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Anita</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Stella</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Lolo</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Lucy Guerrero</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Frankie</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Pee Wee</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Reggie</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Elizabeth</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Lisa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Rosemary</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Dalia</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Jean</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Mimi</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Michael</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Cinderella</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Skinny</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Benny’s</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Gloria</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Sister Superior</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>E. Cordero</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Chanclas\n</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Christopher Columbus</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Wonder Woman</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Marilyn Monroe</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Virgin</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Aragon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Bobo</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Marlon Brando</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Hamandeggs</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Cleopatra</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Cheryl</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Butterfly</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Izaura</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Sally Said</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Thorn</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Eddie Vargas</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Rip Van Winkle</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Sally Sally</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-places">
+<h2>Get Places<a class="headerlink" href="#get-places" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Type Label</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>GPE</p></td>
+<td class="text-align:center"><p>Countries, cities, states.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LOC</p></td>
+<td class="text-align:center"><p>Non-GPE locations, mountain ranges, bodies of water.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The code below will extract named entitities from <em>The House on Mango Street</em>, count them up with <code class="docutils literal notranslate"><span class="pre">Counter()</span></code>, and then create a DataFrame of the results.</p>
+<p>Your job is to make sure that we only get named entities that are <em>either</em> <strong>countries, cities, states</strong> OR <strong>non-GPE locations</strong>. Insert the approriate Python code below.</p>
+<p><em>Hint: Look at the examples above for guidance.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;GPE&quot;</span> <span class="ow">or</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;LOC&quot;</span><span class="p">:</span>
+        <span class="n">places</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">named_entity</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">places_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">places</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">places_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>place</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Marin</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mexico</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Aunt Lala</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Texas</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Loomis</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Paulina</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>France</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Mango</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Puerto Rico</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Yolanda</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Rachel’s</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>North Broadway</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Vargas</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Rachel</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Juan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Louie</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Vargases</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Ted</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Albert</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Armando</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Margie</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Licha</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Geranium</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Bianca</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Nacho</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Chicago</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Beatles</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Milwaukee</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Uptown</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Tennessee</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Edna’s</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>South</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Mamasota</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Breakfast</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Rapunzel</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Egypt</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Kentucky</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Mars</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>India</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Mango Street</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-languages">
+<h2>Get Languages<a class="headerlink" href="#get-languages" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Type Label</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>LANGUAGE</p></td>
+<td class="text-align:center"><p>Any named language.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The code below will extract named entitities from <em>The House on Mango Street</em>, count them up with <code class="docutils literal notranslate"><span class="pre">Counter()</span></code>, and then create a DataFrame of the results.</p>
+<p>Your job is to make sure that we only get named entities that are <strong>languages</strong>. Insert the approriate Python code below.</p>
+<p><em>Hint: Look at the examples above for guidance.</em></p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s2">&quot;LANGUAGE&quot;</span><span class="p">:</span>
+        <span class="n">languages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">named_entity</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">languages_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">languages</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">languages_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>language</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Spanish</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-another-entity">
+<h2>Get Another Entity<a class="headerlink" href="#get-another-entity" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Type Label</p></th>
+<th class="text-align:center head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>PERSON</p></td>
+<td class="text-align:center"><p>People, including fictional.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>NORP</p></td>
+<td class="text-align:center"><p>Nationalities or religious or political groups.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>FAC</p></td>
+<td class="text-align:center"><p>Buildings, airports, highways, bridges, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ORG</p></td>
+<td class="text-align:center"><p>Companies, agencies, institutions, etc.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>GPE</p></td>
+<td class="text-align:center"><p>Countries, cities, states.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LOC</p></td>
+<td class="text-align:center"><p>Non-GPE locations, mountain ranges, bodies of water.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PRODUCT</p></td>
+<td class="text-align:center"><p>Objects, vehicles, foods, etc. (Not services.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>EVENT</p></td>
+<td class="text-align:center"><p>Named hurricanes, battles, wars, sports events, etc.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>WORK_OF_ART</p></td>
+<td class="text-align:center"><p>Titles of books, songs, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LAW</p></td>
+<td class="text-align:center"><p>Named documents made into laws.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LANGUAGE</p></td>
+<td class="text-align:center"><p>Any named language.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DATE</p></td>
+<td class="text-align:center"><p>Absolute or relative dates or periods.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>TIME</p></td>
+<td class="text-align:center"><p>Times smaller than a day.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PERCENT</p></td>
+<td class="text-align:center"><p>Percentage, including ”%“.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MONEY</p></td>
+<td class="text-align:center"><p>Monetary values, including unit.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>QUANTITY</p></td>
+<td class="text-align:center"><p>Measurements, as of weight or distance.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ORDINAL</p></td>
+<td class="text-align:center"><p>“first”, “second”, etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CARDINAL</p></td>
+<td class="text-align:center"><p>Numerals that do not fall under another type.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the examples above, make a DataFrame of a different named entity from the <em>The House on Mango Street</em>.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entities</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">named_entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">named_entity</span><span class="o">.</span><span class="n">label_</span> <span class="o">==</span> <span class="s1">&#39;NORP&#39;</span><span class="p">:</span>
+        <span class="n">entities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">named_entity</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">entity_tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">entity_tally</span><span class="o">.</span><span class="n">most_common</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;entity&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>entity</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Spanish</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Chinese</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mexican</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mexicans</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Puerto Rican</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Spartans</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Catholic</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Oriental</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Southern</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>English</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Attic</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How well does spaCy’s NER seem to be performing?</p></li>
+<li><p>What does it do well or not so well?</p></li>
+<li><p>How could you imagine researchers or data scientists using NER?</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05-Text-Analysis/Workbook-Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Cultural Analytics &amp; Python &#8212; Introduction to Cultural Analytics &amp; Python</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,24 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -45,39 +41,30 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/tabs.js"></script>
     <script src="_static/custom.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/welcome.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="How to Interact With This Book" href="How-To-Interact-With-This-Book.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/welcome.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Introduction to Cultural Analytics &amp; Python" />
-<meta property="og:description" content="Introduction to Cultural Analytics &amp; Python  &lt;br&gt;   Designed by Melanie Walsh // Powered by Jupyter Book  This website hosts the course materials for “Introduct" />
-<meta property="og:image"       content="https://melaniewalsh.github.io/Intro-Cultural-Analytics/_static/favicon.ico" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -86,420 +73,566 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/favicon.ico" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/favicon.ico" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   How To
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="How-To-Interact-With-This-Book.html">
    Interact With This Book
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   The Course
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="course-schedule.html">
+  <a class="reference internal" href="course-schedule-2021.html">
    Course Schedule
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="syllabus.html">
-   Course Syllabus
-  </a>
- </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   The Book
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Command-Line/The-Command-Line.html">
+  <a class="reference internal" href="01-Command-Line/01-The-Command-Line.html">
    1. The Command Line
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Python/Python.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02-Python/00-Python.html">
    2. Python Basics
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Installation.html">
-     Installation
+    <a class="reference internal" href="02-Python/01-Install-Python.html">
+     Install Python &amp; Jupyter
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/How-to-Use-Jupyter-Notebooks.html">
+    <a class="reference internal" href="02-Python/02-How-to-Use-Jupyter-Notebooks.html">
      How to Use Jupyter Notebooks
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Anatomy-Python-Script.html">
+    <a class="reference internal" href="02-Python/03-Anatomy-Python-Script.html">
      Anatomy of a Python Script
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Variables.html">
-     Variables
+    <a class="reference internal" href="02-Python/04-Variables.html">
+     Python Variables
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Data-Types.html">
-     Data Types
+    <a class="reference internal" href="02-Python/05-Data-Types.html">
+     Python Data Types
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/String-Methods.html">
-     String Methods
+    <a class="reference internal" href="02-Python/06-String-Methods.html">
+     Python String Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Files-Character-Encoding.html">
+    <a class="reference internal" href="02-Python/07-Files-Character-Encoding.html">
      Files and Character Encoding
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Comparisons-Conditionals.html">
-     Comparisons &amp; Conditionals
+    <a class="reference internal" href="02-Python/08-Comparisons-Conditionals.html">
+     Python Comparisons and Conditionals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Lists-Loops-Part1.html">
-     Lists &amp; Loops — Part 1
+    <a class="reference internal" href="02-Python/09-Lists-Loops-Part1.html">
+     Python Lists and Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Lists-Loops-Part2.html">
-     Lists &amp; Loops — Part 2
+    <a class="reference internal" href="02-Python/10-Lists-Loops-Part2.html">
+     Python Lists and Loops (Cont.)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Dictionaries.html">
-     Dictionaries
+    <a class="reference internal" href="02-Python/11-Dictionaries.html">
+     Python Dictionaries
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Functions.html">
-     Functions
+    <a class="reference internal" href="02-Python/12-Functions.html">
+     Python Functions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/Common-Python-Errors.html">
+    <a class="reference internal" href="02-Python/13-Common-Python-Errors.html">
      Common Python Errors
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Python/What-Were-Not-Covering.html">
+    <a class="reference internal" href="02-Python/14-What-Were-Not-Covering.html">
      What We’re Not Covering
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Data-Analysis/Data-Analysis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03-Data-Analysis/00-Data-Analysis.html">
    3. Data Analysis (Pandas)
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Analysis/Pandas-Basics-Part1.html">
+    <a class="reference internal" href="03-Data-Analysis/01-Pandas-Basics-Part1.html">
      Pandas Basics — Part 1
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Analysis/Pandas-Basics-Part2.html">
+    <a class="reference internal" href="03-Data-Analysis/02-Pandas-Basics-Part2.html">
      Pandas Basics — Part 2
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Analysis/Pandas-Basics-Part3.html">
+    <a class="reference internal" href="03-Data-Analysis/03-Pandas-Basics-Part3.html">
      Pandas Basics — Part 3
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Analysis/Pandas-Merge-Datasets.html">
+    <a class="reference internal" href="03-Data-Analysis/04-Pandas-Merge-Datasets.html">
      Pandas — Merge Datasets
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Data-Collection/Data-Collection.html">
-   4. Data Collection (Web Scraping, APIs)
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04-Data-Collection/00-Data-Collection.html">
+   4. Data Collection (Web Scraping, APIs, Social Media)
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/User-Ethics-Legal-Concerns.html">
-     User Ethics &amp; Legal Concerns
+    <a class="reference internal" href="04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
+     Users’ Data: Legal &amp; Ethical Considerations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/Web-Scraping-Part1.html">
+    <a class="reference internal" href="04-Data-Collection/02-Web-Scraping-Part1.html">
      Web Scraping — Part 1
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/Web-Scraping-Part2.html">
+    <a class="reference internal" href="04-Data-Collection/03-Web-Scraping-Part2.html">
      Web Scraping — Part 2
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/Git-GitHub.html">
+    <a class="reference internal" href="04-Data-Collection/04-Git-GitHub.html">
      Git and GitHub
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/APIs.html">
+    <a class="reference internal" href="04-Data-Collection/05-What-Is-API.html">
      Application Programming Interfaces (APIs)
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="Data-Collection/Song-Genius-Data-Collection.html">
-     Song Genius Data Collection
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="04-Data-Collection/06-Song-Genius.html">
+     Song Genius Data
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Genius-API.html">
+      <a class="reference internal" href="04-Data-Collection/07-Genius-API.html">
        Song Genius API
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/LyricsGenius.html">
+      <a class="reference internal" href="04-Data-Collection/08-Collect-Genius-Lyrics.html">
        Song Lyrics Collection
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Song-Lyrics-Analysis.html">
+      <a class="reference internal" href="04-Data-Collection/09-Lyrics-Analysis.html">
        Song Lyrics Analysis
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="Data-Collection/Twitter-Data-Collection-Home.html">
-     Twitter Data Collection
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="04-Data-Collection/10-Twitter.html">
+     Twitter Data
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Twitter-API-Setup.html">
+      <a class="reference internal" href="04-Data-Collection/11-Twitter-API-Setup.html">
        Twitter API Setup
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Twitter-Data-Collection.html">
-       Twitter Data Collection
+      <a class="reference internal" href="04-Data-Collection/12-Twitter-Data.html">
+       Twitter Data Collection &amp; Analysis
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Twitter-Data-Analysis.html">
-       Twitter Data Analysis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="Data-Collection/Twitter-Data-Sharing.html">
+      <a class="reference internal" href="04-Data-Collection/13-Twitter-Data-Sharing.html">
        Twitter Data Sharing
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Data-Collection/Reddit-Data-Collection-With-PSAW.html">
-     Reddit Data Collection
+    <a class="reference internal" href="04-Data-Collection/14-Reddit-Data.html">
+     Reddit Data
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Text-Analysis/Text-Analysis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05-Text-Analysis/00-Text-Analysis.html">
    5. Text Analysis
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="Text-Analysis/TF-IDF.html">
-     TF-IDF
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="05-Text-Analysis/01-Multilingual-Text-Analysis.html">
+     Working in Languages Beyond English
     </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/TF-IDF-HathiTrust.html">
-       TF-IDF with HathiTrust Data
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">
+       Chinese
       </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">
+         Text Pre-Processing for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
+         Named Entity Recognition for Chinese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">
+         Part-of-Speech Tagging for Chinese
+        </a>
+       </li>
+      </ul>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/TF-IDF-Scikit-Learn.html">
-       TF-IDF with Scikit-Learn
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="05-Text-Analysis/Multilingual/Danish/00-Danish.html">
+       Danish
       </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">
+         Text Pre-Processing for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
+         Named Entity Recognition for Danish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">
+         Part-of-Speech Tagging for Danish
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">
+       Portuguese
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
+         Text Pre-Processing for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
+         Named Entity Recognition for Portuguese
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
+         Part-of-Speech Tagging for Portuguese
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="05-Text-Analysis/Multilingual/Russian/00-Russian.html">
+       Russian
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">
+         Text Pre-Processing for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
+         Named Entity Recognition for Russian
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">
+         Part-of-Speech Tagging for Russian
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">
+       Spanish
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">
+         Text Pre-Processing for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
+         Named Entity Recognition for Spanish
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">
+         Part-of-Speech Tagging for Spanish
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="Text-Analysis/Topic-Modeling.html">
-     Topic Modeling
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="05-Text-Analysis/01-TF-IDF.html">
+     Term-Frequency Inverse Document Frequency
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/Topic-Modeling-Overview.html">
-       Topic Modeling — Overview
+      <a class="reference internal" href="05-Text-Analysis/02-TF-IDF-HathiTrust.html">
+       With HathiTrust
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/Topic-Modeling-Set-Up.html">
-       Topic Modeling — Set Up
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/Topic-Modeling-Text-Files.html">
-       Topic Modeling — Text Files
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/Topic-Modeling-CSV.html">
-       Topic Modeling — CSV Files
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="Text-Analysis/Topic-Modeling-Time-Series.html">
-       Topic Modeling — Time Series
+      <a class="reference internal" href="05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">
+       With Scikit-Learn
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Text-Analysis/Named-Entity-Recognition.html">
+    <a class="reference internal" href="05-Text-Analysis/04-Sentiment-Analysis.html">
+     Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="05-Text-Analysis/05-Topic-Modeling.html">
+     Topic Modeling
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/06-Topic-Modeling-Overview.html">
+       What is Topic Modeling?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/07-Topic-Modeling-Set-Up.html">
+       MALLET Set Up
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/08-Topic-Modeling-Text-Files.html">
+       MALLET &amp; Text Files (NYT Articles)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">
+       Tomotopy &amp; Text Files (NYT Articles) - No Java required
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/10-Topic-Modeling-CSV.html">
+       MALLET &amp; CSV Files (Reddit Posts)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05-Text-Analysis/11-Topic-Modeling-Time-Series.html">
+       MALLET &amp; Time Series (Tweets)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-Text-Analysis/12-Named-Entity-Recognition.html">
      Named Entity Recognition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Text-Analysis/POS-Keywords.html">
+    <a class="reference internal" href="05-Text-Analysis/13-POS-Keywords.html">
      Part-of-Speech Tagging
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Text-Analysis/POS-Keywords.html#keyword-extraction">
-     Keyword Extraction
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Network-Analysis/Network-Analysis-Home.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="06-Network-Analysis/00-Network-Analysis.html">
    6. Network Analysis
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Network-Analysis/Network-Analysis.html">
+    <a class="reference internal" href="06-Network-Analysis/01-Network-Analysis.html">
      Network Analysis
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Network-Analysis/Making-Network-Viz-with-Bokeh.html">
+    <a class="reference internal" href="06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
      Make an Interactive Network Visualization
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Mapping/Mapping-Home.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="07-Mapping/00-Mapping.html">
    7. Mapping
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="Mapping/Mapping.html">
+    <a class="reference internal" href="07-Mapping/01-Mapping.html">
      Mapping
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Mapping/Mapping.html#geocoding-with-geopy">
-     Geocoding with GeoPy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Mapping/Mapping.html#making-interactive-maps">
-     Making Interactive Maps
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Mapping/Custom-Maps.html">
+    <a class="reference internal" href="07-Mapping/02-Custom-Maps.html">
      Custom Map Backgrounds
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Mapping/Publish-Your-Map.html">
+    <a class="reference internal" href="07-Mapping/03-Publish-Your-Map.html">
      Publish Your Map on the Web
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Datasets
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Datasets/Datasets.html">
+  <a class="reference internal" href="00-Datasets/00-Datasets.html">
    Datasets
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Python/Jupyter-Tips-Tricks.html">
-   Jupyter Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Python/Randomize-Students.html">
-   Make Random Student Groups
-  </a>
- </li>
-</ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -515,21 +648,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -547,7 +680,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -565,14 +698,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -591,11 +724,12 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -607,23 +741,24 @@
 <h1>Introduction to Cultural Analytics &amp; Python<a class="headerlink" href="#introduction-to-cultural-analytics-python" title="Permalink to this headline">¶</a></h1>
 <br>
 <p><strong>Designed by <a class="reference external" href="https://melaniewalsh.org/">Melanie Walsh</a> // Powered by <a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a></strong></p>
-<p>This website hosts the course materials for “Introduction to Cultural Analytics: Data, Computation &amp; Culture,” an undergraduate course taught at Cornell in the spring of 2020 and 2021. It also includes an online textbook designed for the class.</p>
+<p>This website hosts an online textbook, <em>Introduction to Cultural Analytics &amp; Python</em>, which offers an introduction to the programming language Python that is specifically designed for people interested in the humanities and social sciences.</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="images/logo/logo.png"><img alt="images/logo/logo.png" src="images/logo/logo.png" style="height: 200px;" /></a>
 </div>
+<p>This book demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. It also introduces computational methods such as web scraping, APIs, topic modeling, Named Entity Recognition (NER), network analysis, and mapping.</p>
+<p>These materials were originally created to support “Introduction to Cultural Analytics: Data, Computation &amp; Culture,” an undergraduate course taught at Cornell University and the University of Washington.</p>
 <p><strong>What is Cultural Analytics?</strong><br />
 Cultural analytics is the study of culture with computational methods. Culture is a broad term that includes literature, history, politics, art, music, social media, and a lot more. Cultural analytics is a growing research area in fields like <a class="reference external" href="https://cmu-lib.github.io/dhlg/what-are-dh/">Digital Humanities</a> and <a class="reference external" href="https://infosci.cornell.edu/research">Information Science</a>.</p>
-<p><strong>Python for Cultural Data</strong><br />
-The <em>Introduction to Cultural Analytics &amp; Python</em> textbook offers an introduction to the programming language Python that is specifically designed for humanities and social science students/scholars with no previous programming experience. It demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. It introduces computational methods such as web scraping, APIs, topic modeling, Named Entity Recognition (NER), network analysis, and mapping.</p>
-<p><strong>Interactive Code <i class="fa fa-rocket" aria-hidden="true"></i></strong><br />
-Most of the pages in the book are Jupyter notebook files that can be downloaded and run with <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/getting_started/overview.html">Jupyter</a>. Click the download button at the top of the page <i class="fa fa-download" aria-hidden="true"></i> to download the .ipynb file. The Jupyter notebooks can also be opened and run in the cloud without any prior configuration by clicking the launch button <i class="fa fa-rocket" aria-hidden="true"></i>. See <a class="reference internal" href="How-To-Interact-With-This-Book.html"><span class="doc">How To Interact With This Book</span></a> for more information.</p>
+<p><strong>Interactive Code <i class="fa fa-rocket" aria-hidden="true"></i></strong></p>
+<p>This book’s pages contain Python code that can be opened and run in a web browser without any prior installation or configuration. Click the launch button <i class="fa fa-rocket" aria-hidden="true"></i> in the top right corner of any page to open and play with the code. See <a class="reference internal" href="How-To-Interact-With-This-Book.html"><span class="doc">How To Interact With This Book</span></a> for more information.</p>
 <p><strong>Acknowledgments</strong><br />
-This course was inspired by a range of excellent course materials, including those by <a class="reference external" href="https://github.com/laurenfklein/emory-qtm340">Lauren Klein</a>, <a class="reference external" href="https://mimno.infosci.cornell.edu/info3350/">David Mimno</a>, and <a class="reference external" href="https://github.com/aparrish/rwet">Allison Parrish</a>.</p>
+This course was inspired by a range of excellent course materials, including those by <a class="reference external" href="https://github.com/laurenfklein/emory-qtm340">Lauren Klein</a>, <a class="reference external" href="https://mimno.infosci.cornell.edu/info3350/">David Mimno</a>, and <a class="reference external" href="https://github.com/aparrish/rwet">Allison Parrish</a>. The section “Working with Languages Beyond English” was authored by <a class="reference external" href="http://www.quinndombrowski.com/">Quinn Dombrowski</a>.</p>
 <p><strong>Suggested Citation</strong></p>
 <blockquote>
 <div><p>Melanie Walsh, <em>Introduction to Cultural Analytics &amp; Python</em>, Version 1 (2021), <a class="reference external" href="https://doi.org/10.5281/zenodo.4411250">https://doi.org/10.5281/zenodo.4411250</a>.</p>
 </div></blockquote>
-<p>The <a class="reference external" href="https://doi.org/10.5281/zenodo.4411250">DOI</a> above links to a Zenodo archive of all evolving versions of the textbook. You may also link to the homepage <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/">https://melaniewalsh.github.io/Intro-Cultural-Analytics/</a>, but be aware that it is subject to change.</p>
+<p><strong>Support This Project</strong></p>
+<p>I’m proud to make this book freely available, but if you find it useful, and if you’d like to support its continued development and maintenance, you can <a class="reference external" href="https://www.buymeacoffee.com/melaniewalsh">buy me a coffee ☕</a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -658,14 +793,14 @@ This course was inspired by a range of excellent course materials, including tho
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='right-next' id="next-link" href="How-To-Interact-With-This-Book.html" title="next page">How to Interact With This Book</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -688,21 +823,19 @@ This course was inspired by a range of excellent course materials, including tho
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-86905362-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
 
-
-    
-    <!-- Google Analytics -->
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-86905362-3', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <!-- End Google Analytics -->
-    
   </body>
 </html>
