@@ -1,114 +1,144 @@
-- file: welcome
-
-- part: How To
+format: jb-book
+root: welcome
+parts:
+- caption: How To
   chapters:
   - file: How-To-Interact-With-This-Book
     title: Interact With This Book
-
-- part: The Course
+- caption: The Course
   chapters:
-  - file: course-schedule
+  - file: course-schedule-2021
     title: Course Schedule
-
-  - file: syllabus
-    title: Course Syllabus
-  
-- part: The Book
+- caption: The Book
   chapters:
-  - file: Command-Line/The-Command-Line
+  - file: 01-Command-Line/01-The-Command-Line
     title: 1. The Command Line
-
-  - file: Python/Python
+  - file: 02-Python/00-Python
     title: 2. Python Basics
     sections:
-      - file: Python/Installation
-      - file: Python/How-to-Use-Jupyter-Notebooks
-      - file: Python/Anatomy-Python-Script
-      - file: Python/Variables
-      - file: Python/Data-Types
-      - file: Python/String-Methods
-      - file: Python/Files-Character-Encoding
-        title: Files and Character Encoding
-      - file: Python/Comparisons-Conditionals
-      - file: Python/Lists-Loops-Part1
-      - file: Python/Lists-Loops-Part2
-      - file: Python/Dictionaries
-      - file: Python/Functions
-      - file: Python/Common-Python-Errors
-      - file: Python/What-Were-Not-Covering
-      
-  - file: Data-Analysis/Data-Analysis
+    - file: 02-Python/01-Install-Python
+      title: Install Python & Jupyter
+    - file: 02-Python/02-How-to-Use-Jupyter-Notebooks
+    - file: 02-Python/03-Anatomy-Python-Script
+    - file: 02-Python/04-Variables
+      title: Python Variables
+    - file: 02-Python/05-Data-Types
+      title: Python Data Types
+    - file: 02-Python/06-String-Methods
+      title: Python String Methods
+    - file: 02-Python/07-Files-Character-Encoding
+      title: Files and Character Encoding
+    - file: 02-Python/08-Comparisons-Conditionals
+      title: Python Comparisons and Conditionals
+    - file: 02-Python/09-Lists-Loops-Part1
+      title: Python Lists and Loops
+    - file: 02-Python/10-Lists-Loops-Part2
+      title: Python Lists and Loops (Cont.)
+    - file: 02-Python/11-Dictionaries
+      title: Python Dictionaries
+    - file: 02-Python/12-Functions
+      title: Python Functions
+    - file: 02-Python/13-Common-Python-Errors
+    - file: 02-Python/14-What-Were-Not-Covering
+  - file: 03-Data-Analysis/00-Data-Analysis
     title: 3. Data Analysis (Pandas)
     sections:
-      - file: Data-Analysis/Pandas-Basics-Part1
-      - file: Data-Analysis/Pandas-Basics-Part2
-      - file: Data-Analysis/Pandas-Basics-Part3
-      - file: Data-Analysis/Pandas-Merge-Datasets
-
-  - file: Data-Collection/Data-Collection
-    title: 4. Data Collection (Web Scraping, APIs)
+    - file: 03-Data-Analysis/01-Pandas-Basics-Part1.ipynb
+    - file: 03-Data-Analysis/02-Pandas-Basics-Part2.ipynb
+    - file: 03-Data-Analysis/03-Pandas-Basics-Part3.ipynb
+    - file: 03-Data-Analysis/04-Pandas-Merge-Datasets
+  - file: 04-Data-Collection/00-Data-Collection
+    title: 4. Data Collection (Web Scraping, APIs, Social Media)
     sections:
-      - file: Data-Collection/User-Ethics-Legal-Concerns
-      - file: Data-Collection/Web-Scraping-Part1
-      - file: Data-Collection/Web-Scraping-Part2
-      - file: Data-Collection/Git-GitHub
-      - file: Data-Collection/APIs
-      - file: Data-Collection/Song-Genius-Data-Collection
-        sections:
-          - file: Data-Collection/Genius-API
-          - file: Data-Collection/LyricsGenius
-          - file: Data-Collection/Song-Lyrics-Analysis
-      - file: Data-Collection/Twitter-Data-Collection-Home
-        sections:
-          - file: Data-Collection/Twitter-API-Setup
-          - file: Data-Collection/Twitter-Data-Collection
-          - file: Data-Collection/Twitter-Data-Analysis
-          - file: Data-Collection/Twitter-Data-Sharing
-      - file: Data-Collection/Reddit-Data-Collection-With-PSAW
-        title: Reddit Data Collection
-          
-  - file: Text-Analysis/Text-Analysis
+    - file: 04-Data-Collection/01-User-Ethics-Legal-Concerns
+    - file: 04-Data-Collection/02-Web-Scraping-Part1
+    - file: 04-Data-Collection/03-Web-Scraping-Part2
+    - file: 04-Data-Collection/04-Git-GitHub
+    - file: 04-Data-Collection/05-What-Is-API
+    - file: 04-Data-Collection/06-Song-Genius
+      title: Song Genius Data
+      sections:
+      - file: 04-Data-Collection/07-Genius-API
+      - file: 04-Data-Collection/08-Collect-Genius-Lyrics
+      - file: 04-Data-Collection/09-Lyrics-Analysis
+    - file: 04-Data-Collection/10-Twitter
+      title: Twitter Data
+      sections:
+      - file: 04-Data-Collection/11-Twitter-API-Setup
+      - file: 04-Data-Collection/12-Twitter-Data
+      - file: 04-Data-Collection/13-Twitter-Data-Sharing
+    - file: 04-Data-Collection/14-Reddit-Data
+      title: Reddit Data
+  - file: 05-Text-Analysis/00-Text-Analysis
     title: 5. Text Analysis
     sections:
-	  - file: Text-Analysis/Languages-Beyond-English
-	    sections:
-		  - file: Text-Analysis/Preprocessing-Danish
-      - file: Text-Analysis/TF-IDF
+    - file: 05-Text-Analysis/01-Multilingual-Text-Analysis
+      sections:
+      - file: 05-Text-Analysis/Multilingual/Chinese/00-Chinese
         sections:
-          - file: Text-Analysis/TF-IDF-HathiTrust
-          - file: Text-Analysis/TF-IDF-Scikit-Learn
-      - file: Text-Analysis/Topic-Modeling
+        - file: 05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese
+        - file: 05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese
+        - file: 05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese
+      - file: 05-Text-Analysis/Multilingual/Danish/00-Danish
         sections:
-          - file: Text-Analysis/Topic-Modeling-Overview
-          - file: Text-Analysis/Topic-Modeling-Set-Up
-          - file: Text-Analysis/Topic-Modeling-Text-Files
-          - file: Text-Analysis/Topic-Modeling-CSV
-          - file: Text-Analysis/Topic-Modeling-Time-Series
-      - file: Text-Analysis/Named-Entity-Recognition
-	    sections:
-		  - file: Text-Analysis/Named-Entity-Recognition-Danish
-      - file: Text-Analysis/POS-Keywords
-	    sections:
-		  - file: Text-Analysis/POS-Keywords-Danish
-  - file: Network-Analysis/Network-Analysis-Home
+        - file: 05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish
+        - file: 05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish
+        - file: 05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish
+      - file: 05-Text-Analysis/Multilingual/Portuguese/00-Portuguese
+        sections:
+        - file: 05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese
+        - file: 05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese
+        - file: 05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese
+      - file: 05-Text-Analysis/Multilingual/Russian/00-Russian
+        sections:
+        - file: 05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian
+        - file: 05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian
+        - file: 05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian
+      - file: 05-Text-Analysis/Multilingual/Spanish/00-Spanish
+        sections:
+        - file: 05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish
+        - file: 05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish
+        - file: 05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish
+    - file: 05-Text-Analysis/01-TF-IDF
+      title: Term-Frequency Inverse Document Frequency
+      sections:
+      - file: 05-Text-Analysis/02-TF-IDF-HathiTrust
+        title: With HathiTrust
+      - file: 05-Text-Analysis/03-TF-IDF-Scikit-Learn
+        title: With Scikit-Learn
+    - file: 05-Text-Analysis/04-Sentiment-Analysis
+    - file: 05-Text-Analysis/05-Topic-Modeling
+      sections:
+      - file: 05-Text-Analysis/06-Topic-Modeling-Overview
+        title: What is Topic Modeling?
+      - file: 05-Text-Analysis/07-Topic-Modeling-Set-Up
+        title: MALLET Set Up
+      - file: 05-Text-Analysis/08-Topic-Modeling-Text-Files
+        title: MALLET & Text Files (NYT Articles)
+      - file: 05-Text-Analysis/09-Topic-Modeling-Without-Mallet
+        title: Tomotopy & Text Files (NYT Articles) - No Java required
+      - file: 05-Text-Analysis/10-Topic-Modeling-CSV
+        title: MALLET & CSV Files (Reddit Posts)
+      - file: 05-Text-Analysis/11-Topic-Modeling-Time-Series
+        title: MALLET & Time Series (Tweets)
+    - file: 05-Text-Analysis/12-Named-Entity-Recognition
+    - file: 05-Text-Analysis/13-POS-Keywords
+  - file: 06-Network-Analysis/00-Network-Analysis
     title: 6. Network Analysis
     sections:
-      - file: Network-Analysis/Network-Analysis
-      - file: Network-Analysis/Making-Network-Viz-with-Bokeh
-  - file: Mapping/Mapping-Home
-    title: 7. Mapping 
+    - file: 06-Network-Analysis/01-Network-Analysis
+    - file: 06-Network-Analysis/02-Making-Network-Viz-with-Bokeh
+  - file: 07-Mapping/00-Mapping
+    title: 7. Mapping
     sections:
-      - file: Mapping/Mapping
-      - file: Mapping/Custom-Maps
-      - file: Mapping/Publish-Your-Map
-      
-- part: Datasets
+    - file: 07-Mapping/01-Mapping
+    - file: 07-Mapping/02-Custom-Maps
+    - file: 07-Mapping/03-Publish-Your-Map
+- caption: Datasets
   chapters:
-    - file: Datasets/Datasets
-
-- part: Extra Materials
+  - file: 00-Datasets/00-Datasets
+- caption: Extra Materials
   chapters:
-  - file: Python/Jupyter-Tips-Tricks
-  - file: Python/Randomize-Students
+  - file: Python/EXTRA-Jupyter-Tips-Tricks
+  - file: Python/EXTRA-Randomize-Students
     title: Make Random Student Groups
-

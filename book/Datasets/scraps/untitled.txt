@@ -1,9 +1,0 @@
-***Harry Potter* series, books 1-7, randomly shuffled** ({download`Download <harry_potter_series_shuffled.txt>`})
-
-Original Source: David Mimno
-
-The {download`*Harry Potter* series text file (.txt) <../texts/literature/Harry-Potter-Novels-Shuffled.txt>`} includes all seven books from J.K. Rowling's *Harry Potter* series, with words randomly shuffled for each page. Each line of the file is tab-separated and contains information about the individual page number (e.g. hp1-15), the book number (e.g. hp1), and the randomly shuffled words for that page. 
-
-This text file was originally created and shared by [David Mimno](https://github.com/mimno/info-3350-fall-2019/blob/master/week15/HarryPotterAnalysis.ipynb). The words have been shuffled at the page level to ensure non-infringing fair use of copyrighted material.
-
-Useful for: Text analysis, network analysis

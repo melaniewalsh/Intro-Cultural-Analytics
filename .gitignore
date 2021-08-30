@@ -21,6 +21,9 @@ book/_build/
 book/features
 in-progress
 scraps
+Workbook-Solutions
 
 # VS Code
 .vscode
+
+.twarc

@@ -1,0 +1,12 @@
+altair
+bokeh
+folium
+ipywidgets
+matplotlib
+nbclient
+numpy
+pandas
+plotly
+sphinx-click
+sphinx_inline_tabs
+sympy

@@ -2,7 +2,7 @@
 
 Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)
 
-This repository hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell in the spring of 2020 and 2021. It includes an online textbook designed for the class, *Introduction to Cultural Analytics & Python*, which demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. 
+This repository hosts the course materials for "Introduction to Cultural Analytics: Data, Computation & Culture," an undergraduate course taught at Cornell University and the University of Washington. It includes an online textbook designed for the class, *Introduction to Cultural Analytics & Python*, which demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. 
 
 [![Intro Cultural Analytics home page](book/images/intro-ca-home-page-12-30-2020.png)](https://melaniewalsh.github.io/Intro-Cultural-Analytics/)
 
