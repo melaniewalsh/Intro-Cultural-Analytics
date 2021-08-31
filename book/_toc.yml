@@ -139,6 +139,6 @@ parts:
   - file: 00-Datasets/00-Datasets
 - caption: Extra Materials
   chapters:
-  - file: Python/EXTRA-Jupyter-Tips-Tricks
-  - file: Python/EXTRA-Randomize-Students
+  - file: 02-Python/EXTRA-Jupyter-Tips-Tricks
+  - file: 02-Python/EXTRA-Randomize-Students
     title: Make Random Student Groups

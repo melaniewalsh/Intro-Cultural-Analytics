@@ -16,12 +16,12 @@ The HTML files are currently hidden in this branch of the GitHub repository, but
 Below I will briefly explain the structure of this repository and some important Jupyter Book features.
 
 -  [`/book`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/book) contains all the materials that generate the Jupyter Book
-- [`/binder`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/binder) contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud
+- [`/binder`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/binder) contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud 
 
 ### Configuration file
 
 The configuration file [`/book/_config.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_config.yml) is where I establish key features of the book, such as the title, logo, and whether users can open the Jupyter notebook files in the cloud.
-
+ 
 ### Table of Contents file
 
 The table of contents file [`/book/_toc.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_toc.yml) establishes the table of contents structure on the left-hand side of the web page.
@@ -43,11 +43,11 @@ Custom CSS styling can be found in [`/book/_static/custom.css`](https://github.c
 You can learn more about Jupyter Book by exploring the documentation: https://jupyterbook.org/intro.html
 
 # Acknowledgments
-This course was inspired by a range of excellent course materials, including those by [Lauren Klein](https://github.com/laurenfklein/emory-qtm340), [David Mimno](https://mimno.infosci.cornell.edu/info3350/), and [Allison Parrish](https://github.com/aparrish/rwet).
+This course was inspired by a range of excellent course materials, including those by [Lauren Klein](https://github.com/laurenfklein/emory-qtm340), [David Mimno](https://mimno.infosci.cornell.edu/info3350/), and [Allison Parrish](https://github.com/aparrish/rwet). The section "Working with Languages Beyond English" was co-authored with [Quinn Dombrowski](http://www.quinndombrowski.com/).
 
 # License
 
-This book is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/). The code is licensed under a [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/#).
+This book is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 # Support This Project
 
