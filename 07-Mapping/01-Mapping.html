@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mapping &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <title>Mapping &amp; Geocoding &#8212; Introduction to Cultural Analytics &amp; Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -737,58 +754,60 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Mapping
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#geocoding-with-geopy">
-   Geocoding with GeoPy
+   Mapping &amp; Geocoding
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-geopy">
-     Install GeoPy
+    <a class="reference internal nav-link" href="#geocoding-with-geopy">
+     Geocoding with GeoPy
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-nominatim">
-     Import Nominatim
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nominatim-openstreetmap">
-     Nominatim &amp; OpenStreetMap
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-geocoding-api">
-     Google Geocoding API
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-address">
-     Get Address
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-latitude-and-longitude">
-     Get Latitude and Longitude
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-importance-score">
-     Get “Importance” Score
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-class-and-type">
-     Get Class and Type
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-multiple-possible-matches">
-     Get Multiple Possible Matches
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-geopy">
+       Install GeoPy
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#import-nominatim">
+       Import Nominatim
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nominatim-openstreetmap">
+       Nominatim &amp; OpenStreetMap
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#google-geocoding-api">
+       Google Geocoding API
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-address">
+       Get Address
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-latitude-and-longitude">
+       Get Latitude and Longitude
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-importance-score">
+       Get “Importance” Score
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-class-and-type">
+       Get Class and Type
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-multiple-possible-matches">
+       Get Multiple Possible Matches
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geocode-with-pandas">
@@ -859,16 +878,15 @@
         
               <div>
                 
-  <div class="section" id="mapping">
-<h1>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mapping-geocoding">
+<h1>Mapping &amp; Geocoding<a class="headerlink" href="#mapping-geocoding" title="Permalink to this headline">¶</a></h1>
 <p>In this lesson, we’re going to learn how to analyze and visualize geographic data.</p>
-</div>
 <div class="section" id="geocoding-with-geopy">
-<h1>Geocoding with GeoPy<a class="headerlink" href="#geocoding-with-geopy" title="Permalink to this headline">¶</a></h1>
+<h2>Geocoding with GeoPy<a class="headerlink" href="#geocoding-with-geopy" title="Permalink to this headline">¶</a></h2>
 <p>First, we’re going to geocode data — aka get coordinates from addresses or place names — with the Python package <a class="reference external" href="https://geopy.readthedocs.io/en/stable/">GeoPy</a>. GeoPy makes it easier to use a range of third-party <a class="reference external" href="https://geopy.readthedocs.io/en/stable/">geocoding API services</a>, such as Google, Bing, ArcGIS, and OpenStreetMap.</p>
 <p>Though most of these services require an API key, Nominatim, which uses OpenStreetMap data, does not, which is why we’re going to use it here.</p>
 <div class="section" id="install-geopy">
-<h2>Install GeoPy<a class="headerlink" href="#install-geopy" title="Permalink to this headline">¶</a></h2>
+<h3>Install GeoPy<a class="headerlink" href="#install-geopy" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install geopy
@@ -878,7 +896,7 @@
 </div>
 </div>
 <div class="section" id="import-nominatim">
-<h2>Import Nominatim<a class="headerlink" href="#import-nominatim" title="Permalink to this headline">¶</a></h2>
+<h3>Import Nominatim<a class="headerlink" href="#import-nominatim" title="Permalink to this headline">¶</a></h3>
 <p>From GeoPy’s list of possible geocoding services, we’re going to import Nominatim:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -889,7 +907,7 @@
 </div>
 </div>
 <div class="section" id="nominatim-openstreetmap">
-<h2>Nominatim &amp; OpenStreetMap<a class="headerlink" href="#nominatim-openstreetmap" title="Permalink to this headline">¶</a></h2>
+<h3>Nominatim &amp; OpenStreetMap<a class="headerlink" href="#nominatim-openstreetmap" title="Permalink to this headline">¶</a></h3>
 <img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/256px-Openstreetmap_logo.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/256px-Openstreetmap_logo.svg.png" />
 <p>Nominatim (which means “name” in Latin) uses <a class="reference external" href="https://www.openstreetmap.org/relation/174979">OpenStreetMap data</a> to match addresses with geopgraphic coordinates. Though we don’t need an API key to use Nominatim, we do need to create a unique <a class="reference external" href="https://operations.osmfoundation.org/policies/nominatim/">application name</a>.</p>
 <p>Here we’re initializing Nominatim as a variable called <code class="docutils literal notranslate"><span class="pre">geolocator</span></code>. Change the application name below to your own application name:</p>
@@ -922,7 +940,7 @@
 </div>
 </div>
 <div class="section" id="google-geocoding-api">
-<h2>Google Geocoding API<a class="headerlink" href="#google-geocoding-api" title="Permalink to this headline">¶</a></h2>
+<h3>Google Geocoding API<a class="headerlink" href="#google-geocoding-api" title="Permalink to this headline">¶</a></h3>
 <p>The Google Geocoding API is superior to Nominatim, but it requires an API key and more set up. To enable the Google Geocoding API and get an API key, see <a class="reference external" href="https://developers.google.com/maps/gmp-get-started">Get Started with Google Maps Platform</a> and <a class="reference external" href="https://developers.google.com/maps/documentation/geocoding/start">Get Started with Geocoding API</a>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -935,7 +953,7 @@
 </div>
 </div>
 <div class="section" id="get-address">
-<h2>Get Address<a class="headerlink" href="#get-address" title="Permalink to this headline">¶</a></h2>
+<h3>Get Address<a class="headerlink" href="#get-address" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
@@ -950,7 +968,7 @@
 </div>
 </div>
 <div class="section" id="get-latitude-and-longitude">
-<h2>Get Latitude and Longitude<a class="headerlink" href="#get-latitude-and-longitude" title="Permalink to this headline">¶</a></h2>
+<h3>Get Latitude and Longitude<a class="headerlink" href="#get-latitude-and-longitude" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
@@ -965,7 +983,7 @@
 </div>
 </div>
 <div class="section" id="get-importance-score">
-<h2>Get “Importance” Score<a class="headerlink" href="#get-importance-score" title="Permalink to this headline">¶</a></h2>
+<h3>Get “Importance” Score<a class="headerlink" href="#get-importance-score" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importance: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -980,7 +998,7 @@
 </div>
 </div>
 <div class="section" id="get-class-and-type">
-<h2>Get Class and Type<a class="headerlink" href="#get-class-and-type" title="Permalink to this headline">¶</a></h2>
+<h3>Get Class and Type<a class="headerlink" href="#get-class-and-type" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Type: </span><span class="si">{</span><span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -996,7 +1014,7 @@ Type: residential
 </div>
 </div>
 <div class="section" id="get-multiple-possible-matches">
-<h2>Get Multiple Possible Matches<a class="headerlink" href="#get-multiple-possible-matches" title="Permalink to this headline">¶</a></h2>
+<h3>Get Multiple Possible Matches<a class="headerlink" href="#get-multiple-possible-matches" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_locations</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;College Ave&quot;</span><span class="p">,</span> <span class="n">exactly_one</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1058,6 +1076,7 @@ Importance: 0.3
 42.4431445 -76.4852319
 Importance: 0.41000000000000003
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2112,7 +2131,7 @@ Importance: 0.41000000000000003
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

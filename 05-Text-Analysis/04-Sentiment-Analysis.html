@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -735,91 +752,86 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Sentiment Analysis
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#datasets">
    Datasets
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trumps-tweets">
      Trump’s Tweets
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#little-red-riding-hood">
      Little Red Riding Hood
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-sentiment-what-exactly-are-we-measuring">
    What is Sentiment? What Exactly Are We Measuring?
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-vader-was-built-and-how-it-works">
    How VADER Was Built and How It Works
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#install-and-import-libraries-packages">
    Install and Import Libraries/Packages
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculate-sentiment-scores">
    Calculate Sentiment Scores
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculate-sentiment-scores-for-donald-trumps-tweets">
    Calculate Sentiment Scores for Donald Trump’s Tweets
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#load-csv-file">
      Load CSV File
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calculate-sentiment-for-all-rows-in-a-csv">
      Calculate Sentiment for All Rows in a CSV
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-sentiment-over-time">
      Plot Sentiment Over Time
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculate-sentiment-scores-for-little-red-riding-hood">
    Calculate Sentiment Scores for Little Red Riding Hood
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#install-and-import-nltk">
      Install and Import NLTK
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#make-dataframe">
      Make DataFrame
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#make-a-sentiment-plot">
      Make a Sentiment Plot
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#your-turn">
      Your Turn!
     </a>
@@ -839,23 +851,22 @@
                 
   <div class="section" id="sentiment-analysis">
 <h1>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h1>
-<p>In this lesson, we’re going to learn how to use <a class="reference external" href="https://github.com/cjhutto/vaderSentiment">VADER</a>, an English-language sentiment analysis tool designed for use with social media texts. This tool helps to calculate whether texts expresses positive or negative sentiment.</p>
-<p>In this lesson, we will cover how to use VADER to:</p>
+<p>In this lesson, we’re going to learn how to use <a class="reference external" href="https://github.com/cjhutto/vaderSentiment">VADER</a>, an English-language sentiment analysis tool designed for use with social media texts. This tool helps to calculate whether texts express positive or negative sentiment.</p>
+<p>In this lesson, we will learn how to use VADER to:</p>
 <ul class="simple">
 <li><p>Calculate sentiment for individual sentences, tweets, and a fairy tale</p></li>
-<li><p>Create a plot of how sentiment fluctuates over time and throughout a text</p></li>
+<li><p>Make plots of how sentiment fluctuates over time and throughout a text</p></li>
 </ul>
-</div>
 <hr class="docutils" />
 <div class="section" id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="trumps-tweets">
-<h2>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Permalink to this headline">¶</a></h2>
+<h3>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.the-sun.com/wp-content/uploads/sites/6/2020/03/Screenshot-2020-03-25-at-21.56.11.png?strip=all&amp;w=942"><img alt="" src="https://www.the-sun.com/wp-content/uploads/sites/6/2020/03/Screenshot-2020-03-25-at-21.56.11.png?strip=all&amp;w=942" /></a></p>
 <p>We’re going to use VADER to analyze Donald Trump’s tweets and plot the fluctuation of sentiment over time. The Trump tweets dataset is downloaded from <a class="reference external" href="https://www.thetrumparchive.com/">The Trump Twitter Archive</a>.</p>
 </div>
 <div class="section" id="little-red-riding-hood">
-<h2>Little Red Riding Hood<a class="headerlink" href="#little-red-riding-hood" title="Permalink to this headline">¶</a></h2>
+<h3>Little Red Riding Hood<a class="headerlink" href="#little-red-riding-hood" title="Permalink to this headline">¶</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>“Grandmother,” she said, “what big ears you have!”</p>
 <p>“The better to hear you with, my Child”…</p>
@@ -868,7 +879,7 @@
 </div>
 </div>
 <div class="section" id="what-is-sentiment-what-exactly-are-we-measuring">
-<h1>What is Sentiment? What Exactly Are We Measuring?<a class="headerlink" href="#what-is-sentiment-what-exactly-are-we-measuring" title="Permalink to this headline">¶</a></h1>
+<h2>What is Sentiment? What Exactly Are We Measuring?<a class="headerlink" href="#what-is-sentiment-what-exactly-are-we-measuring" title="Permalink to this headline">¶</a></h2>
 <p>What is sentiment analysis, exactly? What are we actually measuring with VADER?</p>
 <p>These are tough and important questions. According to VADER’s creators, C.J. Hutto and Eric Gilbert, “Sentiment analysis, or opinion mining, is an active area of study in the field of natural language processing that analyzes people’s <strong>opinions, sentiments, evaluations, attitudes, and emotions</strong> via the computational treatment of subjectivity in text” (<a class="reference external" href="https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122">“VADER”</a>).</p>
 <p>I would like to emphasize that “opinions, sentiments, evaluations, attitudes, and emotions” covers a <em>lot</em> of ground. These are complex categories of human experience that can be expressed in many different ways, especially in different contexts. In fact, that’s why Hutto and Gilbert designed VADER specifically for <em>social media</em> texts, because sentiment gets expressed differently in social media posts than in, say, fictional stories or newspaper articles.</p>
@@ -876,7 +887,7 @@
 <p>So, yes, tools like VADER can be useful, as we will see below, but they are only useful when thoughtfully and deliberately applied.</p>
 </div>
 <div class="section" id="how-vader-was-built-and-how-it-works">
-<h1>How VADER Was Built and How It Works<a class="headerlink" href="#how-vader-was-built-and-how-it-works" title="Permalink to this headline">¶</a></h1>
+<h2>How VADER Was Built and How It Works<a class="headerlink" href="#how-vader-was-built-and-how-it-works" title="Permalink to this headline">¶</a></h2>
 <p>VADER, which stands for <strong>V</strong>alence <strong>A</strong>ware <strong>D</strong>ictionary and s<strong>E</strong>ntiment <strong>R</strong>easoner, calculates the sentiment of texts by referring to a lexicon of words that have been assigned sentiment scores as well as by using a handful of simple rules.</p>
 <p>You can read more about how VADER was designed in <a class="reference external" href="https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122">C.J. Hutto and Eric Gilbert’s published paper</a>, but here’s a summary version: VADER’s lexicon was created by enlisting 10 different people to rate thousands of words positively or negatively on a scale of -4 to 4 (you can scroll through the <a class="reference external" href="https://github.com/cjhutto/vaderSentiment/blob/master/vaderSentiment/vader_lexicon.txt">lexicon on GitHub</a> and check it out for yourself — each line consists of a word, the mean rating, standard deviation, and 10 individual human ratings).</p>
 <p><a class="reference external" href="https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122"><img alt="" src="../_images/VADER-fig.png" /></a></p>
@@ -913,26 +924,12 @@
 <p>Because VADER uses this lexicon and these simple rules, it works very fast and doesn’t require any training or set up, unlike more sophisticated machine learning approaches. The simplicity is both its pro and con.</p>
 </div>
 <div class="section" id="install-and-import-libraries-packages">
-<h1>Install and Import Libraries/Packages<a class="headerlink" href="#install-and-import-libraries-packages" title="Permalink to this headline">¶</a></h1>
+<h2>Install and Import Libraries/Packages<a class="headerlink" href="#install-and-import-libraries-packages" title="Permalink to this headline">¶</a></h2>
 <p>So let’s explore VADER!</p>
 <p>To use it, we need to install the <a class="reference external" href="https://github.com/cjhutto/vaderSentiment">vaderSentiment package</a> with pip.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install vaderSentiment
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting vaderSentiment
-  Downloading vaderSentiment-3.3.2-py2.py3-none-any.whl (125 kB)
-     |████████████████████████████████| 125 kB 5.3 MB/s eta 0:00:01
-?25hRequirement already satisfied: requests in /Users/melwalsh/opt/anaconda3/lib/python3.8/site-packages (from vaderSentiment) (2.25.1)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/melwalsh/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;vaderSentiment) (1.26.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/melwalsh/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;vaderSentiment) (2020.12.5)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/melwalsh/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;vaderSentiment) (2.10)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /Users/melwalsh/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;vaderSentiment) (4.0.0)
-Installing collected packages: vaderSentiment
-Successfully installed vaderSentiment-3.3.2
 </pre></div>
 </div>
 </div>
@@ -959,11 +956,10 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="calculate-sentiment-scores">
-<h1>Calculate Sentiment Scores<a class="headerlink" href="#calculate-sentiment-scores" title="Permalink to this headline">¶</a></h1>
+<h2>Calculate Sentiment Scores<a class="headerlink" href="#calculate-sentiment-scores" title="Permalink to this headline">¶</a></h2>
 <p>To calculate sentiment scores for a sentence or paragraph, we can use <code class="docutils literal notranslate"><span class="pre">sentimentAnalyser.polarity_scores()</span></code> and input a string of text.</p>
 <p>This method returns a Python dictionary of sentiment scores: how negative the sentence is between 0-1, how neutral the sentence is between 0-1, how positive the sentence is between 0-1, as well as a compound score between -1-1.</p>
-<p>Most scholars uses the compound score to represent sentiment in their analyses, and we will use the compound score in this lesson, as well.</p>
-<p>Let’s test it out with some sample sentences!</p>
+<p>Most scholars uses the compound score to represent sentiment in their analyses, and we will use the compound score in this lesson, as well. Let’s test it out with some sample sentences!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentimentAnalyser</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="s2">&quot;I like the Marvel movies&quot;</span><span class="p">)</span>
@@ -1092,12 +1088,16 @@ Successfully installed vaderSentiment-3.3.2
 <p>However, VADER does not capture that “I despise the Marvel movies with every fiber of my being” should be the <em>most</em> negative sentiment of the bunch. In fact, VADER scores this sentence in the mildly positive range. This example should remind us that VADER typically works best when it is used in aggregate and applied to many examples, such that specific nuances and exceptions like these matter less and come out in the wash.</p>
 </div>
 <div class="section" id="calculate-sentiment-scores-for-donald-trumps-tweets">
-<h1>Calculate Sentiment Scores for Donald Trump’s Tweets<a class="headerlink" href="#calculate-sentiment-scores-for-donald-trumps-tweets" title="Permalink to this headline">¶</a></h1>
+<h2>Calculate Sentiment Scores for Donald Trump’s Tweets<a class="headerlink" href="#calculate-sentiment-scores-for-donald-trumps-tweets" title="Permalink to this headline">¶</a></h2>
 <p>Let’s try using VADER on many texts: Donald Trump’s corpus of tweets from 2009 to 2021 (when he was suspended from Twitter).</p>
 <div class="section" id="load-csv-file">
-<h2>Load CSV File<a class="headerlink" href="#load-csv-file" title="Permalink to this headline">¶</a></h2>
+<h3>Load CSV File<a class="headerlink" href="#load-csv-file" title="Permalink to this headline">¶</a></h3>
 <p>We will load the Trump tweets CSV file with pandas and drop some of the columns that we don’t need.</p>
-<div class="cell docutils container">
+<div class="admonition pandasreview" id="html-admonition">
+<p class="admonition-title">Pandas</p>
+<p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../texts/social-media/Trump-Tweets_2009-2021.csv&#39;</span><span class="p">)</span>
 <span class="n">trump_df</span> <span class="o">=</span> <span class="n">trump_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">,</span> <span class="s1">&#39;isDeleted&#39;</span><span class="p">,</span> <span class="s1">&#39;isRetweet&#39;</span><span class="p">,</span> <span class="s1">&#39;isFlagged&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
@@ -1172,7 +1172,7 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="calculate-sentiment-for-all-rows-in-a-csv">
-<h2>Calculate Sentiment for All Rows in a CSV<a class="headerlink" href="#calculate-sentiment-for-all-rows-in-a-csv" title="Permalink to this headline">¶</a></h2>
+<h3>Calculate Sentiment for All Rows in a CSV<a class="headerlink" href="#calculate-sentiment-for-all-rows-in-a-csv" title="Permalink to this headline">¶</a></h3>
 <p>To calculate the sentiment for each tweet in the CSV file and add a new column that contains this information, we will create a function that will take in any text and output the compound sentiment score.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1447,7 +1447,7 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="plot-sentiment-over-time">
-<h2>Plot Sentiment Over Time<a class="headerlink" href="#plot-sentiment-over-time" title="Permalink to this headline">¶</a></h2>
+<h3>Plot Sentiment Over Time<a class="headerlink" href="#plot-sentiment-over-time" title="Permalink to this headline">¶</a></h3>
 <p>We can plot how Trump’s sentiment in his tweets fluctuates over time by first converting the date column to a datetime value and then making it the index of the DataFrame, which makes it easier to work with time series data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1521,54 +1521,49 @@ Successfully installed vaderSentiment-3.3.2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Month&quot;</span><span class="p">)</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Month&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Trump&#39;s Tweet Sentiment by Month&quot;}, xlabel=&#39;date&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_48_1.png" src="../_images/04-Sentiment-Analysis_48_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_48_0.png" src="../_images/04-Sentiment-Analysis_48_0.png" />
 </div>
 </div>
 <p>We can also <code class="docutils literal notranslate"><span class="pre">.resample()</span></code> by day (‘D’), week (‘W’), or year (‘Y’).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Day&quot;</span><span class="p">)</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Day&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Trump&#39;s Tweet Sentiment by Day&quot;}, xlabel=&#39;date&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_50_1.png" src="../_images/04-Sentiment-Analysis_50_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_50_0.png" src="../_images/04-Sentiment-Analysis_50_0.png" />
 </div>
 </div>
 <p>By using <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, we can also zoom in on particular time periods, such as the year 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2020&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Week in 2020&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2020&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Trump&#39;s Tweet Sentiment by Week in 2020&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Trump&#39;s Tweet Sentiment by Week in 2020&quot;}, xlabel=&#39;date&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_52_1.png" src="../_images/04-Sentiment-Analysis_52_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_52_0.png" src="../_images/04-Sentiment-Analysis_52_0.png" />
 </div>
 </div>
 <p>Hmm looks like there’s a major dip near the end of November 2020…around the same time that Donald Trump was not re-elected for president of the United States… Let’s take a closer look.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2020-11-30&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-07&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2020-11-07&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-30&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-37-2b4f38b767db&gt;:1: FutureWarning: Value based partial slicing on non-monotonic DatetimeIndexes with non-existing keys is deprecated and will raise a KeyError in a future Version.
+  trump_df.loc[&quot;2020-11-07&quot;:&quot;2020-11-30&quot;].sort_values(by=&#39;sentiment_score&#39;)[:10]
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1679,7 +1674,7 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="calculate-sentiment-scores-for-little-red-riding-hood">
-<h1>Calculate Sentiment Scores for Little Red Riding Hood<a class="headerlink" href="#calculate-sentiment-scores-for-little-red-riding-hood" title="Permalink to this headline">¶</a></h1>
+<h2>Calculate Sentiment Scores for Little Red Riding Hood<a class="headerlink" href="#calculate-sentiment-scores-for-little-red-riding-hood" title="Permalink to this headline">¶</a></h2>
 <p>To calculate sentiment scores for the fairy tale “Little Red Cap,” we first need to read in the text file.</p>
 <p>We’re also going to replace line breaks with spaces to because there are line breaks in the middle of sentences.</p>
 <div class="cell docutils container">
@@ -1693,7 +1688,7 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="install-and-import-nltk">
-<h2>Install and Import NLTK<a class="headerlink" href="#install-and-import-nltk" title="Permalink to this headline">¶</a></h2>
+<h3>Install and Import NLTK<a class="headerlink" href="#install-and-import-nltk" title="Permalink to this headline">¶</a></h3>
 <p>Next we need to break the text into sentences.</p>
 <p>An easy way to break text into sentences, or to “tokenize” them into sentences, is to use <a class="reference external" href="https://www.nltk.org/">NLTK</a>, a Python library for text analysis natural language processing.</p>
 <div class="cell docutils container">
@@ -1853,7 +1848,7 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="make-dataframe">
-<h2>Make DataFrame<a class="headerlink" href="#make-dataframe" title="Permalink to this headline">¶</a></h2>
+<h3>Make DataFrame<a class="headerlink" href="#make-dataframe" title="Permalink to this headline">¶</a></h3>
 <p>For convenience, we can put all of the sentences into a pandas DataFrame. One easy way to make a DataFrame is to first make a list of dictionaries.</p>
 <p>Below we loop through the sentences, calculate sentiment scores, and then create a dictionary with the sentence, sentence numnber, and compound score, which we append to the list <code class="docutils literal notranslate"><span class="pre">sentence_scores</span></code>.</p>
 <div class="cell docutils container">
@@ -2450,37 +2445,33 @@ Successfully installed vaderSentiment-3.3.2
 </div>
 </div>
 <div class="section" id="make-a-sentiment-plot">
-<h2>Make a Sentiment Plot<a class="headerlink" href="#make-a-sentiment-plot" title="Permalink to this headline">¶</a></h2>
+<h3>Make a Sentiment Plot<a class="headerlink" href="#make-a-sentiment-plot" title="Permalink to this headline">¶</a></h3>
 <p>To create a data visualization of sentiment over the course of “Little Red Cap,” we can plot the sentiment scores over story time (aka sentence number).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red_df</span><span class="p">[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red_df</span><span class="p">[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_78_1.png" src="../_images/04-Sentiment-Analysis_78_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_78_0.png" src="../_images/04-Sentiment-Analysis_78_0.png" />
 </div>
 </div>
 <p>We can also add a little formatting and styling to make it more readable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">red_df</span><span class="p">[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;sentence_number&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">red_df</span><span class="p">[</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;sentence_number&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sentiment_score&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
                         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sentiment in &quot;Little-Red Cap&quot;&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot a horizontal line at 0</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fadd34a4550&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_80_1.png" src="../_images/04-Sentiment-Analysis_80_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_80_0.png" src="../_images/04-Sentiment-Analysis_80_0.png" />
 </div>
 </div>
 <p>The plots above show sentiment fluctuating sentence by sentence. But we could also get a more generalized view by getting a “rolling average” 5 sentences at a time (by using the <code class="docutils literal notranslate"><span class="pre">.rolling()</span></code> method with a specified window).</p>
@@ -2491,15 +2482,12 @@ Successfully installed vaderSentiment-3.3.2
                         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sentiment in &quot;Little-Red Cap&quot;&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot a horizontal line at 0</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fae0a7bdbb0&gt;
-</pre></div>
-</div>
-<img alt="../_images/04-Sentiment-Analysis_82_1.png" src="../_images/04-Sentiment-Analysis_82_1.png" />
+<img alt="../_images/04-Sentiment-Analysis_82_0.png" src="../_images/04-Sentiment-Analysis_82_0.png" />
 </div>
 </div>
 <p>The figure above captures the “plot arc” of “Little Red-Cap” relatively well.</p>
@@ -2509,13 +2497,14 @@ one who looked at her,” setting off into the woods and picking flowers in the 
 <p>There are also some tricky moments in this story that help capture how difficult it is to use technologies like VADER to study plot or emotional arcs in stories. For example, the most negative sentence in the story is the moment when the wolf dies: “And when he awoke, he wanted to run away, but the stones were so heavy that he tumbled down at once, and fell dead.” Surely this is a negative moment for the wolf, but is this a negative moment for Little Red-Cap, her grandmother, the huntsman, or the reader? It may actually be one of the most positive and triumphant moments. This contradiction helps demonstrate that fictional texts do not typically express straightforward opinions and attitudes the way a social media post might, and thus students and researchers must be careful, cautious, and deliberate when applying sentiment analysis tools to fiction.</p>
 </div>
 <div class="section" id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<h3>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>How well do you think VADER sentiment analysis works with tweets and literary texts?</p></li>
 <li><p>How do social media posts and literary texts different in the way they express sentiment? What kinds of tweets or literary texts might pose particular problems for VADER?</p></li>
 <li><p>What do you think VADER is really measuring?</p></li>
 <li><p>Could you imagine using sentiment analysis in a project? If so, how?</p></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -2560,7 +2549,7 @@ one who looked at her,” setting off into the woods and picking flowers in the 
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

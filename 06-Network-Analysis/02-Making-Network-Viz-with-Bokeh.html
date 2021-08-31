@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Make an Interactive Network Visualization &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <title>Make an Interactive Network Visualization with Bokeh &#8212; Introduction to Cultural Analytics &amp; Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Mapping" href="../07-Mapping/00-Mapping.html" />
-    <link rel="prev" title="Network Analysis" href="01-Network-Analysis.html" />
+    <link rel="prev" title="Network Analysis with NetworkX" href="01-Network-Analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -582,12 +582,12 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -800,8 +817,8 @@
         
               <div>
                 
-  <div class="section" id="make-an-interactive-network-visualization">
-<h1>Make an Interactive Network Visualization<a class="headerlink" href="#make-an-interactive-network-visualization" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="make-an-interactive-network-visualization-with-bokeh">
+<h1>Make an Interactive Network Visualization with Bokeh<a class="headerlink" href="#make-an-interactive-network-visualization-with-bokeh" title="Permalink to this headline">¶</a></h1>
 <p>This notebook includes code for creating interactive network visualizations with the Python libraries <a class="reference external" href="https://networkx.github.io/">NetworkX</a> and <a class="reference external" href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a>. The notebook begins with code for a basic network visualization then progressively demonstrates how to add more information and functionality, such as:</p>
 <ul class="simple">
 <li><p>sizing and coloring nodes by degree</p></li>
@@ -813,11 +830,10 @@
 <h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="game-of-thrones">
 <h3><em>Game of Thrones</em><a class="headerlink" href="#game-of-thrones" title="Permalink to this headline">¶</a></h3>
-<blockquote class="epigraph">
-<div><p>Lucky it might be, and red it certainly was, but Ygritte’s hair was such a tangle that Jon was tempted to ask her if she only brushed it at the changing of the seasons.</p>
-<p class="attribution">—George R. R. Martin, <em>A Song of Ice and Fire</em></p>
-</div></blockquote>
-</div>
+<blockquote class="epigraph" style=" padding: 10px">
+<p>Lucky it might be, and red it certainly was, but Ygritte’s hair was such a tangle that Jon was tempted to ask her if she only brushed it at the changing of the seasons.</p>
+<p>-George R. R. Martin, <em>A Song of Ice and Fire</em></p>
+</blockquote></div>
 </div>
 <div class="section" id="import-libraries">
 <h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
@@ -1161,7 +1177,11 @@
 <div class="section" id="create-network-from-pandas-dataframe">
 <h2>Create Network From Pandas DataFrame<a class="headerlink" href="#create-network-from-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
 <p>We read in a CSV file of <em>Game of Thrones</em> network data from Andrew Beveridge and Jie Shan’s paper, <a class="reference external" href="https://www.maa.org/sites/default/files/pdf/Mathhorizons/NetworkofThrones%20%281%29.pdf">“Network of Thrones.”</a></p>
-<div class="cell docutils container">
+<div class="admonition pandasreview" id="html-admonition">
+<p class="admonition-title">Pandas</p>
+<p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1886,7 +1906,7 @@
 <span class="n">network_graph</span><span class="o">.</span><span class="n">edge_renderer</span><span class="o">.</span><span class="n">selection_glyph</span> <span class="o">=</span> <span class="n">MultiLine</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="n">edge_highlight_color</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">network_graph</span><span class="o">.</span><span class="n">edge_renderer</span><span class="o">.</span><span class="n">hover_glyph</span> <span class="o">=</span> <span class="n">MultiLine</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="n">edge_highlight_color</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="c1">#Highlight nodes and edges</span>
+<span class="c1">#Highlight nodes and edges</span>
 <span class="n">network_graph</span><span class="o">.</span><span class="n">selection_policy</span> <span class="o">=</span> <span class="n">NodesAndLinkedEdges</span><span class="p">()</span>
 <span class="n">network_graph</span><span class="o">.</span><span class="n">inspection_policy</span> <span class="o">=</span> <span class="n">NodesAndLinkedEdges</span><span class="p">()</span>
 
@@ -1967,7 +1987,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01-Network-Analysis.html" title="previous page">Network Analysis</a>
+    <a class='left-prev' id="prev-link" href="01-Network-Analysis.html" title="previous page">Network Analysis with NetworkX</a>
     <a class='right-next' id="next-link" href="../07-Mapping/00-Mapping.html" title="next page">Mapping</a>
 
         </div>
@@ -1983,7 +2003,7 @@
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

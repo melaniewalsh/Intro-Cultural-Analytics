@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -850,12 +867,55 @@
 <div class="section" id="search-queries-privacy-concerns">
 <h2>Search Queries &amp; Privacy Concerns<a class="headerlink" href="#search-queries-privacy-concerns" title="Permalink to this headline">¶</a></h2>
 <p>To collect tweets from the Twitter API, we need to make queries, or requests for specific kinds of tweets — e.g., <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">*query*</span></code>. The simplest kind of query is a keyword search, such as the phrase “David Foster Wallace bro,” which should return any tweet that contains all of these words in any order — <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro&quot;</span></code>.</p>
-<p>There are many other operators that you can add to a query, which would allow us to collect tweets only from certain users (<code class="docutils literal notranslate"><span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">from:Slate&quot;</span></code>) or locations (<code class="docutils literal notranslate"><span class="pre">place:Seattle</span></code>), or only tweets that contain images (<code class="docutils literal notranslate"><span class="pre">has:images</span></code>) or that were tweeted by verified users (<code class="docutils literal notranslate"><span class="pre">is:verified</span></code>). You can see the full list of operators and more on search queries in <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s documentation</a>.</p>
-<p>In this lesson, we will only be collecting tweets from verified users: <code class="docutils literal notranslate"><span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">is:verified&quot;</span></code>. Though collecting publicly available tweets is legal, as I discussed in <a class="reference internal" href="01-User-Ethics-Legal-Concerns.html"><span class="doc std std-doc">“Users’ Data: Legal &amp; Ethical Considerations,”</span></a> it still raises a lot of privacy concerns and ethical quandaries — particularly when you re-publish user’s data, as I am in this lesson. To reduce potential harm to Twitter users, if you are re-publishing or citing tweets publicly, it can be helpful to focus on tweets that have already been reasonably exposed to the public (e.g. tweets with many retweets or tweets from verified users), such that re-publishing the content will not unduly increase risk to the user.</p>
+<p>There are many other operators that you can add to a query, which would allow us to collect tweets only from certain users or locations, only tweets that contain images or that were tweeted by verified Twitter users. Here’s an excerpted table of search operators taken from <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s documentation</a> about how to build a search query. There are many other operators and constructions beyond those included in this table, and I recommend reading through <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s entire web page on this subject</a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Search Operator</p></th>
+<th class="text-align:center head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>keyword</p></td>
+<td class="text-align:center"><p>Matches a keyword within the body of a Tweet. <code class="docutils literal notranslate"><span class="pre">so</span> <span class="pre">sweet</span> <span class="pre">and</span> <span class="pre">so</span> <span class="pre">cold</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>“exact phrase match”</p></td>
+<td class="text-align:center"><p>Matches the exact phrase within the body of a Tweet. <code class="docutils literal notranslate"><span class="pre">&quot;so</span> <span class="pre">sweet</span> <span class="pre">and</span> <span class="pre">so</span> <span class="pre">cold&quot;</span> <span class="pre">OR</span> <span class="pre">&quot;plums</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">icebox&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>Do NOT match a keyword or operator <code class="docutils literal notranslate"><span class="pre">baldwin</span> <span class="pre">-alec</span></code>, <code class="docutils literal notranslate"><span class="pre">walt</span> <span class="pre">whitman</span> <span class="pre">-bridge</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>#</p></td>
+<td class="text-align:center"><p>Matches any Tweet containing a recognized hashtag <code class="docutils literal notranslate"><span class="pre">#arthistory</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>from:, to:</p></td>
+<td class="text-align:center"><p>Matches any Tweet from or to a specific user. <code class="docutils literal notranslate"><span class="pre">from:KingJames</span></code> <code class="docutils literal notranslate"><span class="pre">to:KingJames</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>place:</p></td>
+<td class="text-align:center"><p>Matches Tweets tagged with the specified location or Twitter place ID. <code class="docutils literal notranslate"><span class="pre">place:&quot;new</span> <span class="pre">york</span> <span class="pre">city&quot;</span> <span class="pre">OR</span> <span class="pre">place:seattle</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>is:reply, is:quote</p></td>
+<td class="text-align:center"><p>Returns only replies or quote tweets. <code class="docutils literal notranslate"><span class="pre">DFW</span> <span class="pre">bro</span> <span class="pre">is:reply</span></code> <code class="docutils literal notranslate"><span class="pre">David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">is:quote</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>is:verified</p></td>
+<td class="text-align:center"><p>Returns only Tweets whose authors are verified by Twitter.<code class="docutils literal notranslate"><span class="pre">DFW</span> <span class="pre">bro</span> <span class="pre">is:verified</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>has:media</p></td>
+<td class="text-align:center"><p>Matches Tweets that contain a media object, such as a photo, GIF, or video, as determined by Twitter. <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">Think</span> <span class="pre">You</span> <span class="pre">Should</span> <span class="pre">Leave</span> <span class="pre">has:media</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>has:images, has:videos</p></td>
+<td class="text-align:center"><p>Matches Tweets that contain a recognized URL to an image. <code class="docutils literal notranslate"><span class="pre">i'm</span> <span class="pre">gonna</span> <span class="pre">tell</span> <span class="pre">my</span> <span class="pre">kinds</span> <span class="pre">that</span> <span class="pre">this</span> <span class="pre">was</span> <span class="pre">has:images</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>has:geo</p></td>
+<td class="text-align:center"><p>Matches Tweets that have Tweet-specific geolocation data provided by the Twitter user.  <code class="docutils literal notranslate"><span class="pre">pyramids</span> <span class="pre">has:geo</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>In this lesson, we will only be collecting tweets which were tweeted by verified users: <code class="docutils literal notranslate"><span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">is:verified&quot;</span></code>.</p>
+<p>As I discussed in <a class="reference internal" href="01-User-Ethics-Legal-Concerns.html"><span class="doc std std-doc">“Users’ Data: Legal &amp; Ethical Considerations,”</span></a> collecting publicly available tweets is legal, but it still raises a lot of privacy concerns and ethical quandaries — particularly when you re-publish user’s data, as I am in this lesson. To reduce potential harm to Twitter users when re-publishing or citing tweets, it can be helpful to ask for explicit permission from the authors or to focus on tweets that have already been reasonably exposed to the public (e.g., tweets with many retweets or tweets from verified users), such that re-publishing the content will not unduly increase risk to the user.</p>
 </div>
 <div class="section" id="install-and-import-libraries">
 <h2>Install and Import Libraries<a class="headerlink" href="#install-and-import-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we can use it. You can find instructions for the application process in <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Collecting-Cultural-Data/Twitter-API-Setup.html">“Twitter API Set Up.”</a></p>
+<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we can use it. You can find instructions for the application process in <span class="xref myst">“Twitter API Set Up.”</span></p>
 <p>If you haven’t done so already, you need to install twarc and configure twarc with your bearer token and/or API keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -892,8 +952,7 @@
 <p>The <a class="reference external" href="https://twittercommunity.com/t/introducing-new-tweet-counts-endpoints-to-the-twitter-api-v2/155997">tweet counts API endpoint</a> is a convenient feature of the v2 API (first introduced in 2021) that allows us to get a sense of how many tweets will be returned for a given query before we actually collect all the tweets that match the query. We won’t get the text of the tweets or the users who tweeted the tweets or any other relevant data. We will simply get the number of tweets that match the query. This is helpful because we might be able to see that the search query “Wallace” matches too many tweets, which would encourage us to narrow our search by modifying the query.</p>
 <p>The tweet counts API endpoint is perhaps even more useful for research projects that are primarily interested in tracking the volume of a Twitter conversation over time. In this case, tweet counts enable a researcher to retrieve this information in a way that’s faster and easier than retrieving all tweets and relevant metadata.</p>
 <p>To get tweet counts from Twitter’s entire history with twarc2, we will use <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/#counts"><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">counts</span></code></a> followed by a search query.</p>
-<p>We will also use the flag <code class="docutils literal notranslate"><span class="pre">--csv</span></code> because we want to output the data as a CSV, the flag <code class="docutils literal notranslate"><span class="pre">--archive</span></code> because we’re working with the Academic Research track of the Twitter API and want access to the full archive, and the flag <code class="docutils literal notranslate"><span class="pre">--granularity</span> <span class="pre">day</span></code> to get tweet counts per day (other options include <code class="docutils literal notranslate"><span class="pre">hour</span></code> and <code class="docutils literal notranslate"><span class="pre">minute</span></code> — you can see more in <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/#counts">twarc’s documentation</a>).</p>
-<p>Finally, we write the data to a CSV file.</p>
+<p>We will also use the flag <code class="docutils literal notranslate"><span class="pre">--csv</span></code> because we want to output the data as a CSV, the flag <code class="docutils literal notranslate"><span class="pre">--archive</span></code> because we’re working with the Academic Research track of the Twitter API and want access to the full archive, and the flag <code class="docutils literal notranslate"><span class="pre">--granularity</span> <span class="pre">day</span></code> to get tweet counts per day (other options include <code class="docutils literal notranslate"><span class="pre">hour</span></code> and <code class="docutils literal notranslate"><span class="pre">minute</span></code> — you can see more in <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/#counts">twarc’s documentation</a>).  Finally, we write the data to a CSV file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 counts <span class="s2">&quot;David Foster Wallace bro is:verified&quot;</span> --csv --archive --granularity day &gt; twitter-data/tweet-counts.csv
@@ -1020,6 +1079,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code borrowed from Ed Summers</span>
 <span class="c1"># https://github.com/edsu/notebooks/blob/master/Black%20Lives%20Matter%20Counts.ipynb</span>
+<span class="c1"># Make a line plot from the DataFrame and specify x and y axes, axes titles, and plot title</span>
 <span class="n">figure</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">tweet_counts_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;day_count&#39;</span><span class="p">,</span>
     <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;day_count&#39;</span><span class="p">:</span> <span class="s1">&#39;Tweets per Day&#39;</span><span class="p">},</span>
     <span class="n">title</span><span class="o">=</span> <span class="s1">&#39;DFW Bro Tweets&#39;</span>
@@ -1130,7 +1190,7 @@ if (outputEl) {{
 <div class="section" id="get-tweets-standard-track">
 <h2>Get Tweets (Standard Track)<a class="headerlink" href="#get-tweets-standard-track" title="Permalink to this headline">¶</a></h2>
 <p>To actually collect tweets and their associated metadata, we can use the command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span></code> and insert a query.</p>
-<p>Here we’re going to search for any tweets that mention the words “David Foster Wallace bro” and were tweeted by verified accounts in the last week. By default, <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span></code> will use the standard track of the Twitter API.</p>
+<p>Here we’re going to search for any tweets that mention the words “David Foster Wallace bro” and were tweeted by verified accounts <em>in the past week</em>. By default, <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span></code> will use the standard track of the Twitter API, which only collects tweets from the past week.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace is:verified&quot;</span>
@@ -1155,8 +1215,9 @@ if (outputEl) {{
 </div>
 <div class="section" id="get-tweets-academic-track-full-twitter-archive">
 <h2>Get Tweets (Academic Track, Full Twitter Archive)<a class="headerlink" href="#get-tweets-academic-track-full-twitter-archive" title="Permalink to this headline">¶</a></h2>
-<p>To collect tweets from Twitter’s entire historical archive, we need to add the <code class="docutils literal notranslate"><span class="pre">--archive</span></code> flag.</p>
-<p><em>Keep in mind this functionality is only available to those who have an <a class="reference external" href="https://developer.twitter.com/en/products/twitter-api/academic-research">Academic Research account</a></em></p>
+<p class="title">Attention</p>
+<p>Remember that this functionality is only available to those who have an <a class="reference external" href="https://developer.twitter.com/en/products/twitter-api/academic-research">Academic Research account</a>.</p>
+</div><p>To collect tweets from Twitter’s entire historical archive, we need to add the <code class="docutils literal notranslate"><span class="pre">--archive</span></code> flag.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace bro is:verified&quot;</span> --archive  &gt; twitter-data/dfw_bro.jsonl
@@ -1167,7 +1228,7 @@ if (outputEl) {{
 </div>
 <div class="section" id="convert-jsonl-to-csv">
 <h2>Convert JSONL to CSV<a class="headerlink" href="#convert-jsonl-to-csv" title="Permalink to this headline">¶</a></h2>
-<p>To make our Twitter data easier to work with, we can convert our JSONL file to a CSV file with the <code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code> plugin, which needs to be installed separately.</p>
+<p>To make our Twitter data easier to work with, we can convert our JSONL file to a CSV file with the <a class="reference external" href="https://pypi.org/project/twarc-csv/"><code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code></a> plugin, which needs to be installed separately.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twarc-csv
@@ -1196,7 +1257,8 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 <div class="section" id="read-in-csv">
 <h2>Read in CSV<a class="headerlink" href="#read-in-csv" title="Permalink to this headline">¶</a></h2>
-<p>To work with the tweet data, we can read in our CSV file with pandas and again parse the date column.</p>
+<p>Now we’re ready to explore the data!</p>
+<p>To work with our tweet data, we can read in our CSV file with pandas and again parse the date column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;twitter-data/dfw_bro.csv&#39;</span><span class="p">,</span>
@@ -1205,7 +1267,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
-<p>If we examine the first few rows of the dataset, we can see that there is a <em>lot</em> of metadata that gets returned with each tweet. You can scroll to the right to see all the metadata.</p>
+<p>If we scroll through this dataset, we can see that there are only 37 tweets that matched our search query, but there is a <em>lot</em> of metadata associated with each tweet. Scroll to the right to see all the information. What category surprises you the most? (For me, it’s the tweet author’s pinned tweet from their timeline.)</p>
 <div class="cell tag_output_scroll tag_full-width docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span>
@@ -4808,7 +4870,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 <p>37 rows × 94 columns</p>
 </div></div></div>
 </div>
-<p>There are more than 90 columns in this DataFrame!</p>
+<p>If we ask for a list of all the columns in the DataFrame, we can see that there are more than 90 columns here!</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span><span class="o">.</span><span class="n">columns</span>
@@ -4871,8 +4933,9 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Oh I find his books terrible: good sentences, but bad paragraphs, thin characters, no story.</p>&mdash; TomKealy 1️⃣2️⃣4️⃣🚢 (@TomKealy2) <a href="https://twitter.com/TomKealy2/status/1412360683237355524?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>However, a tweet that replied to this tweet <em>does</em> contain the phrase:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Imo the great twitter literature injustice is that it is david foster wallace and not him that is smeared as the dumb bro contemporary author</p>&mdash; Josh Lowe (@JeyyLowe) <a href="https://twitter.com/JeyyLowe/status/1412360883582418945?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><p>It appears that tweets can match a query if their conversation, including quote tweets, matches the query.</p>
-<p>This points to a broader lesson: you should always inspect and manually read through your tweets to ensure that your API query is returning what you expect and want.</p>
-</div>
+<p class="title">Attention</p>
+<p>The examples above point to a broader lesson about working with the Twitter API. You should always inspect and manually read through your Twitter data to ensure that your API query is returning what you expect and want.</p>
+</div></div>
 <div class="section" id="extract-tweet-and-media-urls">
 <h2>Extract Tweet and Media URLs<a class="headerlink" href="#extract-tweet-and-media-urls" title="Permalink to this headline">¶</a></h2>
 <p>We can make some Python functions that will create a tweet URL based on each tweet’s unique ID as well as extract an image URL if one exists.</p>
@@ -4926,7 +4989,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
                           <span class="s1">&#39;public_metrics.quote_count&#39;</span><span class="p">:</span> <span class="s1">&#39;quotes&#39;</span><span class="p">,</span> 
                           <span class="s1">&#39;public_metrics.reply_count&#39;</span><span class="p">:</span> <span class="s1">&#39;replies&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;author.description&#39;</span><span class="p">:</span> <span class="s1">&#39;user_bio&#39;</span><span class="p">},</span>
-                 <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4940,7 +5003,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
-<p>Now we can view our more focused DataFrame:</p>
+<p>Now we can view our more focused DataFrame!</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span>
@@ -5753,7 +5816,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 <p>The most retweeted tweet in this dataset is from U.S. Representative Alexandria Ocasio Cortez:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A few classics:<br>- Hope in the Dark, Solnit<br>- Why We Can’t Wait, MLK<br>- The Search for Common Ground, Thurman<br>- Team of Rivals, Goodwin<br>- Col Poems,Audre Lorde<br>- Bhagavad Gita<br>- Capital, Piketty<br>- 100 Years of Solitude, García Márquez<br>- Infinite Jest / Consider the Lobster, Wallace <a href="https://t.co/NS3C4X5dgB">https://t.co/NS3C4X5dgB</a></p>&mdash; Alexandria Ocasio-Cortez (@AOC) <a href="https://twitter.com/AOC/status/1075614808853110785?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>Like some of the previous tweets, this tweet does not contain the entire phrase “David Foster Wallace bro,” though a quote tweet of AOC’s tweet did include the phrase:</p>
+<p>Like some of the previous tweets, this tweet does not contain the entire phrase “David Foster Wallace bro,” although a quote tweet of AOC’s tweet did include the phrase:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Is—is Alexandria Ocasio-Cortez a David Foster Wallace bro? <a href="https://t.co/OcwGRUdWMV">https://t.co/OcwGRUdWMV</a></p>&mdash; Matt Fuller (@MEPFuller) <a href="https://twitter.com/MEPFuller/status/1075778924280471553?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 <div class="section" id="sort-by-date">
 <h2>Sort By Date<a class="headerlink" href="#sort-by-date" title="Permalink to this headline">¶</a></h2>
@@ -6597,6 +6660,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </table>
 </div></div></div>
 </div>
+<p>Because our index is a datetime value, we can use the special Pandas method <code class="docutils literal notranslate"><span class="pre">.resample()</span></code> to group the tweets by month, add them up, and plot them over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
@@ -6605,26 +6669,26 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_71_0.png" src="../_images/12-Twitter-Data_71_0.png" />
+<img alt="../_images/12-Twitter-Data_74_0.png" src="../_images/12-Twitter-Data_74_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="display-links-and-images-in-twitter-data">
 <h2>Display Links and Images in Twitter Data<a class="headerlink" href="#display-links-and-images-in-twitter-data" title="Permalink to this headline">¶</a></h2>
-<p>To display links and images in our DataFrame, we can convert the image URL into an HTML image tag and display our DataFrame as an HTML object with the <code class="docutils literal notranslate"><span class="pre">HTML</span></code> module.</p>
+<p>To display links and images in our DataFrame, we can convert the image URL into an HTML image tag, and we can display our DataFrame as an HTML object with the <code class="docutils literal notranslate"><span class="pre">HTML</span></code> module.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 
 <span class="k">def</span> <span class="nf">get_image_html</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
-    <span class="c1"># if the media category has an image URL</span>
+    <span class="c1"># check to see if the media category has an image URL</span>
     <span class="k">if</span> <span class="n">link</span> <span class="o">!=</span> <span class="s2">&quot;No Image URL&quot;</span><span class="p">:</span>
         <span class="c1"># format the image url as an HTML image</span>
         <span class="n">image_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;a href=&#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39;&gt;&#39;&lt;img src=&#39;</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&#39; width=&#39;500px&#39;&gt;&lt;/a&gt;                            &quot;</span>
         <span class="k">return</span> <span class="n">image_html</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;No Image URL&quot;</span>
-<span class="c1"># Apply the function to the media column</span>
+<span class="c1"># Apply the above function to the media column</span>
 <span class="n">tweets_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">tweets_df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_image_html</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7092,7 +7156,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 <div class="section" id="top-hashtags">
 <h2>Top Hashtags<a class="headerlink" href="#top-hashtags" title="Permalink to this headline">¶</a></h2>
-<p>To analyze hashtags in a tweet dataset, we can use the plugin <a class="reference external" href="https://pypi.org/project/twarc-hashtags/">twarc2 hashtags</a>, which requires a separate installation.</p>
+<p>To analyze hashtags in a tweet dataset, we can use the plugin <a class="reference external" href="https://pypi.org/project/twarc-hashtags/"><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hashtags</span></code></a>, which requires a separate installation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twarc-hashtags
@@ -7335,7 +7399,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_91_0.png" src="../_images/12-Twitter-Data_91_0.png" />
+<img alt="../_images/12-Twitter-Data_94_0.png" src="../_images/12-Twitter-Data_94_0.png" />
 </div>
 </div>
 <p>We can also plot multiple hashtags on the same plot by assigning the first plot to the variable <code class="docutils literal notranslate"><span class="pre">main_axis</span></code> and then directing the next plots to be plotted on the same axis <code class="docutils literal notranslate"><span class="pre">ax=main_axis</span></code>.</p>
@@ -7348,7 +7412,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_93_0.png" src="../_images/12-Twitter-Data_93_0.png" />
+<img alt="../_images/12-Twitter-Data_96_0.png" src="../_images/12-Twitter-Data_96_0.png" />
 </div>
 </div>
 </div>
@@ -7403,7 +7467,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

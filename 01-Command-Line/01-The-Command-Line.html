@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -876,7 +893,10 @@
 <li><p>Gain more power and flexibility over your computing experience</p></li>
 </ul>
 <img alt="The command line" class="center" src="../_images/welcome.png" />
+<div class="admonition note" id="html-admonition">
+<p class="admonition-title">Note</p>
 <p>Technically speaking, <em>command line</em>, <em>shell</em>, <em>bash</em>, and <em>terminal</em> all mean slightly different things. The Digital Humanities Research Institute provides <a class="reference external" href="https://github.com/DHRI-Curriculum/glossary/blob/master/sections/command-line.md#glossary">a helpful primer on the distinctions</a>.</p>
+</div>
 </div>
 <p>The command line interface is often contrasted with the graphical user interface or GUI (pronounced <em>gooey</em>, like <a class="reference external" href="https://en.wikipedia.org/wiki/Gooey_butter_cake">St. Louis gooey butter cake</a>). This is the way that most people are familiar with navigating their computers.</p>
 <p>To illustrate the difference between the command line and the GUI, consider the following example. I want to make a new folder to organize my notes for this class. So I drag my mouse cursor and click on a button that says “New Folder,” which makes a small icon of a folder appear. I title this folder “Intro-CA-Notes.” Now I want to delete this folder. So I drag and drop the folder icon into a tiny trash can icon.</p>
@@ -911,8 +931,10 @@
 <p>You can keep the Terminal application on your dock by right-clicking the application and selecting Options -&gt; Keep in Dock (as shown in the video above).</p>
 <img alt="The command line" class="center" src="../_images/welcome.png" />
 <p>When you open Terminal, you will see the name of your computer and your username followed by a dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> or <code class="docutils literal notranslate"><span class="pre">%</span></code>. For example, when I go to the command line, I see the prompt <code class="docutils literal notranslate"><span class="pre">Melanies-MacBook-Pro:~</span> <span class="pre">melaniewalsh$</span></code>, as shown above. You type commands after the dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code>.</p>
-<p class="title">Attention</p>
-<p>If you see a dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> or <code class="docutils literal notranslate"><span class="pre">%</span></code> in example code in this book or elsewhere, that symbol represents where you should start typing your own code. You do not need to include the symbol in your own code. It will cause an error. It’s a common beginner’s mistake to include the dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> or another symbol, especially when consulting examples from the internet.</p>
+<div class="admonition attention" id="id1">
+<p class="admonition-title">Attention</p>
+<p>If you see a dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> or percentage sign <code class="docutils literal notranslate"><span class="pre">%</span></code> in example code in this book or elsewhere, that symbol represents where you should start typing your own code. You do not need to include the symbol in your own code. It will cause an error. It’s a common beginner’s mistake to include the dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> or another symbol, especially when consulting examples from the internet.</p>
+</div>
 </div>
 </div>
 <div class="section" id="windows-os">
@@ -1031,8 +1053,10 @@
 </div>
 <div class="section" id="basic-navigation-and-file-structure">
 <h2>Basic Navigation and File Structure<a class="headerlink" href="#basic-navigation-and-file-structure" title="Permalink to this headline">¶</a></h2>
-<p class="title">Note</p>
+<div class="admonition note" id="id2">
+<p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">%</span></code> and <code class="docutils literal notranslate"><span class="pre">!</span></code> symbols at the beginning of the lines below allow us to access the command line from a Jupyter notebook. If you were using these commands outside the Jupyter environemnt, you would not need to include <code class="docutils literal notranslate"><span class="pre">%</span></code> or <code class="docutils literal notranslate"><span class="pre">!</span></code></p>
+</div>
 </div>
 <div class="section" id="display-path-of-working-directory">
 <h3>Display Path of Working Directory<a class="headerlink" href="#display-path-of-working-directory" title="Permalink to this headline">¶</a></h3>
@@ -2989,7 +3013,7 @@ subscribe to our email newsletter to hear about new eBooks.
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

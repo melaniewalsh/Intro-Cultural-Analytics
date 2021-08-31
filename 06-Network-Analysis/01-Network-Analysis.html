@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Network Analysis &#8212; Introduction to Cultural Analytics &amp; Python</title>
+    <title>Network Analysis with NetworkX &#8212; Introduction to Cultural Analytics &amp; Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Make an Interactive Network Visualization" href="02-Making-Network-Viz-with-Bokeh.html" />
+    <link rel="next" title="Make an Interactive Network Visualization with Bokeh" href="02-Making-Network-Viz-with-Bokeh.html" />
     <link rel="prev" title="Network Analysis" href="00-Network-Analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -582,12 +582,12 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -823,8 +840,8 @@
         
               <div>
                 
-  <div class="section" id="network-analysis">
-<h1>Network Analysis<a class="headerlink" href="#network-analysis" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="network-analysis-with-networkx">
+<h1>Network Analysis with NetworkX<a class="headerlink" href="#network-analysis-with-networkx" title="Permalink to this headline">¶</a></h1>
 <p>In this series of lessons, we’re going to learn about network analysis. Network analysis will help us better understand the complex relationships between groups of people, fictional characters, and other kinds of things.</p>
 <div class="section" id="dataset">
 <h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
@@ -866,11 +883,7 @@ Requirement already satisfied: decorator&gt;=4.3.0 in /Users/melaniewalsh/opt/an
 </div>
 </div>
 </div>
-<div class="admonition pandasreview" id="html-admonition">
-<p class="admonition-title">Pandas</p>
-<p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
 </div>
-</div></div>
 <div class="section" id="game-of-thrones-network">
 <h2><em>Game of Thrones</em> Network<a class="headerlink" href="#game-of-thrones-network" title="Permalink to this headline">¶</a></h2>
 <p>The network data that we’re going to use in this lesson is taken from Andrew Beveridge and Jie Shan’s paper, <a class="reference external" href="https://www.maa.org/sites/default/files/pdf/Mathhorizons/NetworkofThrones%20%281%29.pdf">“Network of Thrones.”</a></p>
@@ -906,7 +919,11 @@ Requirement already satisfied: decorator&gt;=4.3.0 in /Users/melaniewalsh/opt/an
 <blockquote>
 <div><p>“<strong>Arya</strong> gave <strong>Gendry</strong> a sideways look. <em>He said it with me, like <strong>Jon</strong> used to do, back in Winterfell.</em> She missed <strong>Jon Snow</strong> the most of all her brothers.””</p>
 </div></blockquote>
-<div class="cell docutils container">
+<div class="admonition pandasreview" id="html-admonition">
+<p class="admonition-title">Pandas</p>
+<p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
+</div>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">got_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/got-edges.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -8572,7 +8589,7 @@ Requirement already satisfied: decorator&gt;=4.3.0 in /Users/melaniewalsh/opt/an
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="00-Network-Analysis.html" title="previous page">Network Analysis</a>
-    <a class='right-next' id="next-link" href="02-Making-Network-Viz-with-Bokeh.html" title="next page">Make an Interactive Network Visualization</a>
+    <a class='right-next' id="next-link" href="02-Making-Network-Viz-with-Bokeh.html" title="next page">Make an Interactive Network Visualization with Bokeh</a>
 
         </div>
         
@@ -8587,7 +8604,7 @@ Requirement already satisfied: decorator&gt;=4.3.0 in /Users/melaniewalsh/opt/an
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

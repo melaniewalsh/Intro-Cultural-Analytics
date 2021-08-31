@@ -580,12 +580,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -602,7 +602,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -627,6 +627,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -822,7 +839,7 @@
 <h1>Web Scraping Part 1 — Workbook<a class="headerlink" href="#web-scraping-part-1-workbook" title="Permalink to this headline">¶</a></h1>
 <p><em>Inspired by web scraping lessons from <a class="reference external" href="https://github.com/laurenfklein/emory-qtm340/blob/master/notebooks/class4-web-scraping-complete.ipynb">Lauren Klein</a> and <a class="reference external" href="https://github.com/aparrish/dmep-python-intro/blob/master/scraping-html.ipynb">Allison Parrish</a></em></p>
 <p>In this lesson, we’re going to introduce how to “scrape” data from the internet with the Python libraries requests and BeautifulSoup.</p>
-<p>😺 Kittens toy website: http://static.decontextualize.com/kittens.html</p>
+<p>😺 Kittens toy website: <a class="reference external" href="http://static.decontextualize.com/kittens.html">http://static.decontextualize.com/kittens.html</a></p>
 <div class="section" id="responses-and-requests">
 <h2>Responses and Requests<a class="headerlink" href="#responses-and-requests" title="Permalink to this headline">¶</a></h2>
 <p>To programmatically access the text data attached to every URL, we can use a Python library called <a class="reference external" href="https://requests.readthedocs.io/en/master/">requests</a>.</p>
@@ -925,7 +942,7 @@
 <h2>HTML &amp; BeautifulSoup<a class="headerlink" href="#html-beautifulsoup" title="Permalink to this headline">¶</a></h2>
 <p>Not all web pages will be as easy to scrape as these screenplay files, however. If web pages are messy and complicated, how can we extract just the things that we want?</p>
 <p>Well, we can use a Python library called BeautifulSoup, but first we need to learn a little about how web pages are written.</p>
-<p>Poet and professor Allison Parrish made a toy website called “Kittens and the TV Shows They Love.” It can be found at the following URL: http://static.decontextualize.com/kittens.html</p>
+<p>Poet and professor Allison Parrish made a toy website called “Kittens and the TV Shows They Love.” It can be found at the following URL: <a class="reference external" href="http://static.decontextualize.com/kittens.html">http://static.decontextualize.com/kittens.html</a></p>
 <p>If we use our requests library on this Kittens TV website, this is what we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1069,7 +1086,7 @@
 <div class="section" id="your-turn">
 <h3>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h3>
 <p>Find the name of <strong>one</strong> of the kittens and then return the text of the name (either “Fluffy” or “Monsieur Whiskers”).</p>
-<p>To do so, open the web page (http://static.decontextualize.com/kittens.html) and then use your Developer Tools to find the HTML tag associated with the kitten names.</p>
+<p>To do so, open the web page (<a class="reference external" href="http://static.decontextualize.com/kittens.html">http://static.decontextualize.com/kittens.html</a>) and then use your Developer Tools to find the HTML tag associated with the kitten names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -2406,7 +2423,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 </div>
 </div>
-<p>https://genius.com/Missy-elliott-work-it-lyrics</p>
+<p><a class="reference external" href="https://genius.com/Missy-elliott-work-it-lyrics">https://genius.com/Missy-elliott-work-it-lyrics</a></p>
 </div>
 <div class="section" id="extract-just-the-song-lyrics-for-missy-elliotts-work-it">
 <h2>Extract just the song lyrics for Missy Elliott’s “Work It”<a class="headerlink" href="#extract-just-the-song-lyrics-for-missy-elliotts-work-it" title="Permalink to this headline">¶</a></h2>
@@ -2479,7 +2496,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

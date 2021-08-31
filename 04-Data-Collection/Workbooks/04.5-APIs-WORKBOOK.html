@@ -580,12 +580,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -602,7 +602,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -627,6 +627,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -830,7 +847,7 @@
 </div>
 <div class="section" id="open-brewery-database">
 <h2>Open Brewery Database<a class="headerlink" href="#open-brewery-database" title="Permalink to this headline">¶</a></h2>
-<p>https://api.openbrewerydb.org</p>
+<p><a class="reference external" href="https://api.openbrewerydb.org">https://api.openbrewerydb.org</a></p>
 <p>Open Brewery Database API Endpoints:</p>
 <ul class="simple">
 <li><p>List Breweries</p></li>
@@ -841,7 +858,7 @@
 </div>
 <div class="section" id="list-breweries">
 <h2>List Breweries<a class="headerlink" href="#list-breweries" title="Permalink to this headline">¶</a></h2>
-<p>https://api.openbrewerydb.org/breweries</p>
+<p><a class="reference external" href="https://api.openbrewerydb.org/breweries">https://api.openbrewerydb.org/breweries</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://api.openbrewerydb.org/breweries&quot;</span><span class="p">)</span>
@@ -885,7 +902,7 @@
 </ul>
 <div class="section" id="by-city">
 <h3>By City<a class="headerlink" href="#by-city" title="Permalink to this headline">¶</a></h3>
-<p>https://api.openbrewerydb.org/breweries?by_city=Ithaca</p>
+<p><a class="reference external" href="https://api.openbrewerydb.org/breweries?by_city=Ithaca">https://api.openbrewerydb.org/breweries?by_city=Ithaca</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Ithaca&#39;</span>
@@ -912,7 +929,7 @@
 </div>
 <div class="section" id="by-type">
 <h2>By Type<a class="headerlink" href="#by-type" title="Permalink to this headline">¶</a></h2>
-<p>https://api.openbrewerydb.org/breweries?by_city=Ithaca&amp;by_type=micro</p>
+<p><a class="reference external" href="https://api.openbrewerydb.org/breweries?by_city=Ithaca&amp;by_type=micro">https://api.openbrewerydb.org/breweries?by_city=Ithaca&amp;by_type=micro</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Ithaca&#39;</span>
@@ -939,7 +956,7 @@
 </div>
 <div class="section" id="search-breweries">
 <h2>Search Breweries<a class="headerlink" href="#search-breweries" title="Permalink to this headline">¶</a></h2>
-<p>https://api.openbrewerydb.org/breweries/search?query=dog</p>
+<p><a class="reference external" href="https://api.openbrewerydb.org/breweries/search?query=dog">https://api.openbrewerydb.org/breweries/search?query=dog</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;four&#39;</span>
@@ -970,7 +987,7 @@
 </div>
 <div class="section" id="open-library-api">
 <h2>Open Library API<a class="headerlink" href="#open-library-api" title="Permalink to this headline">¶</a></h2>
-<p>https://openlibrary.org/developers/api</p>
+<p><a class="reference external" href="https://openlibrary.org/developers/api">https://openlibrary.org/developers/api</a></p>
 <p>Open Library API Endpoints</p>
 <ul class="simple">
 <li><p>Books</p></li>
@@ -985,7 +1002,7 @@
 </div>
 <div class="section" id="search">
 <h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
-<p>http://openlibrary.org/search.json</p>
+<p><a class="reference external" href="http://openlibrary.org/search.json">http://openlibrary.org/search.json</a></p>
 <ul class="simple">
 <li><p>Query</p></li>
 <li><p>Author</p></li>
@@ -1029,7 +1046,7 @@
 </div>
 <div class="section" id="books">
 <h3>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h3>
-<p>https://openlibrary.org/works/OL3243784W.json</p>
+<p><a class="reference external" href="https://openlibrary.org/works/OL3243784W.json">https://openlibrary.org/works/OL3243784W.json</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://openlibrary.org/works/OL3243784W.json&quot;</span><span class="p">)</span>
@@ -1049,7 +1066,7 @@
 <div class="section" id="covers">
 <h3>Covers<a class="headerlink" href="#covers" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">http://covers.openlibrary.org/b/id/{value}-{size}.jpg</span></code></p>
-<p>https://covers.openlibrary.org/b/id/6374495-M.jpg</p>
+<p><a class="reference external" href="https://covers.openlibrary.org/b/id/6374495-M.jpg">https://covers.openlibrary.org/b/id/6374495-M.jpg</a></p>
 <p><img alt="" src="https://covers.openlibrary.org/b/id/6374495-M.jpg" /></p>
 </div>
 </div>
@@ -1094,7 +1111,7 @@
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -806,7 +823,7 @@
 <p>Once you’re signed in, you should be taken to <a class="reference external" href="https://genius.com/api-clients">https://genius.com/api-clients</a>, where you need to click the button that says “New API Client.”</p>
 <a class="reference internal image-reference" href="../_images/Genius-New-API.png"><img alt="../_images/Genius-New-API.png" src="../_images/Genius-New-API.png" style="width: 100%;" /></a>
 <p>After clicking “New API Client,” you’ll be prompted to fill out a short form about the “App” that you need the Genius API for. You only need to fill out “App Name” and “App Website URL.”</p>
-<p>It doesn’t really matter what you type in. You can simply put “Song Lyrics Project” for the “App Name” and the URL for our course website “https://melaniewalsh.github.io/Intro-Cultural-Analytics/” for the “App Website URL.”</p>
+<p>It doesn’t really matter what you type in. You can simply put “Song Lyrics Project” for the “App Name” and the URL for our course website “<a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/">https://melaniewalsh.github.io/Intro-Cultural-Analytics/</a>” for the “App Website URL.”</p>
 <p>When you click “Save,” you’ll be given a series of API Keys: a “Client ID” and a “Client Secret.” To generate your “Client Access Token,” which is the API key that we’ll be using in this notebook, you need to click “Generate Access Token”.</p>
 <p>Finally, copy and paste your “Client Access Token” into the quotation marks below, and run the cell to save your variable</p>
 <div class="cell docutils container">
@@ -840,9 +857,11 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p class="title">Attention</p>
+<p>You should only un-comment and run the cell below if you are importing your API key from the Python file “api_key.py”. If you have already set your <code class="docutils literal notranslate"><span class="pre">client_acces_token</span></code> in this notebook, you can skip the cell below.</p>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_access_token</span> <span class="o">=</span> <span class="n">api_key</span><span class="o">.</span><span class="n">your_client_access_token</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#client_access_token = api_key.your_client_access_token</span>
 </pre></div>
 </div>
 </div>
@@ -878,7 +897,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://api.genius.com/search?q=Missy Elliott&amp;access_token=INSERT YOUR CLIENT ACCESS TOKEN
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://api.genius.com/search?q=Missy Elliott&amp;access_token=YOUR-API-KEY
 </pre></div>
 </div>
 </div>
@@ -913,7 +932,7 @@
  &#39;response&#39;: {&#39;hits&#39;: [{&#39;highlights&#39;: [],
     &#39;index&#39;: &#39;song&#39;,
     &#39;type&#39;: &#39;song&#39;,
-    &#39;result&#39;: {&#39;annotation_count&#39;: 35,
+    &#39;result&#39;: {&#39;annotation_count&#39;: 32,
      &#39;api_path&#39;: &#39;/songs/4176&#39;,
      &#39;full_title&#39;: &#39;Work It by\xa0Missy\xa0Elliott&#39;,
      &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.300x311x1.jpg&#39;,
@@ -922,15 +941,18 @@
      &#39;lyrics_owner_id&#39;: 6654,
      &#39;lyrics_state&#39;: &#39;complete&#39;,
      &#39;path&#39;: &#39;/Missy-elliott-work-it-lyrics&#39;,
-     &#39;pyongs_count&#39;: 38,
+     &#39;pyongs_count&#39;: 39,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.300x311x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.482x500x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 5,
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 2,
       &#39;hot&#39;: False,
-      &#39;pageviews&#39;: 1084518},
+      &#39;pageviews&#39;: 1205121},
      &#39;title&#39;: &#39;Work It&#39;,
      &#39;title_with_featured&#39;: &#39;Work It&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-work-it-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#d63220&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#512913&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -951,13 +973,16 @@
      &#39;lyrics_owner_id&#39;: 282633,
      &#39;lyrics_state&#39;: &#39;complete&#39;,
      &#39;path&#39;: &#39;/Missy-elliott-wtf-where-they-from-lyrics&#39;,
-     &#39;pyongs_count&#39;: 86,
+     &#39;pyongs_count&#39;: 88,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.rapgenius.com/a439d6d6020559ffe7c10f0d73722de1.300x300x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.rapgenius.com/a439d6d6020559ffe7c10f0d73722de1.1000x1000x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 286118},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 289808},
      &#39;title&#39;: &#39;WTF (Where They From)&#39;,
      &#39;title_with_featured&#39;: &#39;WTF (Where They From) (Ft.\xa0Pharrell\xa0Williams)&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-wtf-where-they-from-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#c920a0&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#500863&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -978,70 +1003,16 @@
      &#39;lyrics_owner_id&#39;: 1297,
      &#39;lyrics_state&#39;: &#39;complete&#39;,
      &#39;path&#39;: &#39;/Missy-elliott-get-ur-freak-on-lyrics&#39;,
-     &#39;pyongs_count&#39;: 16,
+     &#39;pyongs_count&#39;: 18,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/338e122c1534b6f6363afb06f77912cf.300x259x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/338e122c1534b6f6363afb06f77912cf.300x259x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 144738},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 165394},
      &#39;title&#39;: &#39;Get Ur Freak On&#39;,
      &#39;title_with_featured&#39;: &#39;Get Ur Freak On&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-get-ur-freak-on-lyrics&#39;,
-     &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
-      &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
-      &#39;id&#39;: 1529,
-      &#39;image_url&#39;: &#39;https://images.genius.com/085828b7d79bf8cf068b1557ca7a5e4c.1000x1000x1.jpg&#39;,
-      &#39;is_meme_verified&#39;: False,
-      &#39;is_verified&#39;: False,
-      &#39;name&#39;: &#39;Missy Elliott&#39;,
-      &#39;url&#39;: &#39;https://genius.com/artists/Missy-elliott&#39;}}},
-   {&#39;highlights&#39;: [],
-    &#39;index&#39;: &#39;song&#39;,
-    &#39;type&#39;: &#39;song&#39;,
-    &#39;result&#39;: {&#39;annotation_count&#39;: 9,
-     &#39;api_path&#39;: &#39;/songs/2967124&#39;,
-     &#39;full_title&#39;: &quot;I&#39;m Better by\xa0Missy\xa0Elliott (Ft.\xa0Cainon\xa0Lamb)&quot;,
-     &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.300x300x1.jpg&#39;,
-     &#39;header_image_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg&#39;,
-     &#39;id&#39;: 2967124,
-     &#39;lyrics_owner_id&#39;: 3075478,
-     &#39;lyrics_state&#39;: &#39;complete&#39;,
-     &#39;path&#39;: &#39;/Missy-elliott-im-better-lyrics&#39;,
-     &#39;pyongs_count&#39;: 13,
-     &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.300x300x1.jpg&#39;,
-     &#39;song_art_image_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 104116},
-     &#39;title&#39;: &#39;I’m Better&#39;,
-     &#39;title_with_featured&#39;: &quot;I&#39;m Better (Ft.\xa0Cainon\xa0Lamb)&quot;,
-     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-im-better-lyrics&#39;,
-     &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
-      &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
-      &#39;id&#39;: 1529,
-      &#39;image_url&#39;: &#39;https://images.genius.com/085828b7d79bf8cf068b1557ca7a5e4c.1000x1000x1.jpg&#39;,
-      &#39;is_meme_verified&#39;: False,
-      &#39;is_verified&#39;: False,
-      &#39;name&#39;: &#39;Missy Elliott&#39;,
-      &#39;url&#39;: &#39;https://genius.com/artists/Missy-elliott&#39;}}},
-   {&#39;highlights&#39;: [],
-    &#39;index&#39;: &#39;song&#39;,
-    &#39;type&#39;: &#39;song&#39;,
-    &#39;result&#39;: {&#39;annotation_count&#39;: 16,
-     &#39;api_path&#39;: &#39;/songs/128&#39;,
-     &#39;full_title&#39;: &#39;The Rain (Supa Dupa Fly) by\xa0Missy\xa0Elliott&#39;,
-     &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.300x308x1.jpg&#39;,
-     &#39;header_image_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg&#39;,
-     &#39;id&#39;: 128,
-     &#39;lyrics_owner_id&#39;: 4619460,
-     &#39;lyrics_state&#39;: &#39;complete&#39;,
-     &#39;path&#39;: &#39;/Missy-elliott-the-rain-supa-dupa-fly-lyrics&#39;,
-     &#39;pyongs_count&#39;: 6,
-     &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.300x308x1.jpg&#39;,
-     &#39;song_art_image_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0,
-      &#39;concurrents&#39;: 2,
-      &#39;hot&#39;: False,
-      &#39;pageviews&#39;: 90545},
-     &#39;title&#39;: &#39;The Rain (Supa Dupa Fly)&#39;,
-     &#39;title_with_featured&#39;: &#39;The Rain (Supa Dupa Fly)&#39;,
-     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#d58f3a&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#eddb91&#39;,
+     &#39;song_art_text_color&#39;: &#39;#000&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -1065,10 +1036,73 @@
      &#39;pyongs_count&#39;: 7,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/206153c53d05804677e236aa2ae4eb45.300x300x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/206153c53d05804677e236aa2ae4eb45.600x600x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 98504},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 111483},
      &#39;title&#39;: &#39;Gossip Folks&#39;,
      &#39;title_with_featured&#39;: &#39;Gossip Folks (Ft.\xa0Ludacris)&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-gossip-folks-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#ad3920&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#72281f&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
+     &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
+      &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
+      &#39;id&#39;: 1529,
+      &#39;image_url&#39;: &#39;https://images.genius.com/085828b7d79bf8cf068b1557ca7a5e4c.1000x1000x1.jpg&#39;,
+      &#39;is_meme_verified&#39;: False,
+      &#39;is_verified&#39;: False,
+      &#39;name&#39;: &#39;Missy Elliott&#39;,
+      &#39;url&#39;: &#39;https://genius.com/artists/Missy-elliott&#39;}}},
+   {&#39;highlights&#39;: [],
+    &#39;index&#39;: &#39;song&#39;,
+    &#39;type&#39;: &#39;song&#39;,
+    &#39;result&#39;: {&#39;annotation_count&#39;: 9,
+     &#39;api_path&#39;: &#39;/songs/2967124&#39;,
+     &#39;full_title&#39;: &quot;I&#39;m Better by\xa0Missy\xa0Elliott (Ft.\xa0Cainon\xa0Lamb)&quot;,
+     &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.300x300x1.jpg&#39;,
+     &#39;header_image_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg&#39;,
+     &#39;id&#39;: 2967124,
+     &#39;lyrics_owner_id&#39;: 3075478,
+     &#39;lyrics_state&#39;: &#39;complete&#39;,
+     &#39;path&#39;: &#39;/Missy-elliott-im-better-lyrics&#39;,
+     &#39;pyongs_count&#39;: 13,
+     &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.300x300x1.jpg&#39;,
+     &#39;song_art_image_url&#39;: &#39;https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg&#39;,
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 107273},
+     &#39;title&#39;: &#39;I’m Better&#39;,
+     &#39;title_with_featured&#39;: &quot;I&#39;m Better (Ft.\xa0Cainon\xa0Lamb)&quot;,
+     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-im-better-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#ba704b&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#6b3621&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
+     &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
+      &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
+      &#39;id&#39;: 1529,
+      &#39;image_url&#39;: &#39;https://images.genius.com/085828b7d79bf8cf068b1557ca7a5e4c.1000x1000x1.jpg&#39;,
+      &#39;is_meme_verified&#39;: False,
+      &#39;is_verified&#39;: False,
+      &#39;name&#39;: &#39;Missy Elliott&#39;,
+      &#39;url&#39;: &#39;https://genius.com/artists/Missy-elliott&#39;}}},
+   {&#39;highlights&#39;: [],
+    &#39;index&#39;: &#39;song&#39;,
+    &#39;type&#39;: &#39;song&#39;,
+    &#39;result&#39;: {&#39;annotation_count&#39;: 16,
+     &#39;api_path&#39;: &#39;/songs/128&#39;,
+     &#39;full_title&#39;: &#39;The Rain (Supa Dupa Fly) by\xa0Missy\xa0Elliott&#39;,
+     &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.300x308x1.jpg&#39;,
+     &#39;header_image_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg&#39;,
+     &#39;id&#39;: 128,
+     &#39;lyrics_owner_id&#39;: 4619460,
+     &#39;lyrics_state&#39;: &#39;complete&#39;,
+     &#39;path&#39;: &#39;/Missy-elliott-the-rain-supa-dupa-fly-lyrics&#39;,
+     &#39;pyongs_count&#39;: 6,
+     &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.300x308x1.jpg&#39;,
+     &#39;song_art_image_url&#39;: &#39;https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg&#39;,
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 103348},
+     &#39;title&#39;: &#39;The Rain (Supa Dupa Fly)&#39;,
+     &#39;title_with_featured&#39;: &#39;The Rain (Supa Dupa Fly)&#39;,
+     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-the-rain-supa-dupa-fly-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#3a73ac&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#2d3c74&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -1092,10 +1126,13 @@
      &#39;pyongs_count&#39;: 11,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/51639e476eac5cb5bed5794c023763ff.300x303x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/51639e476eac5cb5bed5794c023763ff.700x707x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 82456},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 93331},
      &#39;title&#39;: &#39;Lose Control&#39;,
      &#39;title_with_featured&#39;: &#39;Lose Control (Ft.\xa0Ciara &amp; Fatman\xa0Scoop)&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-lose-control-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#cf7129&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#77330b&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -1107,22 +1144,25 @@
    {&#39;highlights&#39;: [],
     &#39;index&#39;: &#39;song&#39;,
     &#39;type&#39;: &#39;song&#39;,
-    &#39;result&#39;: {&#39;annotation_count&#39;: 12,
+    &#39;result&#39;: {&#39;annotation_count&#39;: 17,
      &#39;api_path&#39;: &#39;/songs/4671&#39;,
-     &#39;full_title&#39;: &#39;One Minute Man by\xa0Missy\xa0Elliott (Ft.\xa0Ludacris &amp; Trina)&#39;,
+     &#39;full_title&#39;: &#39;One Minute Man (Amended Version) by\xa0Missy\xa0Elliott (Ft.\xa0Ludacris &amp; Trina)&#39;,
      &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.300x300x1.jpg&#39;,
      &#39;header_image_url&#39;: &#39;https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.953x953x1.jpg&#39;,
      &#39;id&#39;: 4671,
      &#39;lyrics_owner_id&#39;: 7299,
      &#39;lyrics_state&#39;: &#39;complete&#39;,
-     &#39;path&#39;: &#39;/Missy-elliott-one-minute-man-lyrics&#39;,
+     &#39;path&#39;: &#39;/Missy-elliott-one-minute-man-amended-version-lyrics&#39;,
      &#39;pyongs_count&#39;: 6,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.300x300x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.953x953x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 66241},
-     &#39;title&#39;: &#39;One Minute Man&#39;,
-     &#39;title_with_featured&#39;: &#39;One Minute Man (Ft.\xa0Ludacris &amp; Trina)&#39;,
-     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-one-minute-man-lyrics&#39;,
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 5, &#39;hot&#39;: False, &#39;pageviews&#39;: 74646},
+     &#39;title&#39;: &#39;One Minute Man (Amended Version)&#39;,
+     &#39;title_with_featured&#39;: &#39;One Minute Man (Amended Version) (Ft.\xa0Ludacris &amp; Trina)&#39;,
+     &#39;url&#39;: &#39;https://genius.com/Missy-elliott-one-minute-man-amended-version-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#fbbd46&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#f5deae&#39;,
+     &#39;song_art_text_color&#39;: &#39;#000&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -1143,17 +1183,20 @@
      &#39;lyrics_owner_id&#39;: 93685,
      &#39;lyrics_state&#39;: &#39;complete&#39;,
      &#39;path&#39;: &#39;/Keala-settle-kesha-and-missy-elliott-this-is-me-the-reimagined-remix-lyrics&#39;,
-     &#39;pyongs_count&#39;: 15,
+     &#39;pyongs_count&#39;: 16,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/29f15eb96f814e785598d0eea14126a7.300x300x1.png&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/29f15eb96f814e785598d0eea14126a7.1000x1000x1.png&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 44535},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 49366},
      &#39;title&#39;: &#39;This Is Me (The Reimagined Remix)&#39;,
      &#39;title_with_featured&#39;: &#39;This Is Me (The Reimagined Remix)&#39;,
      &#39;url&#39;: &#39;https://genius.com/Keala-settle-kesha-and-missy-elliott-this-is-me-the-reimagined-remix-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#c9a45c&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#f5e093&#39;,
+     &#39;song_art_text_color&#39;: &#39;#000&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1600466&#39;,
-      &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1597864036&#39;,
+      &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1630359615&#39;,
       &#39;id&#39;: 1600466,
-      &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1597864036&#39;,
+      &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1630359615&#39;,
       &#39;is_meme_verified&#39;: False,
       &#39;is_verified&#39;: False,
       &#39;name&#39;: &#39;Keala Settle, Kesha &amp; Missy Elliott&#39;,
@@ -1161,7 +1204,7 @@
    {&#39;highlights&#39;: [],
     &#39;index&#39;: &#39;song&#39;,
     &#39;type&#39;: &#39;song&#39;,
-    &#39;result&#39;: {&#39;annotation_count&#39;: 16,
+    &#39;result&#39;: {&#39;annotation_count&#39;: 18,
      &#39;api_path&#39;: &#39;/songs/33191&#39;,
      &#39;full_title&#39;: &#39;Bomb Intro/Pass That Dutch by\xa0Missy\xa0Elliott&#39;,
      &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/8c2a5015c6ba9e5f0c154f9a20f14534.300x300x1.jpg&#39;,
@@ -1173,10 +1216,13 @@
      &#39;pyongs_count&#39;: 5,
      &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/8c2a5015c6ba9e5f0c154f9a20f14534.300x300x1.jpg&#39;,
      &#39;song_art_image_url&#39;: &#39;https://images.genius.com/8c2a5015c6ba9e5f0c154f9a20f14534.583x583x1.jpg&#39;,
-     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False, &#39;pageviews&#39;: 43406},
+     &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 2, &#39;hot&#39;: False, &#39;pageviews&#39;: 48848},
      &#39;title&#39;: &#39;Bomb Intro/Pass That Dutch&#39;,
      &#39;title_with_featured&#39;: &#39;Bomb Intro/Pass That Dutch&#39;,
      &#39;url&#39;: &#39;https://genius.com/Missy-elliott-bomb-intro-pass-that-dutch-lyrics&#39;,
+     &#39;song_art_primary_color&#39;: &#39;#7f5833&#39;,
+     &#39;song_art_secondary_color&#39;: &#39;#5e4125&#39;,
+     &#39;song_art_text_color&#39;: &#39;#fff&#39;,
      &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
       &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
       &#39;id&#39;: 1529,
@@ -1189,7 +1235,7 @@
 </div>
 </div>
 </div>
-<p>We can index this data (again, like a Python dictionary) and look at the first “hit” about Missy Elliott from Genius.com.</p>
+<p>We can index this data (again, like a Python dictionary) and look at the first “hit” about Missy Elliott from <a class="reference external" href="http://Genius.com">Genius.com</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -1200,7 +1246,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;highlights&#39;: [],
  &#39;index&#39;: &#39;song&#39;,
  &#39;type&#39;: &#39;song&#39;,
- &#39;result&#39;: {&#39;annotation_count&#39;: 35,
+ &#39;result&#39;: {&#39;annotation_count&#39;: 32,
   &#39;api_path&#39;: &#39;/songs/4176&#39;,
   &#39;full_title&#39;: &#39;Work It by\xa0Missy\xa0Elliott&#39;,
   &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.300x311x1.jpg&#39;,
@@ -1209,13 +1255,16 @@
   &#39;lyrics_owner_id&#39;: 6654,
   &#39;lyrics_state&#39;: &#39;complete&#39;,
   &#39;path&#39;: &#39;/Missy-elliott-work-it-lyrics&#39;,
-  &#39;pyongs_count&#39;: 38,
+  &#39;pyongs_count&#39;: 39,
   &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.300x311x1.jpg&#39;,
   &#39;song_art_image_url&#39;: &#39;https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.482x500x1.jpg&#39;,
-  &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 5, &#39;hot&#39;: False, &#39;pageviews&#39;: 1084518},
+  &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 2, &#39;hot&#39;: False, &#39;pageviews&#39;: 1205121},
   &#39;title&#39;: &#39;Work It&#39;,
   &#39;title_with_featured&#39;: &#39;Work It&#39;,
   &#39;url&#39;: &#39;https://genius.com/Missy-elliott-work-it-lyrics&#39;,
+  &#39;song_art_primary_color&#39;: &#39;#d63220&#39;,
+  &#39;song_art_secondary_color&#39;: &#39;#512913&#39;,
+  &#39;song_art_text_color&#39;: &#39;#fff&#39;,
   &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/1529&#39;,
    &#39;header_image_url&#39;: &#39;https://images.genius.com/d91c82fa4ae2f1016fadc1c24fbbc59e.1000x333x1.jpg&#39;,
    &#39;id&#39;: 1529,
@@ -1245,11 +1294,11 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott
 WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams)
 Get Ur Freak On by Missy Elliott
+Gossip Folks by Missy Elliott (Ft. Ludacris)
 I&#39;m Better by Missy Elliott (Ft. Cainon Lamb)
 The Rain (Supa Dupa Fly) by Missy Elliott
-Gossip Folks by Missy Elliott (Ft. Ludacris)
 Lose Control by Missy Elliott (Ft. Ciara &amp; Fatman Scoop)
-One Minute Man by Missy Elliott (Ft. Ludacris &amp; Trina)
+One Minute Man (Amended Version) by Missy Elliott (Ft. Ludacris &amp; Trina)
 This Is Me (The Reimagined Remix) by Keala Settle, Kesha &amp; Missy Elliott
 Bomb Intro/Pass That Dutch by Missy Elliott
 </pre></div>
@@ -1267,16 +1316,16 @@ Bomb Intro/Pass That Dutch by Missy Elliott
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott 1084518
-WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams) 286118
-Get Ur Freak On by Missy Elliott 144738
-I&#39;m Better by Missy Elliott (Ft. Cainon Lamb) 104116
-The Rain (Supa Dupa Fly) by Missy Elliott 90545
-Gossip Folks by Missy Elliott (Ft. Ludacris) 98504
-Lose Control by Missy Elliott (Ft. Ciara &amp; Fatman Scoop) 82456
-One Minute Man by Missy Elliott (Ft. Ludacris &amp; Trina) 66241
-This Is Me (The Reimagined Remix) by Keala Settle, Kesha &amp; Missy Elliott 44535
-Bomb Intro/Pass That Dutch by Missy Elliott 43406
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Work It by Missy Elliott 1205121
+WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams) 289808
+Get Ur Freak On by Missy Elliott 165394
+Gossip Folks by Missy Elliott (Ft. Ludacris) 111483
+I&#39;m Better by Missy Elliott (Ft. Cainon Lamb) 107273
+The Rain (Supa Dupa Fly) by Missy Elliott 103348
+Lose Control by Missy Elliott (Ft. Ciara &amp; Fatman Scoop) 93331
+One Minute Man (Amended Version) by Missy Elliott (Ft. Ludacris &amp; Trina) 74646
+This Is Me (The Reimagined Remix) by Keala Settle, Kesha &amp; Missy Elliott 49366
+Bomb Intro/Pass That Dutch by Missy Elliott 48848
 </pre></div>
 </div>
 </div>
@@ -1336,52 +1385,52 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
     <tr>
       <th>0</th>
       <td>Work It by Missy Elliott</td>
-      <td>1084518</td>
+      <td>1205121</td>
     </tr>
     <tr>
       <th>1</th>
       <td>WTF (Where They From) by Missy Elliott (Ft. Ph...</td>
-      <td>286118</td>
+      <td>289808</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Get Ur Freak On by Missy Elliott</td>
-      <td>144738</td>
+      <td>165394</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
-      <td>104116</td>
+      <td>Gossip Folks by Missy Elliott (Ft. Ludacris)</td>
+      <td>111483</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
-      <td>90545</td>
+      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
+      <td>107273</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Gossip Folks by Missy Elliott (Ft. Ludacris)</td>
-      <td>98504</td>
+      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
+      <td>103348</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Lose Control by Missy Elliott (Ft. Ciara &amp; Fat...</td>
-      <td>82456</td>
+      <td>93331</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>One Minute Man by Missy Elliott (Ft. Ludacris ...</td>
-      <td>66241</td>
+      <td>One Minute Man (Amended Version) by Missy Elli...</td>
+      <td>74646</td>
     </tr>
     <tr>
       <th>8</th>
       <td>This Is Me (The Reimagined Remix) by Keala Set...</td>
-      <td>44535</td>
+      <td>49366</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Bomb Intro/Pass That Dutch by Missy Elliott</td>
-      <td>43406</td>
+      <td>48848</td>
     </tr>
   </tbody>
 </table>
@@ -1453,70 +1502,70 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
     <tr>
       <th>0</th>
       <td>Work It by Missy Elliott</td>
-      <td>1084518</td>
+      <td>1205121</td>
       <td>https://images.genius.com/27c1fbfef17041b43530...</td>
       <td>&lt;img src='https://images.genius.com/27c1fbfef1...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>WTF (Where They From) by Missy Elliott (Ft. Ph...</td>
-      <td>286118</td>
+      <td>289808</td>
       <td>https://images.rapgenius.com/a439d6d6020559ffe...</td>
       <td>&lt;img src='https://images.rapgenius.com/a439d6d...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Get Ur Freak On by Missy Elliott</td>
-      <td>144738</td>
+      <td>165394</td>
       <td>https://images.genius.com/338e122c1534b6f6363a...</td>
       <td>&lt;img src='https://images.genius.com/338e122c15...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
-      <td>104116</td>
-      <td>https://images.genius.com/609afe10820cce09ce9e...</td>
-      <td>&lt;img src='https://images.genius.com/609afe1082...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
-      <td>90545</td>
-      <td>https://images.genius.com/a1543159342cd360256c...</td>
-      <td>&lt;img src='https://images.genius.com/a154315934...</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>Gossip Folks by Missy Elliott (Ft. Ludacris)</td>
-      <td>98504</td>
+      <td>111483</td>
       <td>https://images.genius.com/206153c53d05804677e2...</td>
       <td>&lt;img src='https://images.genius.com/206153c53d...</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
+      <td>107273</td>
+      <td>https://images.genius.com/609afe10820cce09ce9e...</td>
+      <td>&lt;img src='https://images.genius.com/609afe1082...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
+      <td>103348</td>
+      <td>https://images.genius.com/a1543159342cd360256c...</td>
+      <td>&lt;img src='https://images.genius.com/a154315934...</td>
+    </tr>
+    <tr>
       <th>6</th>
       <td>Lose Control by Missy Elliott (Ft. Ciara &amp; Fat...</td>
-      <td>82456</td>
+      <td>93331</td>
       <td>https://images.genius.com/51639e476eac5cb5bed5...</td>
       <td>&lt;img src='https://images.genius.com/51639e476e...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>One Minute Man by Missy Elliott (Ft. Ludacris ...</td>
-      <td>66241</td>
+      <td>One Minute Man (Amended Version) by Missy Elli...</td>
+      <td>74646</td>
       <td>https://images.genius.com/a94eaf3c98a7134cb546...</td>
       <td>&lt;img src='https://images.genius.com/a94eaf3c98...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>This Is Me (The Reimagined Remix) by Keala Set...</td>
-      <td>44535</td>
+      <td>49366</td>
       <td>https://images.genius.com/29f15eb96f814e785598...</td>
       <td>&lt;img src='https://images.genius.com/29f15eb96f...</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Bomb Intro/Pass That Dutch by Missy Elliott</td>
-      <td>43406</td>
+      <td>48848</td>
       <td>https://images.genius.com/8c2a5015c6ba9e5f0c15...</td>
       <td>&lt;img src='https://images.genius.com/8c2a5015c6...</td>
     </tr>
@@ -1544,62 +1593,62 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
   <tbody>
     <tr>
       <th>0</th>
-      <td><img src='https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.482x500x1.jpg' width='100'></td>
-      <td>1084518</td>
+      <td><img src='https://images.genius.com/27c1fbfef17041b435302af288cfa0c6.482x500x1.jpg' width='500px'></td>
+      <td>1205121</td>
       <td>Work It by Missy Elliott</td>
     </tr>
     <tr>
       <th>1</th>
-      <td><img src='https://images.rapgenius.com/a439d6d6020559ffe7c10f0d73722de1.1000x1000x1.jpg' width='100'></td>
-      <td>286118</td>
+      <td><img src='https://images.rapgenius.com/a439d6d6020559ffe7c10f0d73722de1.1000x1000x1.jpg' width='500px'></td>
+      <td>289808</td>
       <td>WTF (Where They From) by Missy Elliott (Ft. Pharrell Williams)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td><img src='https://images.genius.com/338e122c1534b6f6363afb06f77912cf.300x259x1.jpg' width='100'></td>
-      <td>144738</td>
+      <td><img src='https://images.genius.com/338e122c1534b6f6363afb06f77912cf.300x259x1.jpg' width='500px'></td>
+      <td>165394</td>
       <td>Get Ur Freak On by Missy Elliott</td>
     </tr>
     <tr>
       <th>3</th>
-      <td><img src='https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg' width='100'></td>
-      <td>104116</td>
-      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td><img src='https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg' width='100'></td>
-      <td>90545</td>
-      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td><img src='https://images.genius.com/206153c53d05804677e236aa2ae4eb45.600x600x1.jpg' width='100'></td>
-      <td>98504</td>
+      <td><img src='https://images.genius.com/206153c53d05804677e236aa2ae4eb45.600x600x1.jpg' width='500px'></td>
+      <td>111483</td>
       <td>Gossip Folks by Missy Elliott (Ft. Ludacris)</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td><img src='https://images.genius.com/609afe10820cce09ce9e3c768518c63c.600x600x1.jpg' width='500px'></td>
+      <td>107273</td>
+      <td>I'm Better by Missy Elliott (Ft. Cainon Lamb)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><img src='https://images.genius.com/a1543159342cd360256c12b42185771f.975x1000x1.jpg' width='500px'></td>
+      <td>103348</td>
+      <td>The Rain (Supa Dupa Fly) by Missy Elliott</td>
+    </tr>
+    <tr>
       <th>6</th>
-      <td><img src='https://images.genius.com/51639e476eac5cb5bed5794c023763ff.700x707x1.jpg' width='100'></td>
-      <td>82456</td>
+      <td><img src='https://images.genius.com/51639e476eac5cb5bed5794c023763ff.700x707x1.jpg' width='500px'></td>
+      <td>93331</td>
       <td>Lose Control by Missy Elliott (Ft. Ciara & Fatman Scoop)</td>
     </tr>
     <tr>
       <th>7</th>
-      <td><img src='https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.953x953x1.jpg' width='100'></td>
-      <td>66241</td>
-      <td>One Minute Man by Missy Elliott (Ft. Ludacris & Trina)</td>
+      <td><img src='https://images.genius.com/a94eaf3c98a7134cb546ebf9e6d2b991.953x953x1.jpg' width='500px'></td>
+      <td>74646</td>
+      <td>One Minute Man (Amended Version) by Missy Elliott (Ft. Ludacris & Trina)</td>
     </tr>
     <tr>
       <th>8</th>
-      <td><img src='https://images.genius.com/29f15eb96f814e785598d0eea14126a7.1000x1000x1.png' width='100'></td>
-      <td>44535</td>
+      <td><img src='https://images.genius.com/29f15eb96f814e785598d0eea14126a7.1000x1000x1.png' width='500px'></td>
+      <td>49366</td>
       <td>This Is Me (The Reimagined Remix) by Keala Settle, Kesha & Missy Elliott</td>
     </tr>
     <tr>
       <th>9</th>
-      <td><img src='https://images.genius.com/8c2a5015c6ba9e5f0c154f9a20f14534.583x583x1.jpg' width='100'></td>
-      <td>43406</td>
+      <td><img src='https://images.genius.com/8c2a5015c6ba9e5f0c154f9a20f14534.583x583x1.jpg' width='500px'></td>
+      <td>48848</td>
       <td>Bomb Intro/Pass That Dutch by Missy Elliott</td>
     </tr>
   </tbody>
@@ -1658,63 +1707,63 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
   <tbody>
     <tr>
       <th>0</th>
-      <td><img src='https://images.genius.com/d89ce272c353c3483fca92fae2ab0700.640x640x1.jpg' width='100'></td>
-      <td>116022</td>
-      <td>Smoke Signals by Phoebe Bridgers</td>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>302599</td>
+      <td>Kyoto by Phoebe Bridgers</td>
     </tr>
     <tr>
       <th>1</th>
-      <td><img src='https://images.genius.com/298d31ae23127ba212fbbbcc91508ad7.640x640x1.jpg' width='100'></td>
-      <td>134960</td>
+      <td><img src='https://images.genius.com/298d31ae23127ba212fbbbcc91508ad7.640x640x1.jpg' width='500px'></td>
+      <td>328494</td>
       <td>Motion Sickness by Phoebe Bridgers</td>
     </tr>
     <tr>
       <th>2</th>
-      <td><img src='https://images.genius.com/b09ca35ba070d113f0d1d37934f20f69.1000x1000x1.jpg' width='100'></td>
-      <td>71113</td>
-      <td>Scott Street by Phoebe Bridgers</td>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>277719</td>
+      <td>I Know the End by Phoebe Bridgers</td>
     </tr>
     <tr>
       <th>3</th>
-      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='100'></td>
-      <td>87288</td>
-      <td>Kyoto by Phoebe Bridgers</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td><img src='https://images.genius.com/d48ddb518f2357787b5e18ab2c6fd0ab.1000x1000x1.jpg' width='100'></td>
-      <td>78277</td>
-      <td>Me & My Dog by ​boygenius</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td><img src='https://images.genius.com/069a38a206438c03e3cc75b3a688e90f.640x640x1.jpg' width='100'></td>
-      <td>76645</td>
-      <td>Funeral by Phoebe Bridgers</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='100'></td>
-      <td>80496</td>
-      <td>Moon Song by Phoebe Bridgers</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td><img src='https://images.genius.com/b09ca35ba070d113f0d1d37934f20f69.1000x1000x1.jpg' width='100'></td>
-      <td>60410</td>
-      <td>You Missed My Heart by Phoebe Bridgers</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='100'></td>
-      <td>75736</td>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>217543</td>
       <td>Punisher by Phoebe Bridgers</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td><img src='https://images.genius.com/4d6e5376cccd1a411081f1cb5fdc53ef.1000x1000x1.jpg' width='500px'></td>
+      <td>229410</td>
+      <td>Garden Song by Phoebe Bridgers</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><img src='https://images.genius.com/d89ce272c353c3483fca92fae2ab0700.640x640x1.jpg' width='500px'></td>
+      <td>198241</td>
+      <td>Smoke Signals by Phoebe Bridgers</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>188749</td>
+      <td>Savior Complex by Phoebe Bridgers</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>162229</td>
+      <td>Chinese Satellite by Phoebe Bridgers</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td><img src='https://images.genius.com/7d0d55bc0879faa98cdadbef8a19d211.1000x1000x1.png' width='500px'></td>
+      <td>170431</td>
+      <td>Graceland Too by Phoebe Bridgers</td>
+    </tr>
+    <tr>
       <th>9</th>
-      <td><img src='https://images.genius.com/bef9ef17404b01599d842bf42fc9353f.1000x1000x1.jpg' width='100'></td>
-      <td>60078</td>
-      <td>Souvenir by ​boygenius</td>
+      <td><img src='https://images.genius.com/069a38a206438c03e3cc75b3a688e90f.640x640x1.jpg' width='500px'></td>
+      <td>147483</td>
+      <td>Funeral by Phoebe Bridgers</td>
     </tr>
   </tbody>
 </table></div></div>
@@ -1763,7 +1812,7 @@ Bomb Intro/Pass That Dutch by Missy Elliott 43406
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>

@@ -582,12 +582,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis
+     Network Analysis with NetworkX
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization
+     Make an Interactive Network Visualization with Bokeh
     </a>
    </li>
   </ul>
@@ -604,7 +604,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping
+     Mapping &amp; Geocoding
     </a>
    </li>
    <li class="toctree-l2">
@@ -629,6 +629,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../00-Datasets/00-Datasets.html">
    Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
+   Jupyter Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
+   Make Random Student Groups
   </a>
  </li>
 </ul>
@@ -870,11 +887,11 @@
 <h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-trans-atlantic-slave-trade-database">
 <h3>The Trans-Atlantic Slave Trade Database<a class="headerlink" href="#the-trans-atlantic-slave-trade-database" title="Permalink to this headline">¶</a></h3>
-<blockquote class="epigraph">
-<div><p>[D]isplaying data alone could not and did not offer the atonement descendants of slaves
+<blockquote class="epigraph" style=" padding: 10px">
+<p>[D]isplaying data alone could not and did not offer the atonement descendants of slaves
 sought or capture the inhumanity of this archive’s formation.</p>
-<p class="attribution">—Jessica Marie Johnson, <a href="https://read.dukeupress.edu/social-text/article/36/4%20(137)/57/137032/Markup-BodiesBlack-Life-Studies-and-Slavery-Death">“Markup Bodies”</a></p>
-</div></blockquote>
+<p>-Jessica Marie Johnson, <a href="https://read.dukeupress.edu/social-text/article/36/4%20(137)/57/137032/Markup-BodiesBlack-Life-Studies-and-Slavery-Death">“Markup Bodies”</a></p>
+</blockquote>
 <p>The dataset that we’re going to be working with in this lesson is taken from <a class="reference external" href="https://www.slavevoyages.org/voyage/database">The Trans-Atlantic Slave Trade Database</a>, part of the <a class="reference external" href="https://www.slavevoyages.org/"><em>Slave Voyages</em> project</a>. The larger database includes information about 35,000 slave-trading voyages from 1514-1866. The dataset we’re working with here was filtered to include the 20,000 voyages that landed in the Americas. The data was filtered to also include the percentage of enslaved men, women, and children on the voyages.</p>
 <p>We’re working with this data for a number of reasons. The <em>Slave Voyages</em> project is a major data-driven contribution to the history of slavery and to the field of the digital humanities. Before the Trans-Atlantic Slave Trade Database, as DH scholar Jessica Johnson <a class="reference external" href="https://read.dukeupress.edu/social-text/article-abstract/36/4%20(137)/57/137032/Markup-BodiesBlack-Life-Studies-and-Slavery-Death?redirectedFrom=fulltext">writes,</a> “historians assumed enslaved women and children played a negligible role in the slave trade.” But evidence from the Trans-Atlantic Slave Trade Database suggested otherwise. “The existence of the Trans-Atlantic Slave Trade Database immediately reshaped debates about numbers of women and children exported from the continent,” Johnson says, “influencing work on women in the slave trade on the African coast, slavery in African societies, and women in the slave trade to the Americas.”</p>
 <p>Though the Trans-Atlantic Slave Trade Database helped shed new light on the roles of enslaved women and children, Johnson makes clear that it was not computation or data alone that shed this light:</p>
@@ -917,9 +934,8 @@ sought or capture the inhumanity of this archive’s formation.</p>
 <p>We can display a DataFrame in a Jupyter notebook simply by running a cell with the variable name of the DataFrame.</p>
 <div class="admonition pandasreview" id="html-admonition">
 <p class="admonition-title">Pandas Review</p>
-<p>NaN is the Pandas value for any missing data.</p>
+<p><code>NaN</code> is the Pandas value for any missing data. See <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html?highlight=nan/">“Working with missing data”</a> for more information.</p>
 </div>
-<p>See <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html?highlight=nan/">“Working with missing data”</a> for more information.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span>
@@ -4077,7 +4093,7 @@ Name: total_women, Length: 330, dtype: float64
             &copy; Copyright 2021.<br/>
           <div class="extra_footer">
             <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>. The code is licensed under a <a href="https://choosealicense.com/licenses/gpl-3.0/#">GNU General Public License v3.0</a>.
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
           </div>
