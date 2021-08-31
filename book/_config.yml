@@ -163,10 +163,8 @@ sphinx:
       - replacements
       - smartquotes
       - substitution
-    #redirects:
-      #"features/*": "https://melaniewalsh.github.io/Intro-Cultural-Analytics/$source.html"
-    #notfound_context:
-    #    body: "<h1>Page not found.</h1>\n\nSorry, this page cannot be found. Try the <a href='index.html'> home page </a> or <a href='search.html'> search page </a> to find what you're looking for.</p>."
+    notfound_context:
+        body: "<h1>Whoops! Page Not Found</h1>\n\n<p>Sorry, this page doesn't exist. Many sections of this book have been updated recently.</p><p>Try the <a href='https://melaniewalsh.github.io/Intro-Cultural-Analytics/index.html'>home page 🏠 </a> or <a href='https://melaniewalsh.github.io/Intro-Cultural-Analytics/search.html'>search page 🔎 </a> to find what you're looking for.</p>"
     notfound_urls_prefix: "/Intro-Cultural-Analytics/"
 
   extra_extensions:

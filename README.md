@@ -1,7 +1,7 @@
 # Introduction to Cultural Analytics & Python
 Designed by [Melanie Walsh](https://melaniewalsh.org/) // Powered by [Jupyter Book](https://jupyterbook.org/)
 
-This website repository hosts the code for the online textbook, *Introduction to Cultural Analytics & Python*, which offers an introduction to the programming language Python that is specifically designed for people interested in the humanities and social sciences.
+This repository hosts the code for the online textbook, *Introduction to Cultural Analytics & Python*, which offers an introduction to the programming language Python that is specifically designed for people interested in the humanities and social sciences.
 
 The book demonstrates how Python can be used to study cultural materials such as song lyrics, short stories, newspaper articles, tweets, Reddit posts, and film screenplays. It also introduces computational methods such as web scraping, APIs, topic modeling, Named Entity Recognition (NER), network analysis, and mapping.
 
@@ -16,12 +16,12 @@ The HTML files are currently hidden in this branch of the GitHub repository, but
 Below I will briefly explain the structure of this repository and some important Jupyter Book features.
 
 -  [`/book`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/book) contains all the materials that generate the Jupyter Book
-- [`/binder`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/binder) contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud 
+- [`/binder`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/binder) contains materials that set up the virtual [Binder](https://mybinder.org/) environment for running Jupyter notebooks in the cloud
 
 ### Configuration file
 
 The configuration file [`/book/_config.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_config.yml) is where I establish key features of the book, such as the title, logo, and whether users can open the Jupyter notebook files in the cloud.
- 
+
 ### Table of Contents file
 
 The table of contents file [`/book/_toc.yml`](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/_toc.yml) establishes the table of contents structure on the left-hand side of the web page.
