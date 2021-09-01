@@ -867,7 +867,7 @@
 <div class="section" id="search-queries-privacy-concerns">
 <h2>Search Queries &amp; Privacy Concerns<a class="headerlink" href="#search-queries-privacy-concerns" title="Permalink to this headline">¶</a></h2>
 <p>To collect tweets from the Twitter API, we need to make queries, or requests for specific kinds of tweets — e.g., <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">*query*</span></code>. The simplest kind of query is a keyword search, such as the phrase “David Foster Wallace bro,” which should return any tweet that contains all of these words in any order — <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro&quot;</span></code>.</p>
-<p>There are many other operators that you can add to a query, which would allow us to collect tweets only from certain users or locations, only tweets that contain images or that were tweeted by verified Twitter users. Here’s an excerpted table of search operators taken from <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s documentation</a> about how to build a search query. There are many other operators and constructions beyond those included in this table, and I recommend reading through <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s entire web page on this subject</a>.</p>
+<p>There are many other operators that we can add to a query, which would allow us to collect tweets only from specific Twitter users or locations, or to only collect tweets that meet certain conditions, such as containing an image or being authored by a verified Twitter user. Here’s an excerpted table of search operators taken from <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s documentation</a> about how to build a search query. There are many other operators beyond those included in this table, and I recommend reading through <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s entire web page on this subject</a>.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Search Operator</p></th>
@@ -910,12 +910,12 @@
 </tr>
 </tbody>
 </table>
-<p>In this lesson, we will only be collecting tweets which were tweeted by verified users: <code class="docutils literal notranslate"><span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">is:verified&quot;</span></code>.</p>
+<p>In this lesson, we will only be collecting tweets that were tweeted by verified users: <code class="docutils literal notranslate"><span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro</span> <span class="pre">is:verified&quot;</span></code>.</p>
 <p>As I discussed in <a class="reference internal" href="01-User-Ethics-Legal-Concerns.html"><span class="doc std std-doc">“Users’ Data: Legal &amp; Ethical Considerations,”</span></a> collecting publicly available tweets is legal, but it still raises a lot of privacy concerns and ethical quandaries — particularly when you re-publish user’s data, as I am in this lesson. To reduce potential harm to Twitter users when re-publishing or citing tweets, it can be helpful to ask for explicit permission from the authors or to focus on tweets that have already been reasonably exposed to the public (e.g., tweets with many retweets or tweets from verified users), such that re-publishing the content will not unduly increase risk to the user.</p>
 </div>
 <div class="section" id="install-and-import-libraries">
 <h2>Install and Import Libraries<a class="headerlink" href="#install-and-import-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we can use it. You can find instructions for the application process in <span class="xref myst">“Twitter API Set Up.”</span></p>
+<p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we can use it. You can find instructions for the application process in <a class="reference internal" href="11-Twitter-API-Setup.html"><span class="doc std std-doc">“Twitter API Set Up.”</span></a></p>
 <p>If you haven’t done so already, you need to install twarc and configure twarc with your bearer token and/or API keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1074,7 +1074,7 @@
 <p>3472 rows × 3 columns</p>
 </div></div></div>
 </div>
-<p>Then we can make a quick plot of tweets per day with plotly</p>
+<p>Then we can make a quick plot of tweets per day with <a class="reference external" href="https://plotly.com/python/line-charts/">plotly</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code borrowed from Ed Summers</span>
@@ -1186,6 +1186,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
+<p>With a plotly line chart, we can hover over points to see more information, and we can use the tool bar in the upper right corner to zoom or pan on different parts of the graph. We can also press the camera button to download an image of the graph at any pan or zoom level.</p>
+<p>To return to the original view, double-click on the plot.</p>
 </div>
 <div class="section" id="get-tweets-standard-track">
 <h2>Get Tweets (Standard Track)<a class="headerlink" href="#get-tweets-standard-track" title="Permalink to this headline">¶</a></h2>
@@ -1203,7 +1205,7 @@ if (outputEl) {{
 </div>
 </div>
 </div>
-<p>The tweets and tweet metadata above is being printed to the notebook. But we want to save this information to a file so we can work with it.</p>
+<p>The tweets and tweet metadata above are being printed to the notebook. But we want to save this information to a file so we can work with it.</p>
 <p>To output Twitter data to a file, we can use the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename with the “.jsonl” file extension, which stands for JSON lines, a special kind of JSON file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1215,8 +1217,10 @@ if (outputEl) {{
 </div>
 <div class="section" id="get-tweets-academic-track-full-twitter-archive">
 <h2>Get Tweets (Academic Track, Full Twitter Archive)<a class="headerlink" href="#get-tweets-academic-track-full-twitter-archive" title="Permalink to this headline">¶</a></h2>
-<p class="title">Attention</p>
+<div class="admonition attention" id="id1">
+<p class="admonition-title">Attention</p>
 <p>Remember that this functionality is only available to those who have an <a class="reference external" href="https://developer.twitter.com/en/products/twitter-api/academic-research">Academic Research account</a>.</p>
+</div>
 </div><p>To collect tweets from Twitter’s entire historical archive, we need to add the <code class="docutils literal notranslate"><span class="pre">--archive</span></code> flag.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1236,7 +1240,7 @@ if (outputEl) {{
 </div>
 </div>
 </div>
-<p>Once installed, we can call the convert-to-csv function from twarc2, supplying an input filename and a desired output filename.</p>
+<p>Once installed, we can use the plug-in from twarc2 with the input filename for the JSONL and a desired output filename for the CSV file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 csv twitter-data/dfw_bro.jsonl twitter-data/dfw_bro.csv
@@ -1267,7 +1271,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
-<p>If we scroll through this dataset, we can see that there are only 37 tweets that matched our search query, but there is a <em>lot</em> of metadata associated with each tweet. Scroll to the right to see all the information. What category surprises you the most? (For me, it’s the tweet author’s pinned tweet from their timeline.)</p>
+<p>If we scroll through this dataset, we can see that there are only 37 tweets that matched our search query, but there is a <em>lot</em> of metadata associated with each tweet. Scroll to the right to see all the information. What category surprises you the most? (For me, it’s the tweet author’s pinned tweet from their own timeline. Your pinned tweet gets attached to everything else you tweet!)</p>
 <div class="cell tag_output_scroll tag_full-width docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span>
@@ -4933,8 +4937,10 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Oh I find his books terrible: good sentences, but bad paragraphs, thin characters, no story.</p>&mdash; TomKealy 1️⃣2️⃣4️⃣🚢 (@TomKealy2) <a href="https://twitter.com/TomKealy2/status/1412360683237355524?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>However, a tweet that replied to this tweet <em>does</em> contain the phrase:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Imo the great twitter literature injustice is that it is david foster wallace and not him that is smeared as the dumb bro contemporary author</p>&mdash; Josh Lowe (@JeyyLowe) <a href="https://twitter.com/JeyyLowe/status/1412360883582418945?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><p>It appears that tweets can match a query if their conversation, including quote tweets, matches the query.</p>
-<p class="title">Attention</p>
+<div class="admonition attention" id="id2">
+<p class="admonition-title">Attention</p>
 <p>The examples above point to a broader lesson about working with the Twitter API. You should always inspect and manually read through your Twitter data to ensure that your API query is returning what you expect and want.</p>
+</div>
 </div></div>
 <div class="section" id="extract-tweet-and-media-urls">
 <h2>Extract Tweet and Media URLs<a class="headerlink" href="#extract-tweet-and-media-urls" title="Permalink to this headline">¶</a></h2>
@@ -4943,8 +4949,11 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make Tweet URL</span>
 <span class="k">def</span> <span class="nf">make_tweet_url</span><span class="p">(</span><span class="n">tweets</span><span class="p">):</span>
+    <span class="c1"># Get username</span>
     <span class="n">username</span> <span class="o">=</span> <span class="n">tweets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Get tweet ID</span>
     <span class="n">tweet_id</span> <span class="o">=</span> <span class="n">tweets</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Make tweet URL</span>
     <span class="n">tweet_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://twitter.com/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/status/</span><span class="si">{</span><span class="n">tweet_id</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">tweet_url</span>
 
@@ -4953,7 +4962,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 <span class="k">def</span> <span class="nf">get_image_url</span><span class="p">(</span><span class="n">media</span><span class="p">):</span>
     <span class="c1"># if not NaN or {}</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">media</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span> <span class="ow">and</span> <span class="n">media</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">:</span>
-        <span class="c1"># Convert to a Python list, not a string</span>
+        <span class="c1"># Convert to an actual Python list, not just a string</span>
         <span class="n">media</span> <span class="o">=</span>  <span class="n">literal_eval</span><span class="p">(</span><span class="n">media</span><span class="p">)</span>
         <span class="n">media</span> <span class="o">=</span> <span class="n">media</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
          <span class="c1"># Extract media url if it exists</span>
@@ -5682,7 +5691,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 <div class="section" id="sort-by-top-retweets">
 <h2>Sort By Top Retweets<a class="headerlink" href="#sort-by-top-retweets" title="Permalink to this headline">¶</a></h2>
-<p>We sort by number of retweets to see the most viral tweets. Let’s examine the top 5.</p>
+<p>We can sort by number of retweets to see the most circulated tweets. Let’s examine the top 5.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;retweets&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
@@ -6660,7 +6669,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </table>
 </div></div></div>
 </div>
-<p>Because our index is a datetime value, we can use the special Pandas method <code class="docutils literal notranslate"><span class="pre">.resample()</span></code> to group the tweets by month, add them up, and plot them over time.</p>
+<p>Because our index is a datetime value, we can use the special Pandas method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html"><code class="docutils literal notranslate"><span class="pre">.resample()</span></code></a> to group the tweets by month, add them up, and plot them over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>\
@@ -6669,7 +6678,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_74_0.png" src="../_images/12-Twitter-Data_74_0.png" />
+<img alt="../_images/12-Twitter-Data_75_0.png" src="../_images/12-Twitter-Data_75_0.png" />
 </div>
 </div>
 </div>
@@ -7164,7 +7173,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
-<p>Then we can create a CSV digest of the top hashtags from your JSONL data with <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hashtags</span></code>. (To get more hashtag data, we are using a JSONL file that contains a full archive search of “David Foster Wallace” rather than “David Foster Wallace bro”).</p>
+<p>Then we can create a CSV digest of the top hashtags from our JSONL data with <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hashtags</span></code>. (To get more hashtag data, we are using a JSONL file that contains a full archive search of “David Foster Wallace” rather than “David Foster Wallace bro”).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 hashtags twitter-data/dfw.jsonl twitter-data/dfw_hashtags.csv
@@ -7399,7 +7408,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_94_0.png" src="../_images/12-Twitter-Data_94_0.png" />
+<img alt="../_images/12-Twitter-Data_95_0.png" src="../_images/12-Twitter-Data_95_0.png" />
 </div>
 </div>
 <p>We can also plot multiple hashtags on the same plot by assigning the first plot to the variable <code class="docutils literal notranslate"><span class="pre">main_axis</span></code> and then directing the next plots to be plotted on the same axis <code class="docutils literal notranslate"><span class="pre">ax=main_axis</span></code>.</p>
@@ -7412,7 +7421,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_96_0.png" src="../_images/12-Twitter-Data_96_0.png" />
+<img alt="../_images/12-Twitter-Data_97_0.png" src="../_images/12-Twitter-Data_97_0.png" />
 </div>
 </div>
 </div>
