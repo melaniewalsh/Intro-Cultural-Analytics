@@ -1206,14 +1206,24 @@ if (outputEl) {{
 </div>
 </div>
 <p>The tweets and tweet metadata above are being printed to the notebook. But we want to save this information to a file so we can work with it.</p>
-<p>To output Twitter data to a file, we can use the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and a filename with the “.jsonl” file extension, which stands for JSON lines, a special kind of JSON file.</p>
+<p>To output Twitter data to a file, we can also include a filename with the “.jsonl” file extension, which stands for JSON lines, a special kind of JSON file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace is:verified&quot;</span> &gt; twitter-data/dfw_last_week.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace is:verified&quot;</span> twitter-data/dfw_last_week.jsonl
 </pre></div>
 </div>
 </div>
 </div>
+<p>Theoretically, a tweet with “David,” “Foster”, and “Wallace” in different places would be matched by the more general search above. If we wanted to match the words “David Foster Wallace” exactly, we would need to put “David Foster Wallace” in quotation marks <em>and</em> “escape” those quotation marks, so that <code class="docutils literal notranslate"><span class="pre">twarc2</span></code> will know that our query shouldn’t end at the next quotation mark.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;\&quot;David Foster Wallace\&quot; is:verified&quot;</span> twitter-data/dfw_exact.jsonl
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’re working on a Mac, you should be able to escape the quotation marks with backslashes <code class="docutils literal notranslate"><span class="pre">\</span></code> before the characters, as shown in the example above. But if you’re working on a Windows computer, you may need to use triple quotations instead, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;&quot;&quot;</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace&quot;</span> <span class="pre">is:verified&quot;&quot;&quot;</span> <span class="pre">twitter-data/dfw_exact.jsonl</span></code></p>
 </div>
 <div class="section" id="get-tweets-academic-track-full-twitter-archive">
 <h2>Get Tweets (Academic Track, Full Twitter Archive)<a class="headerlink" href="#get-tweets-academic-track-full-twitter-archive" title="Permalink to this headline">¶</a></h2>
@@ -1224,7 +1234,7 @@ if (outputEl) {{
 </div><p>To collect tweets from Twitter’s entire historical archive, we need to add the <code class="docutils literal notranslate"><span class="pre">--archive</span></code> flag.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace bro is:verified&quot;</span> --archive  &gt; twitter-data/dfw_bro.jsonl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>twarc2 search <span class="s2">&quot;David Foster Wallace bro is:verified&quot;</span> --archive twitter-data/dfw_bro.jsonl
 </pre></div>
 </div>
 </div>
@@ -1258,6 +1268,8 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
+<p>By default, when converting from the JSONL file, <code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code> will include any tweets that were “referenced” by a matching tweet as their own rows in the CSV file. For example, if a quote tweet matched our query, the tweet being quoted would also be included in the CSV file as its own row, even if it didn’t match our query. We will see how this plays out in the “David Foster Wallace bro” tweets below…</p>
+<p>But if you only want to include tweets that match your query in the resulting CSV file, you can use the flag <code class="docutils literal notranslate"><span class="pre">--no-inline-referenced-tweets</span></code>. For more options, see the <a class="reference external" href="https://github.com/DocNow/twarc-csv#extra-command-line-options"><code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code> documentation.</a></p>
 </div>
 <div class="section" id="read-in-csv">
 <h2>Read in CSV<a class="headerlink" href="#read-in-csv" title="Permalink to this headline">¶</a></h2>
@@ -4932,16 +4944,14 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 </div>
-<p>Before we move on, let’s pause to consider the tweets that we’ve collected with our search query: <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro&quot;</span></code>. We can see that many of the returned tweets contain “David Foster Wallace” and “bro” in the text of the tweet, which is what we wanted.</p>
-<p>But a few tweets, curiously, do not contain any of these words. For example, this tweet does not contain “David Foster Wallace bro” at all:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Oh I find his books terrible: good sentences, but bad paragraphs, thin characters, no story.</p>&mdash; TomKealy 1️⃣2️⃣4️⃣🚢 (@TomKealy2) <a href="https://twitter.com/TomKealy2/status/1412360683237355524?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>However, a tweet that replied to this tweet <em>does</em> contain the phrase:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Imo the great twitter literature injustice is that it is david foster wallace and not him that is smeared as the dumb bro contemporary author</p>&mdash; Josh Lowe (@JeyyLowe) <a href="https://twitter.com/JeyyLowe/status/1412360883582418945?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><p>It appears that tweets can match a query if their conversation, including quote tweets, matches the query.</p>
-<div class="admonition attention" id="id2">
-<p class="admonition-title">Attention</p>
-<p>The examples above point to a broader lesson about working with the Twitter API. You should always inspect and manually read through your Twitter data to ensure that your API query is returning what you expect and want.</p>
+<p>Before we move on, let’s pause to consider the tweets that are in this CSV file. We can see that many of the tweets contain “David Foster Wallace” and “bro” in the text of the tweet, and most of the tweets were authored by verified users.</p>
+<p>But some tweets do not contain any of these words, and they were not authored by verified users. These tweets are included in the file, however, because they were <em>referenced</em> by a tweet that matched our query, and because <code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code> includes these referenced tweets by default. For example, this tweet from U.S. Representative Alexandria Ocasio Cortez does not contain “David Foster Wallace bro” at all:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A few classics:<br>- Hope in the Dark, Solnit<br>- Why We Can’t Wait, MLK<br>- The Search for Common Ground, Thurman<br>- Team of Rivals, Goodwin<br>- Col Poems,Audre Lorde<br>- Bhagavad Gita<br>- Capital, Piketty<br>- 100 Years of Solitude, García Márquez<br>- Infinite Jest / Consider the Lobster, Wallace <a href="https://t.co/NS3C4X5dgB">https://t.co/NS3C4X5dgB</a></p>&mdash; Alexandria Ocasio-Cortez (@AOC) <a href="https://twitter.com/AOC/status/1075614808853110785?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>But a tweet that replied to her tweet does contain the phrase:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Is—is Alexandria Ocasio-Cortez a David Foster Wallace bro? <a href="https://t.co/OcwGRUdWMV">https://t.co/OcwGRUdWMV</a></p>&mdash; Matt Fuller (@MEPFuller) <a href="https://twitter.com/MEPFuller/status/1075778924280471553?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Again, if you only want tweets that exactly match your query, you should use the <code class="docutils literal notranslate"><span class="pre">twar-csv</span></code> flag <code class="docutils literal notranslate"><span class="pre">--no-inline-referenced-tweets</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">csv</span> <span class="pre">--no-inline-referenced-tweets</span> <span class="pre">twitter-data/dfw_bro.jsonl</span> <span class="pre">twitter-data/dfw_bro.csv</span></code>).</p>
+<p>These issues help point to a broader lesson about working with the Twitter API. You should always inspect and manually read through your Twitter data to ensure that your API query and subsequent manipulations are returning the data that you expect and want.</p>
 </div>
-</div></div>
 <div class="section" id="extract-tweet-and-media-urls">
 <h2>Extract Tweet and Media URLs<a class="headerlink" href="#extract-tweet-and-media-urls" title="Permalink to this headline">¶</a></h2>
 <p>We can make some Python functions that will create a tweet URL based on each tweet’s unique ID as well as extract an image URL if one exists.</p>
@@ -5824,9 +5834,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div></div></div>
 </div>
 <p>The most retweeted tweet in this dataset is from U.S. Representative Alexandria Ocasio Cortez:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A few classics:<br>- Hope in the Dark, Solnit<br>- Why We Can’t Wait, MLK<br>- The Search for Common Ground, Thurman<br>- Team of Rivals, Goodwin<br>- Col Poems,Audre Lorde<br>- Bhagavad Gita<br>- Capital, Piketty<br>- 100 Years of Solitude, García Márquez<br>- Infinite Jest / Consider the Lobster, Wallace <a href="https://t.co/NS3C4X5dgB">https://t.co/NS3C4X5dgB</a></p>&mdash; Alexandria Ocasio-Cortez (@AOC) <a href="https://twitter.com/AOC/status/1075614808853110785?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>Like some of the previous tweets, this tweet does not contain the entire phrase “David Foster Wallace bro,” although a quote tweet of AOC’s tweet did include the phrase:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Is—is Alexandria Ocasio-Cortez a David Foster Wallace bro? <a href="https://t.co/OcwGRUdWMV">https://t.co/OcwGRUdWMV</a></p>&mdash; Matt Fuller (@MEPFuller) <a href="https://twitter.com/MEPFuller/status/1075778924280471553?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A few classics:<br>- Hope in the Dark, Solnit<br>- Why We Can’t Wait, MLK<br>- The Search for Common Ground, Thurman<br>- Team of Rivals, Goodwin<br>- Col Poems,Audre Lorde<br>- Bhagavad Gita<br>- Capital, Piketty<br>- 100 Years of Solitude, García Márquez<br>- Infinite Jest / Consider the Lobster, Wallace <a href="https://t.co/NS3C4X5dgB">https://t.co/NS3C4X5dgB</a></p>&mdash; Alexandria Ocasio-Cortez (@AOC) <a href="https://twitter.com/AOC/status/1075614808853110785?ref_src=twsrc%5Etfw">December 20, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 <div class="section" id="sort-by-date">
 <h2>Sort By Date<a class="headerlink" href="#sort-by-date" title="Permalink to this headline">¶</a></h2>
 <p>We can sort from the earliest tweets to the latest tweets. Let’s examine the earliest 5 tweets.</p>
@@ -5963,7 +5971,8 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 <p>The earliest tweet in this dataset is from the music label Melodic Records:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">British bloggers should stop using usa style descriptive words like &#39;stoked&#39; and &#39;dope&#39; and use &#39;delightful&#39; and&#39; spiffing instead?Discuss?&#39;</p>&mdash; Melodic Records (@MelodicRecords) <a href="https://twitter.com/MelodicRecords/status/146329543211368449?ref_src=twsrc%5Etfw">December 12, 2011</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>This is yet another example of a tweet that does not contain the query keyword, though one of its replies does contain the keyword (the word “bro” appears in the text of that tweet, and the words “David Foster Wallace” appears in a link).</p>
+<p>This tweet is yet another example of a tweet that does not match our query — it is not a verified account, and it does not contain our keyword. Additionally, unlike AOC’s tweet, this tweet has seemingly nothing to do with David Foster Wallace. It is only included in the CSV file because someone replied to this tweet, saying “chillax brother, we all gud. Put another blunt on the barbie ‘n’ go wid th’ flo bro. Dude man…” and then linked to a <em>NYT Magazine</em> article titled “Another Thing to Sort of Pin on David Foster Wallace.”</p>
+<p>The &#64;AOC and &#64;MelodicRecords tweets above demonstrate that including “referenced” tweets in your CSV file can sometimes help you get more tweets that are related to your search, but it can also get you tweets that are almost entirely <em>un</em>related to your search.</p>
 </div>
 <div class="section" id="plot-tweets-over-time">
 <h2>Plot Tweets Over Time<a class="headerlink" href="#plot-tweets-over-time" title="Permalink to this headline">¶</a></h2>
@@ -6678,7 +6687,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_75_0.png" src="../_images/12-Twitter-Data_75_0.png" />
+<img alt="../_images/12-Twitter-Data_79_0.png" src="../_images/12-Twitter-Data_79_0.png" />
 </div>
 </div>
 </div>
@@ -7408,7 +7417,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_95_0.png" src="../_images/12-Twitter-Data_95_0.png" />
+<img alt="../_images/12-Twitter-Data_99_0.png" src="../_images/12-Twitter-Data_99_0.png" />
 </div>
 </div>
 <p>We can also plot multiple hashtags on the same plot by assigning the first plot to the variable <code class="docutils literal notranslate"><span class="pre">main_axis</span></code> and then directing the next plots to be plotted on the same axis <code class="docutils literal notranslate"><span class="pre">ax=main_axis</span></code>.</p>
@@ -7421,7 +7430,7 @@ Wrote 37 rows and output 94 of 94 input columns in the CSV.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-Twitter-Data_97_0.png" src="../_images/12-Twitter-Data_97_0.png" />
+<img alt="../_images/12-Twitter-Data_101_0.png" src="../_images/12-Twitter-Data_101_0.png" />
 </div>
 </div>
 </div>
