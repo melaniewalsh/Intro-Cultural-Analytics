@@ -1,6 +1,6 @@
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.bashrc
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 " >> ~/.profile
-chmod +x book/Text-Analysis/mallet-2.0.8/bin/mallet
+chmod +x book/05-Text-Analysis/mallet-2.0.8/bin/mallet
 jupyter labextension install nbdime-jupyterlab --no-build
 jupyter lab build -y --dev-build=False --minimize=False
 jupyter lab clean -y
