@@ -9,7 +9,7 @@ bs4
 requests
 twarc
 git+https://github.com/maria-antoniak/little-mallet-wrapper.git
-scikitlearn
+scikit-learn
 spacy
 regex
 seaborn
