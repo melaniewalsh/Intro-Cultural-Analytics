@@ -1,858 +1,587 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Pandas Basics — Part 1 &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/custom.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03-Data-Analysis/01-Pandas-Basics-Part1';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/03-Data-Analysis/01-Pandas-Basics-Part1.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pandas Basics — Part 2" href="02-Pandas-Basics-Part2.html" />
     <link rel="prev" title="Data Analysis (Pandas)" href="00-Data-Analysis.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../welcome.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/favicon.ico" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <p class="caption">
- <span class="caption-text">
-  How To
- </span>
-</p>
+    
+    
+    <img src="../_static/favicon.ico" class="logo__image only-light" alt="Introduction to Cultural Analytics & Python - Home"/>
+    <script>document.write(`<img src="../_static/favicon.ico" class="logo__image only-dark" alt="Introduction to Cultural Analytics & Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
-   Interact With This Book
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../How-To-Interact-With-This-Book.html">Interact With This Book</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../course-schedule-2021.html">
-   Course Schedule
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../course-schedule-2021.html">Course Schedule</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Book
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Book</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
-   1. The Command Line
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02-Python/00-Python.html">
-   2. Python Basics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/01-Install-Python.html">
-     Install Python &amp; Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
-     How to Use Jupyter Notebooks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">
-     Anatomy of a Python Script
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/04-Variables.html">
-     Python Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/05-Data-Types.html">
-     Python Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/06-String-Methods.html">
-     Python String Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">
-     Files and Character Encoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">
-     Python Comparisons and Conditionals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">
-     Python Lists and Loops
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">
-     Python Lists and Loops (Cont.)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/11-Dictionaries.html">
-     Python Dictionaries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/12-Functions.html">
-     Python Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">
-     Common Python Errors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">
-     What We’re Not Covering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00-Data-Analysis.html">
-   3. Data Analysis (Pandas)
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Pandas Basics — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02-Pandas-Basics-Part2.html">
-     Pandas Basics — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03-Pandas-Basics-Part3.html">
-     Pandas Basics — Part 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04-Pandas-Merge-Datasets.html">
-     Pandas — Merge Datasets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">
-   4. Data Collection (Web Scraping, APIs, Social Media)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
-     Users’ Data: Legal &amp; Ethical Considerations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">
-     Web Scraping — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">
-     Web Scraping — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">
-     Git and GitHub
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">
-     Application Programming Interfaces (APIs)
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">
-     Song Genius Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">
-       Song Genius API
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">
-       Song Lyrics Collection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">
-       Song Lyrics Analysis
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/10-Twitter.html">
-     Twitter Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">
-       Twitter API Setup
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">
-       Twitter Data Collection &amp; Analysis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">
-       Twitter Data Sharing
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">
-     Reddit Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05-Text-Analysis/00-Text-Analysis.html">
-   5. Text Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../05-Text-Analysis/01-Multilingual-Text-Analysis.html">
-     Working in Languages Beyond English
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">
-       Chinese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-      <label for="toctree-checkbox-8">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">
-         Text Pre-Processing for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
-         Named Entity Recognition for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">
-         Part-of-Speech Tagging for Chinese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/00-Danish.html">
-       Danish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">
-         Text Pre-Processing for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
-         Named Entity Recognition for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">
-         Part-of-Speech Tagging for Danish
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">
-       Portuguese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
-         Text Pre-Processing for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
-         Named Entity Recognition for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
-         Part-of-Speech Tagging for Portuguese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/00-Russian.html">
-       Russian
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">
-         Text Pre-Processing for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
-         Named Entity Recognition for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">
-         Part-of-Speech Tagging for Russian
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">
-       Spanish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">
-         Text Pre-Processing for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
-         Named Entity Recognition for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">
-         Part-of-Speech Tagging for Spanish
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../05-Text-Analysis/01-TF-IDF.html">
-     Term-Frequency Inverse Document Frequency
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-    <label for="toctree-checkbox-13">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/02-TF-IDF-HathiTrust.html">
-       With HathiTrust
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">
-       With Scikit-Learn
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-Text-Analysis/04-Sentiment-Analysis.html">
-     Sentiment Analysis
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../05-Text-Analysis/05-Topic-Modeling.html">
-     Topic Modeling
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/06-Topic-Modeling-Overview.html">
-       What is Topic Modeling?
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/07-Topic-Modeling-Set-Up.html">
-       MALLET Set Up
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/08-Topic-Modeling-Text-Files.html">
-       MALLET &amp; Text Files (NYT Articles)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">
-       Tomotopy &amp; Text Files (NYT Articles) - No Java required
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/10-Topic-Modeling-CSV.html">
-       MALLET &amp; CSV Files (Reddit Posts)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05-Text-Analysis/11-Topic-Modeling-Time-Series.html">
-       MALLET &amp; Time Series (Tweets)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-Text-Analysis/12-Named-Entity-Recognition.html">
-     Named Entity Recognition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-Text-Analysis/13-POS-Keywords.html">
-     Part-of-Speech Tagging
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
-   6. Network Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis with NetworkX
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization with Bokeh
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
-   7. Mapping
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping &amp; Geocoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
-     Custom Map Backgrounds
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
-     Publish Your Map on the Web
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">1. The Command Line</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-Python/00-Python.html">2. Python Basics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/01-Install-Python.html">Install Python &amp; JupyterLab</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">How to Use Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">Anatomy of a Python Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/04-Variables.html">Python Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/05-Data-Types.html">Python Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/06-String-Methods.html">Python String Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">Files and Character Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">Python Comparisons and Conditionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">Python Lists and Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">Python Lists and Loops (Cont.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/11-Dictionaries.html">Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/12-Functions.html">Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">Common Python Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">What We’re Not Covering</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Datasets
- </span>
-</p>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-Data-Analysis.html">3. Data Analysis (Pandas)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas Basics — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Pandas-Basics-Part2.html">Pandas Basics — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-Pandas-Basics-Part3.html">Pandas Basics — Part 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Pandas-Merge-Datasets.html">Pandas — Merge Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">4. Data Collection (Web Scraping, APIs, Social Media)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">Users’ Data: Legal &amp; Ethical Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">Web Scraping — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">Web Scraping — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">Application Programming Interfaces (APIs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">Song Genius Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">Song Genius API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">Song Lyrics Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">Song Lyrics Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/10-Twitter.html">Twitter Data</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">Twitter API Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">Twitter Data Collection &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">Twitter Data Sharing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">Reddit Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-Text-Analysis/00-Text-Analysis.html">5. Text Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05-Text-Analysis/01-Multilingual-Text-Analysis.html">Working in Languages Beyond English</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/00-Chinese.html">Chinese</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/01-Preprocessing-Chinese.html">Text Pre-Processing for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">Named Entity Recognition for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Chinese/03-POS-Keywords-Chinese.html">Part-of-Speech Tagging for Chinese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/00-Danish.html">Danish</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/01-Preprocessing-Danish.html">Text Pre-Processing for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">Named Entity Recognition for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Danish/03-POS-Keywords-Danish.html">Part-of-Speech Tagging for Danish</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/00-Portuguese.html">Portuguese</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/01-Preprocessing-Portuguese.html">Text Pre-Processing for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">Named Entity Recognition for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">Part-of-Speech Tagging for Portuguese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/00-Russian.html">Russian</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/01-Preprocessing-Russian.html">Text Pre-Processing for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">Named Entity Recognition for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Russian/03-POS-Keywords-Russian.html">Part-of-Speech Tagging for Russian</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/00-Spanish.html">Spanish</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/01-Preprocessing-Spanish.html">Text Pre-Processing for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">Named Entity Recognition for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../05-Text-Analysis/Multilingual/Spanish/03-POS-Keywords-Spanish.html">Part-of-Speech Tagging for Spanish</a></li>
+
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05-Text-Analysis/01-TF-IDF.html">Term-Frequency Inverse Document Frequency</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/02-TF-IDF-HathiTrust.html">With HathiTrust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/03-TF-IDF-Scikit-Learn.html">With Scikit-Learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../05-Text-Analysis/04-Sentiment-Analysis.html">Sentiment Analysis</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05-Text-Analysis/05-Topic-Modeling.html">Topic Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/06-Topic-Modeling-Overview.html">What is Topic Modeling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/07-Topic-Modeling-Set-Up.html">MALLET Set Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/08-Topic-Modeling-Text-Files.html">MALLET &amp; Text Files (NYT Articles)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/09-Topic-Modeling-Without-Mallet.html">Tomotopy &amp; Text Files (NYT Articles) - No Java required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/10-Topic-Modeling-CSV.html">MALLET &amp; CSV Files (Reddit Posts)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-Text-Analysis/11-Topic-Modeling-Time-Series.html">MALLET &amp; Time Series (Tweets)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../05-Text-Analysis/12-Named-Entity-Recognition.html">Named Entity Recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-Text-Analysis/13-POS-Keywords.html">Part-of-Speech Tagging</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">6. Network Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">Network Analysis with NetworkX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">Make an Interactive Network Visualization with Bokeh</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-Mapping/00-Mapping.html">7. Mapping</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/01-Mapping.html">Mapping &amp; Geocoding</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">Custom Map Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">Publish Your Map on the Web</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datasets</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
-   Datasets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../00-Datasets/00-Datasets.html">Datasets</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
-   Jupyter Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
-   Make Random Student Groups
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">Jupyter Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">Make Random Student Groups</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03-Data-Analysis/01-Pandas-Basics-Part1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F03-Data-Analysis/01-Pandas-Basics-Part1.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/03-Data-Analysis/01-Pandas-Basics-Part1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/03-Data-Analysis/01-Pandas-Basics-Part1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F03-Data-Analysis/01-Pandas-Basics-Part1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/03-Data-Analysis/01-Pandas-Basics-Part1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas Basics — Part 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-bellevue-almshouse-dataset">
-     The Bellevue Almshouse Dataset
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-pandas">
-   Import Pandas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-display-settings">
-   Set Display Settings
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read-in-csv-file">
-   Read in CSV File
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#display-data">
-   Display Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#display-first-n-rows">
-     Display First
-     <em>
-      n
-     </em>
-     Rows
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#display-random-sample">
-     Display Random Sample
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-info">
-   Get Info
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-summary-statistics">
-   Calculate Summary Statistics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#select-columns">
-   Select Columns
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#count-values">
-   Count Values
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#make-and-save-plots">
-   Make and Save Plots
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filter-subset-data">
-   Filter/Subset Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-to-csv">
-   Write to CSV
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-resources">
-   Further Resources
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bellevue-almshouse-dataset">The Bellevue Almshouse Dataset</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-display-settings">Set Display Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-csv-file">Read in CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-data">Display Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-first-n-rows">Display First <em>n</em> Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-random-sample">Display Random Sample</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-info">Get Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-summary-statistics">Calculate Summary Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns">Select Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-values">Count Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-save-plots">Make and Save Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-subset-data">Filter/Subset Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-csv">Write to CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="pandas-basics-part-1">
-<h1>Pandas Basics — Part 1<a class="headerlink" href="#pandas-basics-part-1" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-basics-part-1">
+<h1>Pandas Basics — Part 1<a class="headerlink" href="#pandas-basics-part-1" title="Link to this heading">#</a></h1>
 <p><em>Note: You can explore the <a class="reference external" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/03-Data-Analysis/workbooks/01.5-Pandas-Basics-Part1-WORKBOOK.ipynb">associated workbook</a> for this chapter in the cloud.</em></p>
 <p>In this lesson, we’re going to introduce some of the basics of <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Pandas</a>, a powerful Python library for working with tabular data like CSV files.</p>
 <p>We will cover how to:</p>
@@ -864,10 +593,10 @@
 <li><p>Write a CSV file</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="the-bellevue-almshouse-dataset">
-<h3>The Bellevue Almshouse Dataset<a class="headerlink" href="#the-bellevue-almshouse-dataset" title="Permalink to this headline">¶</a></h3>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<section id="the-bellevue-almshouse-dataset">
+<h3>The Bellevue Almshouse Dataset<a class="headerlink" href="#the-bellevue-almshouse-dataset" title="Link to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>Nineteenth-century immigration data was produced with the express purpose of reducing people to bodies; bodies to easily quantifiable aspects; and assigning value to those aspects which proved that the marginalized people to who they belonged were worth less than their elite counterparts.</p>
 <p>-Anelise Shrout, <a class="reference external" href="https://crdh.rrchnm.org/essays/v01-10-(re)-humanizing-data/">“(Re)Humanizing Data”</a></p>
@@ -876,12 +605,12 @@
 <p>The Bellevue Almshouse was part of New York City’s public health system, a place where poor, sick, homeless, and otherwise marginalized people were sent — sometimes voluntarily and sometimes forcibly. Devastated by widespread famine in Ireland, many Irish people fled their homes for New York City in the 1840s, and many of them ended up in the Bellevue Almshouse.</p>
 <p>We’re using the <a class="reference external" href="https://www.nyuirish.net/almshouse/the-almshouse-records/">Bellevue Almshouse Dataset</a> to practice data analysis with Pandas because we want to think deeply about the consequences of reducing human life to data. As Shrout argues in <a class="reference external" href="https://crdh.rrchnm.org/essays/v01-10-(re)-humanizing-data/">her essay</a>, this data purposely reduced people to bodies and “easily quantifiable aspects” in order to devalue their lives, potentially enacting “both epistemic and physical violence” on them.</p>
 <p>We want to think about how responsible data analysis requires more than just technical tools like Pandas. It also requires an interrogation of the data. Who collected this data? How and why was this data collected? What assumptions are present in this data? What are the consequences of this data in the world? What does this data reflect about the world? For example, Shrout claims that the “Bellevue administrators framed any ailments or difficulties inmates might have had as a consequence of [their immigration] status” — perhaps best exemplified by the fact that a frequent “disease” in the dataset is “recent emigrant.” Below we’re going to explore the prevalence of “recent emigrant” in the data as well as other salient patterns.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="import-pandas">
-<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note" id="html-admonition">
+<section id="import-pandas">
+<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you installed Python with Anaconda, you should already have Pandas installed. If you did not install Python with Anaconda, see <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html/">Pandas Installation.</a></p>
 </div>
@@ -894,9 +623,9 @@
 </div>
 </div>
 <p>The above <code class="docutils literal notranslate"><span class="pre">import</span></code> statement not only imports the Pandas library but also gives it an alias or nickname — <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This alias will save us from having to type out the entire words <code class="docutils literal notranslate"><span class="pre">pandas</span></code> each time we need to use it. Many Python libraries have commonly used aliases like <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
-</div>
-<div class="section" id="set-display-settings">
-<h2>Set Display Settings<a class="headerlink" href="#set-display-settings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="set-display-settings">
+<h2>Set Display Settings<a class="headerlink" href="#set-display-settings" title="Link to this heading">#</a></h2>
 <p>By default, Pandas will display 60 rows and 20 columns. I often change <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">Pandas’ default display settings</a> to show more rows or columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,9 +634,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="read-in-csv-file">
-<h2>Read in CSV File<a class="headerlink" href="#read-in-csv-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="read-in-csv-file">
+<h2>Read in CSV File<a class="headerlink" href="#read-in-csv-file" title="Link to this heading">#</a></h2>
 <p>To read in a CSV file, we will use the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> and insert the name of our desired file path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,15 +647,15 @@
 </div>
 <p>This creates a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe">DataFrame object</a> — often abbreviated as <em>df</em>, e.g., <em>bellevue_df</em>. A DataFrame looks and acts a lot like a spreadsheet. But it has special powers and functions that we will discuss in the next few lessons.</p>
 <p>When reading in the CSV file, we also specified the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> and <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>. The <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> specifies the character that separates or “delimits” the columns in our dataset. For CSV files, the delimiter will most often be a comma. (CSV is short for <em>Comma Separated Values</em>.) Sometimes, however, the delimiter of a CSV file might be a tab (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) or, more rarely, another character.</p>
-</div>
-<div class="section" id="display-data">
-<h2>Display Data<a class="headerlink" href="#display-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-data">
+<h2>Display Data<a class="headerlink" href="#display-data" title="Link to this heading">#</a></h2>
 <p>We can display a DataFrame in a Jupyter notebook simply by running a cell with the variable name of the DataFrame.</p>
-<div class="admonition pandasreview" id="id1">
-<p class="admonition-title">Pandas Review</p>
-<p><code>NaN</code> is the Pandas value for any missing data. See <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html?highlight=nan/">“Working with missing data”</a> for more information.</p>
+<div class="{admonition}Pandas docutils">
+<p>:class: pandasreview
+<code>NaN</code> is the Pandas value for any missing data. See <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html?highlight=nan/">“Working with missing data”</a> for more information.</p>
 </div>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span>
 </pre></div>
@@ -1109,8 +838,8 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="display-first-n-rows">
-<h3>Display First <em>n</em> Rows<a class="headerlink" href="#display-first-n-rows" title="Permalink to this headline">¶</a></h3>
+<section id="display-first-n-rows">
+<h3>Display First <em>n</em> Rows<a class="headerlink" href="#display-first-n-rows" title="Link to this heading">#</a></h3>
 <p>To look at the first <em>n</em> rows in a DataFrame, we can use a method called <code class="docutils literal notranslate"><span class="pre">.head()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1324,9 +1053,9 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="display-random-sample">
-<h3>Display Random Sample<a class="headerlink" href="#display-random-sample" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="display-random-sample">
+<h3>Display Random Sample<a class="headerlink" href="#display-random-sample" title="Link to this heading">#</a></h3>
 <p>To look at a random sample of rows, we can use the <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1478,10 +1207,10 @@
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="get-info">
-<h2>Get Info<a class="headerlink" href="#get-info" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="get-info">
+<h2>Get Info<a class="headerlink" href="#get-info" title="Link to this heading">#</a></h2>
 <p>To get important info about all the columns in the DataFrame, we can use <code class="docutils literal notranslate"><span class="pre">.info()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1510,30 +1239,30 @@ memory usage: 599.1+ KB
 </div>
 </div>
 <p>This report will tell us how many non-null, or non-blank, values are in each column, as well as what <em>type</em> of data is in each column.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p><strong>Pandas Data Type</strong></p></th>
-<th class="text-align:center head"><p><strong>Explanation</strong></p></th>
+<tr class="row-odd"><th class="head text-center"><p><strong>Pandas Data Type</strong></p></th>
+<th class="head text-center"><p><strong>Explanation</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
-<td class="text-align:center"><p>string</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td class="text-center"><p>string</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
-<td class="text-align:center"><p>float</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td class="text-center"><p>float</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
-<td class="text-align:center"><p>integer</p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+<td class="text-center"><p>integer</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">datetime64</span></code></p></td>
-<td class="text-align:center"><p>date time</p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">datetime64</span></code></p></td>
+<td class="text-center"><p>date time</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="calculate-summary-statistics">
-<h2>Calculate Summary Statistics<a class="headerlink" href="#calculate-summary-statistics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calculate-summary-statistics">
+<h2>Calculate Summary Statistics<a class="headerlink" href="#calculate-summary-statistics" title="Link to this heading">#</a></h2>
 <p>To calculate summary statistics for every column in our DataFrame, we can use the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1601,11 +1330,11 @@ memory usage: 599.1+ KB
 </div></div></div>
 </div>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> will only compute columns with numerical data. To include all columns, we can use <code class="docutils literal notranslate"><span class="pre">include='all</span></code>.</p>
-<div class="admonition pandasreview" id="id2">
+<div class="pandasreview admonition">
 <p class="admonition-title">Pandas Review</p>
 <p><code>NaN</code> is the Pandas value for any missing data. See <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html?highlight=nan/">“Working with missing data”</a> for more information.</p>
 </div>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1797,9 +1526,9 @@ memory usage: 599.1+ KB
 <li><p>For the columns <strong>disease</strong> and <strong>profession</strong>, there are 75 unique (<strong>unique</strong>) diseases and 172 unique (<strong>unique</strong>) professions</p></li>
 <li><p>For the column <strong>children</strong>, there are 37 rows that include information about children (<strong>count</strong>) (i.e., rows that do not have blank values)</p></li>
 </ul>
-</div>
-<div class="section" id="select-columns">
-<h2>Select Columns<a class="headerlink" href="#select-columns" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="select-columns">
+<h2>Select Columns<a class="headerlink" href="#select-columns" title="Link to this heading">#</a></h2>
 <p>To select a column from the DataFrame, we will type the name of the DataFrame followed by square brackets and a column name in quotations marks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1824,16 +1553,19 @@ Name: disease, Length: 9584, dtype: object
 </div>
 </div>
 </div>
+<div class="pythonreview admonition">
+<p class="admonition-title">Python Review</p>
 <p><strong>Dictionary</strong></p>
 <code>
 person1 = {"name": "Mary Gallagher",
          "age": 28,
          "profession": "married"}
 </code>
-<p><strong>Key</strong> -&gt; <strong>Value</strong>
+<p><strong>Key</strong> -&gt; <strong>Value</strong></p>
 <code>
-person1[‘name’] —&gt; “Mary Gallagher”
-</code></p>
+person1['name'] —> "Mary Gallagher"
+</code>
+</div>
 <p>Technically, a single column in a DataFrame is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dsintro"><em>Series</em> object</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2047,11 +1779,16 @@ person1[‘name’] —&gt; “Mary Gallagher”
 </div>
 <p>See what happens if we try to select multiple columns as a Series…</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;disease&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
@@ -2102,18 +1839,19 @@ person1[‘name’] —&gt; “Mary Gallagher”
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-</div>
-<div class="section" id="count-values">
-<h2>Count Values<a class="headerlink" href="#count-values" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="count-values">
+<h2>Count Values<a class="headerlink" href="#count-values" title="Link to this heading">#</a></h2>
 <p>To count the number of <em>unique</em> values in a column, we can use the <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> method.</p>
-<div class="sidebar">
+<aside class="sidebar">
 <p class="sidebar-title">On Bellevue Almshouse “Diseases”</p>
 <blockquote>
 <div><p>Some were diagnosed with medically recognizable illnesses, including “fever,” “dropsy” and “neuralgia.” Others were diagnosed with “diseases” that made visible the ways in which immigrants were failing to meet the expectations of urban citizenship. These included “destitution” and “recent emigrant.” Neither of these diagnoses reflected an immigrant’s health. Nevertheless, they were treated as pathologies, and those pathologies governed city officials perceptions of immigrants. Sickness, injuries or destitution were subsumed under the pathology of “recent emigrant.” This diagnosis also determined immigrants’ paths through the New York City public health system.</p>
 </div></blockquote>
 <p>-Anelise Shrout, <a class="reference external" href="https://crdh.rrchnm.org/essays/v01-10-(re)-humanizing-data/">“(Re)Humanizing Data: Digitally Navigating the Bellevue Almshouse”</a></p>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bellevue_df</span><span class="p">[</span><span class="s1">&#39;disease&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -2248,9 +1986,9 @@ Name: profession, dtype: int64
 </div>
 </div>
 <p>In a similar vein, consider what these “professions” reflect about New York City in the 1840s.</p>
-</div>
-<div class="section" id="make-and-save-plots">
-<h2>Make and Save Plots<a class="headerlink" href="#make-and-save-plots" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="make-and-save-plots">
+<h2>Make and Save Plots<a class="headerlink" href="#make-and-save-plots" title="Link to this heading">#</a></h2>
 <p>Pandas makes it easy to create plots and data visualizations. We can make a simple plot by adding <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> to any DataFrame or Series object that has appropriate numeric data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2262,7 +2000,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112db7f10&gt;
 </pre></div>
 </div>
-<img alt="../_images/01-Pandas-Basics-Part1_58_1.png" src="../_images/01-Pandas-Basics-Part1_58_1.png" />
+<img alt="../_images/801724b7737f66e32f35bca765f15cbd9c9968765e6ef5a19007d2c0b05da836.png" src="../_images/801724b7737f66e32f35bca765f15cbd9c9968765e6ef5a19007d2c0b05da836.png" />
 </div>
 </div>
 <p>We specify the title with the <code class="docutils literal notranslate"><span class="pre">title=</span></code> parameter and the kind of plot by altering the <code class="docutils literal notranslate"><span class="pre">kind=</span></code> parameter:</p>
@@ -2284,7 +2022,7 @@ Name: profession, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/01-Pandas-Basics-Part1_60_0.png" src="../_images/01-Pandas-Basics-Part1_60_0.png" />
+<img alt="../_images/6a1c0320fe05c043efa5f8b234daa10eee212319ed53d5975f9fe26e330cfe15.png" src="../_images/6a1c0320fe05c043efa5f8b234daa10eee212319ed53d5975f9fe26e330cfe15.png" />
 </div>
 </div>
 <p>To make a pie chart, we can set <code class="docutils literal notranslate"><span class="pre">kind='pie'</span></code></p>
@@ -2298,7 +2036,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1130ee590&gt;
 </pre></div>
 </div>
-<img alt="../_images/01-Pandas-Basics-Part1_62_1.png" src="../_images/01-Pandas-Basics-Part1_62_1.png" />
+<img alt="../_images/1dd077941c79179461a06795b99a89aed19cfda15e8e94164df3e4895fb32f24.png" src="../_images/1dd077941c79179461a06795b99a89aed19cfda15e8e94164df3e4895fb32f24.png" />
 </div>
 </div>
 <p>To save a plot as an image file or PDF file, we can assign the plot to a variable called <code class="docutils literal notranslate"><span class="pre">ax</span></code>, short for axes.</p>
@@ -2312,9 +2050,9 @@ Name: profession, dtype: int64
 </div>
 </div>
 <p>If your plot is being cut off in the image, see Pandas Basics Part 2 (“Prevent Labels From Getting Cut Off”).</p>
-</div>
-<div class="section" id="filter-subset-data">
-<h2>Filter/Subset Data<a class="headerlink" href="#filter-subset-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="filter-subset-data">
+<h2>Filter/Subset Data<a class="headerlink" href="#filter-subset-data" title="Link to this heading">#</a></h2>
 <p>We can filter a Pandas DataFrame to select only certain values. Filtering data by certain values is similar to selecting columns.</p>
 <p>We type the name of the DataFrame followed by square brackets and then, instead of inserting a column name, we insert a True/False condition. For example, to select only rows that contain the value “teacher,” we insert the condition <code class="docutils literal notranslate"><span class="pre">bellevue_df['profession']</span> <span class="pre">==</span> <span class="pre">'teacher'</span></code></p>
 <div class="cell docutils container">
@@ -2703,7 +2441,7 @@ Name: profession, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x113785a90&gt;
 </pre></div>
 </div>
-<img alt="../_images/01-Pandas-Basics-Part1_78_1.png" src="../_images/01-Pandas-Basics-Part1_78_1.png" />
+<img alt="../_images/39d6de2fa0ba7d233410bec1404c0902abc6d3d8b9260c1ac17b474a8dd01a69.png" src="../_images/39d6de2fa0ba7d233410bec1404c0902abc6d3d8b9260c1ac17b474a8dd01a69.png" />
 </div>
 </div>
 <p>There’s a lot we can do with filters beyond exact value matches with an equals operator <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
@@ -2877,9 +2615,9 @@ Name: profession, dtype: int64
 <p>4614 rows × 8 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="write-to-csv">
-<h2>Write to CSV<a class="headerlink" href="#write-to-csv" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="write-to-csv">
+<h2>Write to CSV<a class="headerlink" href="#write-to-csv" title="Link to this heading">#</a></h2>
 <p>To output a new CSV file, we can use the <code class="docutils literal notranslate"><span class="pre">.to_csv</span></code> method with a name for the file in quotation marks.</p>
 <p>Here’s how we might output a new CSV file that only includes rows with women.</p>
 <div class="cell docutils container">
@@ -2890,15 +2628,15 @@ Name: profession, dtype: int64
 </div>
 </div>
 <p>In addition to a filename, we’re also specifying that the encoding is utf-8 and that the Index (the bolded left-most column) is not included in the CSV file.</p>
-</div>
-<div class="section" id="further-resources">
-<h2>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="further-resources">
+<h2>Further Resources<a class="headerlink" href="#further-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">10 minutes to Pandas</a>, Pandas Official Documentation</p></li>
 <li><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">“Data Manipulation with Pandas”</a>, <em>Python Data Science</em>, Jake VanderPlas</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2912,7 +2650,7 @@ Name: profession, dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./03-Data-Analysis"
         },
         predefinedOutput: true
@@ -2920,52 +2658,129 @@ Name: profession, dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="00-Data-Analysis.html" title="previous page">Data Analysis (Pandas)</a>
-    <a class='right-next' id="next-link" href="02-Pandas-Basics-Part2.html" title="next page">Pandas Basics — Part 2</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-Data-Analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Analysis (Pandas)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-Pandas-Basics-Part2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pandas Basics — Part 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bellevue-almshouse-dataset">The Bellevue Almshouse Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-display-settings">Set Display Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-csv-file">Read in CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-data">Display Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-first-n-rows">Display First <em>n</em> Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-random-sample">Display Random Sample</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-info">Get Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-summary-statistics">Calculate Summary Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns">Select Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-values">Count Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-save-plots">Make and Save Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-subset-data">Filter/Subset Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-csv">Write to CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
 </div>
 
-          </div>
-      </p>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
   </footer>
-</main>
-
-
-      </div>
-    </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-86905362-3', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </body>
 </html>

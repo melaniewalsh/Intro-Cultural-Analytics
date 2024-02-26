@@ -1,833 +1,598 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>TF-IDF with Scikit-Learn &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/custom.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/03-TF-IDF-Scikit-Learn';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/03-TF-IDF-Scikit-Learn.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sentiment Analysis" href="04-Sentiment-Analysis.html" />
     <link rel="prev" title="TF-IDF with HathiTrust Data" href="02-TF-IDF-HathiTrust.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../welcome.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/favicon.ico" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <p class="caption">
- <span class="caption-text">
-  How To
- </span>
-</p>
+    
+    
+    <img src="../_static/favicon.ico" class="logo__image only-light" alt="Introduction to Cultural Analytics & Python - Home"/>
+    <script>document.write(`<img src="../_static/favicon.ico" class="logo__image only-dark" alt="Introduction to Cultural Analytics & Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
-   Interact With This Book
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../How-To-Interact-With-This-Book.html">Interact With This Book</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../course-schedule-2021.html">
-   Course Schedule
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../course-schedule-2021.html">Course Schedule</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Book
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Book</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
-   1. The Command Line
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02-Python/00-Python.html">
-   2. Python Basics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/01-Install-Python.html">
-     Install Python &amp; Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
-     How to Use Jupyter Notebooks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">
-     Anatomy of a Python Script
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/04-Variables.html">
-     Python Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/05-Data-Types.html">
-     Python Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/06-String-Methods.html">
-     Python String Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">
-     Files and Character Encoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">
-     Python Comparisons and Conditionals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">
-     Python Lists and Loops
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">
-     Python Lists and Loops (Cont.)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/11-Dictionaries.html">
-     Python Dictionaries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/12-Functions.html">
-     Python Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">
-     Common Python Errors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">
-     What We’re Not Covering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">
-   3. Data Analysis (Pandas)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">
-     Pandas Basics — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">
-     Pandas Basics — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">
-     Pandas Basics — Part 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
-     Pandas — Merge Datasets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">
-   4. Data Collection (Web Scraping, APIs, Social Media)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
-     Users’ Data: Legal &amp; Ethical Considerations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">
-     Web Scraping — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">
-     Web Scraping — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">
-     Git and GitHub
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">
-     Application Programming Interfaces (APIs)
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">
-     Song Genius Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">
-       Song Genius API
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">
-       Song Lyrics Collection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">
-       Song Lyrics Analysis
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/10-Twitter.html">
-     Twitter Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">
-       Twitter API Setup
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">
-       Twitter Data Collection &amp; Analysis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">
-       Twitter Data Sharing
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">
-     Reddit Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00-Text-Analysis.html">
-   5. Text Analysis
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="01-Multilingual-Text-Analysis.html">
-     Working in Languages Beyond English
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Chinese/00-Chinese.html">
-       Chinese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-      <label for="toctree-checkbox-8">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/01-Preprocessing-Chinese.html">
-         Text Pre-Processing for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
-         Named Entity Recognition for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/03-POS-Keywords-Chinese.html">
-         Part-of-Speech Tagging for Chinese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Danish/00-Danish.html">
-       Danish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/01-Preprocessing-Danish.html">
-         Text Pre-Processing for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
-         Named Entity Recognition for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/03-POS-Keywords-Danish.html">
-         Part-of-Speech Tagging for Danish
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Portuguese/00-Portuguese.html">
-       Portuguese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
-         Text Pre-Processing for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
-         Named Entity Recognition for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
-         Part-of-Speech Tagging for Portuguese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Russian/00-Russian.html">
-       Russian
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/01-Preprocessing-Russian.html">
-         Text Pre-Processing for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
-         Named Entity Recognition for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/03-POS-Keywords-Russian.html">
-         Part-of-Speech Tagging for Russian
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Spanish/00-Spanish.html">
-       Spanish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/01-Preprocessing-Spanish.html">
-         Text Pre-Processing for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
-         Named Entity Recognition for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/03-POS-Keywords-Spanish.html">
-         Part-of-Speech Tagging for Spanish
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="01-TF-IDF.html">
-     Term-Frequency Inverse Document Frequency
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-    <label for="toctree-checkbox-13">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="02-TF-IDF-HathiTrust.html">
-       With HathiTrust
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       With Scikit-Learn
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04-Sentiment-Analysis.html">
-     Sentiment Analysis
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="05-Topic-Modeling.html">
-     Topic Modeling
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="06-Topic-Modeling-Overview.html">
-       What is Topic Modeling?
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="07-Topic-Modeling-Set-Up.html">
-       MALLET Set Up
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="08-Topic-Modeling-Text-Files.html">
-       MALLET &amp; Text Files (NYT Articles)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="09-Topic-Modeling-Without-Mallet.html">
-       Tomotopy &amp; Text Files (NYT Articles) - No Java required
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="10-Topic-Modeling-CSV.html">
-       MALLET &amp; CSV Files (Reddit Posts)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="11-Topic-Modeling-Time-Series.html">
-       MALLET &amp; Time Series (Tweets)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="12-Named-Entity-Recognition.html">
-     Named Entity Recognition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13-POS-Keywords.html">
-     Part-of-Speech Tagging
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
-   6. Network Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis with NetworkX
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization with Bokeh
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
-   7. Mapping
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping &amp; Geocoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
-     Custom Map Backgrounds
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
-     Publish Your Map on the Web
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">1. The Command Line</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-Python/00-Python.html">2. Python Basics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/01-Install-Python.html">Install Python &amp; JupyterLab</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">How to Use Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">Anatomy of a Python Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/04-Variables.html">Python Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/05-Data-Types.html">Python Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/06-String-Methods.html">Python String Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">Files and Character Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">Python Comparisons and Conditionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">Python Lists and Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">Python Lists and Loops (Cont.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/11-Dictionaries.html">Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/12-Functions.html">Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">Common Python Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">What We’re Not Covering</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Datasets
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">3. Data Analysis (Pandas)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">Pandas Basics — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">Pandas Basics — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">Pandas Basics — Part 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">Pandas — Merge Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">4. Data Collection (Web Scraping, APIs, Social Media)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">Users’ Data: Legal &amp; Ethical Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">Web Scraping — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">Web Scraping — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">Application Programming Interfaces (APIs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">Song Genius Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">Song Genius API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">Song Lyrics Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">Song Lyrics Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/10-Twitter.html">Twitter Data</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">Twitter API Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">Twitter Data Collection &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">Twitter Data Sharing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">Reddit Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-Text-Analysis.html">5. Text Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="01-Multilingual-Text-Analysis.html">Working in Languages Beyond English</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Chinese/00-Chinese.html">Chinese</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/01-Preprocessing-Chinese.html">Text Pre-Processing for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">Named Entity Recognition for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/03-POS-Keywords-Chinese.html">Part-of-Speech Tagging for Chinese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Danish/00-Danish.html">Danish</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/01-Preprocessing-Danish.html">Text Pre-Processing for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">Named Entity Recognition for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/03-POS-Keywords-Danish.html">Part-of-Speech Tagging for Danish</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Portuguese/00-Portuguese.html">Portuguese</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/01-Preprocessing-Portuguese.html">Text Pre-Processing for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">Named Entity Recognition for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">Part-of-Speech Tagging for Portuguese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Russian/00-Russian.html">Russian</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/01-Preprocessing-Russian.html">Text Pre-Processing for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">Named Entity Recognition for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/03-POS-Keywords-Russian.html">Part-of-Speech Tagging for Russian</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Spanish/00-Spanish.html">Spanish</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/01-Preprocessing-Spanish.html">Text Pre-Processing for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">Named Entity Recognition for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/03-POS-Keywords-Spanish.html">Part-of-Speech Tagging for Spanish</a></li>
+
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="01-TF-IDF.html">Term-Frequency Inverse Document Frequency</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="02-TF-IDF-HathiTrust.html">With HathiTrust</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">With Scikit-Learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04-Sentiment-Analysis.html">Sentiment Analysis</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="05-Topic-Modeling.html">Topic Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="06-Topic-Modeling-Overview.html">What is Topic Modeling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="07-Topic-Modeling-Set-Up.html">MALLET Set Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08-Topic-Modeling-Text-Files.html">MALLET &amp; Text Files (NYT Articles)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="09-Topic-Modeling-Without-Mallet.html">Tomotopy &amp; Text Files (NYT Articles) - No Java required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-Topic-Modeling-CSV.html">MALLET &amp; CSV Files (Reddit Posts)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-Topic-Modeling-Time-Series.html">MALLET &amp; Time Series (Tweets)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12-Named-Entity-Recognition.html">Named Entity Recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-POS-Keywords.html">Part-of-Speech Tagging</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">6. Network Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">Network Analysis with NetworkX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">Make an Interactive Network Visualization with Bokeh</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-Mapping/00-Mapping.html">7. Mapping</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/01-Mapping.html">Mapping &amp; Geocoding</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">Custom Map Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">Publish Your Map on the Web</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datasets</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
-   Datasets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../00-Datasets/00-Datasets.html">Datasets</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
-   Jupyter Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
-   Make Random Student Groups
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">Jupyter Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">Make Random Student Groups</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-Text-Analysis/03-TF-IDF-Scikit-Learn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/03-TF-IDF-Scikit-Learn.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/03-TF-IDF-Scikit-Learn.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/03-TF-IDF-Scikit-Learn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/03-TF-IDF-Scikit-Learn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/05-Text-Analysis/03-TF-IDF-Scikit-Learn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TF-IDF with Scikit-Learn</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#u-s-inaugural-addresses">
-     U.S. Inaugural Addresses
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#breaking-down-the-tf-idf-formula">
-   Breaking Down the TF-IDF Formula
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   TF-IDF with scikit-learn
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-directory-path">
-     Set Directory Path
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-tfidf">
-   Calculate tf–idf
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualize-tf-idf">
-   Visualize TF-IDF
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#your-turn">
-   Your Turn!
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u-s-inaugural-addresses">U.S. Inaugural Addresses</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-tf-idf-formula">Breaking Down the TF-IDF Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TF-IDF with scikit-learn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-directory-path">Set Directory Path</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-tfidf">Calculate tf–idf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-tf-idf">Visualize TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">Your Turn!</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="tf-idf-with-scikit-learn">
-<h1>TF-IDF with Scikit-Learn<a class="headerlink" href="#tf-idf-with-scikit-learn" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tf-idf-with-scikit-learn">
+<h1>TF-IDF with Scikit-Learn<a class="headerlink" href="#tf-idf-with-scikit-learn" title="Link to this heading">#</a></h1>
 <p>In the previous lesson, we learned about a text analysis method called <em>term frequency–inverse document frequency</em>, often abbreviated <em>tf-idf</em>. Tf-idf is a method that tries to identify the most distinctively frequent or significant words in a document. We specifically learned how to calculate tf-idf scores using word frequencies per page—or “extracted features”—made available by the HathiTrust Digital Library.</p>
 <p>In this lesson, we’re going to learn how to calculate tf-idf scores using a collection of plain text (.txt) files and the Python library scikit-learn, which has a quick and nifty module called <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">TfidfVectorizer</a>.</p>
 <p>In this lesson, we will cover how to:</p>
 <ul class="simple">
 <li><p>Calculate and normalize tf-idf scores for U.S. Inaugural Addresses with scikit-learn</p></li>
 </ul>
-<div class="section" id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="u-s-inaugural-addresses">
-<h3>U.S. Inaugural Addresses<a class="headerlink" href="#u-s-inaugural-addresses" title="Permalink to this headline">¶</a></h3>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<section id="u-s-inaugural-addresses">
+<h3>U.S. Inaugural Addresses<a class="headerlink" href="#u-s-inaugural-addresses" title="Link to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>This is the meaning of our liberty and our creed; why men and women and children of every race and every faith can join in celebration across this magnificent Mall, and why a man whose father less than 60 years ago might not have been served at a local restaurant can now stand before you to take a most sacred oath.  So let us mark this day with remembrance of who we are and how far we have traveled.</p>
 <p class ="attribution">—Barack Obama, Inaugural Presidential Address, January 2009
     </p>
 </blockquote><p>During Barack Obama’s Inaugural Address in January 2009, he mentioned “women” four different times, including in the passage quoted above. How distinctive is Obama’s inclusion of women in this address compared to all other U.S. Presidents? This is one of the questions that we’re going to try to answer with tf-idf.</p>
-</div>
-</div>
-<div class="section" id="breaking-down-the-tf-idf-formula">
-<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="breaking-down-the-tf-idf-formula">
+<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Link to this heading">#</a></h2>
 <p>But first, let’s quickly discuss the tf-idf formula. The idea is pretty simple.</p>
 <p><strong>tf-idf = term_frequency * inverse_document_frequency</strong></p>
 <p><strong>term_frequency</strong> = number of times a given term appears in document</p>
@@ -841,14 +606,14 @@
 <div><p>If smooth_idf=True (the default), the constant “1” is added to the numerator and denominator of the idf as if an extra document was seen containing every term in the collection exactly once, which prevents zero divisions: idf(t) = log [ (1 + n) / (1 + df(t)) ] + 1.<br />
 -<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn documentation</a></p>
 </div></blockquote>
-</div></div>
-<div class="section" id="id1">
-<h2>TF-IDF with scikit-learn<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div></section>
+<section id="id1">
+<h2>TF-IDF with scikit-learn<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>, imported as <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, is a popular Python library for machine learning approaches such as clustering, classification, and regression. Though we’re not doing any machine learning in this lesson, we’re nevertheless going to use scikit-learn’s <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> and <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>.</p>
 <p>Install scikit-learn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install sklearn
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sklearn
 </pre></div>
 </div>
 </div>
@@ -866,13 +631,13 @@
 </div>
 </div>
 </div>
-<div class="admonition pandasreview" id="html-admonition">
-<p class="admonition-title">Pandas</p>
+<div class="pandasreview admonition">
+<p class="admonition-title">Pandas Review</p>
 <p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
 </div>
-</div><p>We’re also going to import <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and change its default display setting. And we’re going to import two libraries that will help us work with files and the file system: <a class="reference external" href="https://docs.python.org/3/library/pathlib.html##basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a>.</p>
-<div class="section" id="set-directory-path">
-<h3>Set Directory Path<a class="headerlink" href="#set-directory-path" title="Permalink to this headline">¶</a></h3>
+<p>We’re also going to import <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and change its default display setting. And we’re going to import two libraries that will help us work with files and the file system: <a class="reference external" href="https://docs.python.org/3/library/pathlib.html##basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a>.</p>
+<section id="set-directory-path">
+<h3>Set Directory Path<a class="headerlink" href="#set-directory-path" title="Link to this heading">#</a></h3>
 <p>Below we’re setting the directory filepath that contains all the text files that we want to analyze.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1034,10 +799,10 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="calculate-tfidf">
-<h2>Calculate tf–idf<a class="headerlink" href="#calculate-tfidf" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="calculate-tfidf">
+<h2>Calculate tf–idf<a class="headerlink" href="#calculate-tfidf" title="Link to this heading">#</a></h2>
 <p>To calculate tf–idf scores for every word, we’re going to use scikit-learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code></a>.</p>
 <p>When you initialize TfidfVectorizer, you can choose to set it with different parameters. These parameters will change the way you calculate tf–idf.</p>
 <p>The recommended way to run <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> is with smoothing (<code class="docutils literal notranslate"><span class="pre">smooth_idf</span> <span class="pre">=</span> <span class="pre">True</span></code>) and normalization (<code class="docutils literal notranslate"><span class="pre">norm='l2'</span></code>) turned on. These parameters will better account for differences in text length, and overall produce more meaningful tf–idf scores. Smoothing and L2 normalization are actually the default settings for <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code>, so to turn them on, you don’t need to include any extra code at all.</p>
@@ -1060,7 +825,7 @@
 <p>Make a DataFrame out of the resulting tf–idf vector, setting the “feature names” or words as columns and the titles as rows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_vector</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">text_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -5919,13 +5684,13 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="visualize-tf-idf">
-<h2>Visualize TF-IDF<a class="headerlink" href="#visualize-tf-idf" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="visualize-tf-idf">
+<h2>Visualize TF-IDF<a class="headerlink" href="#visualize-tf-idf" title="Link to this heading">#</a></h2>
 <p>We can also visualize our TF-IDF results with the data visualization library Altair.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install altair
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>altair
 </pre></div>
 </div>
 </div>
@@ -5933,6 +5698,11 @@
 <p>Let’s make a heatmap that shows the highest TF-IDF scoring words for each president, and let’s put a red dot next to two terms of interest: “war” and “peace”:</p>
 <p>The code below was contributed by <a class="reference external" href="https://github.com/emonson">Eric Monson</a>. Thanks, Eric!</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -5979,6 +5749,7 @@
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <div id="altair-viz-20b3933686ab4715be748bed630bb8e1"></div>
@@ -6031,15 +5802,15 @@
   })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "rect", "encoding": {"color": {"type": "quantitative", "field": "tfidf"}, "x": {"type": "ordinal", "field": "rank"}, "y": {"type": "nominal", "field": "document"}}, "transform": [{"window": [{"op": "rank", "field": "", "as": "rank"}], "groupby": ["document"], "sort": [{"field": "tfidf", "order": "descending"}]}]}, {"mark": {"type": "circle", "size": 100}, "encoding": {"color": {"condition": {"value": "red", "test": {"field": "term", "oneOf": ["war", "peace"]}}, "value": "#FFFFFF00"}, "x": {"type": "ordinal", "field": "rank"}, "y": {"type": "nominal", "field": "document"}}, "transform": [{"window": [{"op": "rank", "field": "", "as": "rank"}], "groupby": ["document"], "sort": [{"field": "tfidf", "order": "descending"}]}]}, {"mark": {"type": "text", "baseline": "middle"}, "encoding": {"color": {"condition": {"value": "white", "test": "(datum.tfidf >= 0.23)"}, "value": "black"}, "text": {"type": "nominal", "field": "term"}, "x": {"type": "ordinal", "field": "rank"}, "y": {"type": "nominal", "field": "document"}}, "transform": [{"window": [{"op": "rank", "field": "", "as": "rank"}], "groupby": ["document"], "sort": [{"field": "tfidf", "order": "descending"}]}]}], "data": {"name": "data-d9ee07cb2303a55eb78a7e467bf54bb1"}, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-d9ee07cb2303a55eb78a7e467bf54bb1": [{"document": "01_washington_1789", "term": "government", "tfidf": 0.11371534635198705}, {"document": "01_washington_1789", "term": "immutable", "tfidf": 0.10397386271035768}, {"document": "01_washington_1789", "term": "impressions", "tfidf": 0.1039136001166189}, {"document": "01_washington_1789", "term": "providential", "tfidf": 0.10398101335962022}, {"document": "01_washington_1789", "term": "ought", "tfidf": 0.10376362940366206}, {"document": "01_washington_1789", "term": "public", "tfidf": 0.10320183333495907}, {"document": "01_washington_1789", "term": "present", "tfidf": 0.09757754484957074}, {"document": "01_washington_1789", "term": "qualifications", "tfidf": 0.09638090550876928}, {"document": "01_washington_1789", "term": "peculiarly", "tfidf": 0.09061005993778692}, {"document": "01_washington_1789", "term": "article", "tfidf": 0.08585884434052828}, {"document": "02_washington_1793", "term": "1793", "tfidf": 0.22943378152530194}, {"document": "02_washington_1793", "term": "arrive", "tfidf": 0.2294145508361603}, {"document": "02_washington_1793", "term": "upbraidings", "tfidf": 0.22936655033798067}, {"document": "02_washington_1793", "term": "incurring", "tfidf": 0.20822451400773612}, {"document": "02_washington_1793", "term": "violated", "tfidf": 0.20816594144725215}, {"document": "02_washington_1793", "term": "willingly", "tfidf": 0.20821692760612975}, {"document": "02_washington_1793", "term": "injunctions", "tfidf": 0.19311946020541873}, {"document": "02_washington_1793", "term": "knowingly", "tfidf": 0.19312104576909117}, {"document": "02_washington_1793", "term": "previous", "tfidf": 0.1931456378868231}, {"document": "02_washington_1793", "term": "witnesses", "tfidf": 0.19312379463099535}, {"document": "03_adams_john_1797", "term": "people", "tfidf": 0.1911982640090606}, {"document": "03_adams_john_1797", "term": "government", "tfidf": 0.16096039252681893}, {"document": "03_adams_john_1797", "term": "pleasing", "tfidf": 0.1471012346997022}, {"document": "03_adams_john_1797", "term": "foreign", "tfidf": 0.11693482025733587}, {"document": "03_adams_john_1797", "term": "nations", "tfidf": 0.11452220634589139}, {"document": "03_adams_john_1797", "term": "virtuous", "tfidf": 0.11087953819097758}, {"document": "03_adams_john_1797", "term": "houses", "tfidf": 0.11033158017878449}, {"document": "03_adams_john_1797", "term": "legislatures", "tfidf": 0.11039844504211796}, {"document": "03_adams_john_1797", "term": "constitution", "tfidf": 0.10453761538971626}, {"document": "03_adams_john_1797", "term": "honor", "tfidf": 0.10235859470898054}, {"document": "04_jefferson_1801", "term": "government", "tfidf": 0.15570310217020322}, {"document": "04_jefferson_1801", "term": "principle", "tfidf": 0.13014674661200126}, {"document": "04_jefferson_1801", "term": "let", "tfidf": 0.1180238603756778}, {"document": "04_jefferson_1801", "term": "safety", "tfidf": 0.1084530215479193}, {"document": "04_jefferson_1801", "term": "man", "tfidf": 0.10691927278809578}, {"document": "04_jefferson_1801", "term": "thousandth", "tfidf": 0.10456928410406438}, {"document": "04_jefferson_1801", "term": "honest", "tfidf": 0.10178390127262109}, {"document": "04_jefferson_1801", "term": "fellow", "tfidf": 0.09726323187270021}, {"document": "04_jefferson_1801", "term": "retire", "tfidf": 0.0948700487739583}, {"document": "04_jefferson_1801", "term": "opinion", "tfidf": 0.09266215946881255}, {"document": "05_jefferson_1805", "term": "public", "tfidf": 0.18046636035243901}, {"document": "05_jefferson_1805", "term": "false", "tfidf": 0.1359102150002736}, {"document": "05_jefferson_1805", "term": "state", "tfidf": 0.12160420464042739}, {"document": "05_jefferson_1805", "term": "whatsoever", "tfidf": 0.11691368771687476}, {"document": "05_jefferson_1805", "term": "limits", "tfidf": 0.10710636494249565}, {"document": "05_jefferson_1805", "term": "citizens", "tfidf": 0.10665883760775792}, {"document": "05_jefferson_1805", "term": "reason", "tfidf": 0.10449736628706392}, {"document": "05_jefferson_1805", "term": "comforts", "tfidf": 0.10188804861046497}, {"document": "05_jefferson_1805", "term": "press", "tfidf": 0.1015658730137972}, {"document": "05_jefferson_1805", "term": "expenses", "tfidf": 0.09655316273284063}, {"document": "06_madison_1809", "term": "improvements", "tfidf": 0.15262133062153746}, {"document": "06_madison_1809", "term": "belligerent", "tfidf": 0.12320862513236246}, {"document": "06_madison_1809", "term": "public", "tfidf": 0.1222913887373935}, {"document": "06_madison_1809", "term": "nations", "tfidf": 0.10459081670098011}, {"document": "06_madison_1809", "term": "rendered", "tfidf": 0.10179875963467579}, {"document": "06_madison_1809", "term": "authorities", "tfidf": 0.08918121212366449}, {"document": "06_madison_1809", "term": "avail", "tfidf": 0.08924455553043706}, {"document": "06_madison_1809", "term": "examples", "tfidf": 0.08925275193668596}, {"document": "06_madison_1809", "term": "councils", "tfidf": 0.0859860367404324}, {"document": "06_madison_1809", "term": "ones", "tfidf": 0.0859010541660749}, {"document": "07_madison_1813", "term": "war", "tfidf": 0.25426026976811456}, {"document": "07_madison_1813", "term": "british", "tfidf": 0.22301270682794674}, {"document": "07_madison_1813", "term": "massacre", "tfidf": 0.11902600133357157}, {"document": "07_madison_1813", "term": "captives", "tfidf": 0.1080795667092581}, {"document": "07_madison_1813", "term": "cruel", "tfidf": 0.10807819118448335}, {"document": "07_madison_1813", "term": "prisoners", "tfidf": 0.10802355622053085}, {"document": "07_madison_1813", "term": "savage", "tfidf": 0.10802930277410097}, {"document": "07_madison_1813", "term": "element", "tfidf": 0.08509492279453708}, {"document": "07_madison_1813", "term": "enemy", "tfidf": 0.08502315958433027}, {"document": "07_madison_1813", "term": "honorable", "tfidf": 0.08482645239282205}, {"document": "08_monroe_1817", "term": "states", "tfidf": 0.1842069890065803}, {"document": "08_monroe_1817", "term": "government", "tfidf": 0.17414273987010884}, {"document": "08_monroe_1817", "term": "great", "tfidf": 0.1606894836804595}, {"document": "08_monroe_1817", "term": "union", "tfidf": 0.11728073610852192}, {"document": "08_monroe_1817", "term": "people", "tfidf": 0.1128737834216282}, {"document": "08_monroe_1817", "term": "united", "tfidf": 0.11212944325332513}, {"document": "08_monroe_1817", "term": "dangers", "tfidf": 0.10862301835616332}, {"document": "08_monroe_1817", "term": "naval", "tfidf": 0.10479585842634322}, {"document": "08_monroe_1817", "term": "foreign", "tfidf": 0.10352570921492307}, {"document": "08_monroe_1817", "term": "principles", "tfidf": 0.09780882775297019}, {"document": "09_monroe_1821", "term": "great", "tfidf": 0.1738277796077654}, {"document": "09_monroe_1821", "term": "states", "tfidf": 0.13739406147702923}, {"document": "09_monroe_1821", "term": "revenue", "tfidf": 0.11508988265977431}, {"document": "09_monroe_1821", "term": "war", "tfidf": 0.11387441283284128}, {"document": "09_monroe_1821", "term": "parties", "tfidf": 0.10940885351574409}, {"document": "09_monroe_1821", "term": "united", "tfidf": 0.10812454858784819}, {"document": "09_monroe_1821", "term": "commerce", "tfidf": 0.10503209043883237}, {"document": "09_monroe_1821", "term": "force", "tfidf": 0.10303871924120057}, {"document": "09_monroe_1821", "term": "fortifications", "tfidf": 0.09875234878825633}, {"document": "09_monroe_1821", "term": "term", "tfidf": 0.09490706859746495}, {"document": "10_adams_john_quincy_1825", "term": "union", "tfidf": 0.2573956963093914}, {"document": "10_adams_john_quincy_1825", "term": "government", "tfidf": 0.14777682655316857}, {"document": "10_adams_john_quincy_1825", "term": "general", "tfidf": 0.10925232364179877}, {"document": "10_adams_john_quincy_1825", "term": "rights", "tfidf": 0.0963208590296855}, {"document": "10_adams_john_quincy_1825", "term": "dissensions", "tfidf": 0.09530913604429851}, {"document": "10_adams_john_quincy_1825", "term": "public", "tfidf": 0.09459731626107239}, {"document": "10_adams_john_quincy_1825", "term": "constitution", "tfidf": 0.0903642667290085}, {"document": "10_adams_john_quincy_1825", "term": "peace", "tfidf": 0.08821897369686797}, {"document": "10_adams_john_quincy_1825", "term": "country", "tfidf": 0.08692715900607988}, {"document": "10_adams_john_quincy_1825", "term": "performance", "tfidf": 0.0856519504637815}, {"document": "11_jackson_1829", "term": "public", "tfidf": 0.16081037875452486}, {"document": "11_jackson_1829", "term": "generally", "tfidf": 0.1227230953170693}, {"document": "11_jackson_1829", "term": "diffidence", "tfidf": 0.11276511927361911}, {"document": "11_jackson_1829", "term": "defending", "tfidf": 0.10594990178588025}, {"document": "11_jackson_1829", "term": "shall", "tfidf": 0.1049794936331813}, {"document": "11_jackson_1829", "term": "revenue", "tfidf": 0.10278617375624703}, {"document": "11_jackson_1829", "term": "worth", "tfidf": 0.10035819756454681}, {"document": "11_jackson_1829", "term": "government", "tfidf": 0.0997084759037392}, {"document": "11_jackson_1829", "term": "federal", "tfidf": 0.09315712389548977}, {"document": "11_jackson_1829", "term": "power", "tfidf": 0.09209771776334767}, {"document": "12_jackson_1833", "term": "union", "tfidf": 0.21283518309173}, {"document": "12_jackson_1833", "term": "government", "tfidf": 0.20757287973633085}, {"document": "12_jackson_1833", "term": "states", "tfidf": 0.1415989564926631}, {"document": "12_jackson_1833", "term": "people", "tfidf": 0.13664216817905617}, {"document": "12_jackson_1833", "term": "preservation", "tfidf": 0.1283236957531888}, {"document": "12_jackson_1833", "term": "general", "tfidf": 0.1254407516523698}, {"document": "12_jackson_1833", "term": "exercise", "tfidf": 0.11936961403338069}, {"document": "12_jackson_1833", "term": "inculcate", "tfidf": 0.11681939971003844}, {"document": "12_jackson_1833", "term": "proportion", "tfidf": 0.1167541177662695}, {"document": "12_jackson_1833", "term": "powers", "tfidf": 0.11378932275994841}, {"document": "13_van_buren_1837", "term": "institutions", "tfidf": 0.18694507052669027}, {"document": "13_van_buren_1837", "term": "people", "tfidf": 0.13847890851730385}, {"document": "13_van_buren_1837", "term": "government", "tfidf": 0.11662562774541636}, {"document": "13_van_buren_1837", "term": "supposed", "tfidf": 0.10999839668930926}, {"document": "13_van_buren_1837", "term": "country", "tfidf": 0.10933650849021752}, {"document": "13_van_buren_1837", "term": "actual", "tfidf": 0.09644028691633821}, {"document": "13_van_buren_1837", "term": "experience", "tfidf": 0.09350594376058328}, {"document": "13_van_buren_1837", "term": "adherence", "tfidf": 0.08391304667649707}, {"document": "13_van_buren_1837", "term": "conduct", "tfidf": 0.08168420919140826}, {"document": "13_van_buren_1837", "term": "opinions", "tfidf": 0.08168947557818432}, {"document": "14_harrison_1841", "term": "power", "tfidf": 0.20422140927827884}, {"document": "14_harrison_1841", "term": "constitution", "tfidf": 0.18337759894597383}, {"document": "14_harrison_1841", "term": "executive", "tfidf": 0.15718029043781914}, {"document": "14_harrison_1841", "term": "people", "tfidf": 0.1416449481084716}, {"document": "14_harrison_1841", "term": "government", "tfidf": 0.14117811235074715}, {"document": "14_harrison_1841", "term": "roman", "tfidf": 0.1105678225334062}, {"document": "14_harrison_1841", "term": "states", "tfidf": 0.10870973899050107}, {"document": "14_harrison_1841", "term": "citizens", "tfidf": 0.10592215518833896}, {"document": "14_harrison_1841", "term": "character", "tfidf": 0.10273310544815861}, {"document": "14_harrison_1841", "term": "state", "tfidf": 0.09504142708068102}, {"document": "15_polk_1845", "term": "union", "tfidf": 0.2590629955219371}, {"document": "15_polk_1845", "term": "government", "tfidf": 0.257031528150882}, {"document": "15_polk_1845", "term": "states", "tfidf": 0.21818177097824526}, {"document": "15_polk_1845", "term": "texas", "tfidf": 0.19987219786622323}, {"document": "15_polk_1845", "term": "revenue", "tfidf": 0.14656785812451717}, {"document": "15_polk_1845", "term": "powers", "tfidf": 0.12466319994784208}, {"document": "15_polk_1845", "term": "protection", "tfidf": 0.10745600649617458}, {"document": "15_polk_1845", "term": "constitution", "tfidf": 0.10654316176618538}, {"document": "15_polk_1845", "term": "interests", "tfidf": 0.10512805782779895}, {"document": "15_polk_1845", "term": "extended", "tfidf": 0.09019367241826373}, {"document": "16_taylor_1849", "term": "shall", "tfidf": 0.2662310872265909}, {"document": "16_taylor_1849", "term": "government", "tfidf": 0.1180991575169358}, {"document": "16_taylor_1849", "term": "duties", "tfidf": 0.1179917873865587}, {"document": "16_taylor_1849", "term": "object", "tfidf": 0.10434870493260405}, {"document": "16_taylor_1849", "term": "congress", "tfidf": 0.10387808714798287}, {"document": "16_taylor_1849", "term": "purity", "tfidf": 0.10186243289175258}, {"document": "16_taylor_1849", "term": "vested", "tfidf": 0.10184404993729325}, {"document": "16_taylor_1849", "term": "measures", "tfidf": 0.10168151413242806}, {"document": "16_taylor_1849", "term": "country", "tfidf": 0.10126911473086354}, {"document": "16_taylor_1849", "term": "affections", "tfidf": 0.09710705783396165}, {"document": "17_pierce_1853", "term": "hardly", "tfidf": 0.11407688768991973}, {"document": "17_pierce_1853", "term": "power", "tfidf": 0.10250285966711128}, {"document": "17_pierce_1853", "term": "position", "tfidf": 0.0866911931672055}, {"document": "17_pierce_1853", "term": "constitutional", "tfidf": 0.08612177576122795}, {"document": "17_pierce_1853", "term": "expect", "tfidf": 0.08447691488806534}, {"document": "17_pierce_1853", "term": "government", "tfidf": 0.0840950013416269}, {"document": "17_pierce_1853", "term": "apparent", "tfidf": 0.08038114855654972}, {"document": "17_pierce_1853", "term": "regarded", "tfidf": 0.08042974102082089}, {"document": "17_pierce_1853", "term": "shall", "tfidf": 0.07968812342583295}, {"document": "17_pierce_1853", "term": "like", "tfidf": 0.07930697627279681}, {"document": "18_buchanan_1857", "term": "states", "tfidf": 0.208281793988352}, {"document": "18_buchanan_1857", "term": "constitution", "tfidf": 0.18860431079134668}, {"document": "18_buchanan_1857", "term": "shall", "tfidf": 0.16183960683739132}, {"document": "18_buchanan_1857", "term": "question", "tfidf": 0.15702111330297452}, {"document": "18_buchanan_1857", "term": "whilst", "tfidf": 0.14115221076858747}, {"document": "18_buchanan_1857", "term": "territory", "tfidf": 0.14093308467837432}, {"document": "18_buchanan_1857", "term": "union", "tfidf": 0.12651246626056697}, {"document": "18_buchanan_1857", "term": "government", "tfidf": 0.11956118242781241}, {"document": "18_buchanan_1857", "term": "congress", "tfidf": 0.11835878228708309}, {"document": "18_buchanan_1857", "term": "people", "tfidf": 0.10558215279022255}, {"document": "19_lincoln_1861", "term": "constitution", "tfidf": 0.21451119688274747}, {"document": "19_lincoln_1861", "term": "union", "tfidf": 0.20377675112667878}, {"document": "19_lincoln_1861", "term": "case", "tfidf": 0.15248746561750331}, {"document": "19_lincoln_1861", "term": "states", "tfidf": 0.14487534087609638}, {"document": "19_lincoln_1861", "term": "minority", "tfidf": 0.13154515918619025}, {"document": "19_lincoln_1861", "term": "people", "tfidf": 0.13077595026629044}, {"document": "19_lincoln_1861", "term": "clause", "tfidf": 0.1258182237089859}, {"document": "19_lincoln_1861", "term": "government", "tfidf": 0.12389541911549598}, {"document": "19_lincoln_1861", "term": "shall", "tfidf": 0.12319789315957815}, {"document": "19_lincoln_1861", "term": "law", "tfidf": 0.12290193302586021}, {"document": "20_lincoln_1865", "term": "war", "tfidf": 0.2672656280814002}, {"document": "20_lincoln_1865", "term": "offenses", "tfidf": 0.23456679365546598}, {"document": "20_lincoln_1865", "term": "woe", "tfidf": 0.23454822653800195}, {"document": "20_lincoln_1865", "term": "god", "tfidf": 0.1513286495888884}, {"document": "20_lincoln_1865", "term": "offense", "tfidf": 0.14196672334162908}, {"document": "20_lincoln_1865", "term": "wills", "tfidf": 0.14195792999731463}, {"document": "20_lincoln_1865", "term": "answered", "tfidf": 0.1316706644797097}, {"document": "20_lincoln_1865", "term": "slaves", "tfidf": 0.1237055900361573}, {"document": "20_lincoln_1865", "term": "union", "tfidf": 0.11496843963356071}, {"document": "20_lincoln_1865", "term": "altogether", "tfidf": 0.11168828025054757}, {"document": "21_grant_1869", "term": "dollar", "tfidf": 0.27045141547174373}, {"document": "21_grant_1869", "term": "paying", "tfidf": 0.16233041980556176}, {"document": "21_grant_1869", "term": "deal", "tfidf": 0.15247741318582778}, {"document": "21_grant_1869", "term": "specie", "tfidf": 0.1524819397123868}, {"document": "21_grant_1869", "term": "debt", "tfidf": 0.13519476921962925}, {"document": "21_grant_1869", "term": "country", "tfidf": 0.12765558769811364}, {"document": "21_grant_1869", "term": "advisable", "tfidf": 0.11665344499424438}, {"document": "21_grant_1869", "term": "laws", "tfidf": 0.11588102879763348}, {"document": "21_grant_1869", "term": "payments", "tfidf": 0.10817578294728468}, {"document": "21_grant_1869", "term": "pay", "tfidf": 0.0986740630876841}, {"document": "22_grant_1873", "term": "proposition", "tfidf": 0.18724594915013784}, {"document": "22_grant_1873", "term": "domingo", "tfidf": 0.17757174439919565}, {"document": "22_grant_1873", "term": "santo", "tfidf": 0.17754293723371814}, {"document": "22_grant_1873", "term": "transit", "tfidf": 0.17760811758070968}, {"document": "22_grant_1873", "term": "territory", "tfidf": 0.12117145649339624}, {"document": "22_grant_1873", "term": "extermination", "tfidf": 0.11840797397844256}, {"document": "22_grant_1873", "term": "steam", "tfidf": 0.11842830421330221}, {"document": "22_grant_1873", "term": "telegraph", "tfidf": 0.11834756887704496}, {"document": "22_grant_1873", "term": "country", "tfidf": 0.11759792128500005}, {"document": "22_grant_1873", "term": "extension", "tfidf": 0.11670123451510746}, {"document": "23_hayes_1877", "term": "country", "tfidf": 0.18644375705064423}, {"document": "23_hayes_1877", "term": "government", "tfidf": 0.16780968200168267}, {"document": "23_hayes_1877", "term": "behalf", "tfidf": 0.1283639216751824}, {"document": "23_hayes_1877", "term": "public", "tfidf": 0.12404100428318568}, {"document": "23_hayes_1877", "term": "political", "tfidf": 0.12111672114632434}, {"document": "23_hayes_1877", "term": "states", "tfidf": 0.1136550102646946}, {"document": "23_hayes_1877", "term": "party", "tfidf": 0.1126396974322102}, {"document": "23_hayes_1877", "term": "dispute", "tfidf": 0.11255353326103695}, {"document": "23_hayes_1877", "term": "parties", "tfidf": 0.10958926042923736}, {"document": "23_hayes_1877", "term": "reform", "tfidf": 0.10445577015573981}, {"document": "24_garfield_1881", "term": "government", "tfidf": 0.18687300706246954}, {"document": "24_garfield_1881", "term": "people", "tfidf": 0.1621822927595837}, {"document": "24_garfield_1881", "term": "constitution", "tfidf": 0.15829838634876722}, {"document": "24_garfield_1881", "term": "states", "tfidf": 0.1350711479219559}, {"document": "24_garfield_1881", "term": "union", "tfidf": 0.13240712842973296}, {"document": "24_garfield_1881", "term": "suffrage", "tfidf": 0.12000599373058936}, {"document": "24_garfield_1881", "term": "negro", "tfidf": 0.1187926486440849}, {"document": "24_garfield_1881", "term": "authority", "tfidf": 0.11723494288609479}, {"document": "24_garfield_1881", "term": "congress", "tfidf": 0.11268381860422237}, {"document": "24_garfield_1881", "term": "law", "tfidf": 0.10365314320290807}, {"document": "25_cleveland_1885", "term": "people", "tfidf": 0.2104771445025249}, {"document": "25_cleveland_1885", "term": "government", "tfidf": 0.20921912300330517}, {"document": "25_cleveland_1885", "term": "partisan", "tfidf": 0.16944877931977972}, {"document": "25_cleveland_1885", "term": "public", "tfidf": 0.16366447296537126}, {"document": "25_cleveland_1885", "term": "shall", "tfidf": 0.12955158535467728}, {"document": "25_cleveland_1885", "term": "constitution", "tfidf": 0.12795529965665586}, {"document": "25_cleveland_1885", "term": "interests", "tfidf": 0.11827789557581365}, {"document": "25_cleveland_1885", "term": "extravagance", "tfidf": 0.11150317752250301}, {"document": "25_cleveland_1885", "term": "citizen", "tfidf": 0.10283905933618644}, {"document": "25_cleveland_1885", "term": "strife", "tfidf": 0.10170459937023854}, {"document": "26_harrison_1889", "term": "people", "tfidf": 0.17237007914352745}, {"document": "26_harrison_1889", "term": "laws", "tfidf": 0.15451145804367075}, {"document": "26_harrison_1889", "term": "states", "tfidf": 0.1386929390928901}, {"document": "26_harrison_1889", "term": "ballot", "tfidf": 0.13721976526414242}, {"document": "26_harrison_1889", "term": "public", "tfidf": 0.12861799085369005}, {"document": "26_harrison_1889", "term": "methods", "tfidf": 0.11925479763571592}, {"document": "26_harrison_1889", "term": "shall", "tfidf": 0.11848888094938183}, {"document": "26_harrison_1889", "term": "friendly", "tfidf": 0.10433732289700644}, {"document": "26_harrison_1889", "term": "european", "tfidf": 0.10341045519097228}, {"document": "26_harrison_1889", "term": "constitution", "tfidf": 0.08940261887493124}, {"document": "27_cleveland_1893", "term": "people", "tfidf": 0.22163864286493154}, {"document": "27_cleveland_1893", "term": "government", "tfidf": 0.14836693814372823}, {"document": "27_cleveland_1893", "term": "frugality", "tfidf": 0.12811074082054325}, {"document": "27_cleveland_1893", "term": "public", "tfidf": 0.10252878060975357}, {"document": "27_cleveland_1893", "term": "service", "tfidf": 0.10183583830630705}, {"document": "27_cleveland_1893", "term": "support", "tfidf": 0.10002554517979566}, {"document": "27_cleveland_1893", "term": "american", "tfidf": 0.09732957947431875}, {"document": "27_cleveland_1893", "term": "activity", "tfidf": 0.09598947304833196}, {"document": "27_cleveland_1893", "term": "governmental", "tfidf": 0.09601278709734869}, {"document": "27_cleveland_1893", "term": "countrymen", "tfidf": 0.08861938797032555}, {"document": "28_mckinley_1897", "term": "congress", "tfidf": 0.18886150316113387}, {"document": "28_mckinley_1897", "term": "revenue", "tfidf": 0.1685428065213233}, {"document": "28_mckinley_1897", "term": "people", "tfidf": 0.16185084518249376}, {"document": "28_mckinley_1897", "term": "government", "tfidf": 0.1567318382470543}, {"document": "28_mckinley_1897", "term": "loans", "tfidf": 0.14944459557821424}, {"document": "28_mckinley_1897", "term": "legislation", "tfidf": 0.1264618477288649}, {"document": "28_mckinley_1897", "term": "public", "tfidf": 0.1070672531859112}, {"document": "28_mckinley_1897", "term": "business", "tfidf": 0.10685167350163231}, {"document": "28_mckinley_1897", "term": "great", "tfidf": 0.10532794873277623}, {"document": "28_mckinley_1897", "term": "revision", "tfidf": 0.09957556864584034}, {"document": "29_mckinley_1901", "term": "islands", "tfidf": 0.21657694886627885}, {"document": "29_mckinley_1901", "term": "cuba", "tfidf": 0.20633679552582415}, {"document": "29_mckinley_1901", "term": "government", "tfidf": 0.15376023822255488}, {"document": "29_mckinley_1901", "term": "executive", "tfidf": 0.14785386473892273}, {"document": "29_mckinley_1901", "term": "inhabitants", "tfidf": 0.1473772623790486}, {"document": "29_mckinley_1901", "term": "congress", "tfidf": 0.14209790027817104}, {"document": "29_mckinley_1901", "term": "people", "tfidf": 0.11689549166152213}, {"document": "29_mckinley_1901", "term": "states", "tfidf": 0.10222471159974378}, {"document": "29_mckinley_1901", "term": "united", "tfidf": 0.10053110690736525}, {"document": "29_mckinley_1901", "term": "preparation", "tfidf": 0.09795531134567437}, {"document": "30_roosevelt_theodore_1905", "term": "regards", "tfidf": 0.1992023502021906}, {"document": "30_roosevelt_theodore_1905", "term": "problems", "tfidf": 0.18247505682511606}, {"document": "30_roosevelt_theodore_1905", "term": "tasks", "tfidf": 0.15010137594957007}, {"document": "30_roosevelt_theodore_1905", "term": "aright", "tfidf": 0.14640202645638067}, {"document": "30_roosevelt_theodore_1905", "term": "republic", "tfidf": 0.12148756044772688}, {"document": "30_roosevelt_theodore_1905", "term": "life", "tfidf": 0.11871634604348856}, {"document": "30_roosevelt_theodore_1905", "term": "cause", "tfidf": 0.11651775293907055}, {"document": "30_roosevelt_theodore_1905", "term": "faced", "tfidf": 0.11579253538755978}, {"document": "30_roosevelt_theodore_1905", "term": "conditions", "tfidf": 0.1154149501737314}, {"document": "30_roosevelt_theodore_1905", "term": "wish", "tfidf": 0.10681900222618163}, {"document": "31_taft_1909", "term": "interstate", "tfidf": 0.20697685894313247}, {"document": "31_taft_1909", "term": "business", "tfidf": 0.20146620907418644}, {"document": "31_taft_1909", "term": "tariff", "tfidf": 0.15485580491333883}, {"document": "31_taft_1909", "term": "negro", "tfidf": 0.15376647218776313}, {"document": "31_taft_1909", "term": "south", "tfidf": 0.12940336299173394}, {"document": "31_taft_1909", "term": "government", "tfidf": 0.12155056092832535}, {"document": "31_taft_1909", "term": "proper", "tfidf": 0.1147831084152748}, {"document": "31_taft_1909", "term": "race", "tfidf": 0.1134316889394633}, {"document": "31_taft_1909", "term": "feeling", "tfidf": 0.11128895592765604}, {"document": "31_taft_1909", "term": "canal", "tfidf": 0.1109095301368268}, {"document": "32_wilson_1913", "term": "great", "tfidf": 0.15870073844285387}, {"document": "32_wilson_1913", "term": "men", "tfidf": 0.14296336715874677}, {"document": "32_wilson_1913", "term": "familiar", "tfidf": 0.14171569950705898}, {"document": "32_wilson_1913", "term": "stirred", "tfidf": 0.14167997152548648}, {"document": "32_wilson_1913", "term": "studied", "tfidf": 0.141695134464305}, {"document": "32_wilson_1913", "term": "things", "tfidf": 0.12391713272158686}, {"document": "32_wilson_1913", "term": "justice", "tfidf": 0.10577008673555409}, {"document": "32_wilson_1913", "term": "government", "tfidf": 0.10552868340365865}, {"document": "32_wilson_1913", "term": "life", "tfidf": 0.10221990700650306}, {"document": "32_wilson_1913", "term": "look", "tfidf": 0.10010150258267901}, {"document": "33_wilson_1917", "term": "wished", "tfidf": 0.228620167398421}, {"document": "33_wilson_1917", "term": "counsel", "tfidf": 0.1746461806151203}, {"document": "33_wilson_1917", "term": "purpose", "tfidf": 0.15294621287811608}, {"document": "33_wilson_1917", "term": "action", "tfidf": 0.15005083077398537}, {"document": "33_wilson_1917", "term": "shall", "tfidf": 0.13445158126484044}, {"document": "33_wilson_1917", "term": "thought", "tfidf": 0.1266086731524875}, {"document": "33_wilson_1917", "term": "stand", "tfidf": 0.12133327442568867}, {"document": "33_wilson_1917", "term": "set", "tfidf": 0.11125722395978739}, {"document": "33_wilson_1917", "term": "politics", "tfidf": 0.10857618646500815}, {"document": "33_wilson_1917", "term": "drawn", "tfidf": 0.1047942945902786}, {"document": "34_harding_1921", "term": "world", "tfidf": 0.19628522454869166}, {"document": "34_harding_1921", "term": "civilization", "tfidf": 0.15714506669127953}, {"document": "34_harding_1921", "term": "america", "tfidf": 0.15570515796980447}, {"document": "34_harding_1921", "term": "war", "tfidf": 0.12067934523790555}, {"document": "34_harding_1921", "term": "relationship", "tfidf": 0.11888884514653615}, {"document": "34_harding_1921", "term": "republic", "tfidf": 0.11722874922720075}, {"document": "34_harding_1921", "term": "order", "tfidf": 0.11014683115123707}, {"document": "34_harding_1921", "term": "understanding", "tfidf": 0.10992153279128504}, {"document": "34_harding_1921", "term": "new", "tfidf": 0.09763241502218195}, {"document": "34_harding_1921", "term": "amid", "tfidf": 0.09509734559451814}, {"document": "35_coolidge_1925", "term": "country", "tfidf": 0.1208233917623765}, {"document": "35_coolidge_1925", "term": "ought", "tfidf": 0.11673715804300482}, {"document": "35_coolidge_1925", "term": "represents", "tfidf": 0.11452715253765594}, {"document": "35_coolidge_1925", "term": "tax", "tfidf": 0.11288581826193206}, {"document": "35_coolidge_1925", "term": "great", "tfidf": 0.10999687082463606}, {"document": "35_coolidge_1925", "term": "property", "tfidf": 0.10834010907648997}, {"document": "35_coolidge_1925", "term": "party", "tfidf": 0.10731552250195261}, {"document": "35_coolidge_1925", "term": "stands", "tfidf": 0.10727349872568381}, {"document": "35_coolidge_1925", "term": "peace", "tfidf": 0.10422859547915943}, {"document": "35_coolidge_1925", "term": "people", "tfidf": 0.10138586399722543}, {"document": "36_hoover_1929", "term": "sup", "tfidf": 0.29688063174653984}, {"document": "36_hoover_1929", "term": "government", "tfidf": 0.20271324292173548}, {"document": "36_hoover_1929", "term": "enforcement", "tfidf": 0.1944005349885505}, {"document": "36_hoover_1929", "term": "18th", "tfidf": 0.1347587492342631}, {"document": "36_hoover_1929", "term": "progress", "tfidf": 0.13247599069192745}, {"document": "36_hoover_1929", "term": "federal", "tfidf": 0.12627484163467365}, {"document": "36_hoover_1929", "term": "ideals", "tfidf": 0.11347446299855025}, {"document": "36_hoover_1929", "term": "business", "tfidf": 0.10841377217895325}, {"document": "36_hoover_1929", "term": "laws", "tfidf": 0.10708594423866039}, {"document": "36_hoover_1929", "term": "peace", "tfidf": 0.10391629170497997}, {"document": "37_roosevelt_franklin_1933", "term": "helped", "tfidf": 0.21570241429367593}, {"document": "37_roosevelt_franklin_1933", "term": "leadership", "tfidf": 0.19117802175940823}, {"document": "37_roosevelt_franklin_1933", "term": "stricken", "tfidf": 0.1294517740030627}, {"document": "37_roosevelt_franklin_1933", "term": "emergency", "tfidf": 0.1232743448154691}, {"document": "37_roosevelt_franklin_1933", "term": "discipline", "tfidf": 0.11797200182164906}, {"document": "37_roosevelt_franklin_1933", "term": "respects", "tfidf": 0.11799483665846613}, {"document": "37_roosevelt_franklin_1933", "term": "money", "tfidf": 0.11337898710993387}, {"document": "37_roosevelt_franklin_1933", "term": "national", "tfidf": 0.11061044804504122}, {"document": "37_roosevelt_franklin_1933", "term": "recovery", "tfidf": 0.10237774287448533}, {"document": "37_roosevelt_franklin_1933", "term": "action", "tfidf": 0.09708368611690854}, {"document": "38_roosevelt_franklin_1937", "term": "democracy", "tfidf": 0.17811174658802129}, {"document": "38_roosevelt_franklin_1937", "term": "government", "tfidf": 0.17728955247897443}, {"document": "38_roosevelt_franklin_1937", "term": "millions", "tfidf": 0.14078437211052433}, {"document": "38_roosevelt_franklin_1937", "term": "paint", "tfidf": 0.12146263479580748}, {"document": "38_roosevelt_franklin_1937", "term": "people", "tfidf": 0.11582622550499809}, {"document": "38_roosevelt_franklin_1937", "term": "economic", "tfidf": 0.11419140743479983}, {"document": "38_roosevelt_franklin_1937", "term": "road", "tfidf": 0.11302397747403405}, {"document": "38_roosevelt_franklin_1937", "term": "progress", "tfidf": 0.10449415512760958}, {"document": "38_roosevelt_franklin_1937", "term": "despair", "tfidf": 0.10034259570355927}, {"document": "38_roosevelt_franklin_1937", "term": "nation", "tfidf": 0.0996883095689567}, {"document": "39_roosevelt_franklin_1941", "term": "democracy", "tfidf": 0.24458390109987302}, {"document": "39_roosevelt_franklin_1941", "term": "know", "tfidf": 0.18909537479011046}, {"document": "39_roosevelt_franklin_1941", "term": "speaks", "tfidf": 0.18340122938424036}, {"document": "39_roosevelt_franklin_1941", "term": "br", "tfidf": 0.16326386010249588}, {"document": "39_roosevelt_franklin_1941", "term": "nation", "tfidf": 0.16230783530426915}, {"document": "39_roosevelt_franklin_1941", "term": "america", "tfidf": 0.14015834899275165}, {"document": "39_roosevelt_franklin_1941", "term": "life", "tfidf": 0.11789080573432938}, {"document": "39_roosevelt_franklin_1941", "term": "spirit", "tfidf": 0.11446390595200086}, {"document": "39_roosevelt_franklin_1941", "term": "freedom", "tfidf": 0.10930535963317613}, {"document": "39_roosevelt_franklin_1941", "term": "1941", "tfidf": 0.10896923900525106}, {"document": "40_roosevelt_franklin_1945", "term": "learned", "tfidf": 0.3004381884183458}, {"document": "40_roosevelt_franklin_1945", "term": "test", "tfidf": 0.19481965029947848}, {"document": "40_roosevelt_franklin_1945", "term": "1945", "tfidf": 0.18994601605486228}, {"document": "40_roosevelt_franklin_1945", "term": "shall", "tfidf": 0.17370002324741865}, {"document": "40_roosevelt_franklin_1945", "term": "trend", "tfidf": 0.17236146869979807}, {"document": "40_roosevelt_franklin_1945", "term": "mistakes", "tfidf": 0.15991284007464796}, {"document": "40_roosevelt_franklin_1945", "term": "peace", "tfidf": 0.15945094496809234}, {"document": "40_roosevelt_franklin_1945", "term": "today", "tfidf": 0.1543155126515518}, {"document": "40_roosevelt_franklin_1945", "term": "upward", "tfidf": 0.1501741832257138}, {"document": "40_roosevelt_franklin_1945", "term": "gain", "tfidf": 0.14237198230712791}, {"document": "41_truman_1949", "term": "world", "tfidf": 0.1961306658094404}, {"document": "41_truman_1949", "term": "nations", "tfidf": 0.19407537925606771}, {"document": "41_truman_1949", "term": "program", "tfidf": 0.171746924454499}, {"document": "41_truman_1949", "term": "peoples", "tfidf": 0.16704963194728012}, {"document": "41_truman_1949", "term": "democracy", "tfidf": 0.15419889375947488}, {"document": "41_truman_1949", "term": "freedom", "tfidf": 0.14936161630240036}, {"document": "41_truman_1949", "term": "communism", "tfidf": 0.14714157492273058}, {"document": "41_truman_1949", "term": "peace", "tfidf": 0.1442286316238914}, {"document": "41_truman_1949", "term": "countries", "tfidf": 0.1371031900788607}, {"document": "41_truman_1949", "term": "recovery", "tfidf": 0.13585914844944458}, {"document": "42_eisenhower_1953", "term": "free", "tfidf": 0.20587735235719629}, {"document": "42_eisenhower_1953", "term": "faith", "tfidf": 0.15466067657903446}, {"document": "42_eisenhower_1953", "term": "world", "tfidf": 0.1465002952919426}, {"document": "42_eisenhower_1953", "term": "peoples", "tfidf": 0.1395270759453725}, {"document": "42_eisenhower_1953", "term": "productivity", "tfidf": 0.13391896785192872}, {"document": "42_eisenhower_1953", "term": "strength", "tfidf": 0.13052823550904963}, {"document": "42_eisenhower_1953", "term": "peace", "tfidf": 0.12386901796198824}, {"document": "42_eisenhower_1953", "term": "freedom", "tfidf": 0.12338897988742444}, {"document": "42_eisenhower_1953", "term": "shall", "tfidf": 0.1060243243191278}, {"document": "42_eisenhower_1953", "term": "hold", "tfidf": 0.10506821984199728}, {"document": "43_eisenhower_1957", "term": "world", "tfidf": 0.1939832203146071}, {"document": "43_eisenhower_1957", "term": "freedom", "tfidf": 0.1796051052424037}, {"document": "43_eisenhower_1957", "term": "seek", "tfidf": 0.17601845614857908}, {"document": "43_eisenhower_1957", "term": "nations", "tfidf": 0.1755873945841322}, {"document": "43_eisenhower_1957", "term": "peoples", "tfidf": 0.15827565896621124}, {"document": "43_eisenhower_1957", "term": "strives", "tfidf": 0.14644506923915285}, {"document": "43_eisenhower_1957", "term": "peace", "tfidf": 0.13666880367559953}, {"document": "43_eisenhower_1957", "term": "help", "tfidf": 0.13273890104644936}, {"document": "43_eisenhower_1957", "term": "divided", "tfidf": 0.11549237667059588}, {"document": "43_eisenhower_1957", "term": "mr", "tfidf": 0.11194803742890044}, {"document": "44_kennedy_1961", "term": "let", "tfidf": 0.2679428900673419}, {"document": "44_kennedy_1961", "term": "sides", "tfidf": 0.262942373830689}, {"document": "44_kennedy_1961", "term": "pledge", "tfidf": 0.16104456659578617}, {"document": "44_kennedy_1961", "term": "ask", "tfidf": 0.10780100326385483}, {"document": "44_kennedy_1961", "term": "begin", "tfidf": 0.1065338979739405}, {"document": "44_kennedy_1961", "term": "dare", "tfidf": 0.10655756270841896}, {"document": "44_kennedy_1961", "term": "world", "tfidf": 0.10318728280526296}, {"document": "44_kennedy_1961", "term": "final", "tfidf": 0.10239388383100406}, {"document": "44_kennedy_1961", "term": "new", "tfidf": 0.09661993936799723}, {"document": "44_kennedy_1961", "term": "explore", "tfidf": 0.09429045143826334}, {"document": "45_johnson_1965", "term": "change", "tfidf": 0.2761425919479126}, {"document": "45_johnson_1965", "term": "covenant", "tfidf": 0.2429806284702324}, {"document": "45_johnson_1965", "term": "man", "tfidf": 0.17444425000406108}, {"document": "45_johnson_1965", "term": "mastery", "tfidf": 0.1536150716304975}, {"document": "45_johnson_1965", "term": "nation", "tfidf": 0.1524801263402355}, {"document": "45_johnson_1965", "term": "union", "tfidf": 0.15055189890237342}, {"document": "45_johnson_1965", "term": "old", "tfidf": 0.12919962518624326}, {"document": "45_johnson_1965", "term": "trying", "tfidf": 0.10968396872513472}, {"document": "45_johnson_1965", "term": "people", "tfidf": 0.10869610940713344}, {"document": "45_johnson_1965", "term": "harvest", "tfidf": 0.10244695400113}, {"document": "46_nixon_1969", "term": "voices", "tfidf": 0.20885478947285263}, {"document": "46_nixon_1969", "term": "peace", "tfidf": 0.14467463702805172}, {"document": "46_nixon_1969", "term": "let", "tfidf": 0.14105754008865645}, {"document": "46_nixon_1969", "term": "earth", "tfidf": 0.13954596390078483}, {"document": "46_nixon_1969", "term": "know", "tfidf": 0.13804427033001643}, {"document": "46_nixon_1969", "term": "man", "tfidf": 0.135492355221619}, {"document": "46_nixon_1969", "term": "people", "tfidf": 0.1312874569893933}, {"document": "46_nixon_1969", "term": "world", "tfidf": 0.1283361626354885}, {"document": "46_nixon_1969", "term": "rhetoric", "tfidf": 0.11928778126794021}, {"document": "46_nixon_1969", "term": "forward", "tfidf": 0.11329927265294895}, {"document": "47_nixon_1973", "term": "america", "tfidf": 0.30714577972803897}, {"document": "47_nixon_1973", "term": "let", "tfidf": 0.28223500212836117}, {"document": "47_nixon_1973", "term": "peace", "tfidf": 0.21156903605705082}, {"document": "47_nixon_1973", "term": "role", "tfidf": 0.1904740445517807}, {"document": "47_nixon_1973", "term": "world", "tfidf": 0.17785321489319944}, {"document": "47_nixon_1973", "term": "policies", "tfidf": 0.17628950392337744}, {"document": "47_nixon_1973", "term": "responsibility", "tfidf": 0.1640535337566334}, {"document": "47_nixon_1973", "term": "new", "tfidf": 0.15869602596252244}, {"document": "47_nixon_1973", "term": "abroad", "tfidf": 0.15488435037850232}, {"document": "47_nixon_1973", "term": "home", "tfidf": 0.12674578812682896}, {"document": "48_carter_1977", "term": "br", "tfidf": 0.22262176404226916}, {"document": "48_carter_1977", "term": "nation", "tfidf": 0.19178117323742588}, {"document": "48_carter_1977", "term": "dream", "tfidf": 0.181592114057096}, {"document": "48_carter_1977", "term": "strength", "tfidf": 0.1471640090802471}, {"document": "48_carter_1977", "term": "new", "tfidf": 0.14216603821056395}, {"document": "48_carter_1977", "term": "micah", "tfidf": 0.11886843061529409}, {"document": "48_carter_1977", "term": "thee", "tfidf": 0.1078672163093319}, {"document": "48_carter_1977", "term": "spirit", "tfidf": 0.10701036362166351}, {"document": "48_carter_1977", "term": "human", "tfidf": 0.10121214615208264}, {"document": "48_carter_1977", "term": "enhance", "tfidf": 0.10001663627419759}, {"document": "49_reagan_1981", "term": "government", "tfidf": 0.16246787202826035}, {"document": "49_reagan_1981", "term": "americans", "tfidf": 0.15694541908419404}, {"document": "49_reagan_1981", "term": "heroes", "tfidf": 0.13742136861529025}, {"document": "49_reagan_1981", "term": "believe", "tfidf": 0.13621832233130146}, {"document": "49_reagan_1981", "term": "ve", "tfidf": 0.11536731351321507}, {"document": "49_reagan_1981", "term": "productivity", "tfidf": 0.10479320594107842}, {"document": "49_reagan_1981", "term": "weapon", "tfidf": 0.10481054756510812}, {"document": "49_reagan_1981", "term": "freedom", "tfidf": 0.10300309485383331}, {"document": "49_reagan_1981", "term": "dreams", "tfidf": 0.10120055954698169}, {"document": "49_reagan_1981", "term": "today", "tfidf": 0.0938834735805676}, {"document": "50_reagan_1985", "term": "government", "tfidf": 0.16121512265507754}, {"document": "50_reagan_1985", "term": "freedom", "tfidf": 0.16007731561547547}, {"document": "50_reagan_1985", "term": "nuclear", "tfidf": 0.15370929386627077}, {"document": "50_reagan_1985", "term": "ve", "tfidf": 0.15371157013201675}, {"document": "50_reagan_1985", "term": "weapons", "tfidf": 0.14024610170210675}, {"document": "50_reagan_1985", "term": "people", "tfidf": 0.13704863788842425}, {"document": "50_reagan_1985", "term": "world", "tfidf": 0.1272633777917959}, {"document": "50_reagan_1985", "term": "history", "tfidf": 0.10482907015571467}, {"document": "50_reagan_1985", "term": "human", "tfidf": 0.10479856471466935}, {"document": "50_reagan_1985", "term": "senator", "tfidf": 0.10246686150080454}, {"document": "51_bush_george_h_w_1989", "term": "don", "tfidf": 0.18638828288634562}, {"document": "51_bush_george_h_w_1989", "term": "breeze", "tfidf": 0.18443831107221179}, {"document": "51_bush_george_h_w_1989", "term": "new", "tfidf": 0.1372736291829911}, {"document": "51_bush_george_h_w_1989", "term": "friends", "tfidf": 0.13683573338054686}, {"document": "51_bush_george_h_w_1989", "term": "door", "tfidf": 0.13391621037175105}, {"document": "51_bush_george_h_w_1989", "term": "word", "tfidf": 0.13180197967429072}, {"document": "51_bush_george_h_w_1989", "term": "mr", "tfidf": 0.12690088843556785}, {"document": "51_bush_george_h_w_1989", "term": "hand", "tfidf": 0.12508819086869977}, {"document": "51_bush_george_h_w_1989", "term": "blowing", "tfidf": 0.11066533366493875}, {"document": "51_bush_george_h_w_1989", "term": "things", "tfidf": 0.11069596260355202}, {"document": "52_clinton_1993", "term": "america", "tfidf": 0.3189541189063441}, {"document": "52_clinton_1993", "term": "world", "tfidf": 0.2267467590782917}, {"document": "52_clinton_1993", "term": "americans", "tfidf": 0.20690362336023335}, {"document": "52_clinton_1993", "term": "today", "tfidf": 0.18562630952478132}, {"document": "52_clinton_1993", "term": "change", "tfidf": 0.1705575155366931}, {"document": "52_clinton_1993", "term": "renewal", "tfidf": 0.13696475810910633}, {"document": "52_clinton_1993", "term": "season", "tfidf": 0.13695172473048842}, {"document": "52_clinton_1993", "term": "idea", "tfidf": 0.13506900374440867}, {"document": "52_clinton_1993", "term": "let", "tfidf": 0.13254956960515818}, {"document": "52_clinton_1993", "term": "people", "tfidf": 0.12928814060105753}, {"document": "53_clinton_1997", "term": "century", "tfidf": 0.3213342352050668}, {"document": "53_clinton_1997", "term": "new", "tfidf": 0.27961421857036123}, {"document": "53_clinton_1997", "term": "america", "tfidf": 0.20000014621617204}, {"document": "53_clinton_1997", "term": "promise", "tfidf": 0.1643332919899165}, {"document": "53_clinton_1997", "term": "world", "tfidf": 0.13511361313233292}, {"document": "53_clinton_1997", "term": "land", "tfidf": 0.13106203277283923}, {"document": "53_clinton_1997", "term": "nation", "tfidf": 0.11707453952511923}, {"document": "53_clinton_1997", "term": "americans", "tfidf": 0.11505629113787147}, {"document": "53_clinton_1997", "term": "time", "tfidf": 0.10813830555997266}, {"document": "53_clinton_1997", "term": "let", "tfidf": 0.10532686543366217}, {"document": "54_bush_george_w_2001", "term": "story", "tfidf": 0.34123176478801454}, {"document": "54_bush_george_w_2001", "term": "america", "tfidf": 0.19317815633995514}, {"document": "54_bush_george_w_2001", "term": "civility", "tfidf": 0.16094485092876168}, {"document": "54_bush_george_w_2001", "term": "nation", "tfidf": 0.1304770508691309}, {"document": "54_bush_george_w_2001", "term": "affirm", "tfidf": 0.12070721864414266}, {"document": "54_bush_george_w_2001", "term": "ideals", "tfidf": 0.10951981656190726}, {"document": "54_bush_george_w_2001", "term": "americans", "tfidf": 0.10826009163959949}, {"document": "54_bush_george_w_2001", "term": "promise", "tfidf": 0.10823337956054596}, {"document": "54_bush_george_w_2001", "term": "compassion", "tfidf": 0.10739967075727375}, {"document": "54_bush_george_w_2001", "term": "citizens", "tfidf": 0.10675518153213233}, {"document": "55_bush_george_w_2005", "term": "freedom", "tfidf": 0.3499518434793157}, {"document": "55_bush_george_w_2005", "term": "america", "tfidf": 0.2848872066130406}, {"document": "55_bush_george_w_2005", "term": "liberty", "tfidf": 0.17456024081251573}, {"document": "55_bush_george_w_2005", "term": "americans", "tfidf": 0.14052809214055884}, {"document": "55_bush_george_w_2005", "term": "tyranny", "tfidf": 0.12728026257923652}, {"document": "55_bush_george_w_2005", "term": "seen", "tfidf": 0.11040211409892975}, {"document": "55_bush_george_w_2005", "term": "nation", "tfidf": 0.09625943278404268}, {"document": "55_bush_george_w_2005", "term": "cause", "tfidf": 0.0925453516458169}, {"document": "55_bush_george_w_2005", "term": "history", "tfidf": 0.09251036439582841}, {"document": "55_bush_george_w_2005", "term": "came", "tfidf": 0.0920803604737971}, {"document": "56_obama_2009", "term": "america", "tfidf": 0.14843560345112278}, {"document": "56_obama_2009", "term": "nation", "tfidf": 0.12027099148204443}, {"document": "56_obama_2009", "term": "new", "tfidf": 0.11803452520133356}, {"document": "56_obama_2009", "term": "today", "tfidf": 0.11483532416359385}, {"document": "56_obama_2009", "term": "generation", "tfidf": 0.10067893124895556}, {"document": "56_obama_2009", "term": "let", "tfidf": 0.09113085538819185}, {"document": "56_obama_2009", "term": "jobs", "tfidf": 0.0907845497164146}, {"document": "56_obama_2009", "term": "crisis", "tfidf": 0.0872452298444062}, {"document": "56_obama_2009", "term": "hard", "tfidf": 0.08486574454375197}, {"document": "56_obama_2009", "term": "women", "tfidf": 0.08488329091030133}, {"document": "57_obama_2013", "term": "journey", "tfidf": 0.16766218652592726}, {"document": "57_obama_2013", "term": "creed", "tfidf": 0.13970280387278106}, {"document": "57_obama_2013", "term": "generation", "tfidf": 0.12734186792936658}, {"document": "57_obama_2013", "term": "america", "tfidf": 0.12512856058914767}, {"document": "57_obama_2013", "term": "complete", "tfidf": 0.11494562814240829}, {"document": "57_obama_2013", "term": "requires", "tfidf": 0.11494057125470115}, {"document": "57_obama_2013", "term": "people", "tfidf": 0.11044822592793886}, {"document": "57_obama_2013", "term": "time", "tfidf": 0.10557955149840327}, {"document": "57_obama_2013", "term": "today", "tfidf": 0.10371710918822881}, {"document": "57_obama_2013", "term": "evident", "tfidf": 0.10090450236535521}, {"document": "58_trump_2017", "term": "america", "tfidf": 0.350212648486694}, {"document": "58_trump_2017", "term": "dreams", "tfidf": 0.15652652782699136}, {"document": "58_trump_2017", "term": "american", "tfidf": 0.14927173265814977}, {"document": "58_trump_2017", "term": "jobs", "tfidf": 0.14283392145703924}, {"document": "58_trump_2017", "term": "protected", "tfidf": 0.13250839182543192}, {"document": "58_trump_2017", "term": "obama", "tfidf": 0.12037666883729647}, {"document": "58_trump_2017", "term": "people", "tfidf": 0.11238023316644696}, {"document": "58_trump_2017", "term": "thank", "tfidf": 0.10920062547787951}, {"document": "58_trump_2017", "term": "borders", "tfidf": 0.10715832925248883}, {"document": "58_trump_2017", "term": "ve", "tfidf": 0.10716346795712785}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
-</div>
-<div class="section" id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
 <p>Take a few minutes to explore the dataframe below and then answer the following questions.</p>
 <p><strong>1.</strong> What is the difference between a tf-idf score and raw word frequency?</p>
 <p><strong>2.</strong> Based on the dataframe above, what is one potential problem or limitation that you notice with tf-idf scores?</p>
 <p><strong>3.</strong> What’s another collection of texts that you think might be interesting to analyze with tf-idf scores?  Why?</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -6053,7 +5824,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./05-Text-Analysis"
         },
         predefinedOutput: true
@@ -6061,52 +5832,121 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="02-TF-IDF-HathiTrust.html" title="previous page">TF-IDF with HathiTrust Data</a>
-    <a class='right-next' id="next-link" href="04-Sentiment-Analysis.html" title="next page">Sentiment Analysis</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-TF-IDF-HathiTrust.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TF-IDF with HathiTrust Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04-Sentiment-Analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sentiment Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u-s-inaugural-addresses">U.S. Inaugural Addresses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-tf-idf-formula">Breaking Down the TF-IDF Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TF-IDF with scikit-learn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-directory-path">Set Directory Path</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-tfidf">Calculate tf–idf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-tf-idf">Visualize TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">Your Turn!</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
 </div>
 
-          </div>
-      </p>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
   </footer>
-</main>
-
-
-      </div>
-    </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-86905362-3', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </body>
 </html>

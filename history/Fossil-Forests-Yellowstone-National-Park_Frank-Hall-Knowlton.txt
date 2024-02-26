@@ -1,0 +1,1376 @@
+﻿The Project Gutenberg EBook of Fossil Forests of the Yellowstone National
+Park, by Frank Hall Knowlton
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license
+
+
+Title: Fossil Forests of the Yellowstone National Park
+
+Author: Frank Hall Knowlton
+
+Release Date: October 21, 2020 [EBook #63519]
+
+Language: English
+
+Character set encoding: UTF-8
+
+*** START OF THIS PROJECT GUTENBERG EBOOK FOSSIL FORESTS OF THE ***
+
+
+
+
+Produced by Stephen Hutcheson and the Online Distributed
+Proofreading Team at https://www.pgdp.net (This file was
+produced from images generously made available by The
+Internet Archive/American Libraries.)
+
+
+
+
+
+
+                             UNITED STATES
+                       DEPARTMENT OF THE INTERIOR
+                         HUBERT WORK, SECRETARY
+
+                         NATIONAL PARK SERVICE
+                      STEPHEN T. MATHER, DIRECTOR
+
+
+
+
+            FOSSIL FORESTS OF THE YELLOWSTONE NATIONAL PARK
+
+
+                             UNITED STATES
+                       GOVERNMENT PRINTING OFFICE
+                               WASHINGTON
+                                  1928
+
+88781°—28——2
+
+                      THE NATIONAL PARKS AT A GLANCE.
+
+              [Number, 19; total area, 11,817 square miles.]
+
+  National parks    Location.   Area in    Distinctive characteristics.
+    in order of                  square
+     creation.                   miles.
+
+  Hot Springs     Middle              1½ 46 hot springs possessing
+  1832            Arkansas.              curative properties—Many hotels
+                                         and boarding houses—20
+                                         bath-houses under public
+                                         control.
+  Yellowstone     Northwestern     3,348 More geysers than in all rest
+  1872            Wyoming.               of world together—Boiling
+                                         springs—Mud volcanoes—Petrified
+                                         forests—Grand Canyon of the
+                                         Yellowstone, remarkable for
+                                         gorgeous coloring—Large
+                                         lakes—Many large streams and
+                                         waterfalls—Vast wilderness,
+                                         greatest wild bird and animal
+                                         preserve in world—Exceptional
+                                         trout fishing.
+  Sequoia         Middle             604 The Big Tree National
+  1890            eastern                Park—Scores of sequoia trees 20
+                  California.            to 30 feet in diameter,
+                                         thousands over 10 feet in
+                                         diameter—Towering mountain
+                                         ranges—Mount Whitney, highest
+                                         peak in continental United
+                                         States—Startling
+                                         precipices—Cave of considerable
+                                         size.
+  Yosemite        Middle           1,125 Valley of world-famed
+  1890            eastern                beauty—Lofty cliffs—Romantic
+                  California.            vistas—Many waterfalls of
+                                         extraordinary height—3 groves
+                                         of big trees—High
+                                         Sierra—Waterwheel falls—Good
+                                         trout fishing.
+  General Grant   Middle               4 Created to preserve the
+  1890            eastern                celebrated General Grant Tree,
+                  California.            35 feet in diameter—6 miles
+                                         from Sequoia National Park.
+  Mount Rainier   West central       325 Largest accessible single peak
+  1890            Washington.            glacier system—28 glaciers,
+                                         some of large size—48 square
+                                         miles of glacier, 50 to 500
+                                         feet thick—Wonderful sub-alpine
+                                         wild-flower fields.
+  Crater Lake     Southwestern       249 Lake of extraordinary blue in
+  1902            Oregon.                crater of extinct volcano—Sides
+                                         1,000 feet high—Interesting
+                                         lava formations—Fine fishing.
+  Wind Cave       South Dakota.       17 Cavern having many miles of
+  1903                                   galleries and numerous chambers
+                                         containing peculiar formations.
+  Platt           Southern            1⅓ Many sulphur and other springs
+  1901            Oklahoma.              possessing medicinal value.
+  Sullys Hill     North Dakota.       1⅕ Small park with woods, streams,
+  1904                                   and a lake—Is an important
+                                         wild-animal preserve.
+  Mesa Verde      Southwestern        77 Most notable and best preserved
+  1906            Colorado.              prehistoric cliff dwellings in
+                                         United States, if not in the
+                                         world.
+  Glacier         Northwestern     1,534 Rugged mountain region of
+  1910            Montana.               unsurpassed Alpine
+                                         character—250 glacier-fed lakes
+                                         of romantic beauty—60 small
+                                         glaciers—Precipices thousands
+                                         of feet deep—Almost sensational
+                                         scenery of marked
+                                         individuality—Fine trout
+                                         fishing.
+  Rocky Mountain  North middle       378 Heart of the Rockies—Snowy
+  1915            Colorado.              range, peaks 11,000 to 14,250
+                                         feet altitude—Remarkable
+                                         records of glacial period.
+  Hawaii          Hawaii.            242 Three separate areas—Kilauea
+  1916                                   and Mauna Loa on Hawaii,
+                                         Haleakala on Maui.
+  Lassen Volcanic Northern           124 Only active volcano in United
+  1916            California.            States proper—Lassen Peak,
+                                         10,465 feet—Cinder Cone, 6,879
+                                         feet—Hot springs—Mud geysers.
+  Mount McKinley  South            2,645 Highest mountain in North
+  1917            central                America—Rises higher above
+                  Alaska.                surrounding country than any
+                                         other mountain in the world.
+  Grand Canyon    North            1,009 The greatest example of erosion
+  1919            central                and the most sublime spectacle
+                  Arizona.               in the world.
+  Lafayette       Maine coast.        12 The group of granite mountains
+  1919                                   upon Mount Desert Island.
+  Zion            Southwestern       120 Magnificent gorge (Zion
+  1919            Utah.                  Canyon), depth from 1,500 to
+                                         2,500 feet, with precipitous
+                                         walls—Of great beauty and
+                                         scenic interest.
+
+
+
+
+          THE FOSSIL FORESTS OF THE YELLOWSTONE NATIONAL PARK.
+
+
+                           By F. H. Knowlton,
+                   _United States Geological Survey._
+
+
+
+
+                             INTRODUCTION.
+
+
+Isolated pieces of fossil wood are of comparatively common and
+widespread occurrence, especially in the more recent geological deposits
+of the West. Not infrequently scattered logs, stumps, and roots of
+petrified or lignitized trees are brought to light, but only
+exceptionally are they so massed and aggregated as to be worthy of the
+designation of fossil forests. Examples of such are the celebrated
+fossil forests of relatively late geological age near Cairo, Egypt, the
+huge prostrate trunks in the Napa Valley near Calistoga, Cal., and the
+geologically much older and far more extensive forests now widely known
+as the Petrified Forest National Monument in Apache County, Ariz. But in
+many respects the most remarkable fossil forests known are those now to
+be described in the Yellowstone National Park. In the forests first
+mentioned the trunks and logs were all prostrated before fossilization,
+and it is perhaps not quite correct to designate such aggregations as
+veritable fossil forests, though they usually are so called. In the
+fossil forests of Arizona, for example, which are scattered over many
+square miles of what is now almost desert, all the trunks show evidence
+of having been transported from a distance before they were turned to
+stone. Most of them are not even in the position in which they were
+originally entombed, but have been eroded from slightly higher horizons
+and have rolled in the greatest profusion to lower levels. As one views
+these Arizona forests from a little distance, with their hundreds, even
+thousands, of segments of logs, it is difficult to realize that they are
+really turned to stone and are now exhumed from the earth. The
+appearance they present (see fig. 1) is not unlike a “log drive” that
+has been stranded by the receding waters and left until the bark had
+disappeared and many logs had fallen into partial decay. Trunks of many
+sizes and lengths are now mingled and scattered about in the wildest
+profusion, and the surface of the ground is carpeted with fragments of
+wood that have been splintered and broken from them. In the Yellowstone
+National Park, however, most of the trees were entombed in the upright
+position in which they grew, by the outpouring of various volcanic
+materials, and as the softer rock surrounding them is gradually worn
+away they are left standing erect on the steep hillsides, just as they
+stood when they were living: in fact, it is difficult at a little
+distance to distinguish some of these fossil trunks from the
+lichen-covered stumps of kindred living species. Such an aggregation of
+fossil trunks is therefore well entitled to be called a true fossil
+forest. It should not be supposed, however, that these trees still
+retain their limbs and smaller branches, for the mass of volcanic
+material falling on them stripped them down to bare, upright trunks.
+
+    [Illustration: Fig. 1.—Fossil Logs in Petrified Forest National
+    Monument, Apache County, Arizona.]
+
+    [Illustration: Fig. 2.—Upright fossil trunk in Gallatin Mountains,
+    Montana.
+    Courtesy of E. C. Alderson.]
+
+The fossil forests of the Yellowstone National Park cover an extensive
+area in the northern portion of the park, being especially abundant
+along the west side of Lamar River for about 20 miles above its junction
+with the Yellowstone. Here the land rises rather abruptly to a height of
+approximately 2,000 feet above the valley floor. It is known locally as
+Specimen Ridge, and forms an approach to Amethyst Mountain. There is
+also a small fossil forest containing a number of standing trunks near
+Tower Falls, and near the eastern border of the park along Lamar River
+in the vicinity of Cache, Calfee, and Miller Creeks, there are many more
+or less isolated trunks and stumps of fossil trees, but so far as known
+none of these are equal in interest to the fossil forest on the slopes
+of Specimen Ridge.
+
+    [Illustration: Fig. 3.—Upright trunk and “hoodoo” in Gallatin
+    Mountains, Montana.
+    Courtesy of E. C. Alderson.]
+
+The fossil forests are reached over a road from the Mammoth Hot Springs,
+or from Camp Roosevelt near Tower Falls, and they are in their way quite
+as wonderful and worthy of attention as many of the other features for
+which the Yellowstone National Park is so justly celebrated.
+
+Recently another extensive fossil forest has been found on the divide
+between the Gallatin and Yellowstone Rivers in the Gallatin Range of
+mountains, in Park and Gallatin Counties, Mont. This forest, which lies
+just outside the boundary of the Yellowstone National Park, is said to
+cover 35,000 acres and to contain some wonderfully well preserved
+upright trunks, many of them very large, equaling or perhaps even
+surpassing in size some of those within the limits of the park. Two of
+the best preserved of these trunks are shown in figures 2 and 3, which
+are here reproduced by the kindness of Mr. E. C. Alderson, of Bozeman,
+Mont.
+
+In the beds of the streams and gulches coming down into the Lamar River
+from Specimen Ridge and the fossil forests one may observe numerous
+pieces of fossil wood, which may be traced for a long distance down the
+Lamar and Yellowstone Rivers. The farther these pieces of wood have been
+transported downstream, the more they have been worn and rounded, until
+ultimately they become smooth, rounded “pebbles” of the stream bed. The
+pieces of wood become more numerous and fresher in appearance upstream
+toward the bluffs, until at the foot of the cliffs in some places there
+are hundreds, perhaps thousands of tons that have but recently fallen
+from the walls above. One traversing the valley of the Lamar River may
+see at many places numerous upright fossil trunks in the faces of nearly
+vertical walls. These trunks are not all at a particular level but occur
+at irregular heights: in fact a section cut down through these 2,000
+feet of beds would disclose a succession of fossil forests (see fig. 4).
+That is to say, after the first forest grew and was entombed, there was
+a time without volcanic outburst—a period long enough to permit a second
+forest to grow above the first. This in turn was covered by volcanic
+material and preserved, to be followed again by a period of quiet, and
+these more or less regular alternations of volcanism and forest growth
+continued throughout the time the beds were in process of formation.
+
+
+
+
+                          GEOLOGIC RELATIONS.
+
+
+While these fossil forests were growing and being entombed, much of the
+area now within the limits of the park, as well as large adjacent areas,
+was the scene of tremendous geologic activities. After the Cretaceous
+period (see diagram p. 28), there was a time of great volcanic activity,
+which appears to have lasted until perhaps the beginning of the glacial
+epoch. There were many active volcanoes just west, north, and west of
+the park, and some in the park itself. From these volcanoes vast
+quantities of material were poured out, building up in places whole
+mountain ranges. Thus the major portion of the great Absaroka Range,
+just east of the park, as it appears to-day, was built up of volcanic
+material.
+
+    [Illustration: Fig. 4.—Ideal section through 2,000 feet of beds of
+    Specimen Ridge, showing succession of buried forest. After Holmes.]
+
+Mr. Arnold Hague gives the following graphic account of this and
+adjacent areas:
+
+  From one end to the other the Absarokas present a high, imposing
+  plateau, with elevations ranging from 10,000 to over 12,000 feet above
+  sea level. The entire mass is made up almost exclusively of Tertiary
+  igneous rocks. * * * Degradation of the mass has taken place on a
+  grand scale. Vast quantities of volcanic ejectmenta have been removed
+  from the summit, but no reliable data exist by which the amount can be
+  estimated even approximately. All the higher portions have been
+  sculptured by glacial ice. Enormous amphitheaters have been carved out
+  of the loose agglomerates, and peaks, pinnacles, and relics of great
+  table-lands testify in some measure to the forces of erosion. The
+  plateau is scored by a complete network of deep valleys and gorges,
+  which dissect it in every direction, and lay bare the structure of the
+  vast volcanic pile.[1]
+
+Within the park there is evidence of similar volcanic activity, and it
+is clear that the basin between the encircling ranges was filled to its
+present elevation by volcanic flows, which formed the present park
+plateau. The area within which the fossil forests are now found was
+apparently in the beginning an irregular but relatively flat basin, on
+the floor of which after a time there grew the first forest. Then there
+came from some of the volcanoes, probably those to the north, an
+outpouring of ashes, mud flows, and other material which entirely buried
+the forest, but so gradually that the trees were simply submerged by the
+incoming material, few of them being prostrated. On the raised floor of
+the basin, after a time, the next forest came into existence, only to be
+in turn engulfed as the first had been, and so on through the period
+represented by the 2,000 feet or more of similar beds. The series of
+entombed forests affords a means of making at least a rough estimate of
+the time required for the upbuilding of what is now Specimen Ridge and
+its extensions. (See p. 27.)
+
+During the time this 2,000 feet of material was being accumulated, and
+since then to the present day, there has been relatively little warping
+of the earth’s crust at this point; that is, the beds were then, and
+still are, practically horizontal, so that the fossil forests, as they
+are being gradually uncovered, still stand upright.
+
+When the volcanic activities had finally ceased, the ever-working
+disintegrating forces of nature began to tear and wear down this
+accumulated material, eroding the beds on a grand scale. Deep canyons
+and gulches have been trenched, and vast quantities of the softer
+materials have been carried away by the streams and again deposited on
+lower levels or transported to great and unknown distances.
+
+As the material in which the fossil forests are now entombed consist of
+ashes, mud flows, breccia, and the like, not all the beds are of the
+same texture end hardness, so that erosion has acted unevenly on them
+and has produced many peculiar rock forms. The grotesque so-called
+“hoodoos” have been carved out in this manner. The fossil trunks, being
+usually harder than the surrounding matrix in which they are embedded,
+have more firmly resisted erosion and now project to different heights
+above the general level. In exposed beds that are nearly or quite
+horizontal, disintegration has acted at nearly equal pace on the trunks
+and on the matrix, so that the trunks are nearly or quite on a level
+with the surrounding surface. On steep hillsides, however, from which
+all loose material is easily and quickly removed, some of the fossil
+trunks stand up to a height of 20 or 30 feet. If the beds had been
+tilted at a considerable angle, these trunks could project from the
+surface for only a short distance before their weight would break them
+off, showing again the remarkably stable conditions that have continued
+since the trunks were covered up.
+
+
+
+
+                           AMETHYST MOUNTAIN.
+
+
+The fossil forest that was first brought to scientific attention is on
+the northern slope of Amethyst Mountain, opposite the mouth of Soda
+Butte Creek, 12 miles southeast of Camp Roosevelt. The following
+account, by Dr. William H. Holmes, the discoverer of these fossil
+forests, shows the impression first made by them:
+
+  As we ride up the trail that meanders the smooth river bottom [Lamar
+  River] we have but to turn our attention to the cliffs on the right
+  hand to discover a multitude of the bleached trunks of the ancient
+  forests. In the steeper middle portion of the mountain face, rows of
+  upright trunks stand out on the ledges like the columns of a ruined
+  temple. On the more gentle slopes farther down, but where it is still
+  too steep to support vegetation, save a few pines, the petrified
+  trunks fairly cover the surface, and were at first supposed by us to
+  be shattered remains of a recent forest.[2]
+
+These trunks may easily be seen from the road along the Lamar River,
+about a mile away. They stand upright—as Holmes has said, like the
+pillars of some ruined temple—and a closer view shows that there is a
+succession of these forests, one above another. In the foothills and
+several hundred feet above the valley there is a perpendicular wall of
+volcanic breccia, which in some places attains a height of nearly 100
+feet. The fossil trunks may be seen in this wall in many places, all of
+them standing upright, in the position in which they grew. Some of these
+trunks, which are 2 to 4 feet in diameter and 20 to 40 feet high, are so
+far weathered out of the rock as to appear just ready to fall: others
+are only slightly exposed: niches mark the places from which others have
+already fallen: and the foot of the cliff is piled high with fragments
+of various sizes.
+
+Above this cliff fossil trunks appear in great numbers and in regular
+succession. As they are all perfectly silicified, they are more
+resistant than the surrounding matrix and consequently stand above it.
+Most of them are only a few inches above the surface, but occasionally
+one rises as high as 5 or 6 feet. The largest trunk observed in the park
+is found in this locality. It is a little over 10 feet in diameter, a
+measurement that includes a part of the bark. It is very much broken
+down, especially in the interior, probably having been so disintegrated
+before it was fossilized. It projects about 6 feet above the surface.
+
+At many places about Amethyst Mountain there are numerous fragments of
+fossil wood and many hollow trunks. The material in which they had been
+embedded has been eroded away, and they lie around in somewhat the same
+attitudes that are shown by all the trunks in the Arizona fossil
+forests, but there is little doubt that they were originally erect and
+have simply fallen by their own weight because of the removal of the
+material around them.
+
+Many of the trunks here, as well as elsewhere in the park, had decayed
+in the center before they were fossilized, and some of the hollow
+interiors are filled with clusters and rosettes of beautiful crystals of
+amethyst, which doubtless suggested the name given to the adjacent
+mountain. Much of this finely preserved wood, as well as the trunks
+containing the crystals of amethyst, was broken up and carried away by
+collectors of minerals and curiosities before the Government control in
+the park was made sufficiently rigid to insure proper protection.
+
+
+
+
+                            SPECIMEN RIDGE.
+
+
+In many respects the most remarkable of the fossil forests is on the
+northwest end of Specimen Ridge, about a mile southeast of Junction
+Butte and about opposite the mouth of Slough Creek. So far as known,
+this forest was first brought to scientific attention by Mr. E. C.
+Alderson, of Bozeman, Mont., and the writer, who discovered it in
+August, 1887. It is found on the higher part of the ridge, and covers
+several acres. The trees are exposed at various heights on the very
+steep hillsides, and one remarkable feature of the forest is that most
+of them project well above the surface.
+
+One of the largest and best preserved trees stands at the very summit of
+the slope (see title page). This trunk, which is that of a giant
+redwood, is 26½ feet in circumference without the bark and about 12 feet
+in height. The portion of this huge trunk preserved is the base, and it
+exhibits to a considerable degree the swelling or buttressing so well
+known in the living redwood. The roots, which are as large as the trunks
+of ordinary trees, are now embedded in solid rock.
+
+    [Illustration: Fig. 5.—Upright trunks in Specimen Ridge fossil
+    forest.]
+
+On the steep hillside a short distance below the big tree just mentioned
+are the two trunks shown in figure 5. They are about 2 feet in diameter
+and 25 feet high, and stand some 20 feet apart, and we may imagine them
+to have formed the doorposts of the “ancient temple” of which Holmes
+speaks. Both these trunks are without the bark. On the left of the
+figure is one of the huge irregular masses of rock that has been carved
+out by erosion.
+
+    [Illustration: Fig. 6.—Trunk of fossil pine showing bark. Specimen
+    Ridge fossil forest.]
+
+In figure 6 is shown another trunk about 3 feet in diameter and nearly
+30 feet high. In several places along the trunk the thick bark may be
+noted. This tree is a pine, as are the two last described, and slightly
+below and behind it are two living pine trees, which are about the size
+it must have been when living. Another trunk, some 12 feet in height, is
+shown in figure 7, and in figure 8 there may be noted a standing trunk
+and above it another that has recently fallen.
+
+    [Illustration: Fig. 7.—Trunk showing bark. Specimen Ridge fossil
+    forest.]
+
+    [Illustration: Fig. 8.—Upright and prostrate trunks, Specimen Ridge
+    fossil forest.]
+
+The height attained by the trees of this fossil forest can not be
+ascertained with certainty, since the tallest trunk now standing is only
+about 30 feet high, but every one observed is obviously broken off, and
+does not show even the presence of limbs. Perhaps the nearest approach
+to a measure of the height is afforded by a trunk (shown in fig. 10)
+that happened to have been prostrated before fossilization. This trunk,
+which is 4 feet in diameter, is exposed for a length of about 40 feet,
+and as it shows no apparent diminution in size within this distance it
+is safe to assume that the tree could hardly have been less than 100
+feet high and very probably may have been higher. This trunk is
+wonderfully preserved. As may be seen from the illustration, it has
+broken up by splitting along the grain of the wood into great numbers of
+little pieces, which closely resemble pieces of “kindling wood” split
+from a clear-grained block. In fact, at a distance of a few yards it
+would be impossible to distinguish this fossil “kindling wood” from that
+split from a living tree.
+
+    [Illustration: Fig. 10.—Prostrate trunk of fossil redwood, Specimen
+    Ridge fossil forest.]
+
+The large redwood trunk already mentioned (title-page) as being nearly
+10 feet in diameter may be compared with its living relative of the
+Pacific coast in order to calculate its probable height. The living
+redwood is usually 10 to 15 feet in diameter and ranges in height from
+200 to 310 feet, and as the two are so very closely related there is no
+reason to suppose that the fossil trunk was of less height, but by a
+moderate estimate it may be accredited with a minimum height of 200
+feet.
+
+    [Illustration: MAP OF YELLOWSTONE NATIONAL PARK
+    Norris O Denotes Ranger Station
+    ←Direction of Travel
+    Distances given are between main points by road
+    NOTE THE MILE-POST SIGNS]
+
+
+
+
+                              TOWER FALLS.
+
+
+The most accessible fossil forest, marked "Petrified Trees" on the map,
+is west of the Tower Falls Ranger Station and Camp Roosevelt on the road
+from the Grand Canyon to Mammoth Hot Springs, by way of Mount Washburn.
+It is on the middle slope of a hill that rises about 1,000 feet above
+the little valley and may be reached by a branch road from the main loop
+road. As the traveler approaches the forest he will observe a number of
+trunks standing upright among the stumps and trunks of living trees, and
+so much resembling them that a near view is necessary to convince him
+that they are really fossil trunks. Only two rise to a considerable
+height above the surface. The larger one is about 15 feet high and 13
+feet in circumference (fig. 11): the other is a little smaller. As the
+roots are not exposed, it is impossible to determine the position of the
+part in view or the original diameter of the trees, as the bark is
+nowhere preserved.
+
+    [Illustration: Fig. 11.—Fossil trunk near Tower Falls.
+    Photograph by F. J. Haynes.]
+
+Above these standing trunks lie many others, which the disintegrating
+forces of nature break up into small fragments and keep at about the
+same level as that of their surrounding matrix. Some of these trunks
+rise only a few inches from the surface: others are nearly covered by
+shifting débris. Their diameter ranges from 1 to 14 feet, and they are
+so perfectly preserved that the rings of growth can easily be counted.
+The internal structure is also in most trunks nearly as perfect as when
+the trees were living.
+
+
+
+
+                              CACHE CREEK.
+
+
+The forest that is next in size to the one a mile southeast of Junction
+Butte is on Cache Creek, about 7 miles above its mouth. It is on the
+south bank of the creek and covers several acres. The trunks are
+scattered from bottom to top of the slopes through a height of probably
+800 feet. Most of the trunks are upright, but only a few project more
+than 2 or 3 feet above the surface. The largest one observed was 6 feet
+in height and 4 feet in diameter. Most of these trunks appear to the
+naked eye to be conifers, but a number are obviously dicotyledons—that
+is, they were deciduous-leaved trees. The conifers, however, were the
+predominant element in this as in the other fossil forests.
+
+The slopes of the Thunderer, the mountain so prominently in view from
+Soda Butte on the south, also bear numerous fossil trunks. Most of them
+are upright, but only a very few project more than 2 feet above the
+surface. No remarkably large trunks were observed at this locality, the
+average diameter being perhaps less than 2 feet.
+
+
+
+
+                           OTHER LOCALITIES.
+
+
+Mount Norris, which is hardly to be separated from the Thunderer, also
+bears a small fossil forest. The trees are of about the same size and
+character as those in the larger mountain. Fossil forests of greater or
+less extent, composed mainly of upright trunks, are exposed also on
+Baronett Peak, Bison Peak, Abiathar Peak, Crescent Hill, and Miller
+Creek. In fact, there is hardly a square mile of the area of the
+northeastern portion of the park that is without its fossil forest,
+scattered trunks, or erratic fragments.
+
+The vast area east of the Yellowstone Lake and the region still farther
+east, beyond the limits of the park, have not been thoroughly explored,
+but enough is known to make it certain that these areas contain more or
+less fossil wood. The stream beds in these areas in many places contain
+fragments of fossil wood, which indicates that trunks of trees must be
+near at hand.
+
+
+
+
+                     THE PROCESS OF FOSSILIZATION.
+
+
+The manner in which these forests were fossilized may next be
+considered. Though the whole history of the process is not fully
+understood, it was undoubtedly dependent on or at least greatly
+facilitated by the presence of volcanic and hydrothermal activity, which
+was doubtless then, as it is to some extent now, a marked feature of the
+park region. At least a hint of the probable process is afforded by the
+action now going on in the hot spring areas. Many of those areas are
+closely surrounded by forests, and unless the action of the springs is
+very violent the trees may be growing only a short distance away.
+Occasionally a hot spring may break out near the edge of a forest, the
+first effect being, of course, to kill the trees. In a few years, by the
+action of the ordinary processes of decay, a tree so killed may have
+lost its bark and most of its smaller branches. The hot water which
+constantly or intermittently surrounds the tree contains a considerable
+amount of silica in solution, and as this hot silica-charged water is
+drawn up into the wood by capillarity the silica may be deposited in the
+cells of the wood after the water cools or evaporates. The first result
+will be a more or less complete cast of the interior of the cells and
+vessels of the wood. This much of the process has actually been
+observed, but as decay is more rapid than silicification, the wood
+crumbles to dust before petrifaction is complete. If the trunk could be
+surrounded by ashes or mud and thus protected from atmospheric action,
+it might in time be completely turned to stone.
+
+The fossil forests are surrounded by a matrix that is known as an acidic
+lava—that is, a siliceous lava—which contains abundant silica in
+solution. The first part of the process of silicification may well have
+been that above described as taking place in the hot spring areas at the
+present day—that is, the silica would be deposited in all the cells and
+vessels of the wood, making an accurate cast of all open spaces. Then,
+while the slow process of decay went on, as each particle of organic
+matter was removed its place was taken by the silica, until, finally,
+all the wood substance had disappeared and its place atom by atom had
+been taken by silica.
+
+By this or a similar process the wood has been preserved or fossilized
+with remarkable fidelity: in fact, thin sections or slices of the fossil
+wood may be studied under the higher powers of the microscope with
+almost or quite as much completeness and satisfaction as if they were
+sections cut from a piece of living wood. Each cell and vessel, with its
+characteristic pits and markings, is preserved exactly as it grew. Some
+of the wood, however, was evidently more or less decayed before it was
+fossilized, or else decay worked faster than replacement, so that in
+some fragments the structure is not so clearly preserved. Many of the
+trunks were subjected to pressure before replacement was complete, and
+this has crushed or distorted the cells. On the whole, however, the wood
+is exceptionally well preserved, as may be seen in figures 12, 13, 14,
+and 15. These are all magnified 100 diameters and were photographed
+directly from the thin sections—that is, they are photomicrographs—and
+have not been retouched in any manner. Figure 12 shows a transverse
+section of the wood of the large redwood trunk that has been so often
+mentioned (see title page). The section is cut through one of the growth
+rings, which consists of 12 or 15 rows of very thick-walled cells. The
+large, regular thin-walled cells, which begin abruptly above the growth
+ring, belong to the spring wood—that is, the wood first formed after
+growth starts in spring, when the supply of nourishment is abundant. If
+there is sufficient moisture and all conditions are favorable this
+vigorous growth of wood cells may continue without interruption until
+the approach of cold or dry weather, but not infrequently there may be a
+brief shortage of moisture, and this is reflected in the formation of a
+few rows of thicker-walled cells. Such a condition may be observed in
+the present specimen, in which a slight, partial ring may be seen at
+some distance above the main ring.
+
+    [Illustration: Fig. 12.—Thin section of wood of fossil redwood
+    (Sequoia magnifica), showing growth ring. Section transverse.
+    Magnified 100 diameters.]
+
+    [Illustration: Fig. 13.—Thin section of wood of fossil pine
+    (Pityoxylon amethystinum), showing growth ring and resin tube.
+    Section transverse. Magnified 100 diameters.]
+
+    [Illustration: Fig. 14.—Thin section of wood of fossil pine
+    (Pityoxylon aldersoni), showing medullary rays and resin tube.
+    Section tangential. Magnified 100 diameters.]
+
+    [Illustration: Fig. 15.—Thin section of wood of fossil laurel
+    (Laurinoxylon pulchrum), showing wood cells, tubes, and rays.
+    Section longitudinal. Magnified 100 diameters.]
+
+The very perfect preservation of the wood of one of the pines
+(_Pityoxylon amethystinum_) is shown in figure 13, a view of a section
+cut through a part of a growth ring and into the spring and summer wood,
+the rings in this species being so broad that it is impossible to show a
+complete one. The opening near the bottom of the figure shows one of the
+large resin ducts, which, in the living wood, is filled with the “pitch”
+that so readily exudes when a branch is cut or broken. A longitudinal
+section of the other species of pine (_Pityoxylon aldersoni_) is shown
+in figure 14. The many little rows of superimposed cells in the midst of
+the long wood cells are the cut-off ends of what are known as medullary
+rays—that is, the little plates of cells that connect pith and bark. One
+of the resin cells cut in the long direction is shown near the center of
+the figure; the contents are much darker than that of the wood cells.
+
+The very great difference between the sections of coniferous wood just
+described and the wood of a deciduous tree is brought out in figure 15,
+which is a longitudinal section of a laurel (_Laurinoxylon pulchrum_).
+In this the wood cells are relatively much smaller and shorter, and the
+medullary rays are in several irregular rows. The large dotted duct near
+the middle of the figure is a feature not present in coniferous trees.
+
+
+
+
+                          SPECIES REPRESENTED.
+
+
+An enumeration of the kinds of trees that are represented by the woods
+in the fossil forests of the Yellowstone National Park will naturally be
+demanded. A superficial or macroscopic examination of these trunks would
+not permit a close decision as to the kind of wood: in fact, it would
+hardly be possible to do more than separate them by this means into
+coniferous and dicotyledonous trees. But by studying thin sections under
+the microscope it is possible to distinguish the different kinds with
+reasonable accuracy. As the result of such study the following species
+have been detected:
+
+  Magnificent redwood (Sequoia magnifica).
+  Alderson’s pine (Pityoxylon aldersoni).
+  Amethyst pine (Pityoxylon amethystinum).
+  Laurel (Laurinoxylon pulchrum).
+  Aromatic bay (Perseoxylon aromaticum),
+  Hayden’s sycamore (Plantaninium haydeni).
+  Knowlton’s sycamore (Plantaninium knowltoni).
+  Felix’s buckthorn (Rhamnacinium radiatum).
+  Lamar oak (Quercinium lamarense).
+  Knowlton’s oak (Quercinium knowltoni).
+
+Although only three kinds of coniferous trees have thus far been found
+in the fossil forests of the park, fully 95 per cent of all the trunks
+belong to these three species. The preponderance of conifers is probably
+due to the facts that they were presumably more abundant in the
+beginning, and that, in general, coniferous wood decays less rapidly
+than that of most of deciduous-leaved trees. But the conditions were so
+favorable for preserving any wood that it is perhaps strange that not
+more trunks of deciduous-leaved trees have been found there. As it is,
+however, a greater number are known from the park than from any other
+region. Thus, the Arizona fossil forests embraced only two species of
+deciduous-leaved trees: the Calistoga (California) wood only one
+species, and the forest at Cairo, Egypt, only four species.
+
+The 10 species of trees represented in the fossil forests of the park
+are by no means the only fossil plants that have been found. The
+fine-grained ashes and volcanic mud in which the forests were entombed
+contain also great numbers of impressions of plants, many of them very
+perfectly preserved. Most of these are impressions of foliage, such as
+fronds and leaves, but they include also roots, stems, branches,
+fruiting organs, and even what is believed to be the petals of a large
+magnolia flower. About 150 different kinds of fossil plants have been
+found in the park, 80 in the same beds with the forests, and most of the
+others in slightly higher and younger beds. The list embraces 10 ferns,
+among them a fine chain fern (Woodwardia), several aspleniums, and a
+beautiful little climbing fern (Lygodium). The horse-tails (Equisetum)
+are represented by 4 species. The conifers include no less than 6
+species of pines (Pinus), a yew (Taxodium), and 2 sequoias. These have
+been identified either from the foliage or the cones, and it is more
+than likely that some of the specimens may represent organs that
+belonged to trees represented by the fossil trunks, but as they have
+never been found connected they have been described separately. The
+monocotyledons, or plants with parallel-veined leaves, are represented
+by only a few forms, such as a single large grass (Phragmites), a few
+sedges (Cyperacites), a smilax, and a curious broad-leaved banana-like
+plant (Musophyllum). The dicotyledons, or deciduous-leaved plants, make
+up the bulk of the flora and include walnuts (Juglans), hickory nuts
+(Hicoria), bay berries (Myrica), poplars (Populus), willows (Salix),
+birches (Betula), hazel nuts (Corylus), beech nuts (Fagus), chestnuts
+(Castanea), oaks (Quercus), elms (Ulmus), figs (Ficus), breadfruits
+(Artocarpus), magnolias (Magnolia), laurels (Laurus), bays (Persea),
+cinnamons (Cinnamomum), sycamores (Plantanus), acacias (Acacia), sumachs
+(Rhus), bittersweet (Celastrus), maples (Acer), soap berries (Sapindus),
+buckthorns (Rhammus), grapes (Cissus), basswood (Tilia), aralias
+(Aralia), dogwoods (Cornus), persimmons (Diospyros), ash (Fraxinus), and
+a number of others without vernacular names.
+
+
+
+
+                    COMPARISON WITH LIVING FORESTS.
+
+
+A brief comparison of the fossil forests with the forests now living in
+the Yellowstone National Park may be of some interest. The present
+forests are prevailingly coniferous, the most abundant and widely
+distributed tree being the lodgepole pine (_Pinus murrayana_), which
+forms dense forests over much of the plateau region. It is distinguished
+by having the leaves in clusters of two. It is a tree with a slender
+trunk, usually 70 or 80 feet high, though in exceptionally favorable
+localities it may reach a height of 150 feet. Its diameter rarely
+exceeds 2 or 3 feet. The areas ravaged by forest fires are usually
+reforested by this pine alone, and the young trees come up so close
+together as to form thickets that can scarcely be penetrated.
+
+There are two other pines in the park, both white pines, allied to the
+common white pine of the Eastern States, and like it both have the
+leaves in clusters of 5. One, known as the Rocky Mountain white pine
+(_Pinus flexilis_) is a small tree, only 40 or 50 feet in height, and
+usually grows singly or in small groves. The other, called the Western
+white pine (_Pinus albicaulis_), is still smaller, being usually 20 to
+30 feet high, and has a short trunk some 2 to 4 feet in diameter. It
+grows on high slopes and exposed ridges.
+
+Perhaps next in abundance to the lodgepole pine is the white or
+Engelmann spruce (_Picea engelmanni_), a tall, handsome tree with
+disagreeable smelling foliage. Another rather abundant tree is the
+Douglas spruce, or red fir (_Pseudotsuga mucronata_), which, where best
+developed on the Pacific coast, attains a height of 200 feet, though in
+the drier interior it is rarely over 80 or 100 feet high. There are also
+two species of fir, the white fir (_Abies grandis_) and the Balsam fir
+(_Abies lasiocarpa_), and a single juniper (_Juniperus communis
+siberica_), which is often scarcely more than a shrub.
+
+The deciduous-leaved trees are almost a negligible element in the
+present park flora, being confined to an occasional cottonwood (_Populus
+angustifolia_) at the lower elevations, along the Yellowstone River, and
+small groves of the quaking aspen (_Populus tremuloides_). Along the
+streams and in wet places there are many species of willow (Salix) and
+several alders (Alnus), and in mountain bogs and valleys there is a
+small birch (_Betula glandulosa_). There are, of course, many small
+shrubs, such as gooseberries, currants, and roses.
+
+
+
+
+                       AGE OF THE FOSSIL FORESTS.
+
+
+The question is often asked, How old are the fossil forests? It is, of
+course, impossible to fix their age exactly in years, though it is easy
+enough to place them in the geologic time scale. The stratified rocks
+that make up the crust of the earth, from the oldest we know to the most
+recent, have been divided by geologists into a number of major divisions
+or systems, each—except perhaps the oldest—containing the remains of
+certain kinds of plants and animals. The accompanying diagram (fig. 16),
+shows these major time divisions, arranged in their proper sequence from
+the lowest to the highest. The star (*) in this geologic time scale
+indicates the age of the rocks in which the fossil forests were
+entombed. It shows that they were buried during the Tertiary period.
+This period is divided into four epochs, the oldest called Eocene,
+having been succeeded in turn by the Oligocene, the Miocene, and the
+Pliocene, which just precedes the Pleistocene or glacial epoch. The
+forests of the Yellowstone National Park are found in the Miocene series
+of the Tertiary. As compared with the eons of geologic time that
+preceded it the Miocene is relatively very recent, though, if the
+various estimates of the age of the earth that have been made by
+geologists are anywhere near correct it may well have been a million
+years ago. It must be remembered, however, that this estimate involves
+more or less speculation based on a number of factors which may or may
+not have been correctly interpreted.
+
+A study of the fossil trees themselves gives at least a rough
+approximation as to the length of time it may have taken to accumulate
+the beds in which they are now buried. As already mentioned, there is a
+succession of forests, one above another, through a thickness of 2,000
+feet of strata. The unit of the measure of the time is the time taken by
+each forest to grow. Pine trees of the types represented in the fossil
+trunks require 200 or 300 years to reach maturity, and redwoods may
+require from 500 to 1,000 years. Twelve or more of these forest levels
+have been found. By multiplying this number by the minimum age of the
+trees (200 years) we shall have 2,400 years, and by multiplying it by
+the maximum age of the redwood (1,000 years) we shall have 12,000 years
+as the possible time during which these forests flourished. It is
+possible that the truth lies somewhere between these extremes.
+
+            Fig. 16.—Geologic divisions.
+       Era.            Period.          Epoch.
+
+  Cenozoic.        Quaternary.      Recent.
+                                    Pleistocene
+                                    (glacial).
+                   *Tertiary.       Pliocene.
+                                    *Miocene.
+                                    Oligocene.
+                                    Eocene.
+  Mesozoic.        Cretaceous.
+                   Jurassic.
+                   Triassic.
+  Paleozoic.       Carboniferous.
+                   Devonian.
+                   Silurian.
+                   Ordovician.
+  Proterozoic.     Cambrian.
+                   Algonkian.
+                   Archean.
+
+
+
+
+              CLIMATE DURING THE LIFE OF THE FOSSIL TREES.
+
+
+A final word may be added regarding the probable climate of the region
+during the lifetime of these fossil forests. It is obvious that the
+present flora of the Yellowstone National Park has comparatively little
+relation to the Tertiary flora and can not be considered the descendant
+of it. It is also clear that the climatic conditions must have greatly
+changed since Tertiary time. The Tertiary flora appears to have come
+from the south, but the present flora is evidently of more northern
+origin. The climate during Tertiary time, as indicated by the
+vegetation, was temperate or warm-temperate, not unlike that of Virginia
+or the Carolinas at the present time, and the presence of numerous
+species of figs, a supposed bread-fruit tree, cinnamons, bays, and other
+southern plants indicates that it may have been almost subtropical.
+However, the conditions that were favorable to this seemingly
+subtropical growth may have been different from the conditions now
+necessary for the growth of similar vegetation. It may be that these
+supposed subtropical plants were at that time so constituted as to grow
+in a temperate land, and that they may have become tropical in recent
+times. Following this general line of thought it may be said that
+although the Tertiary vegetation of the Yellowstone National Park would
+now be regarded as indicating a temperate or even warmer climate, the
+actual climate may not have been subtropical. It is certain, however,
+that the conditions were very different from those now prevailing in the
+park.
+
+
+
+
+               PUBLICATIONS ON YELLOWSTONE NATIONAL PARK.
+
+
+             DISTRIBUTED FREE BY THE NATIONAL PARK SERVICE.
+
+The following publication may be obtained free on written application to
+the Director of the National Park Service:
+
+Circular of General Information, Yellowstone National Park (issued
+      yearly). This pamphlet contains general information of interest to
+      the tourist.
+
+
+              SOLD BY THE SUPERINTENDENT OF DOCUMENTS.[3]
+
+The following publications may be obtained from the Superintendent of
+Documents, Government Printing Office, Washington, D. C., at the prices
+given. Remittances should be made by money order or in cash:
+
+National Park Portfolio, by Robert Sterling Yard. 270 pages, including
+      310 illustrations. Bound securely in cloth, $1.
+
+  Contains nine chapters, each descriptive of a national park and one
+  larger chapter devoted to other national parks and monuments.
+
+Geological History of Yellowstone National Park, by Arnold Hague, 22
+      pages, including 10 illustrations, 10 cents.
+
+  This pamphlet contains a general résumé of the geologic forces that
+  have been active in the Yellowstone National Park.
+
+Geysers of the Yellowstone National Park, by Walter Harvey Weed, 32
+      pages, including 23 illustrations, 10 cents.
+
+  In this pamphlet is a description of the forces which have produced
+  the geysers, and the geysers of the Yellowstone are compared with
+  those in Iceland and New Zealand.
+
+Fossil Forests of the Yellowstone National Park, by F. H. Knowlton, 30
+      pages, including 15 illustrations, 10 cents. (This publication.)
+
+  This pamphlet contains descriptions of the fossil forests of the
+  Yellowstone National Park and an account of their origin.
+
+Fishes of the Yellowstone National Park, by W. C. Kendall (Bureau of
+      Fisheries Document 818.) 28 pages, including 17 illustrations, 5
+      cents.
+
+  Contains descriptions of the species and lists of streams where found.
+
+
+                                MAP.[3]
+
+A topographic map of the park may be purchased from the Director of the
+Geological Survey, Washington, D. C., at the price given. Remittances
+should be made by cash or money order.
+
+Map of Yellowstone National Park. size 28½ by 32 inches; scale, 2 miles
+      to the inch. Price, 25 cents.
+
+  The roads, trails, and names are put in black, the streams and lakes
+  in blue, and the relief is indicated by brown contour lines.
+
+
+
+
+                               FOOTNOTES
+
+
+[1]Hague, Arnold, Early Tertiary Volcanoes of the Absaroka Range: Geol.
+    Soc. Wash., Presidential Address, 1899, p. 4.
+
+[2]Holmes, W. H., Twelfth Ann. Rept. U. S. Geol. and Geogr. Surv. Terr.,
+    1878 (1883) p. 48.
+
+[3]May be purchased by personal application at the information office in
+    the park, at Mammoth Hot Springs, but that office can not fill mail
+    orders.
+
+
+
+
+                          Transcriber’s Notes
+
+
+—Silently corrected a few typos.
+
+—Retained publication information from the printed edition: this eBook
+  is public-domain in the country of publication.
+
+—In the text versions only, text in italics is delimited by
+  _underscores_.
+
+
+
+
+
+
+
+End of the Project Gutenberg EBook of Fossil Forests of the Yellowstone
+National Park, by Frank Hall Knowlton
+
+*** END OF THIS PROJECT GUTENBERG EBOOK FOSSIL FORESTS OF THE ***
+
+***** This file should be named 63519-0.txt or 63519-0.zip *****
+This and all associated files of various formats will be found in:
+        http://www.gutenberg.org/6/3/5/1/63519/
+
+Produced by Stephen Hutcheson and the Online Distributed
+Proofreading Team at https://www.pgdp.net (This file was
+produced from images generously made available by The
+Internet Archive/American Libraries.)
+
+
+Updated editions will replace the previous one--the old editions
+will be renamed.
+
+Creating the works from public domain print editions means that no
+one owns a United States copyright in these works, so the Foundation
+(and you!) can copy and distribute it in the United States without
+permission and without paying copyright royalties.  Special rules,
+set forth in the General Terms of Use part of this license, apply to
+copying and distributing Project Gutenberg-tm electronic works to
+protect the PROJECT GUTENBERG-tm concept and trademark.  Project
+Gutenberg is a registered trademark, and may not be used if you
+charge for the eBooks, unless you receive specific permission.  If you
+do not charge anything for copies of this eBook, complying with the
+rules is very easy.  You may use this eBook for nearly any purpose
+such as creation of derivative works, reports, performances and
+research.  They may be modified and printed and given away--you may do
+practically ANYTHING with public domain eBooks.  Redistribution is
+subject to the trademark license, especially commercial
+redistribution.
+
+
+
+*** START: FULL LICENSE ***
+
+THE FULL PROJECT GUTENBERG LICENSE
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full Project
+Gutenberg-tm License (available with this file or online at
+http://gutenberg.org/license).
+
+
+Section 1.  General Terms of Use and Redistributing Project Gutenberg-tm
+electronic works
+
+1.A.  By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement.  If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or destroy
+all copies of Project Gutenberg-tm electronic works in your possession.
+If you paid a fee for obtaining a copy of or access to a Project
+Gutenberg-tm electronic work and you do not agree to be bound by the
+terms of this agreement, you may obtain a refund from the person or
+entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B.  "Project Gutenberg" is a registered trademark.  It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement.  There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement.  See
+paragraph 1.C below.  There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this agreement
+and help preserve free future access to Project Gutenberg-tm electronic
+works.  See paragraph 1.E below.
+
+1.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
+or PGLAF), owns a compilation copyright in the collection of Project
+Gutenberg-tm electronic works.  Nearly all the individual works in the
+collection are in the public domain in the United States.  If an
+individual work is in the public domain in the United States and you are
+located in the United States, we do not claim a right to prevent you from
+copying, distributing, performing, displaying or creating derivative
+works based on the work as long as all references to Project Gutenberg
+are removed.  Of course, we hope that you will support the Project
+Gutenberg-tm mission of promoting free access to electronic works by
+freely sharing Project Gutenberg-tm works in compliance with the terms of
+this agreement for keeping the Project Gutenberg-tm name associated with
+the work.  You can easily comply with the terms of this agreement by
+keeping this work in the same format with its attached full Project
+Gutenberg-tm License when you share it without charge with others.
+
+1.D.  The copyright laws of the place where you are located also govern
+what you can do with this work.  Copyright laws in most countries are in
+a constant state of change.  If you are outside the United States, check
+the laws of your country in addition to the terms of this agreement
+before downloading, copying, displaying, performing, distributing or
+creating derivative works based on this work or any other Project
+Gutenberg-tm work.  The Foundation makes no representations concerning
+the copyright status of any work in any country outside the United
+States.
+
+1.E.  Unless you have removed all references to Project Gutenberg:
+
+1.E.1.  The following sentence, with active links to, or other immediate
+access to, the full Project Gutenberg-tm License must appear prominently
+whenever any copy of a Project Gutenberg-tm work (any work on which the
+phrase "Project Gutenberg" appears, or with which the phrase "Project
+Gutenberg" is associated) is accessed, displayed, performed, viewed,
+copied or distributed:
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license
+
+1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
+from the public domain (does not contain a notice indicating that it is
+posted with permission of the copyright holder), the work can be copied
+and distributed to anyone in the United States without paying any fees
+or charges.  If you are redistributing or providing access to a work
+with the phrase "Project Gutenberg" associated with or appearing on the
+work, you must comply either with the requirements of paragraphs 1.E.1
+through 1.E.7 or obtain permission for the use of the work and the
+Project Gutenberg-tm trademark as set forth in paragraphs 1.E.8 or
+1.E.9.
+
+1.E.3.  If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any additional
+terms imposed by the copyright holder.  Additional terms will be linked
+to the Project Gutenberg-tm License for all works posted with the
+permission of the copyright holder found at the beginning of this work.
+
+1.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.
+
+1.E.5.  Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.
+
+1.E.6.  You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including any
+word processing or hypertext form.  However, if you provide access to or
+distribute copies of a Project Gutenberg-tm work in a format other than
+"Plain Vanilla ASCII" or other format used in the official version
+posted on the official Project Gutenberg-tm web site (www.gutenberg.org),
+you must, at no additional cost, fee or expense to the user, provide a
+copy, a means of exporting a copy, or a means of obtaining a copy upon
+request, of the work in its original "Plain Vanilla ASCII" or other
+form.  Any alternate format must include the full Project Gutenberg-tm
+License as specified in paragraph 1.E.1.
+
+1.E.7.  Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8.  You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works provided
+that
+
+- You pay a royalty fee of 20% of the gross profits you derive from
+     the use of Project Gutenberg-tm works calculated using the method
+     you already use to calculate your applicable taxes.  The fee is
+     owed to the owner of the Project Gutenberg-tm trademark, but he
+     has agreed to donate royalties under this paragraph to the
+     Project Gutenberg Literary Archive Foundation.  Royalty payments
+     must be paid within 60 days following each date on which you
+     prepare (or are legally required to prepare) your periodic tax
+     returns.  Royalty payments should be clearly marked as such and
+     sent to the Project Gutenberg Literary Archive Foundation at the
+     address specified in Section 4, "Information about donations to
+     the Project Gutenberg Literary Archive Foundation."
+
+- You provide a full refund of any money paid by a user who notifies
+     you in writing (or by e-mail) within 30 days of receipt that s/he
+     does not agree to the terms of the full Project Gutenberg-tm
+     License.  You must require such a user to return or
+     destroy all copies of the works possessed in a physical medium
+     and discontinue all use of and all access to other copies of
+     Project Gutenberg-tm works.
+
+- You provide, in accordance with paragraph 1.F.3, a full refund of any
+     money paid for a work or a replacement copy, if a defect in the
+     electronic work is discovered and reported to you within 90 days
+     of receipt of the work.
+
+- You comply with all other terms of this agreement for free
+     distribution of Project Gutenberg-tm works.
+
+1.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
+electronic work or group of works on different terms than are set
+forth in this agreement, you must obtain permission in writing from
+both the Project Gutenberg Literary Archive Foundation and Michael
+Hart, the owner of the Project Gutenberg-tm trademark.  Contact the
+Foundation as set forth in Section 3 below.
+
+1.F.
+
+1.F.1.  Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+public domain works in creating the Project Gutenberg-tm
+collection.  Despite these efforts, Project Gutenberg-tm electronic
+works, and the medium on which they may be stored, may contain
+"Defects," such as, but not limited to, incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other intellectual
+property infringement, a defective or damaged disk or other medium, a
+computer virus, or computer codes that damage or cannot be read by
+your equipment.
+
+1.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees.  YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3.  YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from.  If you
+received the work on a physical medium, you must return the medium with
+your written explanation.  The person or entity that provided you with
+the defective work may elect to provide a replacement copy in lieu of a
+refund.  If you received the work electronically, the person or entity
+providing it to you may choose to give you a second opportunity to
+receive the work electronically in lieu of a refund.  If the second copy
+is also defective, you may demand a refund in writing without further
+opportunities to fix the problem.
+
+1.F.4.  Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS' WITH NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5.  Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of damages.
+If any disclaimer or limitation set forth in this agreement violates the
+law of the state applicable to this agreement, the agreement shall be
+interpreted to make the maximum disclaimer or limitation permitted by
+the applicable state law.  The invalidity or unenforceability of any
+provision of this agreement shall not void the remaining provisions.
+
+1.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in accordance
+with this agreement, and any volunteers associated with the production,
+promotion and distribution of Project Gutenberg-tm electronic works,
+harmless from all liability, costs and expenses, including legal fees,
+that arise directly or indirectly from any of the following which you do
+or cause to occur: (a) distribution of this or any Project Gutenberg-tm
+work, (b) alteration, modification, or additions or deletions to any
+Project Gutenberg-tm work, and (c) any Defect you cause.
+
+
+Section  2.  Information about the Mission of Project Gutenberg-tm
+
+Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of computers
+including obsolete, old, middle-aged and new computers.  It exists
+because of the efforts of hundreds of volunteers and donations from
+people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need, are critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come.  In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future generations.
+To learn more about the Project Gutenberg Literary Archive Foundation
+and how your efforts and donations can help, see Sections 3 and 4
+and the Foundation web page at http://www.pglaf.org.
+
+
+Section 3.  Information about the Project Gutenberg Literary Archive
+Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service.  The Foundation's EIN or federal tax identification
+number is 64-6221541.  Its 501(c)(3) letter is posted at
+http://pglaf.org/fundraising.  Contributions to the Project Gutenberg
+Literary Archive Foundation are tax deductible to the full extent
+permitted by U.S. federal laws and your state's laws.
+
+The Foundation's principal office is located at 4557 Melan Dr. S.
+Fairbanks, AK, 99712., but its volunteers and employees are scattered
+throughout numerous locations.  Its business office is located at
+809 North 1500 West, Salt Lake City, UT 84116, (801) 596-1887, email
+business@pglaf.org.  Email contact links and up to date contact
+information can be found at the Foundation's web site and official
+page at http://pglaf.org
+
+For additional contact information:
+     Dr. Gregory B. Newby
+     Chief Executive and Director
+     gbnewby@pglaf.org
+
+
+Section 4.  Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg-tm depends upon and cannot survive without wide
+spread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine readable form accessible by the widest
+array of equipment including outdated equipment.  Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States.  Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements.  We do not solicit donations in locations
+where we have not received written confirmation of compliance.  To
+SEND DONATIONS or determine the status of compliance for any
+particular state visit http://pglaf.org
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States.  U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg Web pages for current donation
+methods and addresses.  Donations are accepted in a number of other
+ways including checks, online payments and credit card donations.
+To donate, please visit: http://pglaf.org/donate
+
+
+Section 5.  General Information About Project Gutenberg-tm electronic
+works.
+
+Professor Michael S. Hart is the originator of the Project Gutenberg-tm
+concept of a library of electronic works that could be freely shared
+with anyone.  For thirty years, he produced and distributed Project
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+
+
+Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+keep eBooks in compliance with any particular paper edition.
+
+
+Most people start at our Web site which has the main PG search facility:
+
+     http://www.gutenberg.org
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.

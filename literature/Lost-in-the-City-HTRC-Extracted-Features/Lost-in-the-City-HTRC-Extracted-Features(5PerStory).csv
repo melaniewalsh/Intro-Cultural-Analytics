@@ -1,0 +1,1365 @@
+story,lowercase,pos,count
+01: The Girl Who Raised Pigeons,across,IN,9
+01: The Girl Who Raised Pigeons,ai,VBP,6
+01: The Girl Who Raised Pigeons,air,NN,6
+01: The Girl Who Raised Pigeons,ann,NNP,45
+01: The Girl Who Raised Pigeons,around,IN,8
+01: The Girl Who Raised Pigeons,asked,VBD,9
+01: The Girl Who Raised Pigeons,away,RB,22
+01: The Girl Who Raised Pigeons,baby,NN,10
+01: The Girl Who Raised Pigeons,back,RB,31
+01: The Girl Who Raised Pigeons,barber,NN,6
+01: The Girl Who Raised Pigeons,bed,NN,11
+01: The Girl Who Raised Pigeons,began,VBD,12
+01: The Girl Who Raised Pigeons,betsy,NNP,44
+01: The Girl Who Raised Pigeons,beyond,IN,6
+01: The Girl Who Raised Pigeons,bird,NN,14
+01: The Girl Who Raised Pigeons,birds,NNS,29
+01: The Girl Who Raised Pigeons,bout,NN,6
+01: The Girl Who Raised Pigeons,boy,NN,7
+01: The Girl Who Raised Pigeons,boys,NNS,6
+01: The Girl Who Raised Pigeons,called,VBD,7
+01: The Girl Who Raised Pigeons,came,VBD,11
+01: The Girl Who Raised Pigeons,candy,NN,8
+01: The Girl Who Raised Pigeons,capitol,NNP,6
+01: The Girl Who Raised Pigeons,carriage,NN,6
+01: The Girl Who Raised Pigeons,child,NN,17
+01: The Girl Who Raised Pigeons,children,NNS,14
+01: The Girl Who Raised Pigeons,city,NN,9
+01: The Girl Who Raised Pigeons,clara,NNP,17
+01: The Girl Who Raised Pigeons,come,VB,7
+01: The Girl Who Raised Pigeons,coop,NN,28
+01: The Girl Who Raised Pigeons,corner,NN,7
+01: The Girl Who Raised Pigeons,could,MD,29
+01: The Girl Who Raised Pigeons,darlene,NNP,10
+01: The Girl Who Raised Pigeons,daughter,NN,8
+01: The Girl Who Raised Pigeons,day,NN,11
+01: The Girl Who Raised Pigeons,days,NNS,6
+01: The Girl Who Raised Pigeons,dead,JJ,13
+01: The Girl Who Raised Pigeons,done,VBN,6
+01: The Girl Who Raised Pigeons,door,NN,12
+01: The Girl Who Raised Pigeons,em,NN,9
+01: The Girl Who Raised Pigeons,enough,RB,6
+01: The Girl Who Raised Pigeons,etta,NNP,7
+01: The Girl Who Raised Pigeons,even,RB,16
+01: The Girl Who Raised Pigeons,everything,NN,8
+01: The Girl Who Raised Pigeons,face,NN,10
+01: The Girl Who Raised Pigeons,far,RB,9
+01: The Girl Who Raised Pigeons,father,NN,15
+01: The Girl Who Raised Pigeons,find,VB,6
+01: The Girl Who Raised Pigeons,first,JJ,19
+01: The Girl Who Raised Pigeons,first,RB,8
+01: The Girl Who Raised Pigeons,found,VBD,7
+01: The Girl Who Raised Pigeons,gave,VBD,9
+01: The Girl Who Raised Pigeons,get,VB,13
+01: The Girl Who Raised Pigeons,girl,NN,22
+01: The Girl Who Raised Pigeons,go,VB,19
+01: The Girl Who Raised Pigeons,going,VBG,11
+01: The Girl Who Raised Pigeons,gon,VBG,7
+01: The Girl Who Raised Pigeons,gone,VBN,7
+01: The Girl Who Raised Pigeons,good,JJ,9
+01: The Girl Who Raised Pigeons,got,VBD,15
+01: The Girl Who Raised Pigeons,hand,NN,8
+01: The Girl Who Raised Pigeons,head,NN,17
+01: The Girl Who Raised Pigeons,home,NN,17
+01: The Girl Who Raised Pigeons,house,NN,19
+01: The Girl Who Raised Pigeons,jenny,NNP,42
+01: The Girl Who Raised Pigeons,kitchen,NN,16
+01: The Girl Who Raised Pigeons,knew,VBD,16
+01: The Girl Who Raised Pigeons,know,VB,8
+01: The Girl Who Raised Pigeons,know,VBP,10
+01: The Girl Who Raised Pigeons,known,VBN,7
+01: The Girl Who Raised Pigeons,last,JJ,8
+01: The Girl Who Raised Pigeons,later,RB,7
+01: The Girl Who Raised Pigeons,let,VB,6
+01: The Girl Who Raised Pigeons,life,NN,11
+01: The Girl Who Raised Pigeons,light,NN,6
+01: The Girl Who Raised Pigeons,like,IN,12
+01: The Girl Who Raised Pigeons,long,JJ,6
+01: The Girl Who Raised Pigeons,look,VB,8
+01: The Girl Who Raised Pigeons,looked,VBD,11
+01: The Girl Who Raised Pigeons,looking,VBG,6
+01: The Girl Who Raised Pigeons,made,VBD,13
+01: The Girl Who Raised Pigeons,make,VB,8
+01: The Girl Who Raised Pigeons,man,NN,11
+01: The Girl Who Raised Pigeons,miles,NNP,21
+01: The Girl Who Raised Pigeons,mind,NN,9
+01: The Girl Who Raised Pigeons,miss,NNP,46
+01: The Girl Who Raised Pigeons,month,NN,6
+01: The Girl Who Raised Pigeons,morning,NN,23
+01: The Girl Who Raised Pigeons,mother,NN,7
+01: The Girl Who Raised Pigeons,myrtle,NNP,12
+01: The Girl Who Raised Pigeons,na,TO,11
+01: The Girl Who Raised Pigeons,nest,NN,7
+01: The Girl Who Raised Pigeons,never,RB,18
+01: The Girl Who Raised Pigeons,next,JJ,6
+01: The Girl Who Raised Pigeons,night,NN,11
+01: The Girl Who Raised Pigeons,north,NNP,6
+01: The Girl Who Raised Pigeons,nothing,NN,8
+01: The Girl Who Raised Pigeons,oh,UH,6
+01: The Girl Who Raised Pigeons,old,JJ,17
+01: The Girl Who Raised Pigeons,one,CD,38
+01: The Girl Who Raised Pigeons,onto,IN,6
+01: The Girl Who Raised Pigeons,people,NNS,12
+01: The Girl Who Raised Pigeons,peoples,NNPS,6
+01: The Girl Who Raised Pigeons,pigeon,NN,14
+01: The Girl Who Raised Pigeons,pigeons,NNS,30
+01: The Girl Who Raised Pigeons,place,NN,9
+01: The Girl Who Raised Pigeons,puppy,NN,6
+01: The Girl Who Raised Pigeons,put,VBD,6
+01: The Girl Who Raised Pigeons,ralph,NNP,17
+01: The Girl Who Raised Pigeons,robert,NNP,36
+01: The Girl Who Raised Pigeons,roof,NN,14
+01: The Girl Who Raised Pigeons,room,NN,12
+01: The Girl Who Raised Pigeons,said,VBD,46
+01: The Girl Who Raised Pigeons,saw,VBD,8
+01: The Girl Who Raised Pigeons,say,VB,9
+01: The Girl Who Raised Pigeons,school,NN,11
+01: The Girl Who Raised Pigeons,see,VB,12
+01: The Girl Who Raised Pigeons,seemed,VBD,7
+01: The Girl Who Raised Pigeons,side,NN,8
+01: The Girl Who Raised Pigeons,sitting,VBG,7
+01: The Girl Who Raised Pigeons,small,JJ,7
+01: The Girl Who Raised Pigeons,something,NN,7
+01: The Girl Who Raised Pigeons,sometimes,RB,6
+01: The Girl Who Raised Pigeons,sound,NN,6
+01: The Girl Who Raised Pigeons,still,RB,6
+01: The Girl Who Raised Pigeons,stood,VBD,11
+01: The Girl Who Raised Pigeons,street,NN,12
+01: The Girl Who Raised Pigeons,street,NNP,25
+01: The Girl Who Raised Pigeons,take,VB,12
+01: The Girl Who Raised Pigeons,thelma,NNP,14
+01: The Girl Who Raised Pigeons,things,NNS,6
+01: The Girl Who Raised Pigeons,think,VB,6
+01: The Girl Who Raised Pigeons,though,IN,6
+01: The Girl Who Raised Pigeons,thought,VBD,7
+01: The Girl Who Raised Pigeons,three,CD,12
+01: The Girl Who Raised Pigeons,time,NN,24
+01: The Girl Who Raised Pigeons,times,NNS,7
+01: The Girl Who Raised Pigeons,told,VBD,12
+01: The Girl Who Raised Pigeons,took,VBD,17
+01: The Girl Who Raised Pigeons,turned,VBD,8
+01: The Girl Who Raised Pigeons,two,CD,23
+01: The Girl Who Raised Pigeons,umbrella,NN,6
+01: The Girl Who Raised Pigeons,walter,NNP,7
+01: The Girl Who Raised Pigeons,wanted,VBD,7
+01: The Girl Who Raised Pigeons,watching,VBG,6
+01: The Girl Who Raised Pigeons,water,NN,7
+01: The Girl Who Raised Pigeons,way,NN,17
+01: The Girl Who Raised Pigeons,weeks,NNS,10
+01: The Girl Who Raised Pigeons,went,VBD,13
+01: The Girl Who Raised Pigeons,window,NN,12
+01: The Girl Who Raised Pigeons,without,IN,6
+01: The Girl Who Raised Pigeons,woman,NN,10
+01: The Girl Who Raised Pigeons,word,NN,6
+01: The Girl Who Raised Pigeons,world,NN,15
+01: The Girl Who Raised Pigeons,would,MD,84
+01: The Girl Who Raised Pigeons,years,NNS,15
+02: The First Day,avenue,NNP,6
+02: The First Day,child,NN,6
+02: The First Day,form,NN,6
+02: The First Day,girl,NN,8
+02: The First Day,hand,NN,8
+02: The First Day,mother,NN,42
+02: The First Day,new,NNP,6
+02: The First Day,one,CD,11
+02: The First Day,says,VBZ,7
+02: The First Day,school,NN,9
+02: The First Day,takes,VBZ,7
+02: The First Day,woman,NN,23
+03: The Night Rhonda Ferguson Was Killed,across,IN,8
+03: The Night Rhonda Ferguson Was Killed,ai,VBP,6
+03: The Night Rhonda Ferguson Was Killed,anacostia,NNP,7
+03: The Night Rhonda Ferguson Was Killed,anita,NNP,68
+03: The Night Rhonda Ferguson Was Killed,another,DT,6
+03: The Night Rhonda Ferguson Was Killed,anything,NN,7
+03: The Night Rhonda Ferguson Was Killed,apartment,NN,6
+03: The Night Rhonda Ferguson Was Killed,arm,NN,9
+03: The Night Rhonda Ferguson Was Killed,arms,NNS,10
+03: The Night Rhonda Ferguson Was Killed,around,IN,6
+03: The Night Rhonda Ferguson Was Killed,asked,VBD,6
+03: The Night Rhonda Ferguson Was Killed,back,NN,6
+03: The Night Rhonda Ferguson Was Killed,back,RB,26
+03: The Night Rhonda Ferguson Was Killed,bed,NN,7
+03: The Night Rhonda Ferguson Was Killed,began,VBD,11
+03: The Night Rhonda Ferguson Was Killed,behind,IN,11
+03: The Night Rhonda Ferguson Was Killed,beside,IN,8
+03: The Night Rhonda Ferguson Was Killed,bitch,NN,6
+03: The Night Rhonda Ferguson Was Killed,boxes,NNS,8
+03: The Night Rhonda Ferguson Was Killed,boy,NN,18
+03: The Night Rhonda Ferguson Was Killed,came,VBD,12
+03: The Night Rhonda Ferguson Was Killed,car,NN,42
+03: The Night Rhonda Ferguson Was Killed,cassandra,NNP,130
+03: The Night Rhonda Ferguson Was Killed,cause,VB,8
+03: The Night Rhonda Ferguson Was Killed,cigarette,NN,6
+03: The Night Rhonda Ferguson Was Killed,clifton,NNP,7
+03: The Night Rhonda Ferguson Was Killed,come,VB,10
+03: The Night Rhonda Ferguson Was Killed,coming,VBG,6
+03: The Night Rhonda Ferguson Was Killed,continued,VBD,7
+03: The Night Rhonda Ferguson Was Killed,corner,NN,6
+03: The Night Rhonda Ferguson Was Killed,could,MD,16
+03: The Night Rhonda Ferguson Was Killed,cute,JJ,8
+03: The Night Rhonda Ferguson Was Killed,daughter,NN,6
+03: The Night Rhonda Ferguson Was Killed,even,RB,10
+03: The Night Rhonda Ferguson Was Killed,ever,RB,7
+03: The Night Rhonda Ferguson Was Killed,father,NN,32
+03: The Night Rhonda Ferguson Was Killed,first,JJ,10
+03: The Night Rhonda Ferguson Was Killed,followed,VBD,6
+03: The Night Rhonda Ferguson Was Killed,front,NN,8
+03: The Night Rhonda Ferguson Was Killed,gave,VBD,7
+03: The Night Rhonda Ferguson Was Killed,get,VB,32
+03: The Night Rhonda Ferguson Was Killed,girl,NN,15
+03: The Night Rhonda Ferguson Was Killed,girls,NNS,17
+03: The Night Rhonda Ferguson Was Killed,give,VB,6
+03: The Night Rhonda Ferguson Was Killed,gladys,NNP,38
+03: The Night Rhonda Ferguson Was Killed,go,VB,6
+03: The Night Rhonda Ferguson Was Killed,going,VBG,9
+03: The Night Rhonda Ferguson Was Killed,gon,VBG,7
+03: The Night Rhonda Ferguson Was Killed,good,JJ,8
+03: The Night Rhonda Ferguson Was Killed,got,VBD,22
+03: The Night Rhonda Ferguson Was Killed,guy,NN,6
+03: The Night Rhonda Ferguson Was Killed,hands,NNS,6
+03: The Night Rhonda Ferguson Was Killed,head,NN,7
+03: The Night Rhonda Ferguson Was Killed,held,VBD,8
+03: The Night Rhonda Ferguson Was Killed,home,NN,11
+03: The Night Rhonda Ferguson Was Killed,house,NN,23
+03: The Night Rhonda Ferguson Was Killed,joyce,NNP,12
+03: The Night Rhonda Ferguson Was Killed,knew,VBD,8
+03: The Night Rhonda Ferguson Was Killed,know,VB,18
+03: The Night Rhonda Ferguson Was Killed,know,VBP,10
+03: The Night Rhonda Ferguson Was Killed,life,NN,9
+03: The Night Rhonda Ferguson Was Killed,light,NN,8
+03: The Night Rhonda Ferguson Was Killed,like,IN,17
+03: The Night Rhonda Ferguson Was Killed,little,JJ,12
+03: The Night Rhonda Ferguson Was Killed,look,VB,6
+03: The Night Rhonda Ferguson Was Killed,looked,VBD,7
+03: The Night Rhonda Ferguson Was Killed,looking,VBG,8
+03: The Night Rhonda Ferguson Was Killed,love,NN,6
+03: The Night Rhonda Ferguson Was Killed,made,VBD,6
+03: The Night Rhonda Ferguson Was Killed,make,VB,10
+03: The Night Rhonda Ferguson Was Killed,man,NN,6
+03: The Night Rhonda Ferguson Was Killed,melanie,NNP,65
+03: The Night Rhonda Ferguson Was Killed,men,NNS,6
+03: The Night Rhonda Ferguson Was Killed,money,NN,6
+03: The Night Rhonda Ferguson Was Killed,mother,NN,20
+03: The Night Rhonda Ferguson Was Killed,much,RB,7
+03: The Night Rhonda Ferguson Was Killed,music,NN,6
+03: The Night Rhonda Ferguson Was Killed,na,TO,14
+03: The Night Rhonda Ferguson Was Killed,next,JJ,7
+03: The Night Rhonda Ferguson Was Killed,night,NN,8
+03: The Night Rhonda Ferguson Was Killed,nine,CD,6
+03: The Night Rhonda Ferguson Was Killed,oh,UH,8
+03: The Night Rhonda Ferguson Was Killed,one,CD,21
+03: The Night Rhonda Ferguson Was Killed,party,NN,8
+03: The Night Rhonda Ferguson Was Killed,pearl,NNP,11
+03: The Night Rhonda Ferguson Was Killed,people,NNS,16
+03: The Night Rhonda Ferguson Was Killed,radio,NN,6
+03: The Night Rhonda Ferguson Was Killed,rhonda,NNP,42
+03: The Night Rhonda Ferguson Was Killed,right,RB,9
+03: The Night Rhonda Ferguson Was Killed,room,NN,7
+03: The Night Rhonda Ferguson Was Killed,said,VBD,109
+03: The Night Rhonda Ferguson Was Killed,sang,VBD,7
+03: The Night Rhonda Ferguson Was Killed,sat,VBD,11
+03: The Night Rhonda Ferguson Was Killed,say,VB,8
+03: The Night Rhonda Ferguson Was Killed,saying,VBG,6
+03: The Night Rhonda Ferguson Was Killed,school,NN,8
+03: The Night Rhonda Ferguson Was Killed,seat,NN,9
+03: The Night Rhonda Ferguson Was Killed,second,JJ,6
+03: The Night Rhonda Ferguson Was Killed,see,VB,19
+03: The Night Rhonda Ferguson Was Killed,seemed,VBD,9
+03: The Night Rhonda Ferguson Was Killed,shit,NN,6
+03: The Night Rhonda Ferguson Was Killed,side,NN,8
+03: The Night Rhonda Ferguson Was Killed,sing,VB,12
+03: The Night Rhonda Ferguson Was Killed,sister,NN,6
+03: The Night Rhonda Ferguson Was Killed,small,JJ,9
+03: The Night Rhonda Ferguson Was Killed,standing,VBG,7
+03: The Night Rhonda Ferguson Was Killed,still,RB,10
+03: The Night Rhonda Ferguson Was Killed,stood,VBD,7
+03: The Night Rhonda Ferguson Was Killed,street,NN,28
+03: The Night Rhonda Ferguson Was Killed,street,NNP,14
+03: The Night Rhonda Ferguson Was Killed,take,VB,8
+03: The Night Rhonda Ferguson Was Killed,teacher,NN,9
+03: The Night Rhonda Ferguson Was Killed,think,VBP,7
+03: The Night Rhonda Ferguson Was Killed,thought,VBD,7
+03: The Night Rhonda Ferguson Was Killed,three,CD,10
+03: The Night Rhonda Ferguson Was Killed,time,NN,13
+03: The Night Rhonda Ferguson Was Killed,told,VBD,10
+03: The Night Rhonda Ferguson Was Killed,took,VBD,13
+03: The Night Rhonda Ferguson Was Killed,turned,VBD,8
+03: The Night Rhonda Ferguson Was Killed,two,CD,17
+03: The Night Rhonda Ferguson Was Killed,waiting,VBG,6
+03: The Night Rhonda Ferguson Was Killed,wall,NN,7
+03: The Night Rhonda Ferguson Was Killed,wan,VBP,6
+03: The Night Rhonda Ferguson Was Killed,wanted,VBD,9
+03: The Night Rhonda Ferguson Was Killed,way,NN,15
+03: The Night Rhonda Ferguson Was Killed,went,VBD,9
+03: The Night Rhonda Ferguson Was Killed,wesley,NNP,13
+03: The Night Rhonda Ferguson Was Killed,window,NN,11
+03: The Night Rhonda Ferguson Was Killed,wo,MD,6
+03: The Night Rhonda Ferguson Was Killed,woman,NN,8
+03: The Night Rhonda Ferguson Was Killed,world,NN,8
+03: The Night Rhonda Ferguson Was Killed,would,MD,25
+04: Young Lions,alone,RB,9
+04: Young Lions,always,RB,8
+04: Young Lions,angelo,NNP,8
+04: Young Lions,anna,NNP,13
+04: Young Lions,another,DT,9
+04: Young Lions,apartment,NN,9
+04: Young Lions,avenue,NNP,9
+04: Young Lions,away,RB,18
+04: Young Lions,back,NN,7
+04: Young Lions,back,RB,25
+04: Young Lions,bag,NN,6
+04: Young Lions,bar,NN,8
+04: Young Lions,began,VBD,6
+04: Young Lions,behind,IN,7
+04: Young Lions,boy,NN,9
+04: Young Lions,bus,NN,8
+04: Young Lions,caesar,NNP,75
+04: Young Lions,came,VBD,13
+04: Young Lions,carol,NNP,29
+04: Young Lions,children,NNS,6
+04: Young Lions,come,VB,9
+04: Young Lions,could,MD,29
+04: Young Lions,crossed,VBD,7
+04: Young Lions,day,NN,12
+04: Young Lions,days,NNS,6
+04: Young Lions,door,NN,10
+04: Young Lions,even,RB,8
+04: Young Lions,evening,NN,6
+04: Young Lions,everything,NN,9
+04: Young Lions,eyes,NNS,7
+04: Young Lions,face,NN,11
+04: Young Lions,father,NN,28
+04: Young Lions,feet,NNS,7
+04: Young Lions,first,JJ,15
+04: Young Lions,found,VBD,6
+04: Young Lions,front,NN,6
+04: Young Lions,gave,VBD,7
+04: Young Lions,get,VB,8
+04: Young Lions,go,VB,12
+04: Young Lions,good,JJ,6
+04: Young Lions,got,VBD,22
+04: Young Lions,gun,NN,8
+04: Young Lions,hand,NN,9
+04: Young Lions,head,NN,7
+04: Young Lions,heading,VBG,7
+04: Young Lions,heh,NN,11
+04: Young Lions,home,NN,23
+04: Young Lions,house,NN,14
+04: Young Lions,knew,VBD,17
+04: Young Lions,know,VB,9
+04: Young Lions,last,JJ,10
+04: Young Lions,later,RB,8
+04: Young Lions,left,VBD,6
+04: Young Lions,light,NN,6
+04: Young Lions,lights,NNS,6
+04: Young Lions,like,IN,12
+04: Young Lions,little,JJ,9
+04: Young Lions,look,VB,7
+04: Young Lions,looked,VBD,13
+04: Young Lions,made,VBD,9
+04: Young Lions,make,VB,6
+04: Young Lions,man,NN,34
+04: Young Lions,manny,NNP,44
+04: Young Lions,men,NNS,6
+04: Young Lions,money,NN,7
+04: Young Lions,months,NNS,10
+04: Young Lions,morning,NN,12
+04: Young Lions,mother,NN,8
+04: Young Lions,never,RB,10
+04: Young Lions,night,NN,9
+04: Young Lions,old,JJ,13
+04: Young Lions,one,CD,25
+04: Young Lions,people,NNS,14
+04: Young Lions,picture,NN,10
+04: Young Lions,pictures,NNS,13
+04: Young Lions,place,NN,13
+04: Young Lions,pulled,VBD,9
+04: Young Lions,put,VBD,9
+04: Young Lions,putting,VBG,6
+04: Young Lions,rain,NN,7
+04: Young Lions,retarded,VBN,21
+04: Young Lions,room,NN,11
+04: Young Lions,said,VBD,62
+04: Young Lions,said,VBN,9
+04: Young Lions,sandra,NNP,7
+04: Young Lions,sat,VBD,7
+04: Young Lions,saw,VBD,12
+04: Young Lions,see,VB,24
+04: Young Lions,sherman,NNP,60
+04: Young Lions,shit,NN,6
+04: Young Lions,side,NN,6
+04: Young Lions,something,NN,8
+04: Young Lions,still,RB,10
+04: Young Lions,stood,VBD,10
+04: Young Lions,street,NN,15
+04: Young Lions,street,NNP,10
+04: Young Lions,table,NN,8
+04: Young Lions,take,VB,8
+04: Young Lions,taken,VBN,8
+04: Young Lions,telephone,NN,6
+04: Young Lions,thing,NN,10
+04: Young Lions,things,NNS,8
+04: Young Lions,thought,VBD,6
+04: Young Lions,three,CD,11
+04: Young Lions,time,NN,25
+04: Young Lions,times,NNS,6
+04: Young Lions,told,VBD,15
+04: Young Lions,told,VBN,6
+04: Young Lions,took,VBD,24
+04: Young Lions,two,CD,30
+04: Young Lions,walked,VBD,9
+04: Young Lions,wanted,VBD,9
+04: Young Lions,watch,NN,6
+04: Young Lions,watched,VBD,6
+04: Young Lions,way,NN,15
+04: Young Lions,week,NN,8
+04: Young Lions,went,VBD,17
+04: Young Lions,without,IN,11
+04: Young Lions,woman,NN,44
+04: Young Lions,women,NNS,7
+04: Young Lions,wore,VBD,6
+04: Young Lions,work,NN,6
+04: Young Lions,work,VB,7
+04: Young Lions,world,NN,10
+04: Young Lions,would,MD,57
+05: The Store,across,IN,6
+05: The Store,al,NNP,9
+05: The Store,always,RB,28
+05: The Store,anymore,RB,6
+05: The Store,anything,NN,10
+05: The Store,apron,NN,6
+05: The Store,around,IN,14
+05: The Store,ask,VB,7
+05: The Store,asked,VBD,6
+05: The Store,avenue,NNP,8
+05: The Store,away,RB,13
+05: The Store,baby,NN,6
+05: The Store,back,RB,43
+05: The Store,baxter,NNP,11
+05: The Store,became,VBD,6
+05: The Store,began,VBD,7
+05: The Store,behind,IN,8
+05: The Store,box,NN,6
+05: The Store,boy,NN,13
+05: The Store,brenda,NNP,7
+05: The Store,brother,NN,6
+05: The Store,buy,VB,7
+05: The Store,call,VB,7
+05: The Store,called,VBD,7
+05: The Store,came,VBD,27
+05: The Store,car,NN,9
+05: The Store,children,NNS,6
+05: The Store,closed,VBD,6
+05: The Store,come,VB,14
+05: The Store,come,VBN,7
+05: The Store,coming,VBG,7
+05: The Store,could,MD,34
+05: The Store,counter,NN,10
+05: The Store,credit,NN,6
+05: The Store,customer,NN,7
+05: The Store,customers,NNS,6
+05: The Store,day,NN,40
+05: The Store,days,NNS,9
+05: The Store,despite,IN,6
+05: The Store,dollars,NNS,6
+05: The Store,done,VBN,12
+05: The Store,door,NN,25
+05: The Store,else,RB,8
+05: The Store,end,NN,7
+05: The Store,enough,RB,9
+05: The Store,even,RB,14
+05: The Store,evening,NN,12
+05: The Store,every,DT,12
+05: The Store,everything,NN,9
+05: The Store,family,NN,9
+05: The Store,far,RB,8
+05: The Store,father,NN,32
+05: The Store,first,JJ,23
+05: The Store,found,VBD,8
+05: The Store,four,CD,7
+05: The Store,front,NN,6
+05: The Store,gave,VBD,9
+05: The Store,get,VB,25
+05: The Store,getting,VBG,8
+05: The Store,girl,NN,18
+05: The Store,girls,NNS,8
+05: The Store,give,VB,7
+05: The Store,go,VB,24
+05: The Store,going,VBG,9
+05: The Store,good,JJ,26
+05: The Store,got,VBD,31
+05: The Store,heart,NN,6
+05: The Store,home,NN,19
+05: The Store,jenkins,NNP,19
+05: The Store,job,NN,12
+05: The Store,joy,NNP,7
+05: The Store,kentucky,NNP,23
+05: The Store,kept,VBD,10
+05: The Store,kids,NNS,6
+05: The Store,kind,NN,9
+05: The Store,knew,VBD,9
+05: The Store,know,VB,16
+05: The Store,know,VBP,12
+05: The Store,last,JJ,8
+05: The Store,late,JJ,11
+05: The Store,late,RB,6
+05: The Store,left,VBD,10
+05: The Store,let,VB,7
+05: The Store,life,NN,10
+05: The Store,light,NN,12
+05: The Store,like,IN,25
+05: The Store,like,VB,6
+05: The Store,liked,VBD,6
+05: The Store,line,NN,6
+05: The Store,little,JJ,14
+05: The Store,lived,VBD,7
+05: The Store,long,JJ,9
+05: The Store,long,RB,6
+05: The Store,lonney,NNP,12
+05: The Store,look,VB,8
+05: The Store,looking,VBG,9
+05: The Store,made,VBD,6
+05: The Store,make,VB,10
+05: The Store,man,NN,19
+05: The Store,maybe,RB,13
+05: The Store,mind,NN,6
+05: The Store,monday,NNP,6
+05: The Store,month,NN,9
+05: The Store,months,NNS,7
+05: The Store,morning,NN,14
+05: The Store,mother,NN,42
+05: The Store,much,JJ,8
+05: The Store,na,TO,7
+05: The Store,name,NN,7
+05: The Store,neighborhood,NN,10
+05: The Store,never,RB,19
+05: The Store,new,JJ,7
+05: The Store,next,JJ,15
+05: The Store,night,NN,28
+05: The Store,nothing,NN,7
+05: The Store,o,NNP,7
+05: The Store,old,JJ,14
+05: The Store,one,CD,43
+05: The Store,parents,NNS,6
+05: The Store,patricia,NNP,8
+05: The Store,pay,NN,7
+05: The Store,penny,NN,13
+05: The Store,penny,NNP,44
+05: The Store,people,NNS,21
+05: The Store,perhaps,RB,6
+05: The Store,picture,NN,8
+05: The Store,pictures,NNS,6
+05: The Store,place,NN,20
+05: The Store,room,NN,9
+05: The Store,said,VBD,74
+05: The Store,saw,VBD,9
+05: The Store,say,VB,15
+05: The Store,saying,VBG,6
+05: The Store,second,JJ,7
+05: The Store,see,VB,24
+05: The Store,seemed,VBD,11
+05: The Store,shit,NN,8
+05: The Store,sitting,VBG,6
+05: The Store,someone,NN,7
+05: The Store,something,NN,18
+05: The Store,started,VBD,6
+05: The Store,still,RB,16
+05: The Store,stood,VBD,13
+05: The Store,store,NN,51
+05: The Store,street,NN,18
+05: The Store,street,NNP,12
+05: The Store,stuff,NN,8
+05: The Store,take,VB,12
+05: The Store,tell,VB,19
+05: The Store,thing,NN,8
+05: The Store,things,NNS,12
+05: The Store,think,VB,9
+05: The Store,think,VBP,6
+05: The Store,though,IN,7
+05: The Store,three,CD,11
+05: The Store,time,NN,42
+05: The Store,times,NNS,7
+05: The Store,told,VBD,15
+05: The Store,tommy,NNP,8
+05: The Store,took,VBD,20
+05: The Store,trying,VBG,8
+05: The Store,turner,NNP,7
+05: The Store,two,CD,20
+05: The Store,undertaker,NN,7
+05: The Store,us,PRP,12
+05: The Store,usually,RB,6
+05: The Store,waiting,VBG,6
+05: The Store,walked,VBD,6
+05: The Store,want,VB,9
+05: The Store,wanted,VBD,19
+05: The Store,washington,NNP,6
+05: The Store,way,NN,21
+05: The Store,week,NN,24
+05: The Store,weeks,NNS,8
+05: The Store,went,VBD,28
+05: The Store,white,JJ,14
+05: The Store,whole,JJ,6
+05: The Store,window,NN,9
+05: The Store,woman,NN,11
+05: The Store,work,NN,15
+05: The Store,work,VB,8
+05: The Store,working,VBG,6
+05: The Store,world,NN,19
+05: The Store,would,MD,79
+05: The Store,yard,NN,10
+05: The Store,year,NN,6
+05: The Store,years,NNS,14
+05: The Store,york,NNP,6
+06: An Orange Line Train to Ballston,across,IN,9
+06: An Orange Line Train to Ballston,around,IN,7
+06: An Orange Line Train to Ballston,asked,VBD,12
+06: An Orange Line Train to Ballston,avis,NNP,26
+06: An Orange Line Train to Ballston,back,RB,8
+06: An Orange Line Train to Ballston,ballston,NNP,6
+06: An Orange Line Train to Ballston,began,VBD,7
+06: An Orange Line Train to Ballston,blue,JJ,6
+06: An Orange Line Train to Ballston,boy,NN,8
+06: An Orange Line Train to Ballston,children,NNS,11
+06: An Orange Line Train to Ballston,day,NN,8
+06: An Orange Line Train to Ballston,dreadlock,NN,8
+06: An Orange Line Train to Ballston,dreadlocks,NNS,11
+06: An Orange Line Train to Ballston,first,JJ,6
+06: An Orange Line Train to Ballston,good,JJ,9
+06: An Orange Line Train to Ballston,got,VBD,9
+06: An Orange Line Train to Ballston,hair,NN,11
+06: An Orange Line Train to Ballston,lights,NNS,8
+06: An Orange Line Train to Ballston,like,IN,15
+06: An Orange Line Train to Ballston,line,NN,17
+06: An Orange Line Train to Ballston,looked,VBD,6
+06: An Orange Line Train to Ballston,mama,NN,9
+06: An Orange Line Train to Ballston,man,NN,63
+06: An Orange Line Train to Ballston,marcus,NNP,38
+06: An Orange Line Train to Ballston,marvella,NNP,23
+06: An Orange Line Train to Ballston,marvin,NNP,24
+06: An Orange Line Train to Ballston,mother,NN,17
+06: An Orange Line Train to Ballston,one,CD,12
+06: An Orange Line Train to Ballston,orange,JJ,9
+06: An Orange Line Train to Ballston,people,NNS,10
+06: An Orange Line Train to Ballston,said,VBD,64
+06: An Orange Line Train to Ballston,saw,VBD,10
+06: An Orange Line Train to Ballston,see,VB,8
+06: An Orange Line Train to Ballston,something,NN,6
+06: An Orange Line Train to Ballston,square,NNP,6
+06: An Orange Line Train to Ballston,stop,VB,9
+06: An Orange Line Train to Ballston,stopped,VBD,6
+06: An Orange Line Train to Ballston,street,NN,7
+06: An Orange Line Train to Ballston,subway,NN,15
+06: An Orange Line Train to Ballston,thought,VBD,9
+06: An Orange Line Train to Ballston,time,NN,11
+06: An Orange Line Train to Ballston,took,VBD,7
+06: An Orange Line Train to Ballston,train,NN,25
+06: An Orange Line Train to Ballston,way,NN,11
+06: An Orange Line Train to Ballston,went,VBD,9
+06: An Orange Line Train to Ballston,would,MD,14
+07: The Sunday Following Mother's Day,agnes,NNP,7
+07: The Sunday Following Mother's Day,ai,VBP,10
+07: The Sunday Following Mother's Day,anyone,NN,6
+07: The Sunday Following Mother's Day,anything,NN,10
+07: The Sunday Following Mother's Day,apartment,NN,13
+07: The Sunday Following Mother's Day,arnisa,NNP,11
+07: The Sunday Following Mother's Day,around,IN,8
+07: The Sunday Following Mother's Day,asked,VBD,7
+07: The Sunday Following Mother's Day,aunt,NN,6
+07: The Sunday Following Mother's Day,away,RB,10
+07: The Sunday Following Mother's Day,baby,NN,10
+07: The Sunday Following Mother's Day,back,NN,10
+07: The Sunday Following Mother's Day,back,RB,21
+07: The Sunday Following Mother's Day,began,VBD,14
+07: The Sunday Following Mother's Day,blood,NN,6
+07: The Sunday Following Mother's Day,boy,NN,11
+07: The Sunday Following Mother's Day,brother,NN,12
+07: The Sunday Following Mother's Day,building,NN,6
+07: The Sunday Following Mother's Day,called,VBD,7
+07: The Sunday Following Mother's Day,car,NN,25
+07: The Sunday Following Mother's Day,center,NN,7
+07: The Sunday Following Mother's Day,child,NN,13
+07: The Sunday Following Mother's Day,children,NNS,25
+07: The Sunday Following Mother's Day,come,VB,6
+07: The Sunday Following Mother's Day,come,VBN,9
+07: The Sunday Following Mother's Day,could,MD,33
+07: The Sunday Following Mother's Day,curtis,NNP,16
+07: The Sunday Following Mother's Day,day,NN,35
+07: The Sunday Following Mother's Day,days,NNS,6
+07: The Sunday Following Mother's Day,done,VBN,6
+07: The Sunday Following Mother's Day,door,NN,15
+07: The Sunday Following Mother's Day,eat,VB,6
+07: The Sunday Following Mother's Day,even,RB,12
+07: The Sunday Following Mother's Day,ever,RB,11
+07: The Sunday Following Mother's Day,every,DT,7
+07: The Sunday Following Mother's Day,family,NN,8
+07: The Sunday Following Mother's Day,far,RB,6
+07: The Sunday Following Mother's Day,father,NN,22
+07: The Sunday Following Mother's Day,find,VB,9
+07: The Sunday Following Mother's Day,first,JJ,8
+07: The Sunday Following Mother's Day,floor,NN,7
+07: The Sunday Following Mother's Day,found,VBD,14
+07: The Sunday Following Mother's Day,gave,VBD,7
+07: The Sunday Following Mother's Day,get,VB,21
+07: The Sunday Following Mother's Day,girl,NN,11
+07: The Sunday Following Mother's Day,give,VB,8
+07: The Sunday Following Mother's Day,go,VB,17
+07: The Sunday Following Mother's Day,going,VBG,6
+07: The Sunday Following Mother's Day,good,JJ,9
+07: The Sunday Following Mother's Day,got,VBD,7
+07: The Sunday Following Mother's Day,hand,NN,10
+07: The Sunday Following Mother's Day,hazel,NNP,9
+07: The Sunday Following Mother's Day,head,NN,6
+07: The Sunday Following Mother's Day,hear,VB,8
+07: The Sunday Following Mother's Day,home,NN,6
+07: The Sunday Following Mother's Day,kept,VBD,6
+07: The Sunday Following Mother's Day,knew,VBD,10
+07: The Sunday Following Mother's Day,know,VB,6
+07: The Sunday Following Mother's Day,know,VBP,6
+07: The Sunday Following Mother's Day,lap,NN,8
+07: The Sunday Following Mother's Day,later,RB,6
+07: The Sunday Following Mother's Day,least,JJS,6
+07: The Sunday Following Mother's Day,left,VBD,6
+07: The Sunday Following Mother's Day,life,NN,8
+07: The Sunday Following Mother's Day,like,IN,18
+07: The Sunday Following Mother's Day,long,RB,7
+07: The Sunday Following Mother's Day,looked,VBD,6
+07: The Sunday Following Mother's Day,looking,VBG,6
+07: The Sunday Following Mother's Day,lorton,NNP,9
+07: The Sunday Following Mother's Day,maddie,NNP,60
+07: The Sunday Following Mother's Day,made,VBD,6
+07: The Sunday Following Mother's Day,madeleine,NNP,70
+07: The Sunday Following Mother's Day,man,NN,32
+07: The Sunday Following Mother's Day,men,NNS,6
+07: The Sunday Following Mother's Day,morning,NN,8
+07: The Sunday Following Mother's Day,mother,NN,18
+07: The Sunday Following Mother's Day,much,JJ,6
+07: The Sunday Following Mother's Day,never,RB,19
+07: The Sunday Following Mother's Day,night,NN,10
+07: The Sunday Following Mother's Day,nothing,NN,6
+07: The Sunday Following Mother's Day,oh,UH,8
+07: The Sunday Following Mother's Day,one,CD,30
+07: The Sunday Following Mother's Day,opened,VBD,6
+07: The Sunday Following Mother's Day,people,NNS,22
+07: The Sunday Following Mother's Day,pitcher,NN,6
+07: The Sunday Following Mother's Day,place,NN,11
+07: The Sunday Following Mother's Day,pookie,NNP,21
+07: The Sunday Following Mother's Day,remember,VB,7
+07: The Sunday Following Mother's Day,retarded,VBN,6
+07: The Sunday Following Mother's Day,returned,VBD,9
+07: The Sunday Following Mother's Day,right,RB,6
+07: The Sunday Following Mother's Day,room,NN,15
+07: The Sunday Following Mother's Day,said,VBD,80
+07: The Sunday Following Mother's Day,sam,NNP,34
+07: The Sunday Following Mother's Day,samuel,NNP,41
+07: The Sunday Following Mother's Day,saw,VBD,7
+07: The Sunday Following Mother's Day,say,VB,17
+07: The Sunday Following Mother's Day,see,VB,15
+07: The Sunday Following Mother's Day,seen,VBN,7
+07: The Sunday Following Mother's Day,sit,VB,7
+07: The Sunday Following Mother's Day,small,JJ,6
+07: The Sunday Following Mother's Day,someone,NN,6
+07: The Sunday Following Mother's Day,something,NN,14
+07: The Sunday Following Mother's Day,son,NN,11
+07: The Sunday Following Mother's Day,still,RB,7
+07: The Sunday Following Mother's Day,street,NNP,7
+07: The Sunday Following Mother's Day,sunday,NNP,7
+07: The Sunday Following Mother's Day,take,VB,8
+07: The Sunday Following Mother's Day,talk,VB,6
+07: The Sunday Following Mother's Day,telephone,NN,6
+07: The Sunday Following Mother's Day,tell,VB,10
+07: The Sunday Following Mother's Day,things,NNS,6
+07: The Sunday Following Mother's Day,three,CD,9
+07: The Sunday Following Mother's Day,time,NN,29
+07: The Sunday Following Mother's Day,times,NNS,7
+07: The Sunday Following Mother's Day,told,VBD,18
+07: The Sunday Following Mother's Day,took,VBD,17
+07: The Sunday Following Mother's Day,two,CD,14
+07: The Sunday Following Mother's Day,us,PRP,7
+07: The Sunday Following Mother's Day,visit,NN,6
+07: The Sunday Following Mother's Day,wanted,VBD,8
+07: The Sunday Following Mother's Day,washington,NNP,11
+07: The Sunday Following Mother's Day,way,NN,13
+07: The Sunday Following Mother's Day,weeks,NNS,7
+07: The Sunday Following Mother's Day,went,VBD,9
+07: The Sunday Following Mother's Day,wheelchair,NN,6
+07: The Sunday Following Mother's Day,williams,NNP,12
+07: The Sunday Following Mother's Day,window,NN,6
+07: The Sunday Following Mother's Day,without,IN,9
+07: The Sunday Following Mother's Day,wo,MD,7
+07: The Sunday Following Mother's Day,woman,NN,21
+07: The Sunday Following Mother's Day,word,NN,8
+07: The Sunday Following Mother's Day,world,NN,17
+07: The Sunday Following Mother's Day,would,MD,71
+07: The Sunday Following Mother's Day,year,NN,6
+07: The Sunday Following Mother's Day,years,NNS,16
+08: Lost in the City,back,RB,7
+08: Lost in the City,bed,NN,7
+08: Lost in the City,cab,NN,12
+08: Lost in the City,could,MD,8
+08: Lost in the City,day,NN,11
+08: Lost in the City,door,NN,7
+08: Lost in the City,driver,NN,8
+08: Lost in the City,father,NN,6
+08: Lost in the City,first,JJ,7
+08: Lost in the City,georgia,NNP,19
+08: Lost in the City,get,VB,11
+08: Lost in the City,go,VB,9
+08: Lost in the City,house,NN,7
+08: Lost in the City,knew,VBD,7
+08: Lost in the City,know,VB,11
+08: Lost in the City,lydia,NNP,32
+08: Lost in the City,man,NN,14
+08: Lost in the City,mother,NN,44
+08: Lost in the City,name,NN,7
+08: Lost in the City,night,NN,9
+08: Lost in the City,old,JJ,10
+08: Lost in the City,one,CD,12
+08: Lost in the City,right,RB,7
+08: Lost in the City,room,NN,8
+08: Lost in the City,said,VBD,35
+08: Lost in the City,said,VBN,11
+08: Lost in the City,sorry,JJ,8
+08: Lost in the City,thought,VBD,13
+08: Lost in the City,three,CD,6
+08: Lost in the City,time,NN,7
+08: Lost in the City,told,VBD,7
+08: Lost in the City,town,NN,6
+08: Lost in the City,turned,VBD,8
+08: Lost in the City,two,CD,9
+08: Lost in the City,washington,NNP,7
+08: Lost in the City,way,NN,7
+08: Lost in the City,woman,NN,7
+08: Lost in the City,would,MD,15
+08: Lost in the City,yes,UH,8
+09: His Mother's House,across,IN,12
+09: His Mother's House,adam,NNP,11
+09: His Mother's House,ai,VBP,10
+09: His Mother's House,another,DT,9
+09: His Mother's House,apartment,NN,6
+09: His Mother's House,around,IN,10
+09: His Mother's House,away,RB,11
+09: His Mother's House,baby,NN,8
+09: His Mother's House,back,RB,23
+09: His Mother's House,basement,NN,7
+09: His Mother's House,bed,NN,11
+09: His Mother's House,beer,NN,8
+09: His Mother's House,began,VBD,11
+09: His Mother's House,big,JJ,10
+09: His Mother's House,bought,VBD,7
+09: His Mother's House,boy,NN,30
+09: His Mother's House,ca,MD,6
+09: His Mother's House,called,VBD,6
+09: His Mother's House,came,VBD,15
+09: His Mother's House,car,NN,9
+09: His Mother's House,child,NN,6
+09: His Mother's House,children,NNS,16
+09: His Mother's House,chuck,NNP,8
+09: His Mother's House,clovis,NNP,8
+09: His Mother's House,coffee,NN,11
+09: His Mother's House,come,VB,20
+09: His Mother's House,continued,VBD,7
+09: His Mother's House,corner,NN,7
+09: His Mother's House,couch,NN,6
+09: His Mother's House,could,MD,24
+09: His Mother's House,day,NN,15
+09: His Mother's House,days,NNS,6
+09: His Mother's House,door,NN,19
+09: His Mother's House,even,RB,7
+09: His Mother's House,ever,RB,10
+09: His Mother's House,every,DT,6
+09: His Mother's House,family,NN,10
+09: His Mother's House,find,VB,6
+09: His Mother's House,floor,NN,8
+09: His Mother's House,front,NN,7
+09: His Mother's House,garden,NN,6
+09: His Mother's House,get,VB,13
+09: His Mother's House,give,VB,11
+09: His Mother's House,glass,NN,7
+09: His Mother's House,go,VB,6
+09: His Mother's House,god,NNP,8
+09: His Mother's House,gon,VBG,8
+09: His Mother's House,gone,VBN,9
+09: His Mother's House,good,JJ,8
+09: His Mother's House,got,VBD,25
+09: His Mother's House,hand,NN,15
+09: His Mother's House,head,NN,12
+09: His Mother's House,home,NN,8
+09: His Mother's House,house,NN,33
+09: His Mother's House,humphrey,NNP,33
+09: His Mother's House,joyce,NNP,84
+09: His Mother's House,kept,VBD,6
+09: His Mother's House,kids,NNS,6
+09: His Mother's House,knew,VBD,6
+09: His Mother's House,know,VB,10
+09: His Mother's House,know,VBP,13
+09: His Mother's House,last,JJ,8
+09: His Mother's House,left,VBD,6
+09: His Mother's House,let,VB,8
+09: His Mother's House,life,NN,7
+09: His Mother's House,like,IN,32
+09: His Mother's House,little,JJ,12
+09: His Mother's House,look,VB,6
+09: His Mother's House,looked,VBD,11
+09: His Mother's House,made,VBD,6
+09: His Mother's House,make,VB,9
+09: His Mother's House,mama,NN,23
+09: His Mother's House,man,NN,21
+09: His Mother's House,might,MD,6
+09: His Mother's House,money,NN,25
+09: His Mother's House,morning,NN,6
+09: His Mother's House,mother,NN,35
+09: His Mother's House,mouth,NN,7
+09: His Mother's House,moved,VBD,8
+09: His Mother's House,much,JJ,6
+09: His Mother's House,na,TO,11
+09: His Mother's House,near,IN,6
+09: His Mother's House,never,RB,9
+09: His Mother's House,new,JJ,14
+09: His Mother's House,next,JJ,11
+09: His Mother's House,night,NN,6
+09: His Mother's House,nobody,NN,6
+09: His Mother's House,oh,UH,6
+09: His Mother's House,old,JJ,17
+09: His Mother's House,one,CD,48
+09: His Mother's House,opened,VBD,8
+09: His Mother's House,pearl,NNP,22
+09: His Mother's House,people,NNS,8
+09: His Mother's House,picture,NN,7
+09: His Mother's House,pictures,NNS,12
+09: His Mother's House,place,NN,11
+09: His Mother's House,put,VBD,12
+09: His Mother's House,remember,VB,8
+09: His Mother's House,rickey,NNP,64
+09: His Mother's House,right,NN,6
+09: His Mother's House,right,RB,12
+09: His Mother's House,room,NN,12
+09: His Mother's House,said,VBD,93
+09: His Mother's House,sandy,NNP,18
+09: His Mother's House,santiago,NNP,54
+09: His Mother's House,sat,VBD,11
+09: His Mother's House,saw,VBD,15
+09: His Mother's House,see,VB,15
+09: His Mother's House,seen,VBN,7
+09: His Mother's House,shit,NN,6
+09: His Mother's House,shoes,NNS,10
+09: His Mother's House,shook,VBD,9
+09: His Mother's House,sitting,VBG,6
+09: His Mother's House,small,JJ,6
+09: His Mother's House,smokey,NNP,16
+09: His Mother's House,somethin,NN,11
+09: His Mother's House,something,NN,9
+09: His Mother's House,son,NN,10
+09: His Mother's House,started,VBD,6
+09: His Mother's House,stay,VB,6
+09: His Mother's House,still,RB,10
+09: His Mother's House,stood,VBD,6
+09: His Mother's House,street,NN,17
+09: His Mother's House,street,NNP,10
+09: His Mother's House,stuff,NN,7
+09: His Mother's House,table,NN,29
+09: His Mother's House,take,VB,13
+09: His Mother's House,taken,VBN,8
+09: His Mother's House,taylor,NNP,7
+09: His Mother's House,telephone,NN,7
+09: His Mother's House,tell,VB,15
+09: His Mother's House,ten,CD,6
+09: His Mother's House,tennis,NN,8
+09: His Mother's House,thing,NN,11
+09: His Mother's House,things,NNS,6
+09: His Mother's House,think,VBP,6
+09: His Mother's House,thought,VBD,11
+09: His Mother's House,three,CD,15
+09: His Mother's House,time,NN,16
+09: His Mother's House,told,VBD,31
+09: His Mother's House,took,VBD,17
+09: His Mother's House,turned,VBD,12
+09: His Mother's House,two,CD,15
+09: His Mother's House,want,VB,6
+09: His Mother's House,want,VBP,8
+09: His Mother's House,way,NN,17
+09: His Mother's House,week,NN,10
+09: His Mother's House,went,VBD,11
+09: His Mother's House,white,JJ,6
+09: His Mother's House,whole,JJ,8
+09: His Mother's House,without,IN,7
+09: His Mother's House,woman,NN,35
+09: His Mother's House,world,NN,12
+09: His Mother's House,would,MD,49
+09: His Mother's House,years,NNS,12
+10: A Butterfly on F Street,back,RB,8
+10: A Butterfly on F Street,butterfly,NN,6
+10: A Butterfly on F Street,day,NN,8
+10: A Butterfly on F Street,mansfield,NNP,6
+10: A Butterfly on F Street,mildred,NNP,27
+10: A Butterfly on F Street,next,JJ,6
+10: A Butterfly on F Street,said,VBD,13
+10: A Butterfly on F Street,say,VB,8
+10: A Butterfly on F Street,son,NN,6
+10: A Butterfly on F Street,street,NN,9
+10: A Butterfly on F Street,woman,NN,29
+10: A Butterfly on F Street,would,MD,8
+11: Gospel,ai,VBP,8
+11: Gospel,along,IN,7
+11: Gospel,anita,NNP,25
+11: Gospel,arm,NN,6
+11: Gospel,asked,VBD,9
+11: Gospel,away,RB,9
+11: Gospel,back,RB,17
+11: Gospel,beside,IN,6
+11: Gospel,boy,NN,11
+11: Gospel,bring,VB,6
+11: Gospel,came,VBD,17
+11: Gospel,car,NN,17
+11: Gospel,church,NN,24
+11: Gospel,come,VB,8
+11: Gospel,corner,NN,7
+11: Gospel,could,MD,39
+11: Gospel,counsel,NNP,12
+11: Gospel,day,NN,13
+11: Gospel,diane,NNP,42
+11: Gospel,done,VBN,6
+11: Gospel,door,NN,9
+11: Gospel,empty,JJ,6
+11: Gospel,father,NN,7
+11: Gospel,find,VB,7
+11: Gospel,first,JJ,10
+11: Gospel,four,CD,13
+11: Gospel,get,VB,13
+11: Gospel,glass,NN,6
+11: Gospel,go,VB,10
+11: Gospel,god,NNP,14
+11: Gospel,gon,VBG,7
+11: Gospel,good,JJ,7
+11: Gospel,gospel,NN,8
+11: Gospel,gospelteers,NNP,12
+11: Gospel,got,VBD,15
+11: Gospel,group,NN,26
+11: Gospel,hall,NN,7
+11: Gospel,head,NN,8
+11: Gospel,hear,VB,6
+11: Gospel,home,NN,11
+11: Gospel,house,NNP,12
+11: Gospel,husband,NN,10
+11: Gospel,jesse,NNP,10
+11: Gospel,jesus,NNP,7
+11: Gospel,knew,VBD,6
+11: Gospel,life,NN,7
+11: Gospel,like,IN,10
+11: Gospel,little,JJ,9
+11: Gospel,long,JJ,6
+11: Gospel,looked,VBD,8
+11: Gospel,lord,NNP,6
+11: Gospel,mae,NNP,15
+11: Gospel,make,VB,8
+11: Gospel,man,NN,31
+11: Gospel,maude,NNP,32
+11: Gospel,members,NNS,8
+11: Gospel,men,NNS,8
+11: Gospel,mirror,NN,6
+11: Gospel,morning,NN,7
+11: Gospel,na,TO,8
+11: Gospel,never,RB,6
+11: Gospel,night,NN,6
+11: Gospel,oh,UH,10
+11: Gospel,old,JJ,18
+11: Gospel,one,CD,28
+11: Gospel,part,NN,6
+11: Gospel,pastor,NN,7
+11: Gospel,people,NNS,18
+11: Gospel,piano,NN,6
+11: Gospel,place,NN,8
+11: Gospel,program,NN,9
+11: Gospel,ralph,NNP,8
+11: Gospel,reverend,NNP,16
+11: Gospel,river,NN,7
+11: Gospel,room,NN,6
+11: Gospel,said,VBD,76
+11: Gospel,sang,VBD,6
+11: Gospel,sat,VBD,6
+11: Gospel,saunders,NNP,11
+11: Gospel,say,VB,8
+11: Gospel,second,JJ,6
+11: Gospel,see,VB,17
+11: Gospel,sing,VB,15
+11: Gospel,small,JJ,7
+11: Gospel,snow,NN,9
+11: Gospel,son,NN,7
+11: Gospel,still,RB,13
+11: Gospel,street,NN,11
+11: Gospel,sunday,NNP,12
+11: Gospel,table,NN,6
+11: Gospel,take,VB,7
+11: Gospel,tell,VB,11
+11: Gospel,think,VB,7
+11: Gospel,though,IN,7
+11: Gospel,thought,VBD,7
+11: Gospel,three,CD,7
+11: Gospel,time,NN,26
+11: Gospel,told,VBD,10
+11: Gospel,took,VBD,13
+11: Gospel,turned,VBD,8
+11: Gospel,two,CD,15
+11: Gospel,vi,NNP,8
+11: Gospel,vivian,NNP,68
+11: Gospel,voice,NN,6
+11: Gospel,watched,VBD,7
+11: Gospel,watchers,NNPS,6
+11: Gospel,way,NN,10
+11: Gospel,went,VBD,14
+11: Gospel,wife,NN,11
+11: Gospel,woman,NN,10
+11: Gospel,women,NNS,31
+11: Gospel,words,NNS,11
+11: Gospel,world,NN,12
+11: Gospel,would,MD,42
+11: Gospel,years,NNS,8
+11: Gospel,young,JJ,11
+12: A New Man,ai,VBP,7
+12: A New Man,apartment,NN,7
+12: A New Man,asked,VBD,6
+12: A New Man,away,RB,7
+12: A New Man,back,RB,11
+12: A New Man,began,VBD,7
+12: A New Man,behind,IN,6
+12: A New Man,boy,NN,10
+12: A New Man,boys,NNS,11
+12: A New Man,came,VBD,6
+12: A New Man,chair,NN,8
+12: A New Man,child,NN,7
+12: A New Man,children,NNS,7
+12: A New Man,come,VB,6
+12: A New Man,couch,NN,8
+12: A New Man,could,MD,23
+12: A New Man,cunningham,NNP,7
+12: A New Man,daughter,NN,16
+12: A New Man,day,NN,7
+12: A New Man,door,NN,8
+12: A New Man,elaine,NNP,9
+12: A New Man,even,RB,16
+12: A New Man,everything,NN,6
+12: A New Man,eyes,NNS,8
+12: A New Man,father,NN,22
+12: A New Man,five,CD,6
+12: A New Man,found,VBD,6
+12: A New Man,friends,NNS,9
+12: A New Man,get,VB,8
+12: A New Man,girl,NN,7
+12: A New Man,go,VB,8
+12: A New Man,god,NNP,7
+12: A New Man,got,VBD,6
+12: A New Man,hand,NN,8
+12: A New Man,happened,VBD,7
+12: A New Man,heart,NN,6
+12: A New Man,home,NN,10
+12: A New Man,house,NN,6
+12: A New Man,like,IN,9
+12: A New Man,looked,VBD,9
+12: A New Man,man,NN,26
+12: A New Man,men,NNS,6
+12: A New Man,missing,VBG,6
+12: A New Man,months,NNS,7
+12: A New Man,mother,NN,8
+12: A New Man,never,RB,9
+12: A New Man,nothing,NN,7
+12: A New Man,old,JJ,16
+12: A New Man,one,CD,21
+12: A New Man,picture,NN,8
+12: A New Man,place,NN,10
+12: A New Man,put,VBD,10
+12: A New Man,read,VB,7
+12: A New Man,rita,NNP,22
+12: A New Man,said,VBD,31
+12: A New Man,sat,VBD,7
+12: A New Man,say,VB,8
+12: A New Man,see,VB,9
+12: A New Man,small,JJ,6
+12: A New Man,something,NN,6
+12: A New Man,standing,VBG,6
+12: A New Man,stood,VBD,7
+12: A New Man,table,NN,8
+12: A New Man,tell,VB,7
+12: A New Man,three,CD,6
+12: A New Man,time,NN,9
+12: A New Man,told,VBD,11
+12: A New Man,took,VBD,11
+12: A New Man,two,CD,7
+12: A New Man,wanted,VBD,6
+12: A New Man,way,NN,6
+12: A New Man,went,VBD,11
+12: A New Man,wife,NN,6
+12: A New Man,woman,NN,10
+12: A New Man,woodrow,NNP,57
+12: A New Man,words,NNS,9
+12: A New Man,work,NN,8
+12: A New Man,would,MD,37
+12: A New Man,years,NNS,6
+13: A Dark Night,ai,VBP,10
+13: A Dark Night,apartment,NN,6
+13: A Dark Night,back,RB,6
+13: A Dark Night,bad,JJ,6
+13: A Dark Night,bathroom,NN,6
+13: A Dark Night,beatrice,NNP,30
+13: A Dark Night,began,VBD,10
+13: A Dark Night,boone,NNP,7
+13: A Dark Night,cane,NN,7
+13: A Dark Night,carmena,NNP,20
+13: A Dark Night,chair,NN,8
+13: A Dark Night,company,NN,9
+13: A Dark Night,corn,NN,6
+13: A Dark Night,could,MD,11
+13: A Dark Night,daddy,NN,13
+13: A Dark Night,dark,JJ,7
+13: A Dark Night,door,NN,27
+13: A Dark Night,ever,RB,9
+13: A Dark Night,eyes,NNS,6
+13: A Dark Night,fella,NN,6
+13: A Dark Night,floor,NN,9
+13: A Dark Night,four,CD,6
+13: A Dark Night,garrett,NNP,38
+13: A Dark Night,god,NNP,6
+13: A Dark Night,good,JJ,9
+13: A Dark Night,got,VBD,6
+13: A Dark Night,hand,NN,10
+13: A Dark Night,henry,NNP,10
+13: A Dark Night,joe,NNP,8
+13: A Dark Night,john,NNP,10
+13: A Dark Night,keepin,JJ,6
+13: A Dark Night,lightning,NN,7
+13: A Dark Night,like,IN,15
+13: A Dark Night,little,JJ,7
+13: A Dark Night,long,JJ,7
+13: A Dark Night,long,RB,6
+13: A Dark Night,look,VB,6
+13: A Dark Night,looked,VBD,13
+13: A Dark Night,lord,NNP,6
+13: A Dark Night,make,VB,8
+13: A Dark Night,never,RB,9
+13: A Dark Night,night,NN,10
+13: A Dark Night,oh,UH,6
+13: A Dark Night,one,CD,22
+13: A Dark Night,put,VBD,6
+13: A Dark Night,rain,NN,9
+13: A Dark Night,right,RB,11
+13: A Dark Night,room,NN,14
+13: A Dark Night,said,VBD,47
+13: A Dark Night,say,VB,8
+13: A Dark Night,see,VB,7
+13: A Dark Night,seemed,VBD,6
+13: A Dark Night,sittin,NN,9
+13: A Dark Night,table,NN,8
+13: A Dark Night,tell,VB,6
+13: A Dark Night,thing,NN,9
+13: A Dark Night,thought,VBD,7
+13: A Dark Night,thunder,NN,12
+13: A Dark Night,time,NN,10
+13: A Dark Night,told,VBD,10
+13: A Dark Night,took,VBD,8
+13: A Dark Night,two,CD,7
+13: A Dark Night,uncle,NN,7
+13: A Dark Night,uncle,NNP,7
+13: A Dark Night,us,PRP,14
+13: A Dark Night,way,NN,15
+13: A Dark Night,went,VBD,9
+13: A Dark Night,women,NNS,10
+13: A Dark Night,would,MD,21
+14: Marie,always,RB,8
+14: Marie,another,DT,8
+14: Marie,apartment,NN,6
+14: Marie,asked,VBD,10
+14: Marie,back,RB,17
+14: Marie,baltimore,NNP,8
+14: Marie,bed,NN,6
+14: Marie,began,VBD,11
+14: Marie,boy,NN,9
+14: Marie,bus,NN,6
+14: Marie,calhoun,NNP,8
+14: Marie,called,VBD,6
+14: Marie,came,VBD,14
+14: Marie,chair,NN,9
+14: Marie,come,VB,11
+14: Marie,come,VBN,6
+14: Marie,could,MD,17
+14: Marie,day,NN,18
+14: Marie,days,NNS,10
+14: Marie,dead,JJ,7
+14: Marie,even,RB,9
+14: Marie,ever,RB,7
+14: Marie,everything,NN,8
+14: Marie,first,JJ,8
+14: Marie,four,CD,6
+14: Marie,george,NNP,6
+14: Marie,get,VB,10
+14: Marie,go,VB,6
+14: Marie,good,JJ,9
+14: Marie,got,VBD,13
+14: Marie,hand,NN,13
+14: Marie,heard,VBD,8
+14: Marie,hello,UH,7
+14: Marie,home,NN,6
+14: Marie,knew,VBD,11
+14: Marie,knife,NN,9
+14: Marie,know,VB,7
+14: Marie,letter,NN,8
+14: Marie,letters,NNS,6
+14: Marie,life,NN,11
+14: Marie,like,IN,15
+14: Marie,long,RB,9
+14: Marie,look,VB,6
+14: Marie,looked,VBD,8
+14: Marie,machine,NN,8
+14: Marie,man,NN,32
+14: Marie,marie,NNP,49
+14: Marie,morning,NN,10
+14: Marie,mother,NN,11
+14: Marie,name,NN,7
+14: Marie,never,RB,8
+14: Marie,next,JJ,7
+14: Marie,night,NN,6
+14: Marie,old,JJ,8
+14: Marie,one,CD,22
+14: Marie,people,NNS,20
+14: Marie,place,NN,8
+14: Marie,put,VBD,6
+14: Marie,receptionist,NN,10
+14: Marie,right,RB,6
+14: Marie,said,VBD,47
+14: Marie,say,VB,10
+14: Marie,security,NNP,11
+14: Marie,see,VB,10
+14: Marie,seemed,VBD,6
+14: Marie,since,IN,6
+14: Marie,smith,NNP,9
+14: Marie,social,NNP,10
+14: Marie,something,NN,7
+14: Marie,still,RB,8
+14: Marie,take,VB,7
+14: Marie,telephone,NN,9
+14: Marie,tell,VB,9
+14: Marie,things,NNS,8
+14: Marie,thought,VBD,10
+14: Marie,time,NN,22
+14: Marie,told,VBD,21
+14: Marie,took,VBD,13
+14: Marie,turned,VBD,6
+14: Marie,two,CD,12
+14: Marie,used,VBN,6
+14: Marie,vernelle,NNP,30
+14: Marie,voice,NN,8
+14: Marie,want,VB,7
+14: Marie,wanted,VBD,8
+14: Marie,washington,NNP,10
+14: Marie,way,NN,10
+14: Marie,went,VBD,13
+14: Marie,wilamena,NNP,20
+14: Marie,wise,NNP,8
+14: Marie,without,IN,6
+14: Marie,woman,NN,31
+14: Marie,world,NN,6
+14: Marie,would,MD,36
+14: Marie,years,NNS,10
+14: Marie,young,JJ,8
+Back Matter,city,NNP,6
+Front Matter,copyright,NN,11
+Front Matter,jones,NNP,6

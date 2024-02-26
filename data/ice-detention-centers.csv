@@ -1,0 +1,63 @@
+Latitude,Longitude,Name,County,State,Address,Duration,Type,Owner
+31.168694,-105.365067,West Texas Detention Facility,Tornillo,Texas,"401 South Vaquero Avenue, Sierra Blanca, TX 79851",,,
+25.942883,-97.424066,Southwest Key Casa Padre,Cameron,Texas,"7480 Padre Island Hwy, Brownsville, TX 78521",,Juvenile,Southwest Key
+26.123897,-97.632978,Southwest Key San Benito/Casa Antigua,Cameron,Texas,"502 E Expressway 83, San Benito, TX 78586",,Juvenile,Southwest Key
+26.239331,-97.729311,Southwest Key Combes,Cameron,Texas,"23011 Rio Rancho Rd, Harlingen, TX 78552",,Juvenile,Southwest Key
+32.807801,-116.937924,Southwest Key El Cajon,San Diego,California,"1253 Broadway, El Cajon, CA 92021",,Juvenile,Southwest Key
+32.241632,-110.97948,Southwest Key Estrella del Norte,Pima,Arizona,"1601 N Oracle Rd, Tucson, AZ 85705",,Juvenile,Southwest Key
+33.501996,-112.115041,Southwest Key Phoenix (1 of 2),Maricopa,Arizona,"2613 W Campbell Ave, Phoenix, AZ 85017",,Juvenile,Southwest Key
+33.481799,-112.051804,Southwest Key Phoenix (2 of 2),Maricopa,Arizona,"2932 N 14th St, Phoenix, AZ 85014",,Juvenile,Southwest Key
+33.594944,-112.303751,Southwest Key Youngtown,Maricopa,Arizona,"12030 N 113th Ave, Youngtown, AZ 85363",,Juvenile,Southwest Key
+33.542104,-112.169822,Southwest Key Glendale,Maricopa,Arizona,"5125 W Myrtle Ave, Glendale, AZ 85301",,Juvenile,Southwest Key
+30.371544,-95.512041,Southwest Key Conroe,Montgomery,Texas,"10393 League Line Rd, Conroe, TX 77304",,Juvenile,Southwest Key
+30.335951,-95.448096,Joe Corley Detention Facility ,Montgomery,Texas,"500 Hilbig Rd, Conroe, TX 77301",,,
+29.867513,-95.407907,Southwest Key Casa Quetzal,Harris,Texas,"7407 Interstate 45 N Houston, TX 77076",,Juvenile,Southwest Key
+29.705200,-98.495848,Southwest Key Casa Blanca,Bexar,Texas,"27102 Enchanted Eve, San Antonio, TX 78260",,Juvenile,Southwest Key
+29.774397,-95.145021,Southwest Key Casa Montezuma,Harris,Texas,"15101 East Fwy, Channelview, TX 77530",,Juvenile,Southwest Key
+25.944447,-97.450052,Southwest Key Casa El Presidente,Cameron,Texas,"1 Ted Hunt Blvd Brownsville, TX 78521",,Juvenile,Southwest Key
+26.124723,-97.611388,Southwest Key Casa Grande,Cameron,Texas,"401 E Business HWY 77, San Benito, TX 78586",,Juvenile,Southwest Key
+31.762054,-106.487845,Southwest Key Casa Franklin,El Paso,Texas,"315 E Franklin Ave, El Paso, TX 79901",,Juvenile,Southwest Key
+25.973608,-97.511272,Southwest Key Nueva Esperanza,Cameron,Texas,"321 Lorenaly Dr., Brownsville, TX 78526",,Juvenile,Southwest Key
+29.6909001,-95.4089882,Southwest Key Casa Houston Reliant,Harris,Texas,"1550 La Concha Lane, Houston, TX 77054",,Juvenile,Southwest Key
+31.9077395,-106.5972866,Southwest Key Shelter Care,El Paso,Texas,"400 Talbot Ave, Canutillo, TX 79835",,Juvenile,Southwest Key
+31.5319521,-106.2326139,Southwest Key Casita del Valle,El Paso,Texas,"1855 Lee Mor RD Clint, TX 79836",,Juvenile,Southwest Key
+37.9473118,-122.0914811,Southwest Key Pleasant Hill,Contra Costa,California,"808 Grayson Rd, Pleasant Hill, CA 94523",,Juvenile,Southwest Key
+,,"***we might be missing 1 SWK site in Cameron County, possibly in Brownsville, not sure yet -RR Source: https://www.brownsvilleherald.com/news/local/texas-inspectors-find-series-of-violations-at-youth-shelters/article_4d2ee338-6e65-11e8-b857-3b5a1864b1b4.html",,,,,,
+29.5184927,-95.3547106,Shiloh Treatment Center,Brazoria,Texas,"3926 Bahler Avenue, Manville, TX 77578",,Juvenile,
+38.1906885,-79.0154329,Shenendoah Valley Juvenile Center,Augusta,Virginia,"300 Technology Dr, Staunton, VA 24401",,,
+28.045392, -99.336083,La Salle County Regional Detention Center,La Salle,Texas,"832 E. Texas 44 Encinal, TX, 78019",,,
+,,,,,,,,
+,,ICE BELOW HERE FROM https://www.ice.gov/detention-facilities,,,,,,
+27.247159,-98.126963,Brooks County Detention Center,Brooks,Texas,"901 County Road 201 Falfurrias, TX, 78355",,,ICE
+27.529217,-99.447908,Laredo Detention Center,,Texas,"4702 East Saunders Laredo, TX, 78401",,,ICE
+27.377706,-99.490087,Rio Grande Detention Center,,Texas,"1001 San Rio Blvd Laredo, TX, 78046",,,ICE
+26.296563,-97.918132,East Hidalgo Detention Center,,Texas,"1300 E Hwy 107 La Villa, TX, 78562",,,ICE
+26.155036,-97.338279,Port Isabel Service Processing Center,,Texas,"27991 Buena Vista Blvd. Los Fresnos, TX, 78566",,,ICE
+28.657938,-99.200446,South Texas Family Residential Center,,Texas,"300 El Rancho Way Dilley, TX, 78017",,,ICE
+29.423409,-98.497067,Central Texas Detention Facility (GEO),,Texas,"218 South Laredo Street San Antonio, TX, 78207",,,ICE
+28.883449,-97.911775,Karnes County Correctional Center,,Texas,"810 Commerce Street Karnes City, TX, 78118",,,
+30.335711,-95.447806,Joe Corley Detention Facility,,Texas,"500 Hilbig Rd Conroe, TX, 77301",,,
+29.94987,-95.312139,Houston Contract Detention Facility,,Texas,"15850 Export Plaza Drive Houston, TX, 77032",,,
+33.176576,-99.722348,Rolling Plains Correctional Facility,,Texas,"118 County Road 206 Haskell, TX, 79521",,,
+33.176576,-99.722348,Rolling Plains Correctional Facility,,Texas,"118 County Road 206 Haskell, TX, 79521",,,
+28.895156,-99.121232,South Texas Detention Complex,,Texas,"566 Veterans Drive Pearsall, TX, 78061",,,
+29.373191,-100.847867,Val Verde County Detention Center,,Texas,"253 FM 2523 Hamilton Lane Del Rio, TX, 78840",,,
+30.740654,-98.252824,Burnet County Jail,,Texas,"900 County Lane Burnet, TX, 78611",,,
+30.697676,-95.006068,IAH Secure Adult Detention Facility,,Texas,"3400 FM 350 South Livingston, TX, 77351",,,
+31.549304,-97.081435,Jack Harwell Detention Center,,Texas,"3101 E. Marlin Hwy Waco, TX, 76705",,,
+31.166571,-105.351694,West Texas Detention Facility,,Texas,"401 S. Vaquero Avenue Sierra Blanca, TX, 79851",,,
+32.076842,-106.254915,Otero County Processing Center,,Texas,"26 McGregor Range Road Chaparral, NM, 88081",,,
+31.793847,-106.369283,El Paso Processing Center,,Texas,"8915 Montana Ave. El Paso, TX, 79925",,,
+31.831341,-106.378838,FSL La Tuna,,Texas,"SSG Sims Road Building 11636 El Paso, TX, 79906",,,
+34.767281,-106.018581,Torrance County Detention Facility,,New Mexico,"209 County Road A049 Estancia, NM, 87016",,,
+30.788608,-92.423115,Pine Prairie ICE Processing Center,,Louisiana,"1133 Hampton Dupre Road Pine Prairie, LA, 70576",,,
+30.697676,-95.006068,IAH Secure Adult Detention Facility,,Texas,"3400 FM 350 South Livingston, TX, 77351",,,
+32.817747,-111.520047,Eloy Detention Center,,Arizona,"1705 E Hanna Rd Eloy , AZ, 85131",,,
+33.064284,-111.382416,Florence SPC,,Arizona,"3250 N. Pinal Parkway Florence, AZ, 85132",,,
+33.044161,-111.377164,Central Arizona Correctional Center,,Arizona,"1155 North Pinal Parkway Florence, AZ, 85132",,,
+33.037121,-111.371352,Florence Correctional Center,,Arizona,"1100 Bowling Road Florence, AZ, 85132",,,
+32.690755,-115.39788,Imperial Regional Detention Facility,,California,"1572 Gateway Road Calexico, CA, 92231",,,
+32.575024,-116.914764,Otay Mesa Detention Center,,California,"7488 Calzada de la Fuente San Diego, CA, 92231",,,
+34.558278,-117.441836,Adelanto ICE Processing Center,,California,"Adelanto West 10250 Rancho Road Adelanto, CA, 92301",,,
+35.379968,-119.006438,Mesa Verde ICE Processing Facility,,California,"425 Golden State Avenue Bakersfield, CA, 93301",,,
+36.252981,-115.975284,Nevada Southern Detention Center,,Nevada,"2190 E Mesquite Avenue Pahrump, NV, 89048",,,

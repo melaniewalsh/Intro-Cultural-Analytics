@@ -117,34 +117,41 @@ tbody tr:hover {
 
   /* Make custom Python Review admonition */
 
-.admonition.pythonreview {
+div.admonition.pythonreview {
   border-color: #229932
 }
 
-.admonition.pythonreview .admonition-title {
+div.admonition.pythonreview .admonition-title {
   background-color: #6cd279
 }
 
-.admonition.pythonreview .admonition-title:before {
+div.admonition.pythonreview .admonition-title:after {
   color: #2abf3d;
   content: "🐍"
 }
 
   /* Make custom Pandas Review admonition */
 
-.admonition.pandasreview {
+div.admonition.pandasreview {
   border-color: #000000
 }
 
-.admonition.pandasreview .admonition-title {
+div.admonition.pandasreview .admonition-title {
   background-color: black;
-  color: white;
-}
-
-.admonition.pandasreview .admonition-title:before {
   color: white;
   content: "🐼" !important
 }
+
+/*div.admonition.pandasreview .admonition-title:before {
+  color: white;
+  content: "🐼" !important
+}*/
+
+div.admonition.pandasreview .admonition-title:after {
+  color: white;
+  content: "🐼" !important
+}
+
 
 
 

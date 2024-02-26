@@ -1,0 +1,66 @@
+Overlooked No More: Karen Sparck Jones, Who Established the Basis for Search Engines
+A pioneer of computer science for work combining statistics and linguistics, and an advocate for women in the field.
+
+By Nellie Bowles
+
+When most scientists were trying to make people use code to talk to computers, Karen Sparck Jones taught computers to understand human language instead.
+
+In so doing, her technology established the basis of search engines like Google.
+
+A self-taught programmer with a focus on natural language processing, and an advocate for women in the field, Sparck Jones also foreshadowed by decades Silicon Valley’s current reckoning, warning about the risks of technology being led by computer scientists who were not attuned to its social implications.
+
+“A lot of the stuff she was working on until five or 10 years ago seemed like mad nonsense, and now we take it for granted,” said John Tait, a longtime friend who works with the British Computer Society.
+
+Sparck Jones’s seminal 1972 paper in the Journal of Documentation laid the groundwork for the modern search engine. In it, she combined statistics with linguistics — an unusual approach at the time — to establish formulas that embodied principles for how computers could interpret relationships between words.
+
+By 2007, Sparck Jones said, “pretty much every web engine uses those principles.”
+
+“Anything that does index-term weighting using any kind of statistical information will be using a weighting function that I published in 1972,” she said in an interview with the British Computer Society.
+
+Karen Ida Boalth Sparck Jones was born on Aug. 26, 1935, in Huddersfield, England, a textile manufacturing town. Her parents were Alfred Owen Jones, a chemistry lecturer, and Ida Sparck, who worked for the Norwegian government while in exile in London during World War II.
+
+When studying history and then philosophy (the department was then called moral sciences) at Cambridge, she met the head of the Cambridge Language Research Unit, Margaret Masterman, who would inspire her to enter the field. Sparck Jones later described her as “a very strange and interesting woman” who, unusual for the time, used her maiden name professionally.
+
+Sparck Jones, too, kept her name when she married Roger Needham, a fellow computer scientist, in 1958, saying, “It maintains a permanent existence of your own.”
+
+
+Sparck Jones started working for Ms. Masterman. She wanted to figure out how to program a computer to understand words that could have many meanings (for example “field”) and set about programming a massive thesaurus.
+
+
+“A lot of the stuff she was working on until five or 10 years ago seemed like mad nonsense, and now we take it for granted,” John Tait, of the British Computer Society, said about Sparck Jones.
+
+“All words in a natural language are ambiguous; they have multiple senses,” she said in an  oral history interview for the History Center of the Institute of Electrical and Electronics Engineers. “How do you find out which sense they’ve got in any particular use?”
+
+In 1964, Sparck Jones published “Synonymy and Semantic Classification,” which is now seen as a foundational paper in the field of natural language processing.
+
+In 1972, she introduced the concept of inverse document frequency, which measures the extent to which a rare term that appears in a particular document should be used to determine the term’s importance; it, too, is a foundation of modern search engines because it helps dictate where the document should appear in search results.
+
+Sparck Jones began working on early speech recognition systems in the 1980s.
+
+Most mornings and afternoons, she and her husband, a pioneer in software security, debated theory in the Cambridge department’s tea room.
+
+Their home in Coton, just west of Cambridge, was full of books, art and found items, like an interesting piece of driftwood or a Victorian-era knife grinder. They had a second house in the same village, using it to store the overflow of their book collection and as her artist’s workshop. One of her artworks was hung at the Microsoft Research Lab.
+
+Sailing was another passion of Sparck Jones and Needham. They restored an 1872 vintage sailboat called Fanny of Cowes and raced it against other old boats along the east coast of England. They chose not to have children.
+
+“They wanted their intellectual life,” said Andrew Herbert, her friend and a fellow computer scientist. “They were clearly deeply in love with each other all the way through their life.”
+
+Sparck Jones had a booming voice and a puckish sense of humor. At work, she usually wore a simple uniform: bluejeans, red sweater, white blouse. She also wore a brooch, which she made from stones and part of a horseshoe. When she had to bike to a formal dinner, as one often did at Cambridge, she was known to use clothing pegs to pin her dress to the handlebars.
+
+In 1982, the British government tapped Sparck Jones to work on the Alvey Program, an initiative to encourage more computer science research across the country. In 1993, she wrote, with Julia R. Galliers, “Evaluating Natural Language Processing Systems,” the seminal textbook on the topic.
+
+Sparck Jones became president of the Association for Computational Linguistics, an international group for professionals in the field, in 1994. She became a full-time professor at Cambridge in 1999 — and it had bothered her that it took so long. For all the years before, she had been on contract with the university, an untenured and lower-status form of academic employment referred to as “living on soft money.”
+
+“Cambridge was in many ways not user-friendly, in the sense of women-friendly,” she said of the delay.
+
+Sparck Jones died of cancer on April 4, 2007. She was 71. Though she did not receive an obituary in The Times, her husband did, in 2003.
+
+Today, researchers are still citing her formulas. Ideas she wrote about are now being put into practice as artificial intelligence research becomes more prevalent.
+
+“It points to how far ahead of her time she was, how consequential her work was, how little it was valued for the first 20 years,” said Martha Palmer, a professor in the Linguistics and Computer Science departments at the University of Colorado.
+
+Sparck Jones mentored a generation of researchers, male and female,  and came up with a slogan: “Computing is too important to be left to men.”
+
+She was ahead of her time in another respect. Decades before Silicon Valley was having its moral reckoning, Sparck Jones cautioned engineers to think of their work’s impact on society.
+
+“There is an interaction between the context and the programming task itself,” she said. “You don’t need a fundamental philosophical discussion every time you put finger to keyboard, but as computing is spreading so far into people’s lives, you need to think about these things.”

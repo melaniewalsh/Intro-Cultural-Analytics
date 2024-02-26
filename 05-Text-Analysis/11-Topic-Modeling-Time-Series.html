@@ -1,901 +1,602 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Topic Modeling — Time Series &#8212; Introduction to Cultural Analytics &amp; Python</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/custom.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-TLVVLVGVME');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/11-Topic-Modeling-Time-Series';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/11-Topic-Modeling-Time-Series.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Named Entity Recognition" href="12-Named-Entity-Recognition.html" />
     <link rel="prev" title="Topic Modeling — CSV Files" href="10-Topic-Modeling-CSV.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../welcome.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/favicon.ico" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Cultural Analytics & Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <p class="caption">
- <span class="caption-text">
-  How To
- </span>
-</p>
+    
+    
+    <img src="../_static/favicon.ico" class="logo__image only-light" alt="Introduction to Cultural Analytics & Python - Home"/>
+    <script>document.write(`<img src="../_static/favicon.ico" class="logo__image only-dark" alt="Introduction to Cultural Analytics & Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../How-To-Interact-With-This-Book.html">
-   Interact With This Book
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../How-To-Interact-With-This-Book.html">Interact With This Book</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../course-schedule-2021.html">
-   Course Schedule
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../course-schedule-2021.html">Course Schedule</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  The Book
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Book</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">
-   1. The Command Line
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02-Python/00-Python.html">
-   2. Python Basics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/01-Install-Python.html">
-     Install Python &amp; Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">
-     How to Use Jupyter Notebooks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">
-     Anatomy of a Python Script
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/04-Variables.html">
-     Python Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/05-Data-Types.html">
-     Python Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/06-String-Methods.html">
-     Python String Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">
-     Files and Character Encoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">
-     Python Comparisons and Conditionals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">
-     Python Lists and Loops
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">
-     Python Lists and Loops (Cont.)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/11-Dictionaries.html">
-     Python Dictionaries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/12-Functions.html">
-     Python Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">
-     Common Python Errors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">
-     What We’re Not Covering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">
-   3. Data Analysis (Pandas)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">
-     Pandas Basics — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">
-     Pandas Basics — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">
-     Pandas Basics — Part 3
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">
-     Pandas — Merge Datasets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">
-   4. Data Collection (Web Scraping, APIs, Social Media)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">
-     Users’ Data: Legal &amp; Ethical Considerations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">
-     Web Scraping — Part 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">
-     Web Scraping — Part 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">
-     Git and GitHub
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">
-     Application Programming Interfaces (APIs)
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">
-     Song Genius Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">
-       Song Genius API
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">
-       Song Lyrics Collection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">
-       Song Lyrics Analysis
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../04-Data-Collection/10-Twitter.html">
-     Twitter Data
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">
-       Twitter API Setup
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">
-       Twitter Data Collection &amp; Analysis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">
-       Twitter Data Sharing
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">
-     Reddit Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00-Text-Analysis.html">
-   5. Text Analysis
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="01-Multilingual-Text-Analysis.html">
-     Working in Languages Beyond English
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Chinese/00-Chinese.html">
-       Chinese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-      <label for="toctree-checkbox-8">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/01-Preprocessing-Chinese.html">
-         Text Pre-Processing for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">
-         Named Entity Recognition for Chinese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Chinese/03-POS-Keywords-Chinese.html">
-         Part-of-Speech Tagging for Chinese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Danish/00-Danish.html">
-       Danish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/01-Preprocessing-Danish.html">
-         Text Pre-Processing for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">
-         Named Entity Recognition for Danish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Danish/03-POS-Keywords-Danish.html">
-         Part-of-Speech Tagging for Danish
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Portuguese/00-Portuguese.html">
-       Portuguese
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/01-Preprocessing-Portuguese.html">
-         Text Pre-Processing for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">
-         Named Entity Recognition for Portuguese
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">
-         Part-of-Speech Tagging for Portuguese
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Russian/00-Russian.html">
-       Russian
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/01-Preprocessing-Russian.html">
-         Text Pre-Processing for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">
-         Named Entity Recognition for Russian
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Russian/03-POS-Keywords-Russian.html">
-         Part-of-Speech Tagging for Russian
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="Multilingual/Spanish/00-Spanish.html">
-       Spanish
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/01-Preprocessing-Spanish.html">
-         Text Pre-Processing for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">
-         Named Entity Recognition for Spanish
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="Multilingual/Spanish/03-POS-Keywords-Spanish.html">
-         Part-of-Speech Tagging for Spanish
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="01-TF-IDF.html">
-     Term-Frequency Inverse Document Frequency
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-    <label for="toctree-checkbox-13">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="02-TF-IDF-HathiTrust.html">
-       With HathiTrust
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="03-TF-IDF-Scikit-Learn.html">
-       With Scikit-Learn
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04-Sentiment-Analysis.html">
-     Sentiment Analysis
-    </a>
-   </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="05-Topic-Modeling.html">
-     Topic Modeling
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="06-Topic-Modeling-Overview.html">
-       What is Topic Modeling?
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="07-Topic-Modeling-Set-Up.html">
-       MALLET Set Up
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="08-Topic-Modeling-Text-Files.html">
-       MALLET &amp; Text Files (NYT Articles)
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="09-Topic-Modeling-Without-Mallet.html">
-       Tomotopy &amp; Text Files (NYT Articles) - No Java required
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="10-Topic-Modeling-CSV.html">
-       MALLET &amp; CSV Files (Reddit Posts)
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       MALLET &amp; Time Series (Tweets)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="12-Named-Entity-Recognition.html">
-     Named Entity Recognition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13-POS-Keywords.html">
-     Part-of-Speech Tagging
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">
-   6. Network Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">
-     Network Analysis with NetworkX
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">
-     Make an Interactive Network Visualization with Bokeh
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07-Mapping/00-Mapping.html">
-   7. Mapping
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/01-Mapping.html">
-     Mapping &amp; Geocoding
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">
-     Custom Map Backgrounds
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">
-     Publish Your Map on the Web
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../01-Command-Line/01-The-Command-Line.html">1. The Command Line</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-Python/00-Python.html">2. Python Basics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/01-Install-Python.html">Install Python &amp; JupyterLab</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/02-How-to-Use-Jupyter-Notebooks.html">How to Use Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/03-Anatomy-Python-Script.html">Anatomy of a Python Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/04-Variables.html">Python Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/05-Data-Types.html">Python Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/06-String-Methods.html">Python String Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/07-Files-Character-Encoding.html">Files and Character Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/08-Comparisons-Conditionals.html">Python Comparisons and Conditionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/09-Lists-Loops-Part1.html">Python Lists and Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/10-Lists-Loops-Part2.html">Python Lists and Loops (Cont.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/11-Dictionaries.html">Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/12-Functions.html">Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/13-Common-Python-Errors.html">Common Python Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-Python/14-What-Were-Not-Covering.html">What We’re Not Covering</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Datasets
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-Data-Analysis/00-Data-Analysis.html">3. Data Analysis (Pandas)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/01-Pandas-Basics-Part1.html">Pandas Basics — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/02-Pandas-Basics-Part2.html">Pandas Basics — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/03-Pandas-Basics-Part3.html">Pandas Basics — Part 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-Data-Analysis/04-Pandas-Merge-Datasets.html">Pandas — Merge Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-Data-Collection/00-Data-Collection.html">4. Data Collection (Web Scraping, APIs, Social Media)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/01-User-Ethics-Legal-Concerns.html">Users’ Data: Legal &amp; Ethical Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/02-Web-Scraping-Part1.html">Web Scraping — Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/03-Web-Scraping-Part2.html">Web Scraping — Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/04-Git-GitHub.html">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/05-What-Is-API.html">Application Programming Interfaces (APIs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/06-Song-Genius.html">Song Genius Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/07-Genius-API.html">Song Genius API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/08-Collect-Genius-Lyrics.html">Song Lyrics Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/09-Lyrics-Analysis.html">Song Lyrics Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-Data-Collection/10-Twitter.html">Twitter Data</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/11-Twitter-API-Setup.html">Twitter API Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/12-Twitter-Data.html">Twitter Data Collection &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-Data-Collection/13-Twitter-Data-Sharing.html">Twitter Data Sharing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-Data-Collection/14-Reddit-Data.html">Reddit Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00-Text-Analysis.html">5. Text Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="01-Multilingual-Text-Analysis.html">Working in Languages Beyond English</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Chinese/00-Chinese.html">Chinese</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/01-Preprocessing-Chinese.html">Text Pre-Processing for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/02-Named-Entity-Recognition-Chinese.html">Named Entity Recognition for Chinese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Chinese/03-POS-Keywords-Chinese.html">Part-of-Speech Tagging for Chinese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Danish/00-Danish.html">Danish</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/01-Preprocessing-Danish.html">Text Pre-Processing for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/02-Named-Entity-Recognition-Danish.html">Named Entity Recognition for Danish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Danish/03-POS-Keywords-Danish.html">Part-of-Speech Tagging for Danish</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Portuguese/00-Portuguese.html">Portuguese</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/01-Preprocessing-Portuguese.html">Text Pre-Processing for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/02-Named-Entity-Recognition-Portuguese.html">Named Entity Recognition for Portuguese</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Portuguese/03-POS-Keywords-Portuguese.html">Part-of-Speech Tagging for Portuguese</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Russian/00-Russian.html">Russian</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/01-Preprocessing-Russian.html">Text Pre-Processing for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/02-Named-Entity-Recognition-Russian.html">Named Entity Recognition for Russian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Russian/03-POS-Keywords-Russian.html">Part-of-Speech Tagging for Russian</a></li>
+
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Multilingual/Spanish/00-Spanish.html">Spanish</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/01-Preprocessing-Spanish.html">Text Pre-Processing for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/02-Named-Entity-Recognition-Spanish.html">Named Entity Recognition for Spanish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Multilingual/Spanish/03-POS-Keywords-Spanish.html">Part-of-Speech Tagging for Spanish</a></li>
+
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="01-TF-IDF.html">Term-Frequency Inverse Document Frequency</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="02-TF-IDF-HathiTrust.html">With HathiTrust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03-TF-IDF-Scikit-Learn.html">With Scikit-Learn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04-Sentiment-Analysis.html">Sentiment Analysis</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="05-Topic-Modeling.html">Topic Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="06-Topic-Modeling-Overview.html">What is Topic Modeling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="07-Topic-Modeling-Set-Up.html">MALLET Set Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08-Topic-Modeling-Text-Files.html">MALLET &amp; Text Files (NYT Articles)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="09-Topic-Modeling-Without-Mallet.html">Tomotopy &amp; Text Files (NYT Articles) - No Java required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-Topic-Modeling-CSV.html">MALLET &amp; CSV Files (Reddit Posts)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">MALLET &amp; Time Series (Tweets)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12-Named-Entity-Recognition.html">Named Entity Recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-POS-Keywords.html">Part-of-Speech Tagging</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-Network-Analysis/00-Network-Analysis.html">6. Network Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/01-Network-Analysis.html">Network Analysis with NetworkX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html">Make an Interactive Network Visualization with Bokeh</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-Mapping/00-Mapping.html">7. Mapping</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/01-Mapping.html">Mapping &amp; Geocoding</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/02-Custom-Maps.html">Custom Map Backgrounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-Mapping/03-Publish-Your-Map.html">Publish Your Map on the Web</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datasets</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../00-Datasets/00-Datasets.html">
-   Datasets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../00-Datasets/00-Datasets.html">Datasets</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Extra Materials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Materials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">
-   Jupyter Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">
-   Make Random Student Groups
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html">Jupyter Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-Python/EXTRA-Randomize-Students.html">Make Random Student Groups</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-Text-Analysis/11-Topic-Modeling-Time-Series.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/11-Topic-Modeling-Time-Series.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/11-Topic-Modeling-Time-Series.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/05-Text-Analysis/11-Topic-Modeling-Time-Series.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues/new?title=Issue%20on%20page%20%2F05-Text-Analysis/11-Topic-Modeling-Time-Series.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/05-Text-Analysis/11-Topic-Modeling-Time-Series.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Topic Modeling — Time Series</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trumps-tweets">
-     Trump’s Tweets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-mallet-path">
-   Set MALLET Path
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-packages">
-   Install Packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-packages">
-   Import Packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-training-data-from-csv-file">
-   Get Training Data From CSV File
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trump-tweets">
-   Trump Tweets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#process-trump-tweets">
-     Process Trump Tweets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-original-trump-tweets">
-     Get Original Trump Tweets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-dataset-statistics">
-     Get Dataset Statistics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#training-the-topic-model">
-   Training the Topic Model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-number-of-topics">
-     Set Number of Topics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-training-data">
-     Set Training Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-other-mallet-file-paths">
-     Set Other MALLET File Paths
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-topic-model">
-     Train Topic Model
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#display-topics-and-top-words">
-   Display Topics and Top Words
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#display-top-tweets-for-topic">
-   Display Top Tweets For Topic
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-topic-distributions">
-   Load Topic Distributions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#show-topic-words-in-context-of-full-tweet">
-   Show Topic Words in Context of Full Tweet
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-topics-over-time">
-   Plot Topics Over Time
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Load Topic Distributions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-topic-distribution-columns">
-   Add Topic Distribution Columns
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#date-formatting-for-time-series-plot">
-   Date Formatting For Time Series Plot
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-individual-topics-as-time-series">
-   Plot Individual Topics as Time Series
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trumps-tweets">Trump’s Tweets</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mallet-path">Set MALLET Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-packages">Install Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-training-data-from-csv-file">Get Training Data From CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trump-tweets">Trump Tweets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-trump-tweets">Process Trump Tweets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-original-trump-tweets">Get Original Trump Tweets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-dataset-statistics">Get Dataset Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-topic-model">Training the Topic Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-number-of-topics">Set Number of Topics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-training-data">Set Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-other-mallet-file-paths">Set Other MALLET File Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-topic-model">Train Topic Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-topics-and-top-words">Display Topics and Top Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-top-tweets-for-topic">Display Top Tweets For Topic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-topic-distributions">Load Topic Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-topic-words-in-context-of-full-tweet">Show Topic Words in Context of Full Tweet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-topics-over-time">Plot Topics Over Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Load Topic Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-topic-distribution-columns">Add Topic Distribution Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-formatting-for-time-series-plot">Date Formatting For Time Series Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-individual-topics-as-time-series">Plot Individual Topics as Time Series</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="topic-modeling-time-series">
-<h1>Topic Modeling — Time Series<a class="headerlink" href="#topic-modeling-time-series" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-modeling-time-series">
+<h1>Topic Modeling — Time Series<a class="headerlink" href="#topic-modeling-time-series" title="Link to this heading">#</a></h1>
 <p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or  single text that has been separated into smaller text chunks.</p>
-<div class="section" id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="trumps-tweets">
-<h3>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Permalink to this headline">¶</a></h3>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<section id="trumps-tweets">
+<h3>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Link to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>I hear that Fake News CNN just reported that I am isolated in the White House wondering out loud “when will life return to normal?” Does anybody really believe that?</p>
 <p class ="attribution">
@@ -903,12 +604,15 @@
     </p>
 </blockquote><p>In this particular lesson, we’re going to use <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">Little MALLET Wrapper</a>, a Python wrapper for <a class="reference external" href="http://mallet.cs.umass.edu/topics.php">MALLET</a>, to topic model a CSV file of Donald Trump’s tweets and plot the fluctuation of topics over time. The Trump tweets dataset is downloaded from <a class="reference external" href="https://www.thetrumparchive.com/">The Trump Twitter Archive</a>.</p>
 <hr class="docutils" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>If you're working in this Jupyter notebook on your own computer, you'll need to have both the Java Development Kit and MALLET pre-installed. For set up instructions, please see <a href="http://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling-Set-Up.html">the previous lesson<a/>.  </p>
 <p>If you’re working in this Jupyter notebook in the cloud via Binder, then the Java Development Kit and Mallet will already be installed. You’re good to go!</p>
-</div>  </div>
 </div>
-<div class="section" id="set-mallet-path">
-<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="set-mallet-path">
+<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Link to this heading">#</a></h2>
 <p>Since Little MALLET Wrapper is a Python package built around MALLET, we first need to tell it where the bigger, Java-based MALLET lives.</p>
 <p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
 <div class="cell docutils container">
@@ -919,20 +623,20 @@
 </div>
 </div>
 <p>If MALLET is located in another directory, then set your <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> to that file path.</p>
-</div>
-<div class="section" id="install-packages">
-<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-packages">
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install little_mallet_wrapper
-<span class="o">!</span>pip install seaborn
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>little_mallet_wrapper
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>seaborn
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="import-packages">
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
 <p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,23 +652,23 @@
 </div>
 </div>
 <p>We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system, as well as pandas for working with the CSV data.</p>
-</div>
-<div class="section" id="get-training-data-from-csv-file">
-<h2>Get Training Data From CSV File<a class="headerlink" href="#get-training-data-from-csv-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="get-training-data-from-csv-file">
+<h2>Get Training Data From CSV File<a class="headerlink" href="#get-training-data-from-csv-file" title="Link to this heading">#</a></h2>
 <p>Before we topic model Donald Trump’s tweets, we need to process the tweets and prepare them for analysis. The steps below demonstrate how to process texts if they come from a CSV file.</p>
-<div class="admonition note" id="html-admonition">
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We’re calling these text files our <em>training data</em>, because we’re <em>training</em> our topic model with these texts. The topic model will be learning and extracting topics based on these texts.</p>
 </div>
-</div></div>
-<div class="section" id="trump-tweets">
-<h2>Trump Tweets<a class="headerlink" href="#trump-tweets" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="trump-tweets">
+<h2>Trump Tweets<a class="headerlink" href="#trump-tweets" title="Link to this heading">#</a></h2>
 <p>This dataset of Donald Trump’s tweets is taken from <a class="reference external" href="http://www.trumptwitterarchive.com/">Trump Twitter Archive</a>. To read in the CSV file, we’re going to use Pandas.</p>
-<div class="admonition pandasreview" id="id1">
-<p class="admonition-title">Pandas</p>
+<div class="pandasreview admonition">
+<p class="admonition-title">Pandas Review</p>
 <p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
 </div>
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../texts/social-media/Trump-Tweets_2009-2021.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1079,8 +783,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="process-trump-tweets">
-<h3>Process Trump Tweets<a class="headerlink" href="#process-trump-tweets" title="Permalink to this headline">¶</a></h3>
+<section id="process-trump-tweets">
+<h3>Process Trump Tweets<a class="headerlink" href="#process-trump-tweets" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
@@ -1088,9 +792,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-original-trump-tweets">
-<h3>Get Original Trump Tweets<a class="headerlink" href="#get-original-trump-tweets" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="get-original-trump-tweets">
+<h3>Get Original Trump Tweets<a class="headerlink" href="#get-original-trump-tweets" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_trump_tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
@@ -1098,9 +802,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-dataset-statistics">
-<h3>Get Dataset Statistics<a class="headerlink" href="#get-dataset-statistics" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="get-dataset-statistics">
+<h3>Get Dataset Statistics<a class="headerlink" href="#get-dataset-statistics" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
@@ -1115,14 +819,14 @@ Vocabulary Size: 59952
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="training-the-topic-model">
-<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="training-the-topic-model">
+<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Link to this heading">#</a></h2>
 <p>We’re going to train our topic model with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code> function.</p>
 <p>So we have to set a few things up first.</p>
-<div class="section" id="set-number-of-topics">
-<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Permalink to this headline">¶</a></h3>
+<section id="set-number-of-topics">
+<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Link to this heading">#</a></h3>
 <p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1131,9 +835,9 @@ Vocabulary Size: 59952
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="set-training-data">
-<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="set-training-data">
+<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Link to this heading">#</a></h3>
 <p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed Reddit post texts, so we can just set it equal to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1142,9 +846,9 @@ Vocabulary Size: 59952
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="set-other-mallet-file-paths">
-<h3>Set Other MALLET File Paths<a class="headerlink" href="#set-other-mallet-file-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="set-other-mallet-file-paths">
+<h3>Set Other MALLET File Paths<a class="headerlink" href="#set-other-mallet-file-paths" title="Link to this heading">#</a></h3>
 <p>Then we’re going to set a file path where we want all our MALLET topic modeling data to be dumped. I’m going to output everything onto my Desktop inside a folder called “topic-model-output” and a subfolder specific to the Reddit posts called “Reddit.”</p>
 <p>All the other necessary variables below <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> will be automatically created inside this directory.</p>
 <div class="cell docutils container">
@@ -1164,9 +868,9 @@ Vocabulary Size: 59952
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="train-topic-model">
-<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="train-topic-model">
+<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Link to this heading">#</a></h3>
 <p>Then we’re going to train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.quick_train_topic_model()</span></code>. The topic model should take about 1-1.5 minutes to train and complete. If you want it, you can look at your Terminal or PowerShell and see what the model looks like as it’s training.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -36889,10 +36593,10 @@ Complete
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="display-topics-and-top-words">
-<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="display-topics-and-top-words">
+<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Link to this heading">#</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
@@ -37046,12 +36750,12 @@ Complete
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="display-top-tweets-for-topic">
-<h2>Display Top Tweets For Topic<a class="headerlink" href="#display-top-tweets-for-topic" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="load-topic-distributions">
-<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-top-tweets-for-topic">
+<h2>Display Top Tweets For Topic<a class="headerlink" href="#display-top-tweets-for-topic" title="Link to this heading">#</a></h2>
+</section>
+<section id="load-topic-distributions">
+<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
@@ -37103,9 +36807,9 @@ Complete
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="show-topic-words-in-context-of-full-tweet">
-<h2>Show Topic Words in Context of Full Tweet<a class="headerlink" href="#show-topic-words-in-context-of-full-tweet" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="show-topic-words-in-context-of-full-tweet">
+<h2>Show Topic Words in Context of Full Tweet<a class="headerlink" href="#show-topic-words-in-context-of-full-tweet" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
@@ -37150,7 +36854,7 @@ Complete
 <p><strong>STOCK</strong> <strong>MARKET</strong> up almost 40% <strong>SINCE</strong> the Election, with 7 Trillion Dollars of U.S. value built throughout the <strong>ECONOMY</strong>. Lowest <strong>UNEMPLOYMENT</strong> rate in many decades, with Black &amp;amp, Hispanic <strong>UNEMPLOYMENT</strong> lowest in <strong>HISTORY</strong>, and Female <strong>UNEMPLOYMENT</strong> lowest in 21 <strong>YEARS</strong>. Highest confidence <strong>EVER</strong>!</p>
 <p>✨✨✨</p>
 <p><strong>0.9562956605511918</strong></p>
-<p>“The <strong>UNEMPLOYMENT</strong> rate remains at a 17-<strong>YEAR</strong> low of 4.1%. The <strong>UNEMPLOYMENT</strong> rate in manufacturing dropped to 2.6%, the lowest <strong>EVER</strong> recorded. The <strong>UNEMPLOYMENT</strong> rate among Hispanics dropped to 4.7%, the lowest <strong>EVER</strong> recorded...”&#64;SecretaryAcosta &#64;USDOL <strong>HTTPS</strong>://t.co/vou28s0yHN</p>
+<p>“The <strong>UNEMPLOYMENT</strong> rate remains at a 17-<strong>YEAR</strong> low of 4.1%. The <strong>UNEMPLOYMENT</strong> rate in manufacturing dropped to 2.6%, the lowest <strong>EVER</strong> recorded. The <strong>UNEMPLOYMENT</strong> rate among Hispanics dropped to 4.7%, the lowest <strong>EVER</strong> recorded…”&#64;SecretaryAcosta &#64;USDOL <strong>HTTPS</strong>://t.co/vou28s0yHN</p>
 <p>✨✨✨</p>
 <p><strong>0.9433021986807756</strong></p>
 <p>Would be sooo <strong>GREAT</strong> if the Fed would further lower interest rates and quantitative ease. The Dollar is very strong against other currencies and there is almost no inflation. This is the <strong>TIME</strong> to do it. Exports would zoom!</p>
@@ -37159,12 +36863,12 @@ Complete
 <p>Incredible number just out, 7,036,000 job openings. Astonishing - it’s all working! <strong>STOCK</strong> <strong>MARKET</strong> up big on tremendous potential of USA. Also, Strong Profits. We are Number One in World, by far!</p>
 </div>
 </div>
-</div>
-<div class="section" id="plot-topics-over-time">
-<h2>Plot Topics Over Time<a class="headerlink" href="#plot-topics-over-time" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id2">
-<h2>Load Topic Distributions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plot-topics-over-time">
+<h2>Plot Topics Over Time<a class="headerlink" href="#plot-topics-over-time" title="Link to this heading">#</a></h2>
+</section>
+<section id="id1">
+<h2>Load Topic Distributions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
@@ -37172,9 +36876,9 @@ Complete
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="add-topic-distribution-columns">
-<h2>Add Topic Distribution Columns<a class="headerlink" href="#add-topic-distribution-columns" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="add-topic-distribution-columns">
+<h2>Add Topic Distribution Columns<a class="headerlink" href="#add-topic-distribution-columns" title="Link to this heading">#</a></h2>
 <p>Add column with all topic distributions for every tweet</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -37207,9 +36911,9 @@ Complete
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="date-formatting-for-time-series-plot">
-<h2>Date Formatting For Time Series Plot<a class="headerlink" href="#date-formatting-for-time-series-plot" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="date-formatting-for-time-series-plot">
+<h2>Date Formatting For Time Series Plot<a class="headerlink" href="#date-formatting-for-time-series-plot" title="Link to this heading">#</a></h2>
 <p><strong>Convert to datetime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -37249,9 +36953,9 @@ Complete
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-individual-topics-as-time-series">
-<h2>Plot Individual Topics as Time Series<a class="headerlink" href="#plot-individual-topics-as-time-series" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plot-individual-topics-as-time-series">
+<h2>Plot Individual Topics as Time Series<a class="headerlink" href="#plot-individual-topics-as-time-series" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
@@ -37266,7 +36970,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nBorder Wall Security Immigration&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_81_1.png" src="../_images/11-Topic-Modeling-Time-Series_81_1.png" />
+<img alt="../_images/a9f59a9f0b91e0fdcbaaed017aa980db7c7f5bf7c54c5c10af073f5b46113035.png" src="../_images/a9f59a9f0b91e0fdcbaaed017aa980db7c7f5bf7c54c5c10af073f5b46113035.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37283,7 +36987,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nBorder Wall Security Immigration&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_82_1.png" src="../_images/11-Topic-Modeling-Time-Series_82_1.png" />
+<img alt="../_images/4560c509a06b379ddb707c9331acee47fc77867c91f97b6fbe1eafe12fc70fac.png" src="../_images/4560c509a06b379ddb707c9331acee47fc77867c91f97b6fbe1eafe12fc70fac.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37300,7 +37004,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nElection Https Vote Votes&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_83_1.png" src="../_images/11-Topic-Modeling-Time-Series_83_1.png" />
+<img alt="../_images/005b515d56bb8c87f73561c7695c6977d676e793066c059d758009775d021a9b.png" src="../_images/005b515d56bb8c87f73561c7695c6977d676e793066c059d758009775d021a9b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37317,7 +37021,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nFbi Witch Hunt Collusion&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_84_1.png" src="../_images/11-Topic-Modeling-Time-Series_84_1.png" />
+<img alt="../_images/4ba57a46cae848a0916266296b28657836ae8f086bef90d09646843d809f98b1.png" src="../_images/4ba57a46cae848a0916266296b28657836ae8f086bef90d09646843d809f98b1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37334,7 +37038,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nCourt Supreme Justice States&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_85_1.png" src="../_images/11-Topic-Modeling-Time-Series_85_1.png" />
+<img alt="../_images/6cbfd07e360e0009fb3ede4761212b76f31261e43b46af4d9033155ccc3d1d8f.png" src="../_images/6cbfd07e360e0009fb3ede4761212b76f31261e43b46af4d9033155ccc3d1d8f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37351,7 +37055,7 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nBiden Joe Https Sleepy&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_86_1.png" src="../_images/11-Topic-Modeling-Time-Series_86_1.png" />
+<img alt="../_images/2e8efb9cd5b5d8342d58bd40f80f2ad112fecc9e14823db4cba3a7039d9c44c2.png" src="../_images/2e8efb9cd5b5d8342d58bd40f80f2ad112fecc9e14823db4cba3a7039d9c44c2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -37368,11 +37072,11 @@ Complete
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Trump Tweets By Topic: \nChina Trade United States&#39;}, xlabel=&#39;Date (by month)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/11-Topic-Modeling-Time-Series_87_1.png" src="../_images/11-Topic-Modeling-Time-Series_87_1.png" />
+<img alt="../_images/12457e6fdcb2b9039002138f84e81c921cba5237cba91b02906fc8adf0a1314f.png" src="../_images/12457e6fdcb2b9039002138f84e81c921cba5237cba91b02906fc8adf0a1314f.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -37386,7 +37090,7 @@ Complete
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./05-Text-Analysis"
         },
         predefinedOutput: true
@@ -37394,52 +37098,139 @@ Complete
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="10-Topic-Modeling-CSV.html" title="previous page">Topic Modeling — CSV Files</a>
-    <a class='right-next' id="next-link" href="12-Named-Entity-Recognition.html" title="next page">Named Entity Recognition</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By <a href="https://melaniewalsh.org/">Melanie Walsh</a><br/>
-        
-            &copy; Copyright 2021.<br/>
-          <div class="extra_footer">
-            <div>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10-Topic-Modeling-CSV.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Topic Modeling — CSV Files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="12-Named-Entity-Recognition.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Named Entity Recognition</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trumps-tweets">Trump’s Tweets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mallet-path">Set MALLET Path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-packages">Install Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-training-data-from-csv-file">Get Training Data From CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trump-tweets">Trump Tweets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-trump-tweets">Process Trump Tweets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-original-trump-tweets">Get Original Trump Tweets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-dataset-statistics">Get Dataset Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-topic-model">Training the Topic Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-number-of-topics">Set Number of Topics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-training-data">Set Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-other-mallet-file-paths">Set Other MALLET File Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-topic-model">Train Topic Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-topics-and-top-words">Display Topics and Top Words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-top-tweets-for-topic">Display Top Tweets For Topic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-topic-distributions">Load Topic Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-topic-words-in-context-of-full-tweet">Show Topic Words in Context of Full Tweet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-topics-over-time">Plot Topics Over Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Load Topic Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-topic-distribution-columns">Add Topic Distribution Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-formatting-for-time-series-plot">Date Formatting For Time Series Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-individual-topics-as-time-series">Plot Individual Topics as Time Series</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
 </div>
 
-          </div>
-      </p>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
   </footer>
-</main>
-
-
-      </div>
-    </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-86905362-3', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </body>
 </html>
