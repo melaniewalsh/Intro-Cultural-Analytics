@@ -302,6 +302,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../../07-Mapping/03-Publish-Your-Map.html">Publish Your Map on the Web</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../08-LLMs-and-AI/00-LLMs-and-AI.html">8. LLMs and AI</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../08-LLMs-and-AI/01-Local-LLMs.html">Local LLMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../08-LLMs-and-AI/02-Word-Document-Embeddings.html">Word and Document Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../08-LLMs-and-AI/03-Text-Classification.html">Text Classification with LLMs</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Datasets</span></p>
 <ul class="nav bd-sidenav">
@@ -556,11 +562,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="text-pre-processing-for-spanish">
 <h1>Text Pre-Processing for Spanish<a class="headerlink" href="#text-pre-processing-for-spanish" title="Permalink to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section, “Working in Languages Beyond English,” is co-authored with <a href="http://www.quinndombrowski.com/">Quinn Dombrowski</a>, the Academic Technology Specialist at Stanford University and a leading voice in multilingual digital humanities. I’m grateful to Quinn for helping expand this textbook to serve languages beyond English.</p>
-</div>
-<p>This lesson is for anyone who wants to try the <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF.html">TF-IDF</a> or <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling.html">topic modeling</a> lessons on Spanish texts. Before continuing with those lessons, you need to create a <em>lemmatized derivative</em> of your original Spanish text, which replaces all the words with their dictionary form, which will work much better with the word-count based methods.</p>
+<div class="note" name="html-admonition" style="background: lightblue; padding: 10px">
+<p class="title">Note</p>
+This section, "Working in Languages Beyond English," is co-authored with <a href="http://www.quinndombrowski.com/">Quinn Dombrowski</a>, the Academic Technology Specialist at Stanford University and a leading voice in multilingual digital humanities. I'm grateful to Quinn for helping expand this textbook to serve languages beyond English. 
+</div><p>This lesson is for anyone who wants to try the <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/TF-IDF.html">TF-IDF</a> or <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling.html">topic modeling</a> lessons on Spanish texts. Before continuing with those lessons, you need to create a <em>lemmatized derivative</em> of your original Spanish text, which replaces all the words with their dictionary form, which will work much better with the word-count based methods.</p>
 <section id="install-spacy">
 <h2>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
