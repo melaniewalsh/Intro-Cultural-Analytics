@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Topic Modeling — Text Files &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/08-Topic-Modeling-Text-Files';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/08-Topic-Modeling-Text-Files.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Topic Modeling — With Tomotopy" href="09-Topic-Modeling-Without-Mallet.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -585,13 +573,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-modeling-text-files">
-<h1>Topic Modeling — Text Files<a class="headerlink" href="#topic-modeling-text-files" title="Link to this heading">#</a></h1>
+<h1>Topic Modeling — Text Files<a class="headerlink" href="#topic-modeling-text-files" title="Permalink to this heading">#</a></h1>
 <p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or single text that has been separated into smaller text chunks.</p>
 <hr class="docutils" />
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="new-york-times-obituaries">
-<h3><em>New York Times</em> Obituaries<a class="headerlink" href="#new-york-times-obituaries" title="Link to this heading">#</a></h3>
+<h3><em>New York Times</em> Obituaries<a class="headerlink" href="#new-york-times-obituaries" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>Georgia O’Keeffe, the undisputed doyenne of American painting and a leader, with her husband, Alfred Stieglitz, of a crucial phase in the development and dissemination of American modernism, died yesterday at St. Vincent Hospital in Santa Fe, N.M.</p>
 <p class ="attribution">
@@ -602,7 +590,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="set-mallet-path">
-<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Link to this heading">#</a></h2>
+<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you’re working in this Jupyter notebook on your own computer, you’ll need to have both the Java Development Kit and MALLET pre-installed. For set up instructions, please see <a href="http://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling-Set-Up.html">the previous lesson </a>. </p></p>
@@ -620,7 +608,7 @@ document.write(`
 <p>If MALLET is located in another directory, then set your <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> to that file path.</p>
 </section>
 <section id="install-packages">
-<h2>Install Packages<a class="headerlink" href="#install-packages" title="Link to this heading">#</a></h2>
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
@@ -631,7 +619,7 @@ document.write(`
 </div>
 </section>
 <section id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install little_mallet_wrapper</span>
@@ -654,7 +642,7 @@ document.write(`
 <p>We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system.</p>
 </section>
 <section id="get-training-data-from-text-files">
-<h2>Get Training Data From Text Files<a class="headerlink" href="#get-training-data-from-text-files" title="Link to this heading">#</a></h2>
+<h2>Get Training Data From Text Files<a class="headerlink" href="#get-training-data-from-text-files" title="Permalink to this heading">#</a></h2>
 <p>Before we topic model the <em>NYT</em> obituaries, we need to process the text files and prepare them for analysis. The steps below demonstrate how to process texts if your corpus is a collection of separate text files. In the next lesson, we’ll demonstrate how to process texts that come from a CSV file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1074,7 +1062,7 @@ document.write(`
 </div>
 </section>
 <section id="process-texts">
-<h2>Process Texts<a class="headerlink" href="#process-texts" title="Link to this heading">#</a></h2>
+<h2>Process Texts<a class="headerlink" href="#process-texts" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1107,7 +1095,7 @@ document.write(`
 </div>
 </section>
 <section id="process-titles">
-<h2>Process Titles<a class="headerlink" href="#process-titles" title="Link to this heading">#</a></h2>
+<h2>Process Titles<a class="headerlink" href="#process-titles" title="Permalink to this heading">#</a></h2>
 <p>Here we extract the relevant part of each file name by using <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.stem"><code class="docutils literal notranslate"><span class="pre">Path().stem</span></code></a>, which conveniently extracts just the last part of the file path without the “.txt” file extension. Because each file name includes the obituary subject’s name as well as the year that the subject died, we’re going to use this information as a title or label for each obituary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1514,7 +1502,7 @@ document.write(`
 </div>
 </section>
 <section id="get-training-data-stats">
-<h2>Get Training Data Stats<a class="headerlink" href="#get-training-data-stats" title="Link to this heading">#</a></h2>
+<h2>Get Training Data Stats<a class="headerlink" href="#get-training-data-stats" title="Permalink to this heading">#</a></h2>
 <p>We can get training data summary statistics by using the function <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.print_dataset_stats()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1533,10 +1521,10 @@ Vocabulary Size: 35983
 <p>According to this little report, we have 378 documents (or obituaries) that average 1345 words in length.</p>
 </section>
 <section id="training-the-topic-model">
-<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Link to this heading">#</a></h2>
+<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Permalink to this heading">#</a></h2>
 <p>We’re going to train our topic model with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code> function. As you can see above, however, this function requires 6 different arguments and file paths to run properly.</p>
 <section id="set-number-of-topics">
-<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Link to this heading">#</a></h3>
+<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Permalink to this heading">#</a></h3>
 <p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1547,7 +1535,7 @@ Vocabulary Size: 35983
 </div>
 </section>
 <section id="set-training-data">
-<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Link to this heading">#</a></h3>
+<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Permalink to this heading">#</a></h3>
 <p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed obituary texts, so we can just set it equal to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1558,7 +1546,7 @@ Vocabulary Size: 35983
 </div>
 </section>
 <section id="set-topic-model-output-files">
-<h3>Set Topic Model Output Files<a class="headerlink" href="#set-topic-model-output-files" title="Link to this heading">#</a></h3>
+<h3>Set Topic Model Output Files<a class="headerlink" href="#set-topic-model-output-files" title="Permalink to this heading">#</a></h3>
 <p>Finally, we need to tell Little MALLET Wrapper where to find and output all of our topic modeling results. The code below will set Little MALLET Wrapper up to output your results inside a directory called “topic-model-output” and a subdirectory called “NYT-Obits”, all of which will be inside your current directory.</p>
 <p>If you’d like to change this output location, simply change <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> below.</p>
 <div class="cell docutils container">
@@ -1580,7 +1568,7 @@ Vocabulary Size: 35983
 </div>
 </section>
 <section id="train-topic-model">
-<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Link to this heading">#</a></h3>
+<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this heading">#</a></h3>
 <p>Then we’re going to train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.quick_train_topic_model()</span></code>. The topic model should take about 1-1.5 minutes to train and complete. If you want it, you can look at your Terminal or PowerShell and see what the model looks like as it’s training.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -7591,7 +7579,7 @@ Complete
 </section>
 </section>
 <section id="display-topics-and-top-words">
-<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Link to this heading">#</a></h2>
+<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this heading">#</a></h2>
 <p>To examine the 15 topics that the topic model extracted from the <em>NYT</em> obituaries, run the cell below. This code uses the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_keys()</span></code> function to read and process the MALLET topic model output from your computer, specifically the file “mallet.topic_keys.15”.</p>
 <blockquote>
 <div><p><em>Take a minute to read through every topic. Reflect on what each topic seems to capture as well as how well you think the topics capture the broad themes of the entire collection. Note any oddities, outliers, or inconsistencies.</em></p>
@@ -7671,7 +7659,7 @@ Complete
 </div>
 </section>
 <section id="load-topic-distributions">
-<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Link to this heading">#</a></h2>
+<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this heading">#</a></h2>
 <p>MALLET also calculates the likely mixture of these topics for every single obituary in the corpus. This mixture is really a probability distribution, that is, the probability that each topic exists in the document. We can use these probability distributions to examine which of the above topics are strongly associated with which specific obituaries.</p>
 <p>To get the topic distributions, we’re going to use the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.load_topic_distributions()</span></code> function, which will read and process the MALLET topic model output, specifically the file “mallet.topic_distributions.15”.</p>
 <div class="cell docutils container">
@@ -7774,7 +7762,7 @@ Probability: 0.005
 </div>
 </section>
 <section id="explore-heatmap-of-topics-and-texts">
-<h2>Explore Heatmap of Topics and Texts<a class="headerlink" href="#explore-heatmap-of-topics-and-texts" title="Link to this heading">#</a></h2>
+<h2>Explore Heatmap of Topics and Texts<a class="headerlink" href="#explore-heatmap-of-topics-and-texts" title="Permalink to this heading">#</a></h2>
 <p>We can visualize and compare these topic probability distributions with a heatmap by using the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.plot_categories_by_topics_heatmap()</span></code> function.</p>
 <p>We have everything we need for the heatmap except for our list of target_labels, the sample of texts that we’d like to visualize and compare with the heatmap. Below we make our list of desired target labels.</p>
 <div class="cell docutils container">
@@ -7842,7 +7830,7 @@ Probability: 0.005
 </div>
 </section>
 <section id="display-top-titles-per-topic">
-<h2>Display Top Titles Per Topic<a class="headerlink" href="#display-top-titles-per-topic" title="Link to this heading">#</a></h2>
+<h2>Display Top Titles Per Topic<a class="headerlink" href="#display-top-titles-per-topic" title="Permalink to this heading">#</a></h2>
 <p>We can also display the obituaries that have the highest probability for every topic with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.get_top_docs()</span></code> function.</p>
 <p>Because most of the obituaries in our corpus are pretty long, however, it will be more useful for us to simply display the title of each obituary, rather than the entire document—at least as a first step. To do so, we’ll first need to make two dictionaries, which will allow us to find the corresponding obituary title and the original text from a given training document.</p>
 <div class="cell docutils container">
@@ -7952,7 +7940,7 @@ Probability: 0.005
 <p><strong>What would you label this topic?</strong></p>
 </section>
 <section id="display-topic-words-in-context-of-original-text">
-<h2>Display Topic Words in Context of Original Text<a class="headerlink" href="#display-topic-words-in-context-of-original-text" title="Link to this heading">#</a></h2>
+<h2>Display Topic Words in Context of Original Text<a class="headerlink" href="#display-topic-words-in-context-of-original-text" title="Permalink to this heading">#</a></h2>
 <p>Often it’s useful to actually look at the document that has ranked highly for a given topic and puzzle out why it ranks so highly.</p>
 <p>To display the original obituary texts that rank highly for a given topic, with the relevant topic words <strong>bolded</strong> for emphasis, we are going to make the function <code class="docutils literal notranslate"><span class="pre">display_bolded_topic_words_in_context()</span></code>.</p>
 <p>In the cell below, we’re importing two special Jupyter notebook display modules, which will allow us to make the relevant topic words <strong>bolded</strong>, as well as the regular expressions library <code class="docutils literal notranslate"><span class="pre">re</span></code>, which will allow us to find and replace the correct words.</p>
@@ -8265,7 +8253,7 @@ Probability: 0.005
 </section>
 <hr class="docutils" />
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <p>Choose a topic from the results above and write down its corresponding topic number below.</p>
 <p><strong>Topic: <em>Your Number Choice Here</em></strong></p>
 <p><strong>1.</strong> Display the top 6 obituary titles for this topic.</p>
@@ -8389,7 +8377,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -8404,8 +8392,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

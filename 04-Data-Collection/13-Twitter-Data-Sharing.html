@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Twitter Data Sharing &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-Data-Collection/13-Twitter-Data-Sharing';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/13-Twitter-Data-Sharing.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Reddit Data Collection and Analysis with PSAW" href="14-Reddit-Data.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -566,12 +554,16 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="twitter-data-sharing">
-<h1>Twitter Data Sharing<a class="headerlink" href="#twitter-data-sharing" title="Link to this heading">#</a></h1>
+<h1>Twitter Data Sharing<a class="headerlink" href="#twitter-data-sharing" title="Permalink to this heading">#</a></h1>
+<div class="warning admonition">
+<p class="admonition-title">Important Update</p>
+<p>In 2023, Twitter (now X) dramatically restricted access to its API, effectively ending free academic research access. The code examples below were written when the API was still accessible and are preserved for reference, but they will no longer work without a paid API subscription. See the <a class="reference internal" href="10-Twitter.html"><span class="doc std std-doc">Twitter Data overview</span></a> for more details.</p>
+</div>
 <p>In this lesson, we’re going to learn how to share Twitter data and access data shared by others with the Python/command line tool <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/">twarc</a>. We’re specifically going to work with <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/">twarc2</a>, which is designed for version 2 of the Twitter API (released in 2020) and the Academic Research track of the Twitter API (released in 2021).</p>
 <p>Twarc was developed by a project called <a class="reference external" href="https://www.docnow.io/">Documenting the Now</a>. The DocNow team develops tools and ethical frameworks for social media research.</p>
-<p><em>This lesson presumes that you’ve already installed and configured twarc, which was covered in <a class="reference internal" href="#Twitter-API-Setup"><span class="xref myst">a previous lesson</span></a>.</em></p>
+<p><em>This lesson presumes that you’ve already installed and configured twarc, which was covered in <span class="xref myst">a previous lesson</span>.</em></p>
 <section id="tweet-ids">
-<h2>Tweet IDs<a class="headerlink" href="#tweet-ids" title="Link to this heading">#</a></h2>
+<h2>Tweet IDs<a class="headerlink" href="#tweet-ids" title="Permalink to this heading">#</a></h2>
 <p>Twitter discourages developers and researchers from sharing full Twitter data openly on the web. They instead encourage developers and researchers to share <em>tweet IDs</em>:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://developer.twitter.com/en/developer-terms/policy#4-e">If you provide Twitter Content to third parties, including downloadable datasets or via an API, you may only distribute <strong>Tweet IDs</strong>, Direct Message IDs, and/or User IDs.</a></p>
@@ -583,7 +575,7 @@ document.write(`
 <p>If you collected tweets in real time, for example, you collected those tweets immediately after they were published, which means that they will not contain any retweet or favorite count information. Nobody’s had time to retweet them yet! So if you’d like to retroactively get retweet and favorite count information about your tweets, then you would want to dehydrate and rehydrate them.</p>
 </section>
 <section id="dehydrate-tweets">
-<h2>Dehydrate Tweets<a class="headerlink" href="#dehydrate-tweets" title="Link to this heading">#</a></h2>
+<h2>Dehydrate Tweets<a class="headerlink" href="#dehydrate-tweets" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">dehydrate</span> <span class="pre">tweets.jsonl</span> <span class="pre">&gt;</span> <span class="pre">tweet_ids.txt</span></code></p>
 <p>To transform your Twitter data into a list of tweet IDs (so that you can share your data openly on the web), you can run the twarc command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">dehydrate</span></code> with the name of your JSONL file followed by the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and the desired name of your tweet ID text file.</p>
 <blockquote>
@@ -647,7 +639,7 @@ tweet ID &lt;— tweet = dehydration</p>
 </div>
 </section>
 <section id="hydrate-tweets">
-<h2>Hydrate Tweets<a class="headerlink" href="#hydrate-tweets" title="Link to this heading">#</a></h2>
+<h2>Hydrate Tweets<a class="headerlink" href="#hydrate-tweets" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hydrate</span> <span class="pre">tweet_ids.txt</span> <span class="pre">&gt;</span> <span class="pre">tweets.jsonl</span></code></p>
 <p>To transform a list of tweet IDs into full Twitter data, you can run the twarc command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hydrate</span></code> with the name of your tweet IDs text file followed by the output operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and the desired name of your JSONL file.</p>
 <blockquote>
@@ -683,11 +675,11 @@ tweet ID &lt;— tweet = dehydration</p>
 </div>
 </section>
 <section id="deleted-tweets-the-right-to-be-forgotten">
-<h2>Deleted Tweets &amp; The Right To Be Forgotten<a class="headerlink" href="#deleted-tweets-the-right-to-be-forgotten" title="Link to this heading">#</a></h2>
+<h2>Deleted Tweets &amp; The Right To Be Forgotten<a class="headerlink" href="#deleted-tweets-the-right-to-be-forgotten" title="Permalink to this heading">#</a></h2>
 <p>What happens if someone decides to delete their tweet between the time when the tweet is first collected and the time when the tweet is “hydrated”? The deleted tweet will <strong>not</strong> be hydrated. The deleted tweet is no longer be accessible.</p>
 </section>
 <section id="where-to-find-tweet-ids">
-<h2>Where to Find Tweet IDs<a class="headerlink" href="#where-to-find-tweet-ids" title="Link to this heading">#</a></h2>
+<h2>Where to Find Tweet IDs<a class="headerlink" href="#where-to-find-tweet-ids" title="Permalink to this heading">#</a></h2>
 <p>You can find repositories of tweet IDs that have been shared by other researchers in the following places:</p>
 <ul class="simple">
 <li><p>DocNow Catalog: <a class="reference external" href="https://catalog.docnow.io/">https://catalog.docnow.io/</a></p></li>
@@ -789,7 +781,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -804,8 +796,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

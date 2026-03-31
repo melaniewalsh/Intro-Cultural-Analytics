@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Functions &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/12-Functions';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/12-Functions.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Common Python Errors" href="13-Common-Python-Errors.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -567,7 +555,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
 <p><em>Note: You can explore the <a class="reference external" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/02-Python/Workbooks/12.5-Functions-WORKBOOK.ipynb">associated workbook</a> for this chapter in the cloud.</em></p>
 <p>A <em>function</em> is way of bundling up code to perform specific tasks. It’s kind of like making a little Python wind-up toy that runs on command.</p>
 <img alt="https://www.tintoyarcade.com/image/cache/data/product/Images_5100_5199/TTA5100-Penguin-Windup-01-1000x1000.jpg" class="center" src="https://www.tintoyarcade.com/image/cache/data/product/Images_5100_5199/TTA5100-Penguin-Windup-01-1000x1000.jpg" />
@@ -580,7 +568,7 @@ document.write(`
 </ul>
 <p>These functions contain bundled up code that perform specific tasks whenever we call them.</p>
 <section id="define-a-function">
-<h2>Define a Function<a class="headerlink" href="#define-a-function" title="Link to this heading">#</a></h2>
+<h2>Define a Function<a class="headerlink" href="#define-a-function" title="Permalink to this heading">#</a></h2>
 <p>To make your own function, you use the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, short for <em>define</em>, followed by your desired name for the function, parentheses (<code class="docutils literal notranslate"><span class="pre">()</span></code>) and a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>).</p>
 <p>Then, on the following lines, you indent one tab over and write some code that you want your function to perform.</p>
 <div class="cell docutils container">
@@ -619,7 +607,7 @@ document.write(`
 </div>
 </section>
 <section id="call-a-function">
-<h2>Call a Function<a class="headerlink" href="#call-a-function" title="Link to this heading">#</a></h2>
+<h2>Call a Function<a class="headerlink" href="#call-a-function" title="Permalink to this heading">#</a></h2>
 <p>To use or “call” a function, you simply type the name of the function with parentheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,7 +653,7 @@ Happy Birthday to you
 </div>
 </section>
 <section id="add-parameters-arguments">
-<h2>Add Parameters/Arguments<a class="headerlink" href="#add-parameters-arguments" title="Link to this heading">#</a></h2>
+<h2>Add Parameters/Arguments<a class="headerlink" href="#add-parameters-arguments" title="Permalink to this heading">#</a></h2>
 <p>You can add “parameters” to your functions—or values that are required by your function—by putting parameter names inside the parentheses.</p>
 <p>For example, if we want to personalize our birthday song function to include a specific person’s name, we can add the parameter <code class="docutils literal notranslate"><span class="pre">personalized_name</span></code> inside the parentheses, which will require a personalized name to be passed to the function. The thing you pass to the function is called an “argument.”</p>
 <ul class="simple">
@@ -744,7 +732,7 @@ Happy Birthday to you
 </div>
 </section>
 <section id="keyword-arguments">
-<h2>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h2>
+<h2>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this heading">#</a></h2>
 <p>There’s another way that you can require arguments in a function, which is with <em>keyword arguments</em>. Before we were using “positional arguments,” where the function automatically knew that “Beyonce” was the <code class="docutils literal notranslate"><span class="pre">personalized_name</span></code> argument simply because “Beyonce” was in the right position. (There was only one argument required, so, duh.)</p>
 <p>But you can also explicitly define your arguments with keyword arguments that use an <code class="docutils literal notranslate"><span class="pre">=</span></code> sign, which can become more useful if you have multiple parameters. This can also be a way of setting default values in your functions.</p>
 <div class="cell docutils container">
@@ -800,7 +788,7 @@ Big Bird
 </div>
 </section>
 <section id="return-values">
-<h2>Return Values<a class="headerlink" href="#return-values" title="Link to this heading">#</a></h2>
+<h2>Return Values<a class="headerlink" href="#return-values" title="Permalink to this heading">#</a></h2>
 <p>In all of the examples above, we weren’t returning any specific value, just using <code class="docutils literal notranslate"><span class="pre">print()</span></code> statements. But sometimes you want a specific value out of your function. For example, if we want to make a function that transforms a bit of text into very loud-sounding text, then we’ll want to <code class="docutils literal notranslate"><span class="pre">return</span></code> that loud-sounding text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -868,7 +856,7 @@ Big Bird
 </div>
 </section>
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <p>Make a function called <code class="docutils literal notranslate"><span class="pre">make_text_whispery</span></code> that transforms text to lower case</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +977,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1004,8 +992,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Topic Modeling — Time Series &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/11-Topic-Modeling-Time-Series';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/11-Topic-Modeling-Time-Series.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Named Entity Recognition" href="12-Named-Entity-Recognition.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -591,12 +579,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-modeling-time-series">
-<h1>Topic Modeling — Time Series<a class="headerlink" href="#topic-modeling-time-series" title="Link to this heading">#</a></h1>
+<h1>Topic Modeling — Time Series<a class="headerlink" href="#topic-modeling-time-series" title="Permalink to this heading">#</a></h1>
 <p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or  single text that has been separated into smaller text chunks.</p>
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="trumps-tweets">
-<h3>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Link to this heading">#</a></h3>
+<h3>Trump’s Tweets<a class="headerlink" href="#trumps-tweets" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>I hear that Fake News CNN just reported that I am isolated in the White House wondering out loud “when will life return to normal?” Does anybody really believe that?</p>
 <p class ="attribution">
@@ -612,7 +600,7 @@ document.write(`
 </section>
 </section>
 <section id="set-mallet-path">
-<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Link to this heading">#</a></h2>
+<h2>Set MALLET Path<a class="headerlink" href="#set-mallet-path" title="Permalink to this heading">#</a></h2>
 <p>Since Little MALLET Wrapper is a Python package built around MALLET, we first need to tell it where the bigger, Java-based MALLET lives.</p>
 <p>We’re going to make a variable called <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> and assign it the file path of our MALLET program. We need to point it, specifically, to the “mallet” file inside the “bin” folder inside the “mallet-2.0.8” folder.</p>
 <div class="cell docutils container">
@@ -625,7 +613,7 @@ document.write(`
 <p>If MALLET is located in another directory, then set your <code class="docutils literal notranslate"><span class="pre">path_to_mallet</span></code> to that file path.</p>
 </section>
 <section id="install-packages">
-<h2>Install Packages<a class="headerlink" href="#install-packages" title="Link to this heading">#</a></h2>
+<h2>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>little_mallet_wrapper
@@ -636,7 +624,7 @@ document.write(`
 </div>
 </section>
 <section id="import-packages">
-<h2>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
 <p>Now let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper</span></code> and the data viz library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,7 +642,7 @@ document.write(`
 <p>We’re also going to import <a class="reference external" href="https://docs.python.org/3/library/glob.html"><code class="docutils literal notranslate"><span class="pre">glob</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#basic-use"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a> for working with files and the file system, as well as pandas for working with the CSV data.</p>
 </section>
 <section id="get-training-data-from-csv-file">
-<h2>Get Training Data From CSV File<a class="headerlink" href="#get-training-data-from-csv-file" title="Link to this heading">#</a></h2>
+<h2>Get Training Data From CSV File<a class="headerlink" href="#get-training-data-from-csv-file" title="Permalink to this heading">#</a></h2>
 <p>Before we topic model Donald Trump’s tweets, we need to process the tweets and prepare them for analysis. The steps below demonstrate how to process texts if they come from a CSV file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -662,7 +650,7 @@ document.write(`
 </div>
 </section>
 <section id="trump-tweets">
-<h2>Trump Tweets<a class="headerlink" href="#trump-tweets" title="Link to this heading">#</a></h2>
+<h2>Trump Tweets<a class="headerlink" href="#trump-tweets" title="Permalink to this heading">#</a></h2>
 <p>This dataset of Donald Trump’s tweets is taken from <a class="reference external" href="http://www.trumptwitterarchive.com/">Trump Twitter Archive</a>. To read in the CSV file, we’re going to use Pandas.</p>
 <div class="pandasreview admonition">
 <p class="admonition-title">Pandas Review</p>
@@ -784,7 +772,7 @@ document.write(`
 </div>
 </div>
 <section id="process-trump-tweets">
-<h3>Process Trump Tweets<a class="headerlink" href="#process-trump-tweets" title="Link to this heading">#</a></h3>
+<h3>Process Trump Tweets<a class="headerlink" href="#process-trump-tweets" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">process_string</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">numbers</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
@@ -794,7 +782,7 @@ document.write(`
 </div>
 </section>
 <section id="get-original-trump-tweets">
-<h3>Get Original Trump Tweets<a class="headerlink" href="#get-original-trump-tweets" title="Link to this heading">#</a></h3>
+<h3>Get Original Trump Tweets<a class="headerlink" href="#get-original-trump-tweets" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_trump_tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">trump_df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]]</span>
@@ -804,7 +792,7 @@ document.write(`
 </div>
 </section>
 <section id="get-dataset-statistics">
-<h3>Get Dataset Statistics<a class="headerlink" href="#get-dataset-statistics" title="Link to this heading">#</a></h3>
+<h3>Get Dataset Statistics<a class="headerlink" href="#get-dataset-statistics" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
@@ -822,11 +810,11 @@ Vocabulary Size: 59952
 </section>
 </section>
 <section id="training-the-topic-model">
-<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Link to this heading">#</a></h2>
+<h2>Training the Topic Model<a class="headerlink" href="#training-the-topic-model" title="Permalink to this heading">#</a></h2>
 <p>We’re going to train our topic model with the <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.train_topic_model()</span></code> function.</p>
 <p>So we have to set a few things up first.</p>
 <section id="set-number-of-topics">
-<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Link to this heading">#</a></h3>
+<h3>Set Number of Topics<a class="headerlink" href="#set-number-of-topics" title="Permalink to this heading">#</a></h3>
 <p>We need to make a variable <code class="docutils literal notranslate"><span class="pre">num_topics</span></code> and assign it the number of topics we want returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -837,7 +825,7 @@ Vocabulary Size: 59952
 </div>
 </section>
 <section id="set-training-data">
-<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Link to this heading">#</a></h3>
+<h3>Set Training Data<a class="headerlink" href="#set-training-data" title="Permalink to this heading">#</a></h3>
 <p>We already made a variable called <code class="docutils literal notranslate"><span class="pre">training_data</span></code>, which includes all of our processed Reddit post texts, so we can just set it equal to itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,7 +836,7 @@ Vocabulary Size: 59952
 </div>
 </section>
 <section id="set-other-mallet-file-paths">
-<h3>Set Other MALLET File Paths<a class="headerlink" href="#set-other-mallet-file-paths" title="Link to this heading">#</a></h3>
+<h3>Set Other MALLET File Paths<a class="headerlink" href="#set-other-mallet-file-paths" title="Permalink to this heading">#</a></h3>
 <p>Then we’re going to set a file path where we want all our MALLET topic modeling data to be dumped. I’m going to output everything onto my Desktop inside a folder called “topic-model-output” and a subfolder specific to the Reddit posts called “Reddit.”</p>
 <p>All the other necessary variables below <code class="docutils literal notranslate"><span class="pre">output_directory_path</span></code> will be automatically created inside this directory.</p>
 <div class="cell docutils container">
@@ -870,7 +858,7 @@ Vocabulary Size: 59952
 </div>
 </section>
 <section id="train-topic-model">
-<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Link to this heading">#</a></h3>
+<h3>Train Topic Model<a class="headerlink" href="#train-topic-model" title="Permalink to this heading">#</a></h3>
 <p>Then we’re going to train our topic model with <code class="docutils literal notranslate"><span class="pre">little_mallet_wrapper.quick_train_topic_model()</span></code>. The topic model should take about 1-1.5 minutes to train and complete. If you want it, you can look at your Terminal or PowerShell and see what the model looks like as it’s training.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -36596,7 +36584,7 @@ Complete
 </section>
 </section>
 <section id="display-topics-and-top-words">
-<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Link to this heading">#</a></h2>
+<h2>Display Topics and Top Words<a class="headerlink" href="#display-topics-and-top-words" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_keys</span><span class="p">(</span><span class="n">path_to_topic_keys</span><span class="p">)</span>
@@ -36752,10 +36740,10 @@ Complete
 </div>
 </section>
 <section id="display-top-tweets-for-topic">
-<h2>Display Top Tweets For Topic<a class="headerlink" href="#display-top-tweets-for-topic" title="Link to this heading">#</a></h2>
+<h2>Display Top Tweets For Topic<a class="headerlink" href="#display-top-tweets-for-topic" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="load-topic-distributions">
-<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Link to this heading">#</a></h2>
+<h2>Load Topic Distributions<a class="headerlink" href="#load-topic-distributions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
@@ -36809,7 +36797,7 @@ Complete
 </div>
 </section>
 <section id="show-topic-words-in-context-of-full-tweet">
-<h2>Show Topic Words in Context of Full Tweet<a class="headerlink" href="#show-topic-words-in-context-of-full-tweet" title="Link to this heading">#</a></h2>
+<h2>Show Topic Words in Context of Full Tweet<a class="headerlink" href="#show-topic-words-in-context-of-full-tweet" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
@@ -36865,10 +36853,10 @@ Complete
 </div>
 </section>
 <section id="plot-topics-over-time">
-<h2>Plot Topics Over Time<a class="headerlink" href="#plot-topics-over-time" title="Link to this heading">#</a></h2>
+<h2>Plot Topics Over Time<a class="headerlink" href="#plot-topics-over-time" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id1">
-<h2>Load Topic Distributions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>Load Topic Distributions<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distributions</span> <span class="o">=</span> <span class="n">little_mallet_wrapper</span><span class="o">.</span><span class="n">load_topic_distributions</span><span class="p">(</span><span class="n">path_to_topic_distributions</span><span class="p">)</span>
@@ -36878,7 +36866,7 @@ Complete
 </div>
 </section>
 <section id="add-topic-distribution-columns">
-<h2>Add Topic Distribution Columns<a class="headerlink" href="#add-topic-distribution-columns" title="Link to this heading">#</a></h2>
+<h2>Add Topic Distribution Columns<a class="headerlink" href="#add-topic-distribution-columns" title="Permalink to this heading">#</a></h2>
 <p>Add column with all topic distributions for every tweet</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -36913,7 +36901,7 @@ Complete
 </div>
 </section>
 <section id="date-formatting-for-time-series-plot">
-<h2>Date Formatting For Time Series Plot<a class="headerlink" href="#date-formatting-for-time-series-plot" title="Link to this heading">#</a></h2>
+<h2>Date Formatting For Time Series Plot<a class="headerlink" href="#date-formatting-for-time-series-plot" title="Permalink to this heading">#</a></h2>
 <p><strong>Convert to datetime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -36955,7 +36943,7 @@ Complete
 </div>
 </section>
 <section id="plot-individual-topics-as-time-series">
-<h2>Plot Individual Topics as Time Series<a class="headerlink" href="#plot-individual-topics-as-time-series" title="Link to this heading">#</a></h2>
+<h2>Plot Individual Topics as Time Series<a class="headerlink" href="#plot-individual-topics-as-time-series" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_number</span> <span class="o">=</span> <span class="mi">10</span>
@@ -37196,7 +37184,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -37211,8 +37199,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

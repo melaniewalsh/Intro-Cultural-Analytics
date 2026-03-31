@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Twitter Data Collection &amp; Analysis &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-Data-Collection/12-Twitter-Data';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/12-Twitter-Data.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Twitter Data Sharing" href="13-Twitter-Data-Sharing.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -578,11 +566,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="twitter-data-collection-analysis">
-<h1>Twitter Data Collection &amp; Analysis<a class="headerlink" href="#twitter-data-collection-analysis" title="Link to this heading">#</a></h1>
+<h1>Twitter Data Collection &amp; Analysis<a class="headerlink" href="#twitter-data-collection-analysis" title="Permalink to this heading">#</a></h1>
+<div class="warning admonition">
+<p class="admonition-title">Important Update</p>
+<p>In 2023, Twitter (now X) dramatically restricted access to its API, effectively ending free academic research access. The code examples below were written when the API was still accessible and are preserved for reference, but they will no longer work without a paid API subscription. See the <a class="reference internal" href="10-Twitter.html"><span class="doc std std-doc">Twitter Data overview</span></a> for more details.</p>
+</div>
 <p>In this lesson, we’re going to learn how to analyze and explore Twitter data with the Python/command line tool <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/">twarc</a>. We’re specifically going to work with <a class="reference external" href="https://twarc-project.readthedocs.io/en/latest/twarc2/">twarc2</a>, which is designed for version 2 of the Twitter API (released in 2020) and the Academic Research track of the Twitter API (released in 2021), which enables researchers to collect tweets from the entire Twitter archive for free.</p>
 <p>Twarc was developed by a project called <a class="reference external" href="https://www.docnow.io/">Documenting the Now</a>. The DocNow team develops tools and ethical frameworks for social media research.</p>
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>[David Foster Wallace]…has become lit-bro shorthand…Make a passing reference to the “David Foster Wallace fanboy” and you can assume the reader knows whom you’re talking about.<p class ="attribution">—Molly Fischer,
 <a href="https://slate.com/culture/2015/08/men-who-love-david-foster-wallace-what-s-wrong-with-bros-obsessing-over-infinite-jest.html">“David Foster Wallace, Beloved Author of Bros”</a>
@@ -594,7 +586,7 @@ document.write(`
 <p>For example, in <em>Slate</em> in 2015, Molly Fischer argued that David Foster Wallace’s writing — most famously his novel <em>Infinite Jest</em> — tended to attract  <a class="reference external" href="https://slate.com/culture/2015/08/men-who-love-david-foster-wallace-what-s-wrong-with-bros-obsessing-over-infinite-jest.html">a fan base of chauvinistic and misogynistic young men</a>. But other people  have defended Wallace’s fans and the author against such charges. What is a “David Foster Wallace bro”? Was DFW himself a “bro”? Who is using this phrase, how often are they using it, and why? We’re going to track this phrase and explore the varied viewpoints in this cultural conversation by analyzing tweets that mention “David Foster Wallace bro.”</p>
 </section>
 <section id="search-queries-privacy-concerns">
-<h2>Search Queries &amp; Privacy Concerns<a class="headerlink" href="#search-queries-privacy-concerns" title="Link to this heading">#</a></h2>
+<h2>Search Queries &amp; Privacy Concerns<a class="headerlink" href="#search-queries-privacy-concerns" title="Permalink to this heading">#</a></h2>
 <p>To collect tweets from the Twitter API, we need to make queries, or requests for specific kinds of tweets — e.g., <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">*query*</span></code>. The simplest kind of query is a keyword search, such as the phrase “David Foster Wallace bro,” which should return any tweet that contains all of these words in any order — <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace</span> <span class="pre">bro&quot;</span></code>.</p>
 <p>There are many other operators that we can add to a query, which would allow us to collect tweets only from specific Twitter users or locations, or to only collect tweets that meet certain conditions, such as containing an image or being authored by a verified Twitter user. Here’s an excerpted table of search operators taken from <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s documentation</a> about how to build a search query. There are many other operators beyond those included in this table, and I recommend reading through <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query#list">Twitter’s entire web page on this subject</a>.</p>
 <table class="table">
@@ -643,7 +635,7 @@ document.write(`
 <p>As I discussed in <a class="reference internal" href="01-User-Ethics-Legal-Concerns.html"><span class="doc std std-doc">“Users’ Data: Legal &amp; Ethical Considerations,”</span></a> collecting publicly available tweets is legal, but it still raises a lot of privacy concerns and ethical quandaries — particularly when you re-publish user’s data, as I am in this lesson. To reduce potential harm to Twitter users when re-publishing or citing tweets, it can be helpful to ask for explicit permission from the authors or to focus on tweets that have already been reasonably exposed to the public (e.g., tweets with many retweets or tweets from verified users), such that re-publishing the content will not unduly increase risk to the user.</p>
 </section>
 <section id="install-and-import-libraries">
-<h2>Install and Import Libraries<a class="headerlink" href="#install-and-import-libraries" title="Link to this heading">#</a></h2>
+<h2>Install and Import Libraries<a class="headerlink" href="#install-and-import-libraries" title="Permalink to this heading">#</a></h2>
 <p>Because twarc relies on Twitter’s API, we need to apply for a Twitter developer account and create a Twitter application before we can use it. You can find instructions for the application process in <a class="reference internal" href="11-Twitter-API-Setup.html"><span class="doc std std-doc">“Twitter API Set Up.”</span></a></p>
 <p>If you haven’t done so already, you need to install twarc and configure twarc with your bearer token and/or API keys.</p>
 <div class="cell docutils container">
@@ -676,7 +668,7 @@ document.write(`
 </div>
 </section>
 <section id="get-tweet-counts">
-<h2>Get Tweet Counts<a class="headerlink" href="#get-tweet-counts" title="Link to this heading">#</a></h2>
+<h2>Get Tweet Counts<a class="headerlink" href="#get-tweet-counts" title="Permalink to this heading">#</a></h2>
 <p>The first thing we’re going to do is retrieve “tweet counts” — that is, retrieve the number of tweets that included the phrase “David Foster Wallace bro” each day in Twitter’s history.</p>
 <p>The <a class="reference external" href="https://twittercommunity.com/t/introducing-new-tweet-counts-endpoints-to-the-twitter-api-v2/155997">tweet counts API endpoint</a> is a convenient feature of the v2 API (first introduced in 2021) that allows us to get a sense of how many tweets will be returned for a given query before we actually collect all the tweets that match the query. We won’t get the text of the tweets or the users who tweeted the tweets or any other relevant data. We will simply get the number of tweets that match the query. This is helpful because we might be able to see that the search query “Wallace” matches too many tweets, which would encourage us to narrow our search by modifying the query.</p>
 <p>The tweet counts API endpoint is perhaps even more useful for research projects that are primarily interested in tracking the volume of a Twitter conversation over time. In this case, tweet counts enable a researcher to retrieve this information in a way that’s faster and easier than retrieving all tweets and relevant metadata.</p>
@@ -926,7 +918,7 @@ if (outputEl) {{
 <p>To return to the original view, double-click on the plot.</p>
 </section>
 <section id="get-tweets-standard-track">
-<h2>Get Tweets (Standard Track)<a class="headerlink" href="#get-tweets-standard-track" title="Link to this heading">#</a></h2>
+<h2>Get Tweets (Standard Track)<a class="headerlink" href="#get-tweets-standard-track" title="Permalink to this heading">#</a></h2>
 <p>To actually collect tweets and their associated metadata, we can use the command <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span></code> and insert a query.</p>
 <p>Here we’re going to search for any tweets that mention the words “David Foster Wallace bro” and were tweeted by verified accounts <em>in the past week</em>. By default, <code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span></code> will use the standard track of the Twitter API, which only collects tweets from the past week.</p>
 <div class="cell tag_output_scroll docutils container">
@@ -972,7 +964,7 @@ if (outputEl) {{
 <p><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">search</span> <span class="pre">&quot;&quot;&quot;</span> <span class="pre">&quot;David</span> <span class="pre">Foster</span> <span class="pre">Wallace&quot;</span> <span class="pre">is:verified&quot;&quot;&quot;</span> <span class="pre">twitter-data/dfw_exact.jsonl</span></code></p>
 </section>
 <section id="get-tweets-academic-track-full-twitter-archive">
-<h2>Get Tweets (Academic Track, Full Twitter Archive)<a class="headerlink" href="#get-tweets-academic-track-full-twitter-archive" title="Link to this heading">#</a></h2>
+<h2>Get Tweets (Academic Track, Full Twitter Archive)<a class="headerlink" href="#get-tweets-academic-track-full-twitter-archive" title="Permalink to this heading">#</a></h2>
 <div class="attention" name="html-admonition" style="background: lightyellow; padding: 10px">
 <p class="title">Attention</p>
 Remember that this functionality is only available to those who have an [Academic Research account](https://developer.twitter.com/en/products/twitter-api/academic-research).
@@ -991,7 +983,7 @@ Remember that this functionality is only available to those who have an [Academi
 </div>
 </section>
 <section id="convert-jsonl-to-csv">
-<h2>Convert JSONL to CSV<a class="headerlink" href="#convert-jsonl-to-csv" title="Link to this heading">#</a></h2>
+<h2>Convert JSONL to CSV<a class="headerlink" href="#convert-jsonl-to-csv" title="Permalink to this heading">#</a></h2>
 <p>To make our Twitter data easier to work with, we can convert our JSONL file to a CSV file with the <a class="reference external" href="https://pypi.org/project/twarc-csv/"><code class="docutils literal notranslate"><span class="pre">twarc-csv</span></code></a> plugin, which needs to be installed separately.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1021,7 +1013,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 <p>If you want you can also use <code class="docutils literal notranslate"><span class="pre">--inline-referenced-tweets</span></code> option to make “referenced” tweets into their own rows in the CSV file. For example, if a quote tweet matched our query, the tweet being quoted would also be included in the CSV file as its own row, even if it didn’t match our query. But as of v0.5.0 of twarc-csv this is no longer the default behavior.</p>
 </section>
 <section id="read-in-csv">
-<h2>Read in CSV<a class="headerlink" href="#read-in-csv" title="Link to this heading">#</a></h2>
+<h2>Read in CSV<a class="headerlink" href="#read-in-csv" title="Permalink to this heading">#</a></h2>
 <p>Now we’re ready to explore the data!</p>
 <p>To work with our tweet data, we can read in our CSV file with pandas and again parse the date column.</p>
 <div class="cell docutils container">
@@ -3510,7 +3502,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 <p>As you experiment with the query syntax provided by the Twitter API you should make a habit of scanning through your collected Twitter data to ensure that your API query and subsequent manipulations are returning the data that you expect and want. If you notice tweets you don’t expect return to examine your query to see if you can explain why those tweets are turning up. If you can’t find an adequate explanation you might want to ask in the <a class="reference external" href="https://twittercommunity.com">Twitter Community Forum</a>.</p>
 </section>
 <section id="extract-tweet-and-media-urls">
-<h2>Extract Tweet and Media URLs<a class="headerlink" href="#extract-tweet-and-media-urls" title="Link to this heading">#</a></h2>
+<h2>Extract Tweet and Media URLs<a class="headerlink" href="#extract-tweet-and-media-urls" title="Permalink to this heading">#</a></h2>
 <p>We can make some Python functions that will create a tweet URL based on each tweet’s unique ID as well as extract an image URL if one exists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3552,7 +3544,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 </div>
 </section>
 <section id="rename-and-select-columns">
-<h2>Rename and Select Columns<a class="headerlink" href="#rename-and-select-columns" title="Link to this heading">#</a></h2>
+<h2>Rename and Select Columns<a class="headerlink" href="#rename-and-select-columns" title="Permalink to this heading">#</a></h2>
 <p>To make the data more readable, we’re going to rename a number of columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4076,7 +4068,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 </div>
 </section>
 <section id="sort-by-top-retweets">
-<h2>Sort By Top Retweets<a class="headerlink" href="#sort-by-top-retweets" title="Link to this heading">#</a></h2>
+<h2>Sort By Top Retweets<a class="headerlink" href="#sort-by-top-retweets" title="Permalink to this heading">#</a></h2>
 <p>We can sort by number of retweets to see the most circulated tweets. Let’s examine the top 5.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
@@ -4200,7 +4192,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 <p>Here is the most retweeted tweet in this dataset:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">david foster wallace bro conversation again? i feel like by this point in the discourse i need footnotes! (just a little &quot;insider&quot; dfw humor for ya)</p>&mdash; David Grossman (@davidgross_man) <a href="https://twitter.com/davidgross_man/status/1297936487909130240?ref_src=twsrc%5Etfw">August 24, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </section>
 <section id="sort-by-date">
-<h2>Sort By Date<a class="headerlink" href="#sort-by-date" title="Link to this heading">#</a></h2>
+<h2>Sort By Date<a class="headerlink" href="#sort-by-date" title="Permalink to this heading">#</a></h2>
 <p>We can sort from the earliest tweets to the latest tweets. Let’s examine the earliest 5 tweets.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
@@ -4324,7 +4316,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 <p>The earliest tweet in this dataset is from the music label Melodic Records:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/MelodicRecords?ref_src=twsrc%5Etfw">@MelodicRecords</a> chillax brother, we all gud. Put another blunt on the barbie &#39;n&#39; go wid th&#39; flo bro. Dude man... <a href="http://t.co/q0RUmv12">http://t.co/q0RUmv12</a></p>&mdash; Drowned in Sound ⚓️ (@DrownedinSound) <a href="https://twitter.com/DrownedinSound/status/146330510422048768?ref_src=twsrc%5Etfw">December 12, 2011</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </section>
 <section id="plot-tweets-over-time">
-<h2>Plot Tweets Over Time<a class="headerlink" href="#plot-tweets-over-time" title="Link to this heading">#</a></h2>
+<h2>Plot Tweets Over Time<a class="headerlink" href="#plot-tweets-over-time" title="Permalink to this heading">#</a></h2>
 <p>An easy way to create a plot of tweets over time is to add a column with a 1 for every row, which we can use to count how many tweets were published per day, week, month, or year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4858,7 +4850,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 </div>
 </section>
 <section id="display-links-and-images-in-twitter-data">
-<h2>Display Links and Images in Twitter Data<a class="headerlink" href="#display-links-and-images-in-twitter-data" title="Link to this heading">#</a></h2>
+<h2>Display Links and Images in Twitter Data<a class="headerlink" href="#display-links-and-images-in-twitter-data" title="Permalink to this heading">#</a></h2>
 <p>To display links and images in our DataFrame, we can convert the image URL into an HTML image tag, and we can display our DataFrame as an HTML object with the <code class="docutils literal notranslate"><span class="pre">HTML</span></code> module.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -5262,7 +5254,7 @@ Wrote 30 rows and output 74 columns in the CSV.
 </div>
 </section>
 <section id="top-hashtags">
-<h2>Top Hashtags<a class="headerlink" href="#top-hashtags" title="Link to this heading">#</a></h2>
+<h2>Top Hashtags<a class="headerlink" href="#top-hashtags" title="Permalink to this heading">#</a></h2>
 <p>To analyze hashtags in a tweet dataset, we can use the plugin <a class="reference external" href="https://pypi.org/project/twarc-hashtags/"><code class="docutils literal notranslate"><span class="pre">twarc2</span> <span class="pre">hashtags</span></code></a>, which requires a separate installation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5524,11 +5516,11 @@ Wrote 30 rows and output 74 columns in the CSV.
 </div>
 </section>
 <section id="sentiment-analysis">
-<h2>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Link to this heading">#</a></h2>
+<h2>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this heading">#</a></h2>
 <p>See an example of running the English-language <a class="reference internal" href="../05-Text-Analysis/04-Sentiment-Analysis.html"><span class="doc std std-doc">sentiment analysis tool VADER on Donald Trump’s tweets</span></a>.</p>
 </section>
 <section id="topic-modeling-tweets">
-<h2>Topic Modeling Tweets<a class="headerlink" href="#topic-modeling-tweets" title="Link to this heading">#</a></h2>
+<h2>Topic Modeling Tweets<a class="headerlink" href="#topic-modeling-tweets" title="Permalink to this heading">#</a></h2>
 <p>See an example of using <a class="reference internal" href="../05-Text-Analysis/11-Topic-Modeling-Time-Series.html"><span class="doc std std-doc">topic modeling on Donald Trump’s tweets</span></a>.</p>
 </section>
 </section>
@@ -5638,7 +5630,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -5653,8 +5645,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

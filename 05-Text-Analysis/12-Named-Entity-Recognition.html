@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Named Entity Recognition &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/12-Named-Entity-Recognition';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/12-Named-Entity-Recognition.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Part-of-Speech Tagging" href="13-POS-Keywords.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -585,7 +573,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="named-entity-recognition">
-<h1>Named Entity Recognition<a class="headerlink" href="#named-entity-recognition" title="Link to this heading">#</a></h1>
+<h1>Named Entity Recognition<a class="headerlink" href="#named-entity-recognition" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to learn about a text analysis method called <em>Named Entity Recognition</em> (NER). This method will help us computationally identify people, places, and things (of various kinds) in a text or collection of texts.</p>
 <p>We will be working with the English-language spaCy model in this lesson. However, with the help of Quinn Dombrowski, I am also curating tutorials for NER with other languages:</p>
 <ul class="simple">
@@ -600,9 +588,9 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="ada-lovelaces-obituary-louisa-may-alcotts-little-women">
-<h3>Ada Lovelace’s Obituary &amp; Louisa May Alcott’s <em>Little Women</em><a class="headerlink" href="#ada-lovelaces-obituary-louisa-may-alcotts-little-women" title="Link to this heading">#</a></h3>
+<h3>Ada Lovelace’s Obituary &amp; Louisa May Alcott’s <em>Little Women</em><a class="headerlink" href="#ada-lovelaces-obituary-louisa-may-alcotts-little-women" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>A century before the dawn of the computer age, Ada Lovelace imagined the modern-day, general-purpose computer. It could be programmed to follow instructions, she wrote in 1843.</p>
 <p>-Claire Cain Miller, <a class="reference external" href="https://www.nytimes.com/interactive/2018/obituaries/overlooked-ada-lovelace.html">“Ada Lovelace,”</a> <em>New York Times</em> Overlooked Obituaries</p>
@@ -1043,17 +1031,17 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-is-ner-useful">
-<h2>Why is NER Useful?<a class="headerlink" href="#why-is-ner-useful" title="Link to this heading">#</a></h2>
+<h2>Why is NER Useful?<a class="headerlink" href="#why-is-ner-useful" title="Permalink to this heading">#</a></h2>
 <p>Named Entity Recognition is useful for extracting key information from texts. You might use NER to identify the most frequently appearing characters in a novel or build a network of characters (something we’ll do in a later lesson!). Or you might use NER to identify the geographic locations mentioned in texts, a first step toward mapping the locations (something we’ll also do in a later lesson!).</p>
 </section>
 <section id="natural-language-processing-nlp">
-<h2>Natural Language Processing (NLP)<a class="headerlink" href="#natural-language-processing-nlp" title="Link to this heading">#</a></h2>
+<h2>Natural Language Processing (NLP)<a class="headerlink" href="#natural-language-processing-nlp" title="Permalink to this heading">#</a></h2>
 <p>Named Entity Recognition is a fundamental task in the field of <em>natural language processing</em> (NLP). NLP is an interdisciplinary field that blends linguistics, statistics, and computer science. The heart of NLP is to understand human language with statistics and computers. Applications of NLP are all around us. Have you ever heard of a little thing called <em>spellcheck</em>? How about autocomplete, Google translate, chat bots, or Siri? These are all examples of NLP in action!</p>
 <p>Thanks to recent advances in machine learning and to increasing amounts of available text data on the web, NLP has grown by leaps and bounds in the last decade. NLP models that generate texts and images are now getting eerily good.</p>
 <p>Open-source NLP tools are getting very good, too. We’re going to use one of these open-source tools, the Python library <code class="docutils literal notranslate"><span class="pre">spaCy</span></code>, for our Named Entity Recognition tasks in this lesson.</p>
 </section>
 <section id="how-spacy-works">
-<h2>How spaCy Works<a class="headerlink" href="#how-spacy-works" title="Link to this heading">#</a></h2>
+<h2>How spaCy Works<a class="headerlink" href="#how-spacy-works" title="Permalink to this heading">#</a></h2>
 <p>The screenshot above shows spaCy correctly identifying named entities in Ada Lovelace’s <em>New York Times</em> obituary (something that we’ll test out for ourselves below). How does spaCy know that “Ada Lovelace” is a person and that “1843” is a date?</p>
 <p>Well, spaCy doesn’t <em>know</em>, not for sure anyway. Instead, spaCy is making a very educated guess. This “guess” is based on what spaCy has learned about the English language after seeing lots of other examples.</p>
 <p>That’s a colloquial way of saying: spaCy relies on machine learning models that were trained on a large amount of carefully-labeled texts. These texts were, in fact, often labeled and corrected by hand. This is similar to our <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Text-Analysis/Topic-Modeling-Overview.html#1)-LDA-is-an-Unsupervised-Algorithm">topic modeling work</a> from the previous lesson, except our topic model wasn’t using labeled data.</p>
@@ -1061,9 +1049,9 @@ document.write(`
 <p>When spaCy identifies people and places in Ada Lovelace’s obituary, in other words, the NLP model is actually making <em>predictions</em> about the text based on what it has learned about how people and places function in English-language sentences.</p>
 </section>
 <section id="ner-with-spacy">
-<h2>NER with spaCy<a class="headerlink" href="#ner-with-spacy" title="Link to this heading">#</a></h2>
+<h2>NER with spaCy<a class="headerlink" href="#ner-with-spacy" title="Permalink to this heading">#</a></h2>
 <section id="install-spacy">
-<h3>Install spaCy<a class="headerlink" href="#install-spacy" title="Link to this heading">#</a></h3>
+<h3>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>spacy
@@ -1073,7 +1061,7 @@ document.write(`
 </div>
 </section>
 <section id="import-libraries">
-<h3>Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h3>
+<h3>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h3>
 <p>We’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1090,7 +1078,7 @@ document.write(`
 <p>We’re also going to import the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module for counting people, places, and things, and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for organizing and displaying data (we’re also changing the pandas default max row and column width display setting).</p>
 </section>
 <section id="download-language-model">
-<h3>Download Language Model<a class="headerlink" href="#download-language-model" title="Link to this heading">#</a></h3>
+<h3>Download Language Model<a class="headerlink" href="#download-language-model" title="Permalink to this heading">#</a></h3>
 <p>Next we need to download the English-language model (<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>), which will be processing and making predictions about our texts. This is the model that was trained on the annotated “OntoNotes” corpus. You can download the <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> model by running the cell below:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -1103,7 +1091,7 @@ document.write(`
 <p><em>spaCy offers language and tokenization support for other language via external dependencies — such as <a class="reference external" href="https://github.com/konlpy/konlpy">PyviKonlpy</a> for Korean.</em></p>
 </section>
 <section id="load-language-model">
-<h3>Load Language Model<a class="headerlink" href="#load-language-model" title="Link to this heading">#</a></h3>
+<h3>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this heading">#</a></h3>
 <p>Once the model is downloaded, we need to load it. There are two ways to load a spaCy language model.</p>
 <p><strong>1.</strong> We can import the model as a module and then load it from the module.</p>
 <div class="cell docutils container">
@@ -1126,7 +1114,7 @@ document.write(`
 </section>
 </section>
 <section id="process-document">
-<h2>Process Document<a class="headerlink" href="#process-document" title="Link to this heading">#</a></h2>
+<h2>Process Document<a class="headerlink" href="#process-document" title="Permalink to this heading">#</a></h2>
 <p>We first need to process our <code class="docutils literal notranslate"><span class="pre">document</span></code> with the loaded NLP model. Most of the heavy NLP lifting is done in this line of code.</p>
 <p>After processing, the <code class="docutils literal notranslate"><span class="pre">document</span></code> object will contain tons of juicy language data — named entities, sentence boundaries, parts of speech — and the rest of our work will be devoted to accessing this information.</p>
 <p>In the cell below, we open and read Ada Lovelace’s obituary. Then we run<code class="docutils literal notranslate"><span class="pre">nlp()</span></code> on the text and create our document.</p>
@@ -1141,7 +1129,7 @@ document.write(`
 </div>
 </section>
 <section id="spacy-named-entities">
-<h2>spaCy Named Entities<a class="headerlink" href="#spacy-named-entities" title="Link to this heading">#</a></h2>
+<h2>spaCy Named Entities<a class="headerlink" href="#spacy-named-entities" title="Permalink to this heading">#</a></h2>
 <p>Below is a Named Entities chart for English-language spaCy taken from <a class="reference external" href="https://spacy.io/api/annotation#named-entities">its website</a>. This chart shows the different named entities that spaCy can identify as well as their corresponding type labels.</p>
 <table class="table">
 <thead>
@@ -1648,7 +1636,7 @@ document.write(`
 <p>This inconsistency is very important to note and keep in mind. If we wanted to use spaCy’s English-language NER model for a project, it would almost certainly require manual correction and cleaning. And even then it wouldn’t be perfect. That’s why understanding the limitations of this tool is so crucial. While spaCy’s English-language NER can be very good for identifying entities in broad strokes, it can’t be relied upon for anything exact and fine-grained — not out of the box anyway.</p>
 </section>
 <section id="get-named-entities">
-<h2>Get Named Entities<a class="headerlink" href="#get-named-entities" title="Link to this heading">#</a></h2>
+<h2>Get Named Entities<a class="headerlink" href="#get-named-entities" title="Permalink to this heading">#</a></h2>
 <p>All the named entities in our <code class="docutils literal notranslate"><span class="pre">document</span></code> can be found in the <code class="docutils literal notranslate"><span class="pre">document.ents</span></code> property. If we check out <code class="docutils literal notranslate"><span class="pre">document.ents</span></code>, we can see all the entities from Ada Lovelace’s obituary.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -1895,8 +1883,8 @@ Ada Lovelace
 </div>
 </section>
 <section id="ner-with-long-texts-or-many-texts">
-<h2>NER with Long Texts or Many Texts<a class="headerlink" href="#ner-with-long-texts-or-many-texts" title="Link to this heading">#</a></h2>
-<p>For the rest of this lesson, we’re going to work with Edward P. Jones’s short story collection <em>Lost in the City</em>, specifically the first story, “The Girl Who Raised Pigeons.”</p>
+<h2>NER with Long Texts or Many Texts<a class="headerlink" href="#ner-with-long-texts-or-many-texts" title="Permalink to this heading">#</a></h2>
+<p>For the rest of this lesson, we’re going to work with Louisa May Alcott’s <em>Little Women</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Little-Women_Louisa-May-Alcott.txt&quot;</span>
@@ -1930,7 +1918,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="get-people">
-<h2>Get People<a class="headerlink" href="#get-people" title="Link to this heading">#</a></h2>
+<h2>Get People<a class="headerlink" href="#get-people" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type Label</p></th>
@@ -4684,7 +4672,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="get-places">
-<h2>Get Places<a class="headerlink" href="#get-places" title="Link to this heading">#</a></h2>
+<h2>Get Places<a class="headerlink" href="#get-places" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type Label</p></th>
@@ -5446,7 +5434,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="get-streets-parks">
-<h2>Get Streets &amp; Parks<a class="headerlink" href="#get-streets-parks" title="Link to this heading">#</a></h2>
+<h2>Get Streets &amp; Parks<a class="headerlink" href="#get-streets-parks" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type Label</p></th>
@@ -5459,7 +5447,7 @@ Ada Lovelace
 </tr>
 </tbody>
 </table>
-<p>To extract and count streets and parks (which show up a lot in <em>Lost in the City</em>!), we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for “ent” labels that match “FAC.” This is the type label for “buildings, airports, highways, bridges, etc.”</p>
+<p>To extract and count streets and parks (which show up a lot in <em>Little Women</em>!), we can follow the same model as above, except we will change our <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to check for “ent” labels that match “FAC.” This is the type label for “buildings, airports, highways, bridges, etc.”</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span> <span class="o">=</span> <span class="p">[]</span>
@@ -5605,7 +5593,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="get-works-of-art">
-<h2>Get Works of Art<a class="headerlink" href="#get-works-of-art" title="Link to this heading">#</a></h2>
+<h2>Get Works of Art<a class="headerlink" href="#get-works-of-art" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type Label</p></th>
@@ -6269,7 +6257,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="get-ner-in-context">
-<h2>Get NER in Context<a class="headerlink" href="#get-ner-in-context" title="Link to this heading">#</a></h2>
+<h2>Get NER in Context<a class="headerlink" href="#get-ner-in-context" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -6337,7 +6325,7 @@ Ada Lovelace
 </div>
 </section>
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <p>Now it’s your turn to take a crack at NER with a whole new text!</p>
 <div class="toggle docutils container">
 <table class="table">
@@ -6550,7 +6538,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -6565,8 +6553,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

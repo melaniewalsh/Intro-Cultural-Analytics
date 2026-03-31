@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Programming in Python &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/00-Python';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/00-Python.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Install Python &amp; JupyterLab" href="01-Install-Python.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -570,7 +558,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="programming-in-python">
-<h1>Programming in Python<a class="headerlink" href="#programming-in-python" title="Link to this heading">#</a></h1>
+<h1>Programming in Python<a class="headerlink" href="#programming-in-python" title="Permalink to this heading">#</a></h1>
 <p>This series of lessons will cover the basics of a programming language called Python:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -592,7 +580,7 @@ document.write(`
 </ul>
 </div>
 <section id="some-things-to-think-about-before-you-exhort-everyone-to-code">
-<h2>“Some things to think about before you exhort everyone to code”<a class="headerlink" href="#some-things-to-think-about-before-you-exhort-everyone-to-code" title="Link to this heading">#</a></h2>
+<h2>“Some things to think about before you exhort everyone to code”<a class="headerlink" href="#some-things-to-think-about-before-you-exhort-everyone-to-code" title="Permalink to this heading">#</a></h2>
 <blockquote class="epigraph">
 <div><p>Programming knowledge is not a neutral thing</p>
 <p class="attribution">—<a class="reference external" href="https://miriamposner.com/blog/some-things-to-think-about-before-you-exhort-everyone-to-code/">Miriam Posner</a></p>
@@ -601,7 +589,7 @@ document.write(`
 <p>Before we dive into Python, we want to acknowledge that programming knowledge is not a neutral thing or a natural thing. Further, programming knowledge is not a superior form of knowledge, and it is not the best way to approach every problem.</p>
 </section>
 <section id="why-learn-a-programming-language">
-<h2>Why Learn a Programming Language?<a class="headerlink" href="#why-learn-a-programming-language" title="Link to this heading">#</a></h2>
+<h2>Why Learn a Programming Language?<a class="headerlink" href="#why-learn-a-programming-language" title="Permalink to this heading">#</a></h2>
 <p>With all that said, why might it be worthwhile to learn a programming language?</p>
 <ul class="simple">
 <li><p>You can save time and energy by automating tasks</p></li>
@@ -611,7 +599,7 @@ document.write(`
 </ul>
 </section>
 <section id="why-python-specifically">
-<h2>Why Python Specifically?<a class="headerlink" href="#why-python-specifically" title="Link to this heading">#</a></h2>
+<h2>Why Python Specifically?<a class="headerlink" href="#why-python-specifically" title="Permalink to this heading">#</a></h2>
 <p>Ok but why Python specifically?</p>
 <ul class="simple">
 <li><p>Python resembles the English language and is readable for those who know English</p></li>
@@ -622,7 +610,7 @@ document.write(`
 <p>Other commonly used programming languages for cultural analytics/digital humanities include <a class="reference external" href="https://humanitiesdata.org/">R</a> and <a class="reference external" href="https://the-javascripting-english-major.org/v1/">JavaScript</a>.</p>
 </section>
 <section id="learning-goals-with-python">
-<h2>Learning Goals with Python<a class="headerlink" href="#learning-goals-with-python" title="Link to this heading">#</a></h2>
+<h2>Learning Goals with Python<a class="headerlink" href="#learning-goals-with-python" title="Permalink to this heading">#</a></h2>
 <p>Our learning goals with Python are a little different than they might be in a straightforward Computer Science course. We’re striving to:</p>
 <ul class="simple">
 <li><p>Learn how to use Python as a tool and apply it to cultural questions</p></li>
@@ -632,11 +620,11 @@ document.write(`
 </ul>
 </section>
 <section id="python-version-3">
-<h2>Python Version 3<a class="headerlink" href="#python-version-3" title="Link to this heading">#</a></h2>
+<h2>Python Version 3<a class="headerlink" href="#python-version-3" title="Permalink to this heading">#</a></h2>
 <p>The latest version of Python is Python 3. Python 2 has officially been <a class="reference external" href="https://www.python.org/doc/sunset-python-2/">retired</a>. You should not use Python 2.</p>
 <p>It’s possible that you may come across old Python 2 code on the internet, which won’t work with Python 3. A tell-tale difference between Python 3 and Python 2 code is the syntax for the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
 <section id="python-3">
-<h3>Python 3<a class="headerlink" href="#python-3" title="Link to this heading">#</a></h3>
+<h3>Python 3<a class="headerlink" href="#python-3" title="Permalink to this heading">#</a></h3>
 <p>In Python 3, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function requires parentheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,7 +640,7 @@ document.write(`
 </div>
 </section>
 <section id="python-2">
-<h3>Python 2<a class="headerlink" href="#python-2" title="Link to this heading">#</a></h3>
+<h3>Python 2<a class="headerlink" href="#python-2" title="Permalink to this heading">#</a></h3>
 <p>In Python 2, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function does not parentheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,7 +758,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -785,8 +773,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

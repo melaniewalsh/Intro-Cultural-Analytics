@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>String Methods — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/Workbooks/06.5-String-Methods-WORKBOOK';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/Workbooks/06.5-String-Methods-WORKBOOK.html" />
-    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -576,11 +564,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="string-methods-workbook">
-<h1>String Methods — Workbook<a class="headerlink" href="#string-methods-workbook" title="Link to this heading">#</a></h1>
+<h1>String Methods — Workbook<a class="headerlink" href="#string-methods-workbook" title="Permalink to this heading">#</a></h1>
 <p><em>If you want to save your work from this notebook, you should be sure to make a copy of it on your own computer.</em></p>
 <p>A <em>string</em> is a Python data type that is treated like text, even if it contains a number. Strings are always enclosed by either single quotation marks <code class="docutils literal notranslate"><span class="pre">'this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string'</span></code> or double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string&quot;</span></code>. In this lesson, we’re going to explore some special things that you can do with strings.</p>
 <section id="practice-with-strings">
-<h2>Practice with Strings<a class="headerlink" href="#practice-with-strings" title="Link to this heading">#</a></h2>
+<h2>Practice with Strings<a class="headerlink" href="#practice-with-strings" title="Permalink to this heading">#</a></h2>
 <p>We’re going to practice by using Franz Kafka’s 1915 novella, <em>The Metamorphosis.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,9 +586,9 @@ document.write(`
 </div>
 </section>
 <section id="extract-parts-of-strings">
-<h2>Extract Parts of Strings<a class="headerlink" href="#extract-parts-of-strings" title="Link to this heading">#</a></h2>
+<h2>Extract Parts of Strings<a class="headerlink" href="#extract-parts-of-strings" title="Permalink to this heading">#</a></h2>
 <section id="index">
-<h3>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h3>
+<h3>Index<a class="headerlink" href="#index" title="Permalink to this heading">#</a></h3>
 <p>By using square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, you can grab or “index” part of a string based on its character number.</p>
 <p>Here’s what happens if we index the first few characters of the <em>The Metamorphosis</em>:</p>
 <blockquote>
@@ -644,7 +632,7 @@ document.write(`
 </div>
 </section>
 <section id="slice">
-<h3>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h3>
+<h3>Slice<a class="headerlink" href="#slice" title="Permalink to this heading">#</a></h3>
 <p>You can slice a string up between certain characters or up to certain characters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">string[start:stop:step]</span></code></p>
 <p>By putting specific index numbers between these colons, you can slice the string  at certain starting and stopping points, and you can also “step” by different amounts—that is, you can jump by a certain number through the string and take every nth item in the string (e.g. every 3rd item).</p>
@@ -714,7 +702,7 @@ document.write(`
 </section>
 </section>
 <section id="string-methods">
-<h2>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>String Method</strong></p></th>
@@ -756,7 +744,7 @@ document.write(`
 </table>
 </section>
 <section id="replace-words">
-<h2>Replace Words<a class="headerlink" href="#replace-words" title="Link to this heading">#</a></h2>
+<h2>Replace Words<a class="headerlink" href="#replace-words" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>String Method</strong></p></th>
@@ -787,7 +775,7 @@ document.write(`
 </div>
 </section>
 <section id="transform-strings-to-lowercase-uppercase">
-<h2>Transform Strings to Lowercase/Uppercase<a class="headerlink" href="#transform-strings-to-lowercase-uppercase" title="Link to this heading">#</a></h2>
+<h2>Transform Strings to Lowercase/Uppercase<a class="headerlink" href="#transform-strings-to-lowercase-uppercase" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>String Method</strong></p></th>
@@ -822,7 +810,7 @@ document.write(`
 </div>
 </section>
 <section id="split-strings-by-a-delimiter">
-<h2>Split Strings By a Delimiter<a class="headerlink" href="#split-strings-by-a-delimiter" title="Link to this heading">#</a></h2>
+<h2>Split Strings By a Delimiter<a class="headerlink" href="#split-strings-by-a-delimiter" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>String Method</strong></p></th>
@@ -853,7 +841,7 @@ document.write(`
 </div>
 </section>
 <section id="index-the-list">
-<h2>Index the List<a class="headerlink" href="#index-the-list" title="Link to this heading">#</a></h2>
+<h2>Index the List<a class="headerlink" href="#index-the-list" title="Permalink to this heading">#</a></h2>
 <p>We haven’t introduced <code class="docutils literal notranslate"><span class="pre">lists</span></code> yet, but here’s a preview: we can index lists the exact same way we can index a string!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -871,7 +859,7 @@ document.write(`
 </div>
 </section>
 <section id="strip-and-split">
-<h2>Strip and Split<a class="headerlink" href="#strip-and-split" title="Link to this heading">#</a></h2>
+<h2>Strip and Split<a class="headerlink" href="#strip-and-split" title="Permalink to this heading">#</a></h2>
 <p>We can easily strip white space from the beginning and end of a string with <code class="docutils literal notranslate"><span class="pre">.split()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -904,7 +892,7 @@ document.write(`
 </div>
 </section>
 <section id="join-strings-by-a-delimiter">
-<h2>Join Strings By a Delimiter<a class="headerlink" href="#join-strings-by-a-delimiter" title="Link to this heading">#</a></h2>
+<h2>Join Strings By a Delimiter<a class="headerlink" href="#join-strings-by-a-delimiter" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><strong>String Method</strong></p></th>
@@ -942,10 +930,10 @@ document.write(`
 </div>
 </section>
 <section id="group-work">
-<h2>Group Work!<a class="headerlink" href="#group-work" title="Link to this heading">#</a></h2>
+<h2>Group Work!<a class="headerlink" href="#group-work" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="whats-the-historical-breakdown-of-intro-cas-favorite-albums">
-<h2>What’s the historical breakdown of Intro CA’s favorite albums?<a class="headerlink" href="#whats-the-historical-breakdown-of-intro-cas-favorite-albums" title="Link to this heading">#</a></h2>
+<h2>What’s the historical breakdown of Intro CA’s favorite albums?<a class="headerlink" href="#whats-the-historical-breakdown-of-intro-cas-favorite-albums" title="Permalink to this heading">#</a></h2>
 <p><em>Imaginary bar chart: our class’s favorite albums by release year</em></p>
 <p><img alt="" src="images/music-chart.png" /></p>
 <p>All this string stuff can seem a little abstract, so let’s think about a concrete example.</p>
@@ -1110,7 +1098,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1125,8 +1113,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

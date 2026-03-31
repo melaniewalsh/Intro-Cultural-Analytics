@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Make an Interactive Network Visualization with Bokeh &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '06-Network-Analysis/02-Making-Network-Viz-with-Bokeh';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/06-Network-Analysis/02-Making-Network-Viz-with-Bokeh.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Mapping" href="../07-Mapping/00-Mapping.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -573,7 +561,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="make-an-interactive-network-visualization-with-bokeh">
-<h1>Make an Interactive Network Visualization with Bokeh<a class="headerlink" href="#make-an-interactive-network-visualization-with-bokeh" title="Link to this heading">#</a></h1>
+<h1>Make an Interactive Network Visualization with Bokeh<a class="headerlink" href="#make-an-interactive-network-visualization-with-bokeh" title="Permalink to this heading">#</a></h1>
 <p>This notebook includes code for creating interactive network visualizations with the Python libraries <a class="reference external" href="https://networkx.github.io/">NetworkX</a> and <a class="reference external" href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a>. The notebook begins with code for a basic network visualization then progressively demonstrates how to add more information and functionality, such as:</p>
 <ul class="simple">
 <li><p>sizing and coloring nodes by degree</p></li>
@@ -581,17 +569,21 @@ document.write(`
 <li><p>adding responsive highlighting when hovering over nodes and edges</p></li>
 <li><p>adding node labels</p></li>
 </ul>
+<div class="warning admonition">
+<p class="admonition-title">Bokeh Version Compatibility</p>
+<p>This notebook was written for <strong>Bokeh version 2.x</strong>. If you are using <strong>Bokeh 3.x</strong> or later, you may encounter errors because newer versions of Bokeh are stricter about data types. In particular, glyph properties like <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> may no longer accept string attribute names directly in some contexts. If you run into issues, try installing Bokeh 2.x (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">'bokeh&lt;3'</span></code>) or consult the <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/releases.html">Bokeh migration guide</a> for updated syntax.</p>
+</div>
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="game-of-thrones">
-<h3><em>Game of Thrones</em><a class="headerlink" href="#game-of-thrones" title="Link to this heading">#</a></h3>
+<h3><em>Game of Thrones</em><a class="headerlink" href="#game-of-thrones" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>Lucky it might be, and red it certainly was, but Ygritte’s hair was such a tangle that Jon was tempted to ask her if she only brushed it at the changing of the seasons.</p>
 <p>-George R. R. Martin, <em>A Song of Ice and Fire</em></p>
 </blockquote></section>
 </section>
 <section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -604,7 +596,7 @@ document.write(`
 </div>
 </section>
 <section id="install-and-import-bokeh">
-<h2>Install and Import Bokeh<a class="headerlink" href="#install-and-import-bokeh" title="Link to this heading">#</a></h2>
+<h2>Install and Import Bokeh<a class="headerlink" href="#install-and-import-bokeh" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install bokeh</span>
@@ -930,8 +922,8 @@ document.write(`
 </div>
 </section>
 <section id="create-network-from-pandas-dataframe">
-<h2>Create Network From Pandas DataFrame<a class="headerlink" href="#create-network-from-pandas-dataframe" title="Link to this heading">#</a></h2>
-<p>We read in a CSV file of <em>Game of Thrones</em> network data from Andrew Beveridge and Jie Shan’s paper, <a class="reference external" href="https://www.maa.org/sites/default/files/pdf/Mathhorizons/NetworkofThrones%20%281%29.pdf">“Network of Thrones.”</a></p>
+<h2>Create Network From Pandas DataFrame<a class="headerlink" href="#create-network-from-pandas-dataframe" title="Permalink to this heading">#</a></h2>
+<p>We read in a CSV file of <em>Game of Thrones</em> network data from Andrew Beveridge and Jie Shan’s paper, <a class="reference external" href="https://mathbeveridge.github.io/files/NetworkofThrones.pdf">“Network of Thrones.”</a></p>
 <div class="pandasreview admonition">
 <p class="admonition-title">Pandas Review</p>
 <p>Do you need a refresher or introduction to the Python data analysis library Pandas? Be sure to check out <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Data-Analysis/Pandas-Basics-Part1.html"> Pandas Basics (1-3) </a> in this textbook!</p>
@@ -1055,7 +1047,7 @@ document.write(`
 </div>
 </section>
 <section id="basic-network">
-<h2>Basic Network<a class="headerlink" href="#basic-network" title="Link to this heading">#</a></h2>
+<h2>Basic Network<a class="headerlink" href="#basic-network" title="Permalink to this heading">#</a></h2>
 <p>The code below shows how to make a basic network viz that includes Hover Tooltips (a text box that will display when a user hovers over nodes) as well as Zoom and Pan/Drag functionality.</p>
 <p>For more details about visualizing network graphs with Bokeh, see <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/graph.html?highlight=networks">the documentation</a>.</p>
 <div class="cell docutils container">
@@ -1136,7 +1128,7 @@ document.write(`
 </div>
 </section>
 <section id="network-with-nodes-sized-and-colored-by-attribute-degree">
-<h2>Network with Nodes Sized and Colored By Attribute (Degree)<a class="headerlink" href="#network-with-nodes-sized-and-colored-by-attribute-degree" title="Link to this heading">#</a></h2>
+<h2>Network with Nodes Sized and Colored By Attribute (Degree)<a class="headerlink" href="#network-with-nodes-sized-and-colored-by-attribute-degree" title="Permalink to this heading">#</a></h2>
 <p>The code below shows how to size and color nodes by degree.</p>
 <p><strong>Include Bokeh color palettes</strong></p>
 <div class="cell docutils container">
@@ -1249,7 +1241,7 @@ document.write(`
 </div>
 </section>
 <section id="network-with-nodes-colored-by-attribute-community">
-<h2>Network with Nodes Colored By Attribute (Community)<a class="headerlink" href="#network-with-nodes-colored-by-attribute-community" title="Link to this heading">#</a></h2>
+<h2>Network with Nodes Colored By Attribute (Community)<a class="headerlink" href="#network-with-nodes-colored-by-attribute-community" title="Permalink to this heading">#</a></h2>
 <p>The code below shows how to size and color nodes by modularity class.</p>
 <p><strong>Include community module</strong></p>
 <div class="cell docutils container">
@@ -1406,7 +1398,7 @@ document.write(`
 </div>
 </section>
 <section id="network-with-responsive-highlighting">
-<h2>Network with Responsive Highlighting<a class="headerlink" href="#network-with-responsive-highlighting" title="Link to this heading">#</a></h2>
+<h2>Network with Responsive Highlighting<a class="headerlink" href="#network-with-responsive-highlighting" title="Permalink to this heading">#</a></h2>
 <p>The code below shows how to create responsive highlighting when a user hovers over nodes or edges, which you can read more about in <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/graph.html?highlight=networks#interaction-policies">Bokeh’s NetworkX Integration documentation</a>.</p>
 <p><strong>Include  EdgesAndLinkedNodes, NodesAndLinkedEdges</strong></p>
 <div class="cell docutils container">
@@ -1593,7 +1585,7 @@ document.write(`
 </div>
 </section>
 <section id="network-with-labels">
-<h2>Network with Labels<a class="headerlink" href="#network-with-labels" title="Link to this heading">#</a></h2>
+<h2>Network with Labels<a class="headerlink" href="#network-with-labels" title="Permalink to this heading">#</a></h2>
 <p>The code below shows how to create node labels, which you can read more about in <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/annotations.html#labels">Bokeh’s label documentation</a>.</p>
 <p><strong>Include  LabelSet</strong></p>
 <div class="cell docutils container">
@@ -1877,7 +1869,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1892,8 +1884,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

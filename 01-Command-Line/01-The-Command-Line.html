@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>The Command Line &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '01-Command-Line/01-The-Command-Line';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/01-Command-Line/01-The-Command-Line.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Programming in Python" href="../02-Python/00-Python.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -594,7 +582,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-command-line">
-<h1>The Command Line<a class="headerlink" href="#the-command-line" title="Link to this heading">#</a></h1>
+<h1>The Command Line<a class="headerlink" href="#the-command-line" title="Permalink to this heading">#</a></h1>
 <p>Before we begin learning about the programming language Python, we need to learn about the command line. The command line — also referred to as <em>the shell</em>, <em>bash</em>, or <em>terminal</em> — is the gateway to computational analysis. Think of it like interacting with your computer behind the scenes.</p>
 <p>Here are some of the important things that you can do from the command line:</p>
 <ul class="simple">
@@ -608,7 +596,7 @@ document.write(`
 <img alt="The command line" class="center" src="../_images/welcome.png" />
 <div class="admonition note" id="html-admonition">
 <p class="admonition-title">Note</p>
-<p>Technically speaking, <em>command line</em>, <em>shell</em>, <em>bash</em>, and <em>terminal</em> all mean slightly different things. The Digital Humanities Research Institute provides <a class="reference external" href="https://github.com/DHRI-Curriculum/glossary/blob/master/sections/command-line.md#glossary">a helpful primer on the distinctions</a>.</p>
+<p>Technically speaking, <em>command line</em>, <em>shell</em>, <em>bash</em>, and <em>terminal</em> all mean slightly different things. The Digital Humanities Research Institute provides <a class="reference external" href="https://curriculum.dhinstitutes.org/glossary/">a helpful primer on the distinctions</a>.</p>
 </div>
 <p>The command line interface is often contrasted with the graphical user interface or GUI (pronounced <em>gooey</em>, like <a class="reference external" href="https://en.wikipedia.org/wiki/Gooey_butter_cake">St. Louis gooey butter cake</a>). This is the way that most people are familiar with navigating their computers.</p>
 <p>To illustrate the difference between the command line and the GUI, consider the following example. I want to make a new folder to organize my notes for this class. So I drag my mouse cursor and click on a button that says “New Folder,” which makes a small icon of a folder appear. I title this folder “Intro-CA-Notes.” Now I want to delete this folder. So I drag and drop the folder icon into a tiny trash can icon.</p>
@@ -620,11 +608,11 @@ document.write(`
 <p>But in the aggregate, with larger tasks, these seconds start to add up. Since we can automate tasks from the command line, we can transform things that would be tedious and time-consuming to do manually — such as resizing 1000 photos or combining a dozen smaller CSV files into one large file — into useful and efficient scripts.</p>
 <p>That’s just the tip of the iceberg. From the command line, you can also run Python code, install software, or connect to a remote server or <a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi</a> (a cheap, tiny computer where you can make Twitter bots and more). The command line offers you greater power and flexibility over your computing experience.</p>
 <section id="where-do-i-find-the-command-line">
-<h2>Where do I find the command line?<a class="headerlink" href="#where-do-i-find-the-command-line" title="Link to this heading">#</a></h2>
+<h2>Where do I find the command line?<a class="headerlink" href="#where-do-i-find-the-command-line" title="Permalink to this heading">#</a></h2>
 <p>Your command line will differ depending on the operating system (OS) that you’re using. Most operating systems fall into two different families: the <strong>Unix-like</strong> family and the <strong>Microsoft Windows</strong> family. The Unix-like family includes Mac OS, Linux, Android, and Chrome.</p>
 <p>We’re going to focus on the command line interfaces for Mac, Microsoft Windows, and Chromebooks.</p>
 <section id="mac-os">
-<h3> Mac OS<a class="headerlink" href="#mac-os" title="Link to this heading">#</a></h3>
+<h3> Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this heading">#</a></h3>
 <p>If you’re using a Mac, you will access the command line through an application called “Terminal.” You can find Terminal under Applications -&gt; Utilities.</p>
 <img alt="Open Mac Terminal in Applications" class="center" src="../_images/Terminal-Applications-Utilities.png" />
 <p>Alternatively, you can find it by clicking Spotlight Search in the top right corner, typing “Terminal,” and double-clicking the application or pressing enter.</p>
@@ -649,7 +637,7 @@ document.write(`
 </div>
 </section>
 <section id="windows-os">
-<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg" width="20" /></a> Windows OS<a class="headerlink" href="#windows-os" title="Link to this heading">#</a></h3>
+<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Windows_logo_-_2012_derivative.svg" width="20" /></a> Windows OS<a class="headerlink" href="#windows-os" title="Permalink to this heading">#</a></h3>
 <p>The command line for Windows users, called “Command Prompt,” is different from the command line interface for Mac users and the wider Unix-like family. The Windows Command Prompt is not as powerful as the Unix shell in certain ways.</p>
 <div class="margin sidebar" style="padding: 10px">
 <p class="sidebar title"><b>Google Breakdown</b></p>
@@ -670,7 +658,7 @@ document.write(`
 <p>To open PowerShell, simply search for it in the Windows search bar, as shown above.</p>
 </section>
 <section id="chromebook">
-<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg" width="20" /></a> Chromebook<a class="headerlink" href="#chromebook" title="Link to this heading">#</a></h3>
+<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg" width="20" /></a> Chromebook<a class="headerlink" href="#chromebook" title="Permalink to this heading">#</a></h3>
 <p>To access the command line from a Chromebook, you first need to turn on Linux (Beta). The following instructions are taken from <a class="reference external" href="https://support.google.com/chromebook/answer/9145439?hl=en">Google Chromebook Help</a>.</p>
 <ul class="simple">
 <li><p>At the bottom right, select the time</p></li>
@@ -682,7 +670,7 @@ document.write(`
 </section>
 </section>
 <section id="command-line-cheatsheet">
-<h2>Command Line Cheatsheet<a class="headerlink" href="#command-line-cheatsheet" title="Link to this heading">#</a></h2>
+<h2>Command Line Cheatsheet<a class="headerlink" href="#command-line-cheatsheet" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -763,13 +751,13 @@ document.write(`
 </table>
 </section>
 <section id="basic-navigation-and-file-structure">
-<h2>Basic Navigation and File Structure<a class="headerlink" href="#basic-navigation-and-file-structure" title="Link to this heading">#</a></h2>
+<h2>Basic Navigation and File Structure<a class="headerlink" href="#basic-navigation-and-file-structure" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">%</span></code> and <code class="docutils literal notranslate"><span class="pre">!</span></code> symbols at the beginning of the lines below allow us to access the command line from a Jupyter notebook. If you were using these commands outside the Jupyter environment, you would not need to include <code class="docutils literal notranslate"><span class="pre">%</span></code> or <code class="docutils literal notranslate"><span class="pre">!</span></code></p>
 </div>
 <section id="display-path-of-working-directory">
-<h3>Display Path of Working Directory<a class="headerlink" href="#display-path-of-working-directory" title="Link to this heading">#</a></h3>
+<h3>Display Path of Working Directory<a class="headerlink" href="#display-path-of-working-directory" title="Permalink to this heading">#</a></h3>
 <p>⭐ <em>You are here!</em> ⭐ One of the most basic and useful commands is the one that tells you where you are on your computer. Type <code class="docutils literal notranslate"><span class="pre">pwd</span></code> and it will show you the <strong>p</strong>ath of your <strong>w</strong>orking <strong>d</strong>irectory, aka the folder that you’re currently in. This might not seem terribly important at the moment, but it is.</p>
 <table class="table">
 <thead>
@@ -801,7 +789,7 @@ document.write(`
 <p>This filepath is unique to my personal computer, which you could probably guess because it includes my name. If you open up a command line on your own personal machine and type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, it should return your personal “home” directory.</p>
 </section>
 <section id="list-files-and-folders">
-<h3>List Files and Folders<a class="headerlink" href="#list-files-and-folders" title="Link to this heading">#</a></h3>
+<h3>List Files and Folders<a class="headerlink" href="#list-files-and-folders" title="Permalink to this heading">#</a></h3>
 <p>If you want to see what’s inside the directory that you’re currently in, you can run <code class="docutils literal notranslate"><span class="pre">ls</span></code>, which <strong>l</strong>i<strong>s</strong>t all the files and folders.</p>
 <table class="table">
 <thead>
@@ -832,7 +820,7 @@ document.write(`
 <p>The output above shows that this directory contains “01-The-Command-Line.ipynb” (this very Jupyter notebook!) as well as another directory called “very-interesting-folder.”</p>
 </section>
 <section id="change-directory">
-<h3>Change Directory<a class="headerlink" href="#change-directory" title="Link to this heading">#</a></h3>
+<h3>Change Directory<a class="headerlink" href="#change-directory" title="Permalink to this heading">#</a></h3>
 <p>If we want to find out what’s inside that directory, we can move into it by using the <strong>c</strong>hange <strong>d</strong>irectory <code class="docutils literal notranslate"><span class="pre">cd</span></code> command and plugging in the name of the directory</p>
 <table class="table">
 <thead>
@@ -869,10 +857,10 @@ document.write(`
 </div>
 </section>
 <section id="relative-path-vs-absolute-path">
-<h3>Relative Path vs Absolute Path<a class="headerlink" href="#relative-path-vs-absolute-path" title="Link to this heading">#</a></h3>
+<h3>Relative Path vs Absolute Path<a class="headerlink" href="#relative-path-vs-absolute-path" title="Permalink to this heading">#</a></h3>
 <p>There are two ways to to tell your computer where you want to go aka your desired <em>path</em>.</p>
 <section id="relative-path">
-<h4>Relative Path<a class="headerlink" href="#relative-path" title="Link to this heading">#</a></h4>
+<h4>Relative Path<a class="headerlink" href="#relative-path" title="Permalink to this heading">#</a></h4>
 <p>Relative path is a path to a location that’s relative to your current location.</p>
 <p>We used a relative path when we moved into <code class="docutils literal notranslate"><span class="pre">very-interesting-folder</span></code> because we simply typed:</p>
 <div class="cell tag_command_line docutils container">
@@ -883,7 +871,7 @@ document.write(`
 </div>
 </div>
 <section id="double-dot">
-<h5>Double Dot<a class="headerlink" href="#double-dot" title="Link to this heading">#</a></h5>
+<h5>Double Dot<a class="headerlink" href="#double-dot" title="Permalink to this heading">#</a></h5>
 <p>A “double dot” <code class="docutils literal notranslate"><span class="pre">..</span></code> allows you to move up to a parent directory one level up.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
@@ -897,21 +885,21 @@ document.write(`
 </section>
 </section>
 <section id="absolute-path">
-<h4>Absolute Path<a class="headerlink" href="#absolute-path" title="Link to this heading">#</a></h4>
+<h4>Absolute Path<a class="headerlink" href="#absolute-path" title="Permalink to this heading">#</a></h4>
 <p>Absolute path is a path to a location from a bird’s eye view of your computer.</p>
 <p>If we wanted to move inside <code class="docutils literal notranslate"><span class="pre">very-interesting-folder</span></code> from a completely different place on our computers, we could use an absolute path.</p>
 <section id="home-folder-tilde">
-<h5>Home Folder Tilde ~<a class="headerlink" href="#home-folder-tilde" title="Link to this heading">#</a></h5>
+<h5>Home Folder Tilde ~<a class="headerlink" href="#home-folder-tilde" title="Permalink to this heading">#</a></h5>
 <p>The tilde symbol (<code class="docutils literal notranslate"><span class="pre">~</span></code>) is an alias for the home folder. If you type the tilde symbol and then tab, it should autocomplete the path for your home folder.</p>
 </section>
 </section>
 </section>
 </section>
 <section id="working-with-files-and-texts">
-<h2>Working with Files and Texts<a class="headerlink" href="#working-with-files-and-texts" title="Link to this heading">#</a></h2>
+<h2>Working with Files and Texts<a class="headerlink" href="#working-with-files-and-texts" title="Permalink to this heading">#</a></h2>
 <p>There’s a lot of basic text analysis that you can do just from the command line.</p>
 <section id="download-a-text-file-from-the-web">
-<h3>Download a text file from the web<a class="headerlink" href="#download-a-text-file-from-the-web" title="Link to this heading">#</a></h3>
+<h3>Download a text file from the web<a class="headerlink" href="#download-a-text-file-from-the-web" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -927,7 +915,7 @@ document.write(`
 </tbody>
 </table>
 <p>You can download a text file from the web by using the command <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code> with the appropriate web address. Let’s see if we can download Charlotte Perkins Gilman’s short story “The Yellow Wallpaper.”</p>
-<p>We’re going to search for the story through <a class="reference external" href="https://www.gutenberg.org/ebooks/search/">Project Gutenberg</a>, an amazing resource that hosts tens of thousands of free texts in the public domain (which means lots of great literary and historical texts <a class="reference external" href="https://web.law.duke.edu/cspd/">published before 1928</a>).</p>
+<p>We’re going to search for the story through <a class="reference external" href="https://www.gutenberg.org/ebooks/search/">Project Gutenberg</a>, an amazing resource that hosts tens of thousands of free texts in the public domain (which means lots of great literary and historical texts <a class="reference external" href="https://web.law.duke.edu/cspd/">published before 1929</a>).</p>
 <p>If you haven’t done so already, move into the “very-interesting-folder” directory:</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
@@ -996,7 +984,7 @@ Saving to: ‘1952-0.txt’
 <p>Sweet! We have a new file.</p>
 </section>
 <section id="rename-a-file">
-<h3>Rename a file<a class="headerlink" href="#rename-a-file" title="Link to this heading">#</a></h3>
+<h3>Rename a file<a class="headerlink" href="#rename-a-file" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -1035,7 +1023,7 @@ Saving to: ‘1952-0.txt’
 <p>We can see that the file has been correctly renamed. Woo!</p>
 </section>
 <section id="check-file-sizes-lengths-and-word-counts">
-<h3>Check file sizes, lengths, and word counts<a class="headerlink" href="#check-file-sizes-lengths-and-word-counts" title="Link to this heading">#</a></h3>
+<h3>Check file sizes, lengths, and word counts<a class="headerlink" href="#check-file-sizes-lengths-and-word-counts" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -1134,7 +1122,7 @@ Saving to: ‘1952-0.txt’
 </div>
 </section>
 <section id="display-the-contents-of-a-file">
-<h3>Display the contents of a file<a class="headerlink" href="#display-the-contents-of-a-file" title="Link to this heading">#</a></h3>
+<h3>Display the contents of a file<a class="headerlink" href="#display-the-contents-of-a-file" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -2514,7 +2502,7 @@ subscribe to our email newsletter to hear about new eBooks.
 </div>
 </section>
 <section id="searching-inside-files">
-<h3>Searching inside files<a class="headerlink" href="#searching-inside-files" title="Link to this heading">#</a></h3>
+<h3>Searching inside files<a class="headerlink" href="#searching-inside-files" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mac / Chrome / Linux</p></th>
@@ -2693,7 +2681,7 @@ subscribe to our email newsletter to hear about new eBooks.
 </section>
 <hr class="docutils" />
 <section id="further-resources">
-<h2>Further Resources<a class="headerlink" href="#further-resources" title="Link to this heading">#</a></h2>
+<h2>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The Launch School’s <a class="reference external" href="https://launchschool.com/books/command_line/read/introduction">Introduction to the Command Line</a></p></li>
 <li><p>DHRI’s <a class="reference external" href="https://github.com/DHRI-Curriculum/command-line">“Introduction to the Command Line”</a></p></li>
@@ -2822,7 +2810,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -2837,8 +2825,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

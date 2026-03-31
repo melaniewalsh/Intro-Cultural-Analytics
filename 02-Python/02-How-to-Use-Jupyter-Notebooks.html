@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>How to Use Jupyter Notebooks &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/02-How-to-Use-Jupyter-Notebooks';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/02-How-to-Use-Jupyter-Notebooks.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Anatomy of a Python Script" href="03-Anatomy-Python-Script.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -578,14 +566,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-use-jupyter-notebooks">
-<h1>How to Use Jupyter Notebooks<a class="headerlink" href="#how-to-use-jupyter-notebooks" title="Link to this heading">#</a></h1>
+<h1>How to Use Jupyter Notebooks<a class="headerlink" href="#how-to-use-jupyter-notebooks" title="Permalink to this heading">#</a></h1>
 <p>A <a class="reference external" href="https://jupyter.readthedocs.io/en/latest/install.html#jupyter-notebook-interface">Jupyter notebook</a> is a document that can combine live programming code, text, images, and pretty displays of data all in the same place. This combination makes Jupyter notebooks clutch for exploring data as well as for learning and teaching.</p>
 <p>A Jupyter notebook has a special <em>.ipynb</em> file extension and can only be opened if you have the application JupyterLab or Jupyter Notebook installed and running. One of the cool things about Jupyter Book, which powers this online textbook, is that you can open a Jupyter notebook on the internet without any prior installation or configuration — using services like Binder.</p>
 <section id="some-of-jupyters-nice-features">
-<h2>Some of Jupyter’s Nice Features<a class="headerlink" href="#some-of-jupyters-nice-features" title="Link to this heading">#</a></h2>
+<h2>Some of Jupyter’s Nice Features<a class="headerlink" href="#some-of-jupyters-nice-features" title="Permalink to this heading">#</a></h2>
 <p>This document is a Jupyter notebook! Let’s quickly demonstrate some of the features that make Jupyter notebooks useful.</p>
 <section id="display-data">
-<h3>Display Data<a class="headerlink" href="#display-data" title="Link to this heading">#</a></h3>
+<h3>Display Data<a class="headerlink" href="#display-data" title="Permalink to this heading">#</a></h3>
 <p>We can display and explore data in a readable and aesthetically-pleasing way.</p>
 <p>For example, here’s a snippet of a CSV file with some data about films and character dialogue, compiled by <a class="reference external" href="https://github.com/matthewfdaniels/scripts/">The Pudding</a>. We’ll be working with this data in a later lesson.</p>
 <div class="cell docutils container">
@@ -699,7 +687,7 @@ document.write(`
 </div>
 </section>
 <section id="make-data-visualizations">
-<h3>Make Data Visualizations<a class="headerlink" href="#make-data-visualizations" title="Link to this heading">#</a></h3>
+<h3>Make Data Visualizations<a class="headerlink" href="#make-data-visualizations" title="Permalink to this heading">#</a></h3>
 <p>We can create visualizations based on the above data in the very same document.</p>
 <p>Here’s a plot of <em>The Pudding</em> films by year of their release.</p>
 <div class="cell docutils container">
@@ -717,7 +705,7 @@ document.write(`
 </div>
 </section>
 <section id="combine-code-text-images-and-links">
-<h3>Combine Code, Text, Images, and Links<a class="headerlink" href="#combine-code-text-images-and-links" title="Link to this heading">#</a></h3>
+<h3>Combine Code, Text, Images, and Links<a class="headerlink" href="#combine-code-text-images-and-links" title="Permalink to this heading">#</a></h3>
 <p>We can combine code, text, images, and links.</p>
 <p>For example, here’s some data about <em>Beauty and the Beast</em>.</p>
 <div class="cell docutils container">
@@ -907,11 +895,11 @@ document.write(`
 </div>
 <p>Now here’s an image of <em>Beauty and the Beast</em> characters.</p>
 <p><img alt="Beauty and the Beast characters image" src="https://upload.wikimedia.org/wikipedia/en/b/b6/BeautyBeastCharacters.jpg" /></p>
-<p>See the section <a class="reference internal" href="#code-vs-markdown-cells"><span class="xref myst">Code vs Markdown Cells</span></a> below for more information about how to include text, images, and links in a Jupyter notebook.</p>
+<p>See the section <span class="xref myst">Code vs Markdown Cells</span> below for more information about how to include text, images, and links in a Jupyter notebook.</p>
 </section>
 </section>
 <section id="how-to-launch-jupyterlab">
-<h2>How to Launch JupyterLab<a class="headerlink" href="#how-to-launch-jupyterlab" title="Link to this heading">#</a></h2>
+<h2>How to Launch JupyterLab<a class="headerlink" href="#how-to-launch-jupyterlab" title="Permalink to this heading">#</a></h2>
 <p>To open a Jupyter notebook file (.ipynb), you need to have a Jupyter application both installed <em>and</em> running. This is confusing for many beginners. If you have Jupyter installed, it seems like you should just be able to click a Jupyter notebook to open it, but you need to launch the application program Jupyter Notebook or JupyterLab first.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -919,14 +907,14 @@ document.write(`
 </aside>
 <p>In this class, we’re using JupyterLab as our primary Jupyter application program. JupyterLab and Jupyter Notebook are very similar programs, but JupyterLab is newer and has a bigger and better user interface as well as other improved features.</p>
 <section id="anaconda-navigator">
-<h3>Anaconda Navigator<a class="headerlink" href="#anaconda-navigator" title="Link to this heading">#</a></h3>
+<h3>Anaconda Navigator<a class="headerlink" href="#anaconda-navigator" title="Permalink to this heading">#</a></h3>
 <p>There are two main ways you can launch JupyterLab. First, you can launch JupyterLab from Anaconda Navigator. You can find Anaconda Navigator in your Applications folder or by searching your computer.</p>
 <a class="reference internal image-reference" href="../_images/navigator-app.png"><img alt="../_images/navigator-app.png" src="../_images/navigator-app.png" style="width: 80%;" /></a>
 <p>Once Anaconda Navigator opens, you can launch JupyterLab by clicking “Launch” under the JupyterLab icon.</p>
 <a class="reference internal image-reference" href="../_images/anaconda-jupyterlab.png"><img alt="../_images/anaconda-jupyterlab.png" src="../_images/anaconda-jupyterlab.png" style="width: 100%;" /></a>
 </section>
 <section id="command-line">
-<h3>Command Line<a class="headerlink" href="#command-line" title="Link to this heading">#</a></h3>
+<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading">#</a></h3>
 <p>Second, you can launch Jupyter lab from the command line. PATH.</p>
 <div class="cell tag_command_line docutils container">
 <div class="cell_input docutils container">
@@ -941,22 +929,22 @@ document.write(`
 </div>
 </section>
 <section id="wait-why-is-jupyterlab-opening-in-my-web-browser">
-<h3>Wait Why is JupyterLab Opening in My Web Browser?<a class="headerlink" href="#wait-why-is-jupyterlab-opening-in-my-web-browser" title="Link to this heading">#</a></h3>
+<h3>Wait Why is JupyterLab Opening in My Web Browser?<a class="headerlink" href="#wait-why-is-jupyterlab-opening-in-my-web-browser" title="Permalink to this heading">#</a></h3>
 <p>JupyterLab opens in a web browser. But JupyterLab is not connected to the internet. It is simply running on a local server on your own personal computer.</p>
 </section>
 </section>
 <section id="how-to-shut-down-jupyterlab">
-<h2>How to Shut Down JupyterLab<a class="headerlink" href="#how-to-shut-down-jupyterlab" title="Link to this heading">#</a></h2>
+<h2>How to Shut Down JupyterLab<a class="headerlink" href="#how-to-shut-down-jupyterlab" title="Permalink to this heading">#</a></h2>
 <p>To shut down JupyterLab, you can go to File -&gt; Shut Down.</p>
 <p>You can also shut down JupyterLab from the command line by pressing <code class="docutils literal notranslate"><span class="pre">Control</span></code> + <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
 </section>
 <section id="how-to-make-a-new-jupyter-notebook">
-<h2>How to Make a New Jupyter Notebook<a class="headerlink" href="#how-to-make-a-new-jupyter-notebook" title="Link to this heading">#</a></h2>
+<h2>How to Make a New Jupyter Notebook<a class="headerlink" href="#how-to-make-a-new-jupyter-notebook" title="Permalink to this heading">#</a></h2>
 <p>To make a new Jupyter notebook, select the Python 3 icon under “Notebook.”</p>
 <a class="reference internal image-reference" href="../_images/make-new-Jupyter.png"><img alt="../_images/make-new-Jupyter.png" src="../_images/make-new-Jupyter.png" style="width: 80%;" /></a>
 </section>
 <section id="how-to-create-and-run-a-cell">
-<h2>How to Create and Run a Cell<a class="headerlink" href="#how-to-create-and-run-a-cell" title="Link to this heading">#</a></h2>
+<h2>How to Create and Run a Cell<a class="headerlink" href="#how-to-create-and-run-a-cell" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>You can create a new cell by clicking the plus <code class="docutils literal notranslate"><span class="pre">+</span></code> sign in the toolbar or by pressing <code class="docutils literal notranslate"><span class="pre">Option</span></code> + <code class="docutils literal notranslate"><span class="pre">Return</span></code> (Mac) / <code class="docutils literal notranslate"><span class="pre">Alt</span></code> <code class="docutils literal notranslate"><span class="pre">Return</span></code> (Windows)</p></li>
 </ul>
@@ -989,7 +977,7 @@ document.write(`
 </div>
 </section>
 <section id="code-vs-markdown-cells">
-<h2>Code vs Markdown Cells<a class="headerlink" href="#code-vs-markdown-cells" title="Link to this heading">#</a></h2>
+<h2>Code vs Markdown Cells<a class="headerlink" href="#code-vs-markdown-cells" title="Permalink to this heading">#</a></h2>
 <p>Jupyter notebooks are made up of <em>cells</em>, which can either contain code or <a class="reference external" href="https://www.markdownguide.org/getting-started/">Markdown</a> text. Markdown is a simple “language” that allows you to include formatting instructions directly in the text — bold, italics, headers, links, imgages, code, and more. Markdown is used all over the internet, including on <a class="reference external" href="https://www.reddit.com/wiki/markdown#wiki_quick_reference">Reddit</a> and on <a class="reference external" href="https://guides.github.com/features/mastering-markdown/">GitHub</a>.</p>
 <table class="table">
 <thead>
@@ -1032,7 +1020,7 @@ document.write(`
 </ul>
 </section>
 <section id="how-to-save-your-notebook">
-<h2>How to Save Your Notebook<a class="headerlink" href="#how-to-save-your-notebook" title="Link to this heading">#</a></h2>
+<h2>How to Save Your Notebook<a class="headerlink" href="#how-to-save-your-notebook" title="Permalink to this heading">#</a></h2>
 <p>If you want to save your notebook, press <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">⌘</span></code> + <code class="docutils literal notranslate"><span class="pre">S</span></code> (Mac) / <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">Key</span></code> + <code class="docutils literal notranslate"><span class="pre">S</span></code> (Windows).</p>
 </section>
 </section>
@@ -1142,7 +1130,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1157,8 +1145,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

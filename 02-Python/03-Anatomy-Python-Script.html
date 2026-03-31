@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Anatomy of a Python Script &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/03-Anatomy-Python-Script';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/03-Anatomy-Python-Script.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Variables" href="04-Variables.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -576,7 +564,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="anatomy-of-a-python-script">
-<h1>Anatomy of a Python Script<a class="headerlink" href="#anatomy-of-a-python-script" title="Link to this heading">#</a></h1>
+<h1>Anatomy of a Python Script<a class="headerlink" href="#anatomy-of-a-python-script" title="Permalink to this heading">#</a></h1>
 <p>The first few times that I tried to learn Python, it felt like learning a bunch of made-up rules about an imaginary universe. It turns out that Python is kind of like an imaginary universe with made-up rules. That’s part of what makes Python and programming languages so much fun.</p>
 <p>But it can also make learning Python difficult if you don’t really know what the imaginary universe looks like, or how it functions, or how it relates to your universe and your specific goals — such as doing text analysis or making a Twitter bot or creating a network visualization.</p>
 <p>In this lesson, we’re going to demonstrate what Python looks like in action, so you can get a feel for its structure and flow. Don’t get too bogged down in the details for now. Just try to get a sense — at an abstract level — of how Python works and how you might use it.</p>
@@ -675,9 +663,9 @@ document.write(`
 </p>
 <p>Sometimes you'll prioritize one of these concerns over another. Maybe your code isn't as efficient as humanly possible, but if it gets the job done, and you understand it, then you might not care about maximum efficiency. Our main goal for this class is to study and make arguments about culture, not (necessarily) to become the most efficient software developers.</p>
 </div><section id="the-anatomy-of-a-python-script">
-<h2>The Anatomy of a Python Script<a class="headerlink" href="#the-anatomy-of-a-python-script" title="Link to this heading">#</a></h2>
+<h2>The Anatomy of a Python Script<a class="headerlink" href="#the-anatomy-of-a-python-script" title="Permalink to this heading">#</a></h2>
 <section id="import-libraries-packages-modules">
-<h3>Import Libraries/Packages/Modules<a class="headerlink" href="#import-libraries-packages-modules" title="Link to this heading">#</a></h3>
+<h3>Import Libraries/Packages/Modules<a class="headerlink" href="#import-libraries-packages-modules" title="Permalink to this heading">#</a></h3>
 <p>Ready for some great Python news? You don’t have to code everything by yourself from scratch! Many other people have written Python code that you can <code class="docutils literal notranslate"><span class="pre">import</span></code> into your own code, which will save you time and do a lot of work behind-the-scenes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,7 +682,7 @@ document.write(`
 </ul>
 </section>
 <section id="define-functions">
-<h3>Define Functions<a class="headerlink" href="#define-functions" title="Link to this heading">#</a></h3>
+<h3>Define Functions<a class="headerlink" href="#define-functions" title="Permalink to this heading">#</a></h3>
 <p>After <code class="docutils literal notranslate"><span class="pre">import</span></code>ing modules and libraries, you typically <code class="docutils literal notranslate"><span class="pre">def</span></code>ine your “functions.” Functions are a nifty way to bundle up code so that you can use them again later. Functions also keep your code neat and tidy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -708,7 +696,7 @@ document.write(`
 <p>Here we’re making a function called <code class="docutils literal notranslate"><span class="pre">split_into_words</span></code>, which takes in any chunk of text, transforms that text to lower-case, and splits the text into a list of clean words without punctuation or spaces. We’re not actually using the function yet.</p>
 </section>
 <section id="define-filepaths-and-assign-variables">
-<h3>Define Filepaths and <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Python/Variables.html">Assign Variables</a><a class="headerlink" href="#define-filepaths-and-assign-variables" title="Link to this heading">#</a></h3>
+<h3>Define Filepaths and <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/Python/Variables.html">Assign Variables</a><a class="headerlink" href="#define-filepaths-and-assign-variables" title="Permalink to this heading">#</a></h3>
 <p>Here we establish some variables that we’re going to use later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,7 +726,7 @@ document.write(`
 </aside>
 </section>
 <section id="read-in-file">
-<h3>Read in File<a class="headerlink" href="#read-in-file" title="Link to this heading">#</a></h3>
+<h3>Read in File<a class="headerlink" href="#read-in-file" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath_of_text</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -749,7 +737,7 @@ document.write(`
 <p>The line above opens Charlotte Perkins Gilman’s “The Yellow Wallpaper,” reads in the novel, and assigns it to the variable <code class="docutils literal notranslate"><span class="pre">full_text</span></code>.</p>
 </section>
 <section id="manipulate-and-analyze-file">
-<h3>Manipulate and Analyze File<a class="headerlink" href="#manipulate-and-analyze-file" title="Link to this heading">#</a></h3>
+<h3>Manipulate and Analyze File<a class="headerlink" href="#manipulate-and-analyze-file" title="Permalink to this heading">#</a></h3>
 <p>To count the words in “The Yellow Wallpaper,” we need to break the full text into individual words. Below  we call the function <code class="docutils literal notranslate"><span class="pre">split_into_words</span></code>, which we created earlier, and use it to split the <code class="docutils literal notranslate"><span class="pre">full_text</span></code> of the story into individual words. Then we assign this value to the variable <code class="docutils literal notranslate"><span class="pre">all_the_words</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,7 +764,7 @@ document.write(`
 </div>
 </section>
 <section id="output-results">
-<h3>Output Results<a class="headerlink" href="#output-results" title="Link to this heading">#</a></h3>
+<h3>Output Results<a class="headerlink" href="#output-results" title="Permalink to this heading">#</a></h3>
 <p>Lastly, we pull out the top 40 most frequently occurring words from our complete tally. We make one final variable and grab our top <code class="docutils literal notranslate"><span class="pre">number_of_desired_words</span></code>, which we previously established as <code class="docutils literal notranslate"><span class="pre">40</span></code>.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -852,7 +840,7 @@ document.write(`
 </div>
 </section>
 <section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h3>
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h3>
 <p>Lines that begin with a hash symbol <code class="docutils literal notranslate"><span class="pre">#</span></code> are ignored from the execution of the code. You can thus use a hash symbol <code class="docutils literal notranslate"><span class="pre">#</span></code> to insert human language comments directly into the code — notes or instructions to yourself and others.</p>
 <p>In some cases, you might want to write a long comment. To insert a multi-line comment, you can insert the comment between three quotations marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">&quot;&quot;&quot;</span></code>.</p>
 <div class="cell tag_output_scroll docutils container">
@@ -959,9 +947,9 @@ document.write(`
 </section>
 </section>
 <section id="the-life-of-a-python-script">
-<h2>The Life of a Python Script<a class="headerlink" href="#the-life-of-a-python-script" title="Link to this heading">#</a></h2>
+<h2>The Life of a Python Script<a class="headerlink" href="#the-life-of-a-python-script" title="Permalink to this heading">#</a></h2>
 <section id="jupyter-notebook-jupyterlab">
-<h3>Jupyter Notebook / JupyterLab<a class="headerlink" href="#jupyter-notebook-jupyterlab" title="Link to this heading">#</a></h3>
+<h3>Jupyter Notebook / JupyterLab<a class="headerlink" href="#jupyter-notebook-jupyterlab" title="Permalink to this heading">#</a></h3>
 <p>The primary way that we’re going to write and run Python in this class is through JupyterLab and Jupyter notebooks. As we’ve already covered, Jupyter notebooks are documents that can combine live code, explanatory text, and nice displays of data, which makes them great for teaching and learning.</p>
 <p>But it’s also a fully functional way to run Python. By running a cell of Python code in a Jupyter notebook, you can:</p>
 <ul class="simple">
@@ -994,7 +982,7 @@ document.write(`
 </div>
 </section>
 <section id="text-editor-command-line">
-<h3>Text Editor —&gt; Command Line<a class="headerlink" href="#text-editor-command-line" title="Link to this heading">#</a></h3>
+<h3>Text Editor —&gt; Command Line<a class="headerlink" href="#text-editor-command-line" title="Permalink to this heading">#</a></h3>
 <p>You can also run a Python script by writing it in a text editor and then running it from the command line.</p>
 <p>If you copy and paste the code above into a simple text editor (like TextEdit or NotePad) and name the file with the extension “.py” (the file extension for Python code), you should be able to run the script from your command line.</p>
 <img alt="../_images/Python-plain-text.png" src="../_images/Python-plain-text.png" />
@@ -1147,7 +1135,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1162,8 +1150,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

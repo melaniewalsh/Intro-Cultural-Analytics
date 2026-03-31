@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Topic Modeling — Set Up &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/07-Topic-Modeling-Set-Up';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/07-Topic-Modeling-Set-Up.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Topic Modeling — Text Files" href="08-Topic-Modeling-Text-Files.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -575,18 +563,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-modeling-set-up">
-<h1>Topic Modeling — Set Up<a class="headerlink" href="#topic-modeling-set-up" title="Link to this heading">#</a></h1>
+<h1>Topic Modeling — Set Up<a class="headerlink" href="#topic-modeling-set-up" title="Permalink to this heading">#</a></h1>
 <p>In these lessons, we’re learning about a text analysis method called <em>topic modeling</em>. This method will help us identify the main topics or discourses within a collection of texts or within a single text that has been separated into smaller text chunks.</p>
 <p>This page describes how to set up the packages and programs that you’ll need if you want to start topic modeling on your own computer. If you want to topic model without installing anything, however, you can skip ahead and explore these Jupyter notebook topic modeling lessons in the cloud. The notebooks already have the necessary requirements installed.</p>
 <section id="mallet-little-mallet-wrapper">
-<h2>MALLET &amp; Little MALLET Wrapper<a class="headerlink" href="#mallet-little-mallet-wrapper" title="Link to this heading">#</a></h2>
+<h2>MALLET &amp; Little MALLET Wrapper<a class="headerlink" href="#mallet-little-mallet-wrapper" title="Permalink to this heading">#</a></h2>
 <p>For our topic modeling analysis, we’re going to use a tool called <a class="reference external" href="http://mallet.cs.umass.edu/topics.php">MALLET</a>. MALLET, short for <strong>MA</strong>chine <strong>L</strong>earning for <strong>L</strong>anguag<strong>E</strong> <strong>T</strong>oolkit, is a software package for  topic modeling and other natural language processing techniques. It’s maintained by David Mimno, a Cornell professor in Information Science. Go Big Red!</p>
 <p>MALLET is great, but it’s written in Java, another programming language, which means that we have to install Java before we can use it. It also means that MALLET isn’t typically ideal for Python and Jupyter notebooks.</p>
 <p>Luckily, another Cornellian, Maria Antoniak, a PhD student in Information Science, has written a convenient Python package that will allow us to use MALLET in this Jupyter notebook after we download and install Java. This package is called <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">Little MALLET Wrapper</a>.</p>
 <p>Note: A “wrapper” is a Python package that makes complicated code easier to use and/or makes code from a different programming language accessible in Python.</p>
 </section>
 <section id="download-and-install-java-development-kit">
-<h2>Download and Install Java Development Kit<a class="headerlink" href="#download-and-install-java-development-kit" title="Link to this heading">#</a></h2>
+<h2>Download and Install Java Development Kit<a class="headerlink" href="#download-and-install-java-development-kit" title="Permalink to this heading">#</a></h2>
 <p>But first, we have to install Java, specifically the Java Development Kit.</p>
 <p>Go to the Java Development Kit download page, find your operating system, and click on the corresponding download link: <a class="reference external" href="https://www.oracle.com/java/technologies/javase-jdk14-downloads.html">https://www.oracle.com/java/technologies/javase-jdk14-downloads.html</a></p>
 <ul class="simple">
@@ -597,11 +585,11 @@ document.write(`
 <p>Then open or unzip the file and follow all the prompts. You can use all the suggested defaults.</p>
 </section>
 <section id="tell-your-computer-where-to-find-java">
-<h2>Tell Your Computer Where to Find Java<a class="headerlink" href="#tell-your-computer-where-to-find-java" title="Link to this heading">#</a></h2>
+<h2>Tell Your Computer Where to Find Java<a class="headerlink" href="#tell-your-computer-where-to-find-java" title="Permalink to this heading">#</a></h2>
 <p>Now that we have the JDK downloaded, we have to tell our computers where to find it. For Mac/Chrome/Linux users, we have to set up a special <a class="reference external" href="https://launchschool.com/books/command_line/read/environment#environmentvariables">“environment” variable</a> called <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> and give it the file path where we just downloaded our Java Development Kit. For Windows users, we have to edit the special environmental variable called <code class="docutils literal notranslate"><span class="pre">PATH</span></code> and add the file path of the JDK.</p>
 <p>Note: “Environment” variables are kind of like Python variables, except they exist in your whole computer environment. The Launch School has a helpful chapter on <a class="reference external" href="https://launchschool.com/books/command_line/read/environment#environmentvariables">environment variables</a> and the <a class="reference external" href="https://launchschool.com/books/command_line/read/environment#path">PATH</a> variable.</p>
 <section id="mac">
-<h3> Mac<a class="headerlink" href="#mac" title="Link to this heading">#</a></h3>
+<h3> Mac<a class="headerlink" href="#mac" title="Permalink to this heading">#</a></h3>
 <p>To set up the <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> environment variable on a Mac, you can run the following on the command line. The line of code adds your <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> variable to a file called “bash_profile”, which is where environment variables are stored.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -699,15 +687,15 @@ where possible options include:
 </div>
 </section>
 <section id="windows">
-<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" style="width: 20px;" /></a> Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" style="width: 20px;" /></a> Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h3>
 <p>To edit the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable on a Windows computer, follow the instructions below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Open</span> <span class="n">Search</span> <span class="ow">and</span> <span class="nb">type</span> <span class="s2">&quot;advanced system settings&quot;</span>
-<span class="o">-</span> <span class="n">In</span> <span class="n">the</span> <span class="n">shown</span> <span class="n">options</span><span class="p">,</span> <span class="n">select</span> <span class="n">the</span> <span class="s2">&quot;View advanced system settings&quot;</span> <span class="n">link</span>
-<span class="o">-</span> <span class="n">Under</span> <span class="n">the</span> <span class="n">Advanced</span> <span class="n">tab</span><span class="p">,</span> <span class="n">click</span> <span class="s2">&quot;Environment Variables&quot;</span>
-<span class="o">-</span> <span class="n">Under</span> <span class="s2">&quot;System variables,&quot;</span> <span class="n">click</span> <span class="n">the</span> <span class="n">variable</span> <span class="s2">&quot;PATH&quot;</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">click</span> <span class="s2">&quot;Edit&quot;</span>
-<span class="o">-</span> <span class="n">Click</span> <span class="s2">&quot;New&quot;</span> <span class="ow">and</span> <span class="n">add</span> <span class="n">the</span> <span class="n">file</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">JDK</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="err">`</span><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Java</span>\<span class="n">jdk13</span><span class="mf">.0.2</span>\<span class="nb">bin</span><span class="err">`</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>- Open Search and type &quot;advanced system settings&quot;
+- In the shown options, select the &quot;View advanced system settings&quot; link
+- Under the Advanced tab, click &quot;Environment Variables&quot;
+- Under &quot;System variables,&quot; click the variable &quot;PATH&quot; and then click &quot;Edit&quot;
+- Click &quot;New&quot; and add the file path to the JDK (e.g. `C:\Program Files\Java\jdk13.0.2\bin`)
 </pre></div>
 </div>
 </div>
@@ -723,7 +711,7 @@ where possible options include:
 </div>
 </section>
 <section id="chrome-linux">
-<h3>Chrome / Linux<a class="headerlink" href="#chrome-linux" title="Link to this heading">#</a></h3>
+<h3>Chrome / Linux<a class="headerlink" href="#chrome-linux" title="Permalink to this heading">#</a></h3>
 <p>To set up the <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> environment variable on a Linux machine or a Chrome computer running Linux, you can run the following on the command line. The line of code adds your <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> variable to a file called “bashrc”, which is where environment variables are stored.</p>
 <p>Make sure to change <code class="docutils literal notranslate"><span class="pre">/fill-in-the-path/to/your-java_installation</span></code> to the file path where your JDK actually exists below:</p>
 <div class="cell docutils container">
@@ -752,13 +740,13 @@ where possible options include:
 </section>
 </section>
 <section id="download-and-unzip-mallet">
-<h2>Download and Unzip MALLET<a class="headerlink" href="#download-and-unzip-mallet" title="Link to this heading">#</a></h2>
+<h2>Download and Unzip MALLET<a class="headerlink" href="#download-and-unzip-mallet" title="Permalink to this heading">#</a></h2>
 <p>Now we need to download the MALLET package. To download MALLET, click the following link <a class="reference external" href="http://mallet.cs.umass.edu/dist/mallet-2.0.8.zip">http://mallet.cs.umass.edu/dist/mallet-2.0.8.zip</a> or find the link on the <a class="reference external" href="http://mallet.cs.umass.edu/download.php">MALLET home page</a>. Once the zip file downloads, unzip it.</p>
 <p>If you’re using a Mac, move the “mallet-2.0.8” directory into your home folder.</p>
 <p><em>Note: To open your “home” folder, open “Finder” and type <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> + <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + <code class="docutils literal notranslate"><span class="pre">H</span></code>. To move one directory up, type <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> + <code class="docutils literal notranslate"><span class="pre">↑</span></code>. Now, if you want to bookmark your home folder so you can find it more easily in the future, simply drag and drop your home folder to the sidebar.</em></p>
 <p>If you’re using a Windows computer, move the “mallet-2.0.8” directory int your <code class="docutils literal notranslate"><span class="pre">C:\</span></code> drive.</p>
 <section id="heads-up-windows-users">
-<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" style="width: 20px;" /></a> Heads Up Windows Users!<a class="headerlink" href="#heads-up-windows-users" title="Link to this heading">#</a></h3>
+<h3><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" class="align-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Windows_logo_-_2012_derivative.svg/1024px-Windows_logo_-_2012_derivative.svg.png" style="width: 20px;" /></a> Heads Up Windows Users!<a class="headerlink" href="#heads-up-windows-users" title="Permalink to this heading">#</a></h3>
 <p>You need to complete one more step. You need to once again tell your computer where MALLET is located:</p>
 <ul class="simple">
 <li><p>Open Search and type “advanced system settings”</p></li>
@@ -865,7 +853,7 @@ where possible options include:
 </section>
 </section>
 <section id="install-little-mallet-wrapper">
-<h2>Install Little MALLET Wrapper<a class="headerlink" href="#install-little-mallet-wrapper" title="Link to this heading">#</a></h2>
+<h2>Install Little MALLET Wrapper<a class="headerlink" href="#install-little-mallet-wrapper" title="Permalink to this heading">#</a></h2>
 <p>Finally, we’re going to install the Python package <a class="reference external" href="https://github.com/maria-antoniak/little-mallet-wrapper">little_mallet_wrapper</a>. To install it, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">little_mallet_wrapper</span></code>, as below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -884,7 +872,7 @@ where possible options include:
 </div>
 </section>
 <section id="youre-ready">
-<h2>You’re Ready! 🥳<a class="headerlink" href="#youre-ready" title="Link to this heading">#</a></h2>
+<h2>You’re Ready! 🥳<a class="headerlink" href="#youre-ready" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -990,7 +978,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1005,8 +993,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

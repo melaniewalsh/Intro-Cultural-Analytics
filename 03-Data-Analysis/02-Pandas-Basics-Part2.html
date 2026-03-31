@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Pandas Basics — Part 2 &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '03-Data-Analysis/02-Pandas-Basics-Part2';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/03-Data-Analysis/02-Pandas-Basics-Part2.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pandas Basics — Part 3" href="03-Pandas-Basics-Part3.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -587,7 +575,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-basics-part-2">
-<h1>Pandas Basics — Part 2<a class="headerlink" href="#pandas-basics-part-2" title="Link to this heading">#</a></h1>
+<h1>Pandas Basics — Part 2<a class="headerlink" href="#pandas-basics-part-2" title="Permalink to this heading">#</a></h1>
 <p><em>Note: You can explore the <a class="reference external" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/03-Data-Analysis/workbooks/02.5-Pandas-Basics-Part2-WORKBOOK.ipynb">associated workbook</a> for this chapter in the cloud.</em></p>
 <p>In this lesson, we’re going to introduce some more fundamentals of <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Pandas</a>, a powerful Python library for working with tabular data like CSV files.</p>
 <p>We will review skills learned from the last lesson and introduce how to:</p>
@@ -601,9 +589,9 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="the-trans-atlantic-slave-trade-database">
-<h3>The Trans-Atlantic Slave Trade Database<a class="headerlink" href="#the-trans-atlantic-slave-trade-database" title="Link to this heading">#</a></h3>
+<h3>The Trans-Atlantic Slave Trade Database<a class="headerlink" href="#the-trans-atlantic-slave-trade-database" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>[D]isplaying data alone could not and did not offer the atonement descendants of slaves
 sought or capture the inhumanity of this archive’s formation.</p>
@@ -1133,9 +1121,9 @@ help(pd.read_csv)</p>
 </section>
 </section>
 <section id="examine-data">
-<h2>Examine Data<a class="headerlink" href="#examine-data" title="Link to this heading">#</a></h2>
+<h2>Examine Data<a class="headerlink" href="#examine-data" title="Permalink to this heading">#</a></h2>
 <section id="shape">
-<h3>Shape<a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
+<h3>Shape<a class="headerlink" href="#shape" title="Permalink to this heading">#</a></h3>
 <p>To explicitly check for how many rows vs columns make up a dataset, we can use the <code class="docutils literal notranslate"><span class="pre">.shape</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1152,7 +1140,7 @@ help(pd.read_csv)</p>
 <p>There are 20,741 rows and 14 columns.</p>
 </section>
 <section id="data-types">
-<h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<h3>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h3>
 <p>Just like Python has different data types, Pandas has different data types, too. These data types are automatically assigned to columns when we read in a CSV file. We can check these Pandas data types with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> method</a>.</p>
 <table class="table">
 <thead>
@@ -1204,7 +1192,7 @@ dtype: object
 <p>It’s important to always check the data types in your DataFrame. For example, sometimes numeric values will accidentally be interpreted as a string object. To perform calculations on this data, you would need to first convert that column from a string to an integer.</p>
 </section>
 <section id="columns">
-<h3>Columns<a class="headerlink" href="#columns" title="Link to this heading">#</a></h3>
+<h3>Columns<a class="headerlink" href="#columns" title="Permalink to this heading">#</a></h3>
 <p>We can also check the column names of the DataFrame with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.columns.html"><code class="docutils literal notranslate"><span class="pre">.columns</span></code></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1224,7 +1212,7 @@ dtype: object
 </div>
 </section>
 <section id="summary-statistics">
-<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h3>
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slave_voyages_df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
@@ -1461,7 +1449,7 @@ dtype: object
 </section>
 </section>
 <section id="missing-data">
-<h2>Missing Data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
+<h2>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
 <blockquote class="epigraph">
 <div><p>The conceit of the archive is that it is the repository of answers, of knowable conclusions, of the data needed to explain or understand the past.</p>
 <p>The reality, however, is that the archive is the troubled genesis of our always-failed effort to unravel the effects of the past on the present; rather than verifiable truths, the archive — and its silences — house the very questions that unsettle us.</p>
@@ -1470,7 +1458,7 @@ dtype: object
 <p>Responsible data analysis requires understanding missing data. The Trans-Atlantic Slave Trade Database, as historian Jennifer Morgan <a class="reference external" href="https://read.dukeupress.edu/history-of-the-present/article-abstract/6/2/184/153282/Accounting-for-The-Most-Excruciating-Torment?redirectedFrom=PDF">writes</a>, contains innumerable “silences” and “gaps.” These silences include the thoughts, feelings, and experiences of the enslaved African people on board the voyages — silences that cannot be found in the database itself.</p>
 <p>There are other kinds of silences and gaps that can be detected in the database itself, however. For example, while some of the voyages in the the Trans-Atlantic Slave Trade Database recorded information about how many enslaved women and children were aboard, most did not. Yet focusing on the data that is there and analyzing trends in the missing data can help shed light on the history of gender and enslavement. The fact that most ship captains did not record gender information, Morgan argues, helps tell us about their “priorities”: “[W]e can assume that had it been financially significant to have more men than women that data would have been more scrupulously recorded.”</p>
 <section id="isna-notna">
-<h3>.isna() / .notna()<a class="headerlink" href="#isna-notna" title="Link to this heading">#</a></h3>
+<h3>.isna() / .notna()<a class="headerlink" href="#isna-notna" title="Permalink to this heading">#</a></h3>
 <p>Pandas has special ways of dealing with missing data. As you may have already noticed, blank rows in a CSV file show up as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in a Pandas DataFrame.</p>
 <p>To filter and count the number of missing/not missing values in a dataset, we can use the special <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> and <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> methods on a DataFrame or Series object.</p>
 <div class="cell docutils container">
@@ -1766,7 +1754,7 @@ Name: percent_women, dtype: float64
 <p>About 14% of rows in this dataset have information about the number of enslaved women on the voyage while 86% do not.</p>
 </section>
 <section id="count">
-<h3>.count()<a class="headerlink" href="#count" title="Link to this heading">#</a></h3>
+<h3>.count()<a class="headerlink" href="#count" title="Permalink to this heading">#</a></h3>
 <p>Because the <code class="docutils literal notranslate"><span class="pre">.count()</span></code> method always excludes NaN values, we can also count the number of values in each column and divide by the total number of rows in each column (<code class="docutils literal notranslate"><span class="pre">len()</span></code>) to find the percentage of not blank data in every column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1797,7 +1785,7 @@ dtype: float64
 <p>For example, 100% of the rows in the columns “year_of_arrival” contain information, while 2% of the rows in the column “resistance_label” contain information. The “resistance_label” indicates whether there is a record of the enslaved Africans aboard the voyage staging some form of resistance.</p>
 </section>
 <section id="fillna">
-<h3>.fillna()<a class="headerlink" href="#fillna" title="Link to this heading">#</a></h3>
+<h3>.fillna()<a class="headerlink" href="#fillna" title="Permalink to this heading">#</a></h3>
 <p>If we wanted, we could fill the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values in the DataFrame with a different value by using the <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1825,7 +1813,7 @@ Name: percent_women, Length: 20741, dtype: object
 </section>
 </section>
 <section id="rename-columns">
-<h2>Rename Columns<a class="headerlink" href="#rename-columns" title="Link to this heading">#</a></h2>
+<h2>Rename Columns<a class="headerlink" href="#rename-columns" title="Permalink to this heading">#</a></h2>
 <p>We can rename columns with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"><code class="docutils literal notranslate"><span class="pre">.rename()</span></code> method</a> and the <code class="docutils literal notranslate"><span class="pre">columns=</span></code> parameter. For example, we can rename the “flag” column “national_affiliation.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2198,7 +2186,7 @@ Name: percent_women, Length: 20741, dtype: object
 </div>
 </section>
 <section id="drop-columns">
-<h2>Drop Columns<a class="headerlink" href="#drop-columns" title="Link to this heading">#</a></h2>
+<h2>Drop Columns<a class="headerlink" href="#drop-columns" title="Permalink to this heading">#</a></h2>
 <p>We can remove a column from the DataFrame with the <code class="docutils literal notranslate"><span class="pre">.drop()</span></code> method and the column name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2225,7 +2213,7 @@ Name: percent_women, Length: 20741, dtype: object
 </div>
 </section>
 <section id="add-columns">
-<h2>Add Columns<a class="headerlink" href="#add-columns" title="Link to this heading">#</a></h2>
+<h2>Add Columns<a class="headerlink" href="#add-columns" title="Permalink to this heading">#</a></h2>
 <p>To add a column, we simply put a new column name in square brackets and set it equal to whatever we want the new column to be.</p>
 <p>For example, if we wanted to create new columns for the total women and men aboard each voyage, we could set them equal to the product of the “total_disembarked” column * the “percent_women” / “percent_men” columns.</p>
 <div class="cell docutils container">
@@ -2310,7 +2298,7 @@ Name: percent_women, Length: 20741, dtype: object
 </div>
 </section>
 <section id="sort-columns">
-<h2>Sort Columns<a class="headerlink" href="#sort-columns" title="Link to this heading">#</a></h2>
+<h2>Sort Columns<a class="headerlink" href="#sort-columns" title="Permalink to this heading">#</a></h2>
 <p>We can sort a DataFrame with the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> method, inside of which we include the parameter <code class="docutils literal notranslate"><span class="pre">by=</span></code> and indicate the name of the column we want to sort by (written in quotation marks).</p>
 <p>For example, we can sort the DataFrame by the voyages that had the largest proportion of enslaved women aboard.</p>
 <div class="cell docutils container">
@@ -3174,7 +3162,7 @@ Name: total_women, Length: 20741, dtype: float64
 </div>
 </section>
 <section id="calculate-columns">
-<h2>Calculate Columns<a class="headerlink" href="#calculate-columns" title="Link to this heading">#</a></h2>
+<h2>Calculate Columns<a class="headerlink" href="#calculate-columns" title="Permalink to this heading">#</a></h2>
 <p>We can do different calculations on columns with built-in Pandas functions. These calculations will ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
 <table class="table">
 <thead>
@@ -3317,7 +3305,7 @@ Name: total_women, Length: 20741, dtype: float64
 </div>
 </section>
 <section id="groupby-columns">
-<h2>Groupby Columns<a class="headerlink" href="#groupby-columns" title="Link to this heading">#</a></h2>
+<h2>Groupby Columns<a class="headerlink" href="#groupby-columns" title="Permalink to this heading">#</a></h2>
 <p>The Pandas function<code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> allows us to group data and perform calculations on the groups.</p>
 <p>For example, Jennifer Morgan writes about how some nations recorded more information about the gender of the enslaved people aboard their voyages than other nations did. To see the breakdown of gender information by nation, we can use a <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> function.</p>
 <p>The first step to using groupby is to type the name of the DataFrame followed by <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> with the column we’d like to aggregate based on, such as “national_affiliation.”</p>
@@ -3603,7 +3591,7 @@ Name: percent_women, dtype: int64
 </div>
 </section>
 <section id="make-time-series-with-groupby">
-<h2>Make Time Series with Groupby<a class="headerlink" href="#make-time-series-with-groupby" title="Link to this heading">#</a></h2>
+<h2>Make Time Series with Groupby<a class="headerlink" href="#make-time-series-with-groupby" title="Permalink to this heading">#</a></h2>
 <p>To make a time series, we would typically want to convert our date column into datetime values rather than integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3739,7 +3727,7 @@ Name: total_women, Length: 330, dtype: float64
 </div>
 </section>
 <section id="save-plots">
-<h2>Save Plots<a class="headerlink" href="#save-plots" title="Link to this heading">#</a></h2>
+<h2>Save Plots<a class="headerlink" href="#save-plots" title="Permalink to this heading">#</a></h2>
 <p>To save a plot as an image file or PDF file, we can again assign the plot to a variable called <code class="docutils literal notranslate"><span class="pre">ax</span></code>, short for axes.</p>
 <p>Then we can use <code class="docutils literal notranslate"><span class="pre">ax.figure.savefig('FILE-NAME.png')</span></code> or <code class="docutils literal notranslate"><span class="pre">ax.figure.savefig('FILE-NAME.pdf')</span></code>.</p>
 <div class="cell docutils container">
@@ -3755,7 +3743,7 @@ Name: total_women, Length: 330, dtype: float64
 </div>
 </section>
 <section id="prevent-labels-from-getting-cut-off">
-<h2>Prevent Labels From Getting Cut Off<a class="headerlink" href="#prevent-labels-from-getting-cut-off" title="Link to this heading">#</a></h2>
+<h2>Prevent Labels From Getting Cut Off<a class="headerlink" href="#prevent-labels-from-getting-cut-off" title="Permalink to this heading">#</a></h2>
 <p>If labels are getting cut off in your image, you can explicitly import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> (the data viz Python library that Pandas <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>s are built on) and use the <code class="docutils literal notranslate"><span class="pre">tight_layout()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3888,7 +3876,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -3903,8 +3891,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

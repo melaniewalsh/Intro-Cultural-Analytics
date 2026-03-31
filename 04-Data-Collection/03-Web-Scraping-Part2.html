@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Web Scraping — Part 2 &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-Data-Collection/03-Web-Scraping-Part2';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/03-Web-Scraping-Part2.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Git and GitHub" href="04-Git-GitHub.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -575,7 +563,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="web-scraping-part-2">
-<h1>Web Scraping — Part 2<a class="headerlink" href="#web-scraping-part-2" title="Link to this heading">#</a></h1>
+<h1>Web Scraping — Part 2<a class="headerlink" href="#web-scraping-part-2" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to learn more about scraping data with the Python libraries requests and BeautifulSoup. We’re also going to introduce <em>regular expressions</em>, which will help us extract and clean data in a more fine-grained way.</p>
 <p>We will cover how to:</p>
 <ul class="simple">
@@ -826,12 +814,12 @@ document.write(`
 </div>
 </div>
 <section id="regular-expressions">
-<h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h2>
+<h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading">#</a></h2>
 <p>Great! Now we have have our list of song titles from Missy Elliot’s album “Under Construction.” But if you notice, these song titles are pretty messy, and we need to clean them up.</p>
 <p>To do so, we’re going to use built-in string methods and a Python library called <code class="docutils literal notranslate"><span class="pre">re</span></code>, short for regular expressions.</p>
 <p>Regular expressions are basically like a very sophisticated find-and-replace. Regular expression are not exclusive to Python and are used in many programming languages as well as in search engines, text editors, and word processors.</p>
 <section id="import-regular-expressions-library">
-<h3>Import Regular Expressions Library<a class="headerlink" href="#import-regular-expressions-library" title="Link to this heading">#</a></h3>
+<h3>Import Regular Expressions Library<a class="headerlink" href="#import-regular-expressions-library" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -887,7 +875,7 @@ document.write(`
 </div>
 </section>
 <section id="replace-with-regex">
-<h3>Replace with Regex<a class="headerlink" href="#replace-with-regex" title="Link to this heading">#</a></h3>
+<h3>Replace with Regex<a class="headerlink" href="#replace-with-regex" title="Permalink to this heading">#</a></h3>
 <p>However, with regular expressions, we can replace strings with even more power and flexibility.</p>
 <p>To replace a string with regular expressions, we use <code class="docutils literal notranslate"><span class="pre">re.sub(old_pattern,</span> <span class="pre">new_pattern,</span> <span class="pre">text_that_contains_pattern)</span></code>. We can do exactly the same thing that we did with the built-in string method <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
@@ -929,7 +917,7 @@ document.write(`
 </section>
 </section>
 <section id="special-regex-characters">
-<h2>Special RegEx Characters<a class="headerlink" href="#special-regex-characters" title="Link to this heading">#</a></h2>
+<h2>Special RegEx Characters<a class="headerlink" href="#special-regex-characters" title="Permalink to this heading">#</a></h2>
 <p>But regular expressions have certain characters with special pattern-matching powers, which is what allows us to do more cleaning, manipulating, and searching than with basic string methods. Below are some of the special regular expression characters.</p>
 <table class="table">
 <thead>
@@ -980,7 +968,7 @@ document.write(`
 </tbody>
 </table>
 <p>You can explore and experiment with regular expression characters and combinations at <a class="reference external" href="https://regexr.com/4vhf1">Regexr.com</a>.</p>
-<p>We can replace anything that is not a word <code class="docutils literal notranslate"><span class="pre">\W</span></code> with “ “:</p>
+<p>We can replace anything that is not a word <code class="docutils literal notranslate"><span class="pre">\W</span></code> with ” “:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
@@ -999,7 +987,7 @@ document.write(`
 </div>
 </details>
 </div>
-<p>Replace anything that is a word <code class="docutils literal notranslate"><span class="pre">\w</span></code> with “ “:</p>
+<p>Replace anything that is a word <code class="docutils literal notranslate"><span class="pre">\w</span></code> with ” “:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">sample_song</span><span class="p">)</span>
@@ -1033,7 +1021,7 @@ document.write(`
 </div>
 </section>
 <section id="compile-pattern">
-<h2>Compile Pattern<a class="headerlink" href="#compile-pattern" title="Link to this heading">#</a></h2>
+<h2>Compile Pattern<a class="headerlink" href="#compile-pattern" title="Permalink to this heading">#</a></h2>
 <p>An efficient way to build and save a regular expression pattern is with <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1056,7 +1044,7 @@ document.write(`
 </div>
 </section>
 <section id="search-for-pattern">
-<h2>Search for Pattern<a class="headerlink" href="#search-for-pattern" title="Link to this heading">#</a></h2>
+<h2>Search for Pattern<a class="headerlink" href="#search-for-pattern" title="Permalink to this heading">#</a></h2>
 <p>In addition to replacing text, we can also find and return text. With <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, we can find and return any particular pattern. The <code class="docutils literal notranslate"><span class="pre">re.search()</span></code> function returns something called a “match object,” which we can access with <code class="docutils literal notranslate"><span class="pre">.group()</span></code>.</p>
 <p>For example, searching with the pattern <code class="docutils literal notranslate"><span class="pre">\w+</span></code> will return the very first word in <code class="docutils literal notranslate"><span class="pre">sample_song</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
@@ -1098,7 +1086,7 @@ document.write(`
 </div>
 </section>
 <section id="find-all-instances-of-pattern">
-<h2>Find All Instances of Pattern<a class="headerlink" href="#find-all-instances-of-pattern" title="Link to this heading">#</a></h2>
+<h2>Find All Instances of Pattern<a class="headerlink" href="#find-all-instances-of-pattern" title="Permalink to this heading">#</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code> will return a list of every instance of a particular pattern.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1148,8 +1136,8 @@ document.write(`
 </div>
 </section>
 <section id="match-before-a-certain-string">
-<h2>Match Before a Certain String<a class="headerlink" href="#match-before-a-certain-string" title="Link to this heading">#</a></h2>
-<p>For our song titles, we might want to <a class="reference internal" href="#regexr.com/4vhfg"><span class="xref myst">extract everything that comes before “(Ft.)”</span></a> because we don’t care as much about the featured artists, and because the featured artists makes the song titles really long. To match everything that comes before a certain string, we can use the pattern <code class="docutils literal notranslate"><span class="pre">.*(?=desired_pattern)</span></code> which matches 0 or more <code class="docutils literal notranslate"><span class="pre">*</span></code> of any character <code class="docutils literal notranslate"><span class="pre">.</span></code> that comes before <code class="docutils literal notranslate"><span class="pre">(?=)</span></code> the string “desired_pattern.”</p>
+<h2>Match Before a Certain String<a class="headerlink" href="#match-before-a-certain-string" title="Permalink to this heading">#</a></h2>
+<p>For our song titles, we might want to <span class="xref myst">extract everything that comes before “(Ft.)”</span> because we don’t care as much about the featured artists, and because the featured artists makes the song titles really long. To match everything that comes before a certain string, we can use the pattern <code class="docutils literal notranslate"><span class="pre">.*(?=desired_pattern)</span></code> which matches 0 or more <code class="docutils literal notranslate"><span class="pre">*</span></code> of any character <code class="docutils literal notranslate"><span class="pre">.</span></code> that comes before <code class="docutils literal notranslate"><span class="pre">(?=)</span></code> the string “desired_pattern.”</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before_ft_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*(?=Ft)&quot;</span><span class="p">)</span>
@@ -1171,7 +1159,7 @@ document.write(`
 </div>
 </section>
 <section id="backslash-escape-characters">
-<h2>Backslash Escape Characters<a class="headerlink" href="#backslash-escape-characters" title="Link to this heading">#</a></h2>
+<h2>Backslash Escape Characters<a class="headerlink" href="#backslash-escape-characters" title="Permalink to this heading">#</a></h2>
 <p>Nice! We got everything before the featured artist. Well, almost. We still have a weird, lingering open parentheses. That’s because we were matching “Ft” not “(Ft”. Let’s match everything before “(Ft” instead.</p>
 <p>To do so, we’re going to have to make a slight adjustment. Remember that parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are special regular expression characters. To make clear that we mean a literal parentheses and not a special regular expression character, we have to use an escape backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> before the character.</p>
 <div class="cell tag_hide-output docutils container">
@@ -1196,7 +1184,7 @@ document.write(`
 </div>
 </section>
 <section id="strip-leading-and-trailing-whitespace">
-<h2>Strip Leading and Trailing Whitespace<a class="headerlink" href="#strip-leading-and-trailing-whitespace" title="Link to this heading">#</a></h2>
+<h2>Strip Leading and Trailing Whitespace<a class="headerlink" href="#strip-leading-and-trailing-whitespace" title="Permalink to this heading">#</a></h2>
 <p>The last thing we’ll do to clean up our song title is to use the built-in string method <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> which strips leading and trailing whitespace.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1218,7 +1206,7 @@ document.write(`
 </div>
 </section>
 <section id="build-functions-and-put-it-all-together">
-<h2>Build Functions and Put It All Together<a class="headerlink" href="#build-functions-and-put-it-all-together" title="Link to this heading">#</a></h2>
+<h2>Build Functions and Put It All Together<a class="headerlink" href="#build-functions-and-put-it-all-together" title="Permalink to this heading">#</a></h2>
 <p>Let’s put all this cleaning together in a function called <code class="docutils literal notranslate"><span class="pre">clean_up</span></code>. It will match and strip everything before “(Ft.)” if the song title contains a featured artist, and it will remove the word “Lyrics” and strip whitespace if the song title does not contain “(Ft.)”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1388,7 +1376,7 @@ document.write(`
 </div>
 </section>
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_all_songs_from_album</span><span class="p">(</span><span class="s1">&#39;#Your Choice of Artist&#39;</span><span class="p">,</span> <span class="s1">&#39;#Your Choice of Album&#39;</span><span class="p">)</span>
@@ -1501,7 +1489,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1516,8 +1504,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>TF-IDF with HathiTrust Data &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/02-TF-IDF-HathiTrust';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/02-TF-IDF-HathiTrust.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="TF-IDF with Scikit-Learn" href="03-TF-IDF-Scikit-Learn.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -589,7 +577,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tf-idf-with-hathitrust-data">
-<h1>TF-IDF with HathiTrust Data<a class="headerlink" href="#tf-idf-with-hathitrust-data" title="Link to this heading">#</a></h1>
+<h1>TF-IDF with HathiTrust Data<a class="headerlink" href="#tf-idf-with-hathitrust-data" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to learn about a text analysis method called <em>term frequency–inverse document frequency</em>, often abbreviated <em>tf-idf</em>.</p>
 <p>While calculating the most frequent words in a text can be useful, the most frequent words in a text usually aren’t the most interesting words in a text, even if we get rid of stop words (“the, “and,” “to,” etc.). Tf-idf is a method that builds off word frequency but it more specifically tries to identify the most distinctively frequent or significant words in a document.</p>
 <p>In this lesson, we will cover how to:</p>
@@ -599,9 +587,9 @@ document.write(`
 <li><p>Prepare HathiTrust extracted features for tf-idf analysis</p></li>
 </ul>
 <section id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="lost-in-the-city-by-edward-p-jones">
-<h3><em>Lost in the City</em> by Edward P. Jones<a class="headerlink" href="#lost-in-the-city-by-edward-p-jones" title="Link to this heading">#</a></h3>
+<h3><em>Lost in the City</em> by Edward P. Jones<a class="headerlink" href="#lost-in-the-city-by-edward-p-jones" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph" style=" padding: 10px">
 <p>[T]he pigeon had taken a step and dropped from the ledge. He caught an upwind that took him nearly as high as the tops of the empty K Street houses. He flew farther into Northeast, into the color and sounds of the city’s morning. She did nothing, aside from following him, with her eyes, with her heart, as far as she could.</p>
 <p class ="attribution">—Edward P. Jones, "The Girl Who Raised Pigeons," <i>Lost in the City</i> (1993) </p>
@@ -614,7 +602,7 @@ document.write(`
 </section>
 </section>
 <section id="breaking-down-the-tf-idf-formula">
-<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Link to this heading">#</a></h2>
+<h2>Breaking Down the TF-IDF Formula<a class="headerlink" href="#breaking-down-the-tf-idf-formula" title="Permalink to this heading">#</a></h2>
 <p>But first, let’s quickly discuss the tf-idf formula. The idea is pretty simple.</p>
 <p><strong>tf-idf = term_frequency * inverse_document_frequency</strong></p>
 <p><strong>term_frequency</strong> = number of times a given term appears in document</p>
@@ -631,7 +619,7 @@ document.write(`
 </div></blockquote>
 </aside>
 <section id="lets-test-it-out">
-<h3>Let’s test it out<a class="headerlink" href="#lets-test-it-out" title="Link to this heading">#</a></h3>
+<h3>Let’s test it out<a class="headerlink" href="#lets-test-it-out" title="Permalink to this heading">#</a></h3>
 <p>We need the <code class="docutils literal notranslate"><span class="pre">log()</span></code> function for our calculation, otherwise known as <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithm">logarithm</a>, so we’re going to import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -705,7 +693,7 @@ document.write(`
 </section>
 </section>
 <section id="get-hathitrust-extracted-features">
-<h2>Get HathiTrust Extracted Features<a class="headerlink" href="#get-hathitrust-extracted-features" title="Link to this heading">#</a></h2>
+<h2>Get HathiTrust Extracted Features<a class="headerlink" href="#get-hathitrust-extracted-features" title="Permalink to this heading">#</a></h2>
 <p>Now let’s try to calculate tf-idf scores for all the words in all the short stories in <em>Lost in the City</em>. To do so, we need word counts, or HathiTrust extracted features, for each story in the collection.</p>
 <p>To work with HathiTrust’s extracted features, we first need to install and import the <a class="reference external" href="https://github.com/htrc/htrc-feature-reader">HathiTrust Feature Reader</a>.</p>
 <p>Install HathiTrust Feature Reader</p>
@@ -732,9 +720,9 @@ document.write(`
 <p>Then we need to locate the the HathiTrust volume ID for <em>Lost in the City</em>. If we search the HathiTrust catalog for this book and then click on “Limited (search only),” it will take us to the following web page: <a class="reference external" href="https://babel.hathitrust.org/cgi/pt?id=mdp.39015029970129">https://babel.hathitrust.org/cgi/pt?id=mdp.39015029970129</a>.</p>
 <p>The HathiTrust Volume ID for <em>Lost in the City</em> is located after <code class="docutils literal notranslate"><span class="pre">id=</span></code> this URL: <code class="docutils literal notranslate"><span class="pre">mdp.39015029970129</span></code>.</p>
 <section id="make-dataframe-of-word-frequencies-from-volume-s">
-<h3>Make DataFrame of Word Frequencies From Volume(s)<a class="headerlink" href="#make-dataframe-of-word-frequencies-from-volume-s" title="Link to this heading">#</a></h3>
+<h3>Make DataFrame of Word Frequencies From Volume(s)<a class="headerlink" href="#make-dataframe-of-word-frequencies-from-volume-s" title="Permalink to this heading">#</a></h3>
 <section id="single-volume">
-<h4>Single Volume<a class="headerlink" href="#single-volume" title="Link to this heading">#</a></h4>
+<h4>Single Volume<a class="headerlink" href="#single-volume" title="Permalink to this heading">#</a></h4>
 <p>To get HathiTrust extracted features for a single volume, we can create a <code class="docutils literal notranslate"><span class="pre">[Volume</span></code> object](<a class="github reference external" href="https://github.com/htrc/htrc-feature-reader#volume">htrc/htrc-feature-reader</a>) and use the <code class="docutils literal notranslate"><span class="pre">.tokenlist()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1027,7 +1015,7 @@ document.write(`
 </div>
 </section>
 <section id="multiple-volumes">
-<h4>Multiple Volumes<a class="headerlink" href="#multiple-volumes" title="Link to this heading">#</a></h4>
+<h4>Multiple Volumes<a class="headerlink" href="#multiple-volumes" title="Permalink to this heading">#</a></h4>
 <p>We might want to get extracted features for multiple volumes at the same time, so we’re also going to practice a workflow that will allow us to read in multiple HathiTrust books, even though we’re only reading in one book at this moment.</p>
 <p>Insert list of desired HathiTrust volume(s)</p>
 <div class="cell docutils container">
@@ -1323,7 +1311,7 @@ document.write(`
 </section>
 </section>
 <section id="add-story-titles">
-<h2>Add story titles<a class="headerlink" href="#add-story-titles" title="Link to this heading">#</a></h2>
+<h2>Add story titles<a class="headerlink" href="#add-story-titles" title="Permalink to this heading">#</a></h2>
 <p>How can we split up <em>Lost in the City</em> into individual stories?</p>
 <p>Sometimes HathiTrust Extracted Features helpfully include “section” information for a book, such as chapter titles. Unfortunately, the extracted features for <em>Lost in the City</em> do not include chapter or story titles.</p>
 <p>They do, however, include page numbers and, if you specify <code class="docutils literal notranslate"><span class="pre">volume.tokenlist(case=True)</span></code>, words with case sensitivity. When I manually combed through the HTRC token list with case sensitivity turned on, I noticed that the title page for each short story seemed to format the title in all-caps. So I searched for all-caps words from each story title and noted down the corresponding page number. This should give us a marker of where every story begins and ends.</p>
@@ -1392,7 +1380,7 @@ document.write(`
 </div>
 </section>
 <section id="sum-word-counts-for-each-story">
-<h2>Sum Word Counts For Each Story<a class="headerlink" href="#sum-word-counts-for-each-story" title="Link to this heading">#</a></h2>
+<h2>Sum Word Counts For Each Story<a class="headerlink" href="#sum-word-counts-for-each-story" title="Permalink to this heading">#</a></h2>
 <p>Page-level information is great. But for tf-idf purposes, we really only care about the frequency of words for every story. Below we group by story and calculate the sum of word frequencies for all the pages in that story.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1506,7 +1494,7 @@ document.write(`
 </div>
 </section>
 <section id="remove-infrequent-words-stopwords-punctuation">
-<h2>Remove Infrequent Words, Stopwords, &amp; Punctuation<a class="headerlink" href="#remove-infrequent-words-stopwords-punctuation" title="Link to this heading">#</a></h2>
+<h2>Remove Infrequent Words, Stopwords, &amp; Punctuation<a class="headerlink" href="#remove-infrequent-words-stopwords-punctuation" title="Permalink to this heading">#</a></h2>
 <p>We will conclude with some final pre-processing steps. We will remove the list of stopwords defined below.</p>
 <p>Make list of stopwords</p>
 <div class="cell docutils container">
@@ -1655,9 +1643,9 @@ document.write(`
 </div>
 </section>
 <section id="tf-idf">
-<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h2>
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
 <section id="term-frequency">
-<h3>Term Frequency<a class="headerlink" href="#term-frequency" title="Link to this heading">#</a></h3>
+<h3>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this heading">#</a></h3>
 <p>We already have term frequencies for each document. Let’s rename the columns so that they’re consistent with the tf-idf vocabulary that we’ve been using.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1770,7 +1758,7 @@ document.write(`
 </div>
 </section>
 <section id="document-frequency">
-<h3>Document Frequency<a class="headerlink" href="#document-frequency" title="Link to this heading">#</a></h3>
+<h3>Document Frequency<a class="headerlink" href="#document-frequency" title="Permalink to this heading">#</a></h3>
 <p>To calculate the number of documents or stories in which each term appears, we’re going to create a separate DataFrame and do some Pandas manipulation and calculation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2334,7 +2322,7 @@ document.write(`
 <p>As you can see in the DataFrame above, the term “abandoned” appears 2 times in the story “The Girl Who Raised Pigeons” (term frequency), and it appears in 3 different stories in the collection overall (document frequency).</p>
 </section>
 <section id="total-number-of-documents">
-<h3>Total Number of Documents<a class="headerlink" href="#total-number-of-documents" title="Link to this heading">#</a></h3>
+<h3>Total Number of Documents<a class="headerlink" href="#total-number-of-documents" title="Permalink to this heading">#</a></h3>
 <p>To calculate the total number of documents are in the collection, we count how many unique values are in the “story” column (we know the answer should be 14 short stories).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2357,7 +2345,7 @@ document.write(`
 </div>
 </section>
 <section id="inverse-document-frequency">
-<h3>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Link to this heading">#</a></h3>
+<h3>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this heading">#</a></h3>
 <p>As we previously established, there are a lot of slightly different versions of the tf-idf formula, but we’re going to use the default version from the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">scikit-learn library</a> that adds “smoothing” to inverse document frequency.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_document_frequency</span> <span class="o">=</span> <span class="n">log</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">docs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">document</span> <span class="n">frequency</span><span class="p">)</span> <span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
@@ -2378,7 +2366,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h3>TF- IDF<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>TF- IDF<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Finally, we will calculate tf-idf by multiplying term frequency and inverse document frequency together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4547,7 +4535,7 @@ document.write(`
 </section>
 </section>
 <section id="further-resources">
-<h2>Further Resources<a class="headerlink" href="#further-resources" title="Link to this heading">#</a></h2>
+<h2>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Peter Organisciak and Boris Capitanu, <a class="reference external" href="https://programminghistorian.org/en/lessons/text-mining-with-extracted-features">“Text Mining in Python through the HTRC Feature Reader,”</a> <em>The Programming Historian</em></p></li>
 </ul>
@@ -4670,7 +4658,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -4685,8 +4673,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

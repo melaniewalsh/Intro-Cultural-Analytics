@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Functions (Part II) — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02-Python/Workbooks/12.5-Functions-Part2-WORKBOOK';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/02-Python/Workbooks/12.5-Functions-Part2-WORKBOOK.html" />
-    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -567,10 +555,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions-part-ii-workbook">
-<h1>Functions (Part II) — Workbook<a class="headerlink" href="#functions-part-ii-workbook" title="Link to this heading">#</a></h1>
+<h1>Functions (Part II) — Workbook<a class="headerlink" href="#functions-part-ii-workbook" title="Permalink to this heading">#</a></h1>
 <p>A <em>function</em> is way of bundling up code to perform specific tasks. It’s kind of like making a little Python wind-up toy that runs on command.</p>
 <section id="python-formatting-quick-review">
-<h2>Python Formatting — Quick Review<a class="headerlink" href="#python-formatting-quick-review" title="Link to this heading">#</a></h2>
+<h2>Python Formatting — Quick Review<a class="headerlink" href="#python-formatting-quick-review" title="Permalink to this heading">#</a></h2>
 <p>Inconsistent spacing — it works, but it’s not ideal</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +609,7 @@ document.write(`
 </div>
 </section>
 <section id="python-modules-packages-libraries-review">
-<h2>Python Modules/Packages/Libraries — Review<a class="headerlink" href="#python-modules-packages-libraries-review" title="Link to this heading">#</a></h2>
+<h2>Python Modules/Packages/Libraries — Review<a class="headerlink" href="#python-modules-packages-libraries-review" title="Permalink to this heading">#</a></h2>
 <p>You can use pre-made Python code designed by other people — otherwise known as <strong>modules, packages, or libraries</strong> — by using an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
 <p>For example, the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module will count items and return a dictionary: <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter">https://docs.python.org/3/library/collections.html#collections.Counter</a></p>
 <div class="cell docutils container">
@@ -719,7 +707,7 @@ document.write(`
 </div>
 </section>
 <section id="python-functions-review">
-<h2>Python Functions — Review<a class="headerlink" href="#python-functions-review" title="Link to this heading">#</a></h2>
+<h2>Python Functions — Review<a class="headerlink" href="#python-functions-review" title="Permalink to this heading">#</a></h2>
 <p><img alt="" src="https://i.pinimg.com/originals/62/9c/24/629c24707ded09d6fbe294e5de9e73a3.gif" /></p>
 <p>To convert Celsius to Fahrenheit, you can use the following formula:</p>
 <p><code class="docutils literal notranslate"><span class="pre">(0°C</span> <span class="pre">×</span> <span class="pre">9/5)</span> <span class="pre">+</span> <span class="pre">32</span> <span class="pre">=</span> <span class="pre">32°F</span></code></p>
@@ -776,7 +764,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-1-chinese-zodiac-calculator">
-<h2>Exercise 1 — Chinese Zodiac Calculator<a class="headerlink" href="#exercise-1-chinese-zodiac-calculator" title="Link to this heading">#</a></h2>
+<h2>Exercise 1 — Chinese Zodiac Calculator<a class="headerlink" href="#exercise-1-chinese-zodiac-calculator" title="Permalink to this heading">#</a></h2>
 <p>Make a function called <code class="docutils literal notranslate"><span class="pre">chinese_zodiac()</span></code> that will take in someone’s birth year and then report their corresponding Chinese zodiac.</p>
 <p>You can make this function however you want, but here are 12 lists with the corresponding birth years for every zodiac sign.</p>
 <div class="cell docutils container">
@@ -844,14 +832,14 @@ document.write(`
 </div>
 </section>
 <section id="exercise-2-make-a-chinese-zodiac-python-script">
-<h2>Exercise 2 — Make a Chinese Zodiac Python Script!<a class="headerlink" href="#exercise-2-make-a-chinese-zodiac-python-script" title="Link to this heading">#</a></h2>
+<h2>Exercise 2 — Make a Chinese Zodiac Python Script!<a class="headerlink" href="#exercise-2-make-a-chinese-zodiac-python-script" title="Permalink to this heading">#</a></h2>
 <p>Now we want to make a Python script called <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code> that we can run from the command line. The script will ask a user to enter their birth year and then report their Chinese zodiac animal.</p>
 <p>To make this script, open Visual Studio Code (<a class="reference external" href="https://code.visualstudio.com/download">download here</a> if you don’t already have it). Choose “Open Folder” and then select “GitHub/Intro-CA-SP21/book”. Go to File -&gt; Make a New File, then save this file as <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code>.</p>
 <p>Now you want to add in your Python (you can combine your <code class="docutils literal notranslate"><span class="pre">chinese_zodiac()</span></code> function with a few other necessary lines of code!).</p>
 <p>To test out the script, you can right-click the <code class="docutils literal notranslate"><span class="pre">zodiac.py</span></code> file and select “Open in Integrated Terminal”. Then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">zodiac.py</span></code> from the Terminal.</p>
 </section>
 <section id="exercise-3-movie-recommender-script">
-<h2>Exercise 3 — Movie Recommender Script<a class="headerlink" href="#exercise-3-movie-recommender-script" title="Link to this heading">#</a></h2>
+<h2>Exercise 3 — Movie Recommender Script<a class="headerlink" href="#exercise-3-movie-recommender-script" title="Permalink to this heading">#</a></h2>
 <p>Make a Python script called <code class="docutils literal notranslate"><span class="pre">movie_recommender.py</span></code> that asks a user to type in their favorite dessert from some provided options (such as cake, pie, ice cream, mochi, flan, or candy) and then recommends a movie to them based on this selection.</p>
 <p><img alt="" src="images/movie_recommender.png" /></p>
 </section>
@@ -933,7 +921,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -948,8 +936,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

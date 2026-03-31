@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Part-of-Speech Tagging &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/13-POS-Keywords';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/13-POS-Keywords.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Network Analysis" href="../06-Network-Analysis/00-Network-Analysis.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -584,7 +572,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="part-of-speech-tagging">
-<h1>Part-of-Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Link to this heading">#</a></h1>
+<h1>Part-of-Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to learn about the textual analysis methods <em>part-of-speech tagging</em> and <em>keyword extraction</em>. These methods will help us computationally parse sentences and better understand words in context.</p>
 <p>We will be working with the English-language spaCy model in this lesson. However, with the help of Quinn Dombrowski, I am also curating tutorials for other languages:</p>
 <ul class="simple">
@@ -752,18 +740,18 @@ document.write(`
 </div>
 <hr class="docutils" />
 <section id="why-is-part-of-speech-tagging-useful">
-<h2>Why is Part-of-Speech Tagging Useful?<a class="headerlink" href="#why-is-part-of-speech-tagging-useful" title="Link to this heading">#</a></h2>
+<h2>Why is Part-of-Speech Tagging Useful?<a class="headerlink" href="#why-is-part-of-speech-tagging-useful" title="Permalink to this heading">#</a></h2>
 <p>I don’t mean to go all <a class="reference external" href="https://xkcd.com/1443/">Language Nerd</a> on you, but parts of speech are important. Even if they seem kind of boring. <em>Parts of speech</em> are the grammatical units of language — such as (in English) nouns, verbs, adjectives, adverbs, pronouns, and prepositions. Each of these parts of speech plays a different role in a sentence.</p>
 <p><img alt="" src="https://imgs.xkcd.com/comics/language_nerd.png" /></p>
 <p>By computationally identifying parts of speech, we can start computationally exploring <em>syntax</em>, the relationship between words — rather than only focusing on words in isolation, as we did with tf-idf. Though parts of speech may seem pedantic, they help computers (and us) crack at that ever-elusive abstract noun: <em>meaning</em>.</p>
 </section>
 <section id="spacy-and-natural-language-processing-nlp">
-<h2>spaCy and Natural Language Processing (NLP)<a class="headerlink" href="#spacy-and-natural-language-processing-nlp" title="Link to this heading">#</a></h2>
+<h2>spaCy and Natural Language Processing (NLP)<a class="headerlink" href="#spacy-and-natural-language-processing-nlp" title="Permalink to this heading">#</a></h2>
 <p>To computationally identify parts of speech, we’re going to use the natural language processing library spaCy. For a more extensive introduction to NLP and spaCy, see the previous lesson.</p>
 <p>To parse sentences, spaCy relies on machine learning models that were trained on large amounts of labeled text data. The English-language spaCy model that we’re going to use in this lesson was trained on an annotated corpus called <a class="reference external" href="https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf">“OntoNotes”</a>: 2 million+ words drawn from “news, broadcast, talk shows, weblogs, usenet newsgroups, and conversational telephone speech,” which were meticulously tagged by a group of researchers and professionals for people’s names and places, for nouns and verbs, for subjects and objects, and much more.</p>
 </section>
 <section id="install-spacy">
-<h2>Install spaCy<a class="headerlink" href="#install-spacy" title="Link to this heading">#</a></h2>
+<h2>Install spaCy<a class="headerlink" href="#install-spacy" title="Permalink to this heading">#</a></h2>
 <p>To use spaCy, we first need to install the library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -774,7 +762,7 @@ document.write(`
 </div>
 </section>
 <section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <p>Then we’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>, a special spaCy module for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,7 +779,7 @@ document.write(`
 <p>We’re also going to import the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module for counting nouns, verbs, adjectives, etc., and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for organizing and displaying data (we’re also changing the pandas default max row and column width display setting).</p>
 </section>
 <section id="download-language-model">
-<h2>Download Language Model<a class="headerlink" href="#download-language-model" title="Link to this heading">#</a></h2>
+<h2>Download Language Model<a class="headerlink" href="#download-language-model" title="Permalink to this heading">#</a></h2>
 <p>Next we need to download the English-language model (<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>), which will be processing and making predictions about our texts. This is the model that was trained on the annotated “OntoNotes” corpus. You can download the <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> model by running the cell below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,7 +799,7 @@ You can now load the model via spacy.load(&#39;en_core_web_sm&#39;)
 <p><em>spaCy offers language and tokenization support for other language via external dependencies — such as <a class="reference external" href="https://github.com/konlpy/konlpy">PyviKonlpy</a> for Korean.</em></p>
 </section>
 <section id="load-language-model">
-<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Link to this heading">#</a></h2>
+<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this heading">#</a></h2>
 <p>Once the model is downloaded, we need to load it with <code class="docutils literal notranslate"><span class="pre">spacy.load()</span></code> and assign it to the variable <code class="docutils literal notranslate"><span class="pre">nlp</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +810,7 @@ You can now load the model via spacy.load(&#39;en_core_web_sm&#39;)
 </div>
 </section>
 <section id="create-a-processed-spacy-document">
-<h2>Create a Processed spaCy Document<a class="headerlink" href="#create-a-processed-spacy-document" title="Link to this heading">#</a></h2>
+<h2>Create a Processed spaCy Document<a class="headerlink" href="#create-a-processed-spacy-document" title="Permalink to this heading">#</a></h2>
 <p>Whenever we use spaCy, our first step will be to create a processed spaCy <code class="docutils literal notranslate"><span class="pre">document</span></code> with the loaded NLP model <code class="docutils literal notranslate"><span class="pre">nlp()</span></code>. Most of the heavy NLP lifting is done in this line of code. After processing, the <code class="docutils literal notranslate"><span class="pre">document</span></code> object will contain tons of juicy language data — named entities, sentence boundaries, parts of speech — and the rest of our work will be devoted to accessing this information.</p>
 <p>To test out spaCy’s part-of-speech tagging, we’ll begin by processing a sample sentence from Ada Lovelace’s obituary:</p>
 <blockquote>
@@ -847,7 +835,7 @@ it with a <strong>force</strong> which few masculine intellects (in our own coun
 </div>
 </section>
 <section id="spacy-part-of-speech-tagging">
-<h2>spaCy Part-of-Speech Tagging<a class="headerlink" href="#spacy-part-of-speech-tagging" title="Link to this heading">#</a></h2>
+<h2>spaCy Part-of-Speech Tagging<a class="headerlink" href="#spacy-part-of-speech-tagging" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>POS</p></th>
@@ -1142,7 +1130,7 @@ abstract VERB
 <p>Where previously spaCy had identified “force” and “spell” as nouns, here spaCy correctly identifies the words “force,” “spell,” and “abstract” as verbs.</p>
 </section>
 <section id="get-part-of-speech-tags">
-<h2>Get Part-Of-Speech Tags<a class="headerlink" href="#get-part-of-speech-tags" title="Link to this heading">#</a></h2>
+<h2>Get Part-Of-Speech Tags<a class="headerlink" href="#get-part-of-speech-tags" title="Permalink to this heading">#</a></h2>
 <p>To get part of speech tags for every word in a document, we have to iterate through all the tokens in the document and pull out the <code class="docutils literal notranslate"><span class="pre">.pos_</span></code> attribute for each token. We can get even finer-grained dependency information with the attribute <code class="docutils literal notranslate"><span class="pre">.dep_</span></code>.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -1181,7 +1169,7 @@ it PRON dobj
 </div>
 </section>
 <section id="practicing-with-dracula">
-<h2>Practicing with <em>Dracula</em><a class="headerlink" href="#practicing-with-dracula" title="Link to this heading">#</a></h2>
+<h2>Practicing with <em>Dracula</em><a class="headerlink" href="#practicing-with-dracula" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/Dracula_Bram-Stoker.txt&quot;</span>
@@ -1192,7 +1180,7 @@ it PRON dobj
 </div>
 </section>
 <section id="get-adjectives">
-<h2>Get Adjectives<a class="headerlink" href="#get-adjectives" title="Link to this heading">#</a></h2>
+<h2>Get Adjectives<a class="headerlink" href="#get-adjectives" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>POS</p></th>
@@ -3797,7 +3785,7 @@ it PRON dobj
 </div>
 </section>
 <section id="get-nouns">
-<h2>Get Nouns<a class="headerlink" href="#get-nouns" title="Link to this heading">#</a></h2>
+<h2>Get Nouns<a class="headerlink" href="#get-nouns" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>POS</p></th>
@@ -4357,7 +4345,7 @@ it PRON dobj
 </div>
 </section>
 <section id="get-verbs">
-<h2>Get Verbs<a class="headerlink" href="#get-verbs" title="Link to this heading">#</a></h2>
+<h2>Get Verbs<a class="headerlink" href="#get-verbs" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>POS</p></th>
@@ -4919,9 +4907,9 @@ it PRON dobj
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="keyword-extraction">
-<h1>Keyword Extraction<a class="headerlink" href="#keyword-extraction" title="Link to this heading">#</a></h1>
+<h1>Keyword Extraction<a class="headerlink" href="#keyword-extraction" title="Permalink to this heading">#</a></h1>
 <section id="get-sentences-with-keyword">
-<h2>Get Sentences with Keyword<a class="headerlink" href="#get-sentences-with-keyword" title="Link to this heading">#</a></h2>
+<h2>Get Sentences with Keyword<a class="headerlink" href="#get-sentences-with-keyword" title="Permalink to this heading">#</a></h2>
 <p>spaCy can also identify sentences in a document. To access sentences, we can iterate through <code class="docutils literal notranslate"><span class="pre">document.sents</span></code> and pull out the <code class="docutils literal notranslate"><span class="pre">.text</span></code> of each sentence.</p>
 <p>We can use spaCy’s sentence-parsing capabilities to extract sentences that contain particular keywords, such as in the function below.</p>
 <p>With the function <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code>, we will iterate through <code class="docutils literal notranslate"><span class="pre">document.sents</span></code> and pull out any sentence that contains a particular “keyword.” Then we will display these sentence with the keywords bolded.</p>
@@ -4960,30 +4948,30 @@ it PRON dobj
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>“   _<strong>telegram</strong> from Arthur Holmwood to Quincey P. Morris.</p>
-<p>“   _<strong>telegram</strong>, Arthur Holmwood to Seward.</p>
+<p>”   _<strong>telegram</strong> from Arthur Holmwood to Quincey P. Morris.</p>
+<p>”   _<strong>telegram</strong>, Arthur Holmwood to Seward.</p>
 <p>You must send to me the <strong>telegram</strong> every day; and if there be cause I shall come again.</p>
 <p><strong>telegram</strong>, Seward, London, to Van Helsing, Amsterdam._</p>
-<p>“   <em><strong>telegram</strong>, Seward, London, to Van Helsing, Amsterdam.</em></p>
-<p>“   <em><strong>telegram</strong>, Seward, London, to Van Helsing, Amsterdam.</em>  “<em>6 September.</em>–Terrible change for the worse.</p>
+<p>”   <em><strong>telegram</strong>, Seward, London, to Van Helsing, Amsterdam.</em></p>
+<p>”   <em><strong>telegram</strong>, Seward, London, to Van Helsing, Amsterdam.</em>  “<em>6 September.</em>–Terrible change for the worse.</p>
 <p>I hold over <strong>telegram</strong> to Holmwood till have seen you.</p>
 <p>“I waited till I had seen you, as I said in my <strong>telegram</strong>.</p>
 <p>A <strong>telegram</strong> came from Van Helsing at Amsterdam whilst I was at dinner, suggesting that I should be at Hillingham to-night, as it might be well to be at hand, and stating that he was leaving by the night mail and would join me early in the morning.</p>
 <p><strong>telegram</strong>, Van Helsing, Antwerp, to Seward, Carfax._  (Sent to Carfax, Sussex, as no county given; delivered late by twenty-two hours.)</p>
 <p>The arrival of Van Helsing’s <strong>telegram</strong> filled me with dismay.</p>
 <p>Did you not get my <strong>telegram</strong>?”  I answered as quickly and coherently as I could that I had only got his <strong>telegram</strong> early in the morning, and had not lost a minute in coming here, and that I could not make any one in the house hear me.</p>
-<p>“  He handed me a <strong>telegram</strong>:–  “Have not heard from Seward for three days, and am terribly anxious. Cannot leave.</p>
-<p>“  In the hall I met Quincey Morris, with a <strong>telegram</strong> for Arthur telling him that Mrs. Westenra was dead; that Lucy also had been ill, but was now going on better; and that Van Helsing and I were with her.</p>
+<p>”  He handed me a <strong>telegram</strong>:–  “Have not heard from Seward for three days, and am terribly anxious. Cannot leave.</p>
+<p>”  In the hall I met Quincey Morris, with a <strong>telegram</strong> for Arthur telling him that Mrs. Westenra was dead; that Lucy also had been ill, but was now going on better; and that Van Helsing and I were with her.</p>
 <ul>
 <li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  *  _Later._--A sad home-coming in every way--the house empty of the dear soul who was so good to us; Jonathan still pale and dizzy under a slight relapse of his malady; and now a **telegram** from Van Helsing, whoever he may be:--  &quot;You will be grieved to hear that Mrs. Westenra died five days ago, and that Lucy died the day before yesterday.
 </pre></div>
 </div>
 </li>
 </ul>
-<p>“   _<strong>telegram</strong>, Mrs. Harker to Van Helsing.</p>
+<p>”   _<strong>telegram</strong>, Mrs. Harker to Van Helsing.</p>
 <p>When we arrived at the Berkeley Hotel, Van Helsing found a <strong>telegram</strong> waiting for him:–       “Am coming up by train.</p>
 <p>I have sent a <strong>telegram</strong> to Jonathan to come on here when he arrives in London from Whitby.</p>
-<p>“  About half an hour after we had received Mrs. Harker’s <strong>telegram</strong>, there came a quiet, resolute knock at the hall door.</p>
+<p>”  About half an hour after we had received Mrs. Harker’s <strong>telegram</strong>, there came a quiet, resolute knock at the hall door.</p>
 <p>“<em>Nota bene</em>, in Madam’s <strong>telegram</strong> he went south from Carfax, that means he went to cross the river, and he could only do so at slack of tide, which should be something before one o’clock.</p>
 <p>Lord Godalming went to the Consulate to see if any <strong>telegram</strong> had arrived for him, whilst the rest of us came on to this hotel–“the Odessus.”</p>
 <p>He had four <strong>telegram</strong>s, one each day since we started, and all to the same effect: that the <em>Czarina Catherine</em> had not been reported to Lloyd’s from anywhere.</p>
@@ -4998,12 +4986,12 @@ it PRON dobj
 </div>
 </li>
 </ul>
-<p>“   <em>Dr. Seward’s Diary.</em>  <em>28 October.</em>–When the <strong>telegram</strong> came announcing the arrival in Galatz I do not think it was such a shock to any of us as might have been expected.</p>
+<p>”   <em>Dr. Seward’s Diary.</em>  <em>28 October.</em>–When the <strong>telegram</strong> came announcing the arrival in Galatz I do not think it was such a shock to any of us as might have been expected.</p>
 </div>
 </div>
 </section>
 <section id="get-keyword-in-context">
-<h2>Get Keyword in Context<a class="headerlink" href="#get-keyword-in-context" title="Link to this heading">#</a></h2>
+<h2>Get Keyword in Context<a class="headerlink" href="#get-keyword-in-context" title="Permalink to this heading">#</a></h2>
 <p>We can also find out about a keyword’s more immediate context — its neighboring words to the left and right — and we can fine-tune our search with POS tagging.</p>
 <p>To do so, we will first create a list of what’s called <em>ngrams</em>. “Ngrams” are any sequence of <em>n</em> tokens in a text. They’re an important concept in computational linguistics and NLP. (Have you ever played with <a class="reference external" href="https://books.google.com/ngrams">Google’s <em>Ngram</em> Viewer</a>?)</p>
 <p>Below we’re going to make a list of <em>bigrams</em>, that is, all the two-word combinations from <em>Dracula</em>. We’re going to use these bigrams to find the neighboring words that appear alongside particular keywords.</p>
@@ -5157,7 +5145,7 @@ it PRON dobj
 </div>
 </section>
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <p>Try out <code class="docutils literal notranslate"><span class="pre">find_sentences_with_keyword()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_neighbor_words</span></code> with your own keywords of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5287,7 +5275,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -5302,8 +5290,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

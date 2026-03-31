@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Web Scraping — Part 1 &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-Data-Collection/02-Web-Scraping-Part1';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/02-Web-Scraping-Part1.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Web Scraping — Part 2" href="03-Web-Scraping-Part2.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -583,7 +571,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="web-scraping-part-1">
-<h1>Web Scraping — Part 1<a class="headerlink" href="#web-scraping-part-1" title="Link to this heading">#</a></h1>
+<h1>Web Scraping — Part 1<a class="headerlink" href="#web-scraping-part-1" title="Permalink to this heading">#</a></h1>
 <p><em>Inspired by web scraping lessons from <a class="reference external" href="https://github.com/laurenfklein/emory-qtm340/blob/master/notebooks/class4-web-scraping-complete.ipynb">Lauren Klein</a> and <a class="reference external" href="https://github.com/aparrish/dmep-python-intro/blob/master/scraping-html.ipynb">Allison Parrish</a></em></p>
 <p>In this series of lessons, we’re going to introduce how to “scrape” data from the internet with the Python libraries requests and BeautifulSoup.</p>
 <p>We will cover how to:</p>
@@ -593,7 +581,7 @@ document.write(`
 <li><p>Extract certain HTML elements</p></li>
 </ul>
 <section id="why-do-we-need-to-scrape-at-all">
-<h2>Why Do We Need To Scrape At All?<a class="headerlink" href="#why-do-we-need-to-scrape-at-all" title="Link to this heading">#</a></h2>
+<h2>Why Do We Need To Scrape At All?<a class="headerlink" href="#why-do-we-need-to-scrape-at-all" title="Permalink to this heading">#</a></h2>
 <p>To understand the significance of web scraping, let’s walk through the likely data collection process behind <a class="reference external" href="https://pudding.cool/2017/03/film-dialogue/">“Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”</a>.</p>
 <p>To find their 2,000 screenplays, Hannah Andersen and Matt Daniels consulted a number of already existing sources — one of which was the <a class="reference external" href="http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie Dialogues Corpus</a>. This is a corpus created by Cornell CIS professors Cristian Danescu-Niculescu-Mizil and Lillian Lee for their paper <a class="reference external" href="http://www.cs.cornell.edu/~cristian/papers/chameleons.pdf">“Chameleons in imagined conversations”</a>. Go Big Red!</p>
 <p>These researchers helpfully shared a dataset of every URL that they used to find and access the screenplays in their own project.</p>
@@ -720,12 +708,12 @@ document.write(`
 <p>Though we could manually navigate to each URL and copy/paste each screenplay into a file, that would be suuuuper slow and painstaking, and we would lose crucial data in the process — information that might help us automatically distinguish the title of the movie from the screenplay itself, for example. It would be much better to programmatically access the text data attached to every URL.</p>
 </section>
 <section id="responses-and-requests">
-<h2>Responses and Requests<a class="headerlink" href="#responses-and-requests" title="Link to this heading">#</a></h2>
+<h2>Responses and Requests<a class="headerlink" href="#responses-and-requests" title="Permalink to this heading">#</a></h2>
 <p>To programmatically access the text data attached to every URL, we can use a Python library called <a class="reference external" href="https://requests.readthedocs.io/en/master/">requests</a>.</p>
 <p>When you type in a URL in your search address bar, you’re sending an HTTP <strong>request</strong> for a web page, and the server which stores that web page will accordingly send back a <strong>response</strong>, some web page data that your browser will render.</p>
 <img alt="../_images/request-response.png" class="center" src="../_images/request-response.png" />
 <section id="import-requests">
-<h3>Import Requests<a class="headerlink" href="#import-requests" title="Link to this heading">#</a></h3>
+<h3>Import Requests<a class="headerlink" href="#import-requests" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -735,7 +723,7 @@ document.write(`
 </div>
 </section>
 <section id="get-html-data">
-<h3>Get HTML Data<a class="headerlink" href="#get-html-data" title="Link to this heading">#</a></h3>
+<h3>Get HTML Data<a class="headerlink" href="#get-html-data" title="Permalink to this heading">#</a></h3>
 <p>With the <code class="docutils literal notranslate"><span class="pre">.get()</span></code> method, we can request to “get” web page data for a specific URL, which we will store in a varaible called <code class="docutils literal notranslate"><span class="pre">response</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -746,7 +734,7 @@ document.write(`
 </div>
 </section>
 <section id="http-status-code">
-<h3>HTTP Status Code<a class="headerlink" href="#http-status-code" title="Link to this heading">#</a></h3>
+<h3>HTTP Status Code<a class="headerlink" href="#http-status-code" title="Permalink to this heading">#</a></h3>
 <p>If we check out <code class="docutils literal notranslate"><span class="pre">response</span></code>, it will simply tell us its <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP response code</a>, aka whether the request was successful or not.</p>
 <p>“200” is a successful response, while “404” is a common “Page Not Found” error.</p>
 <div class="cell docutils container">
@@ -784,7 +772,7 @@ document.write(`
 <img alt="../_images/Ghostboogers.png" class="center" src="../_images/Ghostboogers.png" />
 </section>
 <section id="extract-text-from-web-page">
-<h3>Extract Text From Web Page<a class="headerlink" href="#extract-text-from-web-page" title="Link to this heading">#</a></h3>
+<h3>Extract Text From Web Page<a class="headerlink" href="#extract-text-from-web-page" title="Permalink to this heading">#</a></h3>
 <p>To actually get at the text data in the reponse, we need to use <code class="docutils literal notranslate"><span class="pre">.text</span></code>, which we will save in a variable called <code class="docutils literal notranslate"><span class="pre">html_string</span></code>. The text data that we’re getting is formatted in the HTML markup language, which we will talk more about in the BeautifulSoup section below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6999,7 +6987,7 @@ screaming as the crowd cheers wildly.
 </div>
 </section>
 <section id="extract-text-from-multiple-web-pages">
-<h3>Extract Text From Multiple Web Pages<a class="headerlink" href="#extract-text-from-multiple-web-pages" title="Link to this heading">#</a></h3>
+<h3>Extract Text From Multiple Web Pages<a class="headerlink" href="#extract-text-from-multiple-web-pages" title="Permalink to this heading">#</a></h3>
 <p>Let’s quickly demonstrate how we might extract the screenplay text for every URL in the DataFrame. To do so, we’re going to create a smaller DataFrame from the Cornell Movie Dialogue Corpus, which consists of the first 10 movies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -52271,7 +52259,11 @@ if (typeof lycos_ad !== &quot;undefined&quot; &amp;&amp; &quot;slider&quot; in l
 </section>
 </section>
 <section id="web-scraping">
-<h2>Web Scraping<a class="headerlink" href="#web-scraping" title="Link to this heading">#</a></h2>
+<h2>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this heading">#</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">Note: <a class="reference external" href="http://Genius.com">Genius.com</a> HTML Structure Has Changed</p>
+<p><a class="reference external" href="http://Genius.com">Genius.com</a> has updated its HTML structure and added scraping protections since this lesson was written. The web scraping code below that targets <a class="reference external" href="http://Genius.com">Genius.com</a> pages may need to be updated to work with the current site. You may encounter different HTML tags, class names, or 403 Forbidden errors when trying to scrape Genius pages.</p>
+</div>
 <p>Not all web pages will be as easy to scrape as these screenplay files, however. Let’s say we wanted to scrape the lyrics for Missy Elliott’s song “The Rain (Supa Dupa Fly)” (1997) from <a class="reference external" href="http://Genius.com">Genius.com</a>.</p>
 <img alt="../_images/Missy-Elliott.png" class="center" src="../_images/Missy-Elliott.png" />
 <p>Even at a glance, we can tell that this <em>Genius</em> web page is a lot more complicated than the <em>Ghostbusters</em> page and that it contains a lot of information beyond the lyrics.</p>
@@ -53932,7 +53924,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>To understand BeautifulSoup and HTML, we’re going to briefly depart from our Missy Elliot lyrics challenge to consider a much simpler website. This toy website was made by the poet, programmer, and professor Allison Parrish explicitly for the purposes of teaching BeautifulSoup.</p>
 </section>
 <section id="html">
-<h2>HTML<a class="headerlink" href="#html" title="Link to this heading">#</a></h2>
+<h2>HTML<a class="headerlink" href="#html" title="Permalink to this heading">#</a></h2>
 <p>Parrish’s website is titled “Kittens and the TV Shows They Love.” It can be found at the following URL: <a class="reference external" href="http://static.decontextualize.com/kittens.html">http://static.decontextualize.com/kittens.html</a></p>
 <img alt="../_images/kittens-web.png" class="center" src="../_images/kittens-web.png" />
 <p>If we use our requests library on this Kittens TV website, this is what we get:</p>
@@ -53988,7 +53980,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 </div>
 <section id="html-tags">
-<h3>HTML Tags<a class="headerlink" href="#html-tags" title="Link to this heading">#</a></h3>
+<h3>HTML Tags<a class="headerlink" href="#html-tags" title="Permalink to this heading">#</a></h3>
 <p>This is an HTML document. HTML stands for HyperText Markup Language. It is the standard language for writing web page documents. The most important thing you need to know about HTML is that the language uses HTML “tags” to represent different elements, such as a main header <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>.</p>
 <table class="table">
 <thead>
@@ -54053,13 +54045,13 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 <p>HTML tags often, but not always, require a “closing” tag. For example, the main header “Kittens and the TV Shows They Love” will be surrounded by <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> (opening tag) and <code class="docutils literal notranslate"><span class="pre">&lt;/h1&gt;</span></code> (closing tag) on either side: <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;Kittens</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">TV</span> <span class="pre">Shows</span> <span class="pre">They</span> <span class="pre">Love&lt;/h1&gt;</span></code></p>
 </section>
 <section id="html-attributes-classes-and-ids">
-<h3>HTML Attributes, Classes, and IDs<a class="headerlink" href="#html-attributes-classes-and-ids" title="Link to this heading">#</a></h3>
+<h3>HTML Attributes, Classes, and IDs<a class="headerlink" href="#html-attributes-classes-and-ids" title="Permalink to this heading">#</a></h3>
 <p>HTML elements sometimes come with even more information inside a tag. This will often be a keyword (like <code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">id</span></code>) followed by an equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> and a further descriptor such as <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;kitten&quot;&gt;</span></code></p>
 <p>We need to know about tags as well as attributes, classes, and IDs because this is how we’re going to extract specific HTML data with BeautifulSoup.</p>
 </section>
 </section>
 <section id="beautifulsoup">
-<h2>BeautifulSoup<a class="headerlink" href="#beautifulsoup" title="Link to this heading">#</a></h2>
+<h2>BeautifulSoup<a class="headerlink" href="#beautifulsoup" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -54129,7 +54121,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 </div>
 <section id="extract-html-element">
-<h3>Extract HTML Element<a class="headerlink" href="#extract-html-element" title="Link to this heading">#</a></h3>
+<h3>Extract HTML Element<a class="headerlink" href="#extract-html-element" title="Permalink to this heading">#</a></h3>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">.find()</span></code> method to find and extract certain elements, such as a main header.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -54189,7 +54181,7 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </div>
 </section>
 <section id="extract-multiple-html-elements">
-<h3>Extract Multiple HTML Elements<a class="headerlink" href="#extract-multiple-html-elements" title="Link to this heading">#</a></h3>
+<h3>Extract Multiple HTML Elements<a class="headerlink" href="#extract-multiple-html-elements" title="Permalink to this heading">#</a></h3>
 <p>You can also extract multiple HTML elements at a time with <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -54382,14 +54374,14 @@ mixpanel.init(&#39;77967c52dc38186cc1aadebdd19e2a82&#39;);&lt;/script&gt;
 </section>
 </section>
 <section id="inspect-html-elements-with-browser">
-<h2>Inspect HTML Elements with Browser<a class="headerlink" href="#inspect-html-elements-with-browser" title="Link to this heading">#</a></h2>
+<h2>Inspect HTML Elements with Browser<a class="headerlink" href="#inspect-html-elements-with-browser" title="Permalink to this heading">#</a></h2>
 <p>Most times if you’re looking to extract something from an HTML document, it’s best to use your “Inspect” capabilities in your web browser. You can hover over elements that you’re interested in and find that specific element in the HTML.</p>
 <img alt="../_images/inspect.png" class="center" src="../_images/inspect.png" />
 <p>For example, if we hover over the main header:</p>
 <img alt="../_images/inspect-h1.png" class="center" src="../_images/inspect-h1.png" />
 </section>
 <section id="your-turn">
-<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this heading">#</a></h2>
 <p>Ok so now we’ve learned a little bit about how to use BeautifulSoup to parse HTML documents. So how would we apply what we’ve learned to extract Missy Elliott lyrics?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -55745,7 +55737,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -55760,8 +55752,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

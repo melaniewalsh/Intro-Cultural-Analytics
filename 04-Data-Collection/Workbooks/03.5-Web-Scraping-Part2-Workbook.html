@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Web Scraping — Part 2 — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-Data-Collection/Workbooks/03.5-Web-Scraping-Part2-Workbook';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/04-Data-Collection/Workbooks/03.5-Web-Scraping-Part2-Workbook.html" />
-    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -578,13 +566,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="web-scraping-part-2-workbook">
-<h1>Web Scraping — Part 2 — Workbook<a class="headerlink" href="#web-scraping-part-2-workbook" title="Link to this heading">#</a></h1>
+<h1>Web Scraping — Part 2 — Workbook<a class="headerlink" href="#web-scraping-part-2-workbook" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to introduce how to scrape multiple web pages from the internet with the Python libraries requests and BeautifulSoup.</p>
 <hr class="docutils" />
 <section id="quick-demonstration-of-image-scraping-nyt-front-page">
-<h2>Quick Demonstration of Image Scraping — NYT Front Page<a class="headerlink" href="#quick-demonstration-of-image-scraping-nyt-front-page" title="Link to this heading">#</a></h2>
+<h2>Quick Demonstration of Image Scraping — NYT Front Page<a class="headerlink" href="#quick-demonstration-of-image-scraping-nyt-front-page" title="Permalink to this heading">#</a></h2>
 <section id="import-requests-and-beautifulsoup">
-<h3>Import Requests and BeautifulSoup<a class="headerlink" href="#import-requests-and-beautifulsoup" title="Link to this heading">#</a></h3>
+<h3>Import Requests and BeautifulSoup<a class="headerlink" href="#import-requests-and-beautifulsoup" title="Permalink to this heading">#</a></h3>
 <p>Once again, we’re going to use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library and the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> library to scrape data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,7 +584,7 @@ document.write(`
 </div>
 </section>
 <section id="get-html-data-and-extract-text">
-<h3>Get HTML Data and Extract Text<a class="headerlink" href="#get-html-data-and-extract-text" title="Link to this heading">#</a></h3>
+<h3>Get HTML Data and Extract Text<a class="headerlink" href="#get-html-data-and-extract-text" title="Permalink to this heading">#</a></h3>
 <p><em>The New York Times</em> Front Page: <a class="reference external" href="https://nytimes.com">https://nytimes.com</a></p>
 <p>Here we’re going to request the url for <em>The New York Times</em> front page, extract the text of the web page, then transform it into BeautifulSoup document.</p>
 <div class="cell docutils container">
@@ -636,7 +624,7 @@ document.write(`
 </section>
 </section>
 <section id="quick-demonstration-of-image-scraping-bill-gatess-linkedin-page">
-<h2>Quick Demonstration of Image Scraping — Bill Gates’s LinkedIn Page<a class="headerlink" href="#quick-demonstration-of-image-scraping-bill-gatess-linkedin-page" title="Link to this heading">#</a></h2>
+<h2>Quick Demonstration of Image Scraping — Bill Gates’s LinkedIn Page<a class="headerlink" href="#quick-demonstration-of-image-scraping-bill-gatess-linkedin-page" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.linkedin.com/in/williamhgates/">https://www.linkedin.com/in/williamhgates/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +659,7 @@ document.write(`
 </div>
 </section>
 <section id="scraping-multiple-web-pages-at-a-time">
-<h2>Scraping Multiple Web Pages At a Time<a class="headerlink" href="#scraping-multiple-web-pages-at-a-time" title="Link to this heading">#</a></h2>
+<h2>Scraping Multiple Web Pages At a Time<a class="headerlink" href="#scraping-multiple-web-pages-at-a-time" title="Permalink to this heading">#</a></h2>
 <p>In the last lesson, we figured out how to scrape the lyrics for a single Missy Elliott song.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,7 +679,7 @@ document.write(`
 </div>
 <p>But how can we scrape lyrics for multiple Missy Elliott songs at a time?</p>
 <section id="figure-out-the-pattern">
-<h3>Figure Out the Pattern<a class="headerlink" href="#figure-out-the-pattern" title="Link to this heading">#</a></h3>
+<h3>Figure Out the Pattern<a class="headerlink" href="#figure-out-the-pattern" title="Permalink to this heading">#</a></h3>
 <p>What we need to do is figure out how to progammatically generate the correct Genius web page URL for each song we’re interested in:</p>
 <p><code class="docutils literal notranslate"><span class="pre">f&quot;https://genius.com/Missy-elliott-{formatted_song}-lyrics&quot;</span></code></p>
 <div class="cell docutils container">
@@ -715,7 +703,7 @@ document.write(`
 <p><a class="reference external" href="https://genius.com/Missy-elliott-wtf-where-they-from-lyrics">https://genius.com/Missy-elliott-wtf-where-they-from-lyrics</a></p>
 </section>
 <section id="make-song-titles-fit-pattern-your-turn">
-<h3>Make Song Titles Fit Pattern — Your Turn!<a class="headerlink" href="#make-song-titles-fit-pattern-your-turn" title="Link to this heading">#</a></h3>
+<h3>Make Song Titles Fit Pattern — Your Turn!<a class="headerlink" href="#make-song-titles-fit-pattern-your-turn" title="Permalink to this heading">#</a></h3>
 <p>Create a function called <code class="docutils literal notranslate"><span class="pre">format_song()</span></code> that will take in a song title and then return the song title correctly formatted for its Genius web page.</p>
 <p>For example, the song <code class="docutils literal notranslate"><span class="pre">WTF</span> <span class="pre">(Where</span> <span class="pre">They</span> <span class="pre">From)</span></code> needs to be converted to <code class="docutils literal notranslate"><span class="pre">wtf-where-they-from</span></code>.</p>
 <p>Hint: You will need to use <a class="reference external" href="https://info1350.github.io/Intro-CA-SP21/02-Python/06-String-Methods.html#id1">string methods</a>!</p>
@@ -759,7 +747,7 @@ document.write(`
 </div>
 </section>
 <section id="put-it-all-together">
-<h3>Put It All Together<a class="headerlink" href="#put-it-all-together" title="Link to this heading">#</a></h3>
+<h3>Put It All Together<a class="headerlink" href="#put-it-all-together" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Work It&#39;</span><span class="p">,</span> <span class="s1">&#39;WTF (Where They From)&#39;</span><span class="p">,</span> <span class="s1">&#39;The Rain (Supa Dupa Fly)&#39;</span><span class="p">]</span>
@@ -770,13 +758,13 @@ document.write(`
 <p>Now use your <code class="docutils literal notranslate"><span class="pre">format_song()</span></code> function to create the variable <code class="docutils literal notranslate"><span class="pre">formatted_song</span></code>, which will allow the code below to work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_titles</span><span class="p">:</span>
-    <span class="n">formatted_song</span> <span class="o">=</span> <span class="err">????</span> <span class="c1">#Use your format_song() function here</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://genius.com/Missy-elliott-</span><span class="si">{</span><span class="n">formatted_song</span><span class="si">}</span><span class="s2">-lyrics&quot;</span><span class="p">)</span>
-    <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-    <span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_string</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-    <span class="n">lyrics</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">lyrics</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for song in song_titles:
+    formatted_song = ???? #Use your format_song() function here
+    response = requests.get(f&quot;https://genius.com/Missy-elliott-{formatted_song}-lyrics&quot;)
+    html_string = response.text
+    document = BeautifulSoup(html_string, &quot;html.parser&quot;)
+    lyrics = document.find(&#39;p&#39;).text
+    print(lyrics)
 </pre></div>
 </div>
 </div>
@@ -784,7 +772,7 @@ document.write(`
 </section>
 </section>
 <section id="write-lyrics-to-a-text-file">
-<h2>Write Lyrics to a Text File<a class="headerlink" href="#write-lyrics-to-a-text-file" title="Link to this heading">#</a></h2>
+<h2>Write Lyrics to a Text File<a class="headerlink" href="#write-lyrics-to-a-text-file" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Work It&#39;</span><span class="p">,</span> <span class="s1">&#39;WTF (Where They From)&#39;</span><span class="p">,</span> <span class="s1">&#39;The Rain (Supa Dupa Fly)&#39;</span><span class="p">]</span>
@@ -812,7 +800,7 @@ document.write(`
 </div>
 </section>
 <section id="count-top-words-from-file">
-<h2>Count Top Words From File<a class="headerlink" href="#count-top-words-from-file" title="Link to this heading">#</a></h2>
+<h2>Count Top Words From File<a class="headerlink" href="#count-top-words-from-file" title="Permalink to this heading">#</a></h2>
 <p>If we wanted to find out the most frequent words in Missy Elliott’s lyrics, we could use the word counter code that we’ve used in previous lessons.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,30 +847,30 @@ document.write(`
 </div>
 </section>
 <section id="what-patterns-do-you-notice-about-the-top-20-words-from-these-missy-elliott-songs">
-<h2>What patterns do you notice about the top 20 words from these Missy Elliott songs?<a class="headerlink" href="#what-patterns-do-you-notice-about-the-top-20-words-from-these-missy-elliott-songs" title="Link to this heading">#</a></h2>
+<h2>What patterns do you notice about the top 20 words from these Missy Elliott songs?<a class="headerlink" href="#what-patterns-do-you-notice-about-the-top-20-words-from-these-missy-elliott-songs" title="Permalink to this heading">#</a></h2>
 <p>Feel free to open the text file in the file browser at the left and inspect the lyrics manually</p>
 </section>
 <section id="bonus-if-you-wanted-to-change-the-artist">
-<h2>Bonus: If You Wanted to Change the Artist…<a class="headerlink" href="#bonus-if-you-wanted-to-change-the-artist" title="Link to this heading">#</a></h2>
+<h2>Bonus: If You Wanted to Change the Artist…<a class="headerlink" href="#bonus-if-you-wanted-to-change-the-artist" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artist</span> <span class="o">=</span> <span class="s1">&#39;Bts&#39;</span>
-<span class="n">song_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dynamite&#39;</span><span class="p">,</span> <span class="s1">&#39;Euphoria&#39;</span><span class="p">,</span> <span class="s1">&#39;Fake Love&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>artist = &#39;Bts&#39;
+song_titles = [&#39;Dynamite&#39;, &#39;Euphoria&#39;, &#39;Fake Love&#39;]
 
-<span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">song_titles</span><span class="p">:</span>
-    <span class="n">formatted_song</span> <span class="o">=</span> <span class="err">????</span> <span class="c1">#Use your format_song() function here</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://genius.com/</span><span class="si">{</span><span class="n">artist</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">formatted_song</span><span class="si">}</span><span class="s2">-lyrics&quot;</span><span class="p">)</span>
-    <span class="n">html_string</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-    <span class="n">document</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_string</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-    <span class="n">lyrics</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">lyrics</span><span class="p">)</span>
+for song in song_titles:
+    formatted_song = ???? #Use your format_song() function here
+    response = requests.get(f&quot;https://genius.com/{artist}-{formatted_song}-lyrics&quot;)
+    html_string = response.text
+    document = BeautifulSoup(html_string, &quot;html.parser&quot;)
+    lyrics = document.find(&#39;p&#39;).text
+    print(lyrics)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="group-discussion">
-<h2>Group Discussion<a class="headerlink" href="#group-discussion" title="Link to this heading">#</a></h2>
+<h2>Group Discussion<a class="headerlink" href="#group-discussion" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Do you think scholars should use web scraping in their research? Why or why not?</p></li>
 <li><p>How would you feel if you found out that one of your social media posts had been included in an academic article without your knowledge?</p></li>
@@ -978,7 +966,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -993,8 +981,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

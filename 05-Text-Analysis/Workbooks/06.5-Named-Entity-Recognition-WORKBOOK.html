@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Named Entity Recognition Part 2 — Workbook &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-Text-Analysis/Workbooks/06.5-Named-Entity-Recognition-WORKBOOK';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/Workbooks/06.5-Named-Entity-Recognition-WORKBOOK.html" />
-    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -577,11 +565,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="named-entity-recognition-part-2-workbook">
-<h1>Named Entity Recognition Part 2 — Workbook<a class="headerlink" href="#named-entity-recognition-part-2-workbook" title="Link to this heading">#</a></h1>
+<h1>Named Entity Recognition Part 2 — Workbook<a class="headerlink" href="#named-entity-recognition-part-2-workbook" title="Permalink to this heading">#</a></h1>
 <p>In this lesson, we’re going to learn about a text analysis method called <em>Named Entity Recognition</em> (NER). This method will help us computationally identify people, places, and things (of various kinds) in a text or collection of texts.</p>
 <hr class="docutils" />
 <section id="install-spacy-and-download-language-model">
-<h2>Install spaCy and Download Language Model<a class="headerlink" href="#install-spacy-and-download-language-model" title="Link to this heading">#</a></h2>
+<h2>Install spaCy and Download Language Model<a class="headerlink" href="#install-spacy-and-download-language-model" title="Permalink to this heading">#</a></h2>
 <p>If you haven’t installed spaCy yet, you should uncomment and run these cells. If you’ve already installed spaCy and the language model, you don’t need to do it again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +581,7 @@ document.write(`
 </div>
 </section>
 <section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h2>
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <p>We’re going to import <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">displacy</span></code>. We’re also going to import the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module for counting people, places, and things, and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,7 +598,7 @@ document.write(`
 </div>
 </section>
 <section id="load-language-model">
-<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Link to this heading">#</a></h2>
+<h2>Load Language Model<a class="headerlink" href="#load-language-model" title="Permalink to this heading">#</a></h2>
 <p>We need to load the language model and save it as the variable <code class="docutils literal notranslate"><span class="pre">nlp</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +609,7 @@ document.write(`
 </div>
 </section>
 <section id="ner-with-hand-curation">
-<h2>NER with Hand Curation<a class="headerlink" href="#ner-with-hand-curation" title="Link to this heading">#</a></h2>
+<h2>NER with Hand Curation<a class="headerlink" href="#ner-with-hand-curation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-House-on-Mango-Street-Sandra-Cisneros.txt&quot;</span>
@@ -632,7 +620,7 @@ document.write(`
 </div>
 </div>
 <section id="use-spacy-to-identify-places">
-<h3>Use spaCy to identify places<a class="headerlink" href="#use-spacy-to-identify-places" title="Link to this heading">#</a></h3>
+<h3>Use spaCy to identify places<a class="headerlink" href="#use-spacy-to-identify-places" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
@@ -648,7 +636,7 @@ document.write(`
 </div>
 </section>
 <section id="output-places-to-csv-file">
-<h3>Output places to CSV file<a class="headerlink" href="#output-places-to-csv-file" title="Link to this heading">#</a></h3>
+<h3>Output places to CSV file<a class="headerlink" href="#output-places-to-csv-file" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;spacy-places.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -658,7 +646,7 @@ document.write(`
 </div>
 </section>
 <section id="manually-curate-csv-file">
-<h3>Manually curate CSV file<a class="headerlink" href="#manually-curate-csv-file" title="Link to this heading">#</a></h3>
+<h3>Manually curate CSV file<a class="headerlink" href="#manually-curate-csv-file" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confirmed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;confirmed-places.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
@@ -669,7 +657,7 @@ document.write(`
 </div>
 </section>
 <section id="match-all-named-entities-if-they-match-the-curated-list">
-<h3>Match <em>all</em> named entities if they match the curated list<a class="headerlink" href="#match-all-named-entities-if-they-match-the-curated-list" title="Link to this heading">#</a></h3>
+<h3>Match <em>all</em> named entities if they match the curated list<a class="headerlink" href="#match-all-named-entities-if-they-match-the-curated-list" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
@@ -687,7 +675,7 @@ document.write(`
 </section>
 </section>
 <section id="get-ner-in-context">
-<h2>Get NER in Context<a class="headerlink" href="#get-ner-in-context" title="Link to this heading">#</a></h2>
+<h2>Get NER in Context<a class="headerlink" href="#get-ner-in-context" title="Permalink to this heading">#</a></h2>
 <p>We can use spaCy to get individual sentences from documents with <code class="docutils literal notranslate"><span class="pre">document.sents</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,14 +738,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_ner_in_context</span><span class="p">(</span><span class="err">?</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>get_ner_in_context(?, document)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="process-multiple-documents">
-<h2>Process Multiple Documents<a class="headerlink" href="#process-multiple-documents" title="Link to this heading">#</a></h2>
+<h2>Process Multiple Documents<a class="headerlink" href="#process-multiple-documents" title="Permalink to this heading">#</a></h2>
 <p>To run spaCy on multiple documents, we will use <code class="docutils literal notranslate"><span class="pre">list(nlp.pipe(texts))</span></code>. We will test this out on NYT obituaries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,7 +794,7 @@ document.write(`
 </div>
 </section>
 <section id="get-people-for-multiple-documents">
-<h2>Get People for Multiple Documents<a class="headerlink" href="#get-people-for-multiple-documents" title="Link to this heading">#</a></h2>
+<h2>Get People for Multiple Documents<a class="headerlink" href="#get-people-for-multiple-documents" title="Permalink to this heading">#</a></h2>
 <p>We can use almost the exact same workflow, but we have to add one more for lop to consider each document in the list of documents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -828,7 +816,7 @@ document.write(`
 </div>
 </section>
 <section id="process-a-long-text">
-<h2>Process a Long Text<a class="headerlink" href="#process-a-long-text" title="Link to this heading">#</a></h2>
+<h2>Process a Long Text<a class="headerlink" href="#process-a-long-text" title="Permalink to this heading">#</a></h2>
 <p>If you try to use spaCy on a long document, such as a long novel, you will likely get an error. To process a long document, we need to break up the text in some way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -867,7 +855,7 @@ document.write(`
 </div>
 </section>
 <section id="named-entities">
-<h2>Named Entities<a class="headerlink" href="#named-entities" title="Link to this heading">#</a></h2>
+<h2>Named Entities<a class="headerlink" href="#named-entities" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type Label</p></th>
@@ -933,7 +921,7 @@ document.write(`
 </table>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>How well does spaCy’s NER seem to be performing?</p></li>
 <li><p>What does it do well or not so well?</p></li>
@@ -1028,7 +1016,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1043,8 +1031,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>

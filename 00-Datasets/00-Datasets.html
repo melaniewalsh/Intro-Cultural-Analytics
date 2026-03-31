@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Datasets &#8212; Introduction to Cultural Analytics &amp; Python</title>
   
@@ -28,32 +29,36 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=200c6414" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/custom.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-TLVVLVGVME"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -61,21 +66,15 @@
                 gtag('js', new Date());
                 gtag('config', 'G-TLVVLVGVME');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-TLVVLVGVME');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '00-Datasets/00-Datasets';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/custom.js?v=c326fd66"></script>
     <link rel="canonical" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Jupyter Tips &amp; Tricks" href="../02-Python/EXTRA-Jupyter-Tips-Tricks.html" />
@@ -173,18 +172,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How To</span></p>
 <ul class="nav bd-sidenav">
@@ -549,6 +537,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dataset-compilations">Other Dataset Compilations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#film">Film 🎬</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hollywood-film-dialogue-by-character-gender-and-age">Hollywood Film Dialogue By Character Gender and Age</a></li>
 </ul>
@@ -580,7 +569,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-new-york-public-librarys-menu-dataset">The New York Public Library’s Menu Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dataset-compilations">Other Dataset Compilations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggestions">Suggestions?</a></li>
 </ul>
             </nav>
@@ -594,13 +582,26 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h1>
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h1>
 <p>This is a growing repository of datasets broadly related to culture and the humanities. The sources of the datasets as well as brief descriptions and example uses can be found below.</p>
 <p>If you’d like to add a dataset or an example use case to this page, please open <a class="reference external" href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues">an issue on GitHub</a> or email me at <a class="reference external" href="mailto:melwalsh&#37;&#52;&#48;uw&#46;edu">melwalsh<span>&#64;</span>uw<span>&#46;</span>edu</a></p>
+<section id="other-dataset-compilations">
+<h2>Other Dataset Compilations<a class="headerlink" href="#other-dataset-compilations" title="Permalink to this heading">#</a></h2>
+<p>Below are some other great compilations of cultural and humanities-related datasets:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.responsible-datasets-in-context.com/">Responsible Datasets in Context</a> — Datasets accompanied by critical context sheets that document their origins, ethics, and limitations. Designed for teaching and research.</p></li>
+<li><p><a class="reference external" href="https://data.post45.org/">Post45 Data Collective</a> — Peer-reviewed, publicly accessible literary and cultural data for research on post-1945 culture.</p></li>
+<li><p><a class="reference external" href="https://c19datacollective.com/">C19 (Nineteenth-Century Data Collective)</a> — Community-curated datasets for nineteenth-century literary and cultural research.</p></li>
+<li><p>Jeremy Singer-Vine’s <a class="reference external" href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0"><em>Data Is Plural</em> archive</a> (you can <a class="reference external" href="https://tinyletter.com/data-is-plural">subscribe to his excellent dataset newsletter here</a>)</p></li>
+<li><p><em>The Pudding</em>’s <a class="reference external" href="https://github.com/the-pudding/data">GitHub repository</a></p></li>
+<li><p>Alan Liu’s <a class="reference external" href="http://dhresourcesforprojectbuilding.pbworks.com/w/page/69244469/Data%20Collections%20and%20Datasets">DH Toychest</a></p></li>
+<li><p>Reddit’s <a class="reference external" href="https://www.reddit.com/r/datasets/">r/datasets subreddit</a></p></li>
+</ul>
+</section>
 <section id="film">
-<h2>Film 🎬<a class="headerlink" href="#film" title="Link to this heading">#</a></h2>
+<h2>Film 🎬<a class="headerlink" href="#film" title="Permalink to this heading">#</a></h2>
 <section id="hollywood-film-dialogue-by-character-gender-and-age">
-<h3>Hollywood Film Dialogue By Character Gender and Age<a class="headerlink" href="#hollywood-film-dialogue-by-character-gender-and-age" title="Link to this heading">#</a></h3>
+<h3>Hollywood Film Dialogue By Character Gender and Age<a class="headerlink" href="#hollywood-film-dialogue-by-character-gender-and-age" title="Permalink to this heading">#</a></h3>
 <p>(1925-2015)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/214b1486e520f0f00820014efe41ef40/Pudding-Film-Dialogue-Clean.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Hollywood</span> <span class="pre">Film</span> <span class="pre">Dialogue</span> <span class="pre">data</span></code></a><br />
 Original source: Hannah Anderson and Matt Daniels, <em>The Pudding</em></p>
@@ -780,9 +781,9 @@ Original source: Hannah Anderson and Matt Daniels, <em>The Pudding</em></p>
 </section>
 <hr class="docutils" />
 <section id="literature">
-<h2>Literature 📚<a class="headerlink" href="#literature" title="Link to this heading">#</a></h2>
+<h2>Literature 📚<a class="headerlink" href="#literature" title="Permalink to this heading">#</a></h2>
 <section id="lost-in-the-city-1993-edward-p-jones">
-<h3><em>Lost in the City</em> (1993), Edward P. Jones<a class="headerlink" href="#lost-in-the-city-1993-edward-p-jones" title="Link to this heading">#</a></h3>
+<h3><em>Lost in the City</em> (1993), Edward P. Jones<a class="headerlink" href="#lost-in-the-city-1993-edward-p-jones" title="Permalink to this heading">#</a></h3>
 <p>HathiTrust Extracted Features</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/6e28192c02c610ee0dc2c97a9cf30c17/Lost-in-the-City-HTRC-Extracted-Features.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Lost</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">City</span> <span class="pre">data</span></code></a><br />
 Original source: <a class="reference external" href="https://wiki.htrc.illinois.edu/pages/viewpage.action?pageId=79069329">HathiTrust Digital Library</a></p>
@@ -903,7 +904,7 @@ Original source: <a class="reference external" href="https://wiki.htrc.illinois.
 </section>
 <hr class="docutils" />
 <section id="african-american-literature">
-<h3>African American Literature<a class="headerlink" href="#african-american-literature" title="Link to this heading">#</a></h3>
+<h3>African American Literature<a class="headerlink" href="#african-american-literature" title="Permalink to this heading">#</a></h3>
 <p>(1853-1923)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/1c8d00d6d4ca1d8db736258ae74e627f/African-American-Literature-1853-1923.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">African</span> <span class="pre">American</span> <span class="pre">Literature</span> <span class="pre">data</span></code></a><br />
 Source: Amardeep Singh</p>
@@ -2399,7 +2400,7 @@ Source: Amardeep Singh</p>
 </section>
 <hr class="docutils" />
 <section id="colonial-south-asian-literature">
-<h3>Colonial South Asian Literature<a class="headerlink" href="#colonial-south-asian-literature" title="Link to this heading">#</a></h3>
+<h3>Colonial South Asian Literature<a class="headerlink" href="#colonial-south-asian-literature" title="Permalink to this heading">#</a></h3>
 <p>(1850-1923)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/66c53870824eef3a5fb182237a4f3ff9/Colonial-South-Asian-Literature-1850-1923.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Colonial</span> <span class="pre">South</span> <span class="pre">Asian</span> <span class="pre">Literature</span> <span class="pre">data</span></code></a><br />
 Source: Amardeep Singh</p>
@@ -3894,7 +3895,7 @@ Source: Amardeep Singh</p>
 </section>
 <hr class="docutils" />
 <section id="txtlabs-multilingual-novels">
-<h3>txtLAB’s Multilingual Novels<a class="headerlink" href="#txtlabs-multilingual-novels" title="Link to this heading">#</a></h3>
+<h3>txtLAB’s Multilingual Novels<a class="headerlink" href="#txtlabs-multilingual-novels" title="Permalink to this heading">#</a></h3>
 <p>(1771-1932)</p>
 <p>Get the data: <a class="reference external" href="https://figshare.com/articles/txtlab_Novel450/2062002/3">Link to Multilingual Novels data</a><br />
 Source: Andrew Piper, McGill <a class="reference external" href="https://txtlab.org/data-sets/">txtLAB</a></p>
@@ -5484,7 +5485,7 @@ For there she was.
 </section>
 <hr class="docutils" />
 <section id="modernist-journal-data">
-<h3>Modernist Journal Data<a class="headerlink" href="#modernist-journal-data" title="Link to this heading">#</a></h3>
+<h3>Modernist Journal Data<a class="headerlink" href="#modernist-journal-data" title="Permalink to this heading">#</a></h3>
 <p>(1890s-1920s)</p>
 <p>Get the data: <a class="reference external" href="https://sourceforge.net/projects/mjplab/files/">Link to Modernist Journal data</a><br />
 Source: <a class="reference external" href="https://modjourn.org/">The Modernist Journals Project</a></p>
@@ -5641,7 +5642,7 @@ Source: <a class="reference external" href="https://modjourn.org/">The Modernist
 </section>
 <hr class="docutils" />
 <section id="seattle-public-library-circulation-data">
-<h3>Seattle Public Library Circulation Data<a class="headerlink" href="#seattle-public-library-circulation-data" title="Link to this heading">#</a></h3>
+<h3>Seattle Public Library Circulation Data<a class="headerlink" href="#seattle-public-library-circulation-data" title="Permalink to this heading">#</a></h3>
 <p>(2005-present)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/b24c0bcddd5e27f544b3978ad14b7a13/Seattle_Book_Checkouts_2010_2017.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Seattle</span> <span class="pre">Public</span> <span class="pre">Library</span> <span class="pre">Circulation</span> <span class="pre">Data</span> <span class="pre">(Books</span> <span class="pre">checked</span> <span class="pre">out</span> <span class="pre">&gt;</span> <span class="pre">10</span> <span class="pre">times</span> <span class="pre">between</span> <span class="pre">2010-2017</span></code></a> // <a class="reference external" href="https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/data">Link to All Seattle Public Library Circulation Data (2005-present)</a><br />
 Source: <a class="reference external" href="http://www.seattle.gov/tech/initiatives/open-data/about-the-open-data-program">City of Seattle</a></p>
@@ -5768,7 +5769,7 @@ The <a class="reference external" href="https://data.seattle.gov/Community/Check
 </section>
 <hr class="docutils" />
 <section id="game-of-thrones-character-relationships">
-<h3>Game of Thrones Character Relationships<a class="headerlink" href="#game-of-thrones-character-relationships" title="Link to this heading">#</a></h3>
+<h3>Game of Thrones Character Relationships<a class="headerlink" href="#game-of-thrones-character-relationships" title="Permalink to this heading">#</a></h3>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/1d4d9192fd40b1204b4d790892ce8d5a/game-of-thrones-characters.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span> <span class="pre">Character</span> <span class="pre">data</span></code></a><br />
 Source: A. Beveridge and J. Shan</p>
 <p>Brief description:</p>
@@ -5879,9 +5880,9 @@ Source: A. Beveridge and J. Shan</p>
 </section>
 <hr class="docutils" />
 <section id="politics-history">
-<h2>Politics 🗳️ &amp; History 📜<a class="headerlink" href="#politics-history" title="Link to this heading">#</a></h2>
+<h2>Politics 🗳️ &amp; History 📜<a class="headerlink" href="#politics-history" title="Permalink to this heading">#</a></h2>
 <section id="the-new-york-times-obituaries">
-<h3><em>The New York Times</em> Obituaries<a class="headerlink" href="#the-new-york-times-obituaries" title="Link to this heading">#</a></h3>
+<h3><em>The New York Times</em> Obituaries<a class="headerlink" href="#the-new-york-times-obituaries" title="Permalink to this heading">#</a></h3>
 <p>(1852-2007)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/2acf7582a0d537a8a169f6ce76a480ef/NYT-Obituaries.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">*New</span> <span class="pre">York</span> <span class="pre">Times*</span> <span class="pre">Obituaries</span> <span class="pre">data</span></code></a><br />
 Original source: <a class="reference external" href="https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf#lesson-dataset">Matthew Lavin</a></p>
@@ -5953,7 +5954,7 @@ Original source: <a class="reference external" href="https://programminghistoria
 </section>
 <hr class="docutils" />
 <section id="u-s-inaugural-addresses">
-<h3>U.S. Inaugural Addresses<a class="headerlink" href="#u-s-inaugural-addresses" title="Link to this heading">#</a></h3>
+<h3>U.S. Inaugural Addresses<a class="headerlink" href="#u-s-inaugural-addresses" title="Permalink to this heading">#</a></h3>
 <p>(1789-2017)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/64e2547e2d86c20cc2a74f660143cfeb/US_Inaugural_Addresses.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">U.S.</span> <span class="pre">Inaugural</span> <span class="pre">Addresses</span> <span class="pre">data</span></code></a></p>
 <p>Brief description:</p>
@@ -5978,7 +5979,7 @@ Original source: <a class="reference external" href="https://programminghistoria
 </section>
 <hr class="docutils" />
 <section id="nobel-prize-winners">
-<h3>Nobel Prize Winners<a class="headerlink" href="#nobel-prize-winners" title="Link to this heading">#</a></h3>
+<h3>Nobel Prize Winners<a class="headerlink" href="#nobel-prize-winners" title="Permalink to this heading">#</a></h3>
 <p>(1901-2017)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/b8bf666a53ff1e830acf950a5b6d822b/nobel-prize-winners.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Nobel</span> <span class="pre">Prize</span> <span class="pre">Winners</span> <span class="pre">data</span></code></a><br />
 Original source: The European Data Portal and <a class="reference external" href="https://www.nobelprize.org/about/developer-zone-2/">the official Nobel Prize API</a></p>
@@ -6284,7 +6285,7 @@ Original source: The European Data Portal and <a class="reference external" href
 </section>
 <hr class="docutils" />
 <section id="refugee-arrivals-to-the-u-s">
-<h3>Refugee Arrivals to the U.S.<a class="headerlink" href="#refugee-arrivals-to-the-u-s" title="Link to this heading">#</a></h3>
+<h3>Refugee Arrivals to the U.S.<a class="headerlink" href="#refugee-arrivals-to-the-u-s" title="Permalink to this heading">#</a></h3>
 <p>(2005-2015)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/54530f6e11257e7cb573780c58570b49/us-refugee-arrivals.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">U.S.</span> <span class="pre">Refugee</span> <span class="pre">Arrivals</span> <span class="pre">data</span></code></a><br />
 Original source: Department of State’s Refugee Processing Center and <a class="reference external" href="https://github.com/BuzzFeedNews/2015-11-refugees-in-the-united-states">Jeremy Singer-Vine</a></p>
@@ -6417,7 +6418,7 @@ Original source: Department of State’s Refugee Processing Center and <a class=
 </section>
 <hr class="docutils" />
 <section id="irish-immigrants-admitted-to-nycs-bellevue-almshouse">
-<h3>Irish Immigrants Admitted to NYC’s Bellevue Almshouse<a class="headerlink" href="#irish-immigrants-admitted-to-nycs-bellevue-almshouse" title="Link to this heading">#</a></h3>
+<h3>Irish Immigrants Admitted to NYC’s Bellevue Almshouse<a class="headerlink" href="#irish-immigrants-admitted-to-nycs-bellevue-almshouse" title="Permalink to this heading">#</a></h3>
 <p>(1840s)</p>
 <p>Get data: <a class="reference external" href="https://docs.google.com/spreadsheets/d/1uf8uaqicknrn0a6STWrVfVMScQQMtzYf5I_QyhB9r7I/edit#gid=2057113261">Link to Bellevue Almshouse data</a><br />
 Source: Anelise Shrout, <a class="reference external" href="https://www.nyuirish.net/almshouse/">Digital Almshouse Project</a></p>
@@ -6528,9 +6529,9 @@ Source: Anelise Shrout, <a class="reference external" href="https://www.nyuirish
 </section>
 <hr class="docutils" />
 <section id="social-media">
-<h2>Social Media 🕸️<a class="headerlink" href="#social-media" title="Link to this heading">#</a></h2>
+<h2>Social Media 🕸️<a class="headerlink" href="#social-media" title="Permalink to this heading">#</a></h2>
 <section id="donald-trumps-tweets">
-<h3>Donald Trump’s Tweets<a class="headerlink" href="#donald-trumps-tweets" title="Link to this heading">#</a></h3>
+<h3>Donald Trump’s Tweets<a class="headerlink" href="#donald-trumps-tweets" title="Permalink to this heading">#</a></h3>
 <p>(2009-2020)</p>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/bf15b3ccc8046af75d492f551c5415e3/Trump-Tweets_2009-2021.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Donald</span> <span class="pre">Trump</span> <span class="pre">tweets</span> <span class="pre">data</span></code></a><br />
 Original Source: <a class="reference external" href="https://www.thetrumparchive.com/">Trump Twitter Archive</a></p>
@@ -6647,7 +6648,7 @@ Original Source: <a class="reference external" href="https://www.thetrumparchive
 </section>
 <hr class="docutils" />
 <section id="am-i-the-asshole-reddit-posts">
-<h3>“Am I The Asshole?” Reddit Posts<a class="headerlink" href="#am-i-the-asshole-reddit-posts" title="Link to this heading">#</a></h3>
+<h3>“Am I The Asshole?” Reddit Posts<a class="headerlink" href="#am-i-the-asshole-reddit-posts" title="Permalink to this heading">#</a></h3>
 <p>Get the data: <a class="reference download internal" download="" href="../_downloads/1b194db4fba549a54e26ba628ebf0182/top-reddit-aita-posts.csv"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">&quot;Am</span> <span class="pre">I</span> <span class="pre">The</span> <span class="pre">Asshole?&quot;</span> <span class="pre">Reddit</span> <span class="pre">data</span></code></a></p>
 <p>Brief description:</p>
 <p>The <a class="reference download internal" download="" href="../_downloads/1b194db4fba549a54e26ba628ebf0182/top-reddit-aita-posts.csv"><code class="xref download docutils literal notranslate"><span class="pre">Am</span> <span class="pre">I</span> <span class="pre">The</span> <span class="pre">Asshole?&quot;</span> <span class="pre">Reddit</span> <span class="pre">posts</span> <span class="pre">CSV</span> <span class="pre">file</span> <span class="pre">(.csv)</span></code></a> contains 2,932 Reddits posts from the subreddit “Am I the Asshole?” that have at least an upvote score of 2,000. The information in the dataset includes the date of the post, title, body text, url, upvote score, number of comments, and number of crossposts. This data was collected with <a class="reference external" href="https://github.com/dmarx/psaw">PSAW</a>, a wrapper for the <a class="reference external" href="https://github.com/pushshift/api">Pushshift API</a>.</p>
@@ -6767,14 +6768,14 @@ Original Source: <a class="reference external" href="https://www.thetrumparchive
 </section>
 <hr class="docutils" />
 <section id="food">
-<h2>Food 🍔<a class="headerlink" href="#food" title="Link to this heading">#</a></h2>
+<h2>Food 🍔<a class="headerlink" href="#food" title="Permalink to this heading">#</a></h2>
 <section id="the-new-york-public-librarys-menu-dataset">
-<h3>The New York Public Library’s Menu Dataset<a class="headerlink" href="#the-new-york-public-librarys-menu-dataset" title="Link to this heading">#</a></h3>
+<h3>The New York Public Library’s Menu Dataset<a class="headerlink" href="#the-new-york-public-librarys-menu-dataset" title="Permalink to this heading">#</a></h3>
 <p>(1840-present)</p>
-<p>Get the data: <a class="reference external" href="http://menus.nypl.org/data">Link to The New York Public Library’s Menu Dataset</a><br />
+<p>Get the data: <a class="reference external" href="https://www.nypl.org/research/support/whats-on-the-menu">Link to The New York Public Library’s Menu Dataset</a><br />
 Source: The New York Public Library</p>
 <p>Brief description:</p>
-<p>The <a class="reference external" href="http://menus.nypl.org/data">The New York Public Library’s menu dataset link</a> takes you to a web page where you can download data from the New York Public Library’s massive menu collection — tens of thousands of transcribed menus and menu items from the 1840s to the present. Click “Download the latest data export in CSV format” for the most updated menu data.</p>
+<p>The <a class="reference external" href="https://www.nypl.org/research/support/whats-on-the-menu">The New York Public Library’s menu dataset link</a> takes you to a web page where you can download data from the New York Public Library’s massive menu collection — tens of thousands of transcribed menus and menu items from the 1840s to the present.</p>
 <p>Example uses:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://curatingmenus.org/"><em>Curating Menus</em></a>, Katie Rawson and Trevor Muñoz</p></li>
@@ -6884,18 +6885,8 @@ Source: The New York Public Library</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="other-dataset-compilations">
-<h2>Other Dataset Compilations<a class="headerlink" href="#other-dataset-compilations" title="Link to this heading">#</a></h2>
-<p>Below are some other great compilations of cultural and humanities-related datasets:</p>
-<ul class="simple">
-<li><p>Jeremy Singer-Vine’s <a class="reference external" href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0"><em>Data Is Plural</em> archive</a> (you can <a class="reference external" href="https://tinyletter.com/data-is-plural">subscribe to his excellent dataset newsletter here</a>)</p></li>
-<li><p><em>The Pudding</em>’s <a class="reference external" href="https://github.com/the-pudding/data">GitHub repository</a></p></li>
-<li><p>Alan Liu’s <a class="reference external" href="http://dhresourcesforprojectbuilding.pbworks.com/w/page/69244469/Data%20Collections%20and%20Datasets">DH Toychest</a></p></li>
-<li><p>Reddit’s <a class="reference external" href="https://www.reddit.com/r/datasets/">r/datasets subreddit</a></p></li>
-</ul>
-</section>
 <section id="suggestions">
-<h2>Suggestions?<a class="headerlink" href="#suggestions" title="Link to this heading">#</a></h2>
+<h2>Suggestions?<a class="headerlink" href="#suggestions" title="Permalink to this heading">#</a></h2>
 <p>If you’d like to add a dataset or an example use case, please open <a class="reference external" href="https://github.com/melaniewalsh/Intro-Cultural-Analytics/issues">an issue on GitHub</a> or email me at <a class="reference external" href="mailto:melwalsh&#37;&#52;&#48;uw&#46;edu">melwalsh<span>&#64;</span>uw<span>&#46;</span>edu</a></p>
 </section>
 </section>
@@ -6964,6 +6955,7 @@ Source: The New York Public Library</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dataset-compilations">Other Dataset Compilations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#film">Film 🎬</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hollywood-film-dialogue-by-character-gender-and-age">Hollywood Film Dialogue By Character Gender and Age</a></li>
 </ul>
@@ -6995,7 +6987,6 @@ Source: The New York Public Library</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-new-york-public-librarys-menu-dataset">The New York Public Library’s Menu Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dataset-compilations">Other Dataset Compilations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggestions">Suggestions?</a></li>
 </ul>
   </nav></div>
@@ -7021,7 +7012,7 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -7036,8 +7027,9 @@ By <a href="https://melaniewalsh.org/">Melanie Walsh</a>
     
 <div class="extra_footer">
   <div>
+📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
 <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
 </div>
 
 </div>
