@@ -134,6 +134,15 @@ parts:
     - file: 07-Mapping/01-Mapping
     - file: 07-Mapping/02-Custom-Maps
     - file: 07-Mapping/03-Publish-Your-Map
+  - file: 08-LLMs-and-AI/00-LLMs-and-AI
+    title: 8. LLMs and AI
+    sections:
+    - file: 08-LLMs-and-AI/01-Local-LLMs
+      title: Local LLMs
+    - file: 08-LLMs-and-AI/02-Word-Document-Embeddings
+      title: Word and Document Embeddings
+    - file: 08-LLMs-and-AI/03-Text-Classification
+      title: Text Classification with LLMs
 - caption: Datasets
   chapters:
   - file: 00-Datasets/00-Datasets
