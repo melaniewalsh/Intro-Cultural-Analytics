@@ -2,7 +2,7 @@
 # Book settings
 title                       : Introduction to Cultural Analytics & Python  # The title of the book. Will be placed in the left navbar.
 author                      : <a href="https://melaniewalsh.org/">Melanie Walsh</a>  # The author of the book
-copyright                   : "2024"  # Copyright year to be placed in the footer
+copyright                   : "2026"  # Copyright year to be placed in the footer
 logo                        : "images/logo/favicon.ico"  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**/in-progress", "**/other_files", "features", "scraps"]
@@ -22,8 +22,9 @@ html:
   extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  #Will be displayed underneath the left navbar.
   extra_footer              : |
     <div>
+    📣 Have you used this textbook? <a href="https://docs.google.com/forms/d/e/1FAIpQLScilFTbwwtIOKGSbid_-SKWv0qF2sH0DLO1Hr1XrDUTTQiJbA/viewform">Let us know</a> — it helps!<br>
     <a href="https://web.archive.org/web/20230314182511/http://dhawards.org/dhawards2021/results/">🏆</a> Winner of "Best DH Training Material" 2021.<br>
-    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
     </div>
 
   google_analytics_id       : G-TLVVLVGVME  # A GA id that can be used to track book views.
